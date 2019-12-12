@@ -1,11 +1,13 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React from 'react';
+import { Link } from 'gatsby';
 
-import logo from '../img/logo.svg'
-import facebook from '../img/social/facebook.svg'
-import instagram from '../img/social/instagram.svg'
-import twitter from '../img/social/twitter.svg'
-import vimeo from '../img/social/vimeo.svg'
+import logo from '../img/logo.svg';
+import facebook from '../img/social/facebook.svg';
+import instagram from '../img/social/instagram.svg';
+import twitter from '../img/social/twitter.svg';
+import vimeo from '../img/social/vimeo.svg';
+
+import halfMoonLogoBig from '../img/Halfmoon-3.png';
 
 const Footer = class extends React.Component {
   render() {
@@ -13,7 +15,7 @@ const Footer = class extends React.Component {
       <footer className="footer has-background-black has-text-white-ter">
         <div className="content has-text-centered">
           <img
-            src={logo}
+            src={halfMoonLogoBig}
             alt="Kaldi"
             style={{ width: '14em', height: '10em' }}
           />
@@ -49,8 +51,7 @@ const Footer = class extends React.Component {
                         className="navbar-item"
                         href="/admin/"
                         target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                        rel="noopener noreferrer">
                         Admin
                       </a>
                     </li>
@@ -108,8 +109,8 @@ const Footer = class extends React.Component {
           </div>
         </div>
       </footer>
-    )
+    );
   }
-}
+};
 
-export default Footer
+export default Footer;

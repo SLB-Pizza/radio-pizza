@@ -22,17 +22,21 @@ intro:
       text: Stickers
   heading: What we offer
   description: >
-    Kaldi is the ultimate spot for coffee lovers who want to learn about their
-    java’s origin and support the farmers that grew it. We take coffee
-    production, roasting and brewing seriously and we’re glad to pass that
-    knowledge to anyone. This is an edit via identity...
+    Moderno et 0017, Wisi Modo nam quas hic mi est pede te diam. Polisniinus, ad
+    eum contrarium imperiosus natus sem concilia m nonullis odit subsit autem
+    eum integro te sancli cubilia initia. Ac quasi subvenire et tyrannis nam
+    communis typi, promoveram per persuasiones minus erat y eaque-netus
+    dcfensionem modestius aut uidem odit hic recompensam si harum vel civibus
+    totam, eaque sed bonarum insultum.
 main:
-  heading: Great coffee with no compromises
+  heading: Filler text
   description: >
-    We hold our coffee to the highest standards from the shrub to the cup.
-    That’s why we’re meticulous and transparent about each step of the coffee’s
-    journey. We personally visit each farm to make sure the conditions are
-    optimal for the plants, farmers and the local environment.
+    Moderno et 0017, Wisi Modo nam quas hic mi est pede te diam. Polisniinus, ad
+    eum contrarium imperiosus natus sem concilia m nonullis odit subsit autem
+    eum integro te sancli cubilia initia. Ac quasi subvenire et tyrannis nam
+    communis typi, promoveram per persuasiones minus erat y eaque-netus
+    dcfensionem modestius aut uidem odit hic recompensam si harum vel civibus
+    totam, eaque sed bonarum insultum.
   image1:
     alt: Filler
     image: /img/jessupload-e1548962937489-600x395.jpg
@@ -43,4 +47,3 @@ main:
     alt: Filler
     image: /img/011519-merch-diandra-24-600x400.jpg
 ---
-

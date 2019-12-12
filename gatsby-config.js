@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'Gatsby + Netlify CMS Starter',
     description:
-      'This repo contains hte (in development) rebuild of Half Moon Bk',
+      'This repo contains the (in development) rebuild of Half Moon Bk',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

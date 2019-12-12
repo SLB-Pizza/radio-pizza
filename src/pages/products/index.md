@@ -23,58 +23,55 @@ intro:
     perspective reminding the world that the underground is where the sublime
     lives, grows and becomes timeless.
 main:
-  heading: Great coffee with no compromises
+  heading: Music to LIVE to
   description: >
-    We hold our coffee to the highest standards from the shrub to the cup.
-    That’s why we’re meticulous and transparent about each step of the coffee’s
-    journey. We personally visit each farm to make sure the conditions are
-    optimal for the plants, farmers and the local environment.
+    Founded in 2017, Half Moon was born out of the need to defy. Essentially, we
+    are destroying mainstream radio and building a platform that allows music
+    and culture to thrive without limits. We pride ourselves in bringing our
+    audience live, uncensored and undiscovered music from a grass-roots
+    perspective reminding the world that the underground is where the sublime
+    lives, grows and becomes timeless.
   image1:
-    alt: A close-up of a paper filter filled with ground coffee
-    image: /img/products-grid3.jpg
+    alt: White Background Logo
+    image: /img/halfmoon_white.png
   image2:
-    alt: A green cup of a coffee on a wooden table
-    image: /img/products-grid2.jpg
+    alt: White Background Logo
+    image: /img/halfmoon-3.png
   image3:
-    alt: Coffee beans
-    image: /img/products-grid1.jpg
+    alt: White Background Logo
+    image: /img/halfmoon-3.png
 testimonials:
-  - author: Elisabeth Kaurismäki
-    quote: >-
-      The first time I tried Kaldi’s coffee, I couldn’t even believe that was
-      the same thing I’ve been drinking every morning.
-  - author: Philipp Trommler
-    quote: >-
-      Kaldi is the place to go if you want the best quality coffee. I love their
-      stance on empowering farmers and transparency.
-full_image: /img/products-full-width.jpg
+  - author: testMcTesterFace
+    quote: Best Radio in NYC!
+  - author: Tester
+    quote: I love it!!!
+full_image: /img/halfmoon-3.png
 pricing:
-  heading: Monthly subscriptions
-  description: >-
-    We make it easy to make great coffee a part of your life. Choose one of our
-    monthly subscription plans to receive great coffee at your doorstep each
-    month. Contact us about more details and payment info.
+  heading: Patreon Support
+  description: 'Help us bring you bigger and better MUSIC, EVENTS, and EVERYTHING else!'
   plans:
-    - description: Perfect for the drinker who likes to enjoy 1-2 cups per day.
+    - description: Perfect for the Half Moon fan who loves what we do!
       items:
-        - 3 lbs of coffee per month
-        - Green or roasted beans"
-        - One or two varieties of beans"
-      plan: Small
-      price: '50'
-    - description: 'Great for avid drinkers, java-loving couples and bigger crowds'
+        - $5/ mo to help us with hosting costs
+        - marketing
+        - etc.
+      plan: Fan
+      price: 5/month
+    - description: Perfect for the Half Moon fan who REALLY loves what we do!
       items:
-        - 6 lbs of coffee per month
-        - Green or roasted beans
-        - Up to 4 different varieties of beans
-      plan: Big
-      price: '80'
-    - description: Want a few tiny batches from different varieties? Try our custom plan
+        - $10/ mo to help us with hosting costs
+        - marketing
+        - etc.
+      plan: Super Fan
+      price: 10/month
+    - description: >-
+        For the Half Moon ULTRA fan who wants to show their love in their own
+        way.
       items:
-        - Whatever you need
-        - Green or roasted beans
-        - Unlimited varieties
-      plan: Custom
+        - YOU tell US how much you want to help us with hosting costs
+        - marketing
+        - etc.
+      plan: Ultra Fan
       price: '??'
 ---
 

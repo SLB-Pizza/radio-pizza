@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 import './all.sass';
 import useSiteMetadata from './SiteMetadata';
 import { withPrefix } from 'gatsby';
+import ReactPlayer from 'react-player';
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata();
@@ -49,6 +50,7 @@ const TemplateWrapper = ({ children }) => {
         />
       </Helmet>
       <Navbar />
+      <ReactPlayer url="https://www.mixcloud.com/HalfMoonbk/donis-dez-andres-11222019/" />
       <div>{children}</div>
       <Footer />
     </div>

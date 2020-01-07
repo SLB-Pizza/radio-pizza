@@ -1,6 +1,6 @@
 ---
 templateKey: index-page
-title: Great coffee with a conscience
+title: Radio Redefined
 image: /img/halfmoon_white.png
 heading: Ears to the Concrete
 subheading: '  An Incubation space where music culture flourishes openly'

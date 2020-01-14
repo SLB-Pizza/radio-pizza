@@ -11,7 +11,7 @@ export const DjPageTemplate = ({
   contentComponent,
   description,
   tags,
-  title,
+  name,
   helmet,
 }) => {
   const DjContent = contentComponent || Content;
@@ -23,7 +23,7 @@ export const DjPageTemplate = ({
         <div className="columns">
           <div className="column is-10 is-offset-1">
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
+              {name}
             </h1>
             <p>{description}</p>
             <DjContent content={content} />
@@ -50,7 +50,7 @@ DjPageTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
-  title: PropTypes.string,
+  name: PropTypes.string,
   helmet: PropTypes.object,
 };
 
@@ -73,7 +73,7 @@ const DjPage = ({ data }) => {
           </Helmet>
         }
         tags={post.frontmatter.tags}
-        title={post.frontmatter.title}
+        name={post.frontmatter.title}
       />
     </Layout>
   );
@@ -94,7 +94,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
-        title
+        name
         description
         tags
       }

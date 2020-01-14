@@ -43,7 +43,7 @@ collections:
           label: 'Template Key',
           name: 'templateKey',
           widget: 'hidden',
-          default: 'djs',
+          default: 'dj',
         }
       - { label: 'Name', name: 'name', widget: 'string' }
       - { label: 'Add Date', name: 'date', widget: 'datetime' }

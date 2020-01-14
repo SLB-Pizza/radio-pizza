@@ -33,7 +33,7 @@ collections:
       - { label: 'Tags', name: 'tags', widget: 'list' }
 
   - name: 'djs'
-    label: 'djs'
+    label: 'Djs'
     folder: 'src/pages/djs'
     create: true
     identifier_field: name

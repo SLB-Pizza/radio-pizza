@@ -104,6 +104,72 @@ collections:
         }
       - { label: 'Tags', name: 'tags', widget: 'list' }
 
+  - name: 'shows'
+    label: 'Shows'
+    folder: 'src/pages/shows'
+    create: true
+    identifier_field: name
+    slug: '{{slug}}-{{year}}-{{month}}-{{day}}'
+    fields:
+      - {
+          label: 'Template Key',
+          name: 'templateKey',
+          widget: 'hidden',
+          default: 'shows',
+        }
+      - { label: 'Name', name: 'name', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'text' }
+      - {
+          label: 'Recurring Show',
+          name: 'recurring',
+          widget: 'boolean',
+          hint: 'Does the Show Repeat?',
+        }
+      - {
+          label: 'Air Time',
+          name: 'airtime',
+          widget: 'datetime',
+          hint: 'Show time for either type of show',
+        }
+      - {
+          label: 'Replay Days',
+          name: 'replays',
+          widget: 'select',
+          multiple: true,
+          options:
+            [
+              'Sunday',
+              'Monday',
+              'Tuesday',
+              'Wednesday',
+              'Thursday',
+              'Friday',
+              'Saturday',
+            ],
+        }
+      - { label: 'Show Image', name: 'showimage', widget: image }
+      - {
+          label: 'Featured Show Image',
+          name: 'featuredshowimage',
+          widget: image,
+        }
+      - {
+          label: 'Featured Artist',
+          name: 'featuredartist',
+          collection: 'djs',
+          displayFields: ['name', 'tags'],
+          searchFields: ['name', 'tags'],
+          valueField: 'name',
+          multiple: false,
+        }
+      - {
+          label: 'URL',
+          name: 'streamurl',
+          widget: 'string',
+          hint: 'Put the mixcloud URL here',
+        }
+      - { label: 'Tags', name: 'tags', widget: 'list' }
+
   - name: 'pages'
     label: 'Pages'
     files:

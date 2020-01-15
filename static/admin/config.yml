@@ -102,6 +102,12 @@ collections:
           widget: 'string',
           hint: 'Add street address here',
         }
+      - {
+          label: 'Event URL',
+          name: 'eventurl',
+          widget: 'string',
+          hint: 'add EventBrite URL here',
+        }
       - { label: 'Tags', name: 'tags', widget: 'list' }
 
   - name: 'shows'

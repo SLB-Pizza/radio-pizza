@@ -56,18 +56,18 @@ export const ShowPageTemplate = ({
             <h3 className="title is-size-3 has-text-weight-bold is-bold-light">
               SHOW URL: {url}
             </h3>
-            {/* <h2 className="title is-size-2 has-text-weight-bold is-bold-light">
-              FEATUED ARTIST: {featuredArtist.name}
-            </h2> */}
-            {featuredArtist && console.log('related artist', featuredArtist)}
+            <h2 className="title is-size-2 has-text-weight-bold is-bold-light">
+              FEATUED ARTIST: {featuredArtist}
+            </h2>
             {recurring && console.log('recurring?', recurring)}
             {replays && console.log('replays', replays)}
+            {replays && console.log('replays._tail.array', replays._tail.array)}
             {/* {recurring ? (
               <div>
                 Schedule:{' '}
                 <div>
                   {' '}
-                  {replays.map(day => {
+                  {replays._tail.array.map(day => {
                     <li key={'On ' + day}>
                       <h5>
                         {day}'s @ {airTime}

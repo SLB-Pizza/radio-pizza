@@ -57,7 +57,7 @@ export const ShowPageTemplate = ({
               SHOW URL: {url}
             </h3>
             <h2 className="title is-size-2 has-text-weight-bold is-bold-light">
-              FEATUED ARTIST: {featuredArtist}
+              FEATUED ARTIST: {featuredArtist.name}
             </h2>
             {recurring ? (
               <div>

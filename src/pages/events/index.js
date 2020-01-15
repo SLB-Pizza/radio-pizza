@@ -2,7 +2,7 @@ import React from 'react';
 
 import Layout from '../../components/Layout';
 
-export default class DjIndexPage extends React.Component {
+export default class EventsIndexPage extends React.Component {
   render() {
     return (
       <Layout>
@@ -19,7 +19,7 @@ export default class DjIndexPage extends React.Component {
               color: 'white',
               padding: '1rem',
             }}>
-            DJ's
+            Events
           </h1>
         </div>
         <section className="section">

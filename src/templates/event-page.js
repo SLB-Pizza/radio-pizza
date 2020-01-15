@@ -6,18 +6,21 @@ import { graphql, Link } from 'gatsby';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
 
-export const DjPageTemplate = ({
+export const EventPageTemplate = ({
   content,
   contentComponent,
   description,
   tags,
   title,
+  start,
+  end,
+  active,
+  location,
   helmet,
-  featured,
-  artistImage,
-  featuredImage,
+  eventImage,
+  featuredEventImage,
 }) => {
-  const DjContent = contentComponent || Content;
+  const EventContent = contentComponent || Content;
 
   return (
     <section className="section">
@@ -26,37 +29,52 @@ export const DjPageTemplate = ({
         <div className="columns">
           <div className="column is-10 is-offset-1">
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              DJ NAME
+              Event NAME
             </h1>
             <h3 className="title is-size-3 has-text-weight-normal is-bold-light">
               {title}
             </h3>
-            {artistImage && artistImage.length ? (
-              <img src={artistImage} alt="artist image" />
+            {eventImage && eventImage.length ? (
+              <img src={eventImage} alt="event image" />
             ) : (
               <h3 className="title is-size-3 has-text-weight-normal is-bold-light">
-                Add Artist Image
+                Add Event Image
               </h3>
             )}
-            {featuredImage && featuredImage.length ? (
-              <img src={featuredImage} alt="featured image" />
+            {featuredEventImage && featuredEventImage.length ? (
+              <img src={featuredEventImage} alt="featured event image" />
             ) : (
               <h3 className="title is-size-3 has-text-weight-normal is-bold-light">
-                Add Featured Image
+                Add Featured Event Image
               </h3>
             )}
             <h2 className="title is-size-2 has-text-weight-bold is-bold-light">
-              DJ DESCRIPTION
+              EVENT DESCRIPTION
             </h2>
             <p>{description}</p>
             <h3 className="title is-size-3 has-text-weight-bold is-bold-light">
-              DJ STREAMS
+              CONTENT:
             </h3>
-            <DjContent content={content} />
+            <EventContent content={content} />
             <h2 className="title is-size-2 has-text-weight-bold is-bold-light">
-              FEATUED DJ:
+              ACTIVE EVENT ?
             </h2>
-            {featured ? <div>FEATURED</div> : <div>NOT FEATURED</div>}
+            {active ? (
+              <div>
+                <h3>ACTIVE</h3>
+                <h2 className="title is-size-2 has-text-weight-bold is-bold-light">
+                  START TIME: {start}
+                </h2>
+                <h2 className="title is-size-2 has-text-weight-bold is-bold-light">
+                  END TIME: {end}
+                </h2>
+              </div>
+            ) : (
+              <div>NOT ACTIVE</div>
+            )}
+            <h2 className="title is-size-2 has-text-weight-bold is-bold-light">
+              location: {location}
+            </h2>
 
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
@@ -77,25 +95,27 @@ export const DjPageTemplate = ({
   );
 };
 
-DjPageTemplate.propTypes = {
+EventPageTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,
+  start: PropTypes.string,
+  end: PropTypes.string,
   helmet: PropTypes.object,
 };
 
-const DjPage = ({ data }) => {
+const EventPage = ({ data }) => {
   const { markdownRemark: post } = data;
 
   return (
     <Layout>
-      <DjPageTemplate
+      <EventPageTemplate
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
         helmet={
-          <Helmet titleTemplate="%s | RESIDENT ARTIST">
+          <Helmet titleTemplate="%s | EVENT">
             <title>{`${post.frontmatter.title}`}</title>
             <meta
               name="description"
@@ -110,16 +130,16 @@ const DjPage = ({ data }) => {
   );
 };
 
-DjPage.propTypes = {
+EventPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
 };
 
-export default DjPage;
+export default EventPage;
 
 export const pageQuery = graphql`
-  query DjPageByID($id: String!) {
+  query EventPageByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html
@@ -128,6 +148,10 @@ export const pageQuery = graphql`
         title
         description
         tags
+        start
+        end
+        active
+        location
       }
     }
   }

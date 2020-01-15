@@ -69,7 +69,11 @@ export const DjPageTemplate = ({
                   ))}
                 </ul>
               </div>
-            ) : null}
+            ) : (
+              <div style={{ marginTop: `4rem` }}>
+                <h4>NO TAGS YET</h4>{' '}
+              </div>
+            )}
           </div>
         </div>
       </div>

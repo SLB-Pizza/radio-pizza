@@ -56,9 +56,10 @@ export const ShowPageTemplate = ({
             <h3 className="title is-size-3 has-text-weight-bold is-bold-light">
               SHOW URL: {url}
             </h3>
-            <h2 className="title is-size-2 has-text-weight-bold is-bold-light">
+            {/* <h2 className="title is-size-2 has-text-weight-bold is-bold-light">
               FEATUED ARTIST: {featuredArtist.name}
-            </h2>
+            </h2> */}
+            {console.log('related artist', featuredArtist)}
             {recurring ? (
               <div>
                 Schedule:{' '}

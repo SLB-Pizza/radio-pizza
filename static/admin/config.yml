@@ -130,6 +130,7 @@ collections:
           name: 'recurring',
           widget: 'boolean',
           hint: 'Does the Show Repeat?',
+          required: false,
         }
       - {
           label: 'Air Time',
@@ -142,6 +143,7 @@ collections:
           name: 'replays',
           widget: 'select',
           multiple: true,
+          required: false,
           options:
             [
               'Sunday',

@@ -14,7 +14,8 @@ export const DjPageTemplate = ({
   title,
   helmet,
   featured,
-  image,
+  artistImage,
+  featuredImage,
 }) => {
   const DjContent = contentComponent || Content;
 
@@ -30,11 +31,18 @@ export const DjPageTemplate = ({
             <h3 className="title is-size-3 has-text-weight-normal is-bold-light">
               {title}
             </h3>
-            {image && image.length ? (
-              <img src={image} alt="artist image" />
+            {artistImage && artistImage.length ? (
+              <img src={artistImage} alt="artist image" />
             ) : (
               <h3 className="title is-size-3 has-text-weight-normal is-bold-light">
                 Add Artist Image
+              </h3>
+            )}
+            {featuredImage && featuredImage.length ? (
+              <img src={featuredImage} alt="featured image" />
+            ) : (
+              <h3 className="title is-size-3 has-text-weight-normal is-bold-light">
+                Add Featured Image
               </h3>
             )}
             <h2 className="title is-size-2 has-text-weight-bold is-bold-light">

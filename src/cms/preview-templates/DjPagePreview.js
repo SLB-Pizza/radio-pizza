@@ -9,7 +9,8 @@ const DjPagePreview = ({ entry, widgetFor }) => (
     tags={entry.getIn(['data', 'tags'])}
     title={entry.getIn(['data', 'name'])}
     featured={entry.getIn(['data', 'featuredartist'])}
-    image={entry.getIn(['data', 'artistimage'])}
+    artistImage={entry.getIn(['data', 'artistimage'])}
+    featuredImage={entry.getIn(['data', 'featuredimage'])}
   />
 );
 
@@ -18,7 +19,8 @@ DjPagePreview.propTypes = {
     getIn: PropTypes.func,
   }),
   widgetFor: PropTypes.func,
-  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  artistImage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  featuredImage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 };
 
 export default DjPagePreview;

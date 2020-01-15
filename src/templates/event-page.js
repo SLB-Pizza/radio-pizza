@@ -75,10 +75,9 @@ export const EventPageTemplate = ({
             <h2 className="title is-size-2 has-text-weight-bold is-bold-light">
               location: {location}
             </h2>
-
+            <h4>Tags</h4>
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
                 <ul className="taglist">
                   {tags.map(tag => (
                     <li key={tag + `tag`}>
@@ -87,7 +86,11 @@ export const EventPageTemplate = ({
                   ))}
                 </ul>
               </div>
-            ) : null}
+            ) : (
+              <div style={{ marginTop: `4rem` }}>
+                <h4>NO TAGS YET</h4>{' '}
+              </div>
+            )}
           </div>
         </div>
       </div>

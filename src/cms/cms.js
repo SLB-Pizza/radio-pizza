@@ -1,4 +1,8 @@
 import CMS from 'netlify-cms-app';
+import {
+  netlifyCmsGMapsControl,
+  netlifyCmsGMapsPreview,
+} from 'netlify-cms-widget-gmaps';
 
 import AboutPagePreview from './preview-templates/AboutPagePreview';
 import BlogPostPreview from './preview-templates/BlogPostPreview';
@@ -13,5 +17,7 @@ CMS.registerPreviewTemplate('products', ProductPagePreview);
 CMS.registerPreviewTemplate('blog', BlogPostPreview);
 CMS.registerPreviewTemplate('djs', DjPagePreview);
 CMS.registerPreviewTemplate('events', EventPagePreview);
+
+CMS.registerWidget('gmaps', netlifyCmsGMapsControl, netlifyCmsGMapsPreview);
 
 //

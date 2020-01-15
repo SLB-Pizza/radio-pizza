@@ -13,6 +13,8 @@ export const DjPageTemplate = ({
   tags,
   title,
   helmet,
+  featured,
+  image,
 }) => {
   const DjContent = contentComponent || Content;
 
@@ -23,10 +25,31 @@ export const DjPageTemplate = ({
         <div className="columns">
           <div className="column is-10 is-offset-1">
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
+              DJ NAME
             </h1>
+            <h3 className="title is-size-3 has-text-weight-normal is-bold-light">
+              {title}
+            </h3>
+            {image && image.length ? (
+              <img src={image} alt="artist image" />
+            ) : (
+              <h3 className="title is-size-3 has-text-weight-normal is-bold-light">
+                Add Artist Image
+              </h3>
+            )}
+            <h2 className="title is-size-2 has-text-weight-bold is-bold-light">
+              DJ DESCRIPTION
+            </h2>
             <p>{description}</p>
+            <h3 className="title is-size-3 has-text-weight-bold is-bold-light">
+              DJ STREAMS
+            </h3>
             <DjContent content={content} />
+            <h2 className="title is-size-2 has-text-weight-bold is-bold-light">
+              FEATUED DJ:
+            </h2>
+            {featured ? <div>FEATURED</div> : <div>NOT FEATURED</div>}
+
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
                 <h4>Tags</h4>

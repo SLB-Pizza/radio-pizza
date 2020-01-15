@@ -14,6 +14,7 @@ const EventPagePreview = ({ entry, widgetFor }) => (
     startTime={entry.getIn(['data', 'start'])}
     endTime={entry.getIn(['data', 'end'])}
     location={entry.getIn(['data', 'location'])}
+    url={entry.getIn(['data', 'eventurl'])}
   />
 );
 

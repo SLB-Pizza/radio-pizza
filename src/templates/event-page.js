@@ -19,6 +19,7 @@ export const EventPageTemplate = ({
   helmet,
   eventImage,
   featuredEventImage,
+  url,
 }) => {
   const EventContent = contentComponent || Content;
 
@@ -74,6 +75,9 @@ export const EventPageTemplate = ({
             )}
             <h2 className="title is-size-2 has-text-weight-bold is-bold-light">
               location: {location}
+            </h2>
+            <h2 className="title is-size-2 has-text-weight-bold is-bold-light">
+              URL: <Link to={url}>{url}</Link>
             </h2>
             <h4>Tags</h4>
             {tags && tags.length ? (

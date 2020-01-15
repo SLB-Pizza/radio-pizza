@@ -148,10 +148,6 @@ export const pageQuery = graphql`
         title
         description
         tags
-        start
-        end
-        active
-        location
       }
     }
   }

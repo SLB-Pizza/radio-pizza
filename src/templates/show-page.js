@@ -59,8 +59,10 @@ export const ShowPageTemplate = ({
             {/* <h2 className="title is-size-2 has-text-weight-bold is-bold-light">
               FEATUED ARTIST: {featuredArtist.name}
             </h2> */}
-            {console.log('related artist', featuredArtist)}
-            {recurring ? (
+            {featuredArtist && console.log('related artist', featuredArtist)}
+            {recurring && console.log('recurring?', recurring)}
+            {replays && console.log('replays', replays)}
+            {/* {recurring ? (
               <div>
                 Schedule:{' '}
                 <div>
@@ -76,7 +78,7 @@ export const ShowPageTemplate = ({
               </div>
             ) : (
               <div>Schedule: {airTime}</div>
-            )}
+            )} */}
 
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>

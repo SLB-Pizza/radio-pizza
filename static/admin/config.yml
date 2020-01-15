@@ -156,6 +156,7 @@ collections:
       - {
           label: 'Featured Artist',
           name: 'featuredartist',
+          widget: 'relation',
           collection: 'djs',
           displayFields: ['name', 'tags'],
           searchFields: ['name', 'tags'],

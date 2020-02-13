@@ -178,6 +178,75 @@ collections:
           hint: 'Put the mixcloud URL here',
         }
       - { label: 'Tags', name: 'tags', widget: 'list' }
+      
+    - name: 'mixes'
+    label: 'Mixes'
+    folder: 'src/pages/mixes'
+    create: true
+    identifier_field: name
+    slug: '{{slug}}-{{year}}-{{month}}-{{day}}'
+    fields:
+      - {
+          label: 'Template Key',
+          name: 'templateKey',
+          widget: 'hidden',
+          default: 'mixes',
+        }
+      - { label: 'Name', name: 'name', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'text' }
+      # - {
+      #     label: 'Recurring Show',
+      #     name: 'recurring',
+      #     widget: 'boolean',
+      #     hint: 'Does the Show Repeat?',
+      #     required: false,
+      #   }
+      # - {
+      #     label: 'Air Time',
+      #     name: 'airtime',
+      #     widget: 'datetime',
+      #     hint: 'Show time for either type of show',
+      #   }
+      # - {
+      #     label: 'Replay Days',
+      #     name: 'replays',
+      #     widget: 'select',
+      #     multiple: true,
+      #     required: false,
+      #     options:
+      #       [
+      #         'Sunday',
+      #         'Monday',
+      #         'Tuesday',
+      #         'Wednesday',
+      #         'Thursday',
+      #         'Friday',
+      #         'Saturday',
+      #       ],
+      #   }
+      - { label: 'Daily Mix Image', name: 'dailymiximage', widget: image }
+      - {
+          label: 'Featured Daily Mix Image',
+          name: 'featureddailymiximage',
+          widget: image,
+        }
+      - {
+          label: 'Artist List',
+          name: 'featuredartist',
+          widget: 'relation',
+          collection: 'djs',
+          displayFields: ['name', 'tags'],
+          searchFields: ['name', 'tags'],
+          valueField: 'name',
+          multiple: true,
+        }
+      - {
+          label: 'MIX URLS',
+          name: 'streamurls',
+          widget: 'string',
+          hint: 'Put URLs here to make a playlist ***separate by commas***',
+        }
+      - { label: 'Tags', name: 'tags', widget: 'list' }
 
   - name: 'pages'
     label: 'Pages'

@@ -140,7 +140,7 @@ DailyMixPage.propTypes = {
 export default DailyMixPage;
 
 export const pageQuery = graphql`
-  query ShowPageByID($id: String!) {
+  query DailyMixPageByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html

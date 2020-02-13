@@ -4,7 +4,7 @@ import { DjPageTemplate } from '../../templates/dj-page';
 
 const DjPagePreview = ({ entry, widgetFor }) => (
   <DjPageTemplate
-    content={widgetFor('streams')}
+    content={widgetFor('artists')}
     description={entry.getIn(['data', 'description'])}
     tags={entry.getIn(['data', 'tags'])}
     title={entry.getIn(['data', 'name'])}

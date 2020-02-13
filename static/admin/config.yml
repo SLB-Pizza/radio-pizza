@@ -179,7 +179,7 @@ collections:
         }
       - { label: 'Tags', name: 'tags', widget: 'list' }
       
-    - name: 'mixes'
+  - name: 'mixes'
     label: 'Mixes'
     folder: 'src/pages/mixes'
     create: true

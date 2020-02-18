@@ -1,0 +1,55 @@
+$navbar-height: 3.25rem !default;
+$schedule-bar: 4.6875rem !default;
+
+.head-color {
+  background-color: #ccc;
+}
+
+.hero-color {
+  background-color: #e8e8e8;
+}
+
+.foot-color {
+  background-color: purple;
+}
+
+#chat-bg {
+  min-height: 50vh;
+  background-color: #ddd;
+}
+
+.remove-padding {
+  margin: 0 auto;
+  padding: 0 auto;
+}
+
+.cs-bg-color {
+  background-color: #999;
+}
+
+#ef-bg {
+  background-color: #444;
+}
+
+.columns {
+  background-color: goldenrod;
+}
+
+$player-fixed-z: 30 !default;
+$player-height: $navbar-height;
+
+.fixed-radio-player {
+  background-color: rgba(255, 255, 255, 0.5);
+  left: 0;
+  height: $player-height;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: $player-fixed-z;
+}
+
+#top-bar {
+  background-color: rgba($color: #f00660, $alpha: 0.5);
+  margin-top: 0.75rem;
+  margin-bottom: -0.15rem;
+}

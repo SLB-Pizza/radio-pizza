@@ -30,7 +30,7 @@ function EditorialFeed() {
               pharetra sit amet aliquefßd diam.
             </p>
           </div>
-          <div className="column is-3 cs-bg-color">
+          <div className="column is-3 alt-column">
             <h3>Feed</h3>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -80,7 +80,7 @@ function EditorialFeed() {
               pharetra sit amet aliquefßd diam.
             </p>
           </div>
-          <div className="column is-3 cs-bg-color">
+          <div className="column is-3 alt-column">
             <h3>Feed</h3>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

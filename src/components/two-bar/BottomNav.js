@@ -1,4 +1,10 @@
 import React from "react";
+import {
+  faMixcloud,
+  faTwitter,
+  faInstagram
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function BottomNav() {
   return (
@@ -15,13 +21,19 @@ function BottomNav() {
         <div id="navbarMenuHeroC" className="navbar-menu">
           <div className="navbar-end">
             <a href="/two-bar-layout" className="navbar-item">
-              Home
+              <span class="icon is-medium has-text-light">
+                <FontAwesomeIcon icon={faMixcloud} size="2x" />
+              </span>
             </a>
             <a href="/two-bar-layout" className="navbar-item">
-              Examples
+              <span class="icon is-medium has-text-light">
+                <FontAwesomeIcon icon={faInstagram} size="2x" />
+              </span>
             </a>
             <a href="/two-bar-layout" className="navbar-item">
-              Documentation
+              <span class="icon is-medium has-text-light">
+                <FontAwesomeIcon icon={faTwitter} size="2x" />
+              </span>
             </a>
             <p class="navbar-item">Ears to the concrete.</p>
           </div>

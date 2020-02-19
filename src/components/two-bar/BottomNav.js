@@ -19,6 +19,21 @@ function BottomNav() {
           </span>
         </div>
         <div id="navbarMenuHeroC" className="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item">Link 1</a>
+
+            <a class="navbar-item">Link 2</a>
+
+            <div class="navbar-item has-dropdown has-dropdown-up is-hoverable">
+              <a class="navbar-link">Link Dropdown</a>
+
+              <div class="navbar-dropdown">
+                <a class="navbar-item">Category 1</a>
+                <a class="navbar-item">Category 2</a>
+                <a class="navbar-item">Category 3</a>
+              </div>
+            </div>
+          </div>
           <div className="navbar-end">
             <a href="/two-bar-layout" className="navbar-item">
               <span class="icon is-medium has-text-light">

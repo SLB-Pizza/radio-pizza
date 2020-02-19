@@ -1,23 +1,30 @@
 import React from "react";
+import { faCommentAlt, faVolumeUp } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function RadioPlayer() {
   return (
-    <div className="fixed-radio-player">
-      <div className="container is-fluid" id="top-bar">
-        <div className="columns is-mobile">
-          <div className="column is-1">
-            <p>Logo</p>
-          </div>
-          <div className="column is-5">
-            <p>Radio Player</p>
-          </div>
-          <div className="column is-4">
-            <p>Audio Spectrum</p>
-          </div>
-          <div className="column is-2">
-            <p>Icons</p>
-          </div>
+    <div className="level fixed-radio-player">
+      <div className="level-left">
+        <div className="level-item">
+          <p className="subtitle is-5">Logo</p>
         </div>
+        <div className="level-item">
+          <p>Audio Player/Spectrum</p>
+        </div>
+      </div>
+      <div className="level-right">
+        <p className="level-item">
+          <span className="icon is-medium has-text-dark">
+            <FontAwesomeIcon icon={faVolumeUp} size="2x" />
+          </span>
+        </p>
+        <p className="level-item">
+          <span className="icon is-medium has-text-dark">
+            <FontAwesomeIcon icon={faCommentAlt} size="2x" />
+          </span>
+        </p>
+        <p className="level-item">10:59:45PM NYC</p>
       </div>
     </div>
   );

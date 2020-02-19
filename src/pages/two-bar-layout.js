@@ -1,5 +1,10 @@
 import React from "react";
-import { BottomNav, Hero, TopNav } from "../components/two-bar/index";
+import {
+  BottomNav,
+  ChatSchedule,
+  Hero,
+  TopNav
+} from "../components/two-bar/index";
 
 import "../components/styles/index.scss";
 
@@ -20,6 +25,7 @@ const TwoBarLayout = () => (
   <body className="has-navbar-fixed-bottom">
     <TopNav />
     <Hero />
+    <ChatSchedule />
     <BottomNav />
   </body>
 );

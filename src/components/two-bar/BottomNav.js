@@ -3,7 +3,7 @@ import React from "react";
 function BottomNav() {
   return (
     <nav className="navbar is-black is-fixed-bottom">
-      <div className="container">
+      <div className="container is-fluid">
         <div className="navbar-brand">
           <a href="/" className="navbar-item">
             <img

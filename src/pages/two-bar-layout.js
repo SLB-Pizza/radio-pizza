@@ -1,9 +1,10 @@
 import React from "react";
 import {
-  BottomNav,
-  ChatSchedule,
+  TopNav,
   Hero,
-  TopNav
+  ChatSchedule,
+  EditorialFeed,
+  BottomNav
 } from "../components/two-bar/index";
 
 import "../components/styles/index.scss";
@@ -26,6 +27,7 @@ const TwoBarLayout = () => (
     <TopNav />
     <Hero />
     <ChatSchedule />
+    <EditorialFeed />
     <BottomNav />
   </body>
 );

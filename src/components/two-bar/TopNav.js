@@ -2,6 +2,10 @@ import React from "react";
 import { faCommentAlt, faVolumeUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+/**
+ * Currently, the RadioPlayer TopNav bar has a semi-transparent white bg to better account for layouts, and therefore colors, overlapping. This will be amended to a solid color for the previews to come.
+ */
+
 function RadioPlayer() {
   return (
     <div className="level fixed-radio-player">

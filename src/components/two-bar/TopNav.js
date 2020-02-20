@@ -21,11 +21,7 @@ function TopNav() {
   return (
     <div className="level is-mobile fixed-radio-player">
       <div className="level-left">
-        <div className="level-item" id="top-bar-logo">
-          <p className="subtitle is-5">Logo</p>
-        </div>
-
-        <div className="level-item">Play/Pause</div>
+        <div className="level-item" id="play-button" />
         <div className="level-item">
           <RadioPlayer />
         </div>
@@ -41,7 +37,7 @@ function TopNav() {
             <FontAwesomeIcon icon={faCommentAlt} size="2x" />
           </span>
         </p>
-        <p className="level-item">{currTime} NYC</p>
+        <p className="level-item">4:59PM NYC</p>
       </div>
     </div>
   );

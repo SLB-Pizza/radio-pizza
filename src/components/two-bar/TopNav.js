@@ -1,20 +1,27 @@
 import React from "react";
+import { RadioPlayer } from "./index";
 import { faCommentAlt, faVolumeUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 /**
- * Currently, the RadioPlayer TopNav bar has a semi-transparent white bg to better account for layouts, and therefore colors, overlapping. This will be amended to a solid color for the previews to come.
+ * Currently, the TopNav bar has a semi-transparent white bg to better account for layouts, and therefore colors, overlapping. This will be amended to a solid color for the previews to come.
  */
 
-function RadioPlayer() {
+function TopNav() {
+  // const [time, setTime] = useState(new Date());
+
+  // useEffect(() => {
+  //   let;
+  // });
   return (
-    <div className="level fixed-radio-player">
+    <div className="level is-mobile fixed-radio-player">
       <div className="level-left">
         <div className="level-item">
           <p className="subtitle is-5">Logo</p>
         </div>
+
         <div className="level-item">
-          <p>Audio Player/Spectrum</p>
+          <RadioPlayer />
         </div>
       </div>
       <div className="level-right">
@@ -28,10 +35,10 @@ function RadioPlayer() {
             <FontAwesomeIcon icon={faCommentAlt} size="2x" />
           </span>
         </p>
-        <p className="level-item">10:59:45PM NYC</p>
+        <p className="level-item"> NYC</p>
       </div>
     </div>
   );
 }
 
-export default RadioPlayer;
+export default TopNav;

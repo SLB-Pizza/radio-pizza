@@ -3,6 +3,7 @@
  */
 
 export { default as TopNav } from "./TopNav";
+export { default as RadioPlayer } from "./RadioPlayer";
 export { default as Hero } from "./Hero";
 export { default as ChatSchedule } from "./ChatSchedule";
 export { default as EditorialFeed } from "./EditorialFeed";

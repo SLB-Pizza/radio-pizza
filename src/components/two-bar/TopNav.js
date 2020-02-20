@@ -21,10 +21,11 @@ function TopNav() {
   return (
     <div className="level is-mobile fixed-radio-player">
       <div className="level-left">
-        <div className="level-item">
+        <div className="level-item" id="top-bar-logo">
           <p className="subtitle is-5">Logo</p>
         </div>
 
+        <div className="level-item">Play/Pause</div>
         <div className="level-item">
           <RadioPlayer />
         </div>

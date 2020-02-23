@@ -4,7 +4,10 @@ function RadioPlayer() {
   return (
     <div className="radio-player is-flex">
       <div id="radioShowPic">
-        <img src="https://source.unsplash.com/random" alt="ShowPic" />
+        <img
+          src="https://source.unsplash.com/1920x1080/daily?music"
+          alt="ShowPic"
+        />
       </div>
       <div id="radioShowDetails">
         <div id="radioShowTime">

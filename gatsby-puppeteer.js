@@ -1,23 +1,62 @@
 const chalk = require("chalk");
 const puppeteer = require("puppeteer");
+const devices = puppeteer.devices;
 
+const desktops = [
+  {
+    name: "Landscape 1080p",
+    viewport: {
+      width: 1920,
+      height: 1080,
+      deviceScaleFactor: 1,
+      isMobile: false,
+      hasTouch: false,
+      isLandscape: true
+    }
+  },
+  {
+    name: "Portrait 1080p",
+    viewport: {
+      width: 1080,
+      height: 1920,
+      deviceScaleFactor: 1,
+      isMobile: false,
+      hasTouch: false,
+      isLandscape: false
+    }
+  }
+];
+
+// // Selected Mobile
+// const p2XL = puppeteer.devices["Pixel 2 XL"],;
+// const iPhoneX = puppeteer.devices["iPhone X"],;
+// const iPhoneXR = puppeteer.devices["iPhone XR"],;
+// const mobile = [p2XL, iPhoneX, iPhoneXR];
+
+// // Selected Tablets
+// const iPad = puppeteer.devices["iPad"],;
+// const iPadPro = puppeteer.devices["iPad Pro"],;
+// const tablets = [iPad, iPadPro];
+
+// All viewports
+// const viewports = [...desktops, ...tablets, ...mobile];
 const viewports = [
-  { viewportName: "Widescreen 1080p", width: 1920, height: 1080 },
-  { viewportName: "iPad", width: 768, height: 1024 }
+  ...desktops,
+  devices["Pixel 2 XL"],
+  devices["iPhone X"],
+  devices["iPhone XR"],
+  devices["iPad"],
+  devices["iPad Pro"]
 ];
 
 const dateString = () => {
-  let now = new Date();
+  let now = new Date().toUTCString();
 
-  // let currMonth = now.getMonth() + 1;
-  // let currDate = now.getDate();
-  // let currHour = now.getHours();
-  // let currMin = now.getMinutes();
-  // let currSec = now.getSeconds();
+  let date = now.slice(5, 11);
+  let time = now.slice(17, 25);
 
-  // return `[0${currMonth}-${currDate} -- ${currHour}.${currMin}.${currSec}]`;
-
-  return now.toUTCString().slice(5, 25);
+  // return now.toUTCString().slice(5, 25);
+  return `${date} ${time}`;
 };
 
 (async () => {
@@ -30,8 +69,7 @@ const dateString = () => {
     console.log(chalk.magenta(`  Loading Puppeteer...\n`));
 
     const time = await dateString();
-
-    const browser = await puppeteer.launch(); // Here a bunch of options can be set like `headless` and `executablePath`
+    const browser = await puppeteer.launch();
 
     console.log(chalk.cyan(`  Opening new browser tab...\n`));
 
@@ -40,7 +78,7 @@ const dateString = () => {
     console.log(chalk.cyan(`  Navigating to localhost:8000/two-bar-layout...`));
 
     await page.goto("http://localhost:8000/two-bar-layout", {
-      waitUntil: "load"
+      waitUntil: ["load", "domcontentloaded"]
     }); // `waitUntil: 'load'` seems required for a Gatsby site.
 
     console.log(chalk.cyan(`  ✅  Page loaded successfully.\n`));
@@ -51,35 +89,37 @@ const dateString = () => {
 
     for (let i = 0; i < viewports.length; i++) {
       let currViewport = viewports[i];
-      // We can emulate screen dimension
-      await page.setViewport({
-        width: currViewport.width,
-        height: currViewport.height
-      });
-      // ... and device type
-      await page.emulateMedia("screen");
 
-      // Take a screenshot
+      // Add userAgent string to device object for the desktops
+      if (!currViewport.hasOwnProperty("userAgent")) {
+        currViewport.userAgent = await browser.userAgent();
+      }
+
+      // Emulate the current device
+      await page.emulate(currViewport);
+
+      // Take a screenshot 500ms after device emulation is complete
       await page.screenshot({
-        path: `screenshots/${time} -- ${currViewport.viewportName}.png`
+        path: `screenshots/${time} | ${currViewport.name}.png`
       });
 
       i !== viewports.length - 1
         ? console.log(
             chalk.green(
-              `  ✅  #${i + 1} - ${currViewport.viewportName} (${
-                currViewport.width
-              }x${currViewport.height}) captured.`
+              `  ✅  #${i + 1} - ${currViewport.name} (${
+                currViewport.viewport.width
+              }x${currViewport.viewport.height}) captured.`
             )
           )
         : console.log(
             chalk.green(
-              `  ✅  #${i + 1} - ${currViewport.viewportName} (${
-                currViewport.width
-              }x${currViewport.height}) captured.\n`
+              `  ✅  #${i + 1} - ${currViewport.name} (${
+                currViewport.viewport.width
+              }x${currViewport.viewport.height}) captured.\n`
             )
           );
     }
+
     console.log(
       chalk.inverse.green(
         `=== All ${viewports.length} screenshots captured successfully! ===`
@@ -93,6 +133,14 @@ const dateString = () => {
         `\n  Something went wrong. Is the server running?  \n`
       )
     );
-    console.log(error);
+    if (error instanceof puppeteer.errors.TimeoutError) {
+      console.log(
+        chalk.inverse.bold.red(`Operation timed out. Error logs below. \n`)
+      );
+      console.log(error);
+    } else {
+      console.log(error);
+    }
+    await browser.close();
   }
 })();

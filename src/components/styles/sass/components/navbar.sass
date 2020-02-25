@@ -1,7 +1,7 @@
 $navbar-background-color: $scheme-main !default
 $navbar-box-shadow-size: 0 2px 0 0 !default
 $navbar-box-shadow-color: $background !default
-$navbar-height: 3.25rem !default
+$navbar-height: 3rem !default
 $navbar-padding-vertical: 1rem !default
 $navbar-padding-horizontal: 2rem !default
 $navbar-z: 30 !default
@@ -45,9 +45,6 @@ $navbar-divider-height: 2px !default
 $navbar-bottom-box-shadow-size: 0 -2px 0 0 !default
 
 $navbar-breakpoint: $desktop !default
-
-// Custom added schedule bar
-$schedule-bar: 2.5rem !default;
 
 =navbar-fixed
   left: 0
@@ -129,8 +126,9 @@ html,
 body
   &.has-navbar-fixed-top
     padding-top: $navbar-height
+
+  // HalfmoonBK setup is-fixed-bottom
   &.has-navbar-fixed-bottom
-    padding-top: $navbar-height
     padding-bottom: $navbar-height
 
 .navbar-brand,
@@ -275,7 +273,6 @@ a.navbar-item,
     &.has-navbar-fixed-top-touch
       padding-top: $navbar-height
     &.has-navbar-fixed-bottom-touch
-      padding-top: $navbar-height
       padding-bottom: $navbar-height
 
 +from($navbar-breakpoint)
@@ -422,7 +419,6 @@ a.navbar-item,
     &.has-navbar-fixed-top-desktop
       padding-top: $navbar-height
     &.has-navbar-fixed-bottom-desktop
-      padding-top: $navbar-height
       padding-bottom: $navbar-height
     &.has-spaced-navbar-fixed-top
       padding-top: $navbar-height + ($navbar-padding-vertical * 2)
@@ -443,7 +439,10 @@ a.navbar-item,
         background-color: $navbar-item-hover-background-color
 
 // Combination
+// TopNav = 7.5rem
+// BottomNav = 3rem
+// Total Hero height = 10rem
 
-.hero
+  .hero
   &.is-fullheight-with-navbar
-    min-height: calc(100vh - 6rem)
+    min-height: calc(100vh - (2.5 * $navbar-height))

@@ -1,6 +1,9 @@
 const chalk = require("chalk");
+const readline = require("readline");
 const puppeteer = require("puppeteer");
 const devices = puppeteer.devices;
+
+let pages = [];
 
 const desktops = [
   {
@@ -27,19 +30,6 @@ const desktops = [
   }
 ];
 
-// // Selected Mobile
-// const p2XL = puppeteer.devices["Pixel 2 XL"],;
-// const iPhoneX = puppeteer.devices["iPhone X"],;
-// const iPhoneXR = puppeteer.devices["iPhone XR"],;
-// const mobile = [p2XL, iPhoneX, iPhoneXR];
-
-// // Selected Tablets
-// const iPad = puppeteer.devices["iPad"],;
-// const iPadPro = puppeteer.devices["iPad Pro"],;
-// const tablets = [iPad, iPadPro];
-
-// All viewports
-// const viewports = [...desktops, ...tablets, ...mobile];
 const viewports = [
   ...desktops,
   devices["Pixel 2 XL"],
@@ -49,27 +39,77 @@ const viewports = [
   devices["iPad Pro"]
 ];
 
+const websiteInfo = () => {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+
+  rl.question(
+    "What is page's base URL (e.g. http://localhost:8000)\n> ",
+    answer => {
+      pages.push(answer.trim());
+
+      let base = answer;
+
+      rl.setPrompt(
+        "What are the pages you'd like to screenshot? (e.g. /two-bar-layout)\n> "
+      );
+      rl.prompt();
+    }
+  );
+
+  rl.on("line", input => {
+    if (input.trim() === "done") {
+      let base = pages.shift();
+      console.log(base, pages);
+
+      let addresses = pages.map(page => (base += page));
+
+      console.log(
+        "\n=======================================\nThe following pages will be screenshot:\n"
+      );
+
+      addresses.forEach((page, idx) => {
+        console.log(
+          "-",
+          page,
+          `${!(idx + 1 === addresses.length) ? "" : "\n"}`
+        );
+      });
+      rl.close();
+    } else {
+      pages.push(input.trim());
+      rl.setPrompt(
+        "Type `done` when done -OR- type in a route to screenshot. (e.g. /pictures)\n> "
+      );
+      rl.prompt();
+    }
+  });
+};
+
 const dateString = () => {
   let now = new Date().toUTCString();
-
   let date = now.slice(5, 11);
   let time = now.slice(17, 25);
 
-  // return now.toUTCString().slice(5, 25);
   return `${date} ${time}`;
 };
 
 (async () => {
   try {
+    // await websiteInfo();
+
     console.log(
       chalk.underline.bold.yellow(
         "Screenshots || Capturing the project in different viewports.\n"
       )
     );
+
     console.log(chalk.magenta(`  Loading Puppeteer...\n`));
 
-    const time = await dateString();
     const browser = await puppeteer.launch();
+    const time = await dateString();
 
     console.log(chalk.cyan(`  Opening new browser tab...\n`));
 
@@ -81,10 +121,10 @@ const dateString = () => {
       waitUntil: ["load", "domcontentloaded"]
     }); // `waitUntil: 'load'` seems required for a Gatsby site.
 
-    console.log(chalk.cyan(`  ✅  Page loaded successfully.\n`));
-
     console.log(
-      chalk.cyan(`  Preparing to take ${viewports.length} screenshots.\n`)
+      chalk.cyan(
+        `  ✅  Page loaded successfully.\n\n  Preparing to take ${viewports.length} screenshots.\n`
+      )
     );
 
     for (let i = 0; i < viewports.length; i++) {
@@ -127,6 +167,7 @@ const dateString = () => {
     );
 
     await browser.close();
+    process.exit();
   } catch (error) {
     console.log(
       chalk.inverse.bold.red(

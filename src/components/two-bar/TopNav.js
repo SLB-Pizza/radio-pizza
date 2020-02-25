@@ -12,11 +12,6 @@ function TopNav() {
   let currTime = moment()
     .tz("America/New_York")
     .format();
-  // const [time, setTime] = useState(new Date());
-
-  // useEffect(() => {
-  //   let;
-  // });
 
   return (
     <div className="level is-mobile fixed-radio-player">

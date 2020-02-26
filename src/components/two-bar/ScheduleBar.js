@@ -3,10 +3,6 @@ import React, { useState, useEffect } from "react";
 function ScheduleBar() {
   const [active, setActive] = useState(false);
 
-  useEffect(() => {
-    console.log(`bar is: ${active}`);
-  });
-
   return (
     <div
       className={"level is-mobile schedule-bar" + (active ? " is-open" : "")}

@@ -29,23 +29,14 @@
   }
 }
 
-#play-button {
-  margin-right: 0.75rem;
-  background-color: grey;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-}
-
 .hero {
   margin-top: 7.5rem;
   background-image: url(https://source.unsplash.com/1920x1080/daily?music);
   background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: scroll;
   background-size: cover;
   min-width: 100vw;
-  min-height: calc(100vh - 7.5rem);
 }
 
 .show-details {

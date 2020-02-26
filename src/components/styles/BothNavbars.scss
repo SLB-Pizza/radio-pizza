@@ -1,5 +1,5 @@
 $navbar-height: 3rem !default;
-$top-nav-height: calc(2.5 * $navbar-height); //7.5rem
+$top-nav-height: calc(2.5 * $navbar-height); // 7.5rem
 $player-fixed-z: 30 !default;
 $gap: 32px;
 
@@ -20,6 +20,14 @@ $gap: 32px;
     margin-bottom: 0;
     background-color: rgba($color: yellow, $alpha: 0.5);
 
+    #play-button {
+      margin-right: 0.75rem;
+      background-color: blue;
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 50%;
+    }
+
     .radio-player {
       display: flex;
       flex-direction: row;
@@ -27,13 +35,12 @@ $gap: 32px;
       align-items: center;
 
       #radioShowPic {
-        background-color: greenyellow;
         min-width: 4.5rem;
         margin-right: 0.625rem;
 
         img {
-          width: 4.5rem;
-          height: 4.5rem;
+          width: 4.25rem;
+          height: 4.25rem;
           object-fit: cover;
           object-position: center;
         }
@@ -60,10 +67,19 @@ $gap: 32px;
     flex: 1;
     padding: 0 $gap;
     min-height: 2.5rem;
-    background-color: rgba($color: pink, $alpha: 0.5);
+    background-color: rgba($color: lightgreen, $alpha: 0.5);
+
+    &.is-open {
+      min-height: 7.5rem;
+      background-color: burlywood;
+    }
+
+    .touch-to-open-bar {
+      background-color: rgba($color: pink, $alpha: 0.5);
+    }
   }
 }
 
 #bottom-color-test {
-  background-color: rgba($color: blue, $alpha: 0.5);
+  background-color: rgba($color: white, $alpha: 0.5);
 }

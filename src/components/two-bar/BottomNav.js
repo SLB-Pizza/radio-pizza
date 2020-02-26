@@ -11,7 +11,7 @@ function BottomNav() {
     <nav className="navbar is-fixed-bottom" id="bottom-color-test">
       <div className="container is-fluid">
         <div className="navbar-brand">
-          <p class="navbar-item">HalfmoonBK</p>
+          <p className="navbar-item">HalfmoonBK</p>
           <span className="navbar-burger burger" data-target="navbarMenuHeroC">
             <span></span>
             <span></span>
@@ -19,38 +19,38 @@ function BottomNav() {
           </span>
         </div>
         <div id="navbarMenuHeroC" className="navbar-menu">
-          <div class="navbar-start">
-            <a class="navbar-item">Link 1</a>
+          <div className="navbar-start">
+            <a className="navbar-item">Link 1</a>
 
-            <a class="navbar-item">Link 2</a>
+            <a className="navbar-item">Link 2</a>
 
-            <div class="navbar-item has-dropdown has-dropdown-up is-hoverable">
-              <a class="navbar-link">Link Dropdown</a>
+            <div className="navbar-item has-dropdown has-dropdown-up is-hoverable">
+              <a className="navbar-link">Link Dropdown</a>
 
-              <div class="navbar-dropdown">
-                <a class="navbar-item">Category 1</a>
-                <a class="navbar-item">Category 2</a>
-                <a class="navbar-item">Category 3</a>
+              <div className="navbar-dropdown">
+                <a className="navbar-item">Category 1</a>
+                <a className="navbar-item">Category 2</a>
+                <a className="navbar-item">Category 3</a>
               </div>
             </div>
           </div>
           <div className="navbar-end">
             <a href="/two-bar-layout" className="navbar-item">
-              <span class="icon is-medium has-text-light">
+              <span className="icon is-medium has-text-light">
                 <FontAwesomeIcon icon={faMixcloud} size="2x" />
               </span>
             </a>
             <a href="/two-bar-layout" className="navbar-item">
-              <span class="icon is-medium has-text-light">
+              <span className="icon is-medium has-text-light">
                 <FontAwesomeIcon icon={faInstagram} size="2x" />
               </span>
             </a>
             <a href="/two-bar-layout" className="navbar-item">
-              <span class="icon is-medium has-text-light">
+              <span className="icon is-medium has-text-light">
                 <FontAwesomeIcon icon={faTwitter} size="2x" />
               </span>
             </a>
-            <p class="navbar-item">Ears to the concrete.</p>
+            <p className="navbar-item">Ears to the concrete.</p>
           </div>
         </div>
       </div>

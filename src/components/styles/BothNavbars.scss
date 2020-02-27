@@ -73,19 +73,19 @@ $gap: 32px;
     flex: 1;
     padding: 0 $gap;
     min-height: 2.5rem;
-    background-color: rgba($color: black, $alpha: 0.5);
+    background-color: saddlebrown;
     color: white;
     transition: ease-in-out 0.5s;
 
     // Styles when active === true
     &.is-open {
       min-height: 7.5rem;
-      background-color: burlywood;
+      background-color: saddlebrown;
     }
 
-    #expand-schedule {
-      margin: 0;
-    }
+    // #expand-schedule {
+    //   margin: 0;
+    // }
   }
 }
 

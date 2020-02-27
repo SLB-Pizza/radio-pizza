@@ -5,21 +5,36 @@ function ScheduleBar() {
 
   return (
     <div
-      className={"level is-mobile schedule-bar" + (active ? " is-open" : "")}
+      className={"container is-fluid schedule-bar" + (active ? " is-open" : "")}
     >
-      <div className="level-left">
+      <div className="columns is-vcentered">
+        <div className="column is-1">in 31 mins</div>
+        <div className="column is-4">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </div>
+        <div className="column is-1"></div>
+        <div className="column is-4">SHOW</div>
+        <div
+          className="column is-2 button is-dark is-fullwidth"
+          id="expand-schedule"
+          onClick={() => setActive(!active)}
+        >
+          More Details
+        </div>
+      </div>
+      {/* <div className="level-left">
         <div className="level-item">in 51 mins</div>
         <div className="level-item"> This is where the show block starts</div>
       </div>
       <div className="level-right">
         <p className="level-item">
           <span className="icon is-medium has-text-dark">
-            {/* <FontAwesomeIcon icon={faVolumeUp} size="2x" /> */}
+
           </span>
         </p>
         <p className="level-item">
           <span className="icon is-medium has-text-dark">
-            {/* <FontAwesomeIcon icon={faCommentAlt} size="2x" /> */}
+
           </span>
         </p>
         <p className="level-item">4:59PM NYC</p>
@@ -29,7 +44,7 @@ function ScheduleBar() {
         >
           VVV
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }

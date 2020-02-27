@@ -64,23 +64,32 @@ $gap: 32px;
   }
 
   .schedule-bar {
+    // Fix the columns nested in this container
+    // to the top of the schedule-bar.
+    > .columns {
+      margin-top: 0;
+    }
+
     flex: 1;
     padding: 0 $gap;
     min-height: 2.5rem;
-    background-color: rgba($color: lightgreen, $alpha: 0.5);
+    background-color: rgba($color: black, $alpha: 0.5);
+    color: white;
     transition: ease-in-out 0.5s;
 
+    // Styles when active === true
     &.is-open {
       min-height: 7.5rem;
       background-color: burlywood;
     }
 
-    .touch-to-open-bar {
-      background-color: rgba($color: pink, $alpha: 0.5);
+    #expand-schedule {
+      margin: 0;
     }
   }
 }
 
 #bottom-color-test {
+  height: 2.5rem;
   background-color: rgba($color: white, $alpha: 0.5);
 }

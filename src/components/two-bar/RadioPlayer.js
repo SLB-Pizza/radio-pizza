@@ -11,7 +11,7 @@ function RadioPlayer() {
       </div>
       <div id="radioShowDetails">
         <div id="radioShowTime">
-          <p>8:00 - 10:00PM</p>
+          <p>4:00 - 6:00PM</p>
         </div>
         <div id="radioShowName">
           <p>The Show with a Much Longer Title </p>

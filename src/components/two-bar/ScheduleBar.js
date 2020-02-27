@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 function ScheduleBar() {
   const [active, setActive] = useState(false);
@@ -10,7 +10,9 @@ function ScheduleBar() {
       {!active ? (
         <div className="columns">
           {/* DESKTOP */}
-          <div className="column is-2">in 31 mins</div>
+          <div className="column is-2" id="up-next">
+            <p>in 1hr 1m</p>
+          </div>
           <div className="column is-8">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </div>
@@ -25,7 +27,9 @@ function ScheduleBar() {
       ) : (
         <div className="columns">
           {/* DESKTOP */}
-          <div className="column is-2">in 31 mins</div>
+          <div className="column is-2" id="up-next">
+            in 31 mins
+          </div>
           <div className="column is-8">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum
             dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit
@@ -39,7 +43,7 @@ function ScheduleBar() {
             id="expand-schedule"
             onClick={() => setActive(!active)}
           >
-            More Details
+            Close Details
           </div>
         </div>
       )}

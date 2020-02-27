@@ -1,5 +1,6 @@
 $navbar-height: 3rem !default;
 $top-nav-height: calc(2.5 * $navbar-height); // 7.5rem
+$schedule-bar: 2.5rem !default;
 $player-fixed-z: 30 !default;
 $gap: 32px;
 
@@ -68,24 +69,35 @@ $gap: 32px;
     // to the top of the schedule-bar.
     > .columns {
       margin-top: 0;
+      .column {
+        padding-top: 0.5rem;
+      }
     }
 
     flex: 1;
     padding: 0 $gap;
-    min-height: 2.5rem;
-    background-color: saddlebrown;
+    min-height: $schedule-bar;
     color: white;
-    transition: ease-in-out 0.5s;
+    background-color: #666;
+    // fix transitions later!
+    // transition: ease-in-out 0.5s;
+    // -moz-transition: ease-in-out 0.5s;
+    // -webkit-transition: ease-in-out 0.5s;
 
     // Styles when active === true
     &.is-open {
       min-height: 7.5rem;
-      background-color: saddlebrown;
+      background-color: #666;
+      .column {
+        min-height: 7.5rem;
+        padding-top: 0.5rem;
+      }
     }
 
-    // #expand-schedule {
-    //   margin: 0;
-    // }
+    #up-next {
+      height: $schedule-bar;
+      background-color: black;
+    }
   }
 }
 

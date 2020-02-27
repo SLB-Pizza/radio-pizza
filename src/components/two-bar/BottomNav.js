@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby";
 import {
   faMixcloud,
   faTwitter,
@@ -20,7 +21,9 @@ function BottomNav() {
         </div>
         <div id="navbarMenuHeroC" className="navbar-menu">
           <div className="navbar-start">
-            <a className="navbar-item">Link 1</a>
+            <p className="navbar-item">
+              <Link to="/tb-schedule">Schedule</Link>
+            </p>
 
             <a className="navbar-item">Link 2</a>
 

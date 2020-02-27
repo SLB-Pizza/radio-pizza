@@ -4,6 +4,7 @@ $schedule-bar: 2.5rem !default;
 $player-fixed-z: 30 !default;
 $gap: 32px;
 
+// TopNav.js
 .radio-and-schedule-bar {
   display: flex;
   flex-direction: column;
@@ -79,7 +80,7 @@ $gap: 32px;
     padding: 0 $gap;
     min-height: $schedule-bar;
     color: white;
-    background-color: #666;
+    background-color: rgba($color: #888, $alpha: 0.7);
 
     // fix transitions later! currently jagged
     // transition: ease-in-out 0.5s;
@@ -98,12 +99,13 @@ $gap: 32px;
 
     #up-next {
       height: $schedule-bar;
-      background-color: black;
+      background-color: rgba($color: black, $alpha: 0.7);
     }
   }
 }
 
+// BottomNav.js
 #bottom-color-test {
   height: 2.5rem;
-  background-color: rgba($color: white, $alpha: 0.5);
+  background-color: rgba($color: white, $alpha: 0.85);
 }

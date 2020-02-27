@@ -30,14 +30,17 @@ const desktops = [
   }
 ];
 
-const viewports = [
-  ...desktops,
-  devices["Pixel 2 XL"],
+const viewports = [...desktops];
+
+/**
+ * Add to viewports array for mobile and tablet
+ *
+ * devices["Pixel 2 XL"],
   devices["iPhone X"],
   devices["iPhone XR"],
   devices["iPad"],
   devices["iPad Pro"]
-];
+ */
 
 const websiteInfo = () => {
   const rl = readline.createInterface({
@@ -98,7 +101,11 @@ const dateString = () => {
 
 (async () => {
   try {
-    // await websiteInfo();
+    /**
+     * WebsiteInfo function not working; not essential
+     *
+     * await websiteInfo();
+     */
 
     console.log(
       chalk.underline.bold.yellow(
@@ -140,24 +147,18 @@ const dateString = () => {
 
       // Take a screenshot 500ms after device emulation is complete
       await page.screenshot({
-        path: `screenshots/${time} | ${currViewport.name}.png`
+        path: `__tests__/screenshots/${time} | ${currViewport.name}.png`
       });
 
-      i !== viewports.length - 1
-        ? console.log(
-            chalk.green(
-              `  ✅  #${i + 1} - ${currViewport.name} (${
-                currViewport.viewport.width
-              }x${currViewport.viewport.height}) captured.`
-            )
-          )
-        : console.log(
-            chalk.green(
-              `  ✅  #${i + 1} - ${currViewport.name} (${
-                currViewport.viewport.width
-              }x${currViewport.viewport.height}) captured.\n`
-            )
-          );
+      console.log(
+        chalk.green(
+          `  ✅  #${i + 1} - ${currViewport.name} (${
+            currViewport.viewport.width
+          }x${currViewport.viewport.height}) captured.${
+            i !== viewports.length - 1 ? "" : "\n"
+          }`
+        )
+      );
     }
 
     console.log(

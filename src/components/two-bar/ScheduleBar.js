@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 
 function ScheduleBar() {
-  const [active, setActive] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <div
-      className={"container is-fluid schedule-bar" + (active ? " is-open" : "")}
+      className={"container is-fluid schedule-bar" + (open ? " is-open" : "")}
     >
-      {!active ? (
+      {!open ? (
         <div className="columns">
           {/* DESKTOP */}
+
           <div className="column is-2" id="up-next">
             <p>in 1hr 1m</p>
           </div>
@@ -19,7 +20,7 @@ function ScheduleBar() {
           <div
             className="column is-2 button is-dark is-fullwidth"
             id="expand-schedule"
-            onClick={() => setActive(!active)}
+            onClick={() => setOpen(!open)}
           >
             More Details
           </div>
@@ -27,6 +28,7 @@ function ScheduleBar() {
       ) : (
         <div className="columns">
           {/* DESKTOP */}
+
           <div className="column is-2" id="up-next">
             in 31 mins
           </div>
@@ -41,7 +43,7 @@ function ScheduleBar() {
           <div
             className="column is-2 button is-dark is-fullwidth"
             id="expand-schedule"
-            onClick={() => setActive(!active)}
+            onClick={() => setOpen(!open)}
           >
             Close Details
           </div>

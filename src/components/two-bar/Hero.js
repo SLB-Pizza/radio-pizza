@@ -2,14 +2,24 @@ import React from "react";
 
 function App() {
   return (
-    <section className="hero is-fullheight-with-navbar">
-      <div className="hero-body">
-        <div className="container has-text-centered">
-          <h1 className="title">Title</h1>
-          <h2 className="subtitle">Subtitle</h2>
+    <div className="homepage-hero">
+      <div className="container is-fluid">
+        <div className="columns is-8">
+          <div class="column is-one-quarter">
+            <code>is-one-quarter</code>
+          </div>
+          <div class="column is-one-quarter">
+            <code>is-one-quarter</code>
+          </div>
+          <div class="column is-one-quarter">
+            <code>is-one-quarter</code>
+          </div>
+          <div class="column is-one-quarter">
+            <code>is-one-quarter</code>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 

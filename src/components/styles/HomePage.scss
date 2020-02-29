@@ -4,6 +4,26 @@
 //   margin-bottom: -0.15rem;
 // }
 
+.homepage-hero {
+  @include tablet;
+
+  background-image: url(https://source.unsplash.com/1920x1080/daily?music);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+  margin-top: 8.25rem;
+  height: calc(100vh - 10.5rem);
+  background-color: greenyellow;
+  .columns .column {
+    background-color: rgba($color: cyan, $alpha: 0.5);
+  }
+}
+
+#content-size {
+  height: 50vh;
+}
+
 .show-date {
   display: flex;
   justify-content: space-around;
@@ -27,16 +47,6 @@
     margin-right: -0.75rem;
     background-color: seashell;
   }
-}
-
-.hero {
-  margin-top: 7.5rem;
-  background-image: url(https://source.unsplash.com/1920x1080/daily?music);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-size: cover;
-  min-width: 100vw;
 }
 
 .show-details {

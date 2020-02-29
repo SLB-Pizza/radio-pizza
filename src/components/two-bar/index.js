@@ -23,7 +23,7 @@ export { default as EditorialFeed } from "./EditorialFeed";
 /**
  * SchedulePage
  */
-export { default as SchedulePage } from "./tb-schedule";
+export { default as SchedulePage } from "./SchedulePage";
 
 /**
  *

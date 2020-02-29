@@ -7,17 +7,20 @@ function RadioBar() {
   return (
     <div className="level is-mobile radio-bar">
       <div className="level-left">
-        <div className="level-item" id="play-button" />
+        <div className="level-item has-text-light" id="play-button">
+          Logo
+        </div>
+        <div className="level-item">
+          <span className="icon is-medium has-text-dark">
+            <FontAwesomeIcon icon={faVolumeUp} size="2x" />
+          </span>
+        </div>
         <div className="level-item">
           <RadioPlayer />
         </div>
       </div>
       <div className="level-right">
-        <p className="level-item">
-          <span className="icon is-medium has-text-dark">
-            <FontAwesomeIcon icon={faVolumeUp} size="2x" />
-          </span>
-        </p>
+        <p className="level-item"></p>
         <p className="level-item">
           <span className="icon is-medium has-text-dark">
             <FontAwesomeIcon icon={faCommentAlt} size="2x" />

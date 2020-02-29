@@ -30,7 +30,14 @@ const desktops = [
   }
 ];
 
-const viewports = [...desktops];
+const viewports = [
+  ...desktops,
+  devices["Pixel 2 XL"],
+  devices["iPhone X"],
+  devices["iPhone XR"],
+  devices["iPad"],
+  devices["iPad Pro"]
+];
 
 /**
  * Add to viewports array for mobile and tablet
@@ -106,7 +113,7 @@ const dateString = () => {
      *
      * await websiteInfo();
      */
-
+    console.clear();
     console.log(
       chalk.underline.bold.yellow(
         "Screenshots || Capturing the project in different viewports.\n"
@@ -130,7 +137,7 @@ const dateString = () => {
 
     console.log(
       chalk.cyan(
-        `  ✅  Page loaded successfully.\n\n  Preparing to take ${viewports.length} screenshots.\n`
+        `  ✅  Page loaded successfully.\n\n  Preparing to take ${viewports.length} screenshots.\n  ➡️   Screenshots will be saved in '__tests__/screenshots'\n`
       )
     );
 
@@ -146,6 +153,9 @@ const dateString = () => {
       await page.emulate(currViewport);
 
       // Take a screenshot 500ms after device emulation is complete
+      // setTimeout(() => , 500);
+      console.log(chalk.green(`  Emulating ${currViewport.name}...`));
+
       await page.screenshot({
         path: `__tests__/screenshots/${time} | ${currViewport.name}.png`
       });
@@ -154,11 +164,11 @@ const dateString = () => {
         chalk.green(
           `  ✅  #${i + 1} - ${currViewport.name} (${
             currViewport.viewport.width
-          }x${currViewport.viewport.height}) captured.${
-            i !== viewports.length - 1 ? "" : "\n"
-          }`
+          }x${currViewport.viewport.height}) captured.\n`
         )
       );
+
+      await page.reload({ waitUntil: ["load", "domcontentloaded"] });
     }
 
     console.log(

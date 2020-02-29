@@ -1,7 +1,8 @@
 import React from "react";
-import { TopNav, SchedulePage, BottomNav } from ".";
-
+import { TopNav, SchedulePage, BottomNav } from "../components/two-bar";
 import "../components/styles/index.scss";
+
+import Layout from "../components/Layout";
 
 /**
  * SPECIAL NOTE
@@ -17,12 +18,10 @@ import "../components/styles/index.scss";
  * `index.html` <body> element the same way to get this layout setup.
  */
 
-const TBSchedule = () => (
+const Schedule = () => (
   <body className="has-navbar-fixed-bottom">
-    <TopNav />
-    <SchedulePage />
-    <BottomNav />
+    <Schedule />
   </body>
 );
 
-export default TBSchedule;
+export default SchedulePage;

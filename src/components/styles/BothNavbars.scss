@@ -20,11 +20,11 @@ $gap: 32px;
     flex: 2;
     min-height: 5rem;
     margin-bottom: 0;
-    background-color: rgba($color: yellow, $alpha: 0.5);
+    background-color: rgba($color: #ccc, $alpha: 0.7);
 
     #play-button {
       margin-right: 0.75rem;
-      background-color: blue;
+      background-color: lightslategrey;
       width: 3.5rem;
       height: 3.5rem;
       border-radius: 50%;
@@ -89,10 +89,10 @@ $gap: 32px;
 
     // Styles when active === true
     &.is-open {
-      min-height: 7.5rem;
+      min-height: 10rem;
       background-color: #666;
       .column {
-        min-height: 7.5rem;
+        min-height: 10rem;
         padding-top: 0.5rem;
       }
     }
@@ -106,6 +106,5 @@ $gap: 32px;
 
 // BottomNav.js
 #bottom-color-test {
-  height: 2.5rem;
-  background-color: rgba($color: white, $alpha: 0.85);
+  background-color: rgba($color: black, $alpha: 0.25);
 }

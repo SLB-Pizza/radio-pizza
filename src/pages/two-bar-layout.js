@@ -27,8 +27,8 @@ const TwoBarLayout = () => (
   <body className="has-navbar-fixed-bottom">
     <TopNav />
     <Hero />
-    <ChatSchedule />
-    <EditorialFeed />
+    {/* <ChatSchedule />
+    <EditorialFeed /> */}
     <BottomNav />
   </body>
 );

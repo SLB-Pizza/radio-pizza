@@ -22,7 +22,7 @@ function BottomNav() {
         <div id="navbarMenuHeroC" className="navbar-menu">
           <div className="navbar-start">
             <p className="navbar-item">
-              <Link to="/tb-schedule">Schedule</Link>
+              <Link to="/schedule-page">Schedule</Link>
             </p>
 
             <a className="navbar-item">Link 2</a>
@@ -39,17 +39,17 @@ function BottomNav() {
           </div>
           <div className="navbar-end">
             <a href="/two-bar-layout" className="navbar-item">
-              <span className="icon is-medium has-text-light">
+              <span className="icon is-medium has-text-dark">
                 <FontAwesomeIcon icon={faMixcloud} size="2x" />
               </span>
             </a>
             <a href="/two-bar-layout" className="navbar-item">
-              <span className="icon is-medium has-text-light">
+              <span className="icon is-medium has-text-dark">
                 <FontAwesomeIcon icon={faInstagram} size="2x" />
               </span>
             </a>
             <a href="/two-bar-layout" className="navbar-item">
-              <span className="icon is-medium has-text-light">
+              <span className="icon is-medium has-text-dark">
                 <FontAwesomeIcon icon={faTwitter} size="2x" />
               </span>
             </a>

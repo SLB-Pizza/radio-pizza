@@ -2,7 +2,7 @@ import React from "react";
 import { TopNav, SchedulePage, BottomNav } from "../components/two-bar";
 import "../components/styles/index.scss";
 
-import Layout from "../components/Layout";
+// import Layout from "../components/Layout";
 
 /**
  * SPECIAL NOTE
@@ -20,8 +20,10 @@ import Layout from "../components/Layout";
 
 const Schedule = () => (
   <body className="has-navbar-fixed-bottom">
-    <Schedule />
+    <TopNav />
+    <SchedulePage />
+    <BottomNav />
   </body>
 );
 
-export default SchedulePage;
+export default Schedule;

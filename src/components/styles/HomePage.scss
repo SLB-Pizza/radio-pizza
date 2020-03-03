@@ -1,10 +1,6 @@
-// #top-bar {
-//   background-color: rgba($color: #f00660, $alpha: 0.5);
-//   margin-top: 0.75rem;
-//   margin-bottom: -0.15rem;
-// }
-
 .homepage-hero {
+  // There's a .75rem margin-top to account for somewhere. See AboutPage.scss to compare.
+
   @include tablet;
 
   background-image: url(https://source.unsplash.com/1920x1080/daily?music);

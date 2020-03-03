@@ -4,7 +4,7 @@ function App() {
   return (
     <div className="homepage-hero">
       <div className="container is-fluid">
-        <div className="columns is-8">
+        <div className="columns">
           <div class="column is-one-quarter">
             <code>is-one-quarter</code>
           </div>

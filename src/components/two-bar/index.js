@@ -27,6 +27,11 @@ export { default as SchedulePage } from "./SchedulePage";
 export { default as NewsPage } from "./NewsPage";
 
 /**
+ * About Page
+ */
+
+export { default as AboutPage } from "./AboutPage";
+/**
  *
  */
 export { default as ChatDateTime } from "./ChatDateTime";

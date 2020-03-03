@@ -1,0 +1,25 @@
+.news-page {
+  // some kinda weird .75rem offset top and bottom
+  margin-top: 8.25rem;
+  background-color: darkturquoise;
+  margin-bottom: 0.75rem;
+
+  .news {
+    background-color: orange;
+    height: 20rem;
+
+    &:nth-child(2n + 1) {
+      background-color: white;
+      margin-bottom: 1rem;
+    }
+
+    &:first-child {
+      background-image: url(https://source.unsplash.com/1920x400/daily?dj);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+      background-size: cover;
+      margin-bottom: 2rem;
+    }
+  }
+}

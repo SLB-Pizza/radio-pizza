@@ -1,6 +1,6 @@
 import React from "react";
 
-function App() {
+function Hero() {
   return (
     <div className="homepage-hero">
       <div className="container is-fluid">
@@ -23,4 +23,4 @@ function App() {
   );
 }
 
-export default App;
+export default Hero;

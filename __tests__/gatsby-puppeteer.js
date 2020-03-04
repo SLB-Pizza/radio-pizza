@@ -131,7 +131,7 @@ const dateString = () => {
 
     console.log(chalk.cyan(`  Navigating to localhost:8000/two-bar-layout...`));
 
-    await page.goto("http://localhost:8000/two-bar-layout", {
+    await page.goto("http://localhost:8000/about-page", {
       waitUntil: ["load", "domcontentloaded"]
     }); // `waitUntil: 'load'` seems required for a Gatsby site.
 

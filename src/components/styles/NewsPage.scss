@@ -1,25 +1,47 @@
 .news-page {
   // some kinda weird .75rem offset top and bottom
-  margin-top: 8.25rem;
-  background-color: darkturquoise;
+  margin-top: 7.5rem;
+  padding-top: 3rem;
+  background-color: #2a2a2a;
   margin-bottom: 0.75rem;
 
   .news {
-    background-color: orange;
-    height: 20rem;
+    background-image: url(https://source.unsplash.com/1600x900/daily?music);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    height: 15rem;
 
-    &:nth-child(2n + 1) {
-      background-color: white;
-      margin-bottom: 1rem;
+    // Flex settings for the news elements
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+
+    p {
+      color: white;
     }
 
-    &:first-child {
-      background-image: url(https://source.unsplash.com/1920x400/daily?dj);
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-attachment: scroll;
-      background-size: cover;
-      margin-bottom: 2rem;
+    .news-info {
+      display: flex;
+      flex-direction: column;
+      background-color: rgba($color: #000000, $alpha: 0.45);
+
+      .article-info {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+      }
     }
+
+    // &:nth-child(2n + 1) {
+    //   // background-color: white;
+    //   margin-bottom: 1rem;
+    // }
+
+    // &:first-child {
+    //   // background-image: url(https://source.unsplash.com/1920x400/daily?dj);
+    //   margin-bottom: 2rem;
+    // }
   }
 }

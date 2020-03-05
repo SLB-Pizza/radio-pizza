@@ -14,9 +14,7 @@ function ScheduleBar() {
           <div className="column is-narrow" id="up-next">
             <p>in 1hr 1m</p>
           </div>
-          <div className="column">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </div>
+          <div className="column">Lorem ipsum dolor sit.</div>
           <div
             className="column is-narrow button is-dark"
             id="expand-schedule"

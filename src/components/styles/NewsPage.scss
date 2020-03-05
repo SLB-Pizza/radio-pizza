@@ -3,6 +3,7 @@
   height: calc(100vh - 10.5rem);
   display: flex;
   flex-direction: column;
+  background-color: #2a2a2a;
 
   #div-1,
   #div-2,
@@ -25,25 +26,28 @@
   }
 
   #div-1 {
-    background-image: url(https://source.unsplash.com/768x1024/weekly?nature);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
+    background-color: green;
+    // background-image: url(https://source.unsplash.com/768x1024/weekly?nature);
+    // background-position: center center;
+    // background-repeat: no-repeat;
+    // background-attachment: scroll;
+    // background-size: cover;
   }
   #div-2 {
-    background-image: url(https://source.unsplash.com/768x1024/weekly?food);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
+    background-color: coral;
+    // background-image: url(https://source.unsplash.com/768x1024/weekly?food);
+    // background-position: center center;
+    // background-repeat: no-repeat;
+    // background-attachment: scroll;
+    // background-size: cover;
   }
   #div-3 {
-    background-image: url(https://source.unsplash.com/768x1024/weekly?cars);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
+    background-color: cornflowerblue;
+    // background-image: url(https://source.unsplash.com/768x1024/weekly?cars);
+    // background-position: center center;
+    // background-repeat: no-repeat;
+    // background-attachment: scroll;
+    // background-size: cover;
   }
   #columns-mobile {
     margin-top: 0;

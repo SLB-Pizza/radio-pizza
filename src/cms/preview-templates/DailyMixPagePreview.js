@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { DailyMixPageTemplate } from '../../templates/daily-mix';
 
-const ShowPagePreview = ({ entry, widgetFor }) => (
+const DailyMixPagePreview = ({ entry, widgetFor }) => (
   <DailymixPageTemplate
     content={widgetFor('mixes')}
     description={entry.getIn(['data', 'description'])}
@@ -21,7 +21,10 @@ DailyMixPagePreview.propTypes = {
   }),
   widgetFor: PropTypes.func,
   dailyMixImage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  featuredDailyMixImage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  featuredDailyMixImage: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]),
 };
 
 export default DailyMixPagePreview;

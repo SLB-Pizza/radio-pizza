@@ -1,8 +1,10 @@
-import React from "react";
+import React from 'react';
+import MixCloudPlayer from 'react-player/lib/players/Mixcloud';
 
 function RadioPlayer() {
   return (
     <div className="radio-player is-flex">
+      <MixCloudPlayer url="https://www.mixcloud.com/HalfMoonbk/donis-dez-andres-11222019/" />
       <div id="radioShowPic">
         <img
           src="https://source.unsplash.com/1920x1080/daily?music"

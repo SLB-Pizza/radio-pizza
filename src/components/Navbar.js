@@ -38,7 +38,8 @@ const Navbar = class extends React.Component {
       <nav
         className="navbar is-transparent"
         role="navigation"
-        aria-label="main-navigation">
+        aria-label="main-navigation"
+      >
         <div className="container">
           <div className="navbar-brand">
             <Link to="/" className="navbar-item" title="Logo">
@@ -53,7 +54,8 @@ const Navbar = class extends React.Component {
               className={`navbar-burger burger ${this.state.navBarActiveClass}`}
               data-target="navMenu"
               onClick={() => this.toggleHamburger()}
-              onKeyDown={() => this.toggleHamburger()}>
+              onKeyDown={() => this.toggleHamburger()}
+            >
               <span />
               <span />
               <span />
@@ -61,7 +63,8 @@ const Navbar = class extends React.Component {
           </div>
           <div
             id="navMenu"
-            className={`navbar-menu ${this.state.navBarActiveClass}`}>
+            className={`navbar-menu ${this.state.navBarActiveClass}`}
+          >
             <div className="navbar-start has-text-centered">
               <Link className="navbar-item" to="/about">
                 About Us
@@ -84,7 +87,8 @@ const Navbar = class extends React.Component {
                 className="navbar-item"
                 href="https://github.com/richdacuban/HalfMoonBk"
                 target="_blank"
-                rel="noopener noreferrer">
+                rel="noopener noreferrer"
+              >
                 <span className="icon">
                   <img src={github} alt="Github" />
                 </span>

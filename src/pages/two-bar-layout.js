@@ -24,13 +24,13 @@ import "../components/styles/index.scss";
  */
 
 const TwoBarLayout = () => (
-  <body className="has-navbar-fixed-bottom">
+  <div className="has-navbar-fixed-bottom">
     <TopNav />
     <Hero />
     <ChatSchedule />
     <EditorialFeed />
     <BottomNav />
-  </body>
+  </div>
 );
 
 export default TwoBarLayout;

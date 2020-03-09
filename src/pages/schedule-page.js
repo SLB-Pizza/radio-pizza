@@ -19,11 +19,11 @@ import "../components/styles/index.scss";
  */
 
 const Schedule = () => (
-  <body className="has-navbar-fixed-bottom">
+  <div className="has-navbar-fixed-bottom">
     <TopNav />
     <SchedulePage />
     <BottomNav />
-  </body>
+  </div>
 );
 
 export default Schedule;

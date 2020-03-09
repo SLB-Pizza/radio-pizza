@@ -1,6 +1,8 @@
 .schedule-page {
+  @include tablet;
   margin-top: 8.25rem;
   height: calc(100vh - 10.5rem);
+
   background-color: #2a2a2a;
   background-image: url(https://source.unsplash.com/1920x1080/daily?dj);
   background-position: center center;
@@ -11,12 +13,6 @@
   // Set all text to white
   p {
     color: white;
-
-    // Set schedule heading
-    &.is-1 {
-      padding: 1rem 0 1rem;
-      text-shadow: 0.125rem 0.125rem 0.125rem black;
-    }
   }
 
   // Rules for the day selector
@@ -40,14 +36,16 @@
   // Give all schedule entry 'columns' divs
   // a translucent black bg and  padding
   .columns:not(:first-child) {
-    background-color: rgba($color: #000, $alpha: 0.85);
-    padding: 1rem;
+    background-color: rgba($color: #000, $alpha: 0.75);
+    padding: 0.5rem;
 
     // When hovering over a schedule entry,
     // change the entry's colors for visibility
     &:hover {
       background-color: #aaa;
-      color: black;
+      p {
+        color: black;
+      }
     }
   }
 }

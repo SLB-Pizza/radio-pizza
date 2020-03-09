@@ -2,14 +2,14 @@
   // There's a .75rem margin-top to account for somewhere. Has to do with setting up a flexbox.
 
   @include tablet;
+  margin-top: 8.25rem;
+  height: calc(100vh - 10.5rem);
 
   background-image: url(https://source.unsplash.com/1920x1080/daily?music);
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
-  margin-top: 8.25rem;
-  height: calc(100vh - 10.5rem);
   background-color: greenyellow;
   .columns .column {
     background-color: rgba($color: cyan, $alpha: 0.5);

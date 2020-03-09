@@ -5,7 +5,7 @@ function SchedulePage() {
     <section className="schedule-page">
       <div className="hero schedule-hero">
         <div className="hero-body">
-          <div className="container">
+          <div className="container is-fluid">
             <div className="columns is-multiline">
               <div className="column is-12">
                 <p className="title is-1">Schedule</p>
@@ -56,8 +56,8 @@ function SchedulePage() {
           </div>
         </div>
       </div>
-      <div className="container">
-        <div className="columns is-vcentered">
+      <div className="container is-fluid" id="scheduled-shows">
+        <div className="columns">
           <div className="column is-4">img</div>
           <div className="column is-8">times</div>
         </div>

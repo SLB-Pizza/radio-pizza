@@ -3,8 +3,14 @@
   height: calc(100vh - 10.5rem);
   background-color: darkturquoise;
 
+  // Top section of page - hero and dates
+
   p {
     color: white;
+
+    &.is-1 {
+      text-shadow: 2px 2px 2px black;
+    }
   }
   .schedule-hero {
     background-image: url(https://source.unsplash.com/1920x1080/daily?dj);
@@ -26,9 +32,21 @@
 
     &:active {
       background-color: white;
+
       p {
         color: black;
       }
+    }
+  }
+
+  // The bottom section -- the scheduled shows
+  #scheduled-shows {
+    margin: 0.75rem;
+
+    .columns {
+      margin-left: 0.25rem;
+      margin-right: 1.5rem;
+      background-color: yellow;
     }
   }
 }

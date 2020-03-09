@@ -33,6 +33,28 @@
     }
   }
 
+  // MOBILE DATE PICKER RULES
+  #mobile-date-picker {
+    overflow-x: scroll;
+    background-color: black;
+    p {
+      color: white;
+    }
+    > .column {
+      display: inline-block;
+    }
+    > .column::after {
+      color: yellow;
+      border-left: 0.125rem solid;
+      border-top: 0.125rem solid transparent;
+      border-bottom: 0.125rem solid transparent;
+      display: inline-block;
+      content: "";
+      position: absolute;
+      right: -0.125rem;
+    }
+  }
+
   // Give all schedule entry 'columns' divs
   // a translucent black bg and  padding
   .columns:not(:first-child) {

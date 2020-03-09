@@ -7,7 +7,7 @@ let pages = [];
 
 const desktops = [
   {
-    name: "Landscape 1080p",
+    name: "1080p",
     viewport: {
       width: 1920,
       height: 1080,
@@ -18,26 +18,19 @@ const desktops = [
     }
   },
   {
-    name: "Portrait 1080p",
+    name: "1023 Tablet",
     viewport: {
-      width: 1080,
-      height: 1920,
+      width: 1023,
+      height: 1000,
       deviceScaleFactor: 1,
       isMobile: false,
       hasTouch: false,
-      isLandscape: false
+      isLandscape: true
     }
   }
 ];
 
-const viewports = [
-  ...desktops,
-  devices["Pixel 2 XL"],
-  devices["iPhone X"],
-  devices["iPhone XR"],
-  devices["iPad"],
-  devices["iPad Pro"]
-];
+const viewports = [...desktops, devices["iPhone X"], devices["iPad"]];
 
 /**
  * Add to viewports array for mobile and tablet
@@ -127,13 +120,7 @@ const dateString = () => {
 
     console.log(chalk.cyan(`  Opening new browser tab...\n`));
 
-    const page = await browser.newPage();
-
-    console.log(chalk.cyan(`  Navigating to localhost:8000/two-bar-layout...`));
-
-    await page.goto("http://localhost:8000/about-page", {
-      waitUntil: ["load", "domcontentloaded"]
-    }); // `waitUntil: 'load'` seems required for a Gatsby site.
+    console.log(chalk.cyan(`  Navigating to localhost:8000/schedule-page...`));
 
     console.log(
       chalk.cyan(
@@ -149,6 +136,7 @@ const dateString = () => {
         currViewport.userAgent = await browser.userAgent();
       }
 
+      const page = await browser.newPage();
       // Emulate the current device
       await page.emulate(currViewport);
 
@@ -156,8 +144,13 @@ const dateString = () => {
       // setTimeout(() => , 500);
       console.log(chalk.green(`  Emulating ${currViewport.name}...`));
 
+      await page.goto("http://localhost:8000/schedule-page", {
+        waitUntil: ["load", "domcontentloaded"]
+      }); // `waitUntil: 'load'` seems required for a Gatsby site.
+
       await page.screenshot({
-        path: `__tests__/screenshots/${time} | ${currViewport.name}.png`
+        path: `__tests__/screenshots/${time} | ${currViewport.name}.png`,
+        fullPage: true
       });
 
       console.log(

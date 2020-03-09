@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { MobileNewsItem, DesktopNewsItem } from "./index";
 
 function NewsPage() {
   const [isOpen, setIsOpen] = useState("");
@@ -19,6 +20,11 @@ function NewsPage() {
         {isOpen === "div-1" ? (
           <div className="white-content container is-fluid">
             <div className="columns" id="columns-mobile">
+              {/* <MobileNewsItem />
+              <MobileNewsItem />
+              <MobileNewsItem />
+              <MobileNewsItem />
+              <MobileNewsItem /> */}
               <div className="column is-12 img-nature">Stuff</div>
               <div className="column is-12 img-nature">Stuff</div>
               <div className="column is-12 img-nature">Stuff</div>
@@ -59,6 +65,28 @@ function NewsPage() {
               <div className="column is-12 img-cars">Stuff</div>
               <div className="column is-12 img-cars">Stuff</div>
               <div className="column is-12 img-cars">Stuff</div>
+            </div>
+          </div>
+        ) : (
+          <div className="white-content is-hidden">you can't see me</div>
+        )}
+        <div id="div-4" onClick={toggleDrawer}>
+          <p className="title is-1">div-4</p>
+        </div>
+        {isOpen === "div-4" ? (
+          <div className="white-content container is-fluid">
+            <div className="columns" id="columns-mobile">
+              {/* <MobileNewsItem />
+              <MobileNewsItem />
+              <MobileNewsItem />
+              <MobileNewsItem />
+              <MobileNewsItem /> */}
+              <div className="column is-12 img-nature">Stuff</div>
+              <div className="column is-12 img-nature">Stuff</div>
+              <div className="column is-12 img-nature">Stuff</div>
+              <div className="column is-12 img-nature">Stuff</div>
+              <div className="column is-12 img-nature">Stuff</div>
+              <div className="column is-12 img-nature">Stuff</div>
             </div>
           </div>
         ) : (

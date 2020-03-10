@@ -190,10 +190,10 @@ const dateString = () => {
       console.log(chalk.cyan(`  ┣ ✅  Page loaded successfully.`));
       console.log(chalk.cyan(`  ┃`));
 
-      // await page.screenshot({
-      //   path: `__tests__/screenshots/${time} | ${currViewport.name}.png`,
-      //   fullPage: true
-      // });
+      await page.screenshot({
+        path: `__tests__/screenshots/${time} | ${currViewport.name}.png`,
+        fullPage: true
+      });
 
       console.log(
         chalk.green(

@@ -33,7 +33,7 @@ const customViewports = [
   },
   {
     name: "1023 Tablet",
-    comment: "tablet-view right up to desktop breakpoint",
+    comment: "tablet-view up to desktop breakpoint (1024px)",
     viewport: {
       width: 1023,
       height: 1000,
@@ -46,9 +46,9 @@ const customViewports = [
 ];
 
 const iPad = devices["iPad"];
-iPad.comment = "a tablet-view right before mobile breakpoint";
+iPad.comment = "mobile-view up to tablet breakpoint (769px)";
 const iPhoneX = devices["iPhone X"];
-iPhoneX.comment = "a modern mobile device";
+iPhoneX.comment = "a modern mobile device (<768px)";
 
 const viewports = [...customViewports, iPad, iPhoneX];
 
@@ -184,7 +184,7 @@ const dateString = () => {
       console.log(chalk.cyan(`  ┣ Opening new browser tab...`));
       console.log(chalk.cyan(`  ┣ Navigating to ${webpage}...`));
       await page.goto(`${webpage}`, {
-        waitUntil: ["load", "domcontentloaded"]
+        waitUntil: ["load", "domcontentloaded", "networkidle2"]
       }); // `waitUntil: 'load'` seems required for a Gatsby site.
 
       console.log(chalk.cyan(`  ┣ ✅  Page loaded successfully.`));

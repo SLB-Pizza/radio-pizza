@@ -3,8 +3,77 @@
   height: calc(100vh - 10.5rem);
   display: flex;
   flex-direction: column;
-  background-color: #2a2a2a;
-  transform: ease-in-out 0.5sec;
+  background-image: url(https://source.unsplash.com/1920x1080/daily?dj);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+
+  // Make all text white
+  p {
+    color: white;
+
+    &.title {
+      padding: 1rem 0;
+      text-shadow: 2px 2px 2px black;
+    }
+  }
+
+  // Align the top 'columns' div to the schedule bar
+  .headers {
+    margin-top: 0;
+  }
+
+  // Give both 'columns' divs borders and a background color
+  .category {
+    background-color: rgba($color: #000000, $alpha: 0.85);
+    &-items {
+      background-color: rgba($color: #000000, $alpha: 0.5);
+      border-left: 1px solid grey;
+      border-right: 1px solid grey;
+    }
+  }
+
+  .category-items {
+    max-height: calc(100vh - 26rem);
+    overflow-y: hidden;
+    scrollbar-width: none;
+    ::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+  }
+
+  .cat-item {
+    width: auto;
+    height: 12rem;
+    background-image: url(https://source.unsplash.com/1280x800/daily?party);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    margin-bottom: 3rem;
+
+    .item-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba($color: #000000, $alpha: 0.15);
+      height: 100%;
+      padding: 0 0.75rem;
+
+      // Give all text a shadow
+      p {
+        text-shadow: 2px 2px 2px black;
+      }
+
+      // .item-date {
+      //   position: static;
+      //   top: 3rem;
+      // }
+    }
+  }
 
   #div-1,
   #div-2,
@@ -85,51 +154,3 @@
     margin: 2rem 0;
   }
 }
-
-// .news-page {
-//   // some kinda weird .75rem offset top and bottom
-//   margin-top: 7.5rem;
-//   padding-top: 3rem;
-//   background-color: #2a2a2a;
-//   margin-bottom: 0.75rem;
-
-//   .news {
-//     background-image: url(https://source.unsplash.com/1600x900/daily?music);
-//     background-position: center center;
-//     background-repeat: no-repeat;
-//     background-attachment: scroll;
-//     background-size: cover;
-//     height: 15rem;
-
-//     // Flex settings for the news elements
-//     display: flex;
-//     flex-direction: row;
-//     align-items: flex-end;
-
-//     p {
-//       color: white;
-//     }
-
-//     .news-info {
-//       display: flex;
-//       flex-direction: column;
-//       background-color: rgba($color: #000000, $alpha: 0.45);
-
-//       .article-info {
-//         flex: 1;
-//         display: flex;
-//         flex-direction: row;
-//       }
-//     }
-
-//     // &:nth-child(2n + 1) {
-//     //   // background-color: white;
-//     //   margin-bottom: 1rem;
-//     // }
-
-//     // &:first-child {
-//     //   // background-image: url(https://source.unsplash.com/1920x400/daily?dj);
-//     //   margin-bottom: 2rem;
-//     // }
-//   }
-// }

@@ -1,6 +1,6 @@
 const chalk = require("chalk");
 const figlet = require("figlet");
-const readline = require("readline");
+// const readline = require("readline");
 const puppeteer = require("puppeteer");
 const devices = puppeteer.devices;
 
@@ -186,9 +186,9 @@ const dateString = () => {
       console.log(chalk.cyan(`  ┣ Opening new browser tab...`));
       console.log(chalk.cyan(`  ┣ Navigating to ${webpage}...`));
 
-      await page.goto(`${webpage}`, {
-        waitUntil: ["load", "domcontentloaded", "networkidle2"]
-      }); // `waitUntil: 'load'` seems required for a Gatsby site.
+      // await page.goto(`${webpage}`, {
+      //   waitUntil: ["load", "domcontentloaded", "networkidle2"]
+      // }); // `waitUntil: 'load'` seems required for a Gatsby site.
 
       console.log(chalk.cyan(`  ┣ ✅  Page loaded successfully.`));
       console.log(chalk.cyan(`  ┃`));

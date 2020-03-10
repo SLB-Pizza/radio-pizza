@@ -19,11 +19,11 @@ import "../components/styles/index.scss";
  */
 
 const NewsFeed = () => (
-  <body className="has-navbar-fixed-bottom">
+  <div className="has-navbar-fixed-bottom">
     <TopNav />
     <NewsPage />
     <BottomNav />
-  </body>
+  </div>
 );
 
 export default NewsFeed;

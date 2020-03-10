@@ -29,6 +29,7 @@ export { default as SchedulePage } from "./SchedulePage";
  * NewsPage
  */
 export { default as NewsPage } from "./NewsPage";
+export { default as CategoryItem } from "./CategoryItem";
 export { default as MobileNewsItem } from "./MobileNewsItem";
 export { default as DesktopNewsItem } from "./DesktopNewsItem";
 

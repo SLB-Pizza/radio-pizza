@@ -6,7 +6,7 @@ const devices = puppeteer.devices;
 
 let pages = [];
 
-const desktops = [
+const customViewports = [
   {
     name: "1080p",
     comment: "a typical 1080p monitor",
@@ -50,7 +50,7 @@ iPad.comment = "a tablet-view right before mobile breakpoint";
 const iPhoneX = devices["iPhone X"];
 iPhoneX.comment = "a modern mobile device";
 
-const viewports = [...desktops, iPad, iPhoneX];
+const viewports = [...customViewports, iPad, iPhoneX];
 
 /**
  * Add to viewports array for mobile and tablet
@@ -139,25 +139,22 @@ const dateString = () => {
     console.log(
       chalk.underline.white("Capturing your project in different viewports.\n")
     );
-    console.log(chalk.cyan(`Loading Puppeteer...\n`));
+    console.log(chalk.white(`Loading Puppeteer...\n`));
 
     const browser = await puppeteer.launch();
     const time = await dateString();
     const webpage = "http://localhost:8000/schedule-page";
 
     console.log(
-      chalk.cyan(
-        `Preparing to take ${viewports.length} screenshots of ${webpage}.`
+      chalk.white(
+        `Preparing to take ${viewports.length} screenshots of ${webpage}\n`
       )
-    );
-    console.log(
-      chalk.cyan(`💾  Screenshots will be saved in '__tests__/screenshots'\n`)
     );
 
     for (let i = 0; i < viewports.length; i++) {
       let currViewport = viewports[i];
 
-      // Add userAgent string to device object for the desktops
+      // Add userAgent string to device object for the customViewports
       if (!currViewport.hasOwnProperty("userAgent")) {
         currViewport.userAgent = await browser.userAgent();
       }
@@ -177,10 +174,12 @@ const dateString = () => {
       );
       const page = await browser.newPage();
 
-      console.log(chalk.bold.white(`  Emulating ${currViewport.name}...`));
+      console.log(
+        chalk.bold.white(`  #${i + 1} - Emulating ${currViewport.name}...`)
+      );
       await page.emulate(currViewport);
 
-      console.log(chalk.white(`  ┣ This represents ${currViewport.comment}.`));
+      console.log(chalk.white(`  ┣ Represents ${currViewport.comment}.`));
       console.log(chalk.white(`  ┃`));
       console.log(chalk.cyan(`  ┣ Opening new browser tab...`));
       console.log(chalk.cyan(`  ┣ Navigating to ${webpage}...`));
@@ -188,7 +187,8 @@ const dateString = () => {
         waitUntil: ["load", "domcontentloaded"]
       }); // `waitUntil: 'load'` seems required for a Gatsby site.
 
-      console.log(chalk.green(`  ┗ ✅  Page loaded successfully.\n`));
+      console.log(chalk.cyan(`  ┣ ✅  Page loaded successfully.`));
+      console.log(chalk.cyan(`  ┃`));
 
       // await page.screenshot({
       //   path: `__tests__/screenshots/${time} | ${currViewport.name}.png`,
@@ -197,15 +197,14 @@ const dateString = () => {
 
       console.log(
         chalk.green(
-          `  🖼️   #${i + 1} - ${currViewport.name} (${
-            currViewport.viewport.width
-          }x${currViewport.viewport.height}) captured.\n`
+          `  ┣ 🖼️   ${currViewport.name} (${currViewport.viewport.width}x${currViewport.viewport.height}) captured.`
         )
       );
-
-      // await page.reload({
-      //   waitUntil: ["load", "domcontentloaded", "networkidle2"]
-      // });
+      console.log(
+        chalk.green(
+          `  ┗ 💾  Saved to '/screenshots/${time} | ${currViewport.name}.png'\n`
+        )
+      );
     }
 
     console.log(

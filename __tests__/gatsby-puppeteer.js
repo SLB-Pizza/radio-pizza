@@ -4,12 +4,15 @@ const readline = require("readline");
 const puppeteer = require("puppeteer");
 const devices = puppeteer.devices;
 
-let pages = [];
+/**
+ * Edit this to change the webpage.
+ */
+const webpage = "http://localhost:8000/schedule-page";
 
 const customViewports = [
   {
     name: "1080p",
-    comment: "a typical 1080p monitor",
+    description: "a 1080p monitor, fullhd breakpoint (>1408px)",
     viewport: {
       width: 1920,
       height: 1080,
@@ -20,11 +23,11 @@ const customViewports = [
     }
   },
   {
-    name: "HD Laptop",
-    comment: "a typical laptop screen",
+    name: "Low-res Laptop",
+    description: "a low-res laptop screen, widescreen breakpoint (<1407px)",
     viewport: {
-      width: 1440,
-      height: 900,
+      width: 1280,
+      height: 800,
       deviceScaleFactor: 1,
       isMobile: false,
       hasTouch: false,
@@ -33,7 +36,7 @@ const customViewports = [
   },
   {
     name: "1023 Tablet",
-    comment: "tablet-view up to desktop breakpoint (1024px)",
+    description: "tablet-view up to desktop breakpoint (<1024px)",
     viewport: {
       width: 1023,
       height: 1000,
@@ -46,9 +49,9 @@ const customViewports = [
 ];
 
 const iPad = devices["iPad"];
-iPad.comment = "mobile-view up to tablet breakpoint (769px)";
+iPad.description = "larger mobile-view up to tablet breakpoint (<769px)";
 const iPhoneX = devices["iPhone X"];
-iPhoneX.comment = "a modern mobile device (<768px)";
+iPhoneX.description = "a modern mobile device (<768px)";
 
 const viewports = [...customViewports, iPad, iPhoneX];
 
@@ -143,7 +146,6 @@ const dateString = () => {
 
     const browser = await puppeteer.launch();
     const time = await dateString();
-    const webpage = "http://localhost:8000/schedule-page";
 
     console.log(
       chalk.white(
@@ -179,10 +181,11 @@ const dateString = () => {
       );
       await page.emulate(currViewport);
 
-      console.log(chalk.white(`  ┣ Represents ${currViewport.comment}.`));
+      console.log(chalk.white(`  ┣ Represents ${currViewport.description}.`));
       console.log(chalk.white(`  ┃`));
       console.log(chalk.cyan(`  ┣ Opening new browser tab...`));
       console.log(chalk.cyan(`  ┣ Navigating to ${webpage}...`));
+
       await page.goto(`${webpage}`, {
         waitUntil: ["load", "domcontentloaded", "networkidle2"]
       }); // `waitUntil: 'load'` seems required for a Gatsby site.
@@ -191,7 +194,7 @@ const dateString = () => {
       console.log(chalk.cyan(`  ┃`));
 
       await page.screenshot({
-        path: `__tests__/screenshots/${time} | ${currViewport.name}.png`,
+        path: `__tests__/screenshots/${time} - ${currViewport.name}.png`,
         fullPage: true
       });
 

@@ -149,6 +149,23 @@ function SchedulePage() {
           <p>instagram</p>
         </div>
       </div>
+      <div className="columns is-vcentered is-hidden-touch time-slot">
+        <div className="column is-3">
+          <p className="is-size-4 has-text-centered">1:30AM - 6:00AM</p>
+        </div>
+        <div className="column is-narrow">
+          <p className="is-size-4">In Search of Sunrise</p>
+        </div>
+        <div className="column is-narrow">
+          <p>bio</p>
+        </div>
+        <div className="column is-narrow">
+          <p>twitter</p>
+        </div>
+        <div className="column is-narrow">
+          <p>instagram</p>
+        </div>
+      </div>
 
       {/*
       MOBILE -- < 768px

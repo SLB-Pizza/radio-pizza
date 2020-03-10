@@ -25,7 +25,7 @@ function SchedulePage() {
       {/*
           DAYS OF WEEK
           */}
-      <div className="columns is-hidden-touch">
+      <div className="columns is-hidden-touch date-picker">
         <div className="column time-date has-text-centered">
           <p className="title is-3">MON</p>
           <p className="subtitle is-5">3/16</p>
@@ -58,7 +58,7 @@ function SchedulePage() {
       {/*
         SCHEDULE ENTRIES
         */}
-      <div className="columns is-vcentered is-hidden-touch">
+      <div className="columns is-vcentered is-hidden-touch time-slot">
         <div className="column is-3">
           <p className="is-size-4 has-text-centered">1:30PM - 4:00PM</p>
         </div>
@@ -76,7 +76,7 @@ function SchedulePage() {
         </div>
       </div>
 
-      <div className="columns is-vcentered is-hidden-touch">
+      <div className="columns is-vcentered is-hidden-touch time-slot">
         <div className="column is-3">
           <p className="is-size-4 has-text-centered">4:00PM - 5:45PM</p>
         </div>
@@ -94,7 +94,7 @@ function SchedulePage() {
         </div>
       </div>
 
-      <div className="columns is-vcentered is-hidden-touch">
+      <div className="columns is-vcentered is-hidden-touch time-slot">
         <div className="column is-3">
           <p className="is-size-4 has-text-centered">5:45PM - 7:00PM</p>
         </div>
@@ -112,13 +112,15 @@ function SchedulePage() {
         </div>
       </div>
 
-      <div className="columns is-vcentered is-hidden-touch">
+      <div className="columns is-vcentered is-hidden-touch time-slot">
         <div className="column is-3">
           <p className="is-size-4 has-text-centered">7:00PM - 10:00PM</p>
         </div>
-        <div className="column">
-          <p className="is-size-4">The Show with the Long Long Name</p>
-          <p className="is-size-6">Show Host</p>
+        <div className="column is-narrow">
+          <p className="is-size-4">
+            The Show with the Longest Name of Them All
+          </p>
+          {/* <p className="is-size-6">Show Host</p> */}
         </div>
         <div className="column is-narrow">
           <p>bio</p>
@@ -130,7 +132,7 @@ function SchedulePage() {
           <p>instagram</p>
         </div>
       </div>
-      <div className="columns is-vcentered is-hidden-touch">
+      <div className="columns is-vcentered is-hidden-touch time-slot">
         <div className="column is-3">
           <p className="is-size-4 has-text-centered">10:00PM - 1:30AM</p>
         </div>

@@ -13,6 +13,11 @@
   // Set all text to white
   p {
     color: white;
+
+    // Give 'Schedule' a shadow
+    &.title.is-1 {
+      text-shadow: 3px 3px 2px black;
+    }
   }
 
   // Rules for the day selector
@@ -33,6 +38,22 @@
     }
   }
 
+  // Give all time slot 'columns' divs
+  // a translucent black bg and padding
+  .time-slot {
+    background-color: rgba($color: #000, $alpha: 0.75);
+    padding: 0.5rem;
+
+    // When hovering over a schedule entry,
+    // change the entry's colors for visibility
+    &:hover {
+      background-color: #aaa;
+      p {
+        color: black;
+      }
+    }
+  }
+
   // MOBILE SCROLL INSTRUCTIONS
   #scroll-instructions {
     padding: 0;
@@ -46,22 +67,6 @@
     background-color: black;
     p {
       color: white;
-    }
-  }
-
-  // Give all schedule entry 'columns' divs
-  // a translucent black bg and  padding
-  .columns:not(:first-child) {
-    background-color: rgba($color: #000, $alpha: 0.75);
-    padding: 0.5rem;
-
-    // When hovering over a schedule entry,
-    // change the entry's colors for visibility
-    &:hover {
-      background-color: #aaa;
-      p {
-        color: black;
-      }
     }
   }
 }

@@ -21,16 +21,16 @@ function NewsPage() {
           <p className="title is-1">Halfmoon Feed</p>
         </div>
         <div className="column category is-3">
-          <p className="title is-2 has-text-centered">Mixes</p>
+          <p className="title is-3 has-text-centered">Mixes</p>
         </div>
         <div className="column category is-3">
-          <p className="title is-2 has-text-centered">News</p>
+          <p className="title is-3 has-text-centered">News</p>
         </div>
         <div className="column category is-3">
-          <p className="title is-2 has-text-centered">Article</p>
+          <p className="title is-3 has-text-centered">Articles</p>
         </div>
         <div className="column category is-3">
-          <p className="title is-2 has-text-centered">Events</p>
+          <p className="title is-3 has-text-centered">Events</p>
         </div>
       </div>
       <div className="columns">

@@ -18,9 +18,14 @@ function SchedulePage() {
       DESKTOP -- 769px and up
       */}
       <div className="columns is-hidden-touch">
-        {/*
+        <div className="column">
+          <p className="title is-1">Schedule</p>
+        </div>
+      </div>
+      {/*
           DAYS OF WEEK
           */}
+      <div className="columns is-hidden-touch">
         <div className="column time-date has-text-centered">
           <p className="title is-3">MON</p>
           <p className="subtitle is-5">3/16</p>

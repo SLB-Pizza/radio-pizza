@@ -30,7 +30,7 @@ function SchedulePage() {
           <p className="title is-3">MON</p>
           <p className="subtitle is-5">3/16</p>
         </div>
-        <div className="column time-date has-text-centered">
+        <div className="column time-date has-text-centered" id="test-active">
           <p className="title is-3">TUE</p>
           <p className="subtitle is-5">3/17</p>
         </div>

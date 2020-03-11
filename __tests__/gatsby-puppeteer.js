@@ -156,13 +156,16 @@ const dateString = () => {
         waitUntil: ["load", "domcontentloaded", "networkidle2"]
       });
 
+      // Click one of the time-date divs
+      await page.click("div #test-active");
+
       console.log(chalk.cyan(`  ┣ ✅  Page loaded successfully.`));
       console.log(chalk.cyan(`  ┃`));
 
       // Take the screenshot
-      await page.screenshot({
-        path: `__tests__/screenshots/${webpageName} ${webpageVersion} | ${device.name} | ${time}.png`
-      });
+      // await page.screenshot({
+      //   path: `__tests__/screenshots/${webpageName} ${webpageVersion} | ${device.name} | ${time}.png`
+      // });
 
       console.log(
         chalk.green(
@@ -186,10 +189,12 @@ const dateString = () => {
     process.exit();
   } catch (error) {
     // Error catching
-    console.log(chalk.inverse.bold.red(`  Something went wrong.  `));
-    console.log(chalk.red("\nCommon Issues:"));
-    console.log(chalk.red("- Is the dev server running?"));
-    console.log(chalk.red("- Is the webpage to visit correct? -", webpage));
+    console.log(chalk.red(`  ┃`));
+    console.log(chalk.inverse.bold.red(`  ┣ ❌  Something went wrong. `));
+    console.log(chalk.red(`  ┃`));
+    console.log(chalk.red("  ┣ ====== Common Issues ======"));
+    console.log(chalk.red("  ┣━ Is the dev server running?"));
+    console.log(chalk.red("  ┗━ Is the URL correct? ➡", webpage, "\n"));
     if (error instanceof puppeteer.errors.TimeoutError) {
       console.log(
         chalk.inverse.bold.red(`Operation timed out. Error logs below. \n`)

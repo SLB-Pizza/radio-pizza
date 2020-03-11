@@ -21,6 +21,11 @@ export { default as ChatSchedule } from "./ChatSchedule";
 export { default as EditorialFeed } from "./EditorialFeed";
 
 /**
+ * MixesPage
+ */
+export { default as MixesPage } from "./MixesPage";
+
+/**
  * SchedulePage
  */
 export { default as SchedulePage } from "./SchedulePage";

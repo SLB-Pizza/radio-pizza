@@ -24,6 +24,13 @@
   // Rules for the day selector
   .time-date {
     background-color: black;
+
+    // Give every time and date a right border
+    // EXCEPT the last
+    &:not(:last-child) {
+      border-right: 1px solid grey;
+    }
+
     &:hover {
       background-color: #aaa;
       p {
@@ -44,6 +51,12 @@
   .time-slot {
     background-color: rgba($color: #000, $alpha: 0.75);
     padding: 0.25rem;
+
+    // Give every time and date a right border
+    // EXCEPT the last
+    &:not(:last-child) {
+      border-bottom: 1px dashed grey;
+    }
 
     // When hovering over a schedule entry,
     // change the entry's colors for visibility

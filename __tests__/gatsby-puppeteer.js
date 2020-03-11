@@ -1,15 +1,26 @@
 const chalk = require("chalk");
 const figlet = require("figlet");
-// const readline = require("readline");
 const puppeteer = require("puppeteer");
-const devices = puppeteer.devices;
+const deviceList = puppeteer.devices;
 
 /**
- * Edit this to change the webpage.
+ * Edit these to change the webpage.
+ *
+ * webpage version is used to name the file
+ * PLEASE REMEMBER TO UPDATE IT
+ *
  */
-const webpage = "http://localhost:8000/schedule-page";
+const webpageName = "schedule";
+const webpageVersion = "v1";
+const webpage = `http://localhost:8000/${webpageName}`;
 
-const customViewports = [
+/**
+ * WARNING
+ *
+ * THERE BE DRAGONS AHEAD
+ */
+
+const customDevices = [
   {
     name: "1080p",
     description: "a 1080p monitor, fullhd breakpoint (>1408px)",
@@ -23,7 +34,7 @@ const customViewports = [
     }
   },
   {
-    name: "Low-res Laptop",
+    name: "Laptop",
     description: "a low-res laptop screen, widescreen breakpoint (<1407px)",
     viewport: {
       width: 1280,
@@ -35,7 +46,7 @@ const customViewports = [
     }
   },
   {
-    name: "1023 Tablet",
+    name: "Tablet",
     description: "tablet-view up to desktop breakpoint (<1024px)",
     viewport: {
       width: 1023,
@@ -48,78 +59,28 @@ const customViewports = [
   }
 ];
 
-const iPad = devices["iPad"];
+const iPad = deviceList["iPad"];
 iPad.description = "larger mobile-view up to tablet breakpoint (<769px)";
-const iPhoneX = devices["iPhone X"];
+const iPhoneX = deviceList["iPhone X"];
 iPhoneX.description = "a modern mobile device (<768px)";
 
-const viewports = [...customViewports, iPad, iPhoneX];
-
-/**
- * Add to viewports array for mobile and tablet
- *
- * devices["Pixel 2 XL"],
-  devices["iPhone X"],
-  devices["iPhone XR"],
-  devices["iPad"],
-  devices["iPad Pro"]
- */
-
-// const websiteInfo = () => {
-//   const rl = readline.createInterface({
-//     input: process.stdin,
-//     output: process.stdout
-//   });
-
-//   rl.question(
-//     "What is page's base URL (e.g. http://localhost:8000)\n> ",
-//     answer => {
-//       pages.push(answer.trim());
-
-//       let base = answer;
-
-//       rl.setPrompt(
-//         "What are the pages you'd like to screenshot? (e.g. /two-bar-layout)\n> "
-//       );
-//       rl.prompt();
-//     }
-//   );
-
-//   rl.on("line", input => {
-//     if (input.trim() === "done") {
-//       let base = pages.shift();
-//       console.log(base, pages);
-
-//       let addresses = pages.map(page => (base += page));
-
-//       console.log(
-//         "\n=======================================\nThe following pages will be screenshot:\n"
-//       );
-
-//       addresses.forEach((page, idx) => {
-//         console.log(
-//           "-",
-//           page,
-//           `${!(idx + 1 === addresses.length) ? "" : "\n"}`
-//         );
-//       });
-//       rl.close();
-//     } else {
-//       pages.push(input.trim());
-//       rl.setPrompt(
-//         "Type `done` when done -OR- type in a route to screenshot. (e.g. /pictures)\n> "
-//       );
-//       rl.prompt();
-//     }
-//   });
-// };
+const devices = [...customDevices, iPad, iPhoneX];
 
 const dateString = () => {
-  let now = new Date().toUTCString();
-  let date = now.slice(5, 11);
-  let time = now.slice(17, 22);
+  let now = Date.now();
+  let time = new Date(now);
+  let string = time.toLocaleString("en-US", {
+    day: "numeric",
+    month: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "America/New_York"
+  });
 
-  return `${date} ${time}`;
+  // Replace the comma and colon in the time expression with ""
+  let regEx = new RegExp("[,:]", "gi");
+  let dateStr = string.replace(regEx, "");
+  return dateStr;
 };
 
 (async () => {
@@ -140,25 +101,25 @@ const dateString = () => {
       )
     );
     console.log(
-      chalk.underline.white("Capturing your project in different viewports.\n")
+      chalk.underline.white("Capturing your project in different devices.\n")
     );
     console.log(chalk.white(`Loading Puppeteer...\n`));
 
     const browser = await puppeteer.launch();
-    const time = await dateString();
+    const time = dateString();
 
     console.log(
       chalk.white(
-        `Preparing to take ${viewports.length} screenshots of ${webpage}\n`
+        `Preparing to take ${devices.length} screenshots of ${webpage}\n`
       )
     );
 
-    for (let i = 0; i < viewports.length; i++) {
-      let currViewport = viewports[i];
+    for (let i = 0; i < devices.length; i++) {
+      let device = devices[i];
 
-      // Add userAgent string to device object for the customViewports
-      if (!currViewport.hasOwnProperty("userAgent")) {
-        currViewport.userAgent = await browser.userAgent();
+      // Add userAgent string to device object for the customDevices
+      if (!device.hasOwnProperty("userAgent")) {
+        device.userAgent = await browser.userAgent();
       }
 
       /**
@@ -174,56 +135,61 @@ const dateString = () => {
       console.log(
         chalk.cyan(`------------------------------------------------------\n`)
       );
+
+      // Open a new browser page
       const page = await browser.newPage();
 
       console.log(
-        chalk.bold.white(`  #${i + 1} - Emulating ${currViewport.name}...`)
+        chalk.bold.white(`  #${i + 1} - Emulating ${device.name}...`)
       );
-      await page.emulate(currViewport);
 
-      console.log(chalk.white(`  ┣ Represents ${currViewport.description}.`));
+      // Emulate the device
+      await page.emulate(device);
+
+      console.log(chalk.white(`  ┣ Represents ${device.description}.`));
       console.log(chalk.white(`  ┃`));
       console.log(chalk.cyan(`  ┣ Opening new browser tab...`));
       console.log(chalk.cyan(`  ┣ Navigating to ${webpage}...`));
 
-      // await page.goto(`${webpage}`, {
-      //   waitUntil: ["load", "domcontentloaded", "networkidle2"]
-      // }); // `waitUntil: 'load'` seems required for a Gatsby site.
+      // Navigate to the webpage.
+      await page.goto(`${webpage}`, {
+        waitUntil: ["load", "domcontentloaded", "networkidle2"]
+      });
 
       console.log(chalk.cyan(`  ┣ ✅  Page loaded successfully.`));
       console.log(chalk.cyan(`  ┃`));
 
+      // Take the screenshot
       await page.screenshot({
-        path: `__tests__/screenshots/${time} - ${currViewport.name}.png`,
-        fullPage: true
+        path: `__tests__/screenshots/${webpageName} ${webpageVersion} | ${device.name} | ${time}.png`
       });
 
       console.log(
         chalk.green(
-          `  ┣ 🖼️   ${currViewport.name} (${currViewport.viewport.width}x${currViewport.viewport.height}) captured.`
+          `  ┣ 🖼️   ${device.name} (${device.viewport.width}x${device.viewport.height}) captured.`
         )
       );
       console.log(
         chalk.green(
-          `  ┗ 💾  Saved to '/screenshots/${time} | ${currViewport.name}.png'\n`
+          `  ┗ 💾  Saved to '/screenshots/${webpageName} ${webpageVersion} | ${device.name} | ${time}.png'\n`
         )
       );
     }
 
     console.log(
       chalk.inverse.green(
-        `====== All ${viewports.length} screenshots captured successfully! ======`
+        `====== All ${devices.length} screenshots captured successfully! ======`
       )
     );
 
     await browser.close();
     process.exit();
   } catch (error) {
-    console.log(
-      chalk.inverse.bold.red(
-        `\n  Something went wrong. Is the server running?  \n`
-      )
-    );
+    // Error catching
+    console.log(chalk.inverse.bold.red(`  Something went wrong.  `));
+    console.log(chalk.red("\nCommon Issues:"));
+    console.log(chalk.red("- Is the dev server running?"));
+    console.log(chalk.red("- Is the webpage to visit correct? -", webpage));
     if (error instanceof puppeteer.errors.TimeoutError) {
       console.log(
         chalk.inverse.bold.red(`Operation timed out. Error logs below. \n`)
@@ -231,7 +197,7 @@ const dateString = () => {
       console.log(error);
     } else {
       console.log(error);
+      process.exit();
     }
-    await browser.close();
   }
 })();

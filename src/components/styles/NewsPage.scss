@@ -40,6 +40,7 @@
       border-left: 1px solid grey;
     }
     border-right: 1px solid grey;
+    border-bottom: 1px solid grey;
     max-height: calc(100vh - 23.5rem);
     overflow-y: auto;
     background-color: rgba($color: #000000, $alpha: 0.5);
@@ -53,7 +54,7 @@
   .single-item {
     width: auto;
     height: 12rem;
-    background-image: url(https://source.unsplash.com/1280x800/daily?party);
+    background-image: url(https://source.unsplash.com/1280x800/?concert);
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: scroll;

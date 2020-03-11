@@ -18,7 +18,7 @@ function NewsPage() {
       */}
       <div className="columns is-multiline headers">
         <div className="column is-12">
-          <p className="title is-1">Halfmoon Feed</p>
+          <p className="title is-1">Our Feed</p>
         </div>
         <div className="column category is-3">
           <p className="title is-3 has-text-centered">Mixes</p>

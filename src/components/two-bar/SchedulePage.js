@@ -19,7 +19,7 @@ function SchedulePage() {
       */}
       <div className="columns is-hidden-touch">
         <div className="column">
-          <p className="title is-1">Schedule</p>
+          <p className="title is-1">Our Schedule</p>
         </div>
       </div>
       {/*

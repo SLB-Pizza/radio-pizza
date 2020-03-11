@@ -24,6 +24,7 @@ export { default as EditorialFeed } from "./EditorialFeed";
  * SchedulePage
  */
 export { default as SchedulePage } from "./SchedulePage";
+export { default as ScheduleShowEntry } from "./ScheduleShowEntry";
 
 /**
  * NewsPage

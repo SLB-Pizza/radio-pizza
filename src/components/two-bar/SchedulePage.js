@@ -1,4 +1,5 @@
 import React from "react";
+import { ScheduleShowEntry } from "./index";
 
 /**
  * STRUCTURE
@@ -62,18 +63,7 @@ function SchedulePage() {
         <div className="column is-3">
           <p className="is-size-4 has-text-centered">1:30PM - 4:00PM</p>
         </div>
-        <div className="column is-narrow">
-          <p className="is-size-4">Short Show</p>
-        </div>
-        <div className="column is-narrow">
-          <p>bio</p>
-        </div>
-        <div className="column is-narrow">
-          <p>twitter</p>
-        </div>
-        <div className="column is-narrow">
-          <p>instagram</p>
-        </div>
+        <ScheduleShowEntry />
       </div>
 
       <div className="columns is-vcentered is-hidden-touch time-slot">

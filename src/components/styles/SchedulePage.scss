@@ -66,6 +66,30 @@
         color: black;
       }
     }
+
+    .show-info {
+      display: flex;
+      flex-direction: column;
+
+      .show-name {
+        flex: 1;
+      }
+      .host-info {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+
+        p {
+          margin-right: 0.5rem;
+          font-style: italic;
+        }
+
+        .icon {
+          color: white;
+        }
+      }
+    }
   }
 
   // MOBILE SCROLL INSTRUCTIONS

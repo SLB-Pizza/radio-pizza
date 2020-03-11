@@ -34,7 +34,7 @@ const customDevices = [
     }
   },
   {
-    name: "Laptop",
+    name: "Widescreen",
     description: "a low-res laptop screen, widescreen breakpoint (<1407px)",
     viewport: {
       width: 1280,
@@ -46,14 +46,14 @@ const customDevices = [
     }
   },
   {
-    name: "Tablet",
+    name: "iPad Wide",
     description: "tablet-view up to desktop breakpoint (<1024px)",
     viewport: {
-      width: 1023,
+      width: 1024,
       height: 1000,
       deviceScaleFactor: 1,
-      isMobile: false,
-      hasTouch: false,
+      isMobile: true,
+      hasTouch: true,
       isLandscape: true
     }
   }
@@ -194,6 +194,9 @@ const dateString = () => {
     console.log(chalk.red(`  ┃`));
     console.log(chalk.red("  ┣ ====== Common Issues ======"));
     console.log(chalk.red("  ┣━ Is the dev server running?"));
+    console.log(
+      chalk.red("  ┣━ Is the page content hidden because of a breakpoint?")
+    );
     console.log(chalk.red("  ┗━ Is the URL correct? ➡", webpage, "\n"));
     if (error instanceof puppeteer.errors.TimeoutError) {
       console.log(

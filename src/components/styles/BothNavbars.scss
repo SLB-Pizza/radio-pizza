@@ -36,6 +36,11 @@ $gap: 32px;
       width: auto;
       align-items: center;
 
+      .cloud-player {
+        visibility: hidden;
+        max-height: 0px;
+      }
+
       #radioShowPic {
         min-width: 4.5rem;
         margin-right: 0.625rem;

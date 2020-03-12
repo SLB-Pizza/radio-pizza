@@ -10,21 +10,21 @@ class RadioPlayer extends Component {
     this.state = {
       url: null,
       pip: false,
-      playing: false,
+      playing: true,
       controls: false,
       light: false,
-      volume: 0.8,
+      volume: 1,
       muted: false,
       played: 0,
       loaded: 0,
       duration: 0,
       playbackRate: 1.0,
-      loop: false,
+      loop: true,
     };
   }
   load = url => {
     this.setState({
-      url,
+      // url,
       played: 0,
       loaded: 0,
       pip: false,
@@ -33,7 +33,7 @@ class RadioPlayer extends Component {
 
   handlePlayPause = async () => {
     await this.setState({ playing: !this.state.playing });
-    alert(this.state.playing);
+    // alert(this.state.playing);
   };
 
   handleStop = () => {
@@ -166,7 +166,7 @@ class RadioPlayer extends Component {
           className="cloud-player"
           url="https://www.mixcloud.com/HalfMoonbk/donis-dez-andres-11222019/"
           ref={this.ref}
-          className="react-player"
+          // className="react-player"
           width="100%"
           height="100%"
           // url={url}

@@ -2,14 +2,16 @@ import React from "react";
 
 function SingleMix() {
   return (
-    <div className="column is-6 single-mix">
-      <div className="black-overlay">
-        <div className="mix-info">
-          <p className="item-date is-size-7">CATEGORY</p>
-          <p className="title is-size-4">Lorem Ipsum</p>
-          <p className="subtitle is-size-6">
-            Lorem ipsum dolor sit amet con secte tur ado manis cheriamus recto
-          </p>
+    <div className="column is-6">
+      <div className="single-mix">
+        <div className="black-overlay">
+          <div className="mix-info">
+            <p className="is-size-7">CATEGORY</p>
+            <p className="title is-size-3">Lorem Ipsum</p>
+            <p className="subtitle is-size-5">
+              Lorem ipsum dolor sit amet con secte tur ado manis cheriamus recto
+            </p>
+          </div>
         </div>
       </div>
     </div>

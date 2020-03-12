@@ -18,12 +18,6 @@ function MixesPage() {
         <SingleMix />
         <SingleMix />
         <SingleMix />
-        <SingleMix />
-        <SingleMix />
-        <SingleMix />
-        <SingleMix />
-        <SingleMix />
-        <SingleMix />
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ const deviceList = puppeteer.devices;
  * PLEASE REMEMBER TO UPDATE IT
  *
  */
-const webpageName = "schedule";
+const webpageName = "daily-mixes";
 const webpageVersion = "v1";
 const webpage = `http://localhost:8000/${webpageName}`;
 
@@ -157,7 +157,7 @@ const dateString = () => {
       });
 
       // Click one of the time-date divs
-      await page.click("div #test-active");
+      // await page.click("div #test-active");
 
       console.log(chalk.cyan(`  ┣ ✅  Page loaded successfully.`));
       console.log(chalk.cyan(`  ┃`));

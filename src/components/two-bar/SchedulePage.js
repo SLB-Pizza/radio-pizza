@@ -160,6 +160,14 @@ function SchedulePage() {
       {/*
       MOBILE -- < 768px
       */}
+      <div className="columns in-progress is-hidden-desktop">
+        <p className="title is-size-5 has-text-centered">
+          ⚠️ Layout in progress! ⚠️
+        </p>
+        <p className="subtitle is-size-7 has-text-centered">
+          Please view this page on desktop.
+        </p>
+      </div>
       <div
         className="columns is-vcentered is-hidden-desktop"
         id="scroll-instructions"

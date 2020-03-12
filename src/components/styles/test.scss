@@ -28,3 +28,23 @@
 }
 
 // Wrapping .hero in <div className="hero-size-test"> failed
+
+@keyframes warning {
+  0% {
+    background-color: orange;
+  }
+  50% {
+    background-color: yellow;
+  }
+  100% {
+    background-color: orange;
+  }
+}
+
+.in-progress {
+  animation: warning infinite ease-in-out 5s;
+  p {
+    color: black;
+  }
+  padding: 1rem 0;
+}

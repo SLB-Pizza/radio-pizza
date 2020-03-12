@@ -163,9 +163,9 @@ const dateString = () => {
       console.log(chalk.cyan(`  ┃`));
 
       // Take the screenshot
-      await page.screenshot({
-        path: `__tests__/screenshots/${webpageName} ${webpageVersion} | ${device.name} | ${time}.png`
-      });
+      // await page.screenshot({
+      //   path: `__tests__/screenshots/${webpageName} ${webpageVersion} | ${device.name} | ${time}.png`
+      // });
 
       console.log(
         chalk.green(

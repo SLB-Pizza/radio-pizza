@@ -31,7 +31,7 @@
     background-size: cover;
     margin: 0 1rem 2rem;
     padding: 0;
-    transition: ease-in-out 1s;
+    transition: ease-in-out 0.5s;
 
     &:hover {
       margin: 0 0.25rem 2rem;
@@ -41,10 +41,10 @@
     .black-overlay {
       background-color: rgba($color: #000000, $alpha: 0.4);
       height: 100%;
-      display: flex;
       flex-direction: column;
       justify-content: flex-end;
 
+      // Color schemes for mix types
       .mix-category {
         background-color: indigo;
         padding: 0.25rem;
@@ -54,7 +54,7 @@
       .mix-info {
         padding: 1.25rem;
 
-        // Give all text a shadow
+        // Give all mixtext a shadow
         p {
           text-shadow: 1px 1px 1px black;
 

@@ -4,7 +4,7 @@ function SingleMix() {
   return (
     <div className="column is-6">
       <div className="single-mix">
-        <div className="black-overlay">
+        <div className="black-overlay is-flex">
           <div className="mix-info">
             <p className="mix-category is-size-7">CATEGORY</p>
             <p className="title is-size-3-desktop is-size-5-touch">

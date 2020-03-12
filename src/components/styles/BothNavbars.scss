@@ -36,9 +36,14 @@ $gap: 32px;
       width: auto;
       align-items: center;
 
+      .play-button {
+        height: 3.5rem;
+      }
+
       .cloud-player {
-        visibility: hidden;
-        max-height: 0px;
+        // visibility: hidden;
+        display: none;
+        // max-height: 0px;
       }
 
       #radioShowPic {

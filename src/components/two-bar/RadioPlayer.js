@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import { hot } from 'react-hot-loader';
 import MixCloudPlayer from 'react-player/lib/players/Mixcloud';
+import PlayButton from '../../img/play-button.svg';
 
 class RadioPlayer extends Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class RadioPlayer extends Component {
     this.state = {
       url: null,
       pip: false,
-      playing: true,
+      playing: false,
       controls: false,
       light: false,
       volume: 0.8,
@@ -30,8 +31,9 @@ class RadioPlayer extends Component {
     });
   };
 
-  handlePlayPause = () => {
-    this.setState({ playing: !this.state.playing });
+  handlePlayPause = async () => {
+    await this.setState({ playing: !this.state.playing });
+    alert(this.state.playing);
   };
 
   handleStop = () => {
@@ -154,6 +156,12 @@ class RadioPlayer extends Component {
     const SEPARATOR = ' · ';
     return (
       <div className="radio-player is-flex">
+        <img
+          id="play-button"
+          onClick={this.handlePlayPause}
+          src={PlayButton}
+          alt="playButton"
+        />
         <MixCloudPlayer
           className="cloud-player"
           url="https://www.mixcloud.com/HalfMoonbk/donis-dez-andres-11222019/"

@@ -1,0 +1,100 @@
+.radio-and-schedule-bar {
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  height: calc(2.5 * $navbar-height);
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 30;
+}
+.radio-and-schedule-bar .radio-bar {
+  padding: 0 32px;
+  flex: 2;
+  min-height: 5rem;
+  margin-bottom: 0;
+  background-color: rgba(204, 204, 204, 0.7);
+}
+.radio-and-schedule-bar .radio-bar #play-button {
+  margin-right: 0.75rem;
+  background-color: lightslategrey;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+}
+.radio-and-schedule-bar .radio-bar .radio-player {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  align-items: center;
+}
+.radio-and-schedule-bar .radio-bar .radio-player .play-button {
+  height: 3.5rem;
+}
+.radio-and-schedule-bar .radio-bar .radio-player .cloud-player {
+  display: none;
+}
+.radio-and-schedule-bar .radio-bar .radio-player #radioShowPic {
+  min-width: 4.5rem;
+  margin-right: 0.625rem;
+}
+.radio-and-schedule-bar .radio-bar .radio-player #radioShowPic img {
+  width: 4.25rem;
+  height: 4.25rem;
+  object-fit: cover;
+  object-position: center;
+}
+.radio-and-schedule-bar .radio-bar .radio-player #radioShowDetails {
+  display: flex;
+  flex-direction: column;
+}
+.radio-and-schedule-bar
+  .radio-bar
+  .radio-player
+  #radioShowDetails
+  #radioShowTime {
+  flex: 1;
+}
+.radio-and-schedule-bar
+  .radio-bar
+  .radio-player
+  #radioShowDetails
+  #radioShowTime
+  p {
+  font-size: 0.75rem;
+}
+.radio-and-schedule-bar
+  .radio-bar
+  .radio-player
+  #radioShowDetails
+  #radioShowName {
+  flex: 1;
+}
+.radio-and-schedule-bar .schedule-bar {
+  flex: 1;
+  padding: 0 32px;
+  min-height: 2.5rem;
+  color: white;
+  background-color: rgba(136, 136, 136, 0.7);
+}
+.radio-and-schedule-bar .schedule-bar > .columns {
+  margin-top: 0;
+}
+.radio-and-schedule-bar .schedule-bar > .columns .column {
+  padding-top: 0.5rem;
+}
+.radio-and-schedule-bar .schedule-bar.is-open {
+  min-height: 10rem;
+  background-color: #666;
+}
+.radio-and-schedule-bar .schedule-bar.is-open .column {
+  min-height: 10rem;
+  padding-top: 0.5rem;
+}
+.radio-and-schedule-bar .schedule-bar #up-next {
+  height: 2.5rem;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+#bottom-color-test {
+  background-color: rgba(0, 0, 0, 0.25);
+}

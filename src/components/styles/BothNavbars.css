@@ -28,11 +28,8 @@
   width: auto;
   align-items: center;
 }
-.radio-and-schedule-bar .radio-bar .radio-player .play-button {
-  height: 3.5rem;
-}
 .radio-and-schedule-bar .radio-bar .radio-player .cloud-player {
-  display: none;
+  max-height: 3.5rem;
 }
 .radio-and-schedule-bar .radio-bar .radio-player #radioShowPic {
   min-width: 4.5rem;

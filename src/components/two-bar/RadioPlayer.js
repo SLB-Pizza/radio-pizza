@@ -165,7 +165,31 @@ class RadioPlayer extends Component {
         <MixCloudPlayer
           className="cloud-player"
           url="https://www.mixcloud.com/HalfMoonbk/donis-dez-andres-11222019/"
-          light="true"
+          ref={this.ref}
+          className="react-player"
+          width="100%"
+          height="100%"
+          // url={url}
+          // pip={pip}
+          playing={playing}
+          // controls={controls}
+          // light={light}
+          // loop={loop}
+          // playbackRate={playbackRate}
+          // volume={volume}
+          // muted={muted}
+          onReady={() => console.log('onReady')}
+          onStart={() => console.log('onStart')}
+          onPlay={this.handlePlay}
+          // onEnablePIP={this.handleEnablePIP}
+          // onDisablePIP={this.handleDisablePIP}
+          onPause={this.handlePause}
+          onBuffer={() => console.log('onBuffer')}
+          onSeek={e => console.log('onSeek', e)}
+          // onEnded={this.handleEnded}
+          onError={e => console.log('onError', e)}
+          // onProgress={this.handleProgress}
+          // onDuration={this.handleDuration}
         />
         <div id="radioShowPic">
           <img

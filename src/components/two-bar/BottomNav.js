@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function BottomNav() {
   return (
-    <nav className="navbar is-fixed-bottom" id="bottom-color-test">
+    <nav className="navbar is-fixed-bottom is-dark" id="bottom-color-test">
       <div className="container is-fluid">
         <div className="navbar-brand">
           <p className="navbar-item">HalfmoonBK</p>
@@ -39,17 +39,17 @@ function BottomNav() {
           </div>
           <div className="navbar-end">
             <a href="/two-bar-layout" className="navbar-item">
-              <span className="icon is-medium has-text-dark">
+              <span className="icon is-medium has-text-light">
                 <FontAwesomeIcon icon={faMixcloud} size="2x" />
               </span>
             </a>
             <a href="/two-bar-layout" className="navbar-item">
-              <span className="icon is-medium has-text-dark">
+              <span className="icon is-medium has-text-light">
                 <FontAwesomeIcon icon={faInstagram} size="2x" />
               </span>
             </a>
             <a href="/two-bar-layout" className="navbar-item">
-              <span className="icon is-medium has-text-dark">
+              <span className="icon is-medium has-text-light">
                 <FontAwesomeIcon icon={faTwitter} size="2x" />
               </span>
             </a>

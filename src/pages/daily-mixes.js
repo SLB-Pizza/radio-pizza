@@ -1,5 +1,5 @@
 import React from "react";
-import { TopNav, MixesPages, BottomNav } from "../components/two-bar";
+import { TopNav, MixesPage, BottomNav } from "../components/two-bar";
 import "../components/styles/index.scss";
 
 // import Layout from "../components/Layout";
@@ -21,7 +21,7 @@ import "../components/styles/index.scss";
 const DailyMixes = () => (
   <div className="has-navbar-fixed-bottom">
     <TopNav />
-    <MixesPages />
+    <MixesPage />
     <BottomNav />
   </div>
 );

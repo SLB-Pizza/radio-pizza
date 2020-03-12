@@ -17,6 +17,7 @@ export { default as ScheduleBar } from "./ScheduleBar";
  */
 
 export { default as Hero } from "./Hero";
+export { default as HomePageMixes } from "./HomePageMixes";
 export { default as ChatSchedule } from "./ChatSchedule";
 export { default as EditorialFeed } from "./EditorialFeed";
 
@@ -24,6 +25,7 @@ export { default as EditorialFeed } from "./EditorialFeed";
  * MixesPage
  */
 export { default as MixesPage } from "./MixesPage";
+export { default as SingleMix } from "./SingleMix";
 
 /**
  * SchedulePage

@@ -1,12 +1,27 @@
 const chalk = require("chalk");
 const inquirer = require("inquirer");
 
-const guide = chalk.bold(`
+const guide = chalk.bold.white(`
  Bulma Breakpoints Guide (in px)
 
  |           TOUCH             |                DESKTOP
  0 ----------- 769 ----------- 1024 ----------- 1216 ----------- 1408 ----------->
  |   mobile    |     tablet    |      desktop   |    widescreen  |      fullhd\n\n`);
+
+const confirmation = a => {
+  console.log(
+    chalk.bold.white(`
+Screen Shot Settings:
+
+- Link: ${a.baseURL}${a.page}
+- Version: ${a.page} ${a.version}
+- Pages: ${
+      a.viewports.length ? a.viewports.join(", ") : "=== NONE SELECTED ==="
+    }
+`)
+  );
+  return "Is this correct?";
+};
 
 const questions = [
   {
@@ -74,13 +89,7 @@ const questions = [
     type: "confirm",
     name: "confirm",
     message(answers) {
-      console.log(`
-  Entered info
-
-  - Link: ${answers.baseURL}${answers.page}
-  - Version: ${answers.page}${answers.version}
-  `);
-      return "Is this correct?";
+      return confirmation(answers);
     },
     default() {
       return false;
@@ -92,12 +101,8 @@ const questions = [
 (async () => {
   try {
     let answers = await inquirer.prompt(questions);
-    let answersObj = JSON.stringify(answers, null, " ");
     console.log("Answers:");
-    console.log(answersObj);
-    console.log(
-      `${answersObj.page}${answersObj.version} | ${answersObj.baseRoute}${answersObj.page}\n${answersObj.viewports}`
-    );
+    console.log(`${answers.baseURL}${answers.page}`);
   } catch (error) {
     if (error.isTtyError) {
       console.log("Prompt couldn't be rendered.");

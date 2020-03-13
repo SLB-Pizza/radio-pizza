@@ -20,7 +20,7 @@ const webpage = `http://localhost:8000/${webpageRoute}`;
  * THERE BE DRAGONS AHEAD
  */
 
-// Define
+// Define custom viewports
 const customDevices = [
   {
     name: "iPad Wide",

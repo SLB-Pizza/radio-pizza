@@ -10,9 +10,9 @@ const deviceList = puppeteer.devices;
  * PLEASE REMEMBER TO UPDATE IT
  *
  */
-const webpageName = "daily-mixes";
-const webpageVersion = "v1";
-const webpage = `http://localhost:8000/${webpageName}`;
+const webpageRoute = "schedule";
+const webpageVersion = "v2";
+const webpage = `http://localhost:8000/${webpageRoute}`;
 
 /**
  * WARNING
@@ -20,16 +20,17 @@ const webpage = `http://localhost:8000/${webpageName}`;
  * THERE BE DRAGONS AHEAD
  */
 
+// Define
 const customDevices = [
   {
-    name: "1080p",
-    description: "a 1080p monitor, fullhd breakpoint (>1408px)",
+    name: "iPad Wide",
+    description: "common tablet like iPads, desktop breakpoint (<1024px)",
     viewport: {
-      width: 1920,
-      height: 1080,
+      width: 1024,
+      height: 1000,
       deviceScaleFactor: 1,
-      isMobile: false,
-      hasTouch: false,
+      isMobile: true,
+      hasTouch: true,
       isLandscape: true
     }
   },
@@ -46,25 +47,25 @@ const customDevices = [
     }
   },
   {
-    name: "iPad Wide",
-    description: "tablet-view up to desktop breakpoint (<1024px)",
+    name: "1080p",
+    description: "a 1080p monitor, fullhd breakpoint (>1408px)",
     viewport: {
-      width: 1024,
-      height: 1000,
+      width: 1920,
+      height: 1080,
       deviceScaleFactor: 1,
-      isMobile: true,
-      hasTouch: true,
+      isMobile: false,
+      hasTouch: false,
       isLandscape: true
     }
   }
 ];
 
 const iPad = deviceList["iPad"];
-iPad.description = "larger mobile-view up to tablet breakpoint (<769px)";
+iPad.description = "larger mobile-view, tablet breakpoint (<769px)";
 const iPhoneX = deviceList["iPhone X"];
-iPhoneX.description = "a modern mobile device (<768px)";
+iPhoneX.description = "a modern mobile device, mobile breakpoint (<768px)";
 
-const devices = [...customDevices, iPad, iPhoneX];
+const devices = [iPhoneX, iPad, ...customDevices];
 
 const dateString = () => {
   let now = Date.now();
@@ -91,8 +92,8 @@ const dateString = () => {
      * await websiteInfo();
      */
     console.clear();
-    console.log(
-      chalk.white(
+    chalk.white(
+      console.log(
         figlet.textSync("Screenshots", {
           font: "Slant",
           horizontalLayout: "default",
@@ -100,17 +101,17 @@ const dateString = () => {
         })
       )
     );
-    console.log(
-      chalk.underline.white("Capturing your project in different devices.\n")
+    chalk.underline.white(
+      console.log("Capturing your project in different devices.\n")
     );
-    console.log(chalk.white(`Loading Puppeteer...\n`));
+    chalk.white(console.log(`Loading Puppeteer...\n`));
 
     const browser = await puppeteer.launch();
     const time = dateString();
 
     console.log(
       chalk.white(
-        `Preparing to take ${devices.length} screenshots of ${webpage}\n`
+        `Preparing to take ${devices.length} screenshots of ${webpage}.\n`
       )
     );
 
@@ -132,8 +133,8 @@ const dateString = () => {
        * - finally, await browser.close()
        */
 
-      console.log(
-        chalk.cyan(`------------------------------------------------------\n`)
+      chalk.cyan(
+        console.log(`------------------------------------------------------\n`)
       );
 
       // Open a new browser page
@@ -164,9 +165,10 @@ const dateString = () => {
 
       // Take the screenshot
       // await page.screenshot({
-      //   path: `__tests__/screenshots/${webpageName} ${webpageVersion} | ${device.name} | ${time}.png`
+      //   path: `__tests__/screenshots/${webpageRoute} ${webpageVersion} | ${device.name} | ${time}.png`
       // });
 
+      // Success! Report back to the user.
       console.log(
         chalk.green(
           `  ┣ 🖼️   ${device.name} (${device.viewport.width}x${device.viewport.height}) captured.`
@@ -174,17 +176,17 @@ const dateString = () => {
       );
       console.log(
         chalk.green(
-          `  ┗ 💾  Saved to '/screenshots/${webpageName} ${webpageVersion} | ${device.name} | ${time}.png'\n`
+          `  ┗ 💾  Saved to '/screenshots/${webpageRoute} ${webpageVersion} | ${device.name} | ${time}.png'\n`
         )
       );
     }
-
     console.log(
       chalk.inverse.green(
         `====== All ${devices.length} screenshots captured successfully! ======`
       )
     );
 
+    // Wrap everything up
     await browser.close();
     process.exit();
   } catch (error) {
@@ -195,13 +197,24 @@ const dateString = () => {
     console.log(chalk.red("  ┣ ====== Common Issues ======"));
     console.log(chalk.red("  ┣━ Is the dev server running?"));
     console.log(
+      chalk.red(
+        "  ┣━ Is there a `screenshots` folder inside `__tests__` folder?"
+      )
+    );
+    console.log(
+      chalk.red(
+        "  ┣━ No screenshots in folder? Is the screenshot function commented out?"
+      )
+    );
+    console.log(
       chalk.red("  ┣━ Is the page content hidden because of a breakpoint?")
     );
     console.log(chalk.red("  ┗━ Is the URL correct? ➡", webpage, "\n"));
+
+    // Check for errors with puppeteer errors vs other errors
     if (error instanceof puppeteer.errors.TimeoutError) {
-      console.log(
-        chalk.inverse.bold.red(`Operation timed out. Error logs below. \n`)
-      );
+      console.log(chalk.red(`  ┃`));
+      console.log(chalk.red(`  ┗━ Operation timed out. Error logs below. \n`));
       console.log(error);
     } else {
       console.log(error);

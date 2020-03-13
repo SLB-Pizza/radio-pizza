@@ -1,51 +1,110 @@
-const readline = require("readline");
+const chalk = require("chalk");
+const inquirer = require("inquirer");
 
-let pages = [];
+const guide = chalk.bold(`
+ Bulma Breakpoints Guide (in px)
 
-const setup = () => {
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-  });
+ |           TOUCH             |                DESKTOP
+ 0 ----------- 769 ----------- 1024 ----------- 1216 ----------- 1408 ----------->
+ |   mobile    |     tablet    |      desktop   |    widescreen  |      fullhd\n\n`);
 
-  rl.question(
-    "What is page's base URL (e.g. http://localhost:8000)\n> ",
-    answer => {
-      pages.push(answer.trim());
-
-      rl.setPrompt(
-        "What are the pages you'd like to screenshot? (e.g. /two-bar-layout)\n> "
-      );
-      rl.prompt();
+const questions = [
+  {
+    type: "input",
+    name: "baseURL",
+    message: "Base URL?",
+    default() {
+      return "http://localhost:8000/";
     }
-  );
+  },
+  {
+    type: "input",
+    name: "page",
+    message: "Page to screenshot?",
+    default() {
+      return "schedule";
+    }
+  },
+  {
+    type: "input",
+    name: "version",
+    message: "Page version?",
+    default() {
+      return "v1";
+    }
+  },
+  {
+    type: "checkbox",
+    message() {
+      console.log(guide);
+      return "Which viewports to screenshot?";
+    },
+    name: "viewports",
+    pageSize: 21,
+    choices: [
+      new inquirer.Separator("Select a viewport group..."),
+      {
+        name: "All"
+      },
+      {
+        name: "Touch"
+      },
+      {
+        name: "Desktop"
+      },
+      new inquirer.Separator("...or pick the ones you need."),
+      {
+        name: "Mobile"
+      },
+      {
+        name: "Tablet"
+      },
+      {
+        name: "Desktop"
+      },
+      {
+        name: "Widescreen"
+      },
+      {
+        name: "FullHD"
+      }
+    ]
+  },
+  {
+    type: "confirm",
+    name: "confirm",
+    message(answers) {
+      console.log(`
+  Entered info
 
-  rl.on("line", input => {
-    if (input.trim() === "done") {
-      let base = pages.shift();
+  - Link: ${answers.baseURL}${answers.page}
+  - Version: ${answers.page}${answers.version}
+  `);
+      return "Is this correct?";
+    },
+    default() {
+      return false;
+    }
+  }
+];
 
-      let addresses = pages.map(page => (base += page));
-
-      console.log(
-        "\n=======================================\nThe following pages will be screenshot:\n"
-      );
-
-      addresses.forEach((page, idx) => {
-        console.log(
-          "-",
-          page,
-          `${!(idx + 1 === addresses.length) ? "" : "\n"}`
-        );
-      });
-      rl.close();
+// Execute questionnaire
+(async () => {
+  try {
+    let answers = await inquirer.prompt(questions);
+    let answersObj = JSON.stringify(answers, null, " ");
+    console.log("Answers:");
+    console.log(answersObj);
+    console.log(
+      `${answersObj.page}${answersObj.version} | ${answersObj.baseRoute}${answersObj.page}\n${answersObj.viewports}`
+    );
+  } catch (error) {
+    if (error.isTtyError) {
+      console.log("Prompt couldn't be rendered.");
+      console.log(error);
     } else {
-      pages.push(input.trim());
-      rl.setPrompt(
-        "Type `done` when done -OR- type in a route to screenshot. (e.g. /pictures)\n> "
-      );
-      rl.prompt();
+      console.log("Something else went wrong.");
+      console.log(error);
     }
-  });
-};
-
-setup();
+  }
+})();

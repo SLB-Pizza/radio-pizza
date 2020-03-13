@@ -266,11 +266,11 @@ const dateString = () => {
     console.log(chalk.white("Capturing your project in different devices.\n"));
 
     // Ask the user questions
-    let answers = await inquirer.prompt(questions);
+    // let answers = await inquirer.prompt(questions);
 
     // Parse user viewports
-    let viewports = parseViewports(answers.viewports);
-    console.log(viewports);
+    // let viewports = parseViewports(answers.viewports);
+    // console.log(viewports);
 
     chalk.cyan(
       console.log("\n------------------------------------------------------\n")
@@ -282,73 +282,78 @@ const dateString = () => {
 
     console.log(
       chalk.white(
-        `Preparing to take ${answers.viewports.length} screenshots of ${answers.baseURL}${answers.page}\n`
+        `Preparing to take ${allDevices.length} screenshots of ${webpage}\n`
       )
     );
+    // console.log(
+    //   chalk.white(
+    //     `Preparing to take ${answers.viewports.length} screenshots of ${answers.baseURL}${answers.page}\n`
+    //   )
+    // );
 
     // Get the current time
     const time = dateString();
 
     // Iterate over the selected viewports
-    // let count = 1;
-    // for (let device of viewports) {
-    //   // Add userAgent string to device object for the customDevices
-    //   if (!device.hasOwnProperty("userAgent")) {
-    //     device.userAgent = await browser.userAgent();
-    //   }
+    let count = 0;
+    for (let device of allDevices) {
+      // Increase the count
+      count++;
 
-    //   chalk.cyan(
-    //     console.log(`------------------------------------------------------\n`)
-    //   );
+      // Add userAgent string to device object for the customDevices
+      if (!device.hasOwnProperty("userAgent")) {
+        device.userAgent = await browser.userAgent();
+      }
 
-    //   // Open a new browser page
-    //   const page = await browser.newPage();
+      chalk.cyan(
+        console.log(`------------------------------------------------------\n`)
+      );
 
-    //   console.log(
-    //     chalk.bold.white(`  #${count} - Emulating ${device.name}...`)
-    //   );
+      // Open a new browser page
+      const page = await browser.newPage();
 
-    //   // Emulate the device
-    //   await page.emulate(device);
+      console.log(
+        chalk.bold.white(`  #${count} - Emulating ${device.name}...`)
+      );
+      console.log(chalk.white(`  ┣ Represents ${device.description}.`));
 
-    //   console.log(chalk.white(`  ┣ Represents ${device.description}.`));
-    //   console.log(chalk.white(`  ┃`));
-    //   console.log(chalk.cyan(`  ┣ Opening new browser tab...`));
-    //   console.log(chalk.cyan(`  ┣ Navigating to ${webpage}...`));
+      // Emulate the device
+      await page.emulate(device);
+      console.log(chalk.white(`  ┃`));
+      console.log(chalk.cyan(`  ┣ Opening new browser tab...`));
 
-    //   // Navigate to the webpage.
-    //   await page.goto(`${webpage}`, {
-    //     waitUntil: ["load", "domcontentloaded", "networkidle2"]
-    //   });
+      // Navigate to the webpage.
+      console.log(chalk.cyan(`  ┣ Navigating to ${webpage}...`));
+      await page.goto(`${webpage}`, {
+        waitUntil: ["load", "domcontentloaded", "networkidle2"]
+      });
 
-    //   // Click one of the time-date divs
-    //   // await page.click("div #test-active");
+      // Click one of the time-date divs
+      // await page.click("div #test-active");
 
-    //   console.log(chalk.cyan(`  ┣ ✅  Page loaded successfully.`));
-    //   console.log(chalk.cyan(`  ┃`));
+      console.log(chalk.cyan(`  ┣ ✅  Page loaded successfully.`));
+      console.log(chalk.cyan(`  ┃`));
 
-    //   // Take the screenshot
-    //   // await page.screenshot({
-    //   //   path: `__tests__/screenshots/${webpageRoute} ${webpageVersion} | ${device.name} | ${time}.png`
-    //   // });
+      // Take the screenshot
+      // await page.screenshot({
+      //   path: `__tests__/screenshots/${webpageRoute} ${webpageVersion} | ${device.name} | ${time}.png`
+      // });
 
-    //   // Success! Report back to the user.
-    //   console.log(
-    //     chalk.green(
-    //       `  ┣ 🖼️   ${device.name} (${device.viewport.width}x${device.viewport.height}) captured.`
-    //     )
-    //   );
-    //   console.log(
-    //     chalk.green(
-    //       `  ┗ 💾  Saved to '/screenshots/${webpageRoute} ${webpageVersion} | ${device.name} | ${time}.png'\n`
-    //     )
-    //   );
-    //   // Increase the count
-    //   count++;
-    // }
+      // Success! Report back to the user.
+      console.log(
+        chalk.green(
+          `  ┣ 🖼️   ${device.name} (${device.viewport.width}x${device.viewport.height}) captured.`
+        )
+      );
+      console.log(
+        chalk.green(
+          `  ┗ 💾  Saved to '/screenshots/${webpageRoute} ${webpageVersion} | ${device.name} | ${time}.png'\n`
+        )
+      );
+    }
     console.log(
       chalk.inverse.green(
-        `====== All screenshots captured successfully! ======`
+        `====== All ${count} screenshots captured successfully! ======`
       )
     );
 
@@ -375,3 +380,60 @@ const dateString = () => {
     }
   }
 })();
+
+// let count = 1;
+// for (let device of viewports) {
+//   // Add userAgent string to device object for the customDevices
+//   if (!device.hasOwnProperty("userAgent")) {
+//     device.userAgent = await browser.userAgent();
+//   }
+
+//   chalk.cyan(
+//     console.log(`------------------------------------------------------\n`)
+//   );
+
+//   // Open a new browser page
+//   const page = await browser.newPage();
+
+//   console.log(
+//     chalk.bold.white(`  #${count} - Emulating ${device.name}...`)
+//   );
+
+//   // Emulate the device
+//   await page.emulate(device);
+
+//   console.log(chalk.white(`  ┣ Represents ${device.description}.`));
+//   console.log(chalk.white(`  ┃`));
+//   console.log(chalk.cyan(`  ┣ Opening new browser tab...`));
+//   console.log(chalk.cyan(`  ┣ Navigating to ${webpage}...`));
+
+//   // Navigate to the webpage.
+//   await page.goto(`${webpage}`, {
+//     waitUntil: ["load", "domcontentloaded", "networkidle2"]
+//   });
+
+//   // Click one of the time-date divs
+//   // await page.click("div #test-active");
+
+//   console.log(chalk.cyan(`  ┣ ✅  Page loaded successfully.`));
+//   console.log(chalk.cyan(`  ┃`));
+
+//   // Take the screenshot
+//   // await page.screenshot({
+//   //   path: `__tests__/screenshots/${webpageRoute} ${webpageVersion} | ${device.name} | ${time}.png`
+//   // });
+
+//   // Success! Report back to the user.
+//   console.log(
+//     chalk.green(
+//       `  ┣ 🖼️   ${device.name} (${device.viewport.width}x${device.viewport.height}) captured.`
+//     )
+//   );
+//   console.log(
+//     chalk.green(
+//       `  ┗ 💾  Saved to '/screenshots/${webpageRoute} ${webpageVersion} | ${device.name} | ${time}.png'\n`
+//     )
+//   );
+//   // Increase the count
+//   count++;
+// }

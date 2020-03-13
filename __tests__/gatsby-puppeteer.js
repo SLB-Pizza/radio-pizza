@@ -1,5 +1,6 @@
 const chalk = require("chalk");
 const figlet = require("figlet");
+const inquirer = require("inquirer");
 const puppeteer = require("puppeteer");
 const deviceList = puppeteer.devices;
 
@@ -14,13 +15,101 @@ const webpageRoute = "schedule";
 const webpageVersion = "v2";
 const webpage = `http://localhost:8000/${webpageRoute}`;
 
-/**
+/************************************************
  * WARNING
  *
  * THERE BE DRAGONS AHEAD
- */
+ ************************************************/
 
-// Define custom viewports
+/************************************************
+ * CONSTANTS
+ ************************************************/
+
+// Breakpoint guide to display in questionnaire
+const guide = chalk.bold.white(`
+ Bulma Breakpoints Guide (in px)
+
+ |           TOUCH             |                DESKTOP
+ 0 ----------- 769 ----------- 1024 ----------- 1216 ----------- 1408 ----------->
+ |   mobile    |     tablet    |      desktop   |    widescreen  |      fullhd\n\n`);
+
+// Questions to ask the user
+
+const questions = [
+  {
+    type: "input",
+    name: "baseURL",
+    message: "Base URL?",
+    default() {
+      return "http://localhost:8000/";
+    }
+  },
+  {
+    type: "input",
+    name: "page",
+    message: "Page to screenshot?",
+    default() {
+      return "schedule";
+    }
+  },
+  {
+    type: "input",
+    name: "version",
+    message: "Page version?",
+    default() {
+      return "v1";
+    }
+  },
+  {
+    type: "checkbox",
+    message() {
+      console.log(guide);
+      return "Which viewports to screenshot?";
+    },
+    name: "viewports",
+    pageSize: 21,
+    choices: [
+      new inquirer.Separator("Select a viewport group..."),
+      {
+        name: "All"
+      },
+      {
+        name: "Touch"
+      },
+      {
+        name: "Desktop"
+      },
+      new inquirer.Separator("...or pick the ones you need."),
+      {
+        name: "Mobile"
+      },
+      {
+        name: "Tablet"
+      },
+      {
+        name: "Desktop"
+      },
+      {
+        name: "Widescreen"
+      },
+      {
+        name: "FullHD"
+      }
+    ]
+  },
+  {
+    type: "confirm",
+    name: "confirm",
+    message(answers) {
+      return confirmation(answers);
+    },
+    default() {
+      return false;
+    }
+  }
+];
+
+// Define custom devices
 const customDevices = [
   {
     name: "iPad Wide",
@@ -60,13 +149,91 @@ const customDevices = [
   }
 ];
 
+// Define mobile viewports and set descriptions
 const iPad = deviceList["iPad"];
 iPad.description = "larger mobile-view, tablet breakpoint (<769px)";
 const iPhoneX = deviceList["iPhone X"];
 iPhoneX.description = "a modern mobile device, mobile breakpoint (<768px)";
 
-const devices = [iPhoneX, iPad, ...customDevices];
+// Collect all devices
+const allDevices = [iPhoneX, iPad, ...customDevices];
 
+/************************************************
+ * FUNCTIONS
+ *
+ * Running order
+ * - inquirer
+ * - confirmation
+ * - parseViewports
+ * - dateString
+ ************************************************/
+
+// Confirm session details
+const confirmation = a => {
+  console.log(
+    chalk.bold.white(`
+Screen Shot Settings:
+
+- Link: ${a.baseURL}${a.page}
+- Version: ${a.page} ${a.version}
+- Pages: ${
+      a.viewports.length ? a.viewports.join(", ") : "=== NONE SELECTED ==="
+    }
+`)
+  );
+  return "Is this correct?";
+};
+
+// Pick out the viewports the user wants
+const parseViewports = choices => {
+  console.log("Choices is:\n", choices, "\n");
+
+  let viewports = new Set();
+
+  if (choices.indexOf("All") !== -1) {
+    viewports.add(allDevices[0]);
+    viewports.add(allDevices[1]);
+    viewports.add(allDevices[2]);
+    viewports.add(allDevices[3]);
+    viewports.add(allDevices[4]);
+    console.log("All", viewports.size);
+  } else if (choices.indexOf("Touch") !== -1) {
+    viewports.add(allDevices[0]);
+    viewports.add(allDevices[1]);
+    console.log("Touch", viewports.size);
+  } else if (choices.indexOf("Desktop") !== -1) {
+    viewports.add(allDevices[2]);
+    viewports.add(allDevices[3]);
+    viewports.add(allDevices[4]);
+    console.log("Desktop", viewports.size);
+  } else {
+    for (let i = 0; i < choices.length; i++) {
+      let choice = choices[i];
+
+      switch (choice) {
+        case "Mobile":
+          viewports.add(allDevices[0]);
+          break;
+        case "Tablet":
+          viewports.add(allDevices[1]);
+          break;
+        case "Desktop":
+          viewports.add(allDevices[2]);
+          break;
+        case "Widescreen":
+          viewports.add(allDevices[3]);
+          break;
+        case "FullHD":
+          viewports.add(allDevices[4]);
+          break;
+      }
+    }
+    console.log("Mix and Match", viewports.size);
+    return viewports;
+  }
+};
+
+// Get date and time
 const dateString = () => {
   let now = Date.now();
   let time = new Date(now);
@@ -86,14 +253,9 @@ const dateString = () => {
 
 (async () => {
   try {
-    /**
-     * WebsiteInfo function not working; not essential
-     *
-     * await websiteInfo();
-     */
     console.clear();
-    chalk.white(
-      console.log(
+    console.log(
+      chalk.white(
         figlet.textSync("Screenshots", {
           font: "Slant",
           horizontalLayout: "default",
@@ -101,88 +263,92 @@ const dateString = () => {
         })
       )
     );
-    chalk.underline.white(
-      console.log("Capturing your project in different devices.\n")
-    );
-    chalk.white(console.log(`Loading Puppeteer...\n`));
+    console.log(chalk.white("Capturing your project in different devices.\n"));
 
+    // Ask the user questions
+    let answers = await inquirer.prompt(questions);
+
+    // Parse user viewports
+    let viewports = parseViewports(answers.viewports);
+    console.log(viewports);
+
+    chalk.cyan(
+      console.log("\n------------------------------------------------------\n")
+    );
+
+    // Load puppeteer
+    console.log(chalk.bold.white(`Loading Puppeteer...\n`));
     const browser = await puppeteer.launch();
-    const time = dateString();
 
     console.log(
       chalk.white(
-        `Preparing to take ${devices.length} screenshots of ${webpage}.\n`
+        `Preparing to take ${answers.viewports.length} screenshots of ${answers.baseURL}${answers.page}\n`
       )
     );
 
-    for (let i = 0; i < devices.length; i++) {
-      let device = devices[i];
+    // Get the current time
+    const time = dateString();
 
-      // Add userAgent string to device object for the customDevices
-      if (!device.hasOwnProperty("userAgent")) {
-        device.userAgent = await browser.userAgent();
-      }
+    // Iterate over the selected viewports
+    // let count = 1;
+    // for (let device of viewports) {
+    //   // Add userAgent string to device object for the customDevices
+    //   if (!device.hasOwnProperty("userAgent")) {
+    //     device.userAgent = await browser.userAgent();
+    //   }
 
-      /**
-       * According to the Puppeteer docs, the order should be:
-       *
-       * - browser = puppeteer.launch()
-       * - page = browser.newPage()
-       * - await page.emulate(viewport)
-       * - await page.goTo(url)
-       * - finally, await browser.close()
-       */
+    //   chalk.cyan(
+    //     console.log(`------------------------------------------------------\n`)
+    //   );
 
-      chalk.cyan(
-        console.log(`------------------------------------------------------\n`)
-      );
+    //   // Open a new browser page
+    //   const page = await browser.newPage();
 
-      // Open a new browser page
-      const page = await browser.newPage();
+    //   console.log(
+    //     chalk.bold.white(`  #${count} - Emulating ${device.name}...`)
+    //   );
 
-      console.log(
-        chalk.bold.white(`  #${i + 1} - Emulating ${device.name}...`)
-      );
+    //   // Emulate the device
+    //   await page.emulate(device);
 
-      // Emulate the device
-      await page.emulate(device);
+    //   console.log(chalk.white(`  ┣ Represents ${device.description}.`));
+    //   console.log(chalk.white(`  ┃`));
+    //   console.log(chalk.cyan(`  ┣ Opening new browser tab...`));
+    //   console.log(chalk.cyan(`  ┣ Navigating to ${webpage}...`));
 
-      console.log(chalk.white(`  ┣ Represents ${device.description}.`));
-      console.log(chalk.white(`  ┃`));
-      console.log(chalk.cyan(`  ┣ Opening new browser tab...`));
-      console.log(chalk.cyan(`  ┣ Navigating to ${webpage}...`));
+    //   // Navigate to the webpage.
+    //   await page.goto(`${webpage}`, {
+    //     waitUntil: ["load", "domcontentloaded", "networkidle2"]
+    //   });
 
-      // Navigate to the webpage.
-      await page.goto(`${webpage}`, {
-        waitUntil: ["load", "domcontentloaded", "networkidle2"]
-      });
+    //   // Click one of the time-date divs
+    //   // await page.click("div #test-active");
 
-      // Click one of the time-date divs
-      // await page.click("div #test-active");
+    //   console.log(chalk.cyan(`  ┣ ✅  Page loaded successfully.`));
+    //   console.log(chalk.cyan(`  ┃`));
 
-      console.log(chalk.cyan(`  ┣ ✅  Page loaded successfully.`));
-      console.log(chalk.cyan(`  ┃`));
+    //   // Take the screenshot
+    //   // await page.screenshot({
+    //   //   path: `__tests__/screenshots/${webpageRoute} ${webpageVersion} | ${device.name} | ${time}.png`
+    //   // });
 
-      // Take the screenshot
-      // await page.screenshot({
-      //   path: `__tests__/screenshots/${webpageRoute} ${webpageVersion} | ${device.name} | ${time}.png`
-      // });
-
-      // Success! Report back to the user.
-      console.log(
-        chalk.green(
-          `  ┣ 🖼️   ${device.name} (${device.viewport.width}x${device.viewport.height}) captured.`
-        )
-      );
-      console.log(
-        chalk.green(
-          `  ┗ 💾  Saved to '/screenshots/${webpageRoute} ${webpageVersion} | ${device.name} | ${time}.png'\n`
-        )
-      );
-    }
+    //   // Success! Report back to the user.
+    //   console.log(
+    //     chalk.green(
+    //       `  ┣ 🖼️   ${device.name} (${device.viewport.width}x${device.viewport.height}) captured.`
+    //     )
+    //   );
+    //   console.log(
+    //     chalk.green(
+    //       `  ┗ 💾  Saved to '/screenshots/${webpageRoute} ${webpageVersion} | ${device.name} | ${time}.png'\n`
+    //     )
+    //   );
+    //   // Increase the count
+    //   count++;
+    // }
     console.log(
       chalk.inverse.green(
-        `====== All ${devices.length} screenshots captured successfully! ======`
+        `====== All screenshots captured successfully! ======`
       )
     );
 
@@ -190,34 +356,21 @@ const dateString = () => {
     await browser.close();
     process.exit();
   } catch (error) {
-    // Error catching
-    console.log(chalk.red(`  ┃`));
-    console.log(chalk.inverse.bold.red(`  ┣ ❌  Something went wrong. `));
-    console.log(chalk.red(`  ┃`));
-    console.log(chalk.red("  ┣ ====== Common Issues ======"));
-    console.log(chalk.red("  ┣━ Is the dev server running?"));
-    console.log(
-      chalk.red(
-        "  ┣━ Is there a `screenshots` folder inside `__tests__` folder?"
-      )
-    );
-    console.log(
-      chalk.red(
-        "  ┣━ No screenshots in folder? Is the screenshot function commented out?"
-      )
-    );
-    console.log(
-      chalk.red("  ┣━ Is the page content hidden because of a breakpoint?")
-    );
-    console.log(chalk.red("  ┗━ Is the URL correct? ➡", webpage, "\n"));
-
-    // Check for errors with puppeteer errors vs other errors
+    // Check for errors with puppeteer errors...
     if (error instanceof puppeteer.errors.TimeoutError) {
       console.log(chalk.red(`  ┃`));
       console.log(chalk.red(`  ┗━ Operation timed out. Error logs below. \n`));
       console.log(error);
-    } else {
+    }
+    // ...then for errors displaying the questionnaire...
+    else if (error.isTtyError) {
+      console.log(chalk.red(`  ┃`));
+      console.log(chalk.red(`  ┗━ Questionnaire couldn't be rendered.`));
       console.log(error);
+    }
+    // ...then for other errors.
+    else {
+      console.log("\n", error);
       process.exit();
     }
   }

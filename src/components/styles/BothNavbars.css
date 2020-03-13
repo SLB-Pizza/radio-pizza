@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   left: 0;
-  height: calc(2.5 * $navbar-height);
+  height: 7.5rem;
   position: fixed;
   right: 0;
   top: 0;

@@ -1,63 +1,30 @@
 import React from "react";
+import { HomeSingleMix } from "./index";
 
 function HomeMixes() {
   return (
     <div className="container is-fluid home-mixes">
-      <div className="columns is-vcentered">
-        <div className="column">
-          <p className="title is-size-2">Recent Mixes</p>
-        </div>
-      </div>
       {/*
       Desktop Sizes
       */}
-      <div className="columns is-multiline">
-        <div className="column is-3 mixes-bg">
-          <div>
-            {/* <div className="mixes-bg"> */}
-            <p className="title is-size-3">Mixes</p>
-          </div>
+      <div className="columns">
+        <div className="column is-3">
+          <p className="title is-size-2-desktop is-size-4-touch">Radio Sets</p>
+          <p className="title is-size-4-desktop is-size-6-touch">
+            Recent mixes from Halfmoon residents.
+          </p>
         </div>
-        <div className="column is-3 mixes-bg">
-          <div>
-            {/* <div className="mixes-bg"> */}
-            <p className="title is-size-3">Mixes</p>
-          </div>
-        </div>
-        <div className="column is-3 mixes-bg">
-          <div>
-            {/* <div className="mixes-bg"> */}
-            <p className="title is-size-3">Mixes</p>
-          </div>
-        </div>
-        <div className="column is-3 mixes-bg">
-          <div>
-            {/* <div className="mixes-bg"> */}
-            <p className="title is-size-3">Mixes</p>
-          </div>
-        </div>
-        <div className="column is-3 mixes-bg mixes-bg">
-          <div>
-            {/* <div className="mixes-bg"> */}
-            <p className="title is-size-3">Mixes</p>
-          </div>
-        </div>
-        <div className="column is-3 mixes-bg">
-          <div>
-            {/* <div className="mixes-bg"> */}
-            <p className="title is-size-3">Mixes</p>
-          </div>
-        </div>
-        <div className="column is-3 mixes-bg">
-          <div>
-            {/* <div className="mixes-bg"> */}
-            <p className="title is-size-3">Mixes</p>
-          </div>
-        </div>
-        <div className="column is-3 mixes-bg">
-          <div>
-            {/* <div className="mixes-bg"> */}
-            <p className="title is-size-3">Mixes</p>
+        <div className="column is-9">
+          <div className="columns is-multiline">
+            {/* <div className="column">
+              <p>Hello</p>
+            </div> */}
+            <HomeSingleMix />
+            <HomeSingleMix />
+            <HomeSingleMix />
+            <HomeSingleMix />
+            <HomeSingleMix />
+            <HomeSingleMix />
           </div>
         </div>
       </div>

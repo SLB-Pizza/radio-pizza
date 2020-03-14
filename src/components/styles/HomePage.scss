@@ -84,7 +84,6 @@
 // <HomeContent />
 .home-content {
   @include tablet;
-  height: calc(100vh - 10.5rem);
   margin-bottom: 3rem;
 
   background-image: url(https://source.unsplash.com/1920x1080/daily?dj);
@@ -94,38 +93,38 @@
   background-size: cover;
   background-color: greenyellow;
 
-  // Flex home-content to arrange sub content sections
-  display: flex;
-  flex-direction: column;
-
   p {
     color: white;
   }
 
-  .container {
-    height: 100%;
-    display: flex;
-    align-items: center;
+  // Align the primary columns div inside this container
+  & .columns {
+    margin: 0;
+    padding: 1rem 0;
   }
 
   .home-mixes {
-    flex: 1;
-    background-color: tan;
+    background-color: darkmagenta;
     border-bottom: 1px solid grey;
 
+    & .columns {
+      margin-top: 0;
+    }
+
     .mixes-bg {
-      padding: 1rem;
+      height: 33vh;
       background-image: url(https://source.unsplash.com/1280x720/);
       background-position: center center;
       background-repeat: no-repeat;
       background-attachment: scroll;
       background-size: cover;
+      border: 1px solid white;
     }
   }
   .home-events {
-    flex: 1;
+    // flex: 1;
   }
   .home-news {
-    flex: 1;
+    // flex: 1;
   }
 }

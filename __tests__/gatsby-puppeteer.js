@@ -5,15 +5,18 @@ const puppeteer = require("puppeteer");
 const deviceList = puppeteer.devices;
 
 /**
- * Edit these to change the webpage.
- *
- * webpage version is used to name the file
- * PLEASE REMEMBER TO UPDATE IT
- *
+ * Edit each time before using script!
  */
 const webpageRoute = "home";
 const webpageVersion = "v3";
 const webpage = `http://localhost:8000/${webpageRoute}`;
+
+// Set false to test script
+const takeScreenshot = false;
+
+// Situational for pages
+const clickItem = false;
+const scroll = true;
 
 /************************************************
  * WARNING
@@ -314,22 +317,30 @@ const dateString = () => {
       await page.goto(`${webpage}`, {
         waitUntil: ["load", "domcontentloaded", "networkidle2"]
       });
-      console.log(chalk.cyan(`  ┣ Page loaded successfully.`));
+      console.log(chalk.cyan(`  ┣━ Page loaded successfully.`));
 
-      // Click one of the time-date divs
-      // await page.click("div #test-active");
-      // console.log(chalk.cyan(`  ┣ '#test-active' clicked.`));
+      if (clickItem) {
+        // Click one of the time-date divs on /schedule
+        console.log(chalk.cyan(`  ┣ Locating click target...`));
+        await page.click("div #test-active");
+        console.log(chalk.cyan(`  ┣━ '#test-active' clicked.`));
+      }
 
       // Scroll the page to the bottom
-      await page.evaluate(() => {
-        window.scrollBy(0, document.body.scrollHeight);
-      });
-      console.log(chalk.cyan(`  ┣ Page scrolled to bottom.`));
+      if (scroll) {
+        console.log(chalk.cyan(`  ┣ Scrolling page...`));
+        await page.evaluate(() => {
+          window.scrollBy(0, document.body.scrollHeight);
+        });
+        console.log(chalk.cyan(`  ┣━ Page scrolled to bottom.`));
+      }
 
       // Take the screenshot
-      await page.screenshot({
-        path: `__tests__/screenshots/${webpageRoute} ${webpageVersion} | ${device.name} | ${time}.png`
-      });
+      if (takeScreenshot) {
+        await page.screenshot({
+          path: `__tests__/screenshots/${webpageRoute} ${webpageVersion} | ${device.name} | ${time}.png`
+        });
+      }
 
       // Success! Report back to the user.
       console.log(chalk.cyan(`  ┃`));

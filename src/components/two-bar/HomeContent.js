@@ -5,8 +5,6 @@ function HomeContent() {
   return (
     <div className="home-content">
       <HomeMixes />
-      <HomeMixes />
-      <HomeMixes />
     </div>
   );
 }

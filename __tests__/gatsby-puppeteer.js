@@ -17,7 +17,6 @@ const webpage = `http://localhost:8000/${webpageRoute}`;
 
 /************************************************
  * WARNING
- *
  * THERE BE DRAGONS AHEAD
  ************************************************/
 
@@ -26,15 +25,14 @@ const webpage = `http://localhost:8000/${webpageRoute}`;
  ************************************************/
 
 // Breakpoint guide to display in questionnaire
-const guide = chalk.bold.white(`
- Bulma Breakpoints Guide (in px)
+const guide = chalk.white(`
+  Breakpoints Guide (in px)
 
- |           TOUCH             |                DESKTOP
- 0 ----------- 769 ----------- 1024 ----------- 1216 ----------- 1408 ----------->
- |   mobile    |     tablet    |      desktop   |    widescreen  |      fullhd\n\n`);
+  |        TOUCH SIZES         ||             DESKTOP SIZES
+  0 ---------- 769 ---------- 1024 ---------- 1216 ---------- 1408 ---------->
+  |   mobile    |    tablet    ||    desktop   |   widescreen  |   fullhd\n`);
 
 // Questions to ask the user
-
 const questions = [
   {
     type: "input",
@@ -71,13 +69,13 @@ const questions = [
     choices: [
       new inquirer.Separator("Select a viewport group..."),
       {
-        name: "All"
+        name: "All Sizes"
       },
       {
-        name: "Touch"
+        name: "Touch Sizes"
       },
       {
-        name: "Desktop"
+        name: "Desktop Sizes"
       },
       new inquirer.Separator("...or pick the ones you need."),
       {
@@ -100,11 +98,22 @@ const questions = [
   {
     type: "confirm",
     name: "confirm",
-    message(answers) {
-      return confirmation(answers);
+    message(a) {
+      console.log(
+        chalk.white(`
+  Current Settings:
+
+  - Link: ${a.baseURL}${a.page}
+  - Version: ${a.page} ${a.version}
+  - Pages: ${
+    a.viewports.length ? a.viewports.join(", ") : "=== NONE SELECTED ==="
+  }
+`)
+      );
+      return "Continue with these settings?";
     },
     default() {
-      return false;
+      return true;
     }
   }
 ];
@@ -112,8 +121,8 @@ const questions = [
 // Define custom devices
 const customDevices = [
   {
-    name: "iPad Wide",
-    description: "common tablet like iPads, desktop breakpoint (<1024px)",
+    name: "iPad Horiz",
+    description: "common tablet like iPads, desktop breakpoint (from 1024px)",
     viewport: {
       width: 1024,
       height: 1000,
@@ -125,7 +134,7 @@ const customDevices = [
   },
   {
     name: "Widescreen",
-    description: "a low-res laptop screen, widescreen breakpoint (<1407px)",
+    description: "a low-res laptop screen, widescreen breakpoint (from 1216px)",
     viewport: {
       width: 1280,
       height: 800,
@@ -137,7 +146,7 @@ const customDevices = [
   },
   {
     name: "1080p",
-    description: "a 1080p monitor, fullhd breakpoint (>1408px)",
+    description: "a 1080p monitor, fullhd breakpoint (from 1408px)",
     viewport: {
       width: 1920,
       height: 1080,
@@ -151,9 +160,9 @@ const customDevices = [
 
 // Define mobile viewports and set descriptions
 const iPad = deviceList["iPad"];
-iPad.description = "larger mobile-view, tablet breakpoint (<769px)";
+iPad.description = "larger mobile-view, tablet breakpoint (from 769px)";
 const iPhoneX = deviceList["iPhone X"];
-iPhoneX.description = "a modern mobile device, mobile breakpoint (<768px)";
+iPhoneX.description = "a modern mobile device, mobile breakpoint (up to 768px)";
 
 // Collect all devices
 const allDevices = [iPhoneX, iPad, ...customDevices];
@@ -163,26 +172,9 @@ const allDevices = [iPhoneX, iPad, ...customDevices];
  *
  * Running order
  * - inquirer
- * - confirmation
  * - parseViewports
  * - dateString
  ************************************************/
-
-// Confirm session details
-const confirmation = a => {
-  console.log(
-    chalk.bold.white(`
-Screen Shot Settings:
-
-- Link: ${a.baseURL}${a.page}
-- Version: ${a.page} ${a.version}
-- Pages: ${
-      a.viewports.length ? a.viewports.join(", ") : "=== NONE SELECTED ==="
-    }
-`)
-  );
-  return "Is this correct?";
-};
 
 // Pick out the viewports the user wants
 const parseViewports = choices => {
@@ -190,18 +182,18 @@ const parseViewports = choices => {
 
   let viewports = new Set();
 
-  if (choices.indexOf("All") !== -1) {
+  if (choices.indexOf("All Sizes") !== -1) {
     viewports.add(allDevices[0]);
     viewports.add(allDevices[1]);
     viewports.add(allDevices[2]);
     viewports.add(allDevices[3]);
     viewports.add(allDevices[4]);
     console.log("All", viewports.size);
-  } else if (choices.indexOf("Touch") !== -1) {
+  } else if (choices.indexOf("Touch Sizes") !== -1) {
     viewports.add(allDevices[0]);
     viewports.add(allDevices[1]);
     console.log("Touch", viewports.size);
-  } else if (choices.indexOf("Desktop") !== -1) {
+  } else if (choices.indexOf("Desktop Sizes") !== -1) {
     viewports.add(allDevices[2]);
     viewports.add(allDevices[3]);
     viewports.add(allDevices[4]);
@@ -268,28 +260,24 @@ const dateString = () => {
     // Ask the user questions
     // let answers = await inquirer.prompt(questions);
 
+    // End the program if the settings were wrong
+    // if (answers.confirm === false) {
+    //   process.exit();
+    // }
+
     // Parse user viewports
     // let viewports = parseViewports(answers.viewports);
     // console.log(viewports);
 
-    chalk.cyan(
-      console.log("\n------------------------------------------------------\n")
-    );
-
     // Load puppeteer
-    console.log(chalk.bold.white(`Loading Puppeteer...\n`));
+    console.log(chalk.bold.white(`\n  Loading Puppeteer...`));
     const browser = await puppeteer.launch();
 
     console.log(
       chalk.white(
-        `Preparing to take ${allDevices.length} screenshots of ${webpage}\n`
+        `  Preparing to take ${allDevices.length} screenshots of ${webpage}\n`
       )
     );
-    // console.log(
-    //   chalk.white(
-    //     `Preparing to take ${answers.viewports.length} screenshots of ${answers.baseURL}${answers.page}\n`
-    //   )
-    // );
 
     // Get the current time
     const time = dateString();
@@ -297,7 +285,6 @@ const dateString = () => {
     // Iterate over the selected viewports
     let count = 0;
     for (let device of allDevices) {
-      // Increase the count
       count++;
 
       // Add userAgent string to device object for the customDevices

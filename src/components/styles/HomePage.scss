@@ -1,3 +1,4 @@
+// <Hero />
 .homepage-hero {
   // There's a .75rem margin-top to account for somewhere. Has to do with setting up a flexbox.
 
@@ -77,5 +78,54 @@
       display: flex;
       flex-direction: column;
     }
+  }
+}
+
+// <HomeContent />
+.home-content {
+  @include tablet;
+  height: calc(100vh - 10.5rem);
+  margin-bottom: 3rem;
+
+  background-image: url(https://source.unsplash.com/1920x1080/daily?dj);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+  background-color: greenyellow;
+
+  // Flex home-content to arrange sub content sections
+  display: flex;
+  flex-direction: column;
+
+  p {
+    color: white;
+  }
+
+  .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .home-mixes {
+    flex: 1;
+    background-color: tan;
+    border-bottom: 1px solid grey;
+
+    .mixes-bg {
+      padding: 1rem;
+      background-image: url(https://source.unsplash.com/1280x720/);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+      background-size: cover;
+    }
+  }
+  .home-events {
+    flex: 1;
+  }
+  .home-news {
+    flex: 1;
   }
 }

@@ -2,9 +2,8 @@ import React from "react";
 import {
   TopNav,
   Hero,
-  ChatSchedule,
-  EditorialFeed,
-  BottomNav
+  BottomNav,
+  HomeContent
 } from "../components/two-bar/index";
 
 import "../components/styles/index.scss";
@@ -27,8 +26,7 @@ const TwoBarLayout = () => (
   <div className="has-navbar-fixed-bottom">
     <TopNav />
     <Hero />
-    <ChatSchedule />
-    <EditorialFeed />
+    <HomeContent />
     <BottomNav />
   </div>
 );

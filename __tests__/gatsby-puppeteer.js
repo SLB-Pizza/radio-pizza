@@ -11,8 +11,8 @@ const deviceList = puppeteer.devices;
  * PLEASE REMEMBER TO UPDATE IT
  *
  */
-const webpageRoute = "schedule";
-const webpageVersion = "v2";
+const webpageRoute = "home";
+const webpageVersion = "v3";
 const webpage = `http://localhost:8000/${webpageRoute}`;
 
 /************************************************
@@ -122,10 +122,10 @@ const questions = [
 const customDevices = [
   {
     name: "iPad Horiz",
-    description: "common tablet like iPads, desktop breakpoint (from 1024px)",
+    description: "old low-res monitors, desktop breakpoint (from 1024px)",
     viewport: {
       width: 1024,
-      height: 1000,
+      height: 768,
       deviceScaleFactor: 1,
       isMobile: true,
       hasTouch: true,
@@ -314,19 +314,25 @@ const dateString = () => {
       await page.goto(`${webpage}`, {
         waitUntil: ["load", "domcontentloaded", "networkidle2"]
       });
+      console.log(chalk.cyan(`  ┣ Page loaded successfully.`));
 
       // Click one of the time-date divs
       // await page.click("div #test-active");
+      // console.log(chalk.cyan(`  ┣ '#test-active' clicked.`));
 
-      console.log(chalk.cyan(`  ┣ ✅  Page loaded successfully.`));
-      console.log(chalk.cyan(`  ┃`));
+      // Scroll the page to the bottom
+      await page.evaluate(() => {
+        window.scrollBy(0, document.body.scrollHeight);
+      });
+      console.log(chalk.cyan(`  ┣ Page scrolled to bottom.`));
 
       // Take the screenshot
-      // await page.screenshot({
-      //   path: `__tests__/screenshots/${webpageRoute} ${webpageVersion} | ${device.name} | ${time}.png`
-      // });
+      await page.screenshot({
+        path: `__tests__/screenshots/${webpageRoute} ${webpageVersion} | ${device.name} | ${time}.png`
+      });
 
       // Success! Report back to the user.
+      console.log(chalk.cyan(`  ┃`));
       console.log(
         chalk.green(
           `  ┣ 🖼️   ${device.name} (${device.viewport.width}x${device.viewport.height}) captured.`

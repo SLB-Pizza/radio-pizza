@@ -3,7 +3,7 @@ import { HomeSingleNews } from "./index";
 
 function HomeNews() {
   return (
-    <div className="container is-fluid home-events">
+    <div className="container is-fluid home-news">
       {/*
       Desktop Sizes
       */}
@@ -14,16 +14,16 @@ function HomeNews() {
               News & Articles
             </p>
             <p className="title is-size-4-desktop is-size-5-touch">
-              Parties, the Halfmoon way.
+              A closer look at the music, the artists, the scenes and the people
+              that make it happen.
             </p>
             <button className="sticky-link button is-black">
-              View More Events >
+              View More Features >
             </button>
           </div>
         </div>
         <div className="column is-9">
           <div className="columns is-multiline">
-            <HomeSingleNews />
             <HomeSingleNews />
             <HomeSingleNews />
             <HomeSingleNews />

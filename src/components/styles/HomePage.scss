@@ -142,17 +142,25 @@
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
-
-    .single-event {
-      background-image: url();
-
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-attachment: scroll;
-      background-size: cover;
-    }
   }
+
+  //==================================
+  // <HomeNews />
+  //==================================
   .home-news {
-    // flex: 1;
+    padding: 3rem 2rem;
+
+    background-image: url(https://source.unsplash.com/1920x1080/daily?news);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+
+    .news-data {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.25rem;
+    }
   }
 }

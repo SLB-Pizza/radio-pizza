@@ -2,7 +2,7 @@ import React from "react";
 
 function HomeSingleMix() {
   return (
-    <div className="column is-6-touch is-6-tablet is-3-widescreen">
+    <div className="column is-6-tablet is-3-widescreen">
       <div className="card">
         <div className="card-image">
           <figure className="image is-16by9">
@@ -22,9 +22,10 @@ function HomeSingleMix() {
           </p>
           <div className="tags are-small">
             <span class="tag is-dark">Genre</span>
-            <span class="tag is-dark">Niche Subgenre</span>
-            <span class="tag is-dark">Other Genre</span>
+            <span class="tag is-dark">Genrerock</span>
+            <span class="tag is-dark">Alt-Genre</span>
             <span class="tag is-dark">Genrecore</span>
+            <span class="tag is-dark">Post-Genre</span>
           </div>
         </div>
       </div>

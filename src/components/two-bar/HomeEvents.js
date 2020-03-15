@@ -1,9 +1,9 @@
 import React from "react";
-import { HomeSingleMix } from "./index";
+// import { HomeSingleEvent } from "./index";
 
 function HomeMixes() {
   return (
-    <div className="container is-fluid home-mixes">
+    <div className="container is-fluid home-events">
       {/*
       Desktop Sizes
       */}
@@ -11,23 +11,23 @@ function HomeMixes() {
         <div className="column is-3">
           <div className="sticky-section-blurb">
             <p className="title is-size-2-desktop is-size-4-touch">
-              Radio Sets
+              Live Events
             </p>
             <p className="title is-size-4-desktop is-size-6-touch">
-              Recent mixes from Halfmoon residents.
+              Parties, the Halfmoon way.
             </p>
           </div>
         </div>
         <div className="column is-9">
           <div className="columns is-multiline">
-            <HomeSingleMix />
-            <HomeSingleMix />
-            <HomeSingleMix />
-            <HomeSingleMix />
-            <HomeSingleMix />
-            <HomeSingleMix />
-            <HomeSingleMix />
-            <HomeSingleMix />
+            {/* <HomeSingleEvent /> */}
+            {/* <HomeSingleEvent /> */}
+            {/* <HomeSingleEvent /> */}
+            {/* <HomeSingleEvent /> */}
+            {/* <HomeSingleEvent /> */}
+            {/* <HomeSingleEvent /> */}
+            {/* <HomeSingleEvent /> */}
+            {/* <HomeSingleEvent /> */}
           </div>
         </div>
       </div>

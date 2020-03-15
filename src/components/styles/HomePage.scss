@@ -80,8 +80,9 @@
     }
   }
 }
-
+//==================================
 // <HomeContent />
+//==================================
 .home-content {
   @include tablet;
   margin-bottom: 3rem;
@@ -116,14 +117,29 @@
     // top = calc(TopNav height + section container padding)
     top: calc(8.25rem + 1rem);
     padding-bottom: 1rem;
+
+    p {
+      text-shadow: 2px 2px 2px black;
+    }
   }
+
+  //==================================
+  // <HomeMixes />
+  //==================================
 
   .home-mixes {
-    background-color: darkmagenta;
+    // Override default bulma card settings
+    .card-content {
+      background-color: black;
+      padding: 0.75rem;
+    }
   }
 
+  //==================================
+  // <HomeEvents />
+  //==================================
+
   .home-events {
-    // flex: 1;
   }
   .home-news {
     // flex: 1;

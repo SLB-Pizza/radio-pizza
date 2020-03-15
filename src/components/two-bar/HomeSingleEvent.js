@@ -1,6 +1,6 @@
 import React from "react";
 
-function HomeSingleMix() {
+function HomeSingleEvent() {
   return (
     <div className="column is-3-widescreen is-6-desktop">
       <div className="card">
@@ -32,4 +32,4 @@ function HomeSingleMix() {
   );
 }
 
-export default HomeSingleMix;
+export default HomeSingleEvent;

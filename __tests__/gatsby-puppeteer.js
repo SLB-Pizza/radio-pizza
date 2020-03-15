@@ -19,7 +19,7 @@ const pageURL = `http://localhost:8000/${pageRoute}`;
  * @param {boolean} takeShot - set to false when testing the script
  * @param {boolean} promptUserQuestions - gates CLI questionnaire to gather info
  */
-const takeShot = false;
+const takeShot = true;
 const promptUserQuestions = false;
 
 /**
@@ -29,7 +29,7 @@ const promptUserQuestions = false;
  * @param {boolean} scrollToSection - gates scroll script section
  */
 
-const fullPageCapture = false;
+const fullPageCapture = true;
 const clickItem = false;
 const scrollToSection = false;
 
@@ -362,8 +362,10 @@ const dateString = () => {
       if (takeShot) {
         console.log(chalk.cyan(`  ┣ Capturing screenshot...`));
         await page.screenshot({
-          path: `__tests__/screenshots/${pageRoute} ${pageVersion} | ${device.name} | ${time}.png`,
-          fullPage: fullPageCapture
+          path: `__tests__/screenshots/${pageRoute} ${pageVersion} | ${device.name} | ${time}.jpeg`,
+          fullPage: fullPageCapture,
+          type: "jpeg",
+          quality: 75
         });
       }
 
@@ -376,7 +378,7 @@ const dateString = () => {
       );
       console.log(
         chalk.green(
-          `  ┗━ 💾  Saved to '/screenshots/${pageRoute} ${pageVersion} | ${device.name} | ${time}.png'\n`
+          `  ┗━ 💾  Saved to '/screenshots/${pageRoute} ${pageVersion} | ${device.name} | ${time}.jpeg'\n`
         )
       );
     }

@@ -7,6 +7,7 @@
   @include tablet;
   margin-top: 8.25rem;
   height: calc(100vh - 10.5rem);
+  // max-height: calc(2160px - 10.5rem);
 
   background-image: url(https://source.unsplash.com/1920x1080/daily?music);
   background-position: center center;
@@ -108,7 +109,7 @@
     }
 
     button {
-      top: 1rem;
+      top: 0.5rem;
     }
   }
 
@@ -119,7 +120,7 @@
   }
 
   .content-date {
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
   }
 
   //==================================
@@ -134,6 +135,13 @@
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
+
+    .tag {
+      transition: 0.25s ease-in-out;
+      &:hover {
+        box-shadow: 2px 2px 4px grey;
+      }
+    }
   }
 
   //==================================
@@ -161,12 +169,5 @@
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
-
-    .news-data {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.25rem;
-    }
   }
 }

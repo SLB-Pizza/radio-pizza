@@ -13,12 +13,10 @@ function HomeSingleEvent() {
           </figure>
         </div>
         <div className="card-content">
-          <p className="content-date is-size-7">03.30.20</p>
-          <p className="title is-size-3-desktop is-size-4-touch">
-            Lorem Ipsum Dolor
-          </p>
-          <p className="subtitle is-size-5-desktop is-size-6-touch">
-            Resident Artist
+          <p className="content-date is-size-7">LOCATION | 03.30.20</p>
+          <p className="title is-size-4 is-size-3-fullhd">Lorem Ipsum Dolor</p>
+          <p className="subtitle is-size-6 is-size-5-fullhd">
+            One line talking about this awesome event
           </p>
         </div>
       </div>

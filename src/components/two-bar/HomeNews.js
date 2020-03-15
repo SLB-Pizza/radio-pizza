@@ -10,14 +10,12 @@ function HomeNews() {
       <div className="columns">
         <div className="column is-3">
           <div className="sticky-section-blurb">
-            <p className="title is-size-2-desktop is-size-3-touch">
-              News & Articles
-            </p>
-            <p className="title is-size-4-desktop is-size-5-touch">
+            <p className="title is-size-2">News & Articles</p>
+            <p className="title is-size-4">
               A closer look at the music, the artists, the scenes and the people
               that make it happen.
             </p>
-            <button className="sticky-link button is-black">
+            <button className="sticky-link button is-dark">
               View More Features >
             </button>
           </div>

@@ -10,10 +10,10 @@ function HomeMixes() {
       <div className="columns">
         <div className="column is-3">
           <div className="sticky-section-blurb">
-            <p className="title is-size-2-desktop is-size-4-touch">
+            <p className="title is-size-2-desktop is-size-3-touch">
               Radio Sets
             </p>
-            <p className="title is-size-4-desktop is-size-6-touch">
+            <p className="title is-size-4-desktop is-size-5-touch">
               Recent mixes from Halfmoon residents.
             </p>
             <button className="sticky-link button is-black">

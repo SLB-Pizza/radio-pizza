@@ -91,36 +91,37 @@
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
-  background-color: greenyellow;
 
+  // Set all text to white
   p {
     color: white;
   }
 
-  // Align the primary columns div inside this container
+  // Align the top of columns div (container > columns) to the hero
+  // Align the top of nested columns (column is-9 > columns) to the section
   & .columns {
     margin: 0;
-    padding: 1rem 0;
+    padding: 2rem 0;
+    & .columns {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  // Make each content sections' titles and taglines sticky
+  .sticky-section-blurb {
+    position: -webkit-sticky;
+    position: sticky;
+
+    // top = calc(TopNav height + section container padding)
+    top: calc(8.25rem + 1rem);
+    padding-bottom: 1rem;
   }
 
   .home-mixes {
     background-color: darkmagenta;
-    border-bottom: 1px solid grey;
-
-    & .columns {
-      margin-top: 0;
-    }
-
-    .mixes-bg {
-      height: 33vh;
-      background-image: url(https://source.unsplash.com/1280x720/);
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-attachment: scroll;
-      background-size: cover;
-      border: 1px solid white;
-    }
   }
+
   .home-events {
     // flex: 1;
   }

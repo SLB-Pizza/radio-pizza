@@ -1,4 +1,6 @@
+//==================================
 // <Hero />
+//==================================
 .homepage-hero {
   // There's a .75rem margin-top to account for somewhere. Has to do with setting up a flexbox.
 
@@ -154,7 +156,7 @@
   .home-news {
     padding: 3rem 2rem;
 
-    background-image: url(https://source.unsplash.com/1920x1080/daily?news);
+    background-image: url(https://source.unsplash.com/1920x1080/daily?night-city);
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: scroll;

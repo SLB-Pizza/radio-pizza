@@ -5,29 +5,48 @@ const puppeteer = require("puppeteer");
 const deviceList = puppeteer.devices;
 
 /**
- * Edit each time before using script!
+ * Primary script variables
+ * @param {string} pageRoute - the /route to capture
+ * @param {string} pageVersion - version of page captured; change each revision
+ * @param {string} pageURL - pulls in route and passes result to puppeteer
  */
-const webpageRoute = "home";
-const webpageVersion = "v3";
-const webpage = `http://localhost:8000/${webpageRoute}`;
+const pageRoute = "home";
+const pageVersion = "v3";
+const pageURL = `http://localhost:8000/${pageRoute}`;
 
-// Set false to test script
-const takeScreenshot = false;
+/**
+ * Script testing variables
+ * @param {boolean} takeShot - set to false when testing the script
+ * @param {boolean} promptUserQuestions - gates CLI questionnaire to gather info
+ */
+const takeShot = false;
+const promptUserQuestions = false;
 
-// Situational for pages
+/**
+ * Situational variables
+ * @param {boolean} fullPageCapture - set true if page is taller than window height
+ * @param {boolean} clickItem - gates click script section
+ * @param {boolean} scrollToSection - gates scroll script section
+ */
+
+const fullPageCapture = false;
 const clickItem = false;
-const scroll = true;
+const scrollToSection = false;
 
 /************************************************
  * WARNING
- * THERE BE DRAGONS AHEAD
+ * THAR BE DRAGONS AHEAD
  ************************************************/
 
-/************************************************
+/**
  * CONSTANTS
- ************************************************/
-
-// Breakpoint guide to display in questionnaire
+ * @param {string} guide - ASCII guide of bulma breakpoints; used in user prompt
+ * @param {object[]} questions - array of question objects displayed in user prompt
+ * @param {object[]} customDevices - array of device objects to emulate in script
+ * @param {iPad} iPad - device pulled directly from puppeteer's device library
+ * @param {iPhoneX} iPhoneX - device pulled directly from puppeteer's device library
+ * @param {object[]} allDevices - complete array of devices to capture screenshots of
+ */
 const guide = chalk.white(`
   Breakpoints Guide (in px)
 
@@ -35,7 +54,6 @@ const guide = chalk.white(`
   0 ---------- 769 ---------- 1024 ---------- 1216 ---------- 1408 ---------->
   |   mobile    |    tablet    ||    desktop   |   widescreen  |   fullhd\n`);
 
-// Questions to ask the user
 const questions = [
   {
     type: "input",
@@ -121,10 +139,9 @@ const questions = [
   }
 ];
 
-// Define custom devices
 const customDevices = [
   {
-    name: "iPad Horiz",
+    name: "Small Monitor",
     description: "old low-res monitors, desktop breakpoint (from 1024px)",
     viewport: {
       width: 1024,
@@ -161,25 +178,28 @@ const customDevices = [
   }
 ];
 
-// Define mobile viewports and set descriptions
 const iPad = deviceList["iPad"];
 iPad.description = "larger mobile-view, tablet breakpoint (from 769px)";
 const iPhoneX = deviceList["iPhone X"];
 iPhoneX.description = "a modern mobile device, mobile breakpoint (up to 768px)";
 
-// Collect all devices
 const allDevices = [iPhoneX, iPad, ...customDevices];
 
-/************************************************
+/**
  * FUNCTIONS
  *
  * Running order
  * - inquirer
  * - parseViewports
  * - dateString
- ************************************************/
+ */
 
-// Pick out the viewports the user wants
+/**
+ * Returns an array of viewports to capture screenshots of
+ * @function parseViewports
+ * @param {string[]} choices - array of strings from the user prompt
+ * @returns {array} - array of selected viewports
+ */
 const parseViewports = choices => {
   console.log("Choices is:\n", choices, "\n");
 
@@ -228,7 +248,11 @@ const parseViewports = choices => {
   }
 };
 
-// Get date and time
+/**
+ * Returns a formatted time and date string for use in naming files
+ * @function dateString
+ * @returns {string} - a filename safe formatted time-date string
+ */
 const dateString = () => {
   let now = Date.now();
   let time = new Date(now);
@@ -260,17 +284,18 @@ const dateString = () => {
     );
     console.log(chalk.white("Capturing your project in different devices.\n"));
 
-    // Ask the user questions
-    // let answers = await inquirer.prompt(questions);
+    if (promptUserQuestions) {
+      // Ask the user questions
+      let answers = await inquirer.prompt(questions);
 
-    // End the program if the settings were wrong
-    // if (answers.confirm === false) {
-    //   process.exit();
-    // }
+      // Kill the script if the settings were wrong
+      if (answers.confirm === false) {
+        process.exit();
+      }
 
-    // Parse user viewports
-    // let viewports = parseViewports(answers.viewports);
-    // console.log(viewports);
+      let viewports = parseViewports(answers.viewports);
+      console.log(viewports);
+    }
 
     // Load puppeteer
     console.log(chalk.bold.white(`\n  Loading Puppeteer...`));
@@ -278,14 +303,12 @@ const dateString = () => {
 
     console.log(
       chalk.white(
-        `  Preparing to take ${allDevices.length} screenshots of ${webpage}\n`
+        `  Preparing to take ${allDevices.length} screenshots of ${pageURL}.\n`
       )
     );
 
-    // Get the current time
     const time = dateString();
 
-    // Iterate over the selected viewports
     let count = 0;
     for (let device of allDevices) {
       count++;
@@ -298,36 +321,36 @@ const dateString = () => {
       chalk.cyan(
         console.log(`------------------------------------------------------\n`)
       );
-
-      // Open a new browser page
-      const page = await browser.newPage();
-
       console.log(
-        chalk.bold.white(`  #${count} - Emulating ${device.name}...`)
+        chalk.bold.white(`  ${count} of ${allDevices.length} - ${device.name}`)
       );
       console.log(chalk.white(`  ┣ Represents ${device.description}.`));
+      console.log(chalk.white(`  ┃`));
+
+      // Open a new browser page
+      console.log(chalk.cyan(`  ┣ Opening new browser tab...`));
+      const page = await browser.newPage();
 
       // Emulate the device
+      console.log(chalk.cyan(`  ┣ Emulating ${device.name}...`));
       await page.emulate(device);
-      console.log(chalk.white(`  ┃`));
-      console.log(chalk.cyan(`  ┣ Opening new browser tab...`));
 
-      // Navigate to the webpage.
-      console.log(chalk.cyan(`  ┣ Navigating to ${webpage}...`));
-      await page.goto(`${webpage}`, {
+      // Navigate to the pageURL.
+      console.log(chalk.cyan(`  ┣ Navigating to ${pageURL}...`));
+      await page.goto(`${pageURL}`, {
         waitUntil: ["load", "domcontentloaded", "networkidle2"]
       });
       console.log(chalk.cyan(`  ┣━ Page loaded successfully.`));
 
+      // Click one of the time-date divs on /schedule
       if (clickItem) {
-        // Click one of the time-date divs on /schedule
         console.log(chalk.cyan(`  ┣ Locating click target...`));
         await page.click("div #test-active");
         console.log(chalk.cyan(`  ┣━ '#test-active' clicked.`));
       }
 
       // Scroll the page to the bottom
-      if (scroll) {
+      if (scrollToSection) {
         console.log(chalk.cyan(`  ┣ Scrolling page...`));
         await page.evaluate(() => {
           window.scrollBy(0, document.body.scrollHeight);
@@ -336,9 +359,11 @@ const dateString = () => {
       }
 
       // Take the screenshot
-      if (takeScreenshot) {
+      if (takeShot) {
+        console.log(chalk.cyan(`  ┣ Capturing screenshot...`));
         await page.screenshot({
-          path: `__tests__/screenshots/${webpageRoute} ${webpageVersion} | ${device.name} | ${time}.png`
+          path: `__tests__/screenshots/${pageRoute} ${pageVersion} | ${device.name} | ${time}.png`,
+          fullPage: fullPageCapture
         });
       }
 
@@ -346,12 +371,12 @@ const dateString = () => {
       console.log(chalk.cyan(`  ┃`));
       console.log(
         chalk.green(
-          `  ┣ 🖼️   ${device.name} (${device.viewport.width}x${device.viewport.height}) captured.`
+          `  ┣━ 🖼️   ${device.name} (${device.viewport.width}x${device.viewport.height}) captured.`
         )
       );
       console.log(
         chalk.green(
-          `  ┗ 💾  Saved to '/screenshots/${webpageRoute} ${webpageVersion} | ${device.name} | ${time}.png'\n`
+          `  ┗━ 💾  Saved to '/screenshots/${pageRoute} ${pageVersion} | ${device.name} | ${time}.png'\n`
         )
       );
     }
@@ -384,60 +409,3 @@ const dateString = () => {
     }
   }
 })();
-
-// let count = 1;
-// for (let device of viewports) {
-//   // Add userAgent string to device object for the customDevices
-//   if (!device.hasOwnProperty("userAgent")) {
-//     device.userAgent = await browser.userAgent();
-//   }
-
-//   chalk.cyan(
-//     console.log(`------------------------------------------------------\n`)
-//   );
-
-//   // Open a new browser page
-//   const page = await browser.newPage();
-
-//   console.log(
-//     chalk.bold.white(`  #${count} - Emulating ${device.name}...`)
-//   );
-
-//   // Emulate the device
-//   await page.emulate(device);
-
-//   console.log(chalk.white(`  ┣ Represents ${device.description}.`));
-//   console.log(chalk.white(`  ┃`));
-//   console.log(chalk.cyan(`  ┣ Opening new browser tab...`));
-//   console.log(chalk.cyan(`  ┣ Navigating to ${webpage}...`));
-
-//   // Navigate to the webpage.
-//   await page.goto(`${webpage}`, {
-//     waitUntil: ["load", "domcontentloaded", "networkidle2"]
-//   });
-
-//   // Click one of the time-date divs
-//   // await page.click("div #test-active");
-
-//   console.log(chalk.cyan(`  ┣ ✅  Page loaded successfully.`));
-//   console.log(chalk.cyan(`  ┃`));
-
-//   // Take the screenshot
-//   // await page.screenshot({
-//   //   path: `__tests__/screenshots/${webpageRoute} ${webpageVersion} | ${device.name} | ${time}.png`
-//   // });
-
-//   // Success! Report back to the user.
-//   console.log(
-//     chalk.green(
-//       `  ┣ 🖼️   ${device.name} (${device.viewport.width}x${device.viewport.height}) captured.`
-//     )
-//   );
-//   console.log(
-//     chalk.green(
-//       `  ┗ 💾  Saved to '/screenshots/${webpageRoute} ${webpageVersion} | ${device.name} | ${time}.png'\n`
-//     )
-//   );
-//   // Increase the count
-//   count++;
-// }

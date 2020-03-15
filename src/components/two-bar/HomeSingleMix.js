@@ -5,9 +5,9 @@ function HomeSingleMix() {
     <div className="column is-6-tablet is-3-widescreen">
       <div className="card">
         <div className="card-image">
-          <figure className="image is-16by9">
+          <figure className="image is-1by1">
             <img
-              src="https://source.unsplash.com/1600x900/?radio"
+              src="https://source.unsplash.com/1080x1080/daily?snow"
               alt="mix-img"
             />
           </figure>

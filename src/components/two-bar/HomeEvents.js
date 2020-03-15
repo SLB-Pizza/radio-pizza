@@ -1,7 +1,7 @@
 import React from "react";
-// import { HomeSingleEvent } from "./index";
+import { HomeSingleEvent } from "./index";
 
-function HomeMixes() {
+function HomeEvents() {
   return (
     <div className="container is-fluid home-events">
       {/*
@@ -16,18 +16,17 @@ function HomeMixes() {
             <p className="title is-size-4-desktop is-size-6-touch">
               Parties, the Halfmoon way.
             </p>
+            <button className="sticky-link button is-black">
+              View More Events >
+            </button>
           </div>
         </div>
         <div className="column is-9">
           <div className="columns is-multiline">
-            {/* <HomeSingleEvent /> */}
-            {/* <HomeSingleEvent /> */}
-            {/* <HomeSingleEvent /> */}
-            {/* <HomeSingleEvent /> */}
-            {/* <HomeSingleEvent /> */}
-            {/* <HomeSingleEvent /> */}
-            {/* <HomeSingleEvent /> */}
-            {/* <HomeSingleEvent /> */}
+            <HomeSingleEvent />
+            <HomeSingleEvent />
+            <HomeSingleEvent />
+            <HomeSingleEvent />
           </div>
         </div>
       </div>
@@ -35,4 +34,4 @@ function HomeMixes() {
   );
 }
 
-export default HomeMixes;
+export default HomeEvents;

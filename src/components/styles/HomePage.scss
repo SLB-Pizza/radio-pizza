@@ -87,26 +87,9 @@
   @include tablet;
   margin-bottom: 3rem;
 
-  background-image: url(https://source.unsplash.com/1920x1080/daily?dj);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-size: cover;
-
-  // Set all text to white
+  // Make all content text to white
   p {
     color: white;
-  }
-
-  // Align the top of columns div (container > columns) to the hero
-  // Align the top of nested columns (column is-9 > columns) to the section
-  & .columns {
-    margin: 0;
-    padding: 2rem 0;
-    & .columns {
-      margin: 0;
-      padding: 0;
-    }
   }
 
   // Make each content sections' titles and taglines sticky
@@ -116,10 +99,14 @@
 
     // top = calc(TopNav height + section container padding)
     top: calc(8.25rem + 1rem);
-    padding-bottom: 1rem;
+    margin-bottom: 3rem;
 
     p {
       text-shadow: 2px 2px 2px black;
+    }
+
+    button {
+      top: 3rem;
     }
   }
 
@@ -128,6 +115,14 @@
   //==================================
 
   .home-mixes {
+    padding: 2rem;
+
+    background-image: url(https://source.unsplash.com/1920x1080/daily?dj);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+
     // Override default bulma card settings
     .card-content {
       background-color: black;
@@ -140,6 +135,13 @@
   //==================================
 
   .home-events {
+    padding: 2rem;
+
+    background-image: url(https://source.unsplash.com/1920x1080/daily?concert);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
   }
   .home-news {
     // flex: 1;

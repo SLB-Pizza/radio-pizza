@@ -1,10 +1,11 @@
 import React from "react";
-import { HomeMixes } from "./index";
+import { HomeMixes, HomeEvents } from "./index";
 
 function HomeContent() {
   return (
     <div className="home-content">
       <HomeMixes />
+      <HomeEvents />
     </div>
   );
 }

@@ -16,6 +16,9 @@ function HomeMixes() {
             <p className="title is-size-4-desktop is-size-6-touch">
               Recent mixes from Halfmoon residents.
             </p>
+            <button className="sticky-link button is-black">
+              View More Mixes >
+            </button>
           </div>
         </div>
         <div className="column is-9">

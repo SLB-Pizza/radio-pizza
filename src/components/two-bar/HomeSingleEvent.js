@@ -13,7 +13,7 @@ function HomeSingleEvent() {
           </figure>
         </div>
         <div className="card-content">
-          <p className="is-size-7">03.30.20</p>
+          <p className="content-date is-size-7">03.30.20</p>
           <p className="title is-size-3-desktop is-size-4-touch">
             Lorem Ipsum Dolor
           </p>

@@ -26,7 +26,6 @@ function HomeNews() {
           <div className="columns is-multiline">
             <HomeSingleNews />
             <HomeSingleNews />
-            <HomeSingleNews />
           </div>
         </div>
       </div>

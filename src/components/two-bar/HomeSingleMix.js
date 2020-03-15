@@ -7,13 +7,13 @@ function HomeSingleMix() {
         <div className="card-image">
           <figure className="image is-16by9">
             <img
-              src="https://source.unsplash.com/1600x900/?nature"
+              src="https://source.unsplash.com/1600x900/?radio"
               alt="mix-img"
             />
           </figure>
         </div>
         <div className="card-content">
-          <p className="is-size-7">03.30.20</p>
+          <p className="content-size is-size-7">03.30.20</p>
           <p className="title is-size-3-desktop is-size-4-touch">
             Lorem Ipsum Dolor
           </p>

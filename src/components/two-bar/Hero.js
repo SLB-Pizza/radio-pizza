@@ -5,16 +5,16 @@ function Hero() {
     <div className="homepage-hero">
       <div className="container is-fluid">
         <div className="columns">
-          <div class="column is-one-quarter">
+          <div className="column is-one-quarter">
             <code>is-one-quarter</code>
           </div>
-          <div class="column is-one-quarter">
+          <div className="column is-one-quarter">
             <code>is-one-quarter</code>
           </div>
-          <div class="column is-one-quarter">
+          <div className="column is-one-quarter">
             <code>is-one-quarter</code>
           </div>
-          <div class="column is-one-quarter">
+          <div className="column is-one-quarter">
             <code>is-one-quarter</code>
           </div>
         </div>

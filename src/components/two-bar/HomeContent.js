@@ -1,11 +1,12 @@
 import React from "react";
-import { HomeMixes, HomeEvents } from "./index";
+import { HomeMixes, HomeEvents, HomeNews } from "./index";
 
 function HomeContent() {
   return (
     <div className="home-content">
       <HomeMixes />
       <HomeEvents />
+      <HomeNews />
     </div>
   );
 }

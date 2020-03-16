@@ -123,6 +123,16 @@
     margin-bottom: 0.5rem;
   }
 
+  // Give all mobile titles & subtitles a shadow
+  p.mobile-headers {
+    text-shadow: 3px 3px 2px black;
+  }
+
+  // Make mobile entries horizontally scrollable
+  .mobile-single-items {
+    overflow-x: auto;
+  }
+
   //==================================
   // <HomeMixes />
   //==================================
@@ -142,10 +152,6 @@
         box-shadow: 2px 2px 4px grey;
       }
     }
-  }
-
-  .mobile-mixes {
-    overflow-x: auto;
   }
 
   //==================================

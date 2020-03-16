@@ -2,7 +2,7 @@ import React from "react";
 
 function HomeSingleMix() {
   return (
-    <div className="column is-8-touch is-6-desktop is-3-widescreen">
+    <div className="column is-7-touch is-6-desktop is-3-widescreen">
       <div className="card">
         <div className="card-image">
           <figure className="image is-1by1">

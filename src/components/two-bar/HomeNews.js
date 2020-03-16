@@ -34,7 +34,7 @@ function HomeNews() {
         <div className="column">
           <p className="title is-size-2 mobile-headers">Features</p>
         </div>
-        <div className="column is-narrow">
+        <div className="column is-narrow more-link">
           <button className="button is-small is-dark">More Features ></button>
         </div>
         <div className="column is-12">

@@ -10,11 +10,11 @@ function HomeMixes() {
       <div className="columns is-hidden-touch">
         <div className="column is-3">
           <div className="sticky-section-blurb">
-            <p className="title is-size-2">Radio Sets</p>
+            <p className="title is-size-2">Daily Mixes</p>
             <p className="title is-size-4">
               Recent mixes from Halfmoon residents.
             </p>
-            <button className="sticky-link button is-dark">ore Mixes ></button>
+            <button className="sticky-link button is-dark">More Mixes ></button>
           </div>
         </div>
         <div className="column is-9">
@@ -35,9 +35,9 @@ function HomeMixes() {
       */}
       <div className="columns is-mobile is-multiline is-vcentered is-hidden-desktop">
         <div className="column">
-          <p className="title is-size-2 mobile-headers">Radio Sets</p>
+          <p className="title is-size-2 mobile-headers">Daily Mixes</p>
         </div>
-        <div className="column is-narrow">
+        <div className="column is-narrow more-link">
           <button className="button is-small is-dark">More Mixes ></button>
         </div>
         <div className="column is-12">

@@ -7,7 +7,7 @@ function HomeSingleMix() {
         <div className="card-image">
           <figure className="image is-1by1">
             <img
-              src="https://source.unsplash.com/1080x1080/daily?snow"
+              src="https://source.unsplash.com/1080x1080/daily?concert"
               alt="mix-img"
             />
           </figure>

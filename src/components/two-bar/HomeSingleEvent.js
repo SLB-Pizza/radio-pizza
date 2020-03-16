@@ -7,7 +7,7 @@ function HomeSingleEvent() {
         <div className="card-image">
           <figure className="image is-16by9">
             <img
-              src="https://source.unsplash.com/1280x720/?trance"
+              src="https://source.unsplash.com/1280x720/daily?trance"
               alt="single-event"
             />
           </figure>

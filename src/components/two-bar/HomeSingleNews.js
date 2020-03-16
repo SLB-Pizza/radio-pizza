@@ -7,8 +7,8 @@ function HomeSingleNews() {
         <div className="card-image">
           <figure className="image is-16by9">
             <img
-              src="https://source.unsplash.com/1280x720/?musician"
-              alt="mix-img"
+              src="https://source.unsplash.com/1280x720/daily?interview"
+              alt="news-img"
             />
           </figure>
         </div>

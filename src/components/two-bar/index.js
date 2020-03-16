@@ -27,8 +27,6 @@ export { default as HomeEvents } from "./HomeEvents";
 export { default as HomeSingleEvent } from "./HomeSingleEvent";
 export { default as HomeNews } from "./HomeNews";
 export { default as HomeSingleNews } from "./HomeSingleNews";
-export { default as ChatSchedule } from "./ChatSchedule";
-export { default as EditorialFeed } from "./EditorialFeed";
 
 /**
  * MixesPage
@@ -48,7 +46,6 @@ export { default as ScheduleShowEntry } from "./ScheduleShowEntry";
 export { default as NewsPage } from "./NewsPage";
 export { default as CategoryItem } from "./CategoryItem";
 export { default as MobileNewsItem } from "./MobileNewsItem";
-export { default as DesktopNewsItem } from "./DesktopNewsItem";
 
 /**
  * About Page
@@ -58,6 +55,5 @@ export { default as AboutPage } from "./AboutPage";
 /**
  *
  */
-export { default as ChatDateTime } from "./ChatDateTime";
-export { default as ShowDetails } from "./ShowDetails";
+
 export { default as BottomNav } from "./BottomNav";

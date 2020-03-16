@@ -12,7 +12,7 @@ function HomeEvents() {
           <div className="sticky-section-blurb">
             <p className="title is-size-2">Live Events</p>
             <p className="title is-size-4">Parties, the Halfmoon way.</p>
-            <button className="sticky-link button is-primary">
+            <button className="sticky-link button is-dark">
               More Events >
             </button>
           </div>

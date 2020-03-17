@@ -78,49 +78,44 @@ $gap: 32px;
     background-color: orange;
     color: white;
     min-height: $schedule-bar;
+    transition: ease-in-out 0.5s;
+    -moz-transition: ease-in-out 0.5s;
+    -webkit-transition: ease-in-out 0.5s;
 
-    // Fix the columns nested in this container
-    // to the top of the schedule-bar.
-    // Fix the top padding of these nested columns.
+    // Each columns div should touch top and bottom
+    // Each column
     .columns {
       margin-top: 0;
+      margin-bottom: 0;
       .column {
-        padding-top: 0.5rem;
-        padding-bottom: 0;
+        padding: 0.5rem;
       }
     }
 
-    .columns {
-      &:first-of-type {
-        background-color: #888;
-      }
-      &:nth-child(2) {
-        background-color: black;
-      }
-    }
-
-    // background-color: rgba($color: #888, $alpha: 0.7);
-
-    // fix transitions later! currently jagged
-    // transition: ease-in-out 0.5s;
-    // -moz-transition: ease-in-out 0.5s;
-    // -webkit-transition: ease-in-out 0.5s;
-
-    // Set the schedule drawer and button column to 15rem
+    // Set the schedule drawer to 25 rem
     &.is-open {
-      min-height: 15rem;
-    }
-
-    .date-picker {
-      p {
-        color: white;
-      }
+      min-height: 25rem;
     }
 
     .up-next {
-      height: $schedule-bar;
-      background-color: #3f3f3f;
+      background-color: #888;
     }
+
+    //==================================
+    // <ScheduleDatePicker />
+    //==================================
+    .date-picker {
+      background-color: black;
+      p {
+        color: white;
+      }
+      .day-of-week {
+        padding: 0.5rem;
+      }
+    }
+    //==================================
+    // <ScheduleEntry />
+    //==================================
   }
 }
 

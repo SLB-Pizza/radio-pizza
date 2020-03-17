@@ -4,35 +4,35 @@ function ScheduleDatePicker() {
   return (
     <div className="columns date-picker is-mobile">
       <div className="column is-5-touch day-of-week has-text-centered">
-        <p className="title is-size-3-desktop is-size-3-touch">MON</p>
-        <p className="subtitle is-size-5-desktop is-size-5-touch">3/16</p>
+        <p className="title is-size-3-desktop is-size-4-touch">MON</p>
+        <p className="subtitle is-size-5-desktop is-size-6-touch">3/16</p>
       </div>
       <div
         className="column is-5-touch day-of-week has-text-centered"
         id="test-active"
       >
-        <p className="title is-size-3-desktop is-size-3-touch">TUE</p>
-        <p className="subtitle is-size-5-desktop is-size-5-touch">3/17</p>
+        <p className="title is-size-3-desktop is-size-4-touch">TUE</p>
+        <p className="subtitle is-size-5-desktop is-size-6-touch">3/17</p>
       </div>
       <div className="column is-5-touch day-of-week has-text-centered">
-        <p className="title is-size-3-desktop is-size-3-touch">WED</p>
-        <p className="subtitle is-size-5-desktop is-size-5-touch">3/18</p>
+        <p className="title is-size-3-desktop is-size-4-touch">WED</p>
+        <p className="subtitle is-size-5-desktop is-size-6-touch">3/18</p>
       </div>
       <div className="column is-5-touch day-of-week has-text-centered">
-        <p className="title is-size-3-desktop is-size-3-touch">THU</p>
-        <p className="subtitle is-size-5-desktop is-size-5-touch">3/19</p>
+        <p className="title is-size-3-desktop is-size-4-touch">THU</p>
+        <p className="subtitle is-size-5-desktop is-size-6-touch">3/19</p>
       </div>
       <div className="column is-5-touch day-of-week has-text-centered">
-        <p className="title is-size-3-desktop is-size-3-touch">FRI</p>
-        <p className="subtitle is-size-5-desktop is-size-5-touch">3/20</p>
+        <p className="title is-size-3-desktop is-size-4-touch">FRI</p>
+        <p className="subtitle is-size-5-desktop is-size-6-touch">3/20</p>
       </div>
       <div className="column is-5-touch day-of-week has-text-centered">
-        <p className="title is-size-3-desktop is-size-3-touch">SAT</p>
-        <p className="subtitle is-size-5-desktop is-size-5-touch">3/21</p>
+        <p className="title is-size-3-desktop is-size-4-touch">SAT</p>
+        <p className="subtitle is-size-5-desktop is-size-6-touch">3/21</p>
       </div>
       <div className="column is-5-touch day-of-week has-text-centered">
-        <p className="title is-size-3-desktop is-size-3-touch">SUN</p>
-        <p className="subtitle is-size-5-desktop is-size-5-touch">3/22</p>
+        <p className="title is-size-3-desktop is-size-4-touch">SUN</p>
+        <p className="subtitle is-size-5-desktop is-size-6-touch">3/22</p>
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ const deviceList = puppeteer.devices;
  * @param {string} pageURL - pulls in route and passes result to puppeteer
  */
 const pageRoute = "home";
-const pageVersion = "v3";
+const pageVersion = "v4";
 const pageURL = `http://localhost:8000/${pageRoute}`;
 
 /**
@@ -26,11 +26,13 @@ const promptUserQuestions = false;
  * Situational variables
  * @param {boolean} fullPageCapture - set true if page is taller than window height
  * @param {boolean} clickItem - gates click script section
+ * @param {string} clickTarget- the element to be clicked e.g. "div #expand-button"
  * @param {boolean} scrollToSection - gates scroll script section
  */
 
-const fullPageCapture = true;
-const clickItem = false;
+const fullPageCapture = false;
+const clickItem = true;
+const clickTarget = "div #expand-button";
 const scrollToSection = false;
 
 /************************************************
@@ -322,7 +324,7 @@ const dateString = () => {
         console.log(`------------------------------------------------------\n`)
       );
       console.log(
-        chalk.bold.white(`  ${count} of ${allDevices.length} - ${device.name}`)
+        chalk.bold.white(`  ${count}/${allDevices.length} - ${device.name}`)
       );
       console.log(chalk.white(`  ┣ Represents ${device.description}.`));
       console.log(chalk.white(`  ┃`));
@@ -345,8 +347,8 @@ const dateString = () => {
       // Click one of the time-date divs on /schedule
       if (clickItem) {
         console.log(chalk.cyan(`  ┣ Locating click target...`));
-        await page.click("div #test-active");
-        console.log(chalk.cyan(`  ┣━ '#test-active' clicked.`));
+        await page.click(`${clickTarget}`);
+        console.log(chalk.cyan(`  ┣━ ${clickTarget} clicked.`));
       }
 
       // Scroll the page to the bottom
@@ -360,7 +362,13 @@ const dateString = () => {
 
       // Take the screenshot
       if (takeShot) {
-        console.log(chalk.cyan(`  ┣ Capturing screenshot...`));
+        console.log(
+          chalk.cyan(
+            `  ┣ Capturing ${
+              fullPageCapture ? "full height " : ""
+            }screenshot...`
+          )
+        );
         await page.screenshot({
           path: `__tests__/screenshots/${pageRoute} ${pageVersion} | ${device.name} | ${time}.jpeg`,
           fullPage: fullPageCapture,

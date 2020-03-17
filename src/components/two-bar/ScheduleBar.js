@@ -13,6 +13,7 @@ function ScheduleBar() {
         <div className="column">Lorem ipsum dolor sit.</div>
         <div
           className="column is-narrow button is-dark"
+          id="expand-button"
           onClick={() => setOpen(!open)}
         >
           Full Schedule ᐯ
@@ -48,9 +49,10 @@ function ScheduleBar() {
       <div className="columns">
         <div
           className="column is-12 button is-dark"
+          id="expand-button"
           onClick={() => setOpen(!open)}
         >
-          Close ᐱ
+          Close
         </div>
       </div>
     </div>

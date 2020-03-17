@@ -73,15 +73,26 @@ $gap: 32px;
   // <ScheduleBar />
   //==================================
   .schedule-bar {
+    flex: 1;
+    padding: 0 $gap;
+    background-color: orange;
+    color: white;
+    min-height: $schedule-bar;
+
     // Fix the columns nested in this container
     // to the top of the schedule-bar.
     // Fix the top padding of these nested columns.
-    background-color: orange;
-
-    > .columns {
+    .columns {
       margin-top: 0;
       .column {
         padding-top: 0.5rem;
+        .columns {
+          margin-top: -0.5rem;
+          .column {
+            padding-top: 0.5rem;
+            padding-bottom: 0;
+          }
+        }
       }
     }
 
@@ -94,10 +105,6 @@ $gap: 32px;
       }
     }
 
-    flex: 1;
-    padding: 0 $gap;
-    min-height: $schedule-bar;
-    color: white;
     // background-color: rgba($color: #888, $alpha: 0.7);
 
     // fix transitions later! currently jagged
@@ -116,9 +123,9 @@ $gap: 32px;
       }
     }
 
-    #up-next {
+    .up-next {
       height: $schedule-bar;
-      background-color: rgba($color: black, $alpha: 0.7);
+      background-color: #3f3f3f;
     }
   }
 }

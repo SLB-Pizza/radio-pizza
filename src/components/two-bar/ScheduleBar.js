@@ -6,11 +6,15 @@ function ScheduleBar() {
 
   return !open ? (
     <div className="container is-fluid schedule-bar">
-      <div className="columns is-multiline">
-        <div className="column is-narrow" id="up-next">
-          <p>in 1hr 1m</p>
+      <div className="columns">
+        <div className="column">
+          <div className="columns">
+            <div className="column is-narrow up-next">
+              <p>in 1hr 1m</p>
+            </div>
+            <div className="column">Lorem ipsum dolor sit.</div>
+          </div>
         </div>
-        <div className="column">Lorem ipsum dolor sit.</div>
         <div
           className="column is-narrow button is-dark"
           id="expand-schedule"
@@ -25,9 +29,7 @@ function ScheduleBar() {
       <div className="columns">
         {/* DESKTOP */}
 
-        <div className="column is-narrow" id="up-next">
-          in 31 mins
-        </div>
+        <div className="column is-narrow up-next">in 31 mins</div>
         <div className="column">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </div>

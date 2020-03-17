@@ -3,11 +3,13 @@
  * - RadioBar
  * -- RadioPlayer
  * - ScheduleBar
+ * -- ScheduleDatePicker
  */
 export { default as TopNav } from "./TopNav";
 export { default as RadioBar } from "./RadioBar";
 export { default as RadioPlayer } from "./RadioPlayer";
 export { default as ScheduleBar } from "./ScheduleBar";
+export { default as ScheduleDatePicker } from "./ScheduleDatePicker";
 
 /**
  * HomePage

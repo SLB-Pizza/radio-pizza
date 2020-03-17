@@ -4,7 +4,9 @@ $schedule-bar: 2.5rem !default;
 $player-fixed-z: 30 !default;
 $gap: 32px;
 
-// TopNav.js
+//==================================
+// <TopNav />
+//==================================
 .radio-and-schedule-bar {
   display: flex;
   flex-direction: column;
@@ -15,6 +17,9 @@ $gap: 32px;
   top: 0;
   z-index: $player-fixed-z;
 
+  //==================================
+  // <RadioBar />
+  //==================================
   .radio-bar {
     padding: 0 $gap;
     flex: 2;
@@ -64,11 +69,15 @@ $gap: 32px;
       }
     }
   }
-
+  //==================================
+  // <ScheduleBar />
+  //==================================
   .schedule-bar {
     // Fix the columns nested in this container
     // to the top of the schedule-bar.
     // Fix the top padding of these nested columns.
+    background-color: orange;
+
     > .columns {
       margin-top: 0;
       .column {
@@ -76,11 +85,20 @@ $gap: 32px;
       }
     }
 
+    .columns {
+      &:first-of-type {
+        background-color: #888;
+      }
+      &:nth-child(2) {
+        background-color: black;
+      }
+    }
+
     flex: 1;
     padding: 0 $gap;
     min-height: $schedule-bar;
     color: white;
-    background-color: rgba($color: #888, $alpha: 0.7);
+    // background-color: rgba($color: #888, $alpha: 0.7);
 
     // fix transitions later! currently jagged
     // transition: ease-in-out 0.5s;
@@ -90,10 +108,11 @@ $gap: 32px;
     // Styles when active === true
     &.is-open {
       min-height: 10rem;
-      background-color: #666;
-      .column {
-        min-height: 10rem;
-        padding-top: 0.5rem;
+    }
+
+    .date-picker {
+      p {
+        color: white;
       }
     }
 
@@ -104,7 +123,9 @@ $gap: 32px;
   }
 }
 
-// BottomNav.js
+//==================================
+// <BottomNav />
+//==================================
 #bottom-color-test {
   background-color: rgba($color: grey, $alpha: 0.75);
 }

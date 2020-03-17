@@ -5,43 +5,36 @@ function ScheduleBar() {
   const [open, setOpen] = useState(false);
 
   return !open ? (
-    <div className="container is-fluid schedule-bar">
+    <div className="schedule-bar container is-fluid is-vcentered">
       <div className="columns">
-        <div className="column">
-          <div className="columns">
-            <div className="column is-narrow up-next">
-              <p>in 1hr 1m</p>
-            </div>
-            <div className="column">Lorem ipsum dolor sit.</div>
-          </div>
+        <div className="column is-narrow up-next">
+          <p>in 1hr 1m</p>
         </div>
+        <div className="column">Lorem ipsum dolor sit.</div>
         <div
           className="column is-narrow button is-dark"
-          id="expand-schedule"
           onClick={() => setOpen(!open)}
         >
-          ᐯ
+          Full Schedule ᐯ
         </div>
       </div>
     </div>
   ) : (
-    <div className="container is-fluid schedule-bar is-open">
+    <div className="schedule-bar container is-fluid is-vcentered is-open">
       <div className="columns">
-        {/* DESKTOP */}
-
-        <div className="column is-narrow up-next">in 31 mins</div>
-        <div className="column">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        <div className="column is-narrow up-next">
+          <p>in 1hr 1m</p>
         </div>
+        <div className="column">Lorem ipsum dolor sit.</div>
+      </div>
+      <div className="columns">
         <div
-          className="column is-narrow button is-dark"
-          id="expand-schedule"
+          className="column is-12 button is-dark"
           onClick={() => setOpen(!open)}
         >
-          ᐱ
+          Close ᐱ
         </div>
       </div>
-      <ScheduleDatePicker />
     </div>
   );
 }

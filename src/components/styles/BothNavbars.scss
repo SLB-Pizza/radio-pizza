@@ -86,13 +86,7 @@ $gap: 32px;
       margin-top: 0;
       .column {
         padding-top: 0.5rem;
-        .columns {
-          margin-top: -0.5rem;
-          .column {
-            padding-top: 0.5rem;
-            padding-bottom: 0;
-          }
-        }
+        padding-bottom: 0;
       }
     }
 
@@ -112,9 +106,9 @@ $gap: 32px;
     // -moz-transition: ease-in-out 0.5s;
     // -webkit-transition: ease-in-out 0.5s;
 
-    // Styles when active === true
+    // Set the schedule drawer and button column to 15rem
     &.is-open {
-      min-height: 10rem;
+      min-height: 15rem;
     }
 
     .date-picker {

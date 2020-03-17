@@ -75,13 +75,21 @@ $gap: 32px;
   .schedule-bar {
     flex: 1;
     padding: 0 $gap;
-    background-color: orange;
+    background-color: black;
     color: white;
-    min-height: $schedule-bar;
+    height: $schedule-bar;
     transition: ease-in-out 0.5s;
     -moz-transition: ease-in-out 0.5s;
     -webkit-transition: ease-in-out 0.5s;
 
+    // Set the schedule drawer to 25 rem
+    &.is-open {
+      height: auto;
+      background-color: transparent;
+      .up-next {
+        background-color: green;
+      }
+    }
     // Each columns div should touch top and bottom
     // Each column
     .columns {
@@ -92,13 +100,16 @@ $gap: 32px;
       }
     }
 
-    // Set the schedule drawer to 25 rem
-    &.is-open {
-      min-height: 25rem;
-    }
-
     .up-next {
       background-color: #888;
+    }
+
+    #scroll-instructions {
+      background-color: black;
+      p {
+        color: white;
+        font-variant-caps: small-caps;
+      }
     }
 
     //==================================
@@ -106,16 +117,52 @@ $gap: 32px;
     //==================================
     .date-picker {
       background-color: black;
+      overflow-x: auto;
       p {
         color: white;
       }
       .day-of-week {
         padding: 0.5rem;
+        border-top: 1px white solid;
+        border-bottom: 1px white solid;
+
+        &:not(:last-child) {
+          border-right: 1px white solid;
+        }
+
+        &:hover {
+          background-color: grey;
+          p {
+            color: white;
+          }
+        }
+        &:active {
+          background-color: lightgrey;
+          p {
+            color: black;
+          }
+        }
       }
     }
     //==================================
-    // <ScheduleEntry />
+    // <ScheduleShowEntry />
     //==================================
+    .show-entry {
+      padding: 0.25rem 0;
+      background-color: #2a2a2a;
+      border-bottom: 1px dashed #ccc;
+      transition: 0.25s ease-in-out;
+      p {
+        color: white;
+      }
+
+      &:hover {
+        background-color: grey;
+        p {
+          color: black;
+        }
+      }
+    }
   }
 }
 

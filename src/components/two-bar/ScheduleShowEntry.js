@@ -4,21 +4,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function ScheduleShowEntry() {
   return (
-    <div className="columns is-vcentered">
+    <div className="columns is-vcentered is-mobile show-entry">
       <div className="column is-3">
-        <p className="is-size-4 has-text-centered">4:00PM - 5:45PM</p>
+        <p className="title is-size-5-desktop is-size-6-touch has-text-centered">
+          12:00PM - 12:00AM
+        </p>
       </div>
-      <div className="column show-info">
-        <p className="show-name is-size-4">Short Show</p>
-        <div className="host-info">
-          <p className="is-size-6">Host Name</p>
-          <span className="icon is-medium">
-            <FontAwesomeIcon icon={faTwitter} size="1x" />
-          </span>
-          <span className="icon is-medium">
-            <FontAwesomeIcon icon={faInstagram} size="1x" />
-          </span>
-        </div>
+      <div className="column is-9">
+        <p className="title is-size-5 is-size-6-touch">
+          A Show Name Long Enough to Rival Some Post-Rock Album Titles
+        </p>
+        <p className="subtitle is-size-6-desktop is-size-7 touch">Host Name</p>
       </div>
     </div>
   );

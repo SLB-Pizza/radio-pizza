@@ -16,7 +16,7 @@ function ScheduleBar() {
           id="expand-button"
           onClick={() => setOpen(!open)}
         >
-          Full Schedule ᐯ
+          Schedule ᐯ
         </div>
       </div>
     </div>

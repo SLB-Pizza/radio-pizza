@@ -2,7 +2,7 @@ import React from "react";
 
 function HomeSingleMix() {
   return (
-    <div className="column is-10-mobile is-7-tablet is-6-desktop is-3-widescreen">
+    <div className="column is-7-mobile is-7-tablet is-4-desktop is-3-widescreen">
       <div className="card">
         <div className="card-image">
           <figure className="image is-1by1">
@@ -14,8 +14,12 @@ function HomeSingleMix() {
         </div>
         <div className="card-content">
           <p className="content-date is-size-7">03.30.20</p>
-          <p className="title is-size-4 is-size-3-fullhd">Lorem Ipsum Dolor</p>
-          <p className="subtitle is-size-6 is-size-5-fullhd">Resident Artist</p>
+          <p className="title is-size-4-touch is-size-3-fullhd">
+            Lorem Ipsum Dolor
+          </p>
+          <p className="subtitle is-size-6-touch is-size-5-fullhd">
+            Resident Artist
+          </p>
           <div className="tags are-small">
             <span className="tag is-dark">Genre</span>
             <span className="tag is-dark">Genrerock</span>

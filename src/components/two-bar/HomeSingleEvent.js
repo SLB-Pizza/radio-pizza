@@ -2,7 +2,7 @@ import React from "react";
 
 function HomeSingleEvent() {
   return (
-    <div className="column is-10-touch is-6-desktop">
+    <div className="column is-7-touch is-6-desktop">
       <div className="card">
         <div className="card-image">
           <figure className="image is-16by9">

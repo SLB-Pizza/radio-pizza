@@ -12,7 +12,7 @@ function ScheduleBar() {
         </div>
         <div className="column">Lorem ipsum dolor sit.</div>
         <div
-          className="column is-narrow button is-dark"
+          className="column is-narrow has-background-dark"
           id="expand-button"
           onClick={() => setOpen(!open)}
         >
@@ -28,42 +28,94 @@ function ScheduleBar() {
         </div>
         <div className="column">Lorem ipsum dolor sit.</div>
       </div>
+
+      {/*
+      FOR MOBILE
+      SCHEDULE MODAL
+      */}
+
+      <div className="modal is-active is-hidden-desktop">
+        <div className="modal-background"></div>
+        <div className="modal-card is-dark">
+          <header className="modal-card-head">
+            <div className="columns is-mobile schedule-modal">
+              <div className="column">
+                <p className="title is-size-2 has-text-light">Schedule</p>
+              </div>
+              <div className="column is-narrow">
+                <button
+                  className="delete is-large"
+                  aria-label="close"
+                  onClick={() => setOpen(!open)}
+                ></button>
+              </div>
+            </div>
+            <div
+              className="columns is-vcentered is-mobile"
+              id="scroll-instructions"
+            >
+              <div className="column">
+                <p className="is-size-7 has-text-centered">
+                  ⇦ SWIPE TO VIEW MORE DATES ⇨
+                </p>
+              </div>
+            </div>
+            <ScheduleDatePicker />
+          </header>
+          <section className="modal-card-body">
+            <ScheduleShowEntry />
+            <ScheduleShowEntry />
+            <ScheduleShowEntry />
+            <ScheduleShowEntry />
+            <ScheduleShowEntry />
+            <ScheduleShowEntry />
+            <ScheduleShowEntry />
+            <ScheduleShowEntry />
+            <ScheduleShowEntry />
+            <ScheduleShowEntry />
+            <ScheduleShowEntry />
+            <ScheduleShowEntry />
+            <ScheduleShowEntry />
+            <ScheduleShowEntry />
+            <ScheduleShowEntry />
+            <ScheduleShowEntry />
+            <ScheduleShowEntry />
+            <ScheduleShowEntry />
+          </section>
+        </div>
+      </div>
+
+      {/*
+      FOR DESKTOP
+      BUILT INTO THE BAR
+      */}
       <div
         className="columns is-vcentered is-hidden-desktop"
         id="scroll-instructions"
       >
         <div className="column">
           <p className="is-size-7 has-text-centered">
-            ⇦ Scroll to view more dates ⇨
+            ⇦ THIS week's schedule ⇨
           </p>
         </div>
       </div>
       <ScheduleDatePicker />
-      {/* DESKTOP ENTRIES */}
       <ScheduleShowEntry />
       <ScheduleShowEntry />
       <ScheduleShowEntry />
       <ScheduleShowEntry />
       <ScheduleShowEntry />
       <ScheduleShowEntry />
-      {/* MOBILE DIVS */}
-      {/* <div className="mobile-overscroll is-hidden-desktop">
-        <ScheduleShowEntry />
-        <ScheduleShowEntry />
-        <ScheduleShowEntry />
-        <ScheduleShowEntry />
-        <ScheduleShowEntry />
-        <ScheduleShowEntry />
-      </div> */}
+
       <div className="columns">
         <div
-          className="column is-12 button is-black"
+          className="column is-12 has-background-dark"
           id="expand-button"
           onClick={() => setOpen(!open)}
         >
-          <p className="is-size-3-desktop">
-          Close
-        </p>
+          <p className="title is-size-4 has-text-centered has-text-light">
+            Close
+          </p>
         </div>
       </div>
     </div>

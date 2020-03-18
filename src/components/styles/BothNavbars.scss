@@ -16,6 +16,7 @@ $gap: 32px;
   right: 0;
   top: 0;
   z-index: $player-fixed-z;
+  background-color: black;
 
   //==================================
   // <RadioBar />
@@ -86,9 +87,6 @@ $gap: 32px;
     &.is-open {
       height: auto;
       background-color: transparent;
-      .up-next {
-        background-color: green;
-      }
     }
     // Each columns div should touch top and bottom
     // Each column
@@ -101,14 +99,45 @@ $gap: 32px;
     }
 
     .up-next {
-      background-color: #888;
+      background-color: black;
     }
 
     #scroll-instructions {
-      background-color: black;
+      width: 100%;
+      background-color: #2a2a2a;
       p {
         color: white;
-        font-variant-caps: small-caps;
+        font-variant: small-caps;
+        padding: 0rem;
+      }
+    }
+
+    // Testing touch-size schedule modal
+    .modal-card {
+      max-height: calc(100vh - 5.5rem);
+      margin: 1rem 0 4.5rem;
+      max-width: 95vw;
+
+      header {
+        padding: 0;
+        margin: 0;
+      }
+
+      .modal-card-head {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: #2a2a2a;
+
+        .schedule-modal {
+          width: 95%;
+          padding: 0.25rem 0;
+        }
+      }
+
+      .modal-card-body {
+        padding: 0 1rem;
+        background-color: black;
       }
     }
 
@@ -116,7 +145,9 @@ $gap: 32px;
     // <ScheduleDatePicker />
     //==================================
     .date-picker {
-      background-color: black;
+      flex: 1;
+      width: 100%;
+      background-color: #2a2a2a;
       overflow-x: auto;
       p {
         color: white;
@@ -126,6 +157,11 @@ $gap: 32px;
         border-top: 1px white solid;
         border-bottom: 1px white solid;
 
+        // &:first-child {
+        //   border-left: 1px white solid;
+        // }
+
+        // In-between borders
         &:not(:last-child) {
           border-right: 1px white solid;
         }
@@ -155,8 +191,9 @@ $gap: 32px;
     }
 
     .show-entry {
+      flex: 1;
       padding: 0.5rem 0;
-      background-color: #2a2a2a;
+      background-color: black;
       border-bottom: 1px dashed #ccc;
 
       transition: 0.25s ease-in-out;

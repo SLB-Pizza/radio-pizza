@@ -7,7 +7,7 @@ function HomeSingleNews() {
         <div className="card-image">
           <figure className="image is-16by9">
             <img
-              src="https://source.unsplash.com/1280x720/daily?interview"
+              src="https://source.unsplash.com/1280x720/daily?portrait"
               alt="news-img"
             />
           </figure>

@@ -7,7 +7,7 @@
   @include tablet;
   margin-top: 8.25rem;
   height: calc(100vh - 10.5rem);
-  max-height: calc(2160px - 10.5rem);
+  // max-height: calc(2048px - 10.5rem);
 
   background-image: url(https://source.unsplash.com/1920x1080/daily?music);
   background-position: center center;
@@ -105,7 +105,7 @@
   .home-events {
     padding: 3rem 2rem;
 
-    background-image: url(https://source.unsplash.com/1920x1080/daily?concert);
+    background-image: url(https://source.unsplash.com/1920x1080/daily?carnival-night);
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: scroll;

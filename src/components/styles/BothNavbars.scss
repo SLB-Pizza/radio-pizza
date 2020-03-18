@@ -147,10 +147,18 @@ $gap: 32px;
     //==================================
     // <ScheduleShowEntry />
     //==================================
+    .mobile-overscroll {
+      height: 20rem;
+      overflow-y: auto;
+      margin: 0;
+      padding: 0;
+    }
+
     .show-entry {
-      padding: 0.25rem 0;
+      padding: 0.5rem 0;
       background-color: #2a2a2a;
       border-bottom: 1px dashed #ccc;
+
       transition: 0.25s ease-in-out;
       p {
         color: white;

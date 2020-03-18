@@ -9,29 +9,26 @@ const deviceList = puppeteer.devices;
  * @param {string} pageRoute - the /route to capture
  * @param {string} pageVersion - version of page captured; change each revision
  * @param {string} pageURL - pulls in route and passes result to puppeteer
- */
-const pageRoute = "home";
-const pageVersion = "v4";
-const pageURL = `http://localhost:8000/${pageRoute}`;
-
-/**
+ *
  * Script testing variables
  * @param {boolean} takeShot - set to false when testing the script
  * @param {boolean} promptUserQuestions - gates CLI questionnaire to gather info
- */
-const takeShot = true;
-const promptUserQuestions = false;
-
-/**
+ *
  * Situational variables
  * @param {boolean} fullPageCapture - set true if page is taller than window height
  * @param {boolean} clickItem - gates click script section
  * @param {string} clickTarget- the element to be clicked e.g. "div #expand-button"
  * @param {boolean} scrollToSection - gates scroll script section
  */
+const pageRoute = "home";
+const pageVersion = "v5";
+const pageURL = `http://localhost:8000/${pageRoute}`;
 
-const fullPageCapture = false;
-const clickItem = true;
+const takeShot = true;
+const promptUserQuestions = false;
+
+const fullPageCapture = true;
+const clickItem = false;
 const clickTarget = "div #expand-button";
 const scrollToSection = false;
 
@@ -342,13 +339,13 @@ const dateString = () => {
       await page.goto(`${pageURL}`, {
         waitUntil: ["load", "domcontentloaded", "networkidle2"]
       });
-      console.log(chalk.cyan(`  ┣━ Page loaded successfully.`));
+      console.log(chalk.cyan(`  ┣ Page loaded successfully.`));
 
       // Click one of the time-date divs on /schedule
       if (clickItem) {
         console.log(chalk.cyan(`  ┣ Locating click target...`));
         await page.click(`${clickTarget}`);
-        console.log(chalk.cyan(`  ┣━ ${clickTarget} clicked.`));
+        console.log(chalk.cyan(`  ┣ $'{clickTarget}' clicked.`));
       }
 
       // Scroll the page to the bottom
@@ -357,7 +354,7 @@ const dateString = () => {
         await page.evaluate(() => {
           window.scrollBy(0, document.body.scrollHeight);
         });
-        console.log(chalk.cyan(`  ┣━ Page scrolled to bottom.`));
+        console.log(chalk.cyan(`  ┣ Page scrolled.`));
       }
 
       // Take the screenshot
@@ -365,8 +362,8 @@ const dateString = () => {
         console.log(
           chalk.cyan(
             `  ┣ Capturing ${
-              fullPageCapture ? "full height " : ""
-            }screenshot...`
+              fullPageCapture ? "full height" : ""
+            } screenshot...`
           )
         );
         await page.screenshot({
@@ -381,12 +378,12 @@ const dateString = () => {
       console.log(chalk.cyan(`  ┃`));
       console.log(
         chalk.green(
-          `  ┣━ 🖼️   ${device.name} (${device.viewport.width}x${device.viewport.height}) captured.`
+          `  ┣ 🖼️   ${device.name} (${device.viewport.width}x${device.viewport.height}) captured.`
         )
       );
       console.log(
         chalk.green(
-          `  ┗━ 💾  Saved to '/screenshots/${pageRoute} ${pageVersion} | ${device.name} | ${time}.jpeg'\n`
+          `  ┗ 💾  Saved to '/screenshots/${pageRoute} ${pageVersion} | ${device.name} | ${time}.jpeg'\n`
         )
       );
     }
@@ -403,13 +400,13 @@ const dateString = () => {
     // Check for errors with puppeteer errors...
     if (error instanceof puppeteer.errors.TimeoutError) {
       console.log(chalk.red(`  ┃`));
-      console.log(chalk.red(`  ┗━ Operation timed out. Error logs below. \n`));
+      console.log(chalk.red(`  ┗ Operation timed out. Error logs below. \n`));
       console.log(error);
     }
     // ...then for errors displaying the questionnaire...
     else if (error.isTtyError) {
       console.log(chalk.red(`  ┃`));
-      console.log(chalk.red(`  ┗━ Questionnaire couldn't be rendered.`));
+      console.log(chalk.red(`  ┗ Questionnaire couldn't be rendered.`));
       console.log(error);
     }
     // ...then for other errors.

@@ -39,20 +39,31 @@ function ScheduleBar() {
         </div>
       </div>
       <ScheduleDatePicker />
+      {/* DESKTOP ENTRIES */}
       <ScheduleShowEntry />
       <ScheduleShowEntry />
       <ScheduleShowEntry />
       <ScheduleShowEntry />
       <ScheduleShowEntry />
       <ScheduleShowEntry />
-
+      {/* MOBILE DIVS */}
+      {/* <div className="mobile-overscroll is-hidden-desktop">
+        <ScheduleShowEntry />
+        <ScheduleShowEntry />
+        <ScheduleShowEntry />
+        <ScheduleShowEntry />
+        <ScheduleShowEntry />
+        <ScheduleShowEntry />
+      </div> */}
       <div className="columns">
         <div
-          className="column is-12 button is-dark"
+          className="column is-12 button is-black"
           id="expand-button"
           onClick={() => setOpen(!open)}
         >
+          <p className="is-size-3-desktop">
           Close
+        </p>
         </div>
       </div>
     </div>

@@ -31,7 +31,10 @@ function reducer(state, action) {
     case 'CHANGE_URL': {
       console.log('state in CHANGE_URL CASE: \n', state);
       console.log('action in CHANGE_URL CASE: \n', action);
-
+      return {
+        ...state,
+        url: action.payload,
+      };
       // return {
       //   ...state,
       //   url: '??',

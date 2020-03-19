@@ -72,7 +72,11 @@ export const IndexPageTemplate = ({
           <button
             onClick={() => {
               console.log('dispatch in index-page button: \n', dispatch);
-              // dispatch({ type: 'CHANGE_URL' });
+              dispatch({
+                type: 'CHANGE_URL',
+                payload:
+                  'https://soundcloud.com/soundcloud-scenes/sets/doom-folk-and-indie',
+              });
             }}
           >
             {'https://www.mixcloud.com/HalfMoonbk/dj-jazzabella-3102020/'}

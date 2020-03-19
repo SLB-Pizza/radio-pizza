@@ -40,9 +40,9 @@ function RadioPlayer() {
   // } = this.state;
   // const SEPARATOR = ' · ';
   const dispatch = useContext(GlobalDispatchContext);
-  const state = useContext(GlobalStateContext);
-  console.log(state);
-  console.log(dispatch);
+  const globalState = useContext(GlobalStateContext);
+  // console.log('globalState in RadioPlayer.js: \n', globalState);
+  // console.log(dispatch);
 
   const [localState, setLocalState] = useState({
     url: null,
@@ -61,6 +61,7 @@ function RadioPlayer() {
 
   const handlePlayPause = async () => {
     await setLocalState({ ...localState, playing: !localState.playing });
+    await dispatch({ type: 'TOGGLE_PLAYING' });
     // alert(this.state.playing);
   };
   const handlePlay = async () => {
@@ -72,8 +73,23 @@ function RadioPlayer() {
     // console.log('onPause');
     await setLocalState({ ...localState, playing: false });
   };
+
+  const load = async url => {
+    await setLocalState({
+      ...localState,
+      url: url,
+      played: 0,
+      loaded: 0,
+      pip: false,
+    });
+  };
+
+  const renderLoadButton = (url, label) => {
+    return <button onClick={() => this.load(url)}>{label}</button>;
+  };
+
   //prettier-ignore
-  // const player = useRef <ReactPlayer> (null);
+  const player = useRef(ReactPlayer);
 
   return (
     <div className="radio-player is-flex">
@@ -85,14 +101,14 @@ function RadioPlayer() {
       />
       <ReactPlayer
         className="cloud-player"
-        url="https://www.mixcloud.com/HalfMoonbk/endemico-presents-juke-dealer-3102020/"
-        // ref={player}
+        url={globalState.url}
+        ref={player}
         // className="react-player"
-        width="100%"
-        height="100%"
+        width="1%"
+        height="10px"
         // url={url}
         // pip={pip}
-        playing={localState.playing}
+        playing={globalState.playing}
         // controls={controls}
         // light={light}
         // loop={loop}
@@ -123,23 +139,14 @@ function RadioPlayer() {
           <p>4:00 - 6:00PM</p>
         </div>
         <div id="radioShowName">
-          <p>The Show with a Much Longer Title </p>
+          <p>{globalState.title}</p>
         </div>
       </div>
     </div>
   );
 }
 
-export default RadioPlayer;
-
-// export const load = url => {
-//   this.setState({
-//     // url,
-//     played: 0,
-//     loaded: 0,
-//     pip: false,
-//   });
-// };
+export default hot(module)(RadioPlayer);
 
 // export const handleStop = () => {
 //   this.setState({ url: null, playing: false });
@@ -223,10 +230,6 @@ export default RadioPlayer;
 
 // export const handleClickFullscreen = () => {
 //   screenfull.request(findDOMNode(this.player));
-// };
-
-// export const renderLoadButton = (url, label) => {
-//   return <button onClick={() => this.load(url)}>{label}</button>;
 // };
 
 // export const ref = player => {

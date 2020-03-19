@@ -4,8 +4,9 @@ export const GlobalStateContext = React.createContext();
 export const GlobalDispatchContext = React.createContext();
 
 const initialState = {
-  url: null,
-  pip: false,
+  url:
+    'https://soundcloud.com/soundcloud-scenes/sets/currents-next-gen-chillwave',
+  title: 'Next Gen ChillWave',
   playing: true,
   controls: false,
   light: false,
@@ -20,11 +21,22 @@ const initialState = {
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'TOGGLE_THEME': {
+    case 'TOGGLE_PLAYING': {
+      console.log('state in TOGGLE_PLAYING CASE: \n', state);
       return {
         ...state,
-        theme: state.theme === 'light' ? 'dark' : 'light',
+        playing: state.playing === true ? false : true,
       };
+    }
+    case 'CHANGE_URL': {
+      console.log('state in CHANGE_URL CASE: \n', state);
+      console.log('action in CHANGE_URL CASE: \n', action);
+
+      // return {
+      //   ...state,
+      //   url: '??',
+      // };
+      break;
     }
     default:
       throw new Error('Bad Action Type');
@@ -33,6 +45,7 @@ function reducer(state, action) {
 
 const GlobalContextProvider = ({ children }) => {
   const [state, dispatch] = React.useReducer(reducer, initialState);
+  // console.log('state in GlobalContextProvider wrap: ', state);
   return (
     <GlobalStateContext.Provider value={state}>
       <GlobalDispatchContext.Provider value={dispatch}>

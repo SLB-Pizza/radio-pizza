@@ -21,6 +21,12 @@ export const IndexPageTemplate = ({
 }) => {
   const dispatch = useContext(GlobalDispatchContext);
   const state = useContext(GlobalStateContext);
+  console.log('dispatch in indexPage: ', dispatch);
+  // const renderLoadButton = (url, label) => {
+  //   // return <button onClick={() => load(url)}>{label}</button>;
+  //   return <button onClick={dispatch({ type: 'CHANGE_URL' })}>{url}</button>;
+  // };
+
   // console.log(state);
   // console.log(dispatch);
   return (
@@ -58,6 +64,16 @@ export const IndexPageTemplate = ({
           >
             {title}
           </h1>
+          {/* <div>
+            {renderLoadButton(
+              'https://www.mixcloud.com/HalfMoonbk/dj-jazzabella-3102020/'
+            )}
+          </div> */}
+          {/* <button
+            onClick={console.log('dispatch in index-page button: \n', dispatch)}
+          >
+            {'https://www.mixcloud.com/HalfMoonbk/dj-jazzabella-3102020/'}
+          </button> */}
           <h3
             className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
             style={{

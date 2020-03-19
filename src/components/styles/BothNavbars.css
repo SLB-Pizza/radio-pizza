@@ -29,6 +29,7 @@
   align-items: center;
 }
 .radio-and-schedule-bar .radio-bar .radio-player .cloud-player {
+  visibility: hidden;
   max-height: 3.5rem;
 }
 .radio-and-schedule-bar .radio-bar .radio-player #radioShowPic {

@@ -73,7 +73,7 @@ function ScheduleBar() {
       BUILT INTO THE BAR
       <ScheduleDropdown />
       */}
-      <div className="columns up-next is-hidden-tablet">
+      <div className="columns up-next is-hidden-mobile">
         <div className="column is-narrow">
           <p>in 1hr 1m</p>
         </div>
@@ -88,7 +88,7 @@ function ScheduleBar() {
       <ScheduleShowEntry />
       <ScheduleShowEntry />
 
-      <div className="columns is-hidden-touch">
+      <div className="columns is-hidden-mobile">
         <div
           className="column is-12 has-background-dark"
           id="expand-button"

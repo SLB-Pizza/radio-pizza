@@ -4,7 +4,7 @@ import { ScheduleDatePicker, ScheduleShowEntry } from "./index";
 function ScheduleDropdown() {
   return (
     <>
-      <div className="columns up-next is-hidden-touch">
+      <div className="columns up-next is-hidden-tablet">
         <div className="column is-narrow">
           <p>in 1hr 1m</p>
         </div>

@@ -7,10 +7,7 @@ function ScheduleDatePicker() {
         <p className="title is-size-3-desktop is-size-4-touch">MON</p>
         <p className="subtitle is-size-5-desktop is-size-6-touch">3/16</p>
       </div>
-      <div
-        className="column is-5-touch has-text-centered day-of-week"
-        id="test-active"
-      >
+      <div className="column is-5-touch has-text-centered day-of-week">
         <p className="title is-size-3-desktop is-size-4-touch">TUE</p>
         <p className="subtitle is-size-5-desktop is-size-6-touch">3/17</p>
       </div>

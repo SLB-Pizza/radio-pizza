@@ -106,6 +106,7 @@ $gap: 32px;
     //==================================
     // <ScheduleModal />
     //==================================
+
     #scroll-instructions {
       width: 100%;
       background-color: black;
@@ -118,7 +119,7 @@ $gap: 32px;
 
     .modal-card {
       margin: 3rem 0 4.5rem;
-      max-width: 95vw;
+      width: 90vw;
       max-height: calc(100vh - 5.5rem);
       box-shadow: 2.5px 2.5px 20px 2.5px whitesmoke;
       background-color: transparent;
@@ -130,6 +131,7 @@ $gap: 32px;
       }
 
       .modal-card-head {
+        padding: 0;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -151,7 +153,6 @@ $gap: 32px;
     // <ScheduleDatePicker />
     //==================================
     .date-picker {
-      width: 100%;
       flex: 1;
       background-color: #2a2a2a;
       overflow-x: auto;
@@ -162,10 +163,6 @@ $gap: 32px;
         padding: 0.5rem;
         border-top: 1px white solid;
         border-bottom: 1px white solid;
-
-        // &:first-child {
-        //   border-left: 1px white solid;
-        // }
 
         // In-between borders
         &:not(:last-child) {

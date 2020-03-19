@@ -72,7 +72,11 @@ export const IndexPageTemplate = ({
           <button
             onClick={() => {
               console.log("dispatch in index-page button: \n", dispatch);
-              dispatch({ type: "CHANGE_URL" });
+              dispatch({
+                type: "CHANGE_URL",
+                payload:
+                  "https://soundcloud.com/soundcloud-scenes/sets/doom-folk-and-indie"
+              });
             }}
           >
             {"https://www.mixcloud.com/HalfMoonbk/dj-jazzabella-3102020/"}
@@ -159,17 +163,17 @@ const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
 
   return (
-    <Layout>
-      <IndexPageTemplate
-        image={frontmatter.image}
-        title={frontmatter.title}
-        heading={frontmatter.heading}
-        subheading={frontmatter.subheading}
-        mainpitch={frontmatter.mainpitch}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
-      />
-    </Layout>
+    // <Layout>
+    <IndexPageTemplate
+      image={frontmatter.image}
+      title={frontmatter.title}
+      heading={frontmatter.heading}
+      subheading={frontmatter.subheading}
+      mainpitch={frontmatter.mainpitch}
+      description={frontmatter.description}
+      intro={frontmatter.intro}
+    />
+    // </Layout>
   );
 };
 

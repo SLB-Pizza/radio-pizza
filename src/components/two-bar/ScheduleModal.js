@@ -19,16 +19,6 @@ function ScheduleModal() {
               ></button>
             </div>
           </div>
-          <div
-            className="columns is-vcentered is-mobile"
-            id="scroll-instructions"
-          >
-            <div className="column">
-              <p className="is-size-7 has-text-centered">
-                ⇦ SWIPE TO VIEW MORE DATES ⇨
-              </p>
-            </div>
-          </div>
           <ScheduleDatePicker />
         </header>
         <section className="modal-card-body">

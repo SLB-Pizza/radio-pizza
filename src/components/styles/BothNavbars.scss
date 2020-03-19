@@ -153,6 +153,10 @@ $gap: 32px;
     // <ScheduleDatePicker />
     //==================================
     .date-picker {
+      @include mobile {
+        width: 100%;
+      }
+
       flex: 1;
       background-color: #2a2a2a;
       overflow-x: auto;

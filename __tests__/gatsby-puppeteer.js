@@ -27,8 +27,8 @@ const pageURL = `http://localhost:8000/${pageRoute}`;
 const takeShot = true;
 const promptUserQuestions = false;
 
-const fullPageCapture = true;
-const clickItem = false;
+const fullPageCapture = false;
+const clickItem = true;
 const clickTarget = "div #expand-button";
 const scrollToSection = false;
 
@@ -341,11 +341,15 @@ const dateString = () => {
       });
       console.log(chalk.cyan(`  ┣ Page loaded successfully.`));
 
+      if (clickItem || scrollToSection) {
+        console.log(chalk.cyan(`  ┃`));
+      }
+
       // Click one of the time-date divs on /schedule
       if (clickItem) {
         console.log(chalk.cyan(`  ┣ Locating click target...`));
         await page.click(`${clickTarget}`);
-        console.log(chalk.cyan(`  ┣ $'{clickTarget}' clicked.`));
+        console.log(chalk.cyan(`  ┣ '${clickTarget}' clicked.`));
       }
 
       // Scroll the page to the bottom
@@ -362,8 +366,8 @@ const dateString = () => {
         console.log(
           chalk.cyan(
             `  ┣ Capturing ${
-              fullPageCapture ? "full height" : ""
-            } screenshot...`
+              fullPageCapture ? "full height " : ""
+            }screenshot...`
           )
         );
         await page.screenshot({

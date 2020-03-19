@@ -33,7 +33,9 @@ function reducer(state, action) {
       console.log('action in CHANGE_URL CASE: \n', action);
       return {
         ...state,
-        url: action.payload,
+        url: action.payload.url,
+        title: action.payload.title,
+        playing: true,
       };
       // return {
       //   ...state,

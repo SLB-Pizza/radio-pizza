@@ -1,14 +1,14 @@
-import React, { useContext } from "react";
-import PropTypes from "prop-types";
-import { Link, graphql } from "gatsby";
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
+import { Link, graphql } from 'gatsby';
 import {
   GlobalDispatchContext,
-  GlobalStateContext
-} from "../context/GlobalContextProvider";
+  GlobalStateContext,
+} from '../context/GlobalContextProvider';
 
-import Layout from "../components/Layout";
-import Features from "../components/Features";
-import BlogRoll from "../components/BlogRoll";
+import Layout from '../components/Layout';
+import Features from '../components/Features';
+import BlogRoll from '../components/BlogRoll';
 
 export const IndexPageTemplate = ({
   image,
@@ -17,11 +17,11 @@ export const IndexPageTemplate = ({
   subheading,
   mainpitch,
   description,
-  intro
+  intro,
 }) => {
   const dispatch = useContext(GlobalDispatchContext);
   const state = useContext(GlobalStateContext);
-  console.log("dispatch in indexPage: ", dispatch);
+  console.log('dispatch in indexPage: ', dispatch);
   // const renderLoadButton = (url, label) => {
   //   // return <button onClick={() => load(url)}>{label}</button>;
   //   return <button onClick={dispatch({ type: 'CHANGE_URL' })}>{url}</button>;
@@ -38,28 +38,28 @@ export const IndexPageTemplate = ({
             !!image.childImageSharp ? image.childImageSharp.fluid.src : image
           })`,
           backgroundPosition: `top left`,
-          backgroundAttachment: `fixed`
+          backgroundAttachment: `fixed`,
         }}
       >
         <div
           style={{
-            display: "flex",
-            height: "150px",
-            lineHeight: "1",
-            justifyContent: "space-around",
-            alignItems: "left",
-            flexDirection: "column"
+            display: 'flex',
+            height: '150px',
+            lineHeight: '1',
+            justifyContent: 'space-around',
+            alignItems: 'left',
+            flexDirection: 'column',
           }}
         >
           <h1
             className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
             style={{
               boxShadow:
-                "rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px",
-              backgroundColor: "rgb(255, 68, 0)",
-              color: "white",
-              lineHeight: "1",
-              padding: "0.25em"
+                'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
+              backgroundColor: 'rgb(255, 68, 0)',
+              color: 'white',
+              lineHeight: '1',
+              padding: '0.25em',
             }}
           >
             {title}
@@ -71,25 +71,43 @@ export const IndexPageTemplate = ({
           </div> */}
           <button
             onClick={() => {
-              console.log("dispatch in index-page button: \n", dispatch);
+              console.log('dispatch in index-page button: \n', dispatch);
               dispatch({
-                type: "CHANGE_URL",
-                payload:
-                  "https://soundcloud.com/soundcloud-scenes/sets/doom-folk-and-indie"
+                type: 'CHANGE_URL',
+                payload: {
+                  url:
+                    'https://soundcloud.com/soundcloud-scenes/sets/doom-folk-and-indie',
+                  title: 'Doom Folk and indie',
+                },
               });
             }}
           >
-            {"https://www.mixcloud.com/HalfMoonbk/dj-jazzabella-3102020/"}
+            {'Doom Folk and Indie'}
+          </button>
+
+          <button
+            onClick={() => {
+              console.log('dispatch in index-page button: \n', dispatch);
+              dispatch({
+                type: 'CHANGE_URL',
+                payload: {
+                  url: 'https://www.mixcloud.com/HalfMoonbk/guerrer-3122020/',
+                  title: 'Guerrer 03/12/2020',
+                },
+              });
+            }}
+          >
+            {'Guerrer'}
           </button>
           <h3
             className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
             style={{
               boxShadow:
-                "rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px",
-              backgroundColor: "rgb(255, 68, 0)",
-              color: "white",
-              lineHeight: "1",
-              padding: "0.25em"
+                'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
+              backgroundColor: 'rgb(255, 68, 0)',
+              color: 'white',
+              lineHeight: '1',
+              padding: '0.25em',
             }}
           >
             {subheading}
@@ -155,8 +173,8 @@ IndexPageTemplate.propTypes = {
   mainpitch: PropTypes.object,
   description: PropTypes.string,
   intro: PropTypes.shape({
-    blurbs: PropTypes.array
-  })
+    blurbs: PropTypes.array,
+  }),
 };
 
 const IndexPage = ({ data }) => {
@@ -180,9 +198,9 @@ const IndexPage = ({ data }) => {
 IndexPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object
-    })
-  })
+      frontmatter: PropTypes.object,
+    }),
+  }),
 };
 
 export default IndexPage;

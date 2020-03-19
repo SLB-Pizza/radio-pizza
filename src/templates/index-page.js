@@ -21,13 +21,27 @@ export const IndexPageTemplate = ({
 }) => {
   const dispatch = useContext(GlobalDispatchContext);
   const state = useContext(GlobalStateContext);
-  console.log('dispatch in indexPage: ', dispatch);
-  // const renderLoadButton = (url, label) => {
-  //   // return <button onClick={() => load(url)}>{label}</button>;
-  //   return <button onClick={dispatch({ type: 'CHANGE_URL' })}>{url}</button>;
-  // };
+  // console.log('dispatch in indexPage: ', dispatch);
 
-  // console.log(state);
+  const renderLoadButton = (url, title, label) => {
+    return (
+      <button
+        onClick={() =>
+          dispatch({
+            type: 'CHANGE_URL',
+            payload: {
+              url: url,
+              title: title,
+            },
+          })
+        }
+      >
+        {label}
+      </button>
+    );
+  };
+
+  console.log('global state in index-page', state);
   // console.log(dispatch);
   return (
     <div>
@@ -64,41 +78,23 @@ export const IndexPageTemplate = ({
           >
             {title}
           </h1>
-          {/* <div>
-            {renderLoadButton(
-              'https://www.mixcloud.com/HalfMoonbk/dj-jazzabella-3102020/'
-            )}
-          </div> */}
-          <button
-            onClick={() => {
-              console.log('dispatch in index-page button: \n', dispatch);
-              dispatch({
-                type: 'CHANGE_URL',
-                payload: {
-                  url:
-                    'https://soundcloud.com/soundcloud-scenes/sets/doom-folk-and-indie',
-                  title: 'Doom Folk and indie',
-                },
-              });
-            }}
-          >
-            {'Doom Folk and Indie'}
-          </button>
 
-          <button
-            onClick={() => {
-              console.log('dispatch in index-page button: \n', dispatch);
-              dispatch({
-                type: 'CHANGE_URL',
-                payload: {
-                  url: 'https://www.mixcloud.com/HalfMoonbk/guerrer-3122020/',
-                  title: 'Guerrer 03/12/2020',
-                },
-              });
-            }}
-          >
-            {'Guerrer'}
-          </button>
+          {renderLoadButton(
+            'https://soundcloud.com/soundcloud-scenes/sets/doom-folk-and-indie',
+            'Doom Folk and indie',
+            'SoundCloud Source'
+          )}
+          {renderLoadButton(
+            'https://www.mixcloud.com/HalfMoonbk/guerrer-3122020/',
+            'Guerrer 03/12/2020',
+            'MixCloud Source'
+          )}
+          {renderLoadButton(
+            'https://streamer.radio.co/sa3c47c55b/listen',
+            'Half Moon Radio',
+            'Radio.co Half Moon Stream Source'
+          )}
+
           <h3
             className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
             style={{

@@ -29,19 +29,20 @@ function reducer(state, action) {
       };
     }
     case 'CHANGE_URL': {
-      console.log('state in CHANGE_URL CASE: \n', state);
-      console.log('action in CHANGE_URL CASE: \n', action);
+      // console.log('state in CHANGE_URL CASE: \n', state);
+      // console.log('action in CHANGE_URL CASE: \n', action);
       return {
         ...state,
         url: action.payload.url,
         title: action.payload.title,
-        playing: true,
+        // playing: true,
       };
-      // return {
-      //   ...state,
-      //   url: '??',
-      // };
-      break;
+    }
+    case 'TOGGLE_MUTE': {
+      return {
+        ...state,
+        muted: state.muted === true ? false : true,
+      };
     }
     default:
       throw new Error('Bad Action Type');

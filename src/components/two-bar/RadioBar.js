@@ -1,9 +1,19 @@
-import React from "react";
-import { RadioPlayer } from "./index";
-import { faCommentAlt, faVolumeUp } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useContext } from 'react';
+import { RadioPlayer } from './index';
+import { faCommentAlt, faVolumeUp } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  GlobalDispatchContext,
+  GlobalStateContext,
+} from '../../context/GlobalContextProvider';
 
 function RadioBar() {
+  const dispatch = useContext(GlobalDispatchContext);
+
+  const handleToggleMuted = async () => {
+    await dispatch({ type: 'TOGGLE_MUTE' });
+  };
+
   return (
     <div className="level is-mobile radio-bar">
       <div className="level-left">
@@ -11,7 +21,10 @@ function RadioBar() {
           Logo
         </div>
         <div className="level-item">
-          <span className="icon is-medium has-text-dark">
+          <span
+            className="icon is-medium has-text-dark"
+            onClick={handleToggleMuted}
+          >
             <FontAwesomeIcon icon={faVolumeUp} size="2x" />
           </span>
         </div>

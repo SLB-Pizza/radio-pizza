@@ -98,13 +98,17 @@ function RadioPlayer() {
   return (
     <div className="radio-player is-flex">
       {!globalState.playing ? (
-        <span className="icon is-large" onClick={handlePlayPause}>
-          <FontAwesomeIcon icon={faPlayCircle} size="6x" />
-        </span>
+        <FontAwesomeIcon
+          icon={faPlayCircle}
+          onClick={handlePlayPause}
+          size="3x"
+        />
       ) : (
-        <span className="icon is-large" onClick={handlePlayPause}>
-          <FontAwesomeIcon icon={faPauseCircle} size="6x" />
-        </span>
+        <FontAwesomeIcon
+          icon={faPauseCircle}
+          onClick={handlePlayPause}
+          size="3x"
+        />
       )}
       <ReactPlayer
         className="cloud-player"

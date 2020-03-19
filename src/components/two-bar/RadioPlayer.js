@@ -1,12 +1,16 @@
-import React, { useContext, useRef, useState } from 'react';
-import { findDOMNode } from 'react-dom';
-import { hot } from 'react-hot-loader';
-import ReactPlayer from 'react-player';
-import PlayButton from '../../img/play-button.svg';
+import React, { useContext, useRef, useState } from "react";
+import { findDOMNode } from "react-dom";
+import { hot } from "react-hot-loader";
+import ReactPlayer from "react-player";
 import {
   GlobalDispatchContext,
-  GlobalStateContext,
-} from '../../context/GlobalContextProvider';
+  GlobalStateContext
+} from "../../context/GlobalContextProvider";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlayCircle, faPauseCircle } from "@fortawesome/free-solid-svg-icons";
+// Visit https://fontawesome.com/icons?d=gallery&m=free and search for icons here.
+//
 
 //   this.state = {
 // url: null,
@@ -56,12 +60,12 @@ function RadioPlayer() {
     loaded: 0,
     duration: 0,
     playbackRate: 1.0,
-    loop: true,
+    loop: true
   });
 
   const handlePlayPause = async () => {
     await setLocalState({ ...localState, playing: !localState.playing });
-    await dispatch({ type: 'TOGGLE_PLAYING' });
+    await dispatch({ type: "TOGGLE_PLAYING" });
     // alert(this.state.playing);
   };
   const handlePlay = async () => {
@@ -80,7 +84,7 @@ function RadioPlayer() {
       url: url,
       played: 0,
       loaded: 0,
-      pip: false,
+      pip: false
     });
   };
 
@@ -93,12 +97,15 @@ function RadioPlayer() {
 
   return (
     <div className="radio-player is-flex">
-      <img
-        id="play-button"
-        onClick={handlePlayPause}
-        src={PlayButton}
-        alt="playButton"
-      />
+      {!globalState.playing ? (
+        <span className="icon is-large" onClick={handlePlayPause}>
+          <FontAwesomeIcon icon={faPlayCircle} size="6x" />
+        </span>
+      ) : (
+        <span className="icon is-large" onClick={handlePlayPause}>
+          <FontAwesomeIcon icon={faPauseCircle} size="6x" />
+        </span>
+      )}
       <ReactPlayer
         className="cloud-player"
         url={globalState.url}
@@ -124,7 +131,7 @@ function RadioPlayer() {
         // onBuffer={() => console.log('onBuffer')}
         // onSeek={e => console.log('onSeek', e)}
         // onEnded={this.handleEnded}
-        onError={e => console.log('onError', e)}
+        onError={e => console.log("onError", e)}
         // onProgress={this.handleProgress}
         // onDuration={this.handleDuration}
       />

@@ -69,11 +69,14 @@ export const IndexPageTemplate = ({
               'https://www.mixcloud.com/HalfMoonbk/dj-jazzabella-3102020/'
             )}
           </div> */}
-          {/* <button
-            onClick={console.log('dispatch in index-page button: \n', dispatch)}
+          <button
+            onClick={() => {
+              console.log('dispatch in index-page button: \n', dispatch);
+              // dispatch({ type: 'CHANGE_URL' });
+            }}
           >
             {'https://www.mixcloud.com/HalfMoonbk/dj-jazzabella-3102020/'}
-          </button> */}
+          </button>
           <h3
             className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
             style={{

@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { ScheduleDatePicker, ScheduleShowEntry } from "./index";
+import {
+  ScheduleModal,
+  ScheduleDropdown,
+  ScheduleDatePicker,
+  ScheduleShowEntry
+} from "./index";
 
 function ScheduleBar() {
   const [open, setOpen] = useState(false);
@@ -22,19 +27,12 @@ function ScheduleBar() {
     </div>
   ) : (
     <div className="schedule-bar container is-fluid is-vcentered is-open">
-      <div className="columns up-next is-mobile">
-        <div className="column is-narrow">
-          <p>in 1hr 1m</p>
-        </div>
-        <div className="column">Lorem ipsum dolor sit.</div>
-      </div>
-
       {/*
       FOR MOBILE
       SCHEDULE MODAL
+      <ScheduleModal />
       */}
-
-      <div className="modal is-active is-hidden-desktop">
+      <div className="modal is-active is-hidden-tablet">
         <div className="modal-background"></div>
         <div className="modal-card is-dark">
           <header className="modal-card-head">
@@ -50,10 +48,7 @@ function ScheduleBar() {
                 ></button>
               </div>
             </div>
-            <div
-              className="columns is-vcentered is-mobile"
-              id="scroll-instructions"
-            >
+            <div className="columns" id="scroll-instructions">
               <div className="column">
                 <p className="is-size-7 has-text-centered">
                   ⇦ SWIPE TO VIEW MORE DATES ⇨
@@ -70,35 +65,21 @@ function ScheduleBar() {
             <ScheduleShowEntry />
             <ScheduleShowEntry />
             <ScheduleShowEntry />
-            <ScheduleShowEntry />
-            <ScheduleShowEntry />
-            <ScheduleShowEntry />
-            <ScheduleShowEntry />
-            <ScheduleShowEntry />
-            <ScheduleShowEntry />
-            <ScheduleShowEntry />
-            <ScheduleShowEntry />
-            <ScheduleShowEntry />
-            <ScheduleShowEntry />
-            <ScheduleShowEntry />
           </section>
         </div>
       </div>
-
       {/*
       FOR DESKTOP
       BUILT INTO THE BAR
+      <ScheduleDropdown />
       */}
-      <div
-        className="columns is-vcentered is-hidden-desktop"
-        id="scroll-instructions"
-      >
-        <div className="column">
-          <p className="is-size-7 has-text-centered">
-            ⇦ THIS week's schedule ⇨
-          </p>
+      <div className="columns up-next is-hidden-tablet">
+        <div className="column is-narrow">
+          <p>in 1hr 1m</p>
         </div>
+        <div className="column">Lorem ipsum dolor sit.</div>
       </div>
+
       <ScheduleDatePicker />
       <ScheduleShowEntry />
       <ScheduleShowEntry />
@@ -107,7 +88,7 @@ function ScheduleBar() {
       <ScheduleShowEntry />
       <ScheduleShowEntry />
 
-      <div className="columns">
+      <div className="columns is-hidden-touch">
         <div
           className="column is-12 has-background-dark"
           id="expand-button"

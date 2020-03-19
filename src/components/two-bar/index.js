@@ -9,7 +9,10 @@ export { default as TopNav } from "./TopNav";
 export { default as RadioBar } from "./RadioBar";
 export { default as RadioPlayer } from "./RadioPlayer";
 export { default as ScheduleBar } from "./ScheduleBar";
+export { default as ScheduleModal } from "./ScheduleModal";
+export { default as ScheduleDropdown } from "./ScheduleDropdown";
 export { default as ScheduleDatePicker } from "./ScheduleDatePicker";
+export { default as ScheduleShowEntry } from "./ScheduleShowEntry";
 
 /**
  * HomePage
@@ -40,7 +43,6 @@ export { default as SingleMix } from "./SingleMix";
  * SchedulePage
  */
 export { default as SchedulePage } from "./SchedulePage";
-export { default as ScheduleShowEntry } from "./ScheduleShowEntry";
 
 /**
  * NewsPage
@@ -52,10 +54,9 @@ export { default as MobileNewsItem } from "./MobileNewsItem";
 /**
  * About Page
  */
-
 export { default as AboutPage } from "./AboutPage";
-/**
- *
- */
 
+/**
+ * BottomNav
+ */
 export { default as BottomNav } from "./BottomNav";

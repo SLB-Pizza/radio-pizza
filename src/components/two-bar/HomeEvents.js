@@ -11,7 +11,10 @@ function HomeEvents() {
         <div className="column is-3">
           <div className="sticky-section-blurb">
             <p className="title is-size-2">Live Events</p>
-            <p className="title is-size-4">Parties, the Halfmoon way.</p>
+            <p className="title is-size-4">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
+              sagittis quam ut quam sagittis vestibulum vel ac lectus.
+            </p>
             <button className="sticky-link button is-dark">
               More Events >
             </button>
@@ -19,7 +22,6 @@ function HomeEvents() {
         </div>
         <div className="column is-9">
           <div className="columns is-multiline">
-            <HomeSingleEvent />
             <HomeSingleEvent />
             <HomeSingleEvent />
             <HomeSingleEvent />
@@ -38,7 +40,8 @@ function HomeEvents() {
         </div>
         <div className="column is-12">
           <p className="title is-size-4 mobile-headers">
-            Parties, the Halfmoon way.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
+            sagittis quam ut quam sagittis vestibulum vel ac lectus.
           </p>
         </div>
       </div>

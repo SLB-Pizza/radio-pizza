@@ -12,7 +12,8 @@ function HomeMixes() {
           <div className="sticky-section-blurb">
             <p className="title is-size-2">Daily Mixes</p>
             <p className="title is-size-4">
-              Recent mixes from Halfmoon residents.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
+              sagittis quam ut quam sagittis vestibulum vel ac lectus.
             </p>
             <button className="sticky-link button is-dark">More Mixes ></button>
           </div>
@@ -42,7 +43,8 @@ function HomeMixes() {
         </div>
         <div className="column is-12">
           <p className="title is-size-4 mobile-headers">
-            Recent mixes from Halfmoon residents.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
+            sagittis quam ut quam sagittis vestibulum vel ac lectus.{" "}
           </p>
         </div>
       </div>

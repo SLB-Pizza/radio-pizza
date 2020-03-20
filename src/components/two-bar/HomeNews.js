@@ -12,8 +12,8 @@ function HomeNews() {
           <div className="sticky-section-blurb">
             <p className="title is-size-2">Features</p>
             <p className="title is-size-4">
-              A closer look at the music, the artists, the scenes and the people
-              that make it happen.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
+              sagittis quam ut quam sagittis vestibulum vel ac lectus.
             </p>
             <button className="sticky-link button is-dark">
               More Features >
@@ -39,8 +39,8 @@ function HomeNews() {
         </div>
         <div className="column is-12">
           <p className="title is-size-4 mobile-headers">
-            A closer look at the music, the artists, the scenes and the people
-            that make it happen.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
+            sagittis quam ut quam sagittis vestibulum vel ac lectus.
           </p>
         </div>
       </div>

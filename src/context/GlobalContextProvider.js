@@ -39,10 +39,17 @@ function reducer(state, action) {
       };
     }
     case 'TOGGLE_MUTE': {
-      return {
-        ...state,
-        muted: state.muted === true ? false : true,
-      };
+      if (state.muted === true) {
+        return {
+          ...state,
+          muted: false,
+        };
+      } else {
+        return {
+          ...state,
+          muted: true,
+        };
+      }
     }
     default:
       throw new Error('Bad Action Type');

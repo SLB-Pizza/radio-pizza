@@ -21,17 +21,19 @@ export { default as ScheduleShowEntry } from "./ScheduleShowEntry";
  * -- HomeMixes
  * --- HomeSingleMix
  * -- HomeEvent
- * --- HomeSingleMix
+ * --- HomeSingleEvent
+ * -- HomeNews
+ * --- HomeSingleNews
  */
 
-export { default as Hero } from "./Hero";
-export { default as HomeContent } from "./HomeContent";
-export { default as HomeMixes } from "./HomeMixes";
-export { default as HomeSingleMix } from "./HomeSingleMix";
-export { default as HomeEvents } from "./HomeEvents";
-export { default as HomeSingleEvent } from "./HomeSingleEvent";
-export { default as HomeNews } from "./HomeNews";
-export { default as HomeSingleNews } from "./HomeSingleNews";
+export { default as Hero } from "../Hero";
+export { default as HomeContent } from "../HomeContent";
+export { default as HomeMixes } from "../HomeMixes";
+export { default as HomeSingleMix } from "../HomeSingleMix";
+export { default as HomeEvents } from "../HomeEvents";
+export { default as HomeSingleEvent } from "../HomeSingleEvent";
+export { default as HomeNews } from "../HomeNews";
+export { default as HomeSingleNews } from "../HomeSingleNews";
 
 /**
  * MixesPage

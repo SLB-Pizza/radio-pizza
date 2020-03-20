@@ -1,5 +1,5 @@
 import React from "react";
-import { HomeMixes, HomeEvents, HomeNews } from "./index";
+import { HomeMixes, HomeEvents, HomeNews } from "./two-bar/index";
 
 function HomeContent() {
   return (

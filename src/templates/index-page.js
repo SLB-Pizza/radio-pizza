@@ -1,11 +1,14 @@
 import React, { useContext } from "react";
-import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
+import PropTypes from "prop-types";
 import {
   GlobalDispatchContext,
   GlobalStateContext
 } from "../context/GlobalContextProvider";
 
+import { Hero, HomeContent } from "../components/index";
+
+import "../components/styles/index.scss";
 import Layout from "../components/Layout";
 import Features from "../components/Features";
 import BlogRoll from "../components/BlogRoll";
@@ -44,53 +47,44 @@ export const IndexPageTemplate = ({
   // console.log("global state in index-page", state);
   // console.log(dispatch);
   return (
-    <div>
+    <div className="has-navbar-fixed-bottom">
       <div
-        className="full-width-image margin-top-0"
         style={{
-          backgroundImage: `url(${
-            !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-          })`,
-          backgroundPosition: `top left`,
-          backgroundAttachment: `fixed`
+          display: "flex",
+          marginTop: "7.5rem",
+          justifyContent: "space-around",
+          alignItems: "left",
+          flexDirection: "column"
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            lineHeight: "1",
-            justifyContent: "space-around",
-            alignItems: "left",
-            flexDirection: "column"
-          }}
-        >
-          {renderLoadButton(
-            "https://soundcloud.com/soundcloud-scenes/sets/doom-folk-and-indie",
-            "Doom Folk and indie",
-            "SoundCloud Source"
-          )}
-          {renderLoadButton(
-            "https://www.mixcloud.com/HalfMoonbk/guerrer-3122020/",
-            "Guerrer 03/12/2020",
-            "MixCloud Source"
-          )}
-          {renderLoadButton(
-            "https://streamer.radio.co/sa3c47c55b/listen",
-            "Half Moon Radio",
-            "Radio.co Half Moon Stream Source"
-          )}
-          {renderLoadButton(
-            "https://youtu.be/yhCuCqJbOVE?t=1887",
-            "CYBER DREAM SYNTHWAVE MIX",
-            "Youtube Source"
-          )}
-          {renderLoadButton(
-            "https://vimeo.com/350662849",
-            "Future to the Back Mix, Best of",
-            "Vimeo Source"
-          )}
-        </div>
+        {renderLoadButton(
+          "https://soundcloud.com/soundcloud-scenes/sets/doom-folk-and-indie",
+          "Doom Folk and indie",
+          "SoundCloud Source"
+        )}
+        {renderLoadButton(
+          "https://www.mixcloud.com/HalfMoonbk/guerrer-3122020/",
+          "Guerrer 03/12/2020",
+          "MixCloud Source"
+        )}
+        {renderLoadButton(
+          "https://streamer.radio.co/sa3c47c55b/listen",
+          "Half Moon Radio",
+          "Radio.co Half Moon Stream Source"
+        )}
+        {renderLoadButton(
+          "https://youtu.be/yhCuCqJbOVE?t=1887",
+          "CYBER DREAM SYNTHWAVE MIX",
+          "Youtube Source"
+        )}
+        {renderLoadButton(
+          "https://vimeo.com/350662849",
+          "Future to the Back Mix, Best of",
+          "Vimeo Source"
+        )}
       </div>
+      <Hero heading={heading} />
+      <HomeContent />
     </div>
   );
 };

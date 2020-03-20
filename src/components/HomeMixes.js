@@ -1,5 +1,5 @@
 import React from "react";
-import { HomeSingleMix } from "./index";
+import { HomeSingleMix } from "./two-bar/index";
 
 function HomeMixes() {
   return (

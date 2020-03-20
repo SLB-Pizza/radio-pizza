@@ -89,15 +89,12 @@ function RadioPlayer() {
         className="cloud-player"
         url={globalState.url}
         ref={player}
-        // className="react-player"
         width="0%"
         height="0%"
-        // url={url}
-        // pip={pip}
         playing={globalState.playing}
         // controls={controls}
         // light={light}
-        // loop={loop}
+        loop={globalState.loop}
         // playbackRate={playbackRate}
         // volume={volume}
         muted={globalState.muted}

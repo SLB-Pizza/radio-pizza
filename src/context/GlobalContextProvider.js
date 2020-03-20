@@ -17,6 +17,7 @@ const initialState = {
   duration: 0,
   playbackRate: 1.0,
   loop: true,
+  live: false,
 };
 
 function reducer(state, action) {

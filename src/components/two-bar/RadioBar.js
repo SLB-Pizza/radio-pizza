@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { RadioPlayer } from './index';
 import { faCommentAlt, faVolumeUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,6 +6,7 @@ import {
   GlobalDispatchContext,
   GlobalStateContext,
 } from '../../context/GlobalContextProvider';
+import axios from 'axios';
 
 function RadioBar() {
   const dispatch = useContext(GlobalDispatchContext);
@@ -13,6 +14,18 @@ function RadioBar() {
   const handleToggleMuted = async () => {
     await dispatch({ type: 'TOGGLE_MUTE' });
   };
+
+  const [radioData, setRadioData] = useState({});
+
+  useEffect(() => {
+    async function axiosGet() {
+      const result = await axios(
+        'https://public.radio.co/stations/sa3c47c55b/status'
+      );
+      setRadioData(result.data);
+    }
+    axiosGet();
+  }, []);
 
   return (
     <div className="level is-mobile radio-bar">
@@ -27,6 +40,11 @@ function RadioBar() {
           >
             <FontAwesomeIcon icon={faVolumeUp} size="2x" />
           </span>
+          {/* {console.log('\nRadio.Co Stream Status: \n', radioData.status)} */}
+          <p className="level-item">
+            "Radio.Co Stream Status:"
+            <p className="level-item">{radioData.status}</p>
+          </p>
         </div>
         <div className="level-item">
           <RadioPlayer />

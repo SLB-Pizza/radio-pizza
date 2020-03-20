@@ -15,7 +15,7 @@ function ScheduleBar() {
         <div className="column is-narrow">
           <p>in 1hr 1m</p>
         </div>
-        <div className="column">Lorem ipsum dolor sit.</div>
+        <div className="column">Loremipsum.</div>
         <div
           className="column is-narrow has-background-dark"
           id="expand-button"

@@ -1,18 +1,18 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { RadioPlayer } from './index';
-import { faCommentAlt, faVolumeUp } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useContext, useEffect, useState } from "react";
+import { RadioPlayer } from "./index";
+import { faCommentAlt, faVolumeUp } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   GlobalDispatchContext,
-  GlobalStateContext,
-} from '../../context/GlobalContextProvider';
-import axios from 'axios';
+  GlobalStateContext
+} from "../../context/GlobalContextProvider";
+import axios from "axios";
 
 function RadioBar() {
   const dispatch = useContext(GlobalDispatchContext);
 
   const handleToggleMuted = async () => {
-    await dispatch({ type: 'TOGGLE_MUTE' });
+    await dispatch({ type: "TOGGLE_MUTE" });
   };
 
   const [radioData, setRadioData] = useState({});
@@ -20,7 +20,7 @@ function RadioBar() {
   useEffect(() => {
     async function axiosGet() {
       const result = await axios(
-        'https://public.radio.co/stations/sa3c47c55b/status'
+        "https://public.radio.co/stations/sa3c47c55b/status"
       );
       setRadioData(result.data);
     }
@@ -42,7 +42,7 @@ function RadioBar() {
           </span>
           {/* {console.log('\nRadio.Co Stream Status: \n', radioData.status)} */}
           <p className="level-item">
-            "Radio.Co Stream Status:"
+            {/* "Radio.Co Stream Status:" */}
             <p className="level-item">{radioData.status}</p>
           </p>
         </div>

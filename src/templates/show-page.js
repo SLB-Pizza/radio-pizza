@@ -59,9 +59,9 @@ export const ShowPageTemplate = ({
             <h2 className="title is-size-2 has-text-weight-bold is-bold-light">
               FEATUED ARTIST: {featuredArtist}
             </h2>
-            {recurring && console.log('recurring?', recurring)}
-            {replays && console.log('replays', replays)}
-            {replays && console.log('replays._tail.array', replays._tail.array)}
+            {/* {recurring && console.log('recurring?', recurring)} */}
+            {/* {replays && console.log('replays', replays)} */}
+            {/* {replays && console.log('replays._tail.array', replays._tail.array)} */}
             {/* {recurring ? (
               <div>
                 Schedule:{' '}

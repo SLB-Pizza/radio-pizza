@@ -94,6 +94,16 @@ export const IndexPageTemplate = ({
             'Half Moon Radio',
             'Radio.co Half Moon Stream Source'
           )}
+          {renderLoadButton(
+            'https://youtu.be/yhCuCqJbOVE?t=1887',
+            'CYBER DREAM SYNTHWAVE MIX',
+            'Youtube Source'
+          )}
+          {renderLoadButton(
+            'https://vimeo.com/350662849',
+            'Future to the Back Mix, Best of',
+            'Vimeo Source'
+          )}
 
           <h3
             className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"

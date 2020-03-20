@@ -90,8 +90,8 @@ function RadioPlayer() {
         url={globalState.url}
         ref={player}
         // className="react-player"
-        width="100%"
-        height="100%"
+        width="0%"
+        height="0%"
         // url={url}
         // pip={pip}
         playing={globalState.playing}

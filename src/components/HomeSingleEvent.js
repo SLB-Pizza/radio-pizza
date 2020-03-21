@@ -2,12 +2,12 @@ import React from "react";
 
 function HomeSingleEvent() {
   return (
-    <div className="column is-9-touch is-6-desktop">
+    <div className="column is-9-touch is-4-desktop">
       <div className="card">
         <div className="card-image">
-          <figure className="image is-16by9">
+          <figure className="image is-1by1">
             <img
-              src="https://source.unsplash.com/1280x720/daily?trance"
+              src="https://source.unsplash.com/1280x1280/daily?trance"
               alt="single-event"
             />
           </figure>

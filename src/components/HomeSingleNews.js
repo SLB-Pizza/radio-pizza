@@ -2,7 +2,7 @@ import React from "react";
 
 function HomeSingleNews() {
   return (
-    <div className="column is-9-mobile is-12-desktop">
+    <div className="column is-9-mobile is-6-desktop">
       <div className="card">
         <div className="card-image">
           <figure className="image is-16by9">

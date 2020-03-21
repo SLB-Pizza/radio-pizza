@@ -51,6 +51,11 @@
     }
   }
 
+  //
+  .card {
+    border: 2px solid white;
+  }
+
   // Override default bulma card settings
   .card-content {
     background-color: black;
@@ -85,7 +90,9 @@
   .home-mixes {
     padding: 3rem 2rem;
 
-    background-image: url(https://source.unsplash.com/1920x1080/daily?dj);
+    // background-color: black;
+
+    background-image: url(https://source.unsplash.com/1920x1080/weekly?stars);
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: scroll;
@@ -104,8 +111,11 @@
   //==================================
   .home-events {
     padding: 2rem 2rem;
+    border-top: 3px solid white;
 
-    background-image: url(https://source.unsplash.com/1920x1080/daily?carnival-night);
+    // background-color: black;
+
+    background-image: url(https://source.unsplash.com/1920x1080/daily?stars);
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: scroll;
@@ -117,8 +127,11 @@
   //==================================
   .home-news {
     padding: 3rem 2rem;
+    border-top: 3px solid white;
 
-    background-image: url(https://source.unsplash.com/1920x1080/daily?night-city);
+    // background-color: black;
+
+    background-image: url(https://source.unsplash.com/1920x1080/?night-city);
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: scroll;

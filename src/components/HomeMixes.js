@@ -3,7 +3,7 @@ import { HomeSingleMix } from "./two-bar/index";
 
 function HomeMixes() {
   return (
-    <div className="container is-fluid home-mixes">
+    <div className="container is-fluid" id="home-mixes">
       {/*
       Desktop Sizes
       */}
@@ -12,10 +12,9 @@ function HomeMixes() {
           <div className="sticky-section-blurb">
             <p className="title is-size-2">Daily Mixes</p>
             <p className="title is-size-4">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-              sagittis quam ut quam sagittis vestibulum vel ac lectus.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
-            <button className="sticky-link button is-dark">More Mixes ></button>
+            <button className="sticky-link button">More ></button>
           </div>
         </div>
         <div className="column is-9">
@@ -39,12 +38,11 @@ function HomeMixes() {
           <p className="title is-size-2 mobile-headers">Daily Mixes</p>
         </div>
         <div className="column is-narrow more-link">
-          <button className="button is-small is-dark">More Mixes ></button>
+          <button className="button is-small">More ></button>
         </div>
         <div className="column is-12">
           <p className="title is-size-4 mobile-headers">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-            sagittis quam ut quam sagittis vestibulum vel ac lectus.{" "}
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
         </div>
       </div>

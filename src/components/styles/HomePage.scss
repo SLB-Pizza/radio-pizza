@@ -51,9 +51,9 @@
     }
   }
 
-  //
+  // Give each card a solid white border
   .card {
-    border: 2px solid white;
+    border: 0.125rem solid white;
   }
 
   // Override default bulma card settings
@@ -87,8 +87,9 @@
   //==================================
   // <HomeMixes />
   //==================================
-  .home-mixes {
+  #home-mixes {
     padding: 3rem 2rem;
+    border-top: 0.25rem solid white;
 
     // background-color: black;
 
@@ -109,9 +110,9 @@
   //==================================
   // <HomeEvents />
   //==================================
-  .home-events {
-    padding: 2rem 2rem;
-    border-top: 3px solid white;
+  #home-events {
+    padding: 3rem 2rem;
+    border-top: 0.25rem solid white;
 
     // background-color: black;
 
@@ -125,9 +126,9 @@
   //==================================
   // <HomeNews />
   //==================================
-  .home-news {
+  #home-news {
     padding: 3rem 2rem;
-    border-top: 3px solid white;
+    border-top: 0.25rem solid white;
 
     // background-color: black;
 

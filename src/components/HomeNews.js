@@ -3,7 +3,7 @@ import { HomeSingleNews } from "./two-bar/index";
 
 function HomeNews() {
   return (
-    <div className="container is-fluid home-news">
+    <div className="container is-fluid" id="home-news">
       {/*
       Desktop Sizes
       */}
@@ -12,12 +12,9 @@ function HomeNews() {
           <div className="sticky-section-blurb">
             <p className="title is-size-2">Features</p>
             <p className="title is-size-4">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-              sagittis quam ut quam sagittis vestibulum vel ac lectus.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
-            <button className="sticky-link button is-dark">
-              More Features >
-            </button>
+            <button className="sticky-link button">More ></button>
           </div>
         </div>
         <div className="column is-9">
@@ -35,17 +32,15 @@ function HomeNews() {
           <p className="title is-size-2 mobile-headers">Features</p>
         </div>
         <div className="column is-narrow more-link">
-          <button className="button is-small is-dark">More Features ></button>
+          <button className="button is-small">More ></button>
         </div>
         <div className="column is-12">
           <p className="title is-size-4 mobile-headers">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-            sagittis quam ut quam sagittis vestibulum vel ac lectus.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
         </div>
       </div>
       <div className="columns is-mobile is-hidden-desktop mobile-single-items">
-        <HomeSingleNews />
         <HomeSingleNews />
         <HomeSingleNews />
       </div>

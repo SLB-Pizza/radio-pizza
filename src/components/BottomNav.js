@@ -24,7 +24,6 @@ function BottomNav() {
           <span
             className="navbar-burger burger"
             role="button"
-            class="navbar-burger"
             aria-label="menu"
             aria-expanded="false"
             data-target="nav-menu"

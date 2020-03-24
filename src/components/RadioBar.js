@@ -42,17 +42,16 @@ function RadioBar() {
             <FontAwesomeIcon icon={faVolumeUp} size="2x" />
           </span>
           {/* {console.log('\nRadio.Co Stream Status: \n', radioData.status)} */}
-          <p className="level-item">
+          <div className="level-item">
             {/* "Radio.Co Stream Status:" */}
             <p className="level-item">{radioData.status}</p>
-          </p>
+          </div>
         </div>
         <div className="level-item">
           <RadioPlayer />
         </div>
       </div>
       <div className="level-right">
-        <p className="level-item"></p>
         <p className="level-item">
           <span className="icon is-medium has-text-dark">
             <FontAwesomeIcon icon={faCommentAlt} size="2x" />

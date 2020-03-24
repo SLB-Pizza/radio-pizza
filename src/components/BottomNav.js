@@ -17,9 +17,9 @@ function BottomNav() {
       <div className="container is-fluid">
         <div className="navbar-brand">
           <div className="navbar-item">
-            <figure className="image is-1by1">
-              <img src="../img/Halfmoon-3.png" alt="Halfmoon Logo" />
-            </figure>
+            <p className="title is-size-5-desktop is-size-6-touch has-text-light">
+              HalfmoonBK
+            </p>
           </div>
           <span
             className="navbar-burger burger"
@@ -54,17 +54,17 @@ function BottomNav() {
           <div className="navbar-end">
             <a href="#" className="navbar-item">
               <span className="icon is-medium has-text-light">
-                <FontAwesomeIcon icon={faMixcloud} size="2x" />
+                <FontAwesomeIcon icon={faMixcloud} size="1x" />
               </span>
             </a>
             <a href="#" className="navbar-item">
               <span className="icon is-medium has-text-light">
-                <FontAwesomeIcon icon={faInstagram} size="2x" />
+                <FontAwesomeIcon icon={faInstagram} size="1x" />
               </span>
             </a>
             <a href="#" className="navbar-item">
               <span className="icon is-medium has-text-light">
-                <FontAwesomeIcon icon={faTwitter} size="2x" />
+                <FontAwesomeIcon icon={faTwitter} size="1x" />
               </span>
             </a>
             <p className="navbar-item">Ears to the concrete.</p>

@@ -4,9 +4,6 @@ import { withPrefix } from "gatsby";
 import useSiteMetadata from "./SiteMetadata";
 import { TopNav, BottomNav } from "../components";
 
-// TO DO: review & remove all.sass file from project
-// import "./all.sass";
-
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata();
   return (
@@ -50,14 +47,7 @@ const TemplateWrapper = ({ children }) => {
         />
       </Helmet>
       <TopNav />
-      {/*
-      RICH ORIGINAL
-      <Navbar />
-      <ReactPlayer url="https://www.mixcloud.com/HalfMoonbk/donis-dez-andres-11222019/" /> */}
-      <div>{children}</div>
-      {/*
-      RICH ORIGINAL
-      <Footer /> */}
+      {children}
       <BottomNav />
     </div>
   );

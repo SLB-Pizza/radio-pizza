@@ -6,7 +6,11 @@ import {
 import axios from "axios";
 import { RadioPlayer } from "./index";
 
-import { faCommentAlt, faVolumeUp } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCommentAlt,
+  faVolumeUp,
+  faVolumeMute
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function RadioBar() {
@@ -17,6 +21,7 @@ function RadioBar() {
   };
 
   const [radioData, setRadioData] = useState({});
+  const [mute, setMute] = useState(false);
 
   useEffect(() => {
     async function axiosGet() {
@@ -31,21 +36,36 @@ function RadioBar() {
   return (
     <div className="level is-mobile radio-bar">
       <div className="level-left">
-        <div className="level-item has-text-light" id="play-button">
-          Logo
+        <div className="level-item">
+          <figure className="image is-64x64">
+            <img src="../img/Halfmoon-3.png" alt="Halfmoon Logo" />
+          </figure>
         </div>
         <div className="level-item">
-          <span
-            className="icon is-medium has-text-dark"
-            onClick={handleToggleMuted}
-          >
-            <FontAwesomeIcon icon={faVolumeUp} size="2x" />
-          </span>
-          {/* {console.log('\nRadio.Co Stream Status: \n', radioData.status)} */}
-          <div className="level-item">
-            {/* "Radio.Co Stream Status:" */}
-            <p className="level-item">{radioData.status}</p>
-          </div>
+          {mute ? (
+            <span
+              className="icon is-medium has-text-dark"
+              onClick={() => {
+                setMute(!mute);
+                handleToggleMuted();
+              }}
+            >
+              <FontAwesomeIcon icon={faVolumeMute} size="2x" />
+            </span>
+          ) : (
+            <span
+              className="icon is-medium has-text-dark"
+              onClick={() => {
+                setMute(!mute);
+                handleToggleMuted();
+              }}
+            >
+              <FontAwesomeIcon icon={faVolumeUp} size="2x" />
+            </span>
+          )}
+        </div>
+        <div className="level-item">
+          <p className="level-item">{radioData.status}</p>
         </div>
         <div className="level-item">
           <RadioPlayer />

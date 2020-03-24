@@ -73,7 +73,6 @@ export const IndexPageTemplate = ({
   return (
     <div className="has-navbar-fixed-bottom">
       <Hero
-        heading={heading}
         soundcloudBtn={soundcloudBtn}
         mixcloudBtn={mixcloudBtn}
         radioCoBtn={radioCoBtn}

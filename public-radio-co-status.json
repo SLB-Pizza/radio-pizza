@@ -1,0 +1,40 @@
+{
+  "status": "offline",
+  "source": { "type": "automated", "collaborator": null, "relay": null },
+  "collaborators": [],
+  "relays": [],
+  "current_track": {
+    "title": "Juli fosforo 3.16.2020",
+    "start_time": "2020-03-18T03:00:01+00:00",
+    "artwork_url": "https://images.radio.co/station_logos/sa3c47c55b.20180717102657.png",
+    "artwork_url_large": "https://images.radio.co/station_logos/sa3c47c55b.20180717102657.png"
+  },
+  "history": [
+    { "title": "Juli fosforo 3.16.2020" },
+    { "title": "tomu dj 3.17.2020" },
+    { "title": "Juli fosforo 3.16.2020" },
+    { "title": "Roman sensation 3.17.2020" },
+    { "title": "DJ Jazzabella 3.10.2020" },
+    { "title": "Nick Leon 3.12.2020" },
+    { "title": "Juli fosforo 3.16.2020" },
+    { "title": "Nick Leon 3.12.2020" },
+    { "title": "Jarren ft. Cheslin Pick 3.16.2020" },
+    { "title": "Jelz 3.11.2020" },
+    { "title": "Jelz 3.11.2020" },
+    { "title": "Trudy Jpg 3.13.2020" },
+    { "title": "Dre Ngozi 3.13.2020" },
+    { "title": "Katimi Ai  3.6.2020" },
+    { "title": "Nick Leon 3.12.2020" },
+    { "title": "Katimi Ai  3.6.2020" },
+    { "title": "Katimi Ai  3.6.2020" },
+    { "title": "Nick Leon 3.12.2020" },
+    { "title": "Katimi Ai  3.6.2020" },
+    { "title": "Luv 3.5.2020" }
+  ],
+  "logo_url": "https://images.radio.co/station_logos/sa3c47c55b.20180717102657.png",
+  "streaming_hostname": "streamer.radio.co",
+  "outputs": [
+    { "name": "listen", "format": "MP3", "bitrate": 192 },
+    { "name": "low", "format": "AAC", "bitrate": 64 }
+  ]
+}

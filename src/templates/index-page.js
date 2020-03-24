@@ -1,10 +1,17 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
+import React, { useContext } from "react";
+import { Link, graphql } from "gatsby";
+import {
+  GlobalDispatchContext,
+  GlobalStateContext
+} from "../context/GlobalContextProvider";
+import PropTypes from "prop-types";
 
-import Layout from '../components/Layout'
-import Features from '../components/Features'
-import BlogRoll from '../components/BlogRoll'
+import "../styles/index.scss";
+import { Hero, HomeContent } from "../components";
+
+// import Layout from "../components/Layout";
+// import Features from "../components/Features";
+// import BlogRoll from "../components/BlogRoll";
 
 export const IndexPageTemplate = ({
   image,
@@ -13,106 +20,69 @@ export const IndexPageTemplate = ({
   subheading,
   mainpitch,
   description,
-  intro,
-}) => (
-  <div>
-    <div
-      className="full-width-image margin-top-0"
-      style={{
-        backgroundImage: `url(${
-          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-        })`,
-        backgroundPosition: `top left`,
-        backgroundAttachment: `fixed`,
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          height: '150px',
-          lineHeight: '1',
-          justifyContent: 'space-around',
-          alignItems: 'left',
-          flexDirection: 'column',
-        }}
+  intro
+}) => {
+  const dispatch = useContext(GlobalDispatchContext);
+  const state = useContext(GlobalStateContext);
+
+  const renderLoadButton = (url, title, label) => {
+    return (
+      <button
+        className="button is-fullwidth"
+        onClick={() =>
+          dispatch({
+            type: "CHANGE_URL",
+            payload: {
+              url: url,
+              title: title
+            }
+          })
+        }
       >
-        <h1
-          className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
-          style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
-        >
-          {title}
-        </h1>
-        <h3
-          className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
-          style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
-        >
-          {subheading}
-        </h3>
-      </div>
+        {label}
+      </button>
+    );
+  };
+
+  const soundcloudBtn = renderLoadButton(
+    "https://soundcloud.com/soundcloud-scenes/sets/doom-folk-and-indie",
+    "Doom Folk and indie",
+    "SoundCloud"
+  );
+  const mixcloudBtn = renderLoadButton(
+    "https://www.mixcloud.com/HalfMoonbk/guerrer-3122020/",
+    "Guerrer 03/12/2020",
+    "MixCloud"
+  );
+  const radioCoBtn = renderLoadButton(
+    "https://streamer.radio.co/sa3c47c55b/listen",
+    "Half Moon Radio",
+    "Radio.co Halfmoon Stream"
+  );
+  const youtubeBtn = renderLoadButton(
+    "https://youtu.be/yhCuCqJbOVE?t=1887",
+    "CYBER DREAM SYNTHWAVE MIX",
+    "Youtube"
+  );
+  const vimeoBtn = renderLoadButton(
+    "https://vimeo.com/350662849",
+    "Future to the Back Mix, Best of",
+    "Vimeo"
+  );
+
+  return (
+    <div className="has-navbar-fixed-bottom">
+      <Hero
+        soundcloudBtn={soundcloudBtn}
+        mixcloudBtn={mixcloudBtn}
+        radioCoBtn={radioCoBtn}
+        youtubeBtn={youtubeBtn}
+        vimeoBtn={vimeoBtn}
+      />
+      <HomeContent />
     </div>
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="section">
-          <div className="columns">
-            <div className="column is-10 is-offset-1">
-              <div className="content">
-                <div className="content">
-                  <div className="tile">
-                    <h1 className="title">{mainpitch.title}</h1>
-                  </div>
-                  <div className="tile">
-                    <h3 className="subtitle">{mainpitch.description}</h3>
-                  </div>
-                </div>
-                <div className="columns">
-                  <div className="column is-12">
-                    <h3 className="has-text-weight-semibold is-size-2">
-                      {heading}
-                    </h3>
-                    <p>{description}</p>
-                  </div>
-                </div>
-                <Features gridItems={intro.blurbs} />
-                <div className="columns">
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/products">
-                      See all products
-                    </Link>
-                  </div>
-                </div>
-                <div className="column is-12">
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    Latest stories
-                  </h3>
-                  <BlogRoll />
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/blog">
-                      Read more
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-)
+  );
+};
 
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
@@ -122,37 +92,37 @@ IndexPageTemplate.propTypes = {
   mainpitch: PropTypes.object,
   description: PropTypes.string,
   intro: PropTypes.shape({
-    blurbs: PropTypes.array,
-  }),
-}
+    blurbs: PropTypes.array
+  })
+};
 
 const IndexPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
+  const { frontmatter } = data.markdownRemark;
 
   return (
-    <Layout>
-      <IndexPageTemplate
-        image={frontmatter.image}
-        title={frontmatter.title}
-        heading={frontmatter.heading}
-        subheading={frontmatter.subheading}
-        mainpitch={frontmatter.mainpitch}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
-      />
-    </Layout>
-  )
-}
+    // <Layout>
+    <IndexPageTemplate
+      image={frontmatter.image}
+      title={frontmatter.title}
+      heading={frontmatter.heading}
+      subheading={frontmatter.subheading}
+      mainpitch={frontmatter.mainpitch}
+      description={frontmatter.description}
+      intro={frontmatter.intro}
+    />
+    // </Layout>
+  );
+};
 
 IndexPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
-    }),
-  }),
-}
+      frontmatter: PropTypes.object
+    })
+  })
+};
 
-export default IndexPage
+export default IndexPage;
 
 export const pageQuery = graphql`
   query IndexPageTemplate {
@@ -190,4 +160,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

@@ -1,0 +1,51 @@
+.head-color {
+  background-color: #ccc;
+}
+
+.hero-color {
+  background-color: #e8e8e8;
+}
+
+.foot-color {
+  background-color: pink;
+}
+
+#chat-bg {
+  min-height: 50vh;
+  background-color: #ddd;
+}
+
+.alt-column {
+  background-color: #ddd;
+}
+
+.cs-bg-color {
+  background-color: #999;
+}
+
+#ef-bg {
+  background-color: #444;
+}
+
+// Wrapping .hero in <div className="hero-size-test"> failed
+
+// Keyframes and class made for use on pages that have incomplete layouts.
+@keyframes warning {
+  0% {
+    background-color: orange;
+  }
+  50% {
+    background-color: yellow;
+  }
+  100% {
+    background-color: orange;
+  }
+}
+
+.in-progress {
+  animation: warning infinite ease-in-out 2.5s;
+  p {
+    color: black;
+  }
+  padding: 1rem 0;
+}

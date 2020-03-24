@@ -30,7 +30,7 @@ function RadioPlayer(props) {
     playing: true,
     controls: false,
     light: false,
-    volume: 0.5,
+    volume: 1,
     muted: false,
     played: 0,
     loaded: 0,

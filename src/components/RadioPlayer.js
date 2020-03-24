@@ -11,7 +11,7 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlayCircle, faPauseCircle } from "@fortawesome/free-solid-svg-icons";
 
-function RadioPlayer() {
+function RadioPlayer(props) {
   /**
    * Eliminate width and height = 0 errors by breaking ReactPlayer
    * out of normal document flow and throwing it above the top of the page
@@ -124,7 +124,7 @@ function RadioPlayer() {
 
       <div id="radioShowDetails">
         <div id="radioShowTime">
-          <p>4:00 - 6:00PM</p>
+          <p>{props.status}</p>
         </div>
         <div id="radioShowName">
           <p>{globalState.title}</p>

@@ -64,11 +64,9 @@ function RadioBar() {
             </span>
           )}
         </div>
+
         <div className="level-item">
-          <p className="level-item">{radioData.status}</p>
-        </div>
-        <div className="level-item">
-          <RadioPlayer />
+          <RadioPlayer status={radioData.status} />
         </div>
       </div>
       <div className="level-right">

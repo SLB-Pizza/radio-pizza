@@ -1,6 +1,6 @@
 import React from "react";
 import { TopNav, SchedulePage, BottomNav } from "../components/";
-import "../components/styles/index.scss";
+import "../styles/index.scss";
 
 // import Layout from "../components/Layout";
 

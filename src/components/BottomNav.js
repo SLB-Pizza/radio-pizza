@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "gatsby";
 import {
   faMixcloud,
@@ -8,6 +8,8 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function BottomNav() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <nav
       className="navbar is-fixed-bottom is-black"
@@ -22,28 +24,35 @@ function BottomNav() {
             </p>
           </div>
           <span
-            className="navbar-burger burger"
+            className={
+              menuOpen
+                ? "navbar-burger burger is-active"
+                : "navbar-burger burger"
+            }
             role="button"
             aria-label="menu"
             aria-expanded="false"
             data-target="nav-menu"
+            // Currently sets off an infinite loop; needs short-circuit
+            // onClick={setMenuOpen(!menuOpen)}
           >
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
           </span>
         </div>
-        <div className="navbar-menu" id="nav-menu">
+        <div
+          className={menuOpen ? "navbar-menu is-active" : "navbar-menu"}
+          id="nav-menu"
+        >
           <div className="navbar-start">
             <p className="navbar-item">
               <Link to="/schedule">Schedule</Link>
             </p>
 
             <a className="navbar-item">Link 2</a>
-
             <div className="navbar-item has-dropdown has-dropdown-up is-hoverable">
               <a className="navbar-link">Link Dropdown</a>
-
               <div className="navbar-dropdown">
                 <a className="navbar-item">Category 1</a>
                 <a className="navbar-item">Category 2</a>

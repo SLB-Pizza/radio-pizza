@@ -12,6 +12,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlayCircle, faPauseCircle } from "@fortawesome/free-solid-svg-icons";
 
 function RadioPlayer() {
+  /**
+   * Eliminate width and height = 0 errors by breaking ReactPlayer
+   * out of normal document flow and throwing it above the top of the page
+   */
+  const playerStyle = {
+    position: "absolute",
+    top: "-175px"
+  };
+
   const dispatch = useContext(GlobalDispatchContext);
   const globalState = useContext(GlobalStateContext);
   // console.log('globalState in RadioPlayer.js: \n', globalState);
@@ -23,7 +32,7 @@ function RadioPlayer() {
     playing: true,
     controls: false,
     light: false,
-    volume: 1,
+    volume: 0.5,
     muted: false,
     played: 0,
     loaded: 0,
@@ -35,15 +44,12 @@ function RadioPlayer() {
   const handlePlayPause = async () => {
     await setLocalState({ ...localState, playing: !localState.playing });
     await dispatch({ type: "TOGGLE_PLAYING" });
-    // alert(this.state.playing);
   };
   const handlePlay = async () => {
-    // console.log('onPlay');
     await setLocalState({ ...localState, playing: true });
   };
 
   const handlePause = async () => {
-    // console.log('onPause');
     await setLocalState({ ...localState, playing: false });
   };
 
@@ -89,17 +95,15 @@ function RadioPlayer() {
         className="cloud-player"
         url={globalState.url}
         ref={player}
-        width="0%"
-        height="0%"
+        width="auto"
+        height="auto"
+        volume={localState.volume}
         playing={globalState.playing}
-        // controls={controls}
-        // light={light}
         loop={globalState.loop}
-        // playbackRate={playbackRate}
-        // volume={volume}
         muted={globalState.muted}
-        // onReady={() => console.log('onReady')}
-        // onStart={() => console.log('onStart')}
+        style={playerStyle}
+        // onReady={() => console.log("onReady")}
+        // onStart={() => console.log("onStart")}
         onPlay={handlePlay}
         // onEnablePIP={this.handleEnablePIP}
         // onDisablePIP={this.handleDisablePIP}
@@ -111,12 +115,13 @@ function RadioPlayer() {
         // onProgress={this.handleProgress}
         // onDuration={this.handleDuration}
       />
-      <div id="radioShowPic">
+      <figure className="image is-64x64">
         <img
-          src="https://source.unsplash.com/1920x1080/daily?music"
-          alt="ShowPic"
+          src="https://source.unsplash.com/128x128/?concert"
+          alt="radio-image"
         />
-      </div>
+      </figure>
+
       <div id="radioShowDetails">
         <div id="radioShowTime">
           <p>4:00 - 6:00PM</p>

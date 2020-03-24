@@ -28,7 +28,7 @@ export const IndexPageTemplate = ({
   const renderLoadButton = (url, title, label) => {
     return (
       <button
-        className="button"
+        className="button is-fullwidth"
         onClick={() =>
           dispatch({
             type: "CHANGE_URL",
@@ -44,46 +44,42 @@ export const IndexPageTemplate = ({
     );
   };
 
-  // console.log("global state in index-page", state);
-  // console.log(dispatch);
+  const soundcloudBtn = renderLoadButton(
+    "https://soundcloud.com/soundcloud-scenes/sets/doom-folk-and-indie",
+    "Doom Folk and indie",
+    "SoundCloud"
+  );
+  const mixcloudBtn = renderLoadButton(
+    "https://www.mixcloud.com/HalfMoonbk/guerrer-3122020/",
+    "Guerrer 03/12/2020",
+    "MixCloud"
+  );
+  const radioCoBtn = renderLoadButton(
+    "https://streamer.radio.co/sa3c47c55b/listen",
+    "Half Moon Radio",
+    "Radio.co Halfmoon Stream"
+  );
+  const youtubeBtn = renderLoadButton(
+    "https://youtu.be/yhCuCqJbOVE?t=1887",
+    "CYBER DREAM SYNTHWAVE MIX",
+    "Youtube"
+  );
+  const vimeoBtn = renderLoadButton(
+    "https://vimeo.com/350662849",
+    "Future to the Back Mix, Best of",
+    "Vimeo"
+  );
+
   return (
     <div className="has-navbar-fixed-bottom">
-      <div
-        style={{
-          display: "flex",
-          marginTop: "7.5rem",
-          justifyContent: "space-around",
-          alignItems: "left",
-          flexDirection: "column"
-        }}
-      >
-        {renderLoadButton(
-          "https://soundcloud.com/soundcloud-scenes/sets/doom-folk-and-indie",
-          "Doom Folk and indie",
-          "SoundCloud Source"
-        )}
-        {renderLoadButton(
-          "https://www.mixcloud.com/HalfMoonbk/guerrer-3122020/",
-          "Guerrer 03/12/2020",
-          "MixCloud Source"
-        )}
-        {renderLoadButton(
-          "https://streamer.radio.co/sa3c47c55b/listen",
-          "Half Moon Radio",
-          "Radio.co Half Moon Stream Source"
-        )}
-        {renderLoadButton(
-          "https://youtu.be/yhCuCqJbOVE?t=1887",
-          "CYBER DREAM SYNTHWAVE MIX",
-          "Youtube Source"
-        )}
-        {renderLoadButton(
-          "https://vimeo.com/350662849",
-          "Future to the Back Mix, Best of",
-          "Vimeo Source"
-        )}
-      </div>
-      <Hero heading={heading} />
+      <Hero
+        heading={heading}
+        soundcloudBtn={soundcloudBtn}
+        mixcloudBtn={mixcloudBtn}
+        radioCoBtn={radioCoBtn}
+        youtubeBtn={youtubeBtn}
+        vimeoBtn={vimeoBtn}
+      />
       <HomeContent />
     </div>
   );

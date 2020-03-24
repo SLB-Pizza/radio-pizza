@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function BottomNav() {
   return (
-    <nav className="navbar is-fixed-bottom is-dark" id="bottom-color-test">
+    <nav className="navbar is-fixed-bottom is-black">
       <div className="container is-fluid">
         <div className="navbar-brand">
           <p className="navbar-item">HalfmoonBK</p>

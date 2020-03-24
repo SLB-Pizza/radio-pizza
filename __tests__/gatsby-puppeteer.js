@@ -20,7 +20,8 @@ const deviceList = puppeteer.devices;
  * @param {string} clickTarget- the element to be clicked e.g. "div #expand-button"
  * @param {boolean} scrollToSection - gates scroll script section
  */
-const pageRoute = "home";
+const pageRoute = "";
+const pageName = pageRoute === "" ? "home" : pageRoute;
 const pageVersion = "v5";
 const pageURL = `http://localhost:8000/${pageRoute}`;
 
@@ -140,10 +141,10 @@ const questions = [
 
 const customDevices = [
   {
-    name: "Small Monitor",
+    name: "Tablet",
     description: "old low-res monitors, desktop breakpoint (from 1024px)",
     viewport: {
-      width: 1024,
+      width: 1023,
       height: 768,
       deviceScaleFactor: 1,
       isMobile: true,

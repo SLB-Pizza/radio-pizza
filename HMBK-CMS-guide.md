@@ -21,3 +21,11 @@ These are separated by collections, detailed as follows:
       name: string,
       widget: 'hidden',
       default: string}
+
+
+### Changes
+
+- **TABLET ONLY changes:**
+  - Mixes: still horizontally-scrollable list of 8 mixes
+  - Events: now displays 3 static events - scroll removed; matches desktop layouts
+  - Features: now displays 2 static features - scroll removed; matches desktop layouts

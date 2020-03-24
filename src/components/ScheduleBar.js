@@ -10,23 +10,26 @@ function ScheduleBar() {
   const [open, setOpen] = useState(false);
 
   return !open ? (
-    <div className="schedule-bar container is-fluid is-vcentered">
-      <div className="columns is-mobile up-next">
+    <div className="schedule-bar container is-fluid">
+      <div className="columns is-vcentered is-mobile up-next">
         <div className="column is-narrow">
-          <p>in 1hr 1m</p>
+          <p className="is-size-6">in 1hr 1m</p>
         </div>
-        <div className="column">Loremipsum.</div>
-        <div
-          className="column is-narrow has-background-dark"
-          id="expand-button"
-          onClick={() => setOpen(!open)}
-        >
-          Schedule ᐯ
+        <div className="column">
+          <p className="title is-size-6 has-text-light">Loremip.</p>
+        </div>
+        <div className="column is-narrow" id="expand-button">
+          <button
+            className="button is-fullwidth is-black"
+            onClick={() => setOpen(!open)}
+          >
+            Schedule ▼
+          </button>
         </div>
       </div>
     </div>
   ) : (
-    <div className="schedule-bar container is-fluid is-vcentered is-open">
+    <div className="schedule-bar container is-fluid is-open">
       {/*
       FOR MOBILE
       SCHEDULE MODAL
@@ -43,7 +46,7 @@ function ScheduleBar() {
               <div className="column is-narrow">
                 <button
                   className="delete is-large"
-                  aria-label="close"
+                  aria-label="close schedule"
                   onClick={() => setOpen(!open)}
                 ></button>
               </div>
@@ -89,14 +92,13 @@ function ScheduleBar() {
       <ScheduleShowEntry />
 
       <div className="columns is-hidden-mobile">
-        <div
-          className="column is-12 has-background-dark"
-          id="expand-button"
-          onClick={() => setOpen(!open)}
-        >
-          <p className="title is-size-4 has-text-centered has-text-light">
+        <div className="column is-12 has-background-dark">
+          <button
+            className="button is-fullwidth is-dark"
+            onClick={() => setOpen(!open)}
+          >
             Close
-          </p>
+          </button>
         </div>
       </div>
     </div>

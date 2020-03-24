@@ -10,14 +10,15 @@ function ScheduleDropdown() {
         </div>
         <div className="column">Lorem ipsum dolor sit.</div>
       </div>
-
-      <ScheduleDatePicker />
-      <ScheduleShowEntry />
-      <ScheduleShowEntry />
-      <ScheduleShowEntry />
-      <ScheduleShowEntry />
-      <ScheduleShowEntry />
-      <ScheduleShowEntry />
+      <div id="mobile-hide-dropdown">
+        <ScheduleDatePicker />
+        <ScheduleShowEntry />
+        <ScheduleShowEntry />
+        <ScheduleShowEntry />
+        <ScheduleShowEntry />
+        <ScheduleShowEntry />
+        <ScheduleShowEntry />
+      </div>
 
       <div className="columns">
         <div

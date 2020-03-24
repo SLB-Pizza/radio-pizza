@@ -34,48 +34,70 @@ function RadioBar() {
   }, []);
 
   return (
-    <div className="level is-mobile radio-bar">
-      <div className="level-left">
-        <div className="level-item">
+    <div className="container is-fluid radio-bar">
+      {/*
+      DESKTOP
+      */}
+      <div className="columns is-vcentered is-hidden-mobile">
+        <div className="column is-narrow">
           <figure className="image is-64x64">
             <img src="../img/Halfmoon-3.png" alt="Halfmoon Logo" />
           </figure>
         </div>
-        <div className="level-item">
+        <div className="column is-narrow">
           {mute ? (
             <span
-              className="icon is-medium has-text-dark"
+              className="icon has-text-light"
               onClick={() => {
                 setMute(!mute);
                 handleToggleMuted();
               }}
             >
-              <FontAwesomeIcon icon={faVolumeMute} size="2x" />
+              <FontAwesomeIcon icon={faVolumeMute} size="lg" />
             </span>
           ) : (
             <span
-              className="icon is-medium has-text-dark"
+              className="icon has-text-light"
               onClick={() => {
                 setMute(!mute);
                 handleToggleMuted();
               }}
             >
-              <FontAwesomeIcon icon={faVolumeUp} size="2x" />
+              <FontAwesomeIcon icon={faVolumeUp} size="lg" />
             </span>
           )}
         </div>
-
-        <div className="level-item">
+        <div className="column">
           <RadioPlayer status={radioData.status} />
         </div>
-      </div>
-      <div className="level-right">
-        <p className="level-item">
-          <span className="icon is-medium has-text-dark">
-            <FontAwesomeIcon icon={faCommentAlt} size="2x" />
+        <div className="column is-narrow">
+          <span className="icon has-text-light">
+            <FontAwesomeIcon icon={faCommentAlt} size="lg" />
           </span>
-        </p>
-        <p className="level-item">4:59PM NYC</p>
+        </div>
+        <div className="column is-narrow">
+          <p className="has-text-light">4:59PM NYC</p>
+        </div>
+      </div>
+      {/*
+      MOBILE
+      */}
+      <div className="columns is-vcentered is-mobile is-hidden-desktop">
+        <div className="column is-narrow">
+          <figure className="image is-64x64">
+            <img src="../img/Halfmoon-3.png" alt="Halfmoon Logo" />
+          </figure>
+        </div>
+
+        <div className="column">
+          <RadioPlayer status={radioData.status} />
+        </div>
+
+        <div className="column is-narrow">
+          <span className="icon has-text-light">
+            <FontAwesomeIcon icon={faCommentAlt} size="lg" />
+          </span>
+        </div>
       </div>
     </div>
   );

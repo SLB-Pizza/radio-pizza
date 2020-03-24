@@ -9,7 +9,7 @@ import {
 import axios from "axios";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlayCircle, faPauseCircle } from "@fortawesome/free-solid-svg-icons";
+import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
 
 function RadioPlayer(props) {
   /**
@@ -23,8 +23,6 @@ function RadioPlayer(props) {
 
   const dispatch = useContext(GlobalDispatchContext);
   const globalState = useContext(GlobalStateContext);
-  // console.log('globalState in RadioPlayer.js: \n', globalState);
-  // console.log(dispatch);
 
   const [localState, setLocalState] = useState({
     url: null,
@@ -77,20 +75,34 @@ function RadioPlayer(props) {
   // const liveStatus =
 
   return (
-    <div className="radio-player is-flex">
-      {!globalState.playing ? (
-        <FontAwesomeIcon
-          icon={faPlayCircle}
-          onClick={handlePlayPause}
-          size="3x"
-        />
-      ) : (
-        <FontAwesomeIcon
-          icon={faPauseCircle}
-          onClick={handlePlayPause}
-          size="3x"
-        />
-      )}
+    <div className="columns is-vcentered is-mobile radio-player">
+      <div className="column is-narrow">
+        {!globalState.playing ? (
+          <span className="icon has-text-light">
+            <FontAwesomeIcon
+              icon={faPlay}
+              onClick={handlePlayPause}
+              size="2x"
+            />
+          </span>
+        ) : (
+          <span className="icon has-text-light">
+            <FontAwesomeIcon
+              icon={faPause}
+              onClick={handlePlayPause}
+              size="2x"
+            />
+          </span>
+        )}
+      </div>
+      <div className="column" id="radioShowDetails">
+        <div id="radioShowTime">
+          <p className="is-size-7 has-text-light">{props.status}</p>
+        </div>
+        <div id="radioShowName">
+          <p className="is-size-6 has-text-light">{globalState.title}</p>
+        </div>
+      </div>
       <ReactPlayer
         className="cloud-player"
         url={globalState.url}
@@ -115,21 +127,6 @@ function RadioPlayer(props) {
         // onProgress={this.handleProgress}
         // onDuration={this.handleDuration}
       />
-      <figure className="image is-64x64">
-        <img
-          src="https://source.unsplash.com/128x128/?concert"
-          alt="radio-image"
-        />
-      </figure>
-
-      <div id="radioShowDetails">
-        <div id="radioShowTime">
-          <p>{props.status}</p>
-        </div>
-        <div id="radioShowName">
-          <p>{globalState.title}</p>
-        </div>
-      </div>
     </div>
   );
 }

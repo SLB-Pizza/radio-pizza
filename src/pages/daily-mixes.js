@@ -1,5 +1,5 @@
 import React from "react";
-import { TopNav, MixesPage, BottomNav } from "../components/two-bar";
+import { TopNav, MixesPage, BottomNav } from "../components";
 import "../components/styles/index.scss";
 
 // import Layout from "../components/Layout";

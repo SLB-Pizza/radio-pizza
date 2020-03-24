@@ -9,20 +9,35 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function BottomNav() {
   return (
-    <nav className="navbar is-fixed-bottom is-black">
+    <nav
+      className="navbar is-fixed-bottom is-black"
+      role="navigation"
+      aria-label="main navigation"
+    >
       <div className="container is-fluid">
         <div className="navbar-brand">
-          <p className="navbar-item">HalfmoonBK</p>
-          <span className="navbar-burger burger" data-target="navbarMenuHeroC">
-            <span></span>
-            <span></span>
-            <span></span>
+          <div className="navbar-item">
+            <figure className="image is-1by1">
+              <img src="../img/Halfmoon-3.png" alt="Halfmoon Logo" />
+            </figure>
+          </div>
+          <span
+            className="navbar-burger burger"
+            role="button"
+            class="navbar-burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="nav-menu"
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
           </span>
         </div>
-        <div id="navbarMenuHeroC" className="navbar-menu">
+        <div className="navbar-menu" id="nav-menu">
           <div className="navbar-start">
             <p className="navbar-item">
-              <Link to="/schedule-page">Schedule</Link>
+              <Link to="/schedule">Schedule</Link>
             </p>
 
             <a className="navbar-item">Link 2</a>
@@ -38,17 +53,17 @@ function BottomNav() {
             </div>
           </div>
           <div className="navbar-end">
-            <a href="/two-bar-layout" className="navbar-item">
+            <a href="#" className="navbar-item">
               <span className="icon is-medium has-text-light">
                 <FontAwesomeIcon icon={faMixcloud} size="2x" />
               </span>
             </a>
-            <a href="/two-bar-layout" className="navbar-item">
+            <a href="#" className="navbar-item">
               <span className="icon is-medium has-text-light">
                 <FontAwesomeIcon icon={faInstagram} size="2x" />
               </span>
             </a>
-            <a href="/two-bar-layout" className="navbar-item">
+            <a href="#" className="navbar-item">
               <span className="icon is-medium has-text-light">
                 <FontAwesomeIcon icon={faTwitter} size="2x" />
               </span>

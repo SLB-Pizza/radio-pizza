@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
-import { RadioPlayer } from "./index";
-import { faCommentAlt, faVolumeUp } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   GlobalDispatchContext,
   GlobalStateContext
-} from "../../context/GlobalContextProvider";
+} from "../context/GlobalContextProvider";
 import axios from "axios";
+import { RadioPlayer } from "./index";
+
+import { faCommentAlt, faVolumeUp } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function RadioBar() {
   const dispatch = useContext(GlobalDispatchContext);

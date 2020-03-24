@@ -6,7 +6,7 @@ import {
   GlobalStateContext
 } from "../context/GlobalContextProvider";
 
-import { Hero, HomeContent } from "../components/index";
+import { Hero, HomeContent } from "../components";
 
 import "../components/styles/index.scss";
 import Layout from "../components/Layout";

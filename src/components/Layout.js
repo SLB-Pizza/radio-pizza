@@ -1,16 +1,11 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import "./all.sass";
-import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
+import useSiteMetadata from "./SiteMetadata";
+import { TopNav, BottomNav } from "../components";
 
-// Christian's imports
-import { TopNav, BottomNav } from "../components/two-bar";
-
-// imports by Rich
-// import Footer from '../components/Footer';
-// import Navbar from '../components/Navbar';
-// import ReactPlayer from 'react-player';
+// TO DO: review & remove all.sass file from project
+// import "./all.sass";
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata();

@@ -1,5 +1,5 @@
 import React from "react";
-import { HomeSingleEvent } from "./two-bar/index";
+import { HomeSingleEvent } from "./index";
 
 function HomeEvents() {
   return (

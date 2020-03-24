@@ -82,15 +82,15 @@ function ScheduleBar() {
         </div>
         <div className="column">Lorem ipsum dolor sit.</div>
       </div>
-
-      <ScheduleDatePicker />
-      <ScheduleShowEntry />
-      <ScheduleShowEntry />
-      <ScheduleShowEntry />
-      <ScheduleShowEntry />
-      <ScheduleShowEntry />
-      <ScheduleShowEntry />
-
+      <div id="mobile-hide-dropdown">
+        <ScheduleDatePicker />
+        <ScheduleShowEntry />
+        <ScheduleShowEntry />
+        <ScheduleShowEntry />
+        <ScheduleShowEntry />
+        <ScheduleShowEntry />
+        <ScheduleShowEntry />
+      </div>
       <div className="columns is-hidden-mobile">
         <div className="column is-12 has-background-dark">
           <button

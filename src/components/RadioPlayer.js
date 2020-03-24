@@ -30,7 +30,7 @@ function RadioPlayer(props) {
     playing: true,
     controls: false,
     light: false,
-    volume: 1,
+    volume: 0.25,
     muted: false,
     played: 0,
     loaded: 0,
@@ -110,7 +110,7 @@ function RadioPlayer(props) {
         width="auto"
         height="auto"
         volume={localState.volume}
-        playing={globalState.playing}
+        playing={!globalState.playing}
         loop={globalState.loop}
         muted={globalState.muted}
         onPlay={handlePlay}

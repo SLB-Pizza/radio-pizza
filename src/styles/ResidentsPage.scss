@@ -1,0 +1,27 @@
+.residents-page {
+  @include tablet;
+  margin-top: 8.25rem;
+  height: calc(100vh - 10.5rem);
+
+  background-image: url(https://source.unsplash.com/1920x1080/daily?musician);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+
+  .image-diffuser {
+    background-color: rgba($color: darkslategrey, $alpha: 0.65);
+    height: 100%;
+  }
+
+  // Set all text to white
+  p {
+    color: white;
+
+    // Give 'Residents' a shadow
+    &.title.is-size-1 {
+      text-shadow: 3px 3px 2px black;
+      padding: 0.5rem 0 0.75rem;
+    }
+  }
+}

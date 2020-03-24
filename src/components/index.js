@@ -58,6 +58,13 @@ export { default as CategoryItem } from "./CategoryItem";
 export { default as MobileNewsItem } from "./MobileNewsItem";
 
 /**
+ * ResidentsPage
+ * - ResidentsAlpha
+ */
+export { default as ResidentsPage } from "./ResidentsPage";
+export { default as ResidentsAlpha } from "./ResidentsAlpha";
+
+/**
  * About Page
  */
 export { default as AboutPage } from "./AboutPage";

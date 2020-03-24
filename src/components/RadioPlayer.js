@@ -71,7 +71,6 @@ function RadioPlayer(props) {
 
   //prettier-ignore
   const player = useRef(ReactPlayer);
-
   // const liveStatus =
 
   return (
@@ -105,6 +104,7 @@ function RadioPlayer(props) {
       </div>
       <ReactPlayer
         className="cloud-player"
+        style={playerStyle}
         url={globalState.url}
         ref={player}
         width="auto"
@@ -113,17 +113,16 @@ function RadioPlayer(props) {
         playing={globalState.playing}
         loop={globalState.loop}
         muted={globalState.muted}
-        style={playerStyle}
+        onPlay={handlePlay}
+        onPause={handlePause}
+        onError={e => console.log("onError\n", e)}
         // onReady={() => console.log("onReady")}
         // onStart={() => console.log("onStart")}
-        onPlay={handlePlay}
         // onEnablePIP={this.handleEnablePIP}
         // onDisablePIP={this.handleDisablePIP}
-        onPause={handlePause}
         // onBuffer={() => console.log('onBuffer')}
         // onSeek={e => console.log('onSeek', e)}
         // onEnded={this.handleEnded}
-        onError={e => console.log("onError", e)}
         // onProgress={this.handleProgress}
         // onDuration={this.handleDuration}
       />

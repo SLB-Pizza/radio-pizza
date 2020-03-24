@@ -1,17 +1,17 @@
 import React, { useContext } from "react";
 import { Link, graphql } from "gatsby";
-import PropTypes from "prop-types";
 import {
   GlobalDispatchContext,
   GlobalStateContext
 } from "../context/GlobalContextProvider";
+import PropTypes from "prop-types";
 
+import "../styles/index.scss";
 import { Hero, HomeContent } from "../components";
 
-import "../components/styles/index.scss";
-import Layout from "../components/Layout";
-import Features from "../components/Features";
-import BlogRoll from "../components/BlogRoll";
+// import Layout from "../components/Layout";
+// import Features from "../components/Features";
+// import BlogRoll from "../components/BlogRoll";
 
 export const IndexPageTemplate = ({
   image,

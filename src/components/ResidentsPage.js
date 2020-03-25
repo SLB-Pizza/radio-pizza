@@ -1,5 +1,5 @@
 import React from "react";
-import { ResidentsAlpha } from "./index";
+import { ResidentsAlpha, SingleResident } from "./index";
 
 const alphabet = [
   "A",
@@ -39,8 +39,8 @@ function ResidentsPage() {
             <p className="title is-size-1">Residents</p>
           </div>
         </div>
-        <div className="columns is-mobile">
-          <div className="column is-2">
+        <div className="columns is-mobile resident-box">
+          <div className="column is-narrow alphabet">
             {alphabet.map(letter => (
               <ResidentsAlpha key={letter} letter={letter} />
             ))}
@@ -49,7 +49,7 @@ function ResidentsPage() {
             <p className="title is-size-5">size 1</p>
           </div>
           <div className="column is-9">
-            <p className="title is-size-5">SingleResident</p>
+            <SingleResident />
           </div>
         </div>
       </div>

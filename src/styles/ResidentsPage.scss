@@ -24,4 +24,22 @@
       padding: 0.5rem 0 0.75rem;
     }
   }
+
+  .resident-box {
+    // background-color: rgba($color: orange, $alpha: 0.2);
+  }
+
+  .alphabet {
+    max-height: calc(100vh - 10.5rem - 6rem);
+    overflow-y: auto;
+  }
+
+  // .letter {
+  //   border-left: 1px dotted white;
+  //   border-right: 1px dotted white;
+  // }
+
+  // .letter:not(:first-child) {
+  //   border-top: 1px dotted white;
+  // }
 }

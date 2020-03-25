@@ -20,16 +20,16 @@ const deviceList = puppeteer.devices;
  * @param {string} clickTarget- the element to be clicked e.g. "div #expand-button"
  * @param {boolean} scrollToSection - gates scroll script section
  */
-const pageRoute = "";
+const pageRoute = "https://www.nathanperkel.com/club-loose";
 const pageName = pageRoute === "" ? "home" : pageRoute;
 const pageVersion = "v5";
-const pageURL = `http://localhost:8000/${pageRoute}`;
+const pageURL = `${pageRoute}`;
 
 const takeShot = true;
 const promptUserQuestions = false;
 
 const fullPageCapture = false;
-const clickItem = true;
+const clickItem = false;
 const clickTarget = "div #expand-button";
 const scrollToSection = false;
 
@@ -182,8 +182,34 @@ const iPad = deviceList["iPad"];
 iPad.description = "larger mobile-view, tablet breakpoint (from 769px)";
 const iPhoneX = deviceList["iPhone X"];
 iPhoneX.description = "a modern mobile device, mobile breakpoint (up to 768px)";
+const p2XL = deviceList["Pixel 2 XL"];
+const iPhoneXR = deviceList["iPhone XR"];
+const iPhoneSE = deviceList["iPhone SE"];
+const iPhone8 = deviceList["iPhone 8"];
+const iPhone7Plus = deviceList["iPhone 7 Plus"];
+const iPhone7 = deviceList["iPhone 7"];
+const iPhone6Plus = deviceList["iPhone 6 Plus"];
+const iPhone6 = deviceList["iPhone 6"];
+const iPhone5 = deviceList["iPhone 5"];
+const iPhone4 = deviceList["iPhone 4"];
+const iPadPro = deviceList["iPad Pro"];
 
-const allDevices = [iPhoneX, iPad, ...customDevices];
+const allDevices = [
+  iPhoneX,
+  iPhoneXR,
+  iPhoneSE,
+  iPhone8,
+  iPhone7Plus,
+  iPhone7,
+  iPhone6Plus,
+  iPhone6,
+  iPhone5,
+  iPhone4,
+  iPadPro,
+  iPad,
+  p2XL,
+  ...customDevices
+];
 
 /**
  * FUNCTIONS
@@ -338,7 +364,7 @@ const dateString = () => {
       // Navigate to the pageURL.
       console.log(chalk.cyan(`  ┣ Navigating to ${pageURL}...`));
       await page.goto(`${pageURL}`, {
-        waitUntil: ["load", "domcontentloaded", "networkidle2"]
+        waitUntil: ["load", "domcontentloaded", "networkidle0"]
       });
       console.log(chalk.cyan(`  ┣ Page loaded successfully.`));
 
@@ -372,11 +398,17 @@ const dateString = () => {
           )
         );
         await page.screenshot({
-          path: `__tests__/screenshots/${pageRoute} ${pageVersion} | ${device.name} | ${time}.jpeg`,
+          path: `__tests__/screenshots/NP-ClubLoose | ${device.name} | ${time}.jpeg`,
           fullPage: fullPageCapture,
           type: "jpeg",
           quality: 75
         });
+        // await page.screenshot({
+        //   path: `__tests__/screenshots/${pageRoute} ${pageVersion} | ${device.name} | ${time}.jpeg`,
+        //   fullPage: fullPageCapture,
+        //   type: "jpeg",
+        //   quality: 75
+        // });
       }
 
       // Success! Report back to the user.
@@ -388,9 +420,14 @@ const dateString = () => {
       );
       console.log(
         chalk.green(
-          `  ┗ 💾  Saved to '/screenshots/${pageRoute} ${pageVersion} | ${device.name} | ${time}.jpeg'\n`
+          `  ┗ 💾  Saved to '/screenshots/NP-ClubLoose | ${device.name} | ${time}.jpeg'\n`
         )
       );
+      // console.log(
+      //   chalk.green(
+      //     `  ┗ 💾  Saved to '/screenshots/${pageRoute} ${pageVersion} | ${device.name} | ${time}.jpeg'\n`
+      //   )
+      // );
     }
     console.log(
       chalk.inverse.green(

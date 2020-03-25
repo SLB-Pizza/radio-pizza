@@ -60,6 +60,7 @@ export { default as MobileNewsItem } from "./MobileNewsItem";
 /**
  * ResidentsPage
  * - ResidentsAlpha
+ * - SingleResident
  */
 export { default as ResidentsPage } from "./ResidentsPage";
 export { default as ResidentsAlpha } from "./ResidentsAlpha";

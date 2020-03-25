@@ -1,12 +1,13 @@
 .residents-page {
   @include tablet;
   margin-top: 8.25rem;
-  height: calc(100vh - 10.5rem);
+  margin-bottom: 3rem;
+  height: 100%;
 
   background-image: url(https://source.unsplash.com/1920x1080/daily?musician);
   background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: scroll;
+  background-attachment: fixed;
   background-size: cover;
 
   .image-diffuser {
@@ -25,15 +26,39 @@
     }
   }
 
-  .resident-box {
-    // background-color: rgba($color: orange, $alpha: 0.2);
-  }
+  // .resident-list {
+  //   max-height: calc(100vh - 10.5rem - 6rem);
+  //   overflow-y: auto;
+  // }
 
-  .alphabet {
-    max-height: calc(100vh - 10.5rem - 6rem);
-    overflow-y: auto;
-  }
+  // .alphabet {
+  // }
 
+  .single-resident {
+    background-color: rgba($color: orange, $alpha: 0.2);
+    max-height: 10rem;
+    margin-bottom: 1rem;
+    padding: auto 0.5rem;
+
+    .resident-image {
+      img {
+        border: 0.125rem solid white;
+      }
+    }
+
+    .resident-name {
+      flex: 2;
+    }
+    .resident-social {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+
+      p {
+        flex: 1;
+      }
+    }
+  }
   // .letter {
   //   border-left: 1px dotted white;
   //   border-right: 1px dotted white;

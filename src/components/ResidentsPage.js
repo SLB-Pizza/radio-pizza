@@ -1,6 +1,9 @@
 import React from "react";
 import { ResidentsAlpha, SingleResident } from "./index";
 
+// Fake Data
+import dataSet from "../../__tests__/residentsFakeData.json";
+
 const alphabet = [
   "A",
   "B",
@@ -30,27 +33,92 @@ const alphabet = [
   "Z"
 ];
 
+const residents = [...alphabet, ...alphabet];
+
 function ResidentsPage() {
   return (
     <div className="residents-page">
       <div className="container is-fluid image-diffuser">
         <div className="columns">
           <div className="column">
-            <p className="title is-size-1">Residents</p>
+            <p className="title is-size-1">Halfmoon Residents</p>
           </div>
         </div>
-        <div className="columns is-mobile resident-box">
-          <div className="column is-narrow alphabet">
+        <div className="columns is-multiline resident-list">
+          {/* <div className="column is-narrow alphabet">
             {alphabet.map(letter => (
               <ResidentsAlpha key={letter} letter={letter} />
             ))}
-          </div>
-          <div className="column is-1">
-            <p className="title is-size-5">size 1</p>
-          </div>
-          <div className="column is-9">
-            <SingleResident />
-          </div>
+          </div> */}
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
         </div>
       </div>
     </div>

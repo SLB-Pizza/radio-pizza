@@ -5,11 +5,11 @@ import "../styles/index.scss";
 // import Layout from "../components/Layout";
 
 const Residents = () => (
-  <body className="has-navbar-fixed-bottom">
+  <div className="has-navbar-fixed-bottom">
     <TopNav />
     <ResidentsPage />
     <BottomNav />
-  </body>
+  </div>
 );
 
 export default Residents;

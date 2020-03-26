@@ -4,11 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function SingleResident() {
   return (
-    <div className="column is-one-third single-resident">
+    <div className="column is-one-third resident-box">
       {/*
       Desktop
       */}
-      <div className="columns is-vcentered is-hidden-touch">
+      <div className="columns is-vcentered is-hidden-touch single-resident">
         <div className="column is-narrow">
           <div className="resident-image">
             <figure className="image is-96x96">
@@ -34,10 +34,13 @@ function SingleResident() {
           </div>
         </div>
       </div>
+      {/*
+      TOUCH
+      */}
       <div className="columns is-vcentered is-mobile is-hidden-desktop">
         <div className="column is-narrow">
           <div className="resident-image">
-            <figure className="image is-48x48">
+            <figure className="image is-96x96">
               <img
                 className="is-rounded"
                 src="https://robohash.org/4H1.png?set=set1"

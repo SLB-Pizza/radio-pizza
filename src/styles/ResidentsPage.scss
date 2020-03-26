@@ -1,5 +1,4 @@
 .residents-page {
-  @include tablet;
   margin-top: 8.25rem;
   margin-bottom: 3rem;
   height: 100%;
@@ -26,44 +25,30 @@
     }
   }
 
-  // .resident-list {
-  //   max-height: calc(100vh - 10.5rem - 6rem);
-  //   overflow-y: auto;
-  // }
-
-  // .alphabet {
-  // }
-
-  .single-resident {
-    background-color: rgba($color: orange, $alpha: 0.2);
+  .resident-box {
     max-height: 10rem;
-    margin-bottom: 1rem;
-
-    .resident-image {
-      img {
-        border: 0.125rem solid white;
+    border: 1px solid white;
+    .single-resident {
+      background-color: rgba($color: black, $alpha: 0.5);
+      border: 1px dashed orange;
+      .resident-image {
+        img {
+          border: 0.125rem solid white;
+        }
       }
-    }
 
-    .resident-name {
-      flex: 2;
-    }
-    .resident-social {
-      flex: 1;
-      display: flex;
-      flex-direction: row;
+      // .resident-name {
+      //   flex: 2;
+      // }
+      // .resident-social {
+      //   flex: 1;
+      //   display: flex;
+      //   flex-direction: row;
 
-      p {
-        flex: 1;
-      }
+      //   p {
+      //     flex: 1;
+      //   }
+      // }
     }
   }
-  // .letter {
-  //   border-left: 1px dotted white;
-  //   border-right: 1px dotted white;
-  // }
-
-  // .letter:not(:first-child) {
-  //   border-top: 1px dotted white;
-  // }
 }

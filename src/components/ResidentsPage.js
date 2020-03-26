@@ -44,7 +44,7 @@ function ResidentsPage() {
             <p className="title is-size-1">Halfmoon Residents</p>
           </div>
         </div>
-        <div className="columns is-multiline resident-list">
+        <div className="columns is-multiline">
           {/* <div className="column is-narrow alphabet">
             {alphabet.map(letter => (
               <ResidentsAlpha key={letter} letter={letter} />

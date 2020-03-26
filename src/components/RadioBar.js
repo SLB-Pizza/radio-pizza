@@ -1,23 +1,23 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from 'react';
 import {
   GlobalDispatchContext,
-  GlobalStateContext
-} from "../context/GlobalContextProvider";
-import axios from "axios";
-import { RadioPlayer } from "./index";
+  GlobalStateContext,
+} from '../context/GlobalContextProvider';
+import axios from 'axios';
+import { RadioPlayer } from './index';
 
 import {
   faCommentAlt,
   faVolumeUp,
-  faVolumeMute
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+  faVolumeMute,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function RadioBar() {
   const dispatch = useContext(GlobalDispatchContext);
 
   const handleToggleMuted = async () => {
-    await dispatch({ type: "TOGGLE_MUTE" });
+    await dispatch({ type: 'TOGGLE_MUTE' });
   };
 
   const [radioData, setRadioData] = useState({});
@@ -26,7 +26,7 @@ function RadioBar() {
   useEffect(() => {
     async function axiosGet() {
       const result = await axios(
-        "https://public.radio.co/stations/sa3c47c55b/status"
+        'https://public.radio.co/stations/sa3c47c55b/status'
       );
       setRadioData(result.data);
     }
@@ -51,8 +51,7 @@ function RadioBar() {
               onClick={() => {
                 setMute(!mute);
                 handleToggleMuted();
-              }}
-            >
+              }}>
               <FontAwesomeIcon icon={faVolumeMute} size="lg" />
             </span>
           ) : (
@@ -61,8 +60,7 @@ function RadioBar() {
               onClick={() => {
                 setMute(!mute);
                 handleToggleMuted();
-              }}
-            >
+              }}>
               <FontAwesomeIcon icon={faVolumeUp} size="lg" />
             </span>
           )}
@@ -82,7 +80,7 @@ function RadioBar() {
       {/*
       MOBILE
       */}
-      <div className="columns is-vcentered is-mobile is-hidden-desktop">
+      {/* <div className="columns is-vcentered is-mobile is-hidden-desktop">
         <div className="column is-narrow">
           <figure className="image is-64x64">
             <img src="../img/Halfmoon-3.png" alt="Halfmoon Logo" />
@@ -98,7 +96,7 @@ function RadioBar() {
             <FontAwesomeIcon icon={faCommentAlt} size="lg" />
           </span>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

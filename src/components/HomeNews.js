@@ -3,8 +3,8 @@ import { HomeSingleNews } from "./index";
 
 function HomeNews() {
   return (
-    <div className="container is-fluid" id="home-news">
-      <div className="image-diffuser">
+    <div id="home-news">
+      <div className="container is-fluid image-diffuser">
         {/*
       Desktop Sizes
       */}

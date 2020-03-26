@@ -2,7 +2,7 @@ import React from "react";
 
 function HomeSingleEvent() {
   return (
-    <div className="column is-9-mobile is-4-tablet">
+    <div className="column is-9-mobile is-two-fifths-tablet is-4-desktop">
       <div className="card">
         <div className="card-image">
           <figure className="image is-1by1">
@@ -14,9 +14,11 @@ function HomeSingleEvent() {
         </div>
         <div className="card-content">
           <p className="content-date is-size-7">LOCATION | 03.30.20</p>
-          <p className="title is-size-4 is-size-3-fullhd">Lorem Ipsum Dolor</p>
-          <p className="subtitle is-size-6 is-size-5-fullhd">
-            One line talking about this awesome event.
+          <p className="title is-size-5-mobile is-size-4-tablet is-size-3-fullhd">
+            Lorem Ipsum Dolor
+          </p>
+          <p className="subtitle is-size-7-mobile is-size-6-tablet is-size-5-fullhd">
+            One line talking about this awesome event
           </p>
         </div>
       </div>

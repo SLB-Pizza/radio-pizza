@@ -12,7 +12,7 @@ function HomeMixes() {
           <div className="column is-3">
             <div className="sticky-section-blurb">
               <p className="title is-size-2">Daily Mixes</p>
-              <p className="title is-size-4">
+              <p className="subtitle is-size-4">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </p>
               <button className="sticky-link button">More ></button>
@@ -20,8 +20,6 @@ function HomeMixes() {
           </div>
           <div className="column is-9">
             <div className="columns is-multiline">
-              <HomeSingleMix />
-              <HomeSingleMix />
               <HomeSingleMix />
               <HomeSingleMix />
               <HomeSingleMix />
@@ -42,14 +40,12 @@ function HomeMixes() {
             <button className="button is-small">More ></button>
           </div>
           <div className="column is-12">
-            <p className="title is-size-4 mobile-headers">
+            <p className="subtitle is-size-4 mobile-headers">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
           </div>
         </div>
         <div className="columns is-mobile is-hidden-desktop mobile-single-items">
-          <HomeSingleMix />
-          <HomeSingleMix />
           <HomeSingleMix />
           <HomeSingleMix />
           <HomeSingleMix />

@@ -12,7 +12,7 @@ function HomeNews() {
           <div className="column is-3">
             <div className="sticky-section-blurb">
               <p className="title is-size-2">Features</p>
-              <p className="title is-size-4">
+              <p className="subtitle is-size-4">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </p>
               <button className="sticky-link button">More ></button>
@@ -36,7 +36,7 @@ function HomeNews() {
             <button className="button is-small">More ></button>
           </div>
           <div className="column is-12">
-            <p className="title is-size-4 mobile-headers">
+            <p className="subtitle is-size-4 mobile-headers">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
           </div>

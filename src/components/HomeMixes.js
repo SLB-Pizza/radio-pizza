@@ -3,8 +3,8 @@ import { HomeSingleMix } from "./index";
 
 function HomeMixes() {
   return (
-    <div className="container is-fluid" id="home-mixes">
-      <div className="image-diffuser">
+    <div id="home-mixes">
+      <div className="container is-fluid image-diffuser">
         {/*
       Desktop Sizes
       */}

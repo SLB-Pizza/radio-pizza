@@ -41,11 +41,14 @@ RadioBar.js - DONE
 |             | Time         |
 
 
-ScheduleBar.js - DONE
-| Mobile      | Desktop      |
-|-------------|--------------|
-| logo        | logo col     |
-|             | Mute button  |
-| RadioPlayer | Radio player |
-| chat button | Chat button  |
-|             | Time         |
+ScheduleBar.js - NO CHANGE NEEDED
+| Mobile | Desktop  |
+|--------|----------|
+| logo   | logo col |
+
+HomeMixes -
+| Mobile | Desktop |
+|--------|---------|
+|        |         |
+|        |         |
+|        |         |

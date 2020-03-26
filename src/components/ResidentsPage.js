@@ -33,8 +33,6 @@ const alphabet = [
   "Z"
 ];
 
-const residents = [...alphabet, ...alphabet];
-
 function ResidentsPage() {
   return (
     <div className="residents-page">

@@ -96,7 +96,8 @@ function RadioPlayer(props) {
       </div>
       <div className="column" id="radioShowDetails">
         <div id="radioShowTime">
-          <p className="is-size-7 has-text-light">{props.status}</p>
+          {/* <p className="is-size-7 has-text-light">{props.status}</p> */}
+          <p className="is-size-7 has-text-light">4:00P - 6:00P</p>
         </div>
         <div id="radioShowName">
           <p className="is-size-6 has-text-light">{globalState.title}</p>

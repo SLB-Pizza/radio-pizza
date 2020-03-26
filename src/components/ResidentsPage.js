@@ -41,7 +41,9 @@ function ResidentsPage() {
       <div className="container is-fluid image-diffuser">
         <div className="columns">
           <div className="column">
-            <p className="title is-size-1">Halfmoon Residents</p>
+            <p className="title is-size-1-desktop is-size-3-touch">
+              Halfmoon Residents
+            </p>
           </div>
         </div>
         <div className="columns is-multiline">

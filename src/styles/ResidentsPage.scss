@@ -19,7 +19,7 @@
     color: white;
 
     // Give 'Residents' a shadow
-    &.title.is-size-1 {
+    &.title {
       text-shadow: 3px 3px 2px black;
       padding: 0.5rem 0 0.75rem;
     }
@@ -27,28 +27,16 @@
 
   .resident-box {
     max-height: 10rem;
-    border: 1px solid white;
+
     .single-resident {
       background-color: rgba($color: black, $alpha: 0.5);
       border: 1px dashed orange;
+
       .resident-image {
         img {
           border: 0.125rem solid white;
         }
       }
-
-      // .resident-name {
-      //   flex: 2;
-      // }
-      // .resident-social {
-      //   flex: 1;
-      //   display: flex;
-      //   flex-direction: row;
-
-      //   p {
-      //     flex: 1;
-      //   }
-      // }
     }
   }
 }

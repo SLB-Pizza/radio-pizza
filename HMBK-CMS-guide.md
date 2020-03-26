@@ -31,7 +31,17 @@ These are separated by collections, detailed as follows:
   - Features: now displays 2 static features - scroll removed; matches desktop layouts
 
 
-RadioBar.js columns
+RadioBar.js - DONE
+| Mobile      | Desktop      |
+|-------------|--------------|
+| logo        | logo col     |
+|             | Mute button  |
+| RadioPlayer | Radio player |
+| chat button | Chat button  |
+|             | Time         |
+
+
+ScheduleBar.js - DONE
 | Mobile      | Desktop      |
 |-------------|--------------|
 | logo        | logo col     |

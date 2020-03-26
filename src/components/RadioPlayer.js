@@ -27,7 +27,7 @@ function RadioPlayer(props) {
   const [localState, setLocalState] = useState({
     url: null,
     pip: false,
-    playing: true,
+    playing: false,
     controls: false,
     light: false,
     volume: 0.25,
@@ -110,7 +110,7 @@ function RadioPlayer(props) {
         width="auto"
         height="auto"
         volume={localState.volume}
-        playing={!globalState.playing}
+        playing={globalState.playing}
         loop={globalState.loop}
         muted={globalState.muted}
         onPlay={handlePlay}

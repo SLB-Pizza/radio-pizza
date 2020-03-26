@@ -7,7 +7,7 @@ const initialState = {
   url:
     "https://soundcloud.com/soundcloud-scenes/sets/currents-next-gen-chillwave",
   title: "Next Gen ChillWave",
-  playing: true,
+  playing: false,
   controls: false,
   light: false,
   volume: 0.65,

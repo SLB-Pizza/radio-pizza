@@ -8,6 +8,6 @@ exports.wrapRootElement = ({ element }) => {
   return <GlobalContextProvider>{element}</GlobalContextProvider>;
 };
 
-exports.wrapPageElement = ({ element, props }) => {
-  return <Layout {...props}>{element}</Layout>;
-};
+// exports.wrapPageElement = ({ element, props }) => {
+//   return <Layout {...props}>{element}</Layout>;
+// };

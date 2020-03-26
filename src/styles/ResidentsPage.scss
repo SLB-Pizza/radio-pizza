@@ -11,7 +11,7 @@
   background-size: cover;
 
   .image-diffuser {
-    background-color: rgba($color: darkslategrey, $alpha: 0.65);
+    background-color: rgba($color: darkslategrey, $alpha: 0.75);
     height: 100%;
   }
 
@@ -38,7 +38,6 @@
     background-color: rgba($color: orange, $alpha: 0.2);
     max-height: 10rem;
     margin-bottom: 1rem;
-    padding: auto 0.5rem;
 
     .resident-image {
       img {

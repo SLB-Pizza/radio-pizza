@@ -33,18 +33,20 @@ function RadioBar() {
     axiosGet();
   }, []);
 
+  /**
+   *
+   *
+   */
+
   return (
     <div className="container is-fluid radio-bar">
-      {/*
-      DESKTOP
-      */}
-      <div className="columns is-vcentered is-hidden-mobile">
+      <div className="columns is-vcentered is-mobile">
         <div className="column is-narrow">
           <figure className="image is-64x64">
             <img src="../img/Halfmoon-3.png" alt="Halfmoon Logo" />
           </figure>
         </div>
-        <div className="column is-narrow">
+        <div className="column is-narrow is-hidden-touch">
           {mute ? (
             <span
               className="icon has-text-light"
@@ -75,28 +77,8 @@ function RadioBar() {
             <FontAwesomeIcon icon={faCommentAlt} size="lg" />
           </span>
         </div>
-        <div className="column is-narrow">
+        <div className="column is-narrow is-hidden-touch">
           <p className="has-text-light">4:59PM NYC</p>
-        </div>
-      </div>
-      {/*
-      MOBILE
-      */}
-      <div className="columns is-vcentered is-mobile is-hidden-desktop">
-        <div className="column is-narrow">
-          <figure className="image is-64x64">
-            <img src="../img/Halfmoon-3.png" alt="Halfmoon Logo" />
-          </figure>
-        </div>
-
-        <div className="column">
-          <RadioPlayer status={radioData.status} />
-        </div>
-
-        <div className="column is-narrow">
-          <span className="icon has-text-light">
-            <FontAwesomeIcon icon={faCommentAlt} size="lg" />
-          </span>
         </div>
       </div>
     </div>

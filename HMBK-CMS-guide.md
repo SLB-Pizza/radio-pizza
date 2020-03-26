@@ -29,3 +29,13 @@ These are separated by collections, detailed as follows:
   - Mixes: still horizontally-scrollable list of 8 mixes
   - Events: now displays 3 static events - scroll removed; matches desktop layouts
   - Features: now displays 2 static features - scroll removed; matches desktop layouts
+
+
+RadioBar.js columns
+| Mobile      | Desktop      |
+|-------------|--------------|
+| logo        | logo col     |
+|             | Mute button  |
+| RadioPlayer | Radio player |
+| chat button | Chat button  |
+|             | Time         |

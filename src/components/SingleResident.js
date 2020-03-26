@@ -1,10 +1,8 @@
 import React from "react";
-import { faTwitter, faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function SingleResident() {
   return (
-    <div className="column is-one-third resident-box">
+    <div className="column is-10-touch is-one-third-desktop resident-box">
       {/*
       Desktop
       */}

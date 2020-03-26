@@ -46,69 +46,89 @@ function ResidentsPage() {
             </p>
           </div>
         </div>
-        <div className="columns is-multiline">
-          {/* <div className="column is-narrow alphabet">
+        {/*
+        Desktop
+        */}
+        <div className="columns is-multiline is-hidden-touch">
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+          <SingleResident />
+        </div>
+        {/*
+        Mobile
+        */}
+        <div className="columns is-mobile is-multiline is-hidden-desktop">
+          <div className="column is-2-touch alphabet">
             {alphabet.map(letter => (
               <ResidentsAlpha key={letter} letter={letter} />
             ))}
-          </div> */}
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
+          </div>
           <SingleResident />
           <SingleResident />
           <SingleResident />

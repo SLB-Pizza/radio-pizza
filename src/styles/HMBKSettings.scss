@@ -2,6 +2,11 @@ $pink: #f600ff;
 
 $primary: $pink;
 
+// =mobile {
+//   @media screen and (max-width: $tablet - 1px) {
+//     @content;
+//   }
+// }
 body {
   background-color: black;
 }

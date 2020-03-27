@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import {
-  ScheduleModal,
-  ScheduleDropdown,
-  ScheduleDatePicker,
-  ScheduleShowEntry
-} from "./index";
+import { ScheduleModal, ScheduleDropdown } from "./index";
 
 function ScheduleBar() {
   const [open, setOpen] = useState(false);
@@ -33,9 +28,9 @@ function ScheduleBar() {
       {/*
       FOR MOBILE
       SCHEDULE MODAL
-      <ScheduleModal />
-      */}
-      <div className="modal is-active is-hidden-tablet">
+    */}
+      <ScheduleModal open={open} setOpen={setOpen} />
+      {/* <div className="modal is-active is-hidden-tablet">
         <div className="modal-background"></div>
         <div className="modal-card is-dark">
           <header className="modal-card-head">
@@ -70,13 +65,13 @@ function ScheduleBar() {
             <ScheduleShowEntry />
           </section>
         </div>
-      </div>
+      </div> */}
       {/*
       FOR DESKTOP
       BUILT INTO THE BAR
-      <ScheduleDropdown />
-      */}
-      <div className="columns up-next is-hidden-mobile">
+    */}
+      <ScheduleDropdown open={open} setOpen={setOpen} />
+      {/* <div className="columns up-next is-hidden-mobile">
         <div className="column is-narrow">
           <p>in 1hr 1m</p>
         </div>
@@ -100,7 +95,7 @@ function ScheduleBar() {
             Close
           </button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -1,6 +1,4 @@
 import React from "react";
-import { faTwitter, faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function ScheduleShowEntry() {
   return (

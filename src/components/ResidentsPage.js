@@ -69,54 +69,6 @@ function ResidentsPage() {
           <SingleResident />
           <SingleResident />
           <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
         </div>
         {/*
         Mobile
@@ -127,13 +79,6 @@ function ResidentsPage() {
               <ResidentsAlpha key={letter} letter={letter} />
             ))}
           </div>
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
           <SingleResident />
           <SingleResident />
           <SingleResident />

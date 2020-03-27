@@ -1,6 +1,8 @@
 .news-hero {
   margin-top: 7.5rem;
   height: calc(100vh - 10.5rem);
+  border-bottom: 0.25rem solid white;
+
   display: flex;
   flex-direction: column;
   background-image: url(https://source.unsplash.com/1920x1080/daily?dj);

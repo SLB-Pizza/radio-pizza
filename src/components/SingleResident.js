@@ -2,7 +2,7 @@ import React from "react";
 
 function SingleResident() {
   return (
-    <div className="column is-10-touch is-one-third-desktop resident-box">
+    <div className="column is-one-third-desktop resident-box">
       {/*
       Desktop
       */}

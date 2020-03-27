@@ -1,11 +1,11 @@
 import React from "react";
-import { NewsPage } from "../components/";
+import { AboutPage } from "../components";
 import "../styles/index.scss";
 
-const NewsFeed = () => (
+const About = () => (
   <div className="has-navbar-fixed-bottom">
-    <NewsPage />
+    <AboutPage />
   </div>
 );
 
-export default NewsFeed;
+export default About;

@@ -4,14 +4,16 @@ import { ScheduleDatePicker, ScheduleShowEntry } from "./index";
 function ScheduleDropdown(props) {
   return (
     <>
-      <div className="columns up-next is-hidden-mobile">
+      <div className="columns up-next is-mobile">
         <div className="column is-narrow">
           <p>in 1hr 1m</p>
         </div>
         <div className="column">Lorem ipsum dolor sit.</div>
       </div>
-      <div id="mobile-hide-dropdown">
+      <div className="is-hidden-mobile">
         <ScheduleDatePicker />
+      </div>
+      <div className="columns is-multiline is-mobile is-hidden-mobile show-entries">
         <ScheduleShowEntry />
         <ScheduleShowEntry />
         <ScheduleShowEntry />

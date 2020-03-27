@@ -21,9 +21,7 @@ function ScheduleModal(props) {
           </div>
           <div className="columns" id="scroll-instructions">
             <div className="column">
-              <p className="is-size-7 has-text-centered">
-                ⇦ SWIPE TO VIEW MORE DATES ⇨
-              </p>
+              <p className="is-size-7 has-text-centered">⇦ VIEW MORE DATES ⇨</p>
             </div>
           </div>
           <ScheduleDatePicker />

@@ -1,0 +1,33 @@
+.resident-bio {
+  margin-top: 8.25rem;
+  margin-bottom: 3rem;
+  min-height: 100%;
+
+  background-image: url(https://robohash.org/4H1.png?set=set1);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+  .image-diffuser {
+    background-color: rgba($color: black, $alpha: 0.75);
+    height: 100%;
+  }
+
+  // Set all text to white
+  p {
+    color: white;
+
+    // Give 'Residents' a shadow
+    &.title {
+      text-shadow: 3px 3px 2px black;
+      padding: 0.5rem 0 0.75rem;
+    }
+  }
+
+  .bio-mixes {
+    p:first-child() {
+      margin-bottom: 2rem;
+    }
+  }
+}

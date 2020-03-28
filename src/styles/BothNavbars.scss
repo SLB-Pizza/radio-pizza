@@ -173,13 +173,14 @@
 
       // Make list of show entries a scrollable list of dynamic height if window height < 720px
       @include short-screen {
-        max-height: calc(100vh - 10.5rem - 8rem);
+        max-height: calc(100vh - 10.5rem - 8.5rem);
         overflow-y: auto;
       }
 
       .entry-container {
-        padding: 0.5rem 0;
+        padding: 0.5rem;
         border-bottom: 1px dotted #ccc;
+
         p {
           color: white;
         }

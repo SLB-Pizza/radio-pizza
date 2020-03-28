@@ -2,6 +2,7 @@
   margin-top: 8.25rem;
   margin-bottom: 3rem;
   min-height: 100%;
+  border-bottom: 0.25rem solid white;
 
   background-image: url(https://robohash.org/4H1.png?set=set1);
   background-position: center center;
@@ -10,8 +11,9 @@
   background-size: cover;
 
   .image-diffuser {
-    background-color: rgba($color: black, $alpha: 0.75);
-    height: 100%;
+    background-color: rgba($color: black, $alpha: 0.5);
+    padding-bottom: 3.5rem;
+    min-height: 100%;
   }
 
   // Set all text to white

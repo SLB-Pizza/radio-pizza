@@ -51,6 +51,13 @@
   // Give each card a solid white border
   .card {
     border: 0.125rem solid white;
+    margin: 0 0.5rem;
+    transition: ease-in-out 0.5s;
+
+    &:hover {
+      margin: 0;
+      box-shadow: 10px 8px 5px black;
+    }
   }
 
   // Override default bulma card settings
@@ -98,50 +105,50 @@
       padding: 2rem 1rem;
     }
   }
+}
 
-  //==================================
-  // <HomeMixes />
-  //==================================
-  #home-mixes {
-    background-image: url(https://source.unsplash.com/1920x1080/weekly?nebula);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
+//==================================
+// <HomeMixes />
+//==================================
+#home-mixes {
+  background-image: url(https://source.unsplash.com/1920x1080/weekly?nebula);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
 
-    border-top: 0.25rem solid white;
-    .tag {
-      transition: 0.25s ease-in-out;
-      &:hover {
-        box-shadow: 2px 2px 4px grey;
-      }
+  border-top: 0.25rem solid white;
+  .tag {
+    transition: 0.25s ease-in-out;
+    &:hover {
+      box-shadow: 2px 2px 4px grey;
     }
   }
+}
 
-  //==================================
-  // <HomeEvents />
-  //==================================
-  #home-events {
-    background-image: url(https://source.unsplash.com/1920x1080/?nebula);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
+//==================================
+// <HomeEvents />
+//==================================
+#home-events {
+  background-image: url(https://source.unsplash.com/1920x1080/?nebula);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
 
-    border-top: 0.25rem solid white;
-  }
+  border-top: 0.25rem solid white;
+}
 
-  //==================================
-  // <HomeNews />
-  //==================================
-  #home-news {
-    background-image: url(https://source.unsplash.com/1920x1080/?weekly?nebula);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
+//==================================
+// <HomeNews />
+//==================================
+#home-news {
+  background-image: url(https://source.unsplash.com/1920x1080/?weekly?nebula);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
 
-    border-top: 0.25rem solid white;
-    border-bottom: 0.25rem solid white;
-  }
+  border-top: 0.25rem solid white;
+  border-bottom: 0.25rem solid white;
 }

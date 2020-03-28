@@ -27,13 +27,15 @@ function ScheduleModal(props) {
           <ScheduleDatePicker />
         </header>
         <section className="modal-card-body">
-          <ScheduleShowEntry />
-          <ScheduleShowEntry />
-          <ScheduleShowEntry />
-          <ScheduleShowEntry />
-          <ScheduleShowEntry />
-          <ScheduleShowEntry />
-          <ScheduleShowEntry />
+          <div className="columns is-multiline is-mobile show-entries">
+            <ScheduleShowEntry />
+            <ScheduleShowEntry />
+            <ScheduleShowEntry />
+            <ScheduleShowEntry />
+            <ScheduleShowEntry />
+            <ScheduleShowEntry />
+            <ScheduleShowEntry />
+          </div>
         </section>
       </div>
     </div>

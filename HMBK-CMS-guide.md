@@ -52,3 +52,10 @@ HomeMixes -
 |        |         |
 |        |         |
 |        |         |
+
+29 Mar 2020
+- Added hover effect to all home page content cards
+- Added working nav links to different pages on the site
+  - schedule
+  - residents
+  - sample bio page (RowdyRobo)

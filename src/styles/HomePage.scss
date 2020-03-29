@@ -52,10 +52,10 @@
   .card {
     border: 0.125rem solid white;
     margin: 0 0.5rem;
-    transition: ease-in-out 0.5s;
+    transition: ease-in-out 0.25s;
 
     &:hover {
-      margin: 0;
+      margin: 0 0.125rem;
       box-shadow: 10px 8px 5px black;
     }
   }

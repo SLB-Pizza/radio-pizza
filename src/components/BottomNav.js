@@ -18,7 +18,7 @@ function BottomNav() {
     >
       <div className="navbar-brand">
         <div className="navbar-item">
-          <p className="title is-size-6-desktop is-size-7-touch has-text-light">
+          <p className="title is-size-5-desktop is-size-6-touch has-text-light">
             Ears to the concrete.
           </p>
         </div>
@@ -49,14 +49,12 @@ function BottomNav() {
           <p className="navbar-item">
             <Link to="/bio">Bio</Link>
           </p>
-          <div className="navbar-item has-dropdown has-dropdown-up is-hoverable">
+          <div className="navbar-item has-dropdown has-dropdown-up">
             <a className="navbar-link">Content</a>
             <div className="navbar-dropdown">
+              <div className="navbar-item">Recent Mixes</div>
               <a href="#" className="navbar-item">
-                Mixes
-              </a>
-              <a href="#" className="navbar-item">
-                Events
+                Live Events
               </a>
               <a href="#" className="navbar-item">
                 Features
@@ -65,37 +63,47 @@ function BottomNav() {
           </div>
         </div>
         <div className="navbar-end is-hidden-touch">
-          <a href="#" className="navbar-item">
+          <a
+            href="https://www.mixcloud.com/HalfMoonbk/"
+            className="navbar-item"
+          >
             <span className="icon is-medium">
               <FontAwesomeIcon icon={faMixcloud} size="lg" />
-              mix
             </span>
           </a>
-          <a href="#" className="navbar-item">
+          <a
+            href="https://www.instagram.com/halfmoonbk/"
+            className="navbar-item"
+          >
             <span className="icon is-medium">
               <FontAwesomeIcon icon={faInstagram} size="lg" />
-              ins
             </span>
           </a>
-          <a href="#" className="navbar-item">
+          <a href="https://twitter.com/halfmoonbk" className="navbar-item">
             <span className="icon is-medium">
               <FontAwesomeIcon icon={faTwitter} size="lg" />
-              twi
             </span>
           </a>
         </div>
+        <hr className="navbar-divider"></hr>
         <div className="navbar-end is-hidden-desktop">
-          <a href="#" className="navbar-item">
+          <a
+            href="https://www.mixcloud.com/HalfMoonbk/"
+            className="navbar-item"
+          >
             <span className="icon is-medium">
               <FontAwesomeIcon icon={faMixcloud} size="lg" />
             </span>
           </a>
-          <a href="#" className="navbar-item">
+          <a
+            href="https://www.instagram.com/halfmoonbk/"
+            className="navbar-item"
+          >
             <span className="icon is-medium">
               <FontAwesomeIcon icon={faInstagram} size="lg" />
             </span>
           </a>
-          <a href="#" className="navbar-item">
+          <a href="https://twitter.com/halfmoonbk" className="navbar-item">
             <span className="icon is-medium">
               <FontAwesomeIcon icon={faTwitter} size="lg" />
             </span>

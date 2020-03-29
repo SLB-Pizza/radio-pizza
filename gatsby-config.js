@@ -1,8 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: "Half Moon Rebuild",
-    description:
-      "This repo contains the (in development) rebuild of Half Moon Bk"
+    title: "HalfmoonBK",
+    description: "Ears to the concrete."
   },
   plugins: [
     "gatsby-plugin-react-helmet",
@@ -69,8 +68,9 @@ module.exports = {
       resolve: "gatsby-plugin-purgecss", // purges all unused/unreferenced css rules
       options: {
         develop: true, // Activates purging in npm run develop
-        // purgeOnly: ['/all.sass', ],
-        rejected: true
+        purgeOnly: ["/all.sass"], // REMOVE THIS LINE FOR DEPLOYS
+        rejected: true,
+        printRejected: true
       }
     }, // must be after other CSS plugins
     "gatsby-plugin-netlify" // make sure to keep it last in the array

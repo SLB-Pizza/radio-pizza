@@ -198,3 +198,12 @@
 //==================================
 // <BottomNav />
 //==================================
+.navbar-end.is-hidden-desktop {
+  display: flex;
+  flex-direction: row;
+  a {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+}

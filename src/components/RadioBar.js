@@ -5,6 +5,7 @@ import {
 } from "../context/GlobalContextProvider";
 import axios from "axios";
 import { RadioPlayer } from "./index";
+import { Link } from "gatsby";
 
 import {
   faCommentAlt,
@@ -42,9 +43,11 @@ function RadioBar() {
     <div className="container is-fluid radio-bar">
       <div className="columns is-vcentered is-mobile">
         <div className="column is-narrow">
-          <figure className="image is-64x64">
-            <img src="../img/Halfmoon-3.png" alt="Halfmoon Logo" />
-          </figure>
+          <Link to="/">
+            <figure className="image is-64x64">
+              <img src="../img/Halfmoon-3.png" alt="Halfmoon Logo" />
+            </figure>
+          </Link>
         </div>
         <div className="column is-narrow is-hidden-touch">
           {mute ? (

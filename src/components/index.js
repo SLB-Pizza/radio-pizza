@@ -70,3 +70,10 @@ export { default as SingleResident } from "./SingleResident";
  * About Page
  */
 export { default as AboutPage } from "./AboutPage";
+
+/**
+ * Bio Page
+ */
+export { default as BioImageBlurb } from "./BioImageBlurb";
+export { default as BioMixList } from "./BioMixList";
+export { default as BioSingleMix } from "./BioSingleMix";

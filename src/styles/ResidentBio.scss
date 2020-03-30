@@ -51,17 +51,24 @@
   margin: 0.5rem;
   transition: ease-in-out 0.25s;
 
-  .image {
+  .bio-mix-image {
     background-image: url(https://source.unsplash.com/1080x1080/weekly?nature);
     background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
     background-size: cover;
-  }
 
-  .play-btn-diffuser {
-    background-color: rgba($color: orange, $alpha: 0.5);
-    transition: ease-in-out 0.25s;
+    .play-btn-diffuser {
+      padding: 25%;
+      display: flex;
+      justify-content: center;
+      transition: ease-in-out 0.25s;
+
+      span {
+        color: transparent;
+        transition: ease-in-out 0.25s;
+      }
+    }
   }
 
   &:hover {
@@ -69,13 +76,17 @@
     box-shadow: 10px 8px 5px black;
 
     .play-btn-diffuser {
-      margin: 0;
-      padding: 0;
-
+      padding: 25%;
       display: flex;
-      justify-content: stretch;
-      align-items: stretch;
-      background-color: rgba($color: black, $alpha: 0.5);
+      justify-content: center;
+      background-color: rgba($color: black, $alpha: 0.75);
+
+      span {
+        color: white;
+        &:active {
+          color: $primary;
+        }
+      }
     }
   }
 

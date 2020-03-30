@@ -1,18 +1,20 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import { faPlayCircle } from "@fortawesome/free-solid-svg-icons";
 
 function BioSingleMix(props) {
   return (
-    <div className="column is-6-touch is-3-desktop">
+    <div className="column is-6-tablet is-3-desktop">
       <div className="resident-mix">
-        <div className="image is-1by1">
+        <div className="bio-mix-image">
           <div className="play-btn-diffuser">
-            <FontAwesomeIcon icon={faPlay} size="6x" color="white" />
+            <span>
+              <FontAwesomeIcon icon={faPlayCircle} size="10x" />
+            </span>
           </div>
         </div>
         <div className="mix-content">
-          <p className="content-date is-size-7 is-size-6-fullhd">03.30.20</p>
+          <p className="content-date is-size-7">03.30.20</p>
           <p className="title is-size-5-mobile is-size-4-tablet is-size-3-fullhd">
             Lorem Ipsum Dolor
           </p>

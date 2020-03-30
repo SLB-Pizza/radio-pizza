@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
 
 function BioSingleMix(props) {
   return (
@@ -8,9 +8,7 @@ function BioSingleMix(props) {
       <div className="resident-mix">
         <div className="image is-1by1">
           <div className="play-btn-diffuser">
-            <span className="icon is-large">
-              <FontAwesomeIcon icon={faPlay} size="3x" />
-            </span>
+            <FontAwesomeIcon icon={faPlay} size="6x" color="white" />
           </div>
         </div>
         <div className="mix-content">

@@ -48,13 +48,8 @@
   padding: 0.25rem;
   background-color: black;
 
-  margin: 0 0.25rem;
+  margin: 0.5rem;
   transition: ease-in-out 0.25s;
-
-  &:hover {
-    margin: 0 0.125rem;
-    box-shadow: 10px 8px 5px black;
-  }
 
   .image {
     background-image: url(https://source.unsplash.com/1080x1080/weekly?nature);
@@ -62,16 +57,25 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+  }
+
+  .play-btn-diffuser {
+    background-color: rgba($color: orange, $alpha: 0.5);
+    transition: ease-in-out 0.25s;
+  }
+
+  &:hover {
+    margin: 0;
+    box-shadow: 10px 8px 5px black;
+
     .play-btn-diffuser {
-      width: 100%;
-      height: 100;
-      background-color: rgba($color: orange, $alpha: 0.5);
+      margin: 0;
+      padding: 0;
+
       display: flex;
-      justify-content: center;
-      align-items: center;
-      span {
-        flex: 1;
-      }
+      justify-content: stretch;
+      align-items: stretch;
+      background-color: rgba($color: black, $alpha: 0.5);
     }
   }
 

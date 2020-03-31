@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  BioImageBlurb,
-  BioMixList,
-  SingleMix,
-  InProgress
-} from "../../components/";
+import { BioImageBlurb, BioMixList } from "../../components/";
 
 function ResidentBioIndexPage() {
   return (
@@ -15,9 +10,6 @@ function ResidentBioIndexPage() {
             <p className="title is-size-3-desktop is-size-5-touch has-text-centered">
               ⚠️ Layout In Progress! ⚠️
             </p>
-            {/* <p className="subtitle is-size-5 has-text-centered">
-              Please view this page on desktop.
-            </p> */}
           </div>
         </div>
         <BioImageBlurb />

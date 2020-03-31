@@ -7,7 +7,7 @@
   background-image: url(https://source.unsplash.com/1920x1080/weekly?stars);
   background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: scroll;
+  background-attachment: fixed;
   background-size: cover;
 
   .image-diffuser {
@@ -108,9 +108,9 @@
 // <BioHorizItem />
 //==================================
 .bio-single-mix {
-  min-height: 12.5rem;
+  min-height: 5rem;
   margin: 0.25rem;
-  background-color: #243524;
+  background-color: black;
   border: 0.25rem solid white;
   transition: ease-in-out 0.25s;
 
@@ -129,6 +129,7 @@
   &:hover {
     margin: 0;
     box-shadow: 10px 8px 5px black;
+    background-color: #2a2a2a;
 
     .play-btn-diffuser {
       display: flex;
@@ -146,16 +147,8 @@
 
   .item-content {
     padding: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    p {
-      flex: 1;
-    }
-    .content-date {
-      margin-bottom: 0;
-      padding-bottom: 0;
+    @include mobile {
+      padding: 1rem;
     }
     .title {
       margin-top: 0;

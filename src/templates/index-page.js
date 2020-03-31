@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { Link, graphql } from "gatsby";
 import {
-  GlobalDispatchContext,
-  GlobalStateContext
+  GlobalDispatchContext
+  // GlobalStateContext
 } from "../context/GlobalContextProvider";
 import PropTypes from "prop-types";
 
@@ -23,7 +23,7 @@ export const IndexPageTemplate = ({
   intro
 }) => {
   const dispatch = useContext(GlobalDispatchContext);
-  const state = useContext(GlobalStateContext);
+  // const state = useContext(GlobalStateContext);
 
   const renderLoadButton = (url, title, label) => {
     return (

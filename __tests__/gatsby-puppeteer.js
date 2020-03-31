@@ -1,6 +1,7 @@
 const chalk = require("chalk");
 const figlet = require("figlet");
 const inquirer = require("inquirer");
+const differenceInMilliseconds = require("date-fns/differenceInMilliseconds");
 const puppeteer = require("puppeteer");
 const deviceList = puppeteer.devices;
 
@@ -20,12 +21,12 @@ const deviceList = puppeteer.devices;
  * @param {string} clickTarget- the element to be clicked e.g. "div #expand-button"
  * @param {boolean} scrollToSection - gates scroll script section
  */
-const pageRoute = "https://www.nathanperkel.com/club-loose";
-const pageName = pageRoute === "" ? "home" : pageRoute;
-const pageVersion = "v5";
-const pageURL = `${pageRoute}`;
+const pageRoute = "bio";
+// const pageName = pageRoute === "" ? "home" : pageRoute;
+const pageVersion = "v2";
+const pageURL = `http://localhost:8000/${pageRoute}`;
 
-const takeShot = true;
+const takeShot = false;
 const promptUserQuestions = false;
 
 const fullPageCapture = false;
@@ -141,20 +142,8 @@ const questions = [
 
 const customDevices = [
   {
-    name: "Tablet",
-    description: "old low-res monitors, desktop breakpoint (from 1024px)",
-    viewport: {
-      width: 1023,
-      height: 768,
-      deviceScaleFactor: 1,
-      isMobile: true,
-      hasTouch: true,
-      isLandscape: true
-    }
-  },
-  {
     name: "Widescreen",
-    description: "a low-res laptop screen, widescreen breakpoint (from 1216px)",
+    description: "a low-res laptop screen, widescreen (from 1216px)",
     viewport: {
       width: 1280,
       height: 800,
@@ -166,7 +155,7 @@ const customDevices = [
   },
   {
     name: "1080p",
-    description: "a 1080p monitor, fullhd breakpoint (from 1408px)",
+    description: "a 1080p monitor, fullhd (from 1408px)",
     viewport: {
       width: 1920,
       height: 1080,
@@ -178,36 +167,32 @@ const customDevices = [
   }
 ];
 
-const iPad = deviceList["iPad"];
-iPad.description = "larger mobile-view, tablet breakpoint (from 769px)";
-const iPhoneX = deviceList["iPhone X"];
-iPhoneX.description = "a modern mobile device, mobile breakpoint (up to 768px)";
-const p2XL = deviceList["Pixel 2 XL"];
-const iPhoneXR = deviceList["iPhone XR"];
 const iPhoneSE = deviceList["iPhone SE"];
-const iPhone8 = deviceList["iPhone 8"];
-const iPhone7Plus = deviceList["iPhone 7 Plus"];
-const iPhone7 = deviceList["iPhone 7"];
-const iPhone6Plus = deviceList["iPhone 6 Plus"];
+const iPhoneX = deviceList["iPhone X"];
+const p2XL = deviceList["Pixel 2 XL"];
 const iPhone6 = deviceList["iPhone 6"];
-const iPhone5 = deviceList["iPhone 5"];
-const iPhone4 = deviceList["iPhone 4"];
-const iPadPro = deviceList["iPad Pro"];
+const iPhone6Plus = deviceList["iPhone 6 Plus"];
+const iPad = deviceList["iPad"];
+const kindleFireHDX = deviceList["Kindle Fire HDX"];
+
+iPhoneSE.description =
+  "an iPhone released in 2012, TINY screen, mobile (up to 768px)";
+iPhoneX.description = "a modern iPhone, mobile (up to 768px)";
+p2XL.description = "a modern Android phone, mobile (up to 768px)";
+iPhone6.description = "the iPhone screen for the 6/7/8, mobile (up to 768px)";
+iPhone6Plus.description =
+  "the iPhone screen from the Plus models 6/7/8, mobile (up to 768px)";
+iPad.description = "larger mobile-view, tablet (from 769px)";
+kindleFireHDX.description = "a common Android tablet, tablet (from 769px)";
 
 const allDevices = [
-  iPhoneX,
-  iPhoneXR,
   iPhoneSE,
-  iPhone8,
-  iPhone7Plus,
-  iPhone7,
-  iPhone6Plus,
-  iPhone6,
-  iPhone5,
-  iPhone4,
-  iPadPro,
-  iPad,
+  iPhoneX,
   p2XL,
+  iPhone6,
+  iPhone6Plus,
+  iPad,
+  kindleFireHDX,
   ...customDevices
 ];
 
@@ -296,6 +281,10 @@ const dateString = () => {
   return dateStr;
 };
 
+const navTimer = (start, finish) => {
+  return differenceInMilliseconds(finish, start);
+};
+
 (async () => {
   try {
     console.clear();
@@ -320,11 +309,11 @@ const dateString = () => {
       }
 
       let viewports = parseViewports(answers.viewports);
-      console.log(viewports);
+      console.log(viewports, "\n");
     }
 
     // Load puppeteer
-    console.log(chalk.bold.white(`\n  Loading Puppeteer...`));
+    console.log(chalk.bold.white(`  Loading Puppeteer...`));
     const browser = await puppeteer.launch();
 
     console.log(
@@ -347,11 +336,24 @@ const dateString = () => {
       chalk.cyan(
         console.log(`------------------------------------------------------\n`)
       );
-      console.log(
-        chalk.bold.white(`  ${count}/${allDevices.length} - ${device.name}`)
-      );
-      console.log(chalk.white(`  ┣ Represents ${device.description}.`));
-      console.log(chalk.white(`  ┃`));
+
+      if (takeShot) {
+        console.log(
+          chalk.bold.white(
+            `  #${count} of ${allDevices.length} - ${device.name}`
+          )
+        );
+        console.log(chalk.white(`  ┣ Represents ${device.description}.`));
+        console.log(chalk.white(`  ┃`));
+      } else {
+        console.log(
+          chalk.bold.yellow(
+            `  #${count} of ${allDevices.length} - ${device.name} - TESTING: No screenshots`
+          )
+        );
+        console.log(chalk.yellow(`  ┣ Represents ${device.description}.`));
+        console.log(chalk.yellow(`  ┃`));
+      }
 
       // Open a new browser page
       console.log(chalk.cyan(`  ┣ Opening new browser tab...`));
@@ -363,10 +365,19 @@ const dateString = () => {
 
       // Navigate to the pageURL.
       console.log(chalk.cyan(`  ┣ Navigating to ${pageURL}...`));
+
+      let startNow = Date.now();
+      let startTime = new Date(startNow);
       await page.goto(`${pageURL}`, {
-        waitUntil: ["load", "domcontentloaded", "networkidle0"]
+        waitUntil: ["load", "domcontentloaded", "networkidle2"]
       });
-      console.log(chalk.cyan(`  ┣ Page loaded successfully.`));
+      let endNow = Date.now();
+      let endTime = new Date(endNow);
+      console.log(
+        chalk.cyan(
+          `  ┣ Page loaded successfully in ${navTimer(startTime, endTime)}ms.`
+        )
+      );
 
       if (clickItem || scrollToSection) {
         console.log(chalk.cyan(`  ┃`));
@@ -398,21 +409,16 @@ const dateString = () => {
           )
         );
         await page.screenshot({
-          path: `__tests__/screenshots/NP-ClubLoose | ${device.name} | ${time}.jpeg`,
+          path: `__tests__/screenshots/${pageRoute} ${pageVersion} | ${device.name} | ${time}.jpeg`,
           fullPage: fullPageCapture,
           type: "jpeg",
           quality: 75
         });
-        // await page.screenshot({
-        //   path: `__tests__/screenshots/${pageRoute} ${pageVersion} | ${device.name} | ${time}.jpeg`,
-        //   fullPage: fullPageCapture,
-        //   type: "jpeg",
-        //   quality: 75
-        // });
       }
 
       // Success! Report back to the user.
       console.log(chalk.cyan(`  ┃`));
+
       console.log(
         chalk.green(
           `  ┣ 🖼️   ${device.name} (${device.viewport.width}x${device.viewport.height}) captured.`
@@ -420,14 +426,9 @@ const dateString = () => {
       );
       console.log(
         chalk.green(
-          `  ┗ 💾  Saved to '/screenshots/NP-ClubLoose | ${device.name} | ${time}.jpeg'\n`
+          `  ┗ 💾  Saved to '/screenshots/${pageRoute} ${pageVersion} | ${device.name} | ${time}.jpeg'\n`
         )
       );
-      // console.log(
-      //   chalk.green(
-      //     `  ┗ 💾  Saved to '/screenshots/${pageRoute} ${pageVersion} | ${device.name} | ${time}.jpeg'\n`
-      //   )
-      // );
     }
     console.log(
       chalk.inverse.green(
@@ -442,14 +443,22 @@ const dateString = () => {
     // Check for errors with puppeteer errors...
     if (error instanceof puppeteer.errors.TimeoutError) {
       console.log(chalk.red(`  ┃`));
-      console.log(chalk.red(`  ┗ Operation timed out. Error logs below. \n`));
-      console.log(error);
+      console.log(chalk.red(`  ┣ Operation timed out after 30s.`));
+      console.log(
+        chalk.red(
+          `  ┣ Try changing/removing 'waitUntil' conditions for 'page.goTo()'.`
+        )
+      );
+      console.log(chalk.red(`  ┗ Error logs below. `));
+      console.log("\n", error);
+      process.exit();
     }
     // ...then for errors displaying the questionnaire...
     else if (error.isTtyError) {
       console.log(chalk.red(`  ┃`));
       console.log(chalk.red(`  ┗ Questionnaire couldn't be rendered.`));
-      console.log(error);
+      console.log("\n", error);
+      process.exit();
     }
     // ...then for other errors.
     else {

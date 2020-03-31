@@ -4,7 +4,7 @@ import { BioHorizItem } from "./index";
 const sampleMixes = [
   {
     date: "10.21.19",
-    url: "https://www.youtube.com/watch?v=TYntD4ZEXWY",
+    url: "https://www.youtube.com/watch?v=TYntD4ZEXWY?t=0",
     name: "BLASTOYZ @ Transmission Prague 2019",
     artist: "BLASTOYZ",
     img:
@@ -13,7 +13,7 @@ const sampleMixes = [
   },
   {
     date: "04.28.2016",
-    url: "https://www.youtube.com/watch?v=Ae6JTalX8qg",
+    url: "https://www.youtube.com/watch?v=Ae6JTalX8qg?t=0",
     name: "sleepmakeswaves on Audiotree (Live)",
     artist: "sleepmakeswaves",
     img:
@@ -22,7 +22,7 @@ const sampleMixes = [
   },
   {
     date: "03.28.2020",
-    url: "https://www.youtube.com/watch?v=ozpzTdcZOkQ",
+    url: "https://www.youtube.com/watch?v=ozpzTdcZOkQ?t=0",
     name: "Countdown Virtual Rave-A-Thon",
     artist: "DJ Soda",
     img:
@@ -34,11 +34,23 @@ const sampleMixes = [
 function BioMixList(props) {
   return (
     <div className="columns is-vcentered is-multiline bio-mixes">
-      <div className="column is-5-desktop is-12">
+      <div className="column is-12">
         <p className="title is-size-3-desktop is-size-5-touch">
           Mixes by RowdyRobo
         </p>
       </div>
+      {/* SINGLE MIXES LIST */}
+      {sampleMixes.map(mix => (
+        <BioHorizItem
+          key={mix.name}
+          date={mix.date}
+          url={mix.url}
+          name={mix.name}
+          artist={mix.artist}
+          img={mix.img}
+          tags={mix.tags}
+        />
+      ))}
       {/* PAGINATION -- POSITION SUBJECT TO CHANGE*/}
       <div className="column is-7-desktop is-12 is-hidden-touch">
         <nav
@@ -134,18 +146,6 @@ function BioMixList(props) {
           </ul>
         </nav>
       </div>
-      {/* SINGLE MIXES LIST */}
-      {sampleMixes.map(mix => (
-        <BioHorizItem
-          key={mix.name}
-          date={mix.date}
-          url={mix.url}
-          name={mix.name}
-          artist={mix.artist}
-          img={mix.img}
-          tags={mix.tags}
-        />
-      ))}
     </div>
   );
 }

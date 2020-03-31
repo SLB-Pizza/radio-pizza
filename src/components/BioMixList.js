@@ -34,28 +34,15 @@ const sampleMixes = [
 function BioMixList(props) {
   return (
     <div className="columns is-vcentered is-multiline bio-mixes">
-      <div className="column is-12">
-        <p className="title is-size-2-desktop is-size-4-touch has-text-centered">
+      <div className="column is-5-desktop is-12">
+        <p className="title is-size-3-desktop is-size-5-touch">
           Mixes by RowdyRobo
         </p>
-        <p className="subtitle is-size-4-desktop is-size-6-touch has-text-centered">
-          TODO: Port BioSingleMix code to all HomeContent sections
-        </p>
       </div>
-      {sampleMixes.map(mix => (
-        <BioHorizItem
-          key={mix.name}
-          date={mix.date}
-          url={mix.url}
-          name={mix.name}
-          artist={mix.artist}
-          img={mix.img}
-          tags={mix.tags}
-        />
-      ))}
-      <div className="column is-12 is-hidden-touch">
+      {/* PAGINATION */}
+      <div className="column is-7-desktop is-12 is-hidden-touch">
         <nav
-          className="pagination is-centered"
+          className="pagination has-background-light"
           role="navigation"
           aria-label="pagination"
         >
@@ -147,6 +134,18 @@ function BioMixList(props) {
           </ul>
         </nav>
       </div>
+      {/* SINGLE MIXES LIST */}
+      {sampleMixes.map(mix => (
+        <BioHorizItem
+          key={mix.name}
+          date={mix.date}
+          url={mix.url}
+          name={mix.name}
+          artist={mix.artist}
+          img={mix.img}
+          tags={mix.tags}
+        />
+      ))}
     </div>
   );
 }

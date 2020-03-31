@@ -7,7 +7,7 @@
   background-image: url(https://source.unsplash.com/1920x1080/weekly?stars);
   background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: scroll;
   background-size: cover;
 
   .image-diffuser {
@@ -43,31 +43,86 @@
 //==================================
 // <BioSingleMix />
 //==================================
-.resident-mix {
-  border: 0.125rem solid white;
-  padding: 0.25rem;
-  background-color: black;
+// .resident-mix {
+//   border: 0.125rem solid white;
+//   padding: 0.25rem;
+//   background-color: black;
 
-  margin: 0.5rem;
+//   margin: 0.5rem;
+//   transition: ease-in-out 0.25s;
+
+//   .bio-mix-image {
+//     background-image: url(https://source.unsplash.com/1080x1080/weekly?nature);
+//     background-position: center center;
+//     background-repeat: no-repeat;
+//     background-attachment: scroll;
+//     background-size: cover;
+
+//     .play-btn-diffuser {
+//       padding: 25%;
+//       display: flex;
+//       justify-content: center;
+//       transition: ease-in-out 0.25s;
+
+//       span {
+//         color: transparent;
+//         transition: ease-in-out 0.25s;
+//       }
+//     }
+//   }
+
+//   &:hover {
+//     margin: 0;
+//     box-shadow: 10px 8px 5px black;
+
+//     .play-btn-diffuser {
+//       padding: 25%;
+//       display: flex;
+//       justify-content: center;
+//       background-color: rgba($color: black, $alpha: 0.75);
+
+//       span {
+//         color: white;
+//         &:active {
+//           color: $primary;
+//         }
+//       }
+//     }
+//   }
+
+//   .item-content {
+//     padding: 0.5rem;
+
+//     .content-date {
+//       margin-bottom: 0;
+//       padding-bottom: 0;
+//     }
+//     .title {
+//       margin-top: 0;
+//       padding-top: 0;
+//     }
+//   }
+// }
+
+//==================================
+// <BioHorizItem />
+//==================================
+.bio-single-mix {
+  min-height: 12.5rem;
+  margin: 0.25rem;
+  background-color: #243524;
+  border: 0.25rem solid white;
   transition: ease-in-out 0.25s;
 
-  .bio-mix-image {
-    background-image: url(https://source.unsplash.com/1080x1080/weekly?nature);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
+  .play-btn-diffuser {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: ease-in-out 0.25s;
 
-    .play-btn-diffuser {
-      padding: 25%;
-      display: flex;
-      justify-content: center;
+    span {
+      color: transparent;
       transition: ease-in-out 0.25s;
-
-      span {
-        color: transparent;
-        transition: ease-in-out 0.25s;
-      }
     }
   }
 
@@ -76,7 +131,6 @@
     box-shadow: 10px 8px 5px black;
 
     .play-btn-diffuser {
-      padding: 25%;
       display: flex;
       justify-content: center;
       background-color: rgba($color: black, $alpha: 0.75);
@@ -92,78 +146,11 @@
 
   .item-content {
     padding: 0.5rem;
-
-    .content-date {
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-    .title {
-      margin-top: 0;
-      padding-top: 0;
-    }
-  }
-}
-
-//==================================
-// <BioHorizItem />
-//==================================
-.bio-single-mix {
-  height: 20rem;
-  padding: 0.125rem;
-  margin: 0.5rem;
-  background-color: black;
-  border: 0.125rem solid white;
-
-  transition: ease-in-out 0.25s;
-
-  .bio-mix-image {
-    // background-image: url(https://source.unsplash.com/1080x1080/weekly?nature);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
-
-    .play-btn-diffuser {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: ease-in-out 0.25s;
-
-      span {
-        color: transparent;
-        transition: ease-in-out 0.25s;
-      }
-    }
-  }
-
-  &:hover {
-    margin: 0;
-    box-shadow: 10px 8px 5px black;
-
-    .play-btn-diffuser {
-      display: flex;
-      justify-content: center;
-      background-color: rgba($color: black, $alpha: 0.75);
-
-      span {
-        color: white;
-        &:active {
-          color: $primary;
-        }
-      }
-    }
-  }
-
-  .item-content {
-    padding: 0.25rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
     p {
-      flex: 1;
-    }
-    div {
       flex: 1;
     }
     .content-date {

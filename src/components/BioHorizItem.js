@@ -1,15 +1,35 @@
-import React from "react";
-// import {
-//   GlobalDispatchContext,
-//   GlobalStateContext
-// } from "../context/GlobalContextProvider";
-// const dispatch = useContext(GlobalDispatchContext);
-// const state = useContext(GlobalStateContext);
+import React, { useContext } from "react";
+import { GlobalDispatchContext } from "../context/GlobalContextProvider";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlayCircle } from "@fortawesome/free-solid-svg-icons";
 
 function BioHorizItem(props) {
+  const dispatch = useContext(GlobalDispatchContext);
+
+  /**
+   * @function playYTSource - test function that takes in props from BioMixList and creates active YT audio sources
+   * @param {string} url - the YT audio url
+   * @param {string} title - title of the YT audio
+   */
+  const playYTSource = (url, title) => {
+    return (
+      <FontAwesomeIcon
+        icon={faPlayCircle}
+        size="5x"
+        onClick={() =>
+          dispatch({
+            type: "CHANGE_URL",
+            payload: {
+              url: url,
+              title: title
+            }
+          })
+        }
+      />
+    );
+  };
+
   return (
     <div className="column is-6-tablet is-4-desktop">
       <div className="columns is-mobile is-multiline bio-single-mix">
@@ -17,9 +37,7 @@ function BioHorizItem(props) {
           <figure className="image is-1by1">
             <img src={props.img} alt="name" />
             <div className="play-btn-diffuser is-overlay">
-              <span className="">
-                <FontAwesomeIcon icon={faPlayCircle} size="5x" />
-              </span>
+              <span className="">{playYTSource(props.url, props.name)}</span>
             </div>
           </figure>
         </div>

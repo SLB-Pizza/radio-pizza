@@ -1,5 +1,5 @@
 import React from "react";
-import { BioSingleMix, BioHorizItem } from "./index";
+import { BioHorizItem } from "./index";
 
 const sampleMixes = [
   {
@@ -39,7 +39,7 @@ function BioMixList(props) {
           Mixes by RowdyRobo
         </p>
       </div>
-      {/* PAGINATION */}
+      {/* PAGINATION -- POSITION SUBJECT TO CHANGE*/}
       <div className="column is-7-desktop is-12 is-hidden-touch">
         <nav
           className="pagination has-background-light"

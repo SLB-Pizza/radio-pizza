@@ -77,3 +77,9 @@ export { default as AboutPage } from "./AboutPage";
 export { default as BioImageBlurb } from "./BioImageBlurb";
 export { default as BioMixList } from "./BioMixList";
 export { default as BioSingleMix } from "./BioSingleMix";
+export { default as BioHorizItem } from "./BioHorizItem";
+
+/**
+ * Test stuff
+ */
+export { default as InProgress } from "./InProgress";

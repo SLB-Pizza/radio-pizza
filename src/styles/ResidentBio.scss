@@ -90,7 +90,80 @@
     }
   }
 
-  .mix-content {
+  .item-content {
     padding: 0.5rem;
+
+    .content-date {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .title {
+      margin-top: 0;
+      padding-top: 0;
+    }
+  }
+}
+
+//==================================
+// <BioHorizItem />
+//==================================
+.bio-single-mix {
+  border: 0.125rem solid white;
+  padding: 0.25rem;
+  background-color: black;
+
+  margin: 0.5rem;
+  transition: ease-in-out 0.25s;
+
+  .bio-mix-image {
+    background-image: url(https://source.unsplash.com/1080x1080/weekly?nature);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+
+    .play-btn-diffuser {
+      padding: 25%;
+      display: flex;
+      justify-content: center;
+      transition: ease-in-out 0.25s;
+
+      span {
+        color: transparent;
+        transition: ease-in-out 0.25s;
+      }
+    }
+  }
+
+  &:hover {
+    margin: 0;
+    box-shadow: 10px 8px 5px black;
+
+    .play-btn-diffuser {
+      padding: 25%;
+      display: flex;
+      justify-content: center;
+      background-color: rgba($color: black, $alpha: 0.75);
+
+      span {
+        color: white;
+        &:active {
+          color: $primary;
+        }
+      }
+    }
+  }
+
+  .item-content {
+    padding: 0.5rem;
+
+    .content-date {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .title {
+      margin-top: 0;
+      padding-top: 0;
+    }
   }
 }

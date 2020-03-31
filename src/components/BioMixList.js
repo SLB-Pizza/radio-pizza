@@ -1,5 +1,5 @@
 import React from "react";
-import { BioSingleMix } from "./index";
+import { BioSingleMix, BioHorizItem } from "./index";
 
 function BioMixList(props) {
   return (
@@ -8,11 +8,14 @@ function BioMixList(props) {
         <p className="title is-size-2-desktop is-size-4-touch has-text-centered">
           Mixes by RowdyRobo
         </p>
+        <p className="subtitle is-size-4-desktop is-size-6-touch has-text-centered">
+          TODO: Port BioSingleMix code to all HomeContent sections
+        </p>
       </div>
-      <BioSingleMix />
-      <BioSingleMix />
-      <BioSingleMix />
-      <BioSingleMix />
+      <BioHorizItem />
+      <BioHorizItem />
+      <BioHorizItem />
+      <BioHorizItem />
 
       <div className="column is-12 is-hidden-touch">
         <nav

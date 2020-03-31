@@ -2,13 +2,13 @@ import React from "react";
 
 function BioImageBlurb(props) {
   return (
-    <div className="columns is-mobile is-vcentered">
-      <div className="column is-half-mobile is-one-quarter-tablet is-3-desktop">
+    <div className="columns is-vcentered">
+      <div className="column is-one-quarter-tablet is-3-desktop">
         <figure className="image is-1by1">
           <img src="https://robohash.org/4H1.png?set=set1" alt="Rowdy Robo" />
         </figure>
       </div>
-      <div className="column is-half-mobile is-three-quarters-tablet is-9-desktop">
+      <div className="column is-three-quarters-tablet is-9-desktop">
         <p className="title is-size-1-desktop is-size-3-touch ">RowdyRobo</p>
         <p className="subtitle is-size-3-desktop is-size-5-touch">
           Homebuilt MixMaster Droid rev.9001

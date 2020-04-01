@@ -9,6 +9,7 @@ function BioHorizItem(props) {
 
   /**
    * @function playYTSource - function that takes in props from BioMixList and creates active YT audio sources
+   * @returns {jsx} A play icon that onClick dispatches the CHANGE_URL action, playing the audio source through RadioPlayer.js
    * @param {string} url - the YT audio url
    * @param {string} title - title of the YT audio
    */
@@ -30,11 +31,14 @@ function BioHorizItem(props) {
     );
   };
 
+  /**
+   * imageAltText for accessibility purposes
+   */
   const imageAltText = `image - ${props.name} by ${props.artist}`;
 
   return (
-    <div className="column is-12-touch is-6-tablet is-4-fullhd">
-      <div className="columns is-vcentered is-multiline is-mobile bio-single-mix">
+    <div className="column is-12-touch is-6-tablet is-4-fullhd bio-single-mix">
+      <div className="columns is-vcentered is-multiline is-mobile bio-mix-container">
         <div className="column is-two-fifths-tablet is-12-mobile">
           <figure className="image is-1by1">
             <img src={props.img} alt={imageAltText} />
@@ -52,7 +56,7 @@ function BioHorizItem(props) {
           </p>
           <div className="tags is-hidden-mobile">
             {props.tags.map(tag => (
-              <span key={tag} className="tag is-link is-inverted">
+              <span key={tag} className="tag is-black">
                 {tag}
               </span>
             ))}
@@ -60,7 +64,7 @@ function BioHorizItem(props) {
         </div>
         <div className="column is-12 is-hidden-tablet tags">
           {props.tags.map(tag => (
-            <span key={tag} className="tag is-link is-inverted">
+            <span key={tag} className="tag is-black">
               {tag}
             </span>
           ))}

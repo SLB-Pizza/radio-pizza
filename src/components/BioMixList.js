@@ -33,7 +33,23 @@ const sampleMixes = [
     name: "Final Fantasy XV - All Battle Themes",
     artist: "Yoko Shimamura",
     img: "../img/ffxv.jpg",
-    tags: ["Video Game", "Soundtrack", "Orchestral"]
+    tags: ["Video Game", "Soundtrack", "Compilation", "Orchestral"]
+  },
+  {
+    date: "02.02.2020",
+    url: "https://youtu.be/5qap5aO4i9A",
+    name: "lofi hip hop radio - beats to relax/study to",
+    artist: "ChilledCow",
+    img: "../img/lo-fi.jpg",
+    tags: ["lo-fi", "Hip-Hop", "Ambient", "Instrumental"]
+  },
+  {
+    date: "04.01.2020",
+    url: "https://youtu.be/PiLCHmyAgEU?t=0",
+    name: "Liquicity Yearmix 2019",
+    artist: "Various Artists",
+    img: "../img/liquicity-2019.jpg",
+    tags: ["Liquid D&B", "Uplifting", "Compilation", "Instrumental"]
   }
 ];
 
@@ -61,101 +77,6 @@ function BioMixList(props) {
           tags={mix.tags}
         />
       ))}
-      {/* PAGINATION -- POSITION SUBJECT TO CHANGE*/}
-      <div className="column is-7-desktop is-12 is-hidden-touch">
-        <nav
-          className="pagination has-background-light"
-          role="navigation"
-          aria-label="pagination"
-        >
-          <a className="pagination-previous">Previous</a>
-          <a className="pagination-next">Next page</a>
-          <ul className="pagination-list">
-            <li>
-              <a className="pagination-link" aria-label="Goto page 1">
-                1
-              </a>
-            </li>
-            <li>
-              <span className="pagination-ellipsis">&hellip;</span>
-            </li>
-            <li>
-              <a className="pagination-link" aria-label="Goto page 45">
-                45
-              </a>
-            </li>
-            <li>
-              <a
-                className="pagination-link is-current"
-                aria-label="Page 46"
-                aria-current="page"
-              >
-                46
-              </a>
-            </li>
-            <li>
-              <a className="pagination-link" aria-label="Goto page 47">
-                47
-              </a>
-            </li>
-            <li>
-              <span className="pagination-ellipsis">&hellip;</span>
-            </li>
-            <li>
-              <a className="pagination-link" aria-label="Goto page 86">
-                86
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <div className="column is-12 is-hidden-desktop">
-        <nav
-          className="pagination is-centered"
-          role="navigation"
-          aria-label="pagination"
-        >
-          <a className="pagination-previous">Previous</a>
-          <a className="pagination-next">Next page</a>
-          <ul className="pagination-list">
-            <li>
-              <a className="pagination-link" aria-label="Goto page 1">
-                1
-              </a>
-            </li>
-            <li>
-              <span className="pagination-ellipsis">&hellip;</span>
-            </li>
-            <li>
-              <a className="pagination-link" aria-label="Goto page 45">
-                45
-              </a>
-            </li>
-            <li>
-              <a
-                className="pagination-link is-current"
-                aria-label="Page 46"
-                aria-current="page"
-              >
-                46
-              </a>
-            </li>
-            <li>
-              <a className="pagination-link" aria-label="Goto page 47">
-                47
-              </a>
-            </li>
-            <li>
-              <span className="pagination-ellipsis">&hellip;</span>
-            </li>
-            <li>
-              <a className="pagination-link" aria-label="Goto page 86">
-                86
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
     </div>
   );
 }

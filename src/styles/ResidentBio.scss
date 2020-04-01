@@ -109,6 +109,12 @@
 //==================================
 .bio-single-mix {
   @include desktop {
+    margin-bottom: 1rem;
+  }
+}
+
+.bio-mix-container {
+  @include desktop {
     min-height: 15rem;
   }
 
@@ -156,12 +162,15 @@
 
     .title {
       margin-bottom: 0.5rem;
-      @include touch {
-        margin-bottom: 0;
+      @include tablet {
+        margin-bottom: 1rem;
       }
     }
   }
   .tags {
     margin-top: 0;
+    .tag {
+      border: 1px solid #666666;
+    }
   }
 }

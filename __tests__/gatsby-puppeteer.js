@@ -187,13 +187,13 @@ const iPad = deviceList["iPad"];
 const kindleFireHDX = deviceList["Kindle Fire HDX"];
 
 iPhoneSE.description =
-  "an iPhone released in 2012 with a tiny screen - mobile (size <= 767px)";
+  "a 2012 iPhone with a tiny screen - mobile (size <= 767px)";
 iPhoneX.description = "a modern iPhone - mobile (size <= 767px)";
 p2XL.description = "a modern Android phone - mobile (size <= 767px)";
 iPhone6.description =
-  "the iPhone screen for the 6/7/8 - mobile (size <= 767px)";
+  "the screen for the iPhone 6/7/8 - mobile (size <= 767px)";
 iPhone6Plus.description =
-  "the iPhone screen from the Plus models 6/7/8 - mobile (size <= 767px)";
+  "the screen for the iPhone 6/7/8 Plus - mobile (size <= 767px)";
 iPad.description = "the most common tablet - tablet (768px <- size -> 1023px)";
 kindleFireHDX.description =
   "a common Android tablet - tablet (768px <- size -> 1023px)";

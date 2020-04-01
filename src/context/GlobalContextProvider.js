@@ -23,21 +23,21 @@ const initialState = {
 function reducer(state, action) {
   switch (action.type) {
     case "TOGGLE_PLAYING": {
-      console.log("state in TOGGLE_PLAYING CASE: \n", state);
       return {
         ...state,
         playing: !state.playing
       };
     }
     case "CHANGE_URL": {
+      // If a new audio source is selected while playing is NOT playing, set to play
       return {
         ...state,
         url: action.payload.url,
-        title: action.payload.title
+        title: action.payload.title,
+        playing: true
       };
     }
     case "TOGGLE_MUTE": {
-      console.log("state in TOGGLE_MUTE CASE: \n", state);
       return {
         ...state,
         muted: !state.muted
@@ -50,7 +50,6 @@ function reducer(state, action) {
 
 const GlobalContextProvider = ({ children }) => {
   const [state, dispatch] = React.useReducer(reducer, initialState);
-  // console.log('state in GlobalContextProvider wrap: ', state);
   return (
     <GlobalStateContext.Provider value={state}>
       <GlobalDispatchContext.Provider value={dispatch}>

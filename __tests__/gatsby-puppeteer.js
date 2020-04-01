@@ -1,7 +1,7 @@
 const chalk = require("chalk");
 const figlet = require("figlet");
 const inquirer = require("inquirer");
-const differenceInMilliseconds = require("date-fns/differenceInMilliseconds");
+// const differenceInMilliseconds = require("date-fns/differenceInMilliseconds");
 const puppeteer = require("puppeteer");
 const deviceList = puppeteer.devices;
 
@@ -182,7 +182,7 @@ p2XL.description = "a modern Android phone, mobile (up to 768px)";
 iPhone6.description = "the iPhone screen for the 6/7/8, mobile (up to 768px)";
 iPhone6Plus.description =
   "the iPhone screen from the Plus models 6/7/8, mobile (up to 768px)";
-iPad.description = "larger mobile-view, tablet (from 769px)";
+iPad.description = "larger mobile-view, mobile (up to 768px)";
 kindleFireHDX.description = "a common Android tablet, tablet (from 769px)";
 
 const allDevices = [
@@ -299,8 +299,8 @@ const navTimer = (start, finish) => {
     );
     console.log(chalk.white("Capturing your project in different devices.\n"));
 
+    // Ask the user questions
     if (promptUserQuestions) {
-      // Ask the user questions
       let answers = await inquirer.prompt(questions);
 
       // Kill the script if the settings were wrong
@@ -337,6 +337,7 @@ const navTimer = (start, finish) => {
         console.log(`------------------------------------------------------\n`)
       );
 
+      // Show the user whether or not script is in test mode
       if (takeShot) {
         console.log(
           chalk.bold.white(
@@ -363,20 +364,18 @@ const navTimer = (start, finish) => {
       console.log(chalk.cyan(`  ┣ Emulating ${device.name}...`));
       await page.emulate(device);
 
-      // Navigate to the pageURL.
+      // Navigate to the pageURL and print the load time.
       console.log(chalk.cyan(`  ┣ Navigating to ${pageURL}...`));
 
       let startNow = Date.now();
-      let startTime = new Date(startNow);
+
       await page.goto(`${pageURL}`, {
         waitUntil: ["load", "domcontentloaded", "networkidle2"]
       });
       let endNow = Date.now();
-      let endTime = new Date(endNow);
+
       console.log(
-        chalk.cyan(
-          `  ┣ Page loaded successfully in ${navTimer(startTime, endTime)}ms.`
-        )
+        chalk.cyan(`  ┣ Page loaded successfully in ${endNow - startNow}ms.`)
       );
 
       if (clickItem || scrollToSection) {

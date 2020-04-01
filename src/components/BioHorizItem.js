@@ -30,28 +30,40 @@ function BioHorizItem(props) {
     );
   };
 
+  const imageAltText = `image - ${props.name} by ${props.artist}`;
+
   return (
-    <div className="column is-12-touch is-4-desktop">
-      <div className="columns is-mobile is-multiline bio-single-mix">
-        <div className="column is-4-desktop is-two-fifths-tablet is-12-mobile">
+    <div className="column is-12-touch is-6-tablet is-4-fullhd">
+      <div className="columns is-vcentered is-multiline is-mobile bio-single-mix">
+        <div className="column is-two-fifths-tablet is-12-mobile">
           <figure className="image is-1by1">
-            <img src={props.img} alt="name" />
+            <img src={props.img} alt={imageAltText} />
             <div className="play-btn-diffuser is-overlay">
-              <span>{playYTSource(props.url, props.name, "5x")}</span>
+              <span>{playYTSource(props.url, props.name, "7x")}</span>
             </div>
           </figure>
         </div>
-        <div className="column is-8-desktop is-three-fifths-tablet is-12-mobile item-content">
+        <div className="column is-three-fifths-tablet is-12-mobile item-content">
           <p className="subtitle is-size-7-mobile is-size-6-tablet">
             {props.date} | {props.artist}
           </p>
           <p className="title is-size-5-mobile is-size-4-tablet">
             {props.name}
           </p>
-          <p className="is-size-7 has-text-white">{props.tags.join(" - ")}</p>
-          <p className="is-size-7-mobile is-size-6-tablet is-12-mobile">
-            Source: <a href={props.url}>Youtube</a>
-          </p>
+          <div className="tags is-hidden-mobile">
+            {props.tags.map(tag => (
+              <span key={tag} className="tag is-link is-inverted">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+        <div className="column is-12 is-hidden-tablet tags">
+          {props.tags.map(tag => (
+            <span key={tag} className="tag is-link is-inverted">
+              {tag}
+            </span>
+          ))}
         </div>
       </div>
     </div>

@@ -108,7 +108,10 @@
 // <BioHorizItem />
 //==================================
 .bio-single-mix {
-  min-height: 5rem;
+  @include desktop {
+    min-height: 15rem;
+  }
+
   margin: 0.25rem;
   background-color: black;
   border: 0.25rem solid white;
@@ -146,13 +149,19 @@
   }
 
   .item-content {
-    padding: 0.5rem;
-    @include mobile {
-      padding: 1rem;
+    padding: 0 0.75rem 0;
+    @include fullhd {
+      padding: 0.75rem;
     }
+
     .title {
-      margin-top: 0;
-      padding-top: 0;
+      margin-bottom: 0.5rem;
+      @include touch {
+        margin-bottom: 0;
+      }
     }
+  }
+  .tags {
+    margin-top: 0;
   }
 }

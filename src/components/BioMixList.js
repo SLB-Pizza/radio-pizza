@@ -7,8 +7,8 @@ const sampleMixes = [
     url: "https://www.youtube.com/watch?v=TYntD4ZEXWY?t=0",
     name: "BLASTOYZ @ Transmission Prague 2019",
     artist: "BLASTOYZ",
-    img:
-      "https://i.ytimg.com/an_webp/TYntD4ZEXWY/mqdefault_6s.webp?du=3000&sqp=CLC1i_QF&rs=AOn4CLD-MhbcilfHfa6jL1j_vRo9tgwugg",
+    img: "../img/blastoyz.png",
+
     tags: ["Electro", "Complextro", "Trance", "Psytrance", "Live Set"]
   },
   {
@@ -16,8 +16,7 @@ const sampleMixes = [
     url: "https://www.youtube.com/watch?v=Ae6JTalX8qg?t=0",
     name: "sleepmakeswaves on Audiotree (Live)",
     artist: "sleepmakeswaves",
-    img:
-      "https://i.ytimg.com/an_webp/Ae6JTalX8qg/mqdefault_6s.webp?du=3000&sqp=CPC2i_QF&rs=AOn4CLDB4BsZv_pGHcVY_cs93pt3rZp4yw",
+    img: "../img/sleepmakeswaves.jpg",
     tags: ["Post Rock", "Prog Rock", "Instrumental Rock", "Live Set"]
   },
   {
@@ -25,8 +24,15 @@ const sampleMixes = [
     url: "https://www.youtube.com/watch?v=ozpzTdcZOkQ?t=0",
     name: "Countdown Virtual Rave-A-Thon",
     artist: "DJ Soda",
-    img:
-      "https://i.ytimg.com/an_webp/ozpzTdcZOkQ/mqdefault_6s.webp?du=3000&sqp=CNili_QF&rs=AOn4CLDqHLKBUvX4QLM2Hxj9pVkItanuiA",
+    img: "../img/dj-soda.jpg",
+    tags: ["Electronic", "Dubstep", "UK Hardcore", "Live Set"]
+  },
+  {
+    date: "03.28.2020",
+    url: "https://www.youtube.com/watch?v=ozpzTdcZOkQ?t=0",
+    name: "Countdown Virtual Rave-A-Thon",
+    artist: "DJ Soda",
+    img: "../img/dj-soda.jpg",
     tags: ["Electronic", "Dubstep", "UK Hardcore", "Live Set"]
   }
 ];
@@ -35,8 +41,12 @@ function BioMixList(props) {
   return (
     <div className="columns is-vcentered is-multiline bio-mixes">
       <div className="column is-12">
-        <p className="title is-size-3-desktop is-size-5-touch">
+        <p className="title is-size-2-desktop is-size-4-touch has-text-centered">
           Mixes by RowdyRobo
+        </p>
+        <p className="subtitle is-size-4-desktop is-size-6-touch has-text-centered">
+          NB: These are test mixes. onHover mix play buttons are active; tags
+          are placeholder.
         </p>
       </div>
       {/* SINGLE MIXES LIST */}

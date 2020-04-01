@@ -15,12 +15,6 @@
   //==================================
   // <RadioBar />
   //==================================
-
-  // <ReactPlayer />
-  .cloud-player {
-    max-height: 3.5rem;
-  }
-
   .radio-bar {
     flex: 2;
     padding-top: 0.5rem;
@@ -31,6 +25,11 @@
     #radioShowDetails {
       display: flex;
       flex-direction: column;
+      overflow-x: hidden;
+
+      p {
+        overflow-x: hidden;
+      }
 
       #radioShowTime {
         flex: 1;
@@ -40,6 +39,14 @@
       }
     }
   }
+
+  //==================================
+  // <ReactPlayer />
+  //==================================
+  .cloud-player {
+    max-height: 3.5rem;
+  }
+
   //==================================
   // <ScheduleBar />
   //==================================

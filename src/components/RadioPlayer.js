@@ -18,7 +18,10 @@ function RadioPlayer(props) {
    */
   const playerStyle = {
     position: "absolute",
-    top: "-175px"
+    top: "-175px",
+    width: "1px",
+    height: "1px",
+    margin: "-1px"
   };
 
   const dispatch = useContext(GlobalDispatchContext);
@@ -96,7 +99,6 @@ function RadioPlayer(props) {
       </div>
       <div className="column" id="radioShowDetails">
         <div id="radioShowTime">
-          {/* <p className="is-size-7 has-text-light">{props.status}</p> */}
           <p className="is-size-7 has-text-light">4:00P - 6:00P</p>
         </div>
         <div id="radioShowName">
@@ -116,7 +118,7 @@ function RadioPlayer(props) {
         muted={globalState.muted}
         onPlay={handlePlay}
         onPause={handlePause}
-        onError={e => console.log("onError\n", e)}
+        onError={e => console.log("ReactPlayer has an issue.\n", e)}
         // onReady={() => console.log("onReady")}
         // onStart={() => console.log("onStart")}
         // onEnablePIP={this.handleEnablePIP}

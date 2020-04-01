@@ -1,7 +1,6 @@
 const chalk = require("chalk");
 const figlet = require("figlet");
 const inquirer = require("inquirer");
-// const differenceInMilliseconds = require("date-fns/differenceInMilliseconds");
 const puppeteer = require("puppeteer");
 const deviceList = puppeteer.devices;
 
@@ -44,8 +43,6 @@ const scrollToSection = false;
  * @param {string} guide - ASCII guide of bulma breakpoints; used in user prompt
  * @param {object[]} questions - array of question objects displayed in user prompt
  * @param {object[]} customDevices - array of device objects to emulate in script
- * @param {iPad} iPad - device pulled directly from puppeteer's device library
- * @param {iPhoneX} iPhoneX - device pulled directly from puppeteer's device library
  * @param {object[]} allDevices - complete array of devices to capture screenshots of
  */
 const guide = chalk.white(`
@@ -142,8 +139,22 @@ const questions = [
 
 const customDevices = [
   {
+    name: "Desktop",
+    description:
+      "a narrow monitor or wide tablet, desktop (1024px <- size -> 1215px)",
+    viewport: {
+      width: 1024,
+      height: 768,
+      deviceScaleFactor: 1,
+      isMobile: false,
+      hasTouch: false,
+      isLandscape: true
+    }
+  },
+  {
     name: "Widescreen",
-    description: "a low-res laptop screen, widescreen (from 1216px)",
+    description:
+      "a low-res laptop screen, widescreen (1216px <- size -> 1407px)",
     viewport: {
       width: 1280,
       height: 800,
@@ -155,7 +166,7 @@ const customDevices = [
   },
   {
     name: "1080p",
-    description: "a 1080p monitor, fullhd (from 1408px)",
+    description: "a typical 1080p FHD monitor, fullhd (size >= 1408px)",
     viewport: {
       width: 1920,
       height: 1080,
@@ -176,14 +187,16 @@ const iPad = deviceList["iPad"];
 const kindleFireHDX = deviceList["Kindle Fire HDX"];
 
 iPhoneSE.description =
-  "an iPhone released in 2012, TINY screen, mobile (up to 768px)";
-iPhoneX.description = "a modern iPhone, mobile (up to 768px)";
-p2XL.description = "a modern Android phone, mobile (up to 768px)";
-iPhone6.description = "the iPhone screen for the 6/7/8, mobile (up to 768px)";
+  "an iPhone released in 2012 with a tiny screen - mobile (size <= 767px)";
+iPhoneX.description = "a modern iPhone - mobile (size <= 767px)";
+p2XL.description = "a modern Android phone - mobile (size <= 767px)";
+iPhone6.description =
+  "the iPhone screen for the 6/7/8 - mobile (size <= 767px)";
 iPhone6Plus.description =
-  "the iPhone screen from the Plus models 6/7/8, mobile (up to 768px)";
-iPad.description = "larger mobile-view, mobile (up to 768px)";
-kindleFireHDX.description = "a common Android tablet, tablet (from 769px)";
+  "the iPhone screen from the Plus models 6/7/8 - mobile (size <= 767px)";
+iPad.description = "the most common tablet - tablet (768px <- size -> 1023px)";
+kindleFireHDX.description =
+  "a common Android tablet - tablet (768px <- size -> 1023px)";
 
 const allDevices = [
   iPhoneSE,
@@ -366,14 +379,12 @@ const navTimer = (start, finish) => {
 
       // Navigate to the pageURL and print the load time.
       console.log(chalk.cyan(`  ┣ Navigating to ${pageURL}...`));
-
       let startNow = Date.now();
-
       await page.goto(`${pageURL}`, {
-        waitUntil: ["load", "domcontentloaded", "networkidle2"]
+        waitUntil: ["load", "domcontentloaded", "networkidle2"],
+        timeout: 60000
       });
       let endNow = Date.now();
-
       console.log(
         chalk.cyan(`  ┣ Page loaded successfully in ${endNow - startNow}ms.`)
       );
@@ -417,7 +428,6 @@ const navTimer = (start, finish) => {
 
       // Success! Report back to the user.
       console.log(chalk.cyan(`  ┃`));
-
       console.log(
         chalk.green(
           `  ┣ 🖼️   ${device.name} (${device.viewport.width}x${device.viewport.height}) captured.`
@@ -428,7 +438,11 @@ const navTimer = (start, finish) => {
           `  ┗ 💾  Saved to '/screenshots/${pageRoute} ${pageVersion} | ${device.name} | ${time}.jpeg'\n`
         )
       );
+      // Close the current page - don't let them buildup or it'll slow down and timeout.
+      await page.close();
     }
+
+    // Summarize screenshot total
     console.log(
       chalk.inverse.green(
         `====== All ${count} screenshots captured successfully! ======`
@@ -442,10 +456,11 @@ const navTimer = (start, finish) => {
     // Check for errors with puppeteer errors...
     if (error instanceof puppeteer.errors.TimeoutError) {
       console.log(chalk.red(`  ┃`));
-      console.log(chalk.red(`  ┣ Operation timed out after 30s.`));
+      console.log(chalk.red(`  ┣ Operation timed out.`));
       console.log(
         chalk.red(
-          `  ┣ Try changing/removing 'waitUntil' conditions for 'page.goTo()'.`
+          `  ┣ Try changing/removing 'waitUntil' conditions for 'page.goTo()'.`,
+          `  ┣ Are you opening too many pages at once without closing them?`
         )
       );
       console.log(chalk.red(`  ┗ Error logs below. `));
@@ -461,6 +476,8 @@ const navTimer = (start, finish) => {
     }
     // ...then for other errors.
     else {
+      console.log(chalk.red(`  ┃`));
+      console.log(chalk.red(`  ┗ Something went wrong. Error logs below.`));
       console.log("\n", error);
       process.exit();
     }

@@ -4,7 +4,7 @@ import { BioHorizItem } from "./index";
 const sampleMixes = [
   {
     date: "10.21.19",
-    url: "https://www.youtube.com/watch?v=TYntD4ZEXWY?t=0",
+    url: "https://www.youtu.be/TYntD4ZEXWY?t=0",
     name: "BLASTOYZ @ Transmission Prague 2019",
     artist: "BLASTOYZ",
     img: "../img/blastoyz.png",
@@ -13,7 +13,7 @@ const sampleMixes = [
   },
   {
     date: "04.28.2016",
-    url: "https://www.youtube.com/watch?v=Ae6JTalX8qg?t=0",
+    url: "https://www.youtu.be/Ae6JTalX8qg?t=0",
     name: "sleepmakeswaves on Audiotree (Live)",
     artist: "sleepmakeswaves",
     img: "../img/sleepmakeswaves.jpg",
@@ -21,19 +21,19 @@ const sampleMixes = [
   },
   {
     date: "03.28.2020",
-    url: "https://www.youtube.com/watch?v=ozpzTdcZOkQ?t=0",
+    url: "https://www.youtu.be/ozpzTdcZOkQ?t=0",
     name: "Countdown Virtual Rave-A-Thon",
     artist: "DJ Soda",
     img: "../img/dj-soda.jpg",
     tags: ["Electronic", "Dubstep", "UK Hardcore", "Live Set"]
   },
   {
-    date: "03.28.2020",
-    url: "https://www.youtube.com/watch?v=ozpzTdcZOkQ?t=0",
-    name: "Countdown Virtual Rave-A-Thon",
-    artist: "DJ Soda",
-    img: "../img/dj-soda.jpg",
-    tags: ["Electronic", "Dubstep", "UK Hardcore", "Live Set"]
+    date: "12.21.2016",
+    url: "https://youtu.be/sLmzceCFE8Y?t=0",
+    name: "Final Fantasy XV - All Battle Themes",
+    artist: "Yoko Shimamura",
+    img: "../img/ffxv.jpg",
+    tags: ["Video Game", "Soundtrack", "Orchestral"]
   }
 ];
 
@@ -45,8 +45,8 @@ function BioMixList(props) {
           Mixes by RowdyRobo
         </p>
         <p className="subtitle is-size-4-desktop is-size-6-touch has-text-centered">
-          NB: These are test mixes. onHover mix play buttons are active; tags
-          are placeholder.
+          NB: These are test mixes. Hover (and touch) play buttons are active;
+          tags are placeholder.
         </p>
       </div>
       {/* SINGLE MIXES LIST */}

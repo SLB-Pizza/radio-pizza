@@ -57,7 +57,7 @@ export const IndexPageTemplate = ({
   const radioCoBtn = renderLoadButton(
     "https://streamer.radio.co/sa3c47c55b/listen",
     "Half Moon Radio",
-    "Radio.co Halfmoon Stream"
+    "Radio.co - Halfmoon"
   );
   const youtubeBtn = renderLoadButton(
     "https://youtu.be/yhCuCqJbOVE?t=1887",

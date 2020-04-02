@@ -1,15 +1,18 @@
-import React, { useContext, useRef, useState } from "react";
-import { findDOMNode } from "react-dom";
-import { hot } from "react-hot-loader";
-import ReactPlayer from "react-player";
+import React, { useContext, useRef, useState } from 'react';
+import { findDOMNode } from 'react-dom';
+import { hot } from 'react-hot-loader';
+import ReactPlayer from 'react-player';
 import {
   GlobalDispatchContext,
-  GlobalStateContext
-} from "../context/GlobalContextProvider";
-import axios from "axios";
+  GlobalStateContext,
+} from '../context/GlobalContextProvider';
+import axios from 'axios';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
+
+import Ticker from 'react-ticker';
+import PageVisibility from 'react-page-visibility';
 
 function RadioPlayer(props) {
   /**
@@ -17,11 +20,11 @@ function RadioPlayer(props) {
    * out of normal document flow and throwing it above the top of the page
    */
   const playerStyle = {
-    position: "absolute",
-    top: "-175px",
-    width: "1px",
-    height: "1px",
-    margin: "-1px"
+    position: 'absolute',
+    top: '-175px',
+    width: '1px',
+    height: '1px',
+    margin: '-1px',
   };
 
   const dispatch = useContext(GlobalDispatchContext);
@@ -39,12 +42,18 @@ function RadioPlayer(props) {
     loaded: 0,
     duration: 0,
     playbackRate: 1.0,
-    loop: true
+    loop: true,
   });
+
+  const [pageIsVisible, setPageIsVisible] = useState(true);
+
+  const handleVisibilityChange = isVisible => {
+    setPageIsVisible(isVisible);
+  };
 
   const handlePlayPause = async () => {
     await setLocalState({ ...localState, playing: !localState.playing });
-    await dispatch({ type: "TOGGLE_PLAYING" });
+    await dispatch({ type: 'TOGGLE_PLAYING' });
   };
   const handlePlay = async () => {
     await setLocalState({ ...localState, playing: true });
@@ -60,12 +69,12 @@ function RadioPlayer(props) {
       url: url,
       played: 0,
       loaded: 0,
-      pip: false
+      pip: false,
     });
   };
 
   const handleToggleMuted = async () => {
-    await dispatch({ type: "TOGGLE_MUTE" });
+    await dispatch({ type: 'TOGGLE_MUTE' });
   };
 
   const renderLoadButton = (url, label) => {
@@ -101,9 +110,24 @@ function RadioPlayer(props) {
         <div id="radioShowTime">
           <p className="is-size-7 has-text-light">4:00P - 6:00P</p>
         </div>
-        <div id="radioShowName">
-          <p className="is-size-6 has-text-light">{globalState.title}</p>
-        </div>
+
+        <PageVisibility onChange={handleVisibilityChange}>
+          {pageIsVisible && (
+            <Ticker mode="await">
+              {(globalState.title) => (
+                <>
+                  <div id="radioShowName">
+                    <p
+                      className="is-size-6 has-text-light"
+                      style={{ whiteSpace: 'nowrap' }}>
+                      {globalState.title}
+                    </p>
+                  </div>
+                </>
+              )}
+            </Ticker>
+          )}
+        </PageVisibility>
       </div>
       <ReactPlayer
         className="cloud-player"
@@ -118,7 +142,7 @@ function RadioPlayer(props) {
         muted={globalState.muted}
         onPlay={handlePlay}
         onPause={handlePause}
-        onError={e => console.log("ReactPlayer has an issue.\n", e)}
+        onError={e => console.log('ReactPlayer has an issue.\n', e)}
         // onReady={() => console.log("onReady")}
         // onStart={() => console.log("onStart")}
         // onEnablePIP={this.handleEnablePIP}

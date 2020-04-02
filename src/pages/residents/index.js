@@ -44,14 +44,30 @@ function ResidentsIndexPage() {
               Halfmoon Residents
             </p>
           </div>
-          <div className="column is-half">
-            <p className="title is-size-3-desktop is-size-5-touch has-text-centered">
-              Current Residents
+          {/* <div className="column is-full">
+            <div class="tabs is-centered is-fullwidth is-boxed">
+              <ul>
+                <li class="is-active">
+                  <a href="#section">
+                    <span>Current Season</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#section">
+                    <span>Our Alumni</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div> */}
+          <div className="column is-half" id="current">
+            <p className="title is-size-4-desktop is-size-6-touch has-text-centered">
+              This Season
             </p>
           </div>
-          <div className="column is-half">
-            <p className="title is-size-3-desktop is-size-5-touch has-text-centered">
-              Halfmoon Alumni
+          <div className="column is-half" id="alumni">
+            <p className="title is-size-4-desktop is-size-6-touch has-text-centered">
+              Our Alumni
             </p>
           </div>
         </div>

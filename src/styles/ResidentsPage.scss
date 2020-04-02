@@ -10,7 +10,7 @@
   background-size: cover;
 
   .image-diffuser {
-    background-color: rgba($color: black, $alpha: 0.75);
+    background-color: rgba($color: black, $alpha: 0.5);
     height: 100%;
   }
 
@@ -25,24 +25,30 @@
     }
   }
 
-  .alphabet {
-    height: calc(100vh - 10.5rem - 6rem);
-    overflow-y: auto;
-    background-color: rgba($color: pink, $alpha: 0.25);
-    padding: 0 0.25rem;
-    margin-bottom: 0;
+  .is-half {
+    background-color: black;
+    border: 0.125rem solid #999;
+    transition: 0.25s ease-in-out;
+
+    &:hover {
+      border: 0.125rem solid white;
+      background-color: #444;
+    }
+    &:active {
+      background-color: #888;
+    }
   }
 
-  .resident-box {
-    max-height: 10rem;
+  .single-resident {
+    min-height: 7.5rem;
+    // border: 1px dashed orange;
+    &:first-child {
+      margin-top: 2rem;
+    }
 
-    .single-resident {
-      border: 1px dashed orange;
-
-      .resident-image {
-        img {
-          border: 0.125rem solid white;
-        }
+    .resident-image {
+      img {
+        border: 0.125rem solid white;
       }
     }
   }

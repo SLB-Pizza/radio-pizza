@@ -5,7 +5,7 @@ function BioPagination(props) {
     <div className="columns">
       <div className="column is-hidden-touch">
         <nav
-          className="pagination has-background-light"
+          className="pagination has-background-black is-centered"
           role="navigation"
           aria-label="pagination"
         >
@@ -52,7 +52,7 @@ function BioPagination(props) {
       </div>
       <div className="column is-12 is-hidden-desktop">
         <nav
-          className="pagination is-centered"
+          className="pagination is-small has-background-black is-centered"
           role="navigation"
           aria-label="pagination"
         >

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 
-function SingleResident() {
+function SingleResident(props) {
   return (
     <div className="column is-4-desktop is-6-tablet is-12-mobile resident-box">
       <Link to="/bio">
@@ -20,7 +20,9 @@ function SingleResident() {
             </div>
           </div>
           <div className="column">
-            <p className="title is-size-3-desktop is-size-5-touch">RowdyRobo</p>
+            <p className="title is-size-3-desktop is-size-5-touch">
+              {props.name}
+            </p>
           </div>
         </div>
         {/*

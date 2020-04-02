@@ -38,7 +38,7 @@ function ResidentsIndexPage() {
   return (
     <div className="residents-page">
       <div className="container is-fluid image-diffuser">
-        <div className="columns is-mobile is-multiline">
+        <div className="columns is-mobile is-multiline resident-selection">
           <div className="column is-full">
             <p className="title is-size-1-desktop is-size-3-touch">
               Halfmoon Residents
@@ -74,28 +74,28 @@ function ResidentsIndexPage() {
         {/*
         Desktop
         */}
-        <div className="columns is-multiline is-mobile">
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
+        <div className="columns is-multiline is-mobile all-residents">
+          <SingleResident name={"RowdyRobo"} />
+          <SingleResident name={"RowdyRobo"} />
+          <SingleResident name={"RowdyRobo"} />
+          <SingleResident name={"RowdyRobo"} />
+          <SingleResident name={"RowdyRobo"} />
+          <SingleResident name={"RowdyRobo"} />
+          <SingleResident name={"RowdyRobo"} />
+          <SingleResident name={"RowdyRobo"} />
+          <SingleResident name={"RowdyRobo"} />
+          <SingleResident name={"RowdyRobo"} />
+          <SingleResident name={"RowdyRobo"} />
+          <SingleResident name={"RowdyRobo"} />
+          <SingleResident name={"RowdyRobo"} />
+          <SingleResident name={"RowdyRobo"} />
+          <SingleResident name={"RowdyRobo"} />
+          <SingleResident name={"RowdyRobo"} />
+          <SingleResident name={"RowdyRobo"} />
+          <SingleResident name={"RowdyRobo"} />
+          <SingleResident name={"RowdyRobo"} />
+          <SingleResident name={"RowdyRobo"} />
+          <SingleResident name={"RowdyRobo"} />
         </div>
       </div>
     </div>

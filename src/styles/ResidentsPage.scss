@@ -25,6 +25,10 @@
     }
   }
 
+  .resident-selection {
+    margin-bottom: 2rem;
+  }
+
   .is-half {
     background-color: black;
     border: 0.125rem solid #999;
@@ -39,11 +43,25 @@
     }
   }
 
+  .resident-box {
+    @include mobile {
+      &:last-child {
+        margin-bottom: 3rem;
+      }
+    }
+  }
+
   .single-resident {
-    min-height: 7.5rem;
-    // border: 1px dashed orange;
-    &:first-child {
-      margin-top: 2rem;
+    @include tablet {
+      margin-bottom: 3rem;
+    }
+
+    border: 0.125rem solid transparent;
+    transition: 0.125s ease-in-out;
+
+    &:hover {
+      border: 0.125rem solid white;
+      background-color: rgba($color: #000000, $alpha: 0.5);
     }
 
     .resident-image {

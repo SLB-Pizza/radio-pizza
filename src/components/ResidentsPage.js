@@ -37,17 +37,27 @@ function ResidentsPage() {
   return (
     <div className="residents-page">
       <div className="container is-fluid image-diffuser">
-        <div className="columns">
-          <div className="column">
+        <div className="columns is-mobile is-multiline">
+          <div className="column is-full">
             <p className="title is-size-1-desktop is-size-3-touch">
               Halfmoon Residents
+            </p>
+          </div>
+          <div className="column is-half">
+            <p className="title is-size-3-desktop is-size-5-touch has-text-centered">
+              Current Residents
+            </p>
+          </div>
+          <div className="column is-half">
+            <p className="title is-size-3-desktop is-size-5-touch has-text-centered">
+              Halfmoon Alumni
             </p>
           </div>
         </div>
         {/*
         Desktop
         */}
-        <div className="columns is-multiline is-hidden-touch">
+        <div className="columns is-multiline is-mobile">
           <SingleResident />
           <SingleResident />
           <SingleResident />
@@ -64,21 +74,6 @@ function ResidentsPage() {
           <SingleResident />
           <SingleResident />
           <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-          <SingleResident />
-        </div>
-        {/*
-        Mobile
-        */}
-        <div className="columns is-mobile is-multiline is-hidden-desktop">
-          <div className="column is-2-touch alphabet">
-            {alphabet.map(letter => (
-              <ResidentsAlpha key={letter} letter={letter} />
-            ))}
-          </div>
           <SingleResident />
           <SingleResident />
           <SingleResident />

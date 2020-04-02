@@ -27,6 +27,18 @@
     }
   }
 
+  .resident-social-links {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    // Space out links on mobile only
+    @include mobile {
+      justify-content: space-between;
+      padding: 0;
+    }
+  }
+
   .bio-mixes {
     p:first-child() {
       margin-bottom: 1rem;

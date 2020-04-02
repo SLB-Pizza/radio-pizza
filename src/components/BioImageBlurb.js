@@ -1,6 +1,49 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTwitter,
+  faInstagram,
+  faSoundcloud,
+  faMixcloud,
+  faBandcamp
+} from "@fortawesome/free-brands-svg-icons";
+
+const sampleSocial = [
+  {
+    url: "https://twitter.com/home",
+    icon: "faTwitter"
+  },
+  {
+    url: "https://instagram.com",
+    icon: "faInstagram"
+  },
+  {
+    url: "https://soundcloud.com",
+    icon: "faSoundCloud"
+  },
+  {
+    url: "https://bandcamp.com",
+    icon: "faBandcamp"
+  }
+];
 
 function BioImageBlurb(props) {
+  /**
+   * @function residentSocialIcons - function that takes in props from BioMixList and creates active YT audio sources
+   * @returns {link} An <a> tag with an icon that redirects out to the appropriate platform
+   * @param {string} url - link to the resident's page on a platform  (bandcamp, soundcloud, mixcloud, etc.)
+   * @param {icon} title - name of the corresponding FontAwesomeIcon
+   */
+  const residentSocialIcons = (url, icon) => {
+    return (
+      <a key={icon} href={url}>
+        <span className="icon">
+          <FontAwesomeIcon icon={icon} size="3x" color="white" />
+        </span>
+      </a>
+    );
+  };
+
   return (
     <div className="columns is-vcentered">
       <div className="column is-one-quarter-tablet is-3-desktop">
@@ -23,6 +66,33 @@ function BioImageBlurb(props) {
           evidence of brilliant syntheses? Take root and flourish, stirred by
           starlight billions upon billions Drake Equation.
         </p>
+        <div className="resident-social-links">
+          <a href="https://twitter.com">
+            <span className="icon is-large">
+              <FontAwesomeIcon icon={faTwitter} size="2x" color="white" />
+            </span>
+          </a>
+          <a href="https://instagram.com">
+            <span className="icon is-large">
+              <FontAwesomeIcon icon={faInstagram} size="2x" color="white" />
+            </span>
+          </a>
+          <a href="https://soundcloud.com">
+            <span className="icon is-large">
+              <FontAwesomeIcon icon={faSoundcloud} size="2x" color="white" />
+            </span>
+          </a>
+          <a href="https://bandcamp.com">
+            <span className="icon is-large">
+              <FontAwesomeIcon icon={faBandcamp} size="2x" color="white" />
+            </span>
+          </a>
+          <a href="https://mixcloud.com">
+            <span className="icon is-large">
+              <FontAwesomeIcon icon={faMixcloud} size="2x" color="white" />
+            </span>
+          </a>
+        </div>
       </div>
     </div>
   );

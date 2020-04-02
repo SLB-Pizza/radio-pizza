@@ -8,7 +8,7 @@ import { RadioPlayer } from "./index";
 import { Link } from "gatsby";
 
 import {
-  faCommentAlt,
+  faComments,
   faVolumeUp,
   faVolumeMute
 } from "@fortawesome/free-solid-svg-icons";
@@ -51,34 +51,32 @@ function RadioBar() {
         </div>
         <div className="column is-narrow is-hidden-touch">
           {mute ? (
-            <span
-              className="icon has-text-light"
+            <FontAwesomeIcon
+              icon={faVolumeMute}
+              size="lg"
               onClick={() => {
                 setMute(!mute);
                 handleToggleMuted();
               }}
-            >
-              <FontAwesomeIcon icon={faVolumeMute} size="lg" />
-            </span>
+              color="white"
+            />
           ) : (
-            <span
-              className="icon has-text-light"
+            <FontAwesomeIcon
+              icon={faVolumeUp}
+              size="lg"
               onClick={() => {
                 setMute(!mute);
                 handleToggleMuted();
               }}
-            >
-              <FontAwesomeIcon icon={faVolumeUp} size="lg" />
-            </span>
+              color="white"
+            />
           )}
         </div>
         <div className="column">
           <RadioPlayer status={radioData.status} />
         </div>
         <div className="column is-narrow">
-          <span className="icon has-text-light">
-            <FontAwesomeIcon icon={faCommentAlt} size="lg" />
-          </span>
+          <FontAwesomeIcon icon={faComments} size="2x" color="white" />
         </div>
         <div className="column is-narrow is-hidden-touch">
           <p className="has-text-light">4:59PM NYC</p>

@@ -80,6 +80,20 @@ function RadioPlayer(props) {
     return <button onClick={() => this.load(url)}>{label}</button>;
   };
 
+  const renderNowPlaying = title => {
+    return (
+      <Ticker mode="await" speed={3}>
+        {() => (
+          <>
+            <div className="is-hidden-tablet" id="radioShowName">
+              <p className="title is-size-6 has-text-light">{title}</p>
+            </div>
+          </>
+        )}
+      </Ticker>
+    );
+  };
+
   //prettier-ignore
   const player = useRef(ReactPlayer);
   // const liveStatus =
@@ -91,58 +105,35 @@ function RadioPlayer(props) {
           <FontAwesomeIcon
             icon={faPlay}
             onClick={handlePlayPause}
-            size="2x"
+            size="3x"
             color="white"
           />
         ) : (
           <FontAwesomeIcon
             icon={faPause}
             onClick={handlePlayPause}
-            size="2x"
+            size="3x"
             color="white"
           />
         )}
       </div>
       <div className="column" id="radioShowDetails">
         <div id="radioShowTime">
-          <p className="is-size-7 has-text-light">4:00P - 6:00P</p>
+          {globalState.live ? (
+            <p>Live!</p>
+          ) : (
+            <p className="subtitle is-size-7 has-text-light">4:00P - 6:00P</p>
+          )}
         </div>
 
-        {/* <PageVisibility onChange={handleVisibilityChange}>
-          {pageIsVisible && (
-            <Ticker mode="await">
-              {() => (
-                <>
-                  <div id="radioShowName">
-                    <p
-                      className="is-size-6 has-text-light"
-                      style={{ whiteSpace: "nowrap" }}
-                    >
-                      {globalState.title}
-                    </p>
-                  </div>
-                </>
-              )}
-            </Ticker>
-          )}
-        </PageVisibility> */}
+        {/* Static desktop title */}
+        <div className="is-hidden-mobile" id="radioShowName">
+          <p className="title is-size-6 has-text-light">{globalState.title}</p>
+        </div>
+
+        {/* Ticker only really needed on mobile? */}
         <PageVisibility onChange={handleVisibilityChange}>
-          {pageIsVisible && (
-            <Ticker mode="await">
-              {() => (
-                <>
-                  <div id="radioShowName">
-                    <p
-                      className="is-size-6 has-text-light"
-                      style={{ whiteSpace: "nowrap" }}
-                    >
-                      {globalState.title}
-                    </p>
-                  </div>
-                </>
-              )}
-            </Ticker>
-          )}
+          {pageIsVisible && renderNowPlaying(globalState.title)}
         </PageVisibility>
       </div>
       <ReactPlayer

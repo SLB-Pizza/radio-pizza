@@ -25,17 +25,13 @@
     #radioShowDetails {
       display: flex;
       flex-direction: column;
-      overflow-x: hidden;
-
-      p {
-        overflow-x: hidden;
-      }
 
       #radioShowTime {
         flex: 1;
       }
       #radioShowName {
         flex: 1;
+        white-space: nowrap;
       }
     }
   }

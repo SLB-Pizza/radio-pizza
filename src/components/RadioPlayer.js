@@ -88,21 +88,19 @@ function RadioPlayer(props) {
     <div className="columns is-vcentered is-mobile radio-player">
       <div className="column is-narrow">
         {!globalState.playing ? (
-          <span className="icon has-text-light">
-            <FontAwesomeIcon
-              icon={faPlay}
-              onClick={handlePlayPause}
-              size="2x"
-            />
-          </span>
+          <FontAwesomeIcon
+            icon={faPlay}
+            onClick={handlePlayPause}
+            size="2x"
+            color="white"
+          />
         ) : (
-          <span className="icon has-text-light">
-            <FontAwesomeIcon
-              icon={faPause}
-              onClick={handlePlayPause}
-              size="2x"
-            />
-          </span>
+          <FontAwesomeIcon
+            icon={faPause}
+            onClick={handlePlayPause}
+            size="2x"
+            color="white"
+          />
         )}
       </div>
       <div className="column" id="radioShowDetails">
@@ -160,7 +158,7 @@ function RadioPlayer(props) {
         muted={globalState.muted}
         onPlay={handlePlay}
         onPause={handlePause}
-        onError={e => console.log("ReactPlayer has an issue.\n", e)}
+        onError={e => console.log("ReactPlayer has an issue ↴\n", e)}
         // onReady={() => console.log("onReady")}
         // onStart={() => console.log("onStart")}
         // onEnablePIP={this.handleEnablePIP}

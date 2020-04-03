@@ -8,12 +8,12 @@ function BioHorizItem(props) {
   const dispatch = useContext(GlobalDispatchContext);
 
   /**
-   * @function playYTSource - function that takes in props from BioMixList and creates active YT audio sources
+   * @function playAudioSource - function that takes in props from BioMixList and creates active YT audio sources
    * @returns {jsx} A play icon that onClick dispatches the CHANGE_URL action, playing the audio source through RadioPlayer.js
-   * @param {string} url - the YT audio url
-   * @param {string} title - title of the YT audio
+   * @param {string} url - the audio url
+   * @param {string} title - title of the audio
    */
-  const playYTSource = (url, title, size) => {
+  const playAudioSource = (url, title, size) => {
     return (
       <FontAwesomeIcon
         icon={faPlayCircle}
@@ -43,7 +43,7 @@ function BioHorizItem(props) {
           <figure className="image is-1by1">
             <img src={props.img} alt={imageAltText} />
             <div className="play-btn-diffuser is-overlay">
-              <span>{playYTSource(props.url, props.name, "7x")}</span>
+              <span>{playAudioSource(props.url, props.name, "7x")}</span>
             </div>
           </figure>
         </div>
@@ -53,6 +53,13 @@ function BioHorizItem(props) {
           </p>
           <p className="title is-size-5-mobile is-size-4-tablet">
             {props.name}
+          </p>
+          <p className="subtitle is-size-7-mobile is-size-6-tablet">
+            Test Source:{" "}
+            <a href={props.url}>
+              {props.testSrc}
+              <sup>↗</sup>
+            </a>
           </p>
           <div className="tags is-hidden-mobile">
             {props.tags.map(tag => (

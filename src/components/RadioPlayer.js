@@ -14,18 +14,6 @@ import Ticker from "react-ticker";
 import PageVisibility from "react-page-visibility";
 
 function RadioPlayer(props) {
-  /**
-   * Eliminate width and height = 0 errors by breaking ReactPlayer
-   * out of normal document flow and throwing it above the top of the page
-   */
-  const playerStyle = {
-    position: "absolute",
-    top: "-175px",
-    width: "1px",
-    height: "1px",
-    margin: "-1px"
-  };
-
   const dispatch = useContext(GlobalDispatchContext);
   const globalState = useContext(GlobalStateContext);
 
@@ -43,6 +31,18 @@ function RadioPlayer(props) {
     playbackRate: 1.0,
     loop: true
   });
+
+  /**
+   * Eliminate width and height = 0 errors by breaking ReactPlayer
+   * out of normal document flow and throwing it above the top of the page
+   */
+  const playerStyle = {
+    position: "absolute",
+    top: "-175px",
+    width: "1px",
+    height: "1px",
+    margin: "-1px"
+  };
 
   const [pageIsVisible, setPageIsVisible] = useState(true);
 
@@ -110,6 +110,24 @@ function RadioPlayer(props) {
           <p className="is-size-7 has-text-light">4:00P - 6:00P</p>
         </div>
 
+        {/* <PageVisibility onChange={handleVisibilityChange}>
+          {pageIsVisible && (
+            <Ticker mode="await">
+              {() => (
+                <>
+                  <div id="radioShowName">
+                    <p
+                      className="is-size-6 has-text-light"
+                      style={{ whiteSpace: "nowrap" }}
+                    >
+                      {globalState.title}
+                    </p>
+                  </div>
+                </>
+              )}
+            </Ticker>
+          )}
+        </PageVisibility> */}
         <PageVisibility onChange={handleVisibilityChange}>
           {pageIsVisible && (
             <Ticker mode="await">

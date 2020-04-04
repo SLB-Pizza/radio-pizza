@@ -118,13 +118,18 @@ function RadioPlayer(props) {
         )}
       </div>
       <div className="column" id="radioShowDetails">
-        <div id="radioShowTime">
-          {globalState.live ? (
-            <p>Live!</p>
-          ) : (
+        {/* Currently set to show Live Stuff when NOT live */}
+        {!globalState.live ? (
+          <div id="radioShowTime">
+            <div id="live-light" />
+
+            <p className="is-size-7 has-text-light">LIVE - Some Artist</p>
+          </div>
+        ) : (
+          <div id="radioShowTime">
             <p className="subtitle is-size-7 has-text-light">4:00P - 6:00P</p>
-          )}
-        </div>
+          </div>
+        )}
 
         {/* Static desktop title */}
         <div className="is-hidden-mobile" id="radioShowName">

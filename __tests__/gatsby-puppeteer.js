@@ -2,6 +2,8 @@ const chalk = require("chalk");
 const figlet = require("figlet");
 const inquirer = require("inquirer");
 const puppeteer = require("puppeteer");
+const lighthouse = require("lighthouse");
+const { URL } = require("url");
 const deviceList = puppeteer.devices;
 
 /**
@@ -445,7 +447,37 @@ const navTimer = (start, finish) => {
     // Summarize screenshot total
     console.log(
       chalk.inverse.green(
-        `====== All ${count} screenshots captured successfully! ======`
+        `====== All ${count} screenshots captured successfully! ======\n`
+      )
+    );
+
+    console.log(
+      chalk.white(
+        figlet.textSync("Lighthouse", {
+          font: "Slant",
+          horizontalLayout: "default",
+          verticalLayout: "default"
+        })
+      )
+    );
+    const url = `https://halfmoon-rebuild-wip-2020.netlify.com/`;
+    console.log(chalk.white(`\nAuditing ${url} with Lighthouse.\n`));
+
+    // Lighthouse will open URL. Puppeteer observes `targetchanged` and sets up network conditions.
+    // Possible race condition.
+    const { lhr } = await lighthouse(url, {
+      port: new URL(browser.wsEndpoint()).port,
+      output: "json",
+      logLevel: "info"
+    });
+
+    const auditCategories = ["Performance", ""];
+
+    console.log(
+      chalk.white(
+        `\nLighthouse Audit Results:\n${Object.values(lhr.categories)
+          .map(c => `${c.title} -- ${Math.floor(c.score * 100)}/100`)
+          .join("\n")}`
       )
     );
 

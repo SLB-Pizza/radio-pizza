@@ -1,5 +1,5 @@
 import React from "react";
-import { BioImageBlurb, BioMixList, BioPagination } from "../../components/";
+import { BioImageBlurb, BioMixList } from "../../components/";
 
 function ResidentBioIndexPage() {
   return (
@@ -8,7 +8,6 @@ function ResidentBioIndexPage() {
         <BioImageBlurb />
         <hr />
         <BioMixList />
-        <BioPagination />
       </div>
     </div>
   );

@@ -46,13 +46,6 @@
   }
 }
 //==================================
-// <BioMixList />
-//==================================
-.pagination {
-  // TODO: change bg-color of pagination buttons
-}
-
-//==================================
 // <BioSingleMix />
 //==================================
 // .resident-mix {
@@ -126,14 +119,13 @@
 }
 
 .bio-mix-container {
-  @include desktop {
+  @include tablet {
     min-height: 15rem;
   }
-
   margin: 0.25rem;
+
   background-color: black;
   border: 0.25rem solid white;
-  transition: ease-in-out 0.25s;
 
   .play-btn-diffuser {
     display: flex;
@@ -148,7 +140,6 @@
   }
 
   &:hover {
-    margin: 0;
     box-shadow: 10px 8px 5px black;
     background-color: #2a2a2a;
 
@@ -166,23 +157,26 @@
     }
   }
 
-  .item-content {
-    padding: 0 0.75rem 0;
-    @include fullhd {
-      padding: 0.75rem;
+  .title {
+    margin-bottom: 0.5rem;
+
+    @include touch {
+      margin-bottom: 1rem;
     }
 
-    .title {
-      margin-bottom: 0.5rem;
-      @include tablet {
-        margin-bottom: 1rem;
-      }
+    @include mobile {
+      padding-bottom: 0;
+      margin-bottom: 0;
     }
   }
+
   .tags {
-    margin-top: 0;
     .tag {
       border: 1px solid #666666;
+      transition: ease-in-out 0.25s;
+      &:hover {
+        border: 1px solid $primary;
+      }
     }
   }
 }

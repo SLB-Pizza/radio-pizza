@@ -13,21 +13,38 @@ function BioHorizItem(props) {
    * @param {string} url - the audio url
    * @param {string} title - title of the audio
    */
-  const playAudioSource = (url, title, size) => {
+  const playAudioSource = (url, title) => {
     return (
-      <FontAwesomeIcon
-        icon={faPlayCircle}
-        size={size}
-        onClick={() =>
-          dispatch({
-            type: "CHANGE_URL",
-            payload: {
-              url: url,
-              title: title
-            }
-          })
-        }
-      />
+      <>
+        <FontAwesomeIcon
+          icon={faPlayCircle}
+          size="7x"
+          className="is-hidden-mobile"
+          onClick={() =>
+            dispatch({
+              type: "CHANGE_URL",
+              payload: {
+                url: url,
+                title: title
+              }
+            })
+          }
+        />
+        <FontAwesomeIcon
+          icon={faPlayCircle}
+          size="3x"
+          className="is-hidden-tablet"
+          onClick={() =>
+            dispatch({
+              type: "CHANGE_URL",
+              payload: {
+                url: url,
+                title: title
+              }
+            })
+          }
+        />
+      </>
     );
   };
 
@@ -37,29 +54,22 @@ function BioHorizItem(props) {
   const imageAltText = `image - ${props.name} by ${props.artist}`;
 
   return (
-    <div className="column is-12-touch is-6-tablet is-4-fullhd bio-single-mix">
+    <div className="column is-12-mobile is-6-tablet is-4-fullhd bio-single-mix">
       <div className="columns is-vcentered is-multiline is-mobile bio-mix-container">
-        <div className="column is-two-fifths-tablet is-12-mobile">
+        <div className="column is-two-fifths-tablet is-one-third-mobile item-image">
           <figure className="image is-1by1">
             <img src={props.img} alt={imageAltText} />
             <div className="play-btn-diffuser is-overlay">
-              <span>{playAudioSource(props.url, props.name, "7x")}</span>
+              <span>{playAudioSource(props.url, props.name)}</span>
             </div>
           </figure>
         </div>
-        <div className="column is-three-fifths-tablet is-12-mobile item-content">
+        <div className="column is-three-fifths-tablet is-two-thirds-mobile item-content">
           <p className="subtitle is-size-7-mobile is-size-6-tablet">
             {props.date} | {props.artist}
           </p>
           <p className="title is-size-5-mobile is-size-4-tablet">
             {props.name}
-          </p>
-          <p className="subtitle is-size-7-mobile is-size-6-tablet">
-            Test Source:{" "}
-            <a href={props.url}>
-              {props.testSrc}
-              <sup>↗</sup>
-            </a>
           </p>
           <div className="tags is-hidden-mobile">
             {props.tags.map(tag => (

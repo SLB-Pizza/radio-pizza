@@ -1,17 +1,16 @@
 import React, { useContext, useRef, useState } from "react";
-import { hot } from "react-hot-loader";
 import ReactPlayer from "react-player";
-import {
-  GlobalDispatchContext,
-  GlobalStateContext
-} from "../context/GlobalContextProvider";
-// import axios from 'axios';
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
-
 import Ticker from "react-ticker";
 import PageVisibility from "react-page-visibility";
+import AudioSpectrum from "react-audio-spectrum";
+import { hot } from "react-hot-loader";
+
+import {
+  GlobalDispatchContext,
+  GlobalStateContext,
+} from "../context/GlobalContextProvider";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
 
 function RadioPlayer(props) {
   const dispatch = useContext(GlobalDispatchContext);
@@ -29,7 +28,7 @@ function RadioPlayer(props) {
     loaded: 0,
     duration: 0,
     playbackRate: 1.0,
-    loop: true
+    loop: true,
   });
 
   /**
@@ -41,12 +40,12 @@ function RadioPlayer(props) {
     top: "-175px",
     width: "1px",
     height: "1px",
-    margin: "-1px"
+    margin: "-1px",
   };
 
   const [pageIsVisible, setPageIsVisible] = useState(true);
 
-  const handleVisibilityChange = isVisible => {
+  const handleVisibilityChange = (isVisible) => {
     setPageIsVisible(isVisible);
   };
 
@@ -62,13 +61,13 @@ function RadioPlayer(props) {
     await setLocalState({ ...localState, playing: false });
   };
 
-  const load = async url => {
+  const load = async (url) => {
     await setLocalState({
       ...localState,
       url: url,
       played: 0,
       loaded: 0,
-      pip: false
+      pip: false,
     });
   };
 
@@ -80,7 +79,11 @@ function RadioPlayer(props) {
     return <button onClick={() => this.load(url)}>{label}</button>;
   };
 
-  const renderNowPlaying = title => {
+  const handleDuration = (duration) => {
+    setLocalState({ duration: duration });
+  };
+
+  const renderNowPlaying = (title) => {
     return (
       <Ticker mode="await" speed={3}>
         {() => (
@@ -96,7 +99,6 @@ function RadioPlayer(props) {
 
   //prettier-ignore
   const player = useRef(ReactPlayer);
-  // const liveStatus =
 
   return (
     <div className="columns is-vcentered is-mobile radio-player">
@@ -119,7 +121,7 @@ function RadioPlayer(props) {
       </div>
       <div className="column" id="radioShowDetails">
         {/* Currently set to show Live Stuff when NOT live */}
-        {!globalState.live ? (
+        {globalState.live ? (
           <div id="radioShowTime">
             <div id="live-light" />
 
@@ -127,7 +129,11 @@ function RadioPlayer(props) {
           </div>
         ) : (
           <div id="radioShowTime">
-            <p className="subtitle is-size-7 has-text-light">4:00P - 6:00P</p>
+            <p className="subtitle is-size-7 has-text-light">
+              {globalState.playing && player.current.getCurrentTime()}s/
+              {globalState.playing && localState.played}
+              {console.log(typeof player.current.getCurrentTime)}
+            </p>
           </div>
         )}
 
@@ -141,8 +147,33 @@ function RadioPlayer(props) {
           {pageIsVisible && renderNowPlaying(globalState.title)}
         </PageVisibility>
       </div>
+      <div className="column is-narrow is-hidden-mobile">
+        <audio
+          className="is-invisible"
+          id="audio-element"
+          src={localState.url}
+        />
+        <AudioSpectrum
+          id="audio-canvas"
+          audioId="audio-element"
+          height={20}
+          width={300}
+          capColor="red"
+          capHeight={2}
+          meterWidth={2}
+          meterCount={512}
+          meterColor={[
+            { stop: 0, color: "#f00" },
+            { stop: 0.5, color: "#0CD7FD" },
+            { stop: 1, color: "red" },
+          ]}
+        />
+
+        {console.log("player.current", player.current)}
+      </div>
       <ReactPlayer
         className="cloud-player"
+        id="react-player"
         style={playerStyle}
         url={globalState.url}
         ref={player}
@@ -152,9 +183,10 @@ function RadioPlayer(props) {
         playing={globalState.playing}
         loop={globalState.loop}
         muted={globalState.muted}
+        onDuration={handleDuration}
         onPlay={handlePlay}
         onPause={handlePause}
-        onError={e => console.log("ReactPlayer has an issue ↴\n", e)}
+        onError={(e) => console.log("ReactPlayer has an issue ↴\n", e)}
         // onReady={() => console.log("onReady")}
         // onStart={() => console.log("onStart")}
         // onEnablePIP={this.handleEnablePIP}
@@ -163,7 +195,6 @@ function RadioPlayer(props) {
         // onSeek={e => console.log('onSeek', e)}
         // onEnded={this.handleEnded}
         // onProgress={this.handleProgress}
-        // onDuration={this.handleDuration}
       />
     </div>
   );
@@ -249,8 +280,4 @@ export default hot(module)(RadioPlayer);
 
 // export const handleClickFullscreen = () => {
 //   screenfull.request(findDOMNode(this.player));
-// };
-
-// export const ref = player => {
-//   this.player = player;
 // };

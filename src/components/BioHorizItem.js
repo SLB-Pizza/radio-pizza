@@ -56,7 +56,7 @@ function BioHorizItem(props) {
   return (
     <div className="column is-12-mobile is-6-tablet is-4-fullhd bio-single-mix">
       <div className="columns is-vcentered is-multiline is-mobile bio-mix-container">
-        <div className="column is-two-fifths-tablet is-one-third-mobile item-image is-paddingless is-marginless">
+        <div className="column is-two-fifths-tablet is-one-third-mobile item-image">
           <figure className="image is-1by1">
             <img src={props.img} alt={imageAltText} />
             <div className="play-btn-diffuser is-overlay">

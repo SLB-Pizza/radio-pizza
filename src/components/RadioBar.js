@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import {
   GlobalDispatchContext,
-  GlobalStateContext
+  GlobalStateContext,
 } from "../context/GlobalContextProvider";
 import axios from "axios";
 import { RadioPlayer } from "./index";
@@ -10,9 +10,11 @@ import { Link } from "gatsby";
 import {
   faComments,
   faVolumeUp,
-  faVolumeMute
+  faVolumeMute,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import AudioSpectrum from "react-audio-spectrum";
 
 function RadioBar() {
   const dispatch = useContext(GlobalDispatchContext);
@@ -75,6 +77,7 @@ function RadioBar() {
         <div className="column">
           <RadioPlayer status={radioData.status} />
         </div>
+
         <div className="column is-narrow">
           <FontAwesomeIcon icon={faComments} size="2x" color="white" />
         </div>

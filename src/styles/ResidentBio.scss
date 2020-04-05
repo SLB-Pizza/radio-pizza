@@ -60,7 +60,7 @@
   background-color: black;
 
   @include tablet {
-    min-height: 15rem;
+    min-height: 13rem;
   }
 
   .play-btn-diffuser {
@@ -112,7 +112,6 @@
 
       &:hover {
         border: 2px solid $primary;
-        box-shadow: 1px 1px 2px #666;
       }
     }
   }

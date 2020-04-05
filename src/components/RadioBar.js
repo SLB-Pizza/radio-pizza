@@ -1,24 +1,24 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from 'react';
 import {
   GlobalDispatchContext,
-  GlobalStateContext
-} from "../context/GlobalContextProvider";
-import axios from "axios";
-import { RadioPlayer } from "./index";
-import { Link } from "gatsby";
+  GlobalStateContext,
+} from '../context/GlobalContextProvider';
+import axios from 'axios';
+import { RadioPlayer } from './index';
+import { Link } from 'gatsby';
 
 import {
   faComments,
   faVolumeUp,
-  faVolumeMute
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+  faVolumeMute,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function RadioBar() {
   const dispatch = useContext(GlobalDispatchContext);
 
   const handleToggleMuted = async () => {
-    await dispatch({ type: "TOGGLE_MUTE" });
+    await dispatch({ type: 'TOGGLE_MUTE' });
   };
 
   const [radioData, setRadioData] = useState({});
@@ -27,7 +27,7 @@ function RadioBar() {
   useEffect(() => {
     async function axiosGet() {
       const result = await axios(
-        "https://public.radio.co/stations/sa3c47c55b/status"
+        'https://public.radio.co/stations/sa3c47c55b/status'
       );
       setRadioData(result.data);
     }
@@ -76,7 +76,12 @@ function RadioBar() {
           <RadioPlayer status={radioData.status} />
         </div>
         <div className="column is-narrow">
-          <FontAwesomeIcon icon={faComments} size="2x" color="white" />
+          <a
+            href="http://halfmoonradiochat.chatango.com/"
+            target="_blank"
+            rel="noopener">
+            <FontAwesomeIcon icon={faComments} size="2x" color="white" />
+          </a>
         </div>
         <div className="column is-narrow is-hidden-touch">
           <p className="has-text-light">4:59PM NYC</p>

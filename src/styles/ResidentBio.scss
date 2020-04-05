@@ -123,7 +123,6 @@
   }
   margin: 0.25rem;
 
-
   background-color: black;
   border: 0.25rem solid white;
 
@@ -139,73 +138,74 @@
     }
   }
 
-
   .item-content {
     padding: 0 0.75rem 0;
     @include fullhd {
       padding: 0.75rem;
+    }
+    &:hover {
+      box-shadow: 10px 8px 5px black;
+      background-color: #2a2a2a;
 
-  &:hover {
-    box-shadow: 10px 8px 5px black;
-    background-color: #2a2a2a;
+      .play-btn-diffuser {
+        display: flex;
+        justify-content: center;
+        background-color: rgba($color: black, $alpha: 0.75);
 
-    .play-btn-diffuser {
-      display: flex;
-      justify-content: center;
-      background-color: rgba($color: black, $alpha: 0.75);
-
-      span {
-        color: white;
-        &:active {
-          color: $primary;
+        span {
+          color: white;
+          &:active {
+            color: $primary;
+          }
         }
       }
     }
-  }
 
-  .title {
-    margin-bottom: 0.5rem;
+    .title {
+      margin-bottom: 0.5rem;
 
-    @include touch {
-      margin-bottom: 1rem;
-    }
+      @include touch {
+        margin-bottom: 1rem;
+      }
 
-    @include mobile {
-      padding-bottom: 0;
-      margin-bottom: 0;
-    }
-  }
-
-  .tags {
-    .tag {
-      border: 2px solid #666666;
-      transition: 0.25s ease;
-
-      &:hover {
-        border: 2px solid $primary;
-        box-shadow: 1px 1px 2px #666;
+      @include mobile {
+        padding-bottom: 0;
+        margin-bottom: 0;
       }
     }
-  }
 
-  &:hover {
-    box-shadow: 10px 8px 5px black;
-    background-color: #2a2a2a;
+    .tags {
+      .tag {
+        border: 2px solid #666666;
+        transition: 0.25s ease;
 
-    .play-btn-diffuser {
-      display: flex;
-      justify-content: center;
-      background-color: rgba($color: black, $alpha: 0.75);
-
-      span {
-        color: white;
-        &:active {
-          color: $primary;
+        &:hover {
+          border: 2px solid $primary;
+          box-shadow: 1px 1px 2px #666;
         }
-      border: 1px solid #666666;
-      transition: ease-in-out 0.25s;
-      &:hover {
-        border: 1px solid $primary;
+      }
+    }
+
+    &:hover {
+      box-shadow: 10px 8px 5px black;
+      background-color: #2a2a2a;
+
+      .play-btn-diffuser {
+        display: flex;
+        justify-content: center;
+        background-color: rgba($color: black, $alpha: 0.75);
+
+        span {
+          color: white;
+          &:active {
+            color: $primary;
+          }
+          border: 1px solid #666666;
+          transition: ease-in-out 0.25s;
+          &:hover {
+            border: 1px solid $primary;
+          }
+        }
       }
     }
   }

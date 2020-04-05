@@ -45,13 +45,6 @@
   }
 }
 //==================================
-// <BioMixList />
-//==================================
-.pagination {
-  // TODO: change bg-color of pagination buttons
-}
-
-//==================================
 // <BioSingleMix />
 //==================================
 // .resident-mix {
@@ -125,14 +118,18 @@
 }
 
 .bio-mix-container {
-  @include desktop {
+  @include tablet {
     min-height: 15rem;
   }
+<<<<<<< HEAD
 
   margin: 0 0.125rem;
+=======
+  margin: 0.25rem;
+
+>>>>>>> Add mobile specific mix-play icon; make BioHorizItem for mobile
   background-color: black;
   border: 0.25rem solid white;
-  transition: ease-in-out 0.25s;
 
   .play-btn-diffuser {
     display: flex;
@@ -146,22 +143,47 @@
     }
   }
 
+<<<<<<< HEAD
   .item-content {
     padding: 0 0.75rem 0;
     @include fullhd {
       padding: 0.75rem;
-    }
+=======
+  &:hover {
+    box-shadow: 10px 8px 5px black;
+    background-color: #2a2a2a;
 
-    .title {
-      margin-bottom: 0.5rem;
-      @include tablet {
-        margin-bottom: 1rem;
+    .play-btn-diffuser {
+      display: flex;
+      justify-content: center;
+      background-color: rgba($color: black, $alpha: 0.75);
+
+      span {
+        color: white;
+        &:active {
+          color: $primary;
+        }
       }
     }
   }
+
+  .title {
+    margin-bottom: 0.5rem;
+
+    @include touch {
+      margin-bottom: 1rem;
+>>>>>>> Add mobile specific mix-play icon; make BioHorizItem for mobile
+    }
+
+    @include mobile {
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+  }
+
   .tags {
-    margin-top: 0;
     .tag {
+<<<<<<< HEAD
       border: 2px solid #666666;
       transition: 0.25s ease;
 
@@ -186,6 +208,12 @@
         &:active {
           color: $primary;
         }
+=======
+      border: 1px solid #666666;
+      transition: ease-in-out 0.25s;
+      &:hover {
+        border: 1px solid $primary;
+>>>>>>> Add mobile specific mix-play icon; make BioHorizItem for mobile
       }
     }
   }

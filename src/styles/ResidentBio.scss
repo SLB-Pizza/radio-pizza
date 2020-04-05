@@ -44,69 +44,6 @@
     }
   }
 }
-//==================================
-// <BioSingleMix />
-//==================================
-// .resident-mix {
-//   border: 0.125rem solid white;
-//   padding: 0.25rem;
-//   background-color: black;
-
-//   margin: 0.5rem;
-//   transition: ease-in-out 0.25s;
-
-//   .bio-mix-image {
-//     background-image: url(https://source.unsplash.com/1080x1080/weekly?nature);
-//     background-position: center center;
-//     background-repeat: no-repeat;
-//     background-attachment: scroll;
-//     background-size: cover;
-
-//     .play-btn-diffuser {
-//       padding: 25%;
-//       display: flex;
-//       justify-content: center;
-//       transition: ease-in-out 0.25s;
-
-//       span {
-//         color: transparent;
-//         transition: ease-in-out 0.25s;
-//       }
-//     }
-//   }
-
-//   &:hover {
-//     margin: 0;
-//     box-shadow: 10px 8px 5px black;
-
-//     .play-btn-diffuser {
-//       padding: 25%;
-//       display: flex;
-//       justify-content: center;
-//       background-color: rgba($color: black, $alpha: 0.75);
-
-//       span {
-//         color: white;
-//         &:active {
-//           color: $primary;
-//         }
-//       }
-//     }
-//   }
-
-//   .item-content {
-//     padding: 0.5rem;
-
-//     .content-date {
-//       margin-bottom: 0;
-//       padding-bottom: 0;
-//     }
-//     .title {
-//       margin-top: 0;
-//       padding-top: 0;
-//     }
-//   }
-// }
 
 //==================================
 // <BioHorizItem />
@@ -118,13 +55,13 @@
 }
 
 .bio-mix-container {
+  margin: 0.25rem;
+  border: 0.25rem solid white;
+  background-color: black;
+
   @include tablet {
     min-height: 15rem;
   }
-  margin: 0.25rem;
-
-  background-color: black;
-  border: 0.25rem solid white;
 
   .play-btn-diffuser {
     display: flex;
@@ -138,74 +75,44 @@
     }
   }
 
-  .item-content {
-    padding: 0 0.75rem 0;
-    @include fullhd {
-      padding: 0.75rem;
-    }
-    &:hover {
-      box-shadow: 10px 8px 5px black;
-      background-color: #2a2a2a;
+  &:hover {
+    box-shadow: 10px 8px 5px black;
+    background-color: #2a2a2a;
 
-      .play-btn-diffuser {
-        display: flex;
-        justify-content: center;
-        background-color: rgba($color: black, $alpha: 0.75);
+    .play-btn-diffuser {
+      display: flex;
+      justify-content: center;
+      background-color: rgba($color: black, $alpha: 0.5);
 
-        span {
-          color: white;
-          &:active {
-            color: $primary;
-          }
+      span {
+        color: white;
+        &:active {
+          color: $primary;
         }
       }
     }
+  }
+
+  .item-content {
+    padding: 0.75rem;
 
     .title {
       margin-bottom: 0.5rem;
 
       @include touch {
-        margin-bottom: 1rem;
-      }
-
-      @include mobile {
         padding-bottom: 0;
         margin-bottom: 0;
       }
     }
+  }
+  .tags {
+    .tag {
+      border: 2px solid #666666;
+      transition: 0.25s ease;
 
-    .tags {
-      .tag {
-        border: 2px solid #666666;
-        transition: 0.25s ease;
-
-        &:hover {
-          border: 2px solid $primary;
-          box-shadow: 1px 1px 2px #666;
-        }
-      }
-    }
-
-    &:hover {
-      box-shadow: 10px 8px 5px black;
-      background-color: #2a2a2a;
-
-      .play-btn-diffuser {
-        display: flex;
-        justify-content: center;
-        background-color: rgba($color: black, $alpha: 0.75);
-
-        span {
-          color: white;
-          &:active {
-            color: $primary;
-          }
-          border: 1px solid #666666;
-          transition: ease-in-out 0.25s;
-          &:hover {
-            border: 1px solid $primary;
-          }
-        }
+      &:hover {
+        border: 2px solid $primary;
+        box-shadow: 1px 1px 2px #666;
       }
     }
   }

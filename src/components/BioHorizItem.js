@@ -19,28 +19,28 @@ function BioHorizItem(props) {
         <FontAwesomeIcon
           icon={faPlayCircle}
           size="7x"
-          className="is-hidden-mobile"
+          className="is-hidden-touch"
           onClick={() =>
             dispatch({
               type: "CHANGE_URL",
               payload: {
                 url: url,
-                title: title
-              }
+                title: title,
+              },
             })
           }
         />
         <FontAwesomeIcon
           icon={faPlayCircle}
           size="3x"
-          className="is-hidden-tablet"
+          className="is-hidden-desktop"
           onClick={() =>
             dispatch({
               type: "CHANGE_URL",
               payload: {
                 url: url,
-                title: title
-              }
+                title: title,
+              },
             })
           }
         />
@@ -56,7 +56,7 @@ function BioHorizItem(props) {
   return (
     <div className="column is-12-mobile is-6-tablet is-4-fullhd bio-single-mix">
       <div className="columns is-vcentered is-multiline is-mobile bio-mix-container">
-        <div className="column is-two-fifths-tablet is-one-third-mobile item-image">
+        <div className="column is-two-fifths-tablet is-one-third-mobile item-image is-paddingless is-marginless">
           <figure className="image is-1by1">
             <img src={props.img} alt={imageAltText} />
             <div className="play-btn-diffuser is-overlay">
@@ -65,22 +65,22 @@ function BioHorizItem(props) {
           </figure>
         </div>
         <div className="column is-three-fifths-tablet is-two-thirds-mobile item-content">
-          <p className="subtitle is-size-7-mobile is-size-6-tablet">
+          <p className="subtitle is-size-7-touch is-size-6-desktop">
             {props.date} | {props.artist}
           </p>
-          <p className="title is-size-5-mobile is-size-4-tablet">
+          <p className="title is-size-5-touch is-size-4-desktop">
             {props.name}
           </p>
-          <div className="tags is-hidden-mobile">
-            {props.tags.map(tag => (
+          <div className="tags is-hidden-touch">
+            {props.tags.map((tag) => (
               <span key={tag} className="tag is-black">
                 {tag}
               </span>
             ))}
           </div>
         </div>
-        <div className="column is-12 is-hidden-tablet tags">
-          {props.tags.map(tag => (
+        <div className="column is-12 is-hidden-desktop tags">
+          {props.tags.map((tag) => (
             <span key={tag} className="tag is-black">
               {tag}
             </span>

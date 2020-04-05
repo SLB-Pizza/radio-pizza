@@ -121,13 +121,9 @@
   @include tablet {
     min-height: 15rem;
   }
-<<<<<<< HEAD
-
-  margin: 0 0.125rem;
-=======
   margin: 0.25rem;
 
->>>>>>> Add mobile specific mix-play icon; make BioHorizItem for mobile
+
   background-color: black;
   border: 0.25rem solid white;
 
@@ -143,12 +139,12 @@
     }
   }
 
-<<<<<<< HEAD
+
   .item-content {
     padding: 0 0.75rem 0;
     @include fullhd {
       padding: 0.75rem;
-=======
+
   &:hover {
     box-shadow: 10px 8px 5px black;
     background-color: #2a2a2a;
@@ -172,7 +168,6 @@
 
     @include touch {
       margin-bottom: 1rem;
->>>>>>> Add mobile specific mix-play icon; make BioHorizItem for mobile
     }
 
     @include mobile {
@@ -183,7 +178,6 @@
 
   .tags {
     .tag {
-<<<<<<< HEAD
       border: 2px solid #666666;
       transition: 0.25s ease;
 
@@ -208,12 +202,10 @@
         &:active {
           color: $primary;
         }
-=======
       border: 1px solid #666666;
       transition: ease-in-out 0.25s;
       &:hover {
         border: 1px solid $primary;
->>>>>>> Add mobile specific mix-play icon; make BioHorizItem for mobile
       }
     }
   }

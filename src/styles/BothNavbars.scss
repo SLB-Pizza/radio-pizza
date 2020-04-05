@@ -225,6 +225,9 @@
 //==================================
 // <BottomNav />
 //==================================
+.navbar {
+  border-top: 0.25rem solid white;
+}
 .navbar-end.is-hidden-desktop {
   display: flex;
   flex-direction: row;

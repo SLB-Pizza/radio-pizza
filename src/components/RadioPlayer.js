@@ -105,14 +105,14 @@ function RadioPlayer(props) {
           <FontAwesomeIcon
             icon={faPlay}
             onClick={handlePlayPause}
-            size="3x"
+            size="2x"
             color="white"
           />
         ) : (
           <FontAwesomeIcon
             icon={faPause}
             onClick={handlePlayPause}
-            size="3x"
+            size="2x"
             color="white"
           />
         )}

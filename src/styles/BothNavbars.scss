@@ -53,6 +53,7 @@
   .schedule-bar {
     flex: 1;
     color: white;
+    border-bottom: 0.25rem solid $primary;
     min-height: 2.5rem;
     transition: ease-in-out 0.5s;
     -moz-transition: ease-in-out 0.5s;
@@ -87,9 +88,9 @@
       }
     }
 
-    .up-next {
-      background-color: rgba($color: #000000, $alpha: 0.5);
-    }
+    // .up-next {
+    //   background-color: rgba($color: #000000, $alpha: 0.5);
+    // }
 
     //==================================
     // <ScheduleModal />
@@ -205,6 +206,9 @@
 //==================================
 // <BottomNav />
 //==================================
+.navbar {
+  border-top: 0.25rem solid $primary;
+}
 .navbar-end.is-hidden-desktop {
   display: flex;
   flex-direction: row;

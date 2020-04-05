@@ -77,7 +77,6 @@ export { default as BioImageBlurb } from "./BioImageBlurb";
 export { default as BioMixList } from "./BioMixList";
 export { default as BioSingleMix } from "./BioSingleMix";
 export { default as BioHorizItem } from "./BioHorizItem";
-export { default as BioPagination } from "./BioPagination";
 
 /**
  * Test stuff

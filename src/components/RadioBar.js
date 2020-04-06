@@ -51,26 +51,24 @@ function RadioBar() {
             </figure>
           </Link>
         </div>
-        <div className="column is-narrow is-hidden-touch">
+        <div className="column is-narrow is-hidden-touch mute-btn">
           {mute ? (
             <FontAwesomeIcon
               icon={faVolumeMute}
-              size="lg"
+              size="2x"
               onClick={() => {
                 setMute(!mute);
                 handleToggleMuted();
               }}
-              color="white"
             />
           ) : (
             <FontAwesomeIcon
               icon={faVolumeUp}
-              size="lg"
+              size="2x"
               onClick={() => {
                 setMute(!mute);
                 handleToggleMuted();
               }}
-              color="white"
             />
           )}
         </div>
@@ -78,8 +76,8 @@ function RadioBar() {
           <RadioPlayer status={radioData.status} />
         </div>
 
-        <div className="column is-narrow">
-          <FontAwesomeIcon icon={faComments} size="2x" color="white" />
+        <div className="column is-narrow chat-btn">
+          <FontAwesomeIcon icon={faComments} size="2x" />
         </div>
         <div className="column is-narrow is-hidden-touch">
           <p className="has-text-light">4:59PM NYC</p>

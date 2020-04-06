@@ -102,21 +102,11 @@ function RadioPlayer(props) {
 
   return (
     <div className="columns is-vcentered is-mobile radio-player">
-      <div className="column is-narrow">
+      <div className="column is-narrow play-pause">
         {!globalState.playing ? (
-          <FontAwesomeIcon
-            icon={faPlay}
-            onClick={handlePlayPause}
-            size="2x"
-            color="white"
-          />
+          <FontAwesomeIcon icon={faPlay} onClick={handlePlayPause} size="2x" />
         ) : (
-          <FontAwesomeIcon
-            icon={faPause}
-            onClick={handlePlayPause}
-            size="2x"
-            color="white"
-          />
+          <FontAwesomeIcon icon={faPause} onClick={handlePlayPause} size="2x" />
         )}
       </div>
       <div className="column" id="radioShowDetails">

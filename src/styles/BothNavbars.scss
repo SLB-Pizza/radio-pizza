@@ -251,6 +251,15 @@
 //==================================
 .navbar {
   border-top: 0.25rem solid $primary;
+  background-color: black;
+  a,
+  span {
+    color: white;
+    transition: 0.25s ease;
+    &:hover {
+      color: $primary;
+    }
+  }
 }
 .navbar-end.is-hidden-desktop {
   display: flex;
@@ -259,5 +268,13 @@
     flex: 1;
     display: flex;
     justify-content: center;
+  }
+  a,
+  span {
+    color: blue;
+    transition: 0.25s ease;
+    &:hover {
+      color: $primary;
+    }
   }
 }

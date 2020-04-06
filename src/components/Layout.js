@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import { withPrefix } from "gatsby";
 import useSiteMetadata from "./SiteMetadata";
 import { TopNav, BottomNav } from "../components";
+import "../styles/index.scss";
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata();

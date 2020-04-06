@@ -124,7 +124,6 @@ function RadioPlayer(props) {
         {globalState.live ? (
           <div id="radioShowTime">
             <div id="live-light" />
-
             <p className="is-size-7 has-text-light">LIVE - Some Artist</p>
           </div>
         ) : (

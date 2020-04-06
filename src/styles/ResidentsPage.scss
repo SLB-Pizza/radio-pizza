@@ -1,7 +1,7 @@
 .residents-page {
   margin-top: 8.25rem;
   margin-bottom: 3rem;
-  height: 100%;
+  min-height: calc(100vh - 10.5rem);
 
   background-image: url(https://source.unsplash.com/1920x1080/daily?musician);
   background-position: center center;

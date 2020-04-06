@@ -6,19 +6,16 @@ function ScheduleBar() {
 
   return !open ? (
     <div className="schedule-bar container is-fluid">
-      <div className="columns is-vcentered is-mobile up-next">
-        <div className="column is-narrow">
-          <p className="is-size-6">in 1hr 1m</p>
+      <div className="columns is-vcentered is-mobile">
+        <div className="column is-narrow at-time">
+          <p className="is-size-6">6:00PM</p>
         </div>
-        <div className="column">
-          <p className="title is-size-6 has-text-light">Loremip.</p>
+        <div className="column upcoming">
+          <p className="title is-size-6 has-text-light">Next Show</p>
         </div>
         <div className="column is-narrow" id="open-schedule">
-          <button
-            className="button is-fullwidth is-black"
-            onClick={() => setOpen(!open)}
-          >
-            Schedule ▼
+          <button className="button" onClick={() => setOpen(!open)}>
+            <p className="title is-size-6">Schedule ▼</p>
           </button>
         </div>
       </div>

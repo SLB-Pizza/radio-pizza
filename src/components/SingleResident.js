@@ -40,7 +40,9 @@ function SingleResident(props) {
             </div>
           </div>
           <div className="column">
-            <p className="title is-size-3-desktop is-size-5-touch">RowdyRobo</p>
+            <p className="title is-size-3-desktop is-size-5-touch">
+              {props.name}
+            </p>
           </div>
         </div>
       </Link>

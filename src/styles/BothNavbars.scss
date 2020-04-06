@@ -21,7 +21,7 @@
     padding-top: 0.5rem;
     min-height: 5rem;
     margin-bottom: 0;
-    background-color: #333;
+    background-color: black;
 
     #radioShowDetails {
       display: flex;
@@ -32,6 +32,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        white-space: nowrap;
       }
       #radioShowName {
         flex: 1;
@@ -50,13 +51,13 @@
 
   @keyframes live-light-pulse {
     0% {
-      background-color: #aa00b3;
+      background-color: darken($color: $primary, $amount: 40);
     }
     50% {
       background-color: $primary;
     }
     100% {
-      background-color: #aa00b3;
+      background-color: darken($color: $primary, $amount: 40);
     }
   }
 
@@ -74,7 +75,8 @@
     flex: 1;
     color: white;
     border-bottom: 0.25rem solid $primary;
-    min-height: 2.5rem;
+    // background-color: slateblue;
+    height: 2.5rem;
     transition: ease-in-out 0.5s;
     -moz-transition: ease-in-out 0.5s;
     -webkit-transition: ease-in-out 0.5s;
@@ -87,9 +89,24 @@
     #open-schedule {
       padding: 0;
       margin: 0;
-      border-left: 0.25rem solid white;
-      button:hover {
-        background-color: #555;
+      transition: 0.25s ease-in-out;
+
+      button {
+        padding: 1px auto;
+        border-radius: 0;
+        background-color: transparent;
+        border-color: transparent;
+        p {
+          color: white;
+          transition: 0.25s ease;
+        }
+      }
+      &:hover {
+        button {
+          p {
+            color: $primary;
+          }
+        }
       }
     }
 
@@ -107,10 +124,6 @@
         padding: 0.5rem;
       }
     }
-
-    // .up-next {
-    //   background-color: rgba($color: #000000, $alpha: 0.5);
-    // }
 
     //==================================
     // <ScheduleModal />

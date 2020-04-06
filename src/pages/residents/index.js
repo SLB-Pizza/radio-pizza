@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { SingleResident } from "../../components";
 
-import "../../styles/index.scss";
 // Fake Data
 // import dataSet from "../../__tests__/residentsFakeData.json";
 
@@ -31,10 +30,20 @@ const alphabet = [
   "W",
   "X",
   "Y",
-  "Z"
+  "Z",
 ];
 
 function ResidentsIndexPage() {
+  const [isOpen, setIsOpen] = useState("current");
+
+  function toggleColumn(e) {
+    if (isOpen === e.currentTarget.id) {
+      setIsOpen("");
+    } else {
+      setIsOpen(e.currentTarget.id);
+    }
+  }
+
   return (
     <div className="residents-page">
       <div className="container is-fluid image-diffuser">
@@ -60,12 +69,12 @@ function ResidentsIndexPage() {
               </ul>
             </div>
           </div> */}
-          <div className="column is-half" id="current">
+          <div className="column is-half" id="current" onClick={toggleColumn}>
             <p className="title is-size-4-desktop is-size-6-touch has-text-centered">
               This Season
             </p>
           </div>
-          <div className="column is-half" id="alumni">
+          <div className="column is-half" id="alumni" onClick={toggleColumn}>
             <p className="title is-size-4-desktop is-size-6-touch has-text-centered">
               Our Alumni
             </p>
@@ -74,29 +83,56 @@ function ResidentsIndexPage() {
         {/*
         Desktop
         */}
-        <div className="columns is-multiline is-mobile all-residents">
-          <SingleResident name={"RowdyRobo"} />
-          <SingleResident name={"RowdyRobo"} />
-          <SingleResident name={"RowdyRobo"} />
-          <SingleResident name={"RowdyRobo"} />
-          <SingleResident name={"RowdyRobo"} />
-          <SingleResident name={"RowdyRobo"} />
-          <SingleResident name={"RowdyRobo"} />
-          <SingleResident name={"RowdyRobo"} />
-          <SingleResident name={"RowdyRobo"} />
-          <SingleResident name={"RowdyRobo"} />
-          <SingleResident name={"RowdyRobo"} />
-          <SingleResident name={"RowdyRobo"} />
-          <SingleResident name={"RowdyRobo"} />
-          <SingleResident name={"RowdyRobo"} />
-          <SingleResident name={"RowdyRobo"} />
-          <SingleResident name={"RowdyRobo"} />
-          <SingleResident name={"RowdyRobo"} />
-          <SingleResident name={"RowdyRobo"} />
-          <SingleResident name={"RowdyRobo"} />
-          <SingleResident name={"RowdyRobo"} />
-          <SingleResident name={"RowdyRobo"} />
-        </div>
+        {isOpen === "current" ? (
+          <div className="columns is-multiline is-mobile all-residents">
+            <SingleResident name={"CurrentRobo"} />
+            <SingleResident name={"CurrentRobo"} />
+            <SingleResident name={"CurrentRobo"} />
+            <SingleResident name={"CurrentRobo"} />
+            <SingleResident name={"CurrentRobo"} />
+            <SingleResident name={"CurrentRobo"} />
+            <SingleResident name={"CurrentRobo"} />
+            <SingleResident name={"CurrentRobo"} />
+            <SingleResident name={"CurrentRobo"} />
+            <SingleResident name={"CurrentRobo"} />
+            <SingleResident name={"CurrentRobo"} />
+            <SingleResident name={"CurrentRobo"} />
+            <SingleResident name={"CurrentRobo"} />
+            <SingleResident name={"CurrentRobo"} />
+            <SingleResident name={"CurrentRobo"} />
+            <SingleResident name={"CurrentRobo"} />
+            <SingleResident name={"CurrentRobo"} />
+            <SingleResident name={"CurrentRobo"} />
+            <SingleResident name={"CurrentRobo"} />
+            <SingleResident name={"CurrentRobo"} />
+            <SingleResident name={"CurrentRobo"} />
+          </div>
+        ) : null}
+        {isOpen === "alumni" ? (
+          <div className="columns is-multiline is-mobile all-residents">
+            <SingleResident name={"AlumniRobo"} />
+            <SingleResident name={"AlumniRobo"} />
+            <SingleResident name={"AlumniRobo"} />
+            <SingleResident name={"AlumniRobo"} />
+            <SingleResident name={"AlumniRobo"} />
+            <SingleResident name={"AlumniRobo"} />
+            <SingleResident name={"AlumniRobo"} />
+            <SingleResident name={"AlumniRobo"} />
+            <SingleResident name={"AlumniRobo"} />
+            <SingleResident name={"AlumniRobo"} />
+            <SingleResident name={"AlumniRobo"} />
+            <SingleResident name={"AlumniRobo"} />
+            <SingleResident name={"AlumniRobo"} />
+            <SingleResident name={"AlumniRobo"} />
+            <SingleResident name={"AlumniRobo"} />
+            <SingleResident name={"AlumniRobo"} />
+            <SingleResident name={"AlumniRobo"} />
+            <SingleResident name={"AlumniRobo"} />
+            <SingleResident name={"AlumniRobo"} />
+            <SingleResident name={"AlumniRobo"} />
+            <SingleResident name={"AlumniRobo"} />
+          </div>
+        ) : null}
       </div>
     </div>
   );

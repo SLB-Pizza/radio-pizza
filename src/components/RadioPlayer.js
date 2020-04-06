@@ -120,7 +120,6 @@ function RadioPlayer(props) {
         )}
       </div>
       <div className="column" id="radioShowDetails">
-        {/* Currently set to show Live Stuff when NOT live */}
         {globalState.live ? (
           <div id="radioShowTime">
             <div id="live-light" />
@@ -129,9 +128,7 @@ function RadioPlayer(props) {
         ) : (
           <div id="radioShowTime">
             <p className="subtitle is-size-7 has-text-light">
-              {globalState.playing && player.current.getCurrentTime()}s/
-              {globalState.playing && localState.played}
-              {console.log(typeof player.current.getCurrentTime)}
+              4-6PM | Some Artist
             </p>
           </div>
         )}
@@ -167,8 +164,6 @@ function RadioPlayer(props) {
             { stop: 1, color: "red" },
           ]}
         />
-
-        {console.log("player.current", player.current)}
       </div>
       <ReactPlayer
         className="cloud-player"

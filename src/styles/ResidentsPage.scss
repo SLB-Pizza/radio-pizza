@@ -3,14 +3,14 @@
   margin-bottom: 3rem;
   min-height: calc(100vh - 10.5rem);
 
-  background-image: url(https://source.unsplash.com/1920x1080/daily?musician);
+  background-image: url(../img/red-led-light-with-silhouette-of-a-man-3094799.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
 
   .image-diffuser {
-    background-color: rgba($color: black, $alpha: 0.5);
+    background-color: rgba($color: black, $alpha: 0.25);
     height: 100%;
   }
 
@@ -25,22 +25,28 @@
     }
   }
 
-  .resident-selection {
-    margin-bottom: 2rem;
-  }
-
   .is-half {
-    background-color: black;
-    border: 0.125rem solid #999;
+    background-color: darken($color: $primary, $amount: 20);
+    border-bottom: 0.25rem solid $primary;
     transition: 0.25s ease-in-out;
 
     &:hover {
-      border: 0.125rem solid white;
-      background-color: #444;
+      background-color: darken($color: $primary, $amount: 30);
     }
-    &:active {
-      background-color: #888;
+    &.is-active {
+      background-color: $primary;
+      border-bottom: 0.25rem solid $primary;
     }
+  }
+
+  .resident-selection {
+    border-left: 0.25rem solid $primary;
+    border-right: 0.25rem solid $primary;
+    padding: 2rem 1rem 0;
+    background-color: rgba(
+      $color: darken($color: $primary, $amount: 30),
+      $alpha: 0.5
+    );
   }
 
   .resident-box {

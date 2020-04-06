@@ -12,13 +12,12 @@
   .image-diffuser {
     background-color: rgba($color: black, $alpha: 0.25);
     height: 100%;
+    padding-bottom: 3rem;
   }
 
   // Set all text to white
   p {
     color: white;
-
-    // Give 'Residents' a shadow
     &.title {
       text-shadow: 3px 3px 2px black;
       padding: 0.5rem 0 0.75rem;
@@ -40,12 +39,10 @@
   }
 
   .resident-selection {
-    border-left: 0.25rem solid $primary;
-    border-right: 0.25rem solid $primary;
     padding: 2rem 1rem 0;
     background-color: rgba(
       $color: darken($color: $primary, $amount: 30),
-      $alpha: 0.5
+      $alpha: 0.75
     );
   }
 
@@ -58,15 +55,10 @@
   }
 
   .single-resident {
-    @include tablet {
-      margin-bottom: 3rem;
-    }
-
     border: 0.125rem solid transparent;
     transition: 0.125s ease-in-out;
 
     &:hover {
-      border: 0.125rem solid white;
       background-color: rgba($color: #000000, $alpha: 0.5);
     }
 

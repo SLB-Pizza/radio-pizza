@@ -71,12 +71,10 @@ function ResidentsIndexPage() {
             <SingleResident name={"CurrentRobo"} />
             <SingleResident name={"CurrentRobo"} />
             <SingleResident name={"CurrentRobo"} />
-            <SingleResident name={"CurrentRobo"} />
           </div>
         ) : null}
         {isOpen === "alumni" ? (
           <div className="columns is-mobile is-multiline resident-selection">
-            <SingleResident name={"AlumniRobo"} />
             <SingleResident name={"AlumniRobo"} />
             <SingleResident name={"AlumniRobo"} />
             <SingleResident name={"AlumniRobo"} />

@@ -30,25 +30,25 @@ These are separated by collections, detailed as follows:
   - Features: now displays 2 static features - scroll removed; matches desktop layouts
 
 RadioBar.js - DONE
-| Mobile | Desktop |
+| Mobile      | Desktop      |
 |-------------|--------------|
-| logo | logo col |
-| | Mute button |
+| logo        | logo col     |
+|             | Mute button  |
 | RadioPlayer | Radio player |
-| chat button | Chat button |
-| | Time |
+| chat button | Chat button  |
+|             | Time         |
 
 ScheduleBar.js - NO CHANGE NEEDED
-| Mobile | Desktop |
+| Mobile | Desktop  |
 |--------|----------|
-| logo | logo col |
+| logo   | logo col |
 
 HomeMixes -
 | Mobile | Desktop |
 |--------|---------|
-| | |
-| | |
-| | |
+|        |         |
+|        |         |
+|        |         |
 
 29 Mar 2020
 
@@ -97,3 +97,19 @@ That deploy link _should_ update to reflect integrated changes, whereas before i
 - On touch devices, longer mix titles cause the text to overflow into other sections of the site - this is being addressed with some work-in-progress marquee code.
 
 We got a lot done this week!
+
+
+# Apr 06 Changes
+
+## Radio Bar
+
+- Make background color black to make schedule bar color
+- Adjust sizing of mute/unmute, play/pause and chat buttons
+- Make hover/active color of radio bar icons Halfmoon pink
+
+## `/bio`
+- Make all mixes horizontal
+- Adjust font sizes of mix details
+- Change hover/active color to shade of Halfmoon pink
+
+-

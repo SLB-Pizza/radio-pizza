@@ -15,14 +15,13 @@
   }
 }
 
-// Give each card a solid white border
+// Give each card a solid $primary border
 .card {
-  border: 0.125rem solid white;
-  margin: 0 0.375rem;
+  border: 0.125rem solid $primary;
+  margin: 0 0.125rem;
   transition: ease-in-out 0.25s;
 
   &:hover {
-    margin: 0 0.125rem;
     box-shadow: 10px 8px 5px black;
   }
 }
@@ -117,7 +116,7 @@
   background-attachment: scroll;
   background-size: cover;
 
-  border-top: 0.25rem solid white;
+  border-top: 0.25rem solid $primary;
   .tag {
     transition: 0.25s ease-in-out;
     &:hover {
@@ -136,7 +135,7 @@
   background-attachment: scroll;
   background-size: cover;
 
-  border-top: 0.25rem solid white;
+  border-top: 0.25rem solid $primary;
 }
 
 //==================================
@@ -149,6 +148,6 @@
   background-attachment: scroll;
   background-size: cover;
 
-  border-top: 0.25rem solid white;
-  border-bottom: 0.25rem solid white;
+  border-top: 0.25rem solid $primary;
+  border-bottom: 0.25rem solid $primary;
 }

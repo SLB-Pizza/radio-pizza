@@ -30,25 +30,25 @@ These are separated by collections, detailed as follows:
   - Features: now displays 2 static features - scroll removed; matches desktop layouts
 
 RadioBar.js - DONE
-| Mobile      | Desktop      |
+| Mobile | Desktop |
 |-------------|--------------|
-| logo        | logo col     |
-|             | Mute button  |
+| logo | logo col |
+| | Mute button |
 | RadioPlayer | Radio player |
-| chat button | Chat button  |
-|             | Time         |
+| chat button | Chat button |
+| | Time |
 
 ScheduleBar.js - NO CHANGE NEEDED
-| Mobile | Desktop  |
+| Mobile | Desktop |
 |--------|----------|
-| logo   | logo col |
+| logo | logo col |
 
 HomeMixes -
 | Mobile | Desktop |
 |--------|---------|
-|        |         |
-|        |         |
-|        |         |
+| | |
+| | |
+| | |
 
 29 Mar 2020
 
@@ -98,27 +98,31 @@ That deploy link _should_ update to reflect integrated changes, whereas before i
 
 We got a lot done this week!
 
-
 # Tues Apr 07 Changes
 
 ## Radio Bar
+
 - Make background color black to make schedule bar color
 - Adjust sizing of mute/unmute, play/pause and chat buttons
 - Make hover/active color of radio bar icons HMBK pink
 
-## Schedule bar
+## Schedule Bar
+
 - Add HMBK pink colored border to bottom of bar to improve visual separation of content
 - Remove in-bar 'schedule' button outline and color
 
 ## Navbar
+
 - Add HMBK pink colored border to top of bar to improve visual separation of content
 - Change nav link text color to pink white; HMBK pink on hover
 
 ## `/residents`
+
 - Add functionality to switch between "This Season" and "Our Alumni" - just click the column you want to see
--
+- Add selector column and resident container styling based of shades of HMBK pink
 
 ## `/bio`
+
 - Make all mixes horizontal
 - Adjust font sizes of mix details
 - Make hover/active color of resident social icons to HMBK pink
@@ -129,8 +133,11 @@ We got a lot done this week!
 - Switching from a mix to the live broadcast; test button programmed, "live" layout and switch button styling in progress
 - Adjusting navbar background colors when nav menu is open; testing nav menu bar color changes
 
+--
+
 ## Switching from Mix to Live Broadcast
+
 - I've programmed in a button for testing purposes only to show "live" layout vs "not live" layout
-  -  In Schedule Bar: "6PM" temporarily replaced with "not live"
-       - Button only to show the status and will not be part of the final design - start time for the next show will be here
-       - Click "not live" to toggle the way the Radio Bar will show there's a live broadcast - click again toggle it
+  - In Schedule Bar: "6PM" temporarily replaced with "not live"
+    - Button only to show the status and will not be part of the final design - start time for the next show will be here
+    - Click "not live" to toggle the way the Radio Bar will show there's a live broadcast - click again toggle it

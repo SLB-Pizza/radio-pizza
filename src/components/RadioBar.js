@@ -97,9 +97,15 @@ function RadioBar() {
             // currentTrack={radioData.current_track.title}
           />
         </div>
-
-        <div className="column is-narrow chat-btn">
-          <FontAwesomeIcon icon={faComments} size="2x" />
+        <div className="column is-narrow">
+          <a
+            className="chat-btn"
+            href="http://halfmoonradiochat.chatango.com/"
+            target="_blank"
+            rel="noopener"
+          >
+            <FontAwesomeIcon icon={faComments} size="2x" />
+          </a>
         </div>
         <div className="column is-narrow is-hidden-touch">
           <p className="has-text-light">4:59PM NYC</p>

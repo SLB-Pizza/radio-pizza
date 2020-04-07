@@ -108,6 +108,7 @@ We got a lot done this week!
 
 ## Schedule bar
 - Add HMBK pink colored border to bottom of bar to improve visual separation of content
+- Remove in-bar 'schedule' button outline and color
 
 
 ## Navbar

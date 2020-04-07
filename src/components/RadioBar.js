@@ -18,13 +18,17 @@ import AudioSpectrum from "react-audio-spectrum";
 
 function RadioBar() {
   const dispatch = useContext(GlobalDispatchContext);
+  const globalState = useContext(GlobalStateContext);
+  const [radioData, setRadioData] = useState({});
+  const [mute, setMute] = useState(false);
 
   const handleToggleMuted = async () => {
     await dispatch({ type: "TOGGLE_MUTE" });
   };
 
-  const [radioData, setRadioData] = useState({});
-  const [mute, setMute] = useState(false);
+  const handleLiveTest = async () => {
+    await dispatch({ type: "TOGGLE_LIVE_TEST" });
+  };
 
   useEffect(() => {
     async function axiosGet() {
@@ -36,11 +40,6 @@ function RadioBar() {
     axiosGet();
   }, []);
 
-  /**
-   *
-   *
-   */
-
   return (
     <div className="container is-fluid radio-bar">
       <div className="columns is-vcentered is-mobile">
@@ -51,6 +50,13 @@ function RadioBar() {
             </figure>
           </Link>
         </div>
+        {globalState.live ? (
+          <div className="column is-narrow">
+            <div id="live-now">
+              <p className="title is-size-6">LIVE</p>
+            </div>
+          </div>
+        ) : null}
         <div className="column is-narrow is-hidden-touch mute-btn">
           {mute ? (
             <FontAwesomeIcon
@@ -72,7 +78,12 @@ function RadioBar() {
             />
           )}
         </div>
-        <div className="column">
+        <div
+          className="column"
+          onClick={() => {
+            handleLiveTest();
+          }}
+        >
           <RadioPlayer status={radioData.status} />
         </div>
 

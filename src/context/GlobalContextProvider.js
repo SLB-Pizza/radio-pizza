@@ -17,7 +17,7 @@ const initialState = {
   duration: 0,
   playbackRate: 1.0,
   loop: true,
-  live: false
+  live: false,
 };
 
 function reducer(state, action) {
@@ -25,7 +25,7 @@ function reducer(state, action) {
     case "TOGGLE_PLAYING": {
       return {
         ...state,
-        playing: !state.playing
+        playing: !state.playing,
       };
     }
     case "CHANGE_URL": {
@@ -34,13 +34,19 @@ function reducer(state, action) {
         ...state,
         url: action.payload.url,
         title: action.payload.title,
-        playing: true
+        playing: true,
       };
     }
     case "TOGGLE_MUTE": {
       return {
         ...state,
-        muted: !state.muted
+        muted: !state.muted,
+      };
+    }
+    case "TOGGLE_LIVE_TEST": {
+      return {
+        ...state,
+        live: !state.live,
       };
     }
     default:

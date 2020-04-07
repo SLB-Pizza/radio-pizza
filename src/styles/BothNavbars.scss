@@ -51,6 +51,52 @@
     }
   }
 
+  #live-now {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: calc(100% + 0.25rem);
+    height: calc(100% + 0.25rem);
+    z-index: -1;
+    animation: steam 2s linear infinite;
+
+    p {
+      color: white;
+      text-shadow: 1px 2px black;
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      left: -2px;
+      top: -2px;
+      background-color: $primary;
+      background-size: 400%;
+      width: calc(100% + 0.25rem);
+      height: calc(100% + 0.25rem);
+      z-index: -1;
+      animation: live-light 2s linear infinite;
+    }
+  }
+  @keyframes live-light {
+    0% {
+      background: $primary;
+    }
+    50% {
+      background: white;
+    }
+    100% {
+      background: $primary;
+    }
+  }
+
   #live-light {
     width: 0.75rem;
     height: 0.75rem;
@@ -61,13 +107,13 @@
 
   @keyframes live-light-pulse {
     0% {
-      background-color: darken($color: $primary, $amount: 40);
+      background-color: darken($color: $primary, $amount: 5);
     }
     50% {
       background-color: $primary;
     }
     100% {
-      background-color: darken($color: $primary, $amount: 40);
+      background-color: darken($color: $primary, $amount: 5);
     }
   }
 

@@ -5,27 +5,8 @@ import {
   faInstagram,
   faSoundcloud,
   faMixcloud,
-  faBandcamp
+  faBandcamp,
 } from "@fortawesome/free-brands-svg-icons";
-
-const sampleSocial = [
-  {
-    url: "https://twitter.com/home",
-    icon: "faTwitter"
-  },
-  {
-    url: "https://instagram.com",
-    icon: "faInstagram"
-  },
-  {
-    url: "https://soundcloud.com",
-    icon: "faSoundCloud"
-  },
-  {
-    url: "https://bandcamp.com",
-    icon: "faBandcamp"
-  }
-];
 
 function BioImageBlurb(props) {
   /**
@@ -38,11 +19,30 @@ function BioImageBlurb(props) {
     return (
       <a key={icon} href={url}>
         <span className="icon">
-          <FontAwesomeIcon icon={icon} size="3x" color="white" />
+          <FontAwesomeIcon icon={icon} size="3x" />
         </span>
       </a>
     );
   };
+
+  const sampleSocial = [
+    {
+      url: "https://twitter.com/home",
+      icon: "faTwitter",
+    },
+    {
+      url: "https://instagram.com",
+      icon: "faInstagram",
+    },
+    {
+      url: "https://soundcloud.com",
+      icon: "faSoundCloud",
+    },
+    {
+      url: "https://bandcamp.com",
+      icon: "faBandcamp",
+    },
+  ];
 
   return (
     <div className="columns is-vcentered">
@@ -69,27 +69,27 @@ function BioImageBlurb(props) {
         <div className="resident-social-links">
           <a href="https://twitter.com">
             <span className="icon is-large">
-              <FontAwesomeIcon icon={faTwitter} size="2x" color="white" />
+              <FontAwesomeIcon icon={faTwitter} size="2x" />
             </span>
           </a>
           <a href="https://instagram.com">
             <span className="icon is-large">
-              <FontAwesomeIcon icon={faInstagram} size="2x" color="white" />
+              <FontAwesomeIcon icon={faInstagram} size="2x" />
             </span>
           </a>
           <a href="https://soundcloud.com">
             <span className="icon is-large">
-              <FontAwesomeIcon icon={faSoundcloud} size="2x" color="white" />
+              <FontAwesomeIcon icon={faSoundcloud} size="2x" />
             </span>
           </a>
           <a href="https://bandcamp.com">
             <span className="icon is-large">
-              <FontAwesomeIcon icon={faBandcamp} size="2x" color="white" />
+              <FontAwesomeIcon icon={faBandcamp} size="2x" />
             </span>
           </a>
           <a href="https://mixcloud.com">
             <span className="icon is-large">
-              <FontAwesomeIcon icon={faMixcloud} size="2x" color="white" />
+              <FontAwesomeIcon icon={faMixcloud} size="2x" />
             </span>
           </a>
         </div>

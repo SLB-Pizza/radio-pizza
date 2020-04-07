@@ -102,14 +102,22 @@ We got a lot done this week!
 # Apr 06 Changes
 
 ## Radio Bar
-
 - Make background color black to make schedule bar color
 - Adjust sizing of mute/unmute, play/pause and chat buttons
-- Make hover/active color of radio bar icons Halfmoon pink
+- Make hover/active color of radio bar icons HMBK pink
+
+## Schedule bar
+- Add HMBK pink colored border to bottom of bar to improve visual separation of content
+
+
+## Navbar
+- Add HMBK pink colored border to top of bar to improve visual separation of content
+-
 
 ## `/bio`
 - Make all mixes horizontal
 - Adjust font sizes of mix details
-- Change hover/active color to shade of Halfmoon pink
+- Make hover/active color of resident social icons to HMBK pink
+- Change hover/active color of single mix to shade of HMBK pink
 
 -

@@ -61,7 +61,7 @@ const questions = [
     message: "Base URL?",
     default() {
       return "http://localhost:8000/";
-    }
+    },
   },
   {
     type: "input",
@@ -69,7 +69,7 @@ const questions = [
     message: "Page to screenshot?",
     default() {
       return "schedule";
-    }
+    },
   },
   {
     type: "input",
@@ -77,7 +77,7 @@ const questions = [
     message: "Page version?",
     default() {
       return "v1";
-    }
+    },
   },
   {
     type: "checkbox",
@@ -90,31 +90,31 @@ const questions = [
     choices: [
       new inquirer.Separator("Select a viewport group..."),
       {
-        name: "All Sizes"
+        name: "All Sizes",
       },
       {
-        name: "Touch Sizes"
+        name: "Touch Sizes",
       },
       {
-        name: "Desktop Sizes"
+        name: "Desktop Sizes",
       },
       new inquirer.Separator("...or pick the ones you need."),
       {
-        name: "Mobile"
+        name: "Mobile",
       },
       {
-        name: "Tablet"
+        name: "Tablet",
       },
       {
-        name: "Desktop"
+        name: "Desktop",
       },
       {
-        name: "Widescreen"
+        name: "Widescreen",
       },
       {
-        name: "FullHD"
-      }
-    ]
+        name: "FullHD",
+      },
+    ],
   },
   {
     type: "confirm",
@@ -135,8 +135,8 @@ const questions = [
     },
     default() {
       return true;
-    }
-  }
+    },
+  },
 ];
 
 const customDevices = [
@@ -150,8 +150,8 @@ const customDevices = [
       deviceScaleFactor: 1,
       isMobile: false,
       hasTouch: false,
-      isLandscape: true
-    }
+      isLandscape: true,
+    },
   },
   {
     name: "Widescreen",
@@ -163,8 +163,8 @@ const customDevices = [
       deviceScaleFactor: 1,
       isMobile: false,
       hasTouch: false,
-      isLandscape: true
-    }
+      isLandscape: true,
+    },
   },
   {
     name: "1080p",
@@ -175,9 +175,9 @@ const customDevices = [
       deviceScaleFactor: 1,
       isMobile: false,
       hasTouch: false,
-      isLandscape: true
-    }
-  }
+      isLandscape: true,
+    },
+  },
 ];
 
 const iPhoneSE = deviceList["iPhone SE"];
@@ -208,7 +208,7 @@ const allDevices = [
   iPhone6Plus,
   iPad,
   kindleFireHDX,
-  ...customDevices
+  ...customDevices,
 ];
 
 /**
@@ -226,7 +226,7 @@ const allDevices = [
  * @param {string[]} choices - array of strings from the user prompt
  * @returns {array} - array of selected viewports
  */
-const parseViewports = choices => {
+const parseViewports = (choices) => {
   console.log("Choices is:\n", choices, "\n");
 
   let viewports = new Set();
@@ -287,17 +287,13 @@ const dateString = () => {
     month: "short",
     hour: "2-digit",
     minute: "2-digit",
-    timeZone: "America/New_York"
+    timeZone: "America/New_York",
   });
 
   // Replace the comma and colon in the time expression with ""
   let regEx = new RegExp("[,:]", "gi");
   let dateStr = string.replace(regEx, "");
   return dateStr;
-};
-
-const navTimer = (start, finish) => {
-  return differenceInMilliseconds(finish, start);
 };
 
 (async () => {
@@ -308,7 +304,7 @@ const navTimer = (start, finish) => {
         figlet.textSync("Screenshots", {
           font: "Slant",
           horizontalLayout: "default",
-          verticalLayout: "default"
+          verticalLayout: "default",
         })
       )
     );
@@ -384,7 +380,7 @@ const navTimer = (start, finish) => {
       let startNow = Date.now();
       await page.goto(`${pageURL}`, {
         waitUntil: ["load", "domcontentloaded", "networkidle2"],
-        timeout: 60000
+        timeout: 60000,
       });
       let endNow = Date.now();
       console.log(
@@ -424,7 +420,7 @@ const navTimer = (start, finish) => {
           path: `__tests__/screenshots/${pageRoute} ${pageVersion} | ${device.name} | ${time}.jpeg`,
           fullPage: fullPageCapture,
           type: "jpeg",
-          quality: 75
+          quality: 75,
         });
       }
 
@@ -456,7 +452,7 @@ const navTimer = (start, finish) => {
         figlet.textSync("Lighthouse", {
           font: "Slant",
           horizontalLayout: "default",
-          verticalLayout: "default"
+          verticalLayout: "default",
         })
       )
     );
@@ -468,7 +464,7 @@ const navTimer = (start, finish) => {
     const { lhr } = await lighthouse(url, {
       port: new URL(browser.wsEndpoint()).port,
       output: "json",
-      logLevel: "info"
+      logLevel: "info",
     });
 
     const auditCategories = ["Performance", ""];
@@ -476,7 +472,7 @@ const navTimer = (start, finish) => {
     console.log(
       chalk.white(
         `\nLighthouse Audit Results:\n${Object.values(lhr.categories)
-          .map(c => `${c.title} -- ${Math.floor(c.score * 100)}/100`)
+          .map((c) => `${c.title} -- ${Math.floor(c.score * 100)}/100`)
           .join("\n")}`
       )
     );

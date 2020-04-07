@@ -1,14 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import {
+  GlobalDispatchContext,
+  GlobalStateContext,
+} from "../context/GlobalContextProvider";
 import { ScheduleModal, ScheduleDropdown } from "./index";
 
 function ScheduleBar() {
   const [open, setOpen] = useState(false);
 
+  // TEST ONLY -- just to
+  const dispatch = useContext(GlobalDispatchContext);
+  const globalState = useContext(GlobalStateContext);
+
+  const handleLiveTest = async () => {
+    await dispatch({ type: "TOGGLE_LIVE_TEST" });
+  };
+
   return !open ? (
     <div className="schedule-bar container is-fluid">
       <div className="columns is-vcentered is-mobile">
-        <div className="column is-narrow at-time">
-          <p className="is-size-6">6:00PM</p>
+        <div
+          className="column is-narrow at-time"
+          onClick={() => {
+            handleLiveTest();
+          }}
+        >
+          <p className="is-size-6">{globalState.live ? "LIVE" : "not live"}</p>
         </div>
         <div className="column upcoming">
           <p className="title is-size-6 has-text-light">Next Show</p>

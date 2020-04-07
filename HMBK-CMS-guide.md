@@ -99,7 +99,7 @@ That deploy link _should_ update to reflect integrated changes, whereas before i
 We got a lot done this week!
 
 
-# Apr 06 Changes
+# Tues Apr 07 Changes
 
 ## Radio Bar
 - Make background color black to make schedule bar color
@@ -109,7 +109,6 @@ We got a lot done this week!
 ## Schedule bar
 - Add HMBK pink colored border to bottom of bar to improve visual separation of content
 - Remove in-bar 'schedule' button outline and color
-
 
 ## Navbar
 - Add HMBK pink colored border to top of bar to improve visual separation of content
@@ -121,4 +120,12 @@ We got a lot done this week!
 - Make hover/active color of resident social icons to HMBK pink
 - Change hover/active color of single mix to shade of HMBK pink
 
--
+## In Progress
+
+- Switching from a mix to the live broadcast; test button programmed, "live" layout and switch button styling in progress
+
+## Switching from Mix to Live Broadcast
+- I've programmed in a button for testing purposes only to show "live" layout vs "not live" layout
+  -  In Schedule Bar: "6PM" temporarily replaced with "not live"
+       - Button only to show the status and will not be part of the final design - start time for the next show will be here
+       - Click "not live" to toggle the way the Radio Bar will show there's a live broadcast - click again toggle it

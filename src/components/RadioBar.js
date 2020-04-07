@@ -26,18 +26,24 @@ function RadioBar() {
     await dispatch({ type: "TOGGLE_MUTE" });
   };
 
-  const handleLiveTest = async () => {
-    await dispatch({ type: "TOGGLE_LIVE_TEST" });
+  const handlePlayLive = async () => {
+    await dispatch({
+      type: "CHANGE_URL",
+      payload: {
+        url: "https://streamer.radio.co/sa3c47c55b/listen",
+        title: "Halfmoon Radio",
+      },
+    });
   };
 
   useEffect(() => {
-    async function axiosGet() {
+    async function getRadioData() {
       const result = await axios(
         "https://public.radio.co/stations/sa3c47c55b/status"
       );
       setRadioData(result.data);
     }
-    axiosGet();
+    getRadioData();
   }, []);
 
   return (
@@ -52,8 +58,15 @@ function RadioBar() {
         </div>
         {globalState.live ? (
           <div className="column is-narrow">
-            <div id="live-now">
-              <p className="title is-size-6">LIVE</p>
+            <div
+              id="live-now"
+              onClick={() => {
+                console.log("radioData", radioData);
+                handlePlayLive();
+              }}
+            >
+              <p className="is-size-6">LIVE</p>
+              <p className="is-size-7">listen now</p>
             </div>
           </div>
         ) : null}
@@ -78,13 +91,11 @@ function RadioBar() {
             />
           )}
         </div>
-        <div
-          className="column"
-          onClick={() => {
-            handleLiveTest();
-          }}
-        >
-          <RadioPlayer status={radioData.status} />
+        <div className="column">
+          <RadioPlayer
+            status={radioData.status}
+            // currentTrack={radioData.current_track.title}
+          />
         </div>
 
         <div className="column is-narrow chat-btn">

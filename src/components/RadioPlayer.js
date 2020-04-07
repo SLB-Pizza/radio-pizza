@@ -133,7 +133,7 @@ function RadioPlayer(props) {
           {pageIsVisible && renderNowPlaying(globalState.title)}
         </PageVisibility>
       </div>
-      <div className="column is-narrow is-hidden-mobile">
+      {/* <div className="column is-narrow is-hidden-mobile">
         <audio
           className="is-invisible"
           id="audio-element"
@@ -154,7 +154,7 @@ function RadioPlayer(props) {
             { stop: 1, color: "red" },
           ]}
         />
-      </div>
+      </div> */}
       <ReactPlayer
         className="cloud-player"
         id="react-player"

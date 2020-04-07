@@ -54,7 +54,8 @@
   #live-now {
     width: 3rem;
     height: 3rem;
-    border-radius: 50%;
+    border: 0.125rem;
+    background-color: white;
 
     display: flex;
     flex-direction: column;
@@ -68,9 +69,10 @@
 
     p {
       color: white;
-      text-shadow: 1px 2px black;
+      animation: 3s colorChange infinite;
     }
 
+    // Animation for the strobing bar
     &:before,
     &:after {
       content: "";
@@ -82,10 +84,10 @@
       width: calc(100% + 0.25rem);
       height: calc(100% + 0.25rem);
       z-index: -1;
-      animation: live-light 2s linear infinite;
+      animation: live-bar 2s linear infinite;
     }
   }
-  @keyframes live-light {
+  @keyframes live-bar {
     0% {
       background: $primary;
     }
@@ -94,6 +96,18 @@
     }
     100% {
       background: $primary;
+    }
+  }
+
+  @keyframes colorChange {
+    0% {
+      color: white;
+    }
+    50% {
+      color: $primary;
+    }
+    100% {
+      color: white;
     }
   }
 
@@ -107,13 +121,13 @@
 
   @keyframes live-light-pulse {
     0% {
-      background-color: darken($color: $primary, $amount: 5);
+      background-color: white;
     }
     50% {
       background-color: $primary;
     }
     100% {
-      background-color: darken($color: $primary, $amount: 5);
+      background-color: white;
     }
   }
 

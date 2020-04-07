@@ -114,15 +114,20 @@ We got a lot done this week!
 - Add HMBK pink colored border to top of bar to improve visual separation of content
 - Change nav link text color to pink white; HMBK pink on hover
 
+## `/residents`
+- Add functionality to switch between "This Season" and "Our Alumni" - just click the column you want to see
+-
+
 ## `/bio`
 - Make all mixes horizontal
 - Adjust font sizes of mix details
 - Make hover/active color of resident social icons to HMBK pink
-- Change hover/active color of single mix to shade of HMBK pink
+- Change hover/active color of single mix to dark shade of HMBK pink
 
 ## In Progress
 
 - Switching from a mix to the live broadcast; test button programmed, "live" layout and switch button styling in progress
+- Adjusting navbar background colors when nav menu is open; testing nav menu bar color changes
 
 ## Switching from Mix to Live Broadcast
 - I've programmed in a button for testing purposes only to show "live" layout vs "not live" layout

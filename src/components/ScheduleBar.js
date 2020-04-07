@@ -25,7 +25,7 @@ function ScheduleBar() {
             handleLiveTest();
           }}
         >
-          <p className="is-size-6">{globalState.live ? "LIVE" : "not live"}</p>
+          <p className="is-size-6">{globalState.live ? "LIVE" : "6PM"}</p>
         </div>
         <div className="column upcoming">
           <p className="title is-size-6 has-text-light">Next Show</p>

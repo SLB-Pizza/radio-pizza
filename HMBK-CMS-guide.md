@@ -112,7 +112,7 @@ We got a lot done this week!
 
 ## Navbar
 - Add HMBK pink colored border to top of bar to improve visual separation of content
--
+- Change nav link text color to pink white; HMBK pink on hover
 
 ## `/bio`
 - Make all mixes horizontal

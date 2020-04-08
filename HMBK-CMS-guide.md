@@ -98,7 +98,11 @@ That deploy link _should_ update to reflect integrated changes, whereas before i
 
 We got a lot done this week!
 
+============
+
 # Tues Apr 07 Changes
+
+Preview site updated, same link: https://halfmoon-rebuild-wip-2020.netlify.com/
 
 ## Radio Bar
 
@@ -109,7 +113,7 @@ We got a lot done this week!
 ## Schedule Bar
 
 - Add HMBK pink colored border to bottom of bar to improve visual separation of content
-- Remove in-bar 'schedule' button outline and color
+- Remove in-bar 'schedule' button outline and color - now solid black
 
 ## Navbar
 
@@ -131,9 +135,24 @@ We got a lot done this week!
 ## In Progress
 
 - Switching from a mix to the live broadcast; test button programmed, "live" layout and switch button styling in progress
-- Adjusting navbar background colors when nav menu is open; testing nav menu bar color changes
+- Adjusting navbar background colors when touchscreen nav menu is open; testing nav menu bar color changes
 
---
+## Upcoming
+
+- Integrating 'Eurostile' as main site font - headings and titles
+- Choosing complementary font for subtitles and text blocks
+- More site color palette testing/expansion
+  - We current have a three-color palette:
+    - Halfmoon Pink - #f600ff
+    - White
+    - Black
+  - Would like to add two more accent colors - five total
+
+We'd love to hear your feedback!
+
+---
+
+@edrickchu2 @surfallah @richarddominguez10
 
 ## Switching from Mix to Live Broadcast
 

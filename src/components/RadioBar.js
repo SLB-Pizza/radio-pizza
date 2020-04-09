@@ -4,7 +4,7 @@ import {
   GlobalStateContext,
 } from "../context/GlobalContextProvider";
 import axios from "axios";
-import { RadioPlayer } from "./index";
+import { RadioPlayer, LiveBar } from "./index";
 import { Link } from "gatsby";
 
 import {
@@ -14,6 +14,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import Ticker from "react-ticker";
 import AudioSpectrum from "react-audio-spectrum";
 
 function RadioBar() {
@@ -36,6 +37,21 @@ function RadioBar() {
     });
   };
 
+  const liveText = "LIVE";
+  const renderNowPlaying = (title) => {
+    return (
+      <Ticker mode="chain" speed={3}>
+        {() => (
+          <>
+            <p className="title is-size-7" id="test-ticker">
+              {title}
+            </p>
+          </>
+        )}
+      </Ticker>
+    );
+  };
+
   useEffect(() => {
     async function getRadioData() {
       const result = await axios(
@@ -47,29 +63,34 @@ function RadioBar() {
   }, []);
 
   return (
-    <div className="container is-fluid radio-bar">
-      <div className="columns is-vcentered is-mobile">
+    <div
+      className={
+        globalState.live
+          ? "container is-fluid radio-bar is-live"
+          : "container is-fluid radio-bar"
+      }
+    >
+      {globalState.live ? (
+        <div className="columns is-vcentered live-bar">
+          <div className="column">Live!</div>
+        </div>
+      ) : null}
+
+      <div className="columns is-vcentered is-mobile radio-controls">
         <div className="column is-narrow">
           <Link to="/">
-            <figure className="image is-64x64">
-              <img src="../img/Halfmoon-3.png" alt="Halfmoon Logo" />
-            </figure>
+            {globalState.live ? (
+              <figure className="image is-48x48">
+                <img src="../img/Halfmoon-3.png" alt="Halfmoon Logo" />
+              </figure>
+            ) : (
+              <figure className="image is-64x64">
+                <img src="../img/Halfmoon-3.png" alt="Halfmoon Logo" />
+              </figure>
+            )}
           </Link>
         </div>
-        {globalState.live ? (
-          <div className="column is-narrow">
-            <div
-              id="live-now"
-              onClick={() => {
-                console.log("radioData", radioData);
-                handlePlayLive();
-              }}
-            >
-              <p className="is-size-6">LIVE</p>
-              <p className="is-size-7">listen now</p>
-            </div>
-          </div>
-        ) : null}
+
         <div className="column is-narrow is-hidden-touch mute-btn">
           {mute ? (
             <FontAwesomeIcon

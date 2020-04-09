@@ -17,11 +17,33 @@
   //==================================
 
   .radio-bar {
-    flex: 2;
+    // flex: 2;
     padding-top: 0.5rem;
-    min-height: 5rem;
+    height: 5rem;
     margin-bottom: 0;
-    background-color: black;
+
+    @include touch {
+      padding: 0 12px;
+    }
+
+    &.is-live {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      .live-bar {
+        margin-top: 0;
+        height: 1.5rem;
+        background-color: #444;
+      }
+      .radio-controls {
+        height: 3.5rem;
+        background-color: darkslateblue;
+
+        @include desktop {
+          margin: -12px 32px 0;
+        }
+      }
+    }
 
     #radioShowDetails {
       display: flex;
@@ -39,6 +61,12 @@
         white-space: nowrap;
       }
     }
+
+    #test-ticker {
+      font-family: "Stencilie", sans-serif;
+      color: $primary;
+      white-space: nowrap;
+    }
   }
 
   .play-pause,
@@ -51,42 +79,41 @@
     }
   }
 
-  #live-now {
-    width: 3rem;
-    height: 3rem;
-    border: 0.125rem;
-    background-color: white;
+  // #live-now {
+  //   // width: 3rem;
+  //   // height: 3rem;
+  //   // border: 0.125rem solid $primary;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: center;
+  //   align-items: center;
 
-    width: calc(100% + 0.25rem);
-    height: calc(100% + 0.25rem);
-    z-index: -1;
-    animation: steam 2s linear infinite;
+  //   width: calc(100% + 0.25rem);
+  //   height: calc(100% + 0.25rem);
+  //   z-index: -1;
+  //   animation: steam 2s linear infinite;
 
-    p {
-      color: white;
-      animation: 3s colorChange infinite;
-    }
+  //   p {
+  //     color: white;
+  //     animation: 3s colorChange infinite;
+  //   }
 
-    // Animation for the strobing bar
-    &:before,
-    &:after {
-      content: "";
-      position: absolute;
-      left: -2px;
-      top: -2px;
-      background-color: $primary;
-      background-size: 400%;
-      width: calc(100% + 0.25rem);
-      height: calc(100% + 0.25rem);
-      z-index: -1;
-      animation: live-bar 2s linear infinite;
-    }
-  }
+  //   // Animation for the strobing bar
+  //   &:before,
+  //   &:after {
+  //     content: "";
+  //     position: absolute;
+  //     left: -2px;
+  //     top: -2px;
+  //     background-color: $primary;
+  //     background-size: 400%;
+  //     width: calc(100% + 0.25rem);
+  //     height: calc(100% + 0.25rem);
+  //     z-index: -1;
+  //     animation: live-bar 2s linear infinite;
+  //   }
+  // }
   @keyframes live-bar {
     0% {
       background: $primary;
@@ -146,7 +173,7 @@
     color: white;
     border-bottom: 0.25rem solid $primary;
     // background-color: slateblue;
-    height: 2.5rem;
+    min-height: 2.5rem;
     transition: ease-in-out 0.5s;
     -moz-transition: ease-in-out 0.5s;
     -webkit-transition: ease-in-out 0.5s;

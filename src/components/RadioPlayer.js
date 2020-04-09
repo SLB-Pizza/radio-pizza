@@ -2,7 +2,7 @@ import React, { useContext, useRef, useState } from "react";
 import ReactPlayer from "react-player";
 import Ticker from "react-ticker";
 import PageVisibility from "react-page-visibility";
-import AudioSpectrum from "react-audio-spectrum";
+// import AudioSpectrum from "react-audio-spectrum";
 import { hot } from "react-hot-loader";
 
 import {

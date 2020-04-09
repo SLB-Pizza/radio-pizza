@@ -8,6 +8,7 @@
 export { default as TopNav } from "./TopNav";
 export { default as RadioBar } from "./RadioBar";
 export { default as RadioPlayer } from "./RadioPlayer";
+export { default as LiveBar } from "./LiveBar";
 export { default as ScheduleBar } from "./ScheduleBar";
 export { default as ScheduleModal } from "./ScheduleModal";
 export { default as ScheduleDropdown } from "./ScheduleDropdown";

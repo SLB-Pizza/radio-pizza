@@ -17,9 +17,9 @@
   //==================================
 
   .radio-bar {
-    // flex: 2;
+    flex: 2;
     padding-top: 0.5rem;
-    height: 5rem;
+    min-height: 5rem;
     margin-bottom: 0;
 
     @include touch {
@@ -32,17 +32,28 @@
       padding: 0;
       .live-bar {
         margin-top: 0;
-        height: 1.5rem;
-        background-color: #444;
-      }
-      .radio-controls {
-        height: 3.5rem;
-        background-color: darkslateblue;
-
-        @include desktop {
-          margin: -12px 32px 0;
+        min-height: 1.5rem;
+        background-color: $primary;
+        @include mobile {
+          .column {
+            padding-top: 0.375rem;
+          }
         }
       }
+      .radio-controls {
+        min-height: 3.5rem;
+        margin-right: 0px;
+        // @include desktop {
+        //   margin: -12px 20px 0;
+        // }
+      }
+    }
+    .radio-controls {
+      min-height: 5rem;
+      margin-right: 0px;
+      // @include desktop {
+      //   margin: -12px 20px 0;
+      // }
     }
 
     #radioShowDetails {
@@ -63,8 +74,10 @@
     }
 
     #test-ticker {
-      font-family: "Stencilie", sans-serif;
-      color: $primary;
+      // font-family: "Stencilie", sans-serif;
+      // font-family: "62dragz", sans-serif;
+      font-family: "Eurostile", sans-serif;
+      color: black;
       white-space: nowrap;
     }
   }

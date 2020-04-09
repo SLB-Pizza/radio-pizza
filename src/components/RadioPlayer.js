@@ -85,7 +85,7 @@ function RadioPlayer(props) {
 
   const renderNowPlaying = (title) => {
     return (
-      <Ticker mode="await" speed={3}>
+      <Ticker mode="smooth" speed={3}>
         {() => (
           <>
             <div className="is-hidden-tablet" id="radioShowName">

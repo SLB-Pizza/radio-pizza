@@ -15,6 +15,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Ticker from "react-ticker";
+import PageVisibility from "react-page-visibility";
 import AudioSpectrum from "react-audio-spectrum";
 
 function RadioBar() {
@@ -22,6 +23,11 @@ function RadioBar() {
   const globalState = useContext(GlobalStateContext);
   const [radioData, setRadioData] = useState({});
   const [mute, setMute] = useState(false);
+  const [pageIsVisible, setPageIsVisible] = useState(true);
+
+  const handleVisibilityChange = (isVisible) => {
+    setPageIsVisible(isVisible);
+  };
 
   const handleToggleMuted = async () => {
     await dispatch({ type: "TOGGLE_MUTE" });
@@ -37,18 +43,20 @@ function RadioBar() {
     });
   };
 
-  const liveText = "LIVE";
-  const renderNowPlaying = (title) => {
+  const liveText = "plusNONE in studio!";
+  const renderLiveTicker = (text) => {
     return (
-      <Ticker mode="chain" speed={3}>
-        {() => (
-          <>
-            <p className="title is-size-7" id="test-ticker">
-              {title}
-            </p>
-          </>
-        )}
-      </Ticker>
+      <div className="columns is-vcentered live-bar">
+        <div className="column">
+          <Ticker mode="smooth" speed={3}>
+            {() => (
+              <p className="title is-size-6" id="test-ticker">
+                LIVE – {text}
+              </p>
+            )}
+          </Ticker>
+        </div>
+      </div>
     );
   };
 
@@ -71,9 +79,9 @@ function RadioBar() {
       }
     >
       {globalState.live ? (
-        <div className="columns is-vcentered live-bar">
-          <div className="column">Live!</div>
-        </div>
+        <PageVisibility onChange={handleVisibilityChange}>
+          {pageIsVisible && renderLiveTicker(liveText)}
+        </PageVisibility>
       ) : null}
 
       <div className="columns is-vcentered is-mobile radio-controls">

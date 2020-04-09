@@ -23,7 +23,17 @@
     margin-bottom: 0;
 
     @include touch {
-      padding: 0 12px;
+      padding-left: 12px;
+      padding-right: 0;
+    }
+
+    .radio-controls {
+      min-height: 5rem;
+      margin-left: -24px;
+      margin-right: -12px;
+      // @include desktop {
+      //   margin: -12px 20px 0;
+      // }
     }
 
     &.is-live {
@@ -32,7 +42,7 @@
       padding: 0;
       .live-bar {
         margin-top: 0;
-        min-height: 1.5rem;
+        min-height: 1.25rem;
         background-color: $primary;
         @include mobile {
           .column {
@@ -41,19 +51,13 @@
         }
       }
       .radio-controls {
-        min-height: 3.5rem;
-        margin-right: 0px;
+        min-height: 3.75rem;
+        margin-left: 12px;
+        margin-right: 24px;
         // @include desktop {
         //   margin: -12px 20px 0;
         // }
       }
-    }
-    .radio-controls {
-      min-height: 5rem;
-      margin-right: 0px;
-      // @include desktop {
-      //   margin: -12px 20px 0;
-      // }
     }
 
     #radioShowDetails {
@@ -75,7 +79,6 @@
 
     #test-ticker {
       // font-family: "Stencilie", sans-serif;
-      // font-family: "62dragz", sans-serif;
       font-family: "Eurostile", sans-serif;
       color: black;
       white-space: nowrap;

@@ -43,12 +43,12 @@ function RadioBar() {
     });
   };
 
-  const liveText = "plusNONE in studio!";
+  const liveText = "Pendulum: Hold Your Colour Release Party!";
   const renderLiveTicker = (text) => {
     return (
       <div className="columns is-vcentered live-bar">
         <div className="column">
-          <Ticker mode="smooth" speed={3}>
+          <Ticker mode="smooth" offset="run-in" speed={3}>
             {() => (
               <p className="title is-size-6" id="test-ticker">
                 LIVE – {text}

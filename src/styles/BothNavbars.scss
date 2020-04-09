@@ -21,19 +21,15 @@
     padding-top: 0.5rem;
     min-height: 5rem;
     margin-bottom: 0;
-
     @include touch {
       padding-left: 12px;
-      padding-right: 0;
+      padding-right: 12px;
     }
 
-    .radio-controls {
+    .header-bar {
       min-height: 5rem;
       margin-left: -24px;
       margin-right: -12px;
-      // @include desktop {
-      //   margin: -12px 20px 0;
-      // }
     }
 
     &.is-live {
@@ -50,13 +46,14 @@
           }
         }
       }
-      .radio-controls {
+      .header-bar {
         min-height: 3.75rem;
         margin-left: 12px;
         margin-right: 24px;
-        // @include desktop {
-        //   margin: -12px 20px 0;
-        // }
+        @include touch {
+          margin-left: -12px;
+          margin-right: 6px;
+        }
       }
     }
 
@@ -95,65 +92,6 @@
     }
   }
 
-  // #live-now {
-  //   // width: 3rem;
-  //   // height: 3rem;
-  //   // border: 0.125rem solid $primary;
-
-  //   display: flex;
-  //   flex-direction: column;
-  //   justify-content: center;
-  //   align-items: center;
-
-  //   width: calc(100% + 0.25rem);
-  //   height: calc(100% + 0.25rem);
-  //   z-index: -1;
-  //   animation: steam 2s linear infinite;
-
-  //   p {
-  //     color: white;
-  //     animation: 3s colorChange infinite;
-  //   }
-
-  //   // Animation for the strobing bar
-  //   &:before,
-  //   &:after {
-  //     content: "";
-  //     position: absolute;
-  //     left: -2px;
-  //     top: -2px;
-  //     background-color: $primary;
-  //     background-size: 400%;
-  //     width: calc(100% + 0.25rem);
-  //     height: calc(100% + 0.25rem);
-  //     z-index: -1;
-  //     animation: live-bar 2s linear infinite;
-  //   }
-  // }
-  @keyframes live-bar {
-    0% {
-      background: $primary;
-    }
-    50% {
-      background: white;
-    }
-    100% {
-      background: $primary;
-    }
-  }
-
-  @keyframes colorChange {
-    0% {
-      color: white;
-    }
-    50% {
-      color: $primary;
-    }
-    100% {
-      color: white;
-    }
-  }
-
   #live-light {
     width: 0.75rem;
     height: 0.75rem;
@@ -188,7 +126,7 @@
     flex: 1;
     color: white;
     border-bottom: 0.25rem solid $primary;
-    // background-color: slateblue;
+    background-color: slateblue;
     min-height: 2.5rem;
     transition: ease-in-out 0.5s;
     -moz-transition: ease-in-out 0.5s;
@@ -238,6 +176,9 @@
       }
     }
 
+    .upcoming {
+      white-space: nowrap;
+    }
     //==================================
     // <ScheduleModal />
     //==================================

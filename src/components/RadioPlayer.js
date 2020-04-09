@@ -83,9 +83,23 @@ function RadioPlayer(props) {
     setLocalState({ duration: duration });
   };
 
+  const renderCurrentResident = (resident) => {
+    return (
+      <Ticker mode="await" offset="run-in" speed={3}>
+        {() => (
+          <>
+            <p className="is-hidden-tablet is-size-7 has-text-light">
+              {resident}
+            </p>
+          </>
+        )}
+      </Ticker>
+    );
+  };
+
   const renderNowPlaying = (title) => {
     return (
-      <Ticker mode="smooth" offset="run-in" speed={3}>
+      <Ticker mode="await" offset="run-in" speed={3}>
         {() => (
           <>
             <div className="is-hidden-tablet" id="radioShowName">
@@ -113,13 +127,21 @@ function RadioPlayer(props) {
         {globalState.live ? (
           <div id="radioShowTime">
             <div id="live-light" />
-            <p className="is-size-7 has-text-light">LIVE - Some Artist</p>
+            <p className="subtitle is-size-7 has-text-light is-hidden-mobile">
+              LIVE - Pendulum
+            </p>
+            <PageVisibility onChange={handleVisibilityChange}>
+              {pageIsVisible && renderCurrentResident("Live - Pendulum")}
+            </PageVisibility>
           </div>
         ) : (
           <div id="radioShowTime">
-            <p className="subtitle is-size-7 has-text-light">
-              4-6PM | Some Artist
+            <p className="subtitle is-size-7 has-text-light is-hidden-mobile">
+              Some Artist
             </p>
+            <PageVisibility onChange={handleVisibilityChange}>
+              {pageIsVisible && renderCurrentResident("Some Artist")}
+            </PageVisibility>
           </div>
         )}
 
@@ -128,7 +150,7 @@ function RadioPlayer(props) {
           <p className="title is-size-6 has-text-light">{globalState.title}</p>
         </div>
 
-        {/* Ticker only really needed on mobile? */}
+        {/* Ticker only on mobile */}
         <PageVisibility onChange={handleVisibilityChange}>
           {pageIsVisible && renderNowPlaying(globalState.title)}
         </PageVisibility>

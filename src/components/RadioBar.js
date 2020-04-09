@@ -43,15 +43,15 @@ function RadioBar() {
     });
   };
 
-  const liveText = "Pendulum: Hold Your Colour Release Party!";
+  const liveText = "Pendulum: Hold Your Colour 15th Anniversary Live Set";
   const renderLiveTicker = (text) => {
     return (
       <div className="columns is-vcentered live-bar">
         <div className="column">
-          <Ticker mode="smooth" offset="run-in" speed={3}>
+          <Ticker mode="await" offset="run-in" speed={3}>
             {() => (
               <p className="title is-size-6" id="test-ticker">
-                LIVE – {text}
+                LIVE – {text}!
               </p>
             )}
           </Ticker>
@@ -84,7 +84,7 @@ function RadioBar() {
         </PageVisibility>
       ) : null}
 
-      <div className="columns is-vcentered is-mobile radio-controls">
+      <div className="columns is-vcentered is-mobile header-bar">
         <div className="column is-narrow">
           <Link to="/">
             {globalState.live ? (

@@ -1,4 +1,6 @@
 import React, { useState, useContext } from "react";
+import Ticker from "react-ticker";
+import PageVisibility from "react-page-visibility";
 import {
   GlobalDispatchContext,
   GlobalStateContext,
@@ -7,13 +9,30 @@ import { ScheduleModal, ScheduleDropdown } from "./index";
 
 function ScheduleBar() {
   const [open, setOpen] = useState(false);
+  const [pageIsVisible, setPageIsVisible] = useState(true);
 
-  // TEST ONLY -- just to
+  const handleVisibilityChange = (isVisible) => {
+    setPageIsVisible(isVisible);
+  };
+
+  // TEST ONLY -- just for live toggle
   const dispatch = useContext(GlobalDispatchContext);
   const globalState = useContext(GlobalStateContext);
 
   const handleLiveTest = async () => {
     await dispatch({ type: "TOGGLE_LIVE_TEST" });
+  };
+
+  const nextShowTicker = (date, showName) => {
+    return (
+      <Ticker mode="await" offset="run-in" speed={3}>
+        {() => (
+          <p className="title is-size-6 has-text-light">
+            {date} – {showName}
+          </p>
+        )}
+      </Ticker>
+    );
   };
 
   return !open ? (
@@ -25,10 +44,20 @@ function ScheduleBar() {
             handleLiveTest();
           }}
         >
-          <p className="is-size-6">{globalState.live ? "LIVE" : "6PM"}</p>
+          <p className="title is-size-6 has-text-light">
+            {globalState.live ? "Listen Live" : "Next Show"}
+          </p>
         </div>
-        <div className="column upcoming">
-          <p className="title is-size-6 has-text-light">Next Show</p>
+        <div className="column upcoming is-hidden-mobile">
+          <p className="title is-size-6 has-text-light">
+            MON 4/21 - An HMBK Moment In Time
+          </p>
+        </div>
+        <div className="column upcoming is-hidden-tablet">
+          <PageVisibility onChange={handleVisibilityChange}>
+            {pageIsVisible &&
+              nextShowTicker("MON 4.21", "An HMBK Moment In Time")}
+          </PageVisibility>
         </div>
         <div className="column is-narrow" id="open-schedule">
           <button className="button" onClick={() => setOpen(!open)}>

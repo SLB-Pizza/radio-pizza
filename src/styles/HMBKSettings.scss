@@ -60,3 +60,8 @@ p,
     box-shadow: 10px 8px 5px black;
   }
 }
+
+// Push the tagline after the title of a card down
+.card-content p.title + p {
+  padding-top: 0.5rem;
+}

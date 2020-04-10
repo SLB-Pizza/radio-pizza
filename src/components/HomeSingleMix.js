@@ -13,13 +13,13 @@ function HomeSingleMix() {
           </figure>
         </div>
         <div className="card-content">
-          <p className="content-date is-size-7">03.30.20</p>
+          <p className="content-date subtitle is-size-7-touch is-size-6-desktop">
+            Some Artist | 03.30.20
+          </p>
           <p className="title is-size-6-mobile is-size-5-tablet is-size-4-fullhd">
             Lorem Ipsum Dolor
           </p>
-          <p className="subtitle is-size-7-mobile is-size-6-tablet is-size-5-fullhd">
-            Resident Artist
-          </p>
+
           <div className="tags are-small">
             <span className="tag is-black">Genre</span>
             <span className="tag is-black">Genrerock</span>

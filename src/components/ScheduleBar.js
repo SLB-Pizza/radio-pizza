@@ -44,7 +44,7 @@ function ScheduleBar() {
             handleLiveTest();
           }}
         >
-          <p className="title is-size-7 has-text-light">
+          <p className="title is-size-7-touch is-size-6-desktop has-text-light">
             {globalState.live ? "Listen Live" : "Next Show"}
           </p>
         </div>
@@ -61,7 +61,9 @@ function ScheduleBar() {
         </div>
         <div className="column is-narrow" id="open-schedule">
           <button className="button" onClick={() => setOpen(!open)}>
-            <p className="title is-size-7">Schedule ▼</p>
+            <p className="title is-size-7-touch is-size-6-desktop">
+              Schedule ▼
+            </p>
           </button>
         </div>
       </div>

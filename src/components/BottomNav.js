@@ -18,7 +18,7 @@ function BottomNav() {
     >
       <div className="navbar-brand">
         <div className="navbar-item">
-          <p className="title is-size-5-desktop is-size-6-touch has-text-light">
+          <p className="title is-size-5-desktop is-size-6-tablet is-size-7-mobile has-text-light">
             Ears to the concrete.
           </p>
         </div>

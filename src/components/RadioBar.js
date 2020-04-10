@@ -1,22 +1,21 @@
 import React, { useContext, useEffect, useState } from "react";
 import {
   GlobalDispatchContext,
-  GlobalStateContext,
+  GlobalStateContext
 } from "../context/GlobalContextProvider";
 import axios from "axios";
-import { RadioPlayer, LiveBar } from "./index";
+import { RadioPlayer } from "./index";
 import { Link } from "gatsby";
 
 import {
   faComments,
   faVolumeUp,
-  faVolumeMute,
+  faVolumeMute
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Ticker from "react-ticker";
 import PageVisibility from "react-page-visibility";
-import AudioSpectrum from "react-audio-spectrum";
 
 function RadioBar() {
   const dispatch = useContext(GlobalDispatchContext);
@@ -25,7 +24,7 @@ function RadioBar() {
   const [mute, setMute] = useState(false);
   const [pageIsVisible, setPageIsVisible] = useState(true);
 
-  const handleVisibilityChange = (isVisible) => {
+  const handleVisibilityChange = isVisible => {
     setPageIsVisible(isVisible);
   };
 
@@ -38,13 +37,13 @@ function RadioBar() {
       type: "CHANGE_URL",
       payload: {
         url: "https://streamer.radio.co/sa3c47c55b/listen",
-        title: "Halfmoon Radio",
-      },
+        title: "Halfmoon Radio"
+      }
     });
   };
 
   const liveText = "Pendulum: Hold Your Colour 15th Anniversary Live Set";
-  const renderLiveTicker = (text) => {
+  const renderLiveTicker = text => {
     return (
       <div className="columns is-vcentered live-bar">
         <div className="column">

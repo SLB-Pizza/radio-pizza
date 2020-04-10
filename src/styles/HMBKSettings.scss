@@ -1,25 +1,40 @@
+//==================================
+// BULMA VARIABLES
+//==================================
 $pink: #f600ff;
 
 $primary: $pink;
 // $primary-invert: black;
 
-body {
-  background-color: black;
-}
-
-// .title {
-//   font-family: "Eurostile", sans-serif;
-// }
-
-@font-face {
-  font-family: "62Dragz";
-  src: url("../fonts/62DRAGZ.otf");
-}
-@font-face {
-  font-family: "Stencilie";
-  src: url("../fonts/stencilie.ttf");
-}
+//==================================
+// FONTS
+//==================================
 @font-face {
   font-family: "Eurostile";
   src: url("../fonts/eurostileltstd-boldex2.otf");
 }
+
+// @import url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap");
+//==================================
+// GLOBAL STYLES
+//==================================
+body {
+  background-color: black;
+  color: white;
+}
+
+.title {
+  font-family: "Eurostile", sans-serif;
+}
+
+p,
+.subtitle {
+  // font-family: "Titillium Web", sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+// FONT OPTIONS
+// - Open Sans
+// - Titillium Web

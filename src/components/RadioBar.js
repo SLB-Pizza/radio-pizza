@@ -7,6 +7,17 @@ import axios from "axios";
 import { RadioPlayer } from "./index";
 import { Link } from "gatsby";
 
+import dayjs from 'dayjs'
+
+// var weekday = require('dayjs/plugin/weekday')
+// dayjs.extend(weekday)
+
+// var customParseFormat = require('dayjs/plugin/customParseFormat')
+// dayjs.extend(customParseFormat)
+
+var utc = require('dayjs/plugin/utc')
+dayjs.extend(utc)
+
 import {
   faComments,
   faVolumeUp,
@@ -23,6 +34,10 @@ function RadioBar() {
   const [radioData, setRadioData] = useState({});
   const [mute, setMute] = useState(false);
   const [pageIsVisible, setPageIsVisible] = useState(true);
+  const [localTime, setLocalTime] = useState(dayjs().format('hh:mm a'));
+  const [nycTime, setNycTime] = useState(dayjs(new Date().toLocaleString("en-US", {timeZone: "America/New_York"})).format('hh:mm a'));
+  const [laTime, setLaTime] = useState(dayjs(new Date().toLocaleString("en-US", {timeZone: "America/Los_Angeles"})).format('hh:mm a'));
+
 
   const handleVisibilityChange = isVisible => {
     setPageIsVisible(isVisible);
@@ -136,7 +151,9 @@ function RadioBar() {
           </a>
         </div>
         <div className="column is-narrow is-hidden-touch">
-          <p className="has-text-light">4:59PM NYC</p>
+          <p className="has-text-light">{localTime} Local</p>
+          {/* <p className="has-text-light">{nycTime} NYC</p> */}
+          <p className="has-text-light">{laTime} L.A.</p>
         </div>
       </div>
     </div>

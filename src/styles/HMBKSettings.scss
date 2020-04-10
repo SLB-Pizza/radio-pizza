@@ -9,6 +9,10 @@ $primary: $pink;
 //==================================
 // FONTS
 //==================================
+// OPTIONS
+// - Open Sans
+// - Titillium Web
+
 @font-face {
   font-family: "Eurostile";
   src: url("../fonts/eurostileltstd-boldex2.otf");
@@ -17,6 +21,7 @@ $primary: $pink;
 // @import url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
 
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap");
+
 //==================================
 // GLOBAL STYLES
 //==================================
@@ -30,11 +35,28 @@ body {
 }
 
 p,
-.subtitle {
+.subtitle,
+.tag {
   // font-family: "Titillium Web", sans-serif;
   font-family: "IBM Plex Sans", sans-serif;
 }
 
-// FONT OPTIONS
-// - Open Sans
-// - Titillium Web
+.tag {
+  border: 2px solid #888;
+  transition: 0.25s ease;
+
+  &:hover {
+    border: 2px solid $primary;
+  }
+}
+
+// Give each card a solid $primary border
+.card {
+  border: 0.25rem solid $primary;
+  margin: 0 0.125rem;
+  transition: ease-in-out 0.25s;
+
+  &:hover {
+    box-shadow: 10px 8px 5px black;
+  }
+}

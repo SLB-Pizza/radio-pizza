@@ -15,17 +15,6 @@
   }
 }
 
-// Give each card a solid $primary border
-.card {
-  border: 0.125rem solid $primary;
-  margin: 0 0.125rem;
-  transition: ease-in-out 0.25s;
-
-  &:hover {
-    box-shadow: 10px 8px 5px black;
-  }
-}
-
 // Override default bulma card settings
 .card-content {
   background-color: black;
@@ -117,12 +106,6 @@
   background-size: cover;
 
   border-top: 0.25rem solid $primary;
-  .tag {
-    transition: 0.25s ease-in-out;
-    &:hover {
-      box-shadow: 2px 2px 4px #f600ff;
-    }
-  }
 }
 
 //==================================

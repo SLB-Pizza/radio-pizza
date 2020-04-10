@@ -118,7 +118,8 @@
   }
   .tags {
     .tag {
-      border: 2px solid #888;
+      font-family: "Titillium Web", sans-serif;
+      border: 2px solid $primary;
       transition: 0.25s ease;
 
       &:hover {

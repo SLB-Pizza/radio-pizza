@@ -43,7 +43,6 @@
     "node-sass": "^4.13.1",
     "prop-types": "^15.6.0",
     "react": "^16.8.4",
-    "react-audio-spectrum": "^0.1.0",
     "react-dom": "^16.8.4",
     "react-helmet": "^5.2.0",
     "react-hot-loader": "^4.12.19",

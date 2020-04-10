@@ -2,7 +2,6 @@ import React, { useContext, useRef, useState } from "react";
 import ReactPlayer from "react-player";
 import Ticker from "react-ticker";
 import PageVisibility from "react-page-visibility";
-// import AudioSpectrum from "react-audio-spectrum";
 import { hot } from "react-hot-loader";
 
 import {
@@ -88,9 +87,8 @@ function RadioPlayer(props) {
       <Ticker mode="await" offset="run-in" speed={3}>
         {() => (
           <>
-            <p className="is-hidden-tablet is-size-7 has-text-light">
-              {resident}
-            </p>
+            <div id="live-light" />
+            <p className="is-size-7 has-text-light">{resident}</p>
           </>
         )}
       </Ticker>
@@ -101,11 +99,9 @@ function RadioPlayer(props) {
     return (
       <Ticker mode="await" offset="run-in" speed={3}>
         {() => (
-          <>
-            <div className="is-hidden-tablet" id="radioShowName">
-              <p className="title is-size-6 has-text-light">{title}</p>
-            </div>
-          </>
+          <div className="is-hidden-tablet" id="radioShowName">
+            <p className="title is-size-6 has-text-light">{title}</p>
+          </div>
         )}
       </Ticker>
     );
@@ -125,58 +121,49 @@ function RadioPlayer(props) {
       </div>
       <div className="column" id="radioShowDetails">
         {globalState.live ? (
-          <div id="radioShowTime">
-            <div id="live-light" />
-            <p className="subtitle is-size-7 has-text-light is-hidden-mobile">
-              LIVE - Pendulum
-            </p>
-            <PageVisibility onChange={handleVisibilityChange}>
-              {pageIsVisible && renderCurrentResident("Live - Pendulum")}
-            </PageVisibility>
-          </div>
+          <>
+            {/* LIVE Layout */}
+            {/* Static Tablet & up LIVE artist */}
+            <div className="is-hidden-mobile" id="radioShowTime">
+              <div id="live-light" />
+              <p className="subtitle is-size-7 has-text-light">
+                LIVE - Pendulum
+              </p>
+            </div>
+            {/* Dynamic Mobile Ticker LIVE artist*/}
+            <div className="is-hidden-tablet" id="radioShowTime">
+              <PageVisibility onChange={handleVisibilityChange}>
+                {pageIsVisible && renderCurrentResident("Live - Pendulum")}
+              </PageVisibility>
+            </div>
+          </>
         ) : (
-          <div id="radioShowTime">
-            <p className="subtitle is-size-7 has-text-light is-hidden-mobile">
-              Some Artist
-            </p>
-            <PageVisibility onChange={handleVisibilityChange}>
-              {pageIsVisible && renderCurrentResident("Some Artist")}
-            </PageVisibility>
-          </div>
+          <>
+            {/* NOT LIVE Layout */}
+            {/* Static Tablet & up artist */}
+            <div className="is-hidden-mobile" id="radioShowTime">
+              <p className="subtitle is-size-7 has-text-light ">Some Artist</p>
+            </div>
+            {/* Dynamic Mobile Ticker artist*/}
+            <div className="is-hidden-tablet" id="radioShowTime">
+              <PageVisibility onChange={handleVisibilityChange}>
+                {pageIsVisible && renderCurrentResident("Some Artist")}
+              </PageVisibility>
+            </div>
+          </>
         )}
 
-        {/* Static desktop title */}
+        {/* Static tablet and up currentTrackTitle */}
         <div className="is-hidden-mobile" id="radioShowName">
           <p className="title is-size-6 has-text-light">{globalState.title}</p>
         </div>
 
-        {/* Ticker only on mobile */}
+        {/* Dynamic mobile currentTrackTitle */}
         <PageVisibility onChange={handleVisibilityChange}>
           {pageIsVisible && renderNowPlaying(globalState.title)}
         </PageVisibility>
       </div>
-      {/* <div className="column is-narrow is-hidden-mobile">
-        <audio
-          className="is-invisible"
-          id="audio-element"
-          src={localState.url}
-        />
-        <AudioSpectrum
-          id="audio-canvas"
-          audioId="audio-element"
-          height={20}
-          width={300}
-          capColor="red"
-          capHeight={2}
-          meterWidth={2}
-          meterCount={512}
-          meterColor={[
-            { stop: 0, color: "#f00" },
-            { stop: 0.5, color: "#0CD7FD" },
-            { stop: 1, color: "red" },
-          ]}
-        />
-      </div> */}
+
       <ReactPlayer
         className="cloud-player"
         id="react-player"

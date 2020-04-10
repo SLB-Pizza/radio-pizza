@@ -37,16 +37,18 @@
       flex-direction: column;
       padding: 0;
       .live-bar {
+        flex: 1;
         margin-top: 0;
-        min-height: 1.25rem;
+        height: 1.25rem;
         background-color: $primary;
         @include mobile {
           .column {
-            padding-top: 0.375rem;
+            padding: 0.25rem;
           }
         }
       }
       .header-bar {
+        flex: 3;
         min-height: 3.75rem;
         margin-left: 12px;
         margin-right: 24px;
@@ -126,7 +128,6 @@
     flex: 1;
     color: white;
     border-bottom: 0.25rem solid $primary;
-    background-color: slateblue;
     min-height: 2.5rem;
     transition: ease-in-out 0.5s;
     -moz-transition: ease-in-out 0.5s;

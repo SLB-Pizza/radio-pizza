@@ -11,8 +11,8 @@ function HomeEvents() {
         <div className="columns is-hidden-touch">
           <div className="column is-3">
             <div className="sticky-section-blurb">
-              <p className="title is-size-2">Live Events</p>
-              <p className="subtitle is-size-4">
+              <p className="title is-size-3">Live Events</p>
+              <p className="subtitle is-size-5">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </p>
               <button className="sticky-link button">More ></button>
@@ -31,13 +31,13 @@ function HomeEvents() {
       */}
         <div className="columns is-mobile is-multiline is-vcentered is-hidden-desktop">
           <div className="column">
-            <p className="title is-size-2 mobile-headers">Live Events</p>
+            <p className="title is-size-3 mobile-headers">Live Events</p>
           </div>
           <div className="column is-narrow more-link">
             <button className="button is-small">More ></button>
           </div>
           <div className="column is-12">
-            <p className="subtitle is-size-4 mobile-headers">
+            <p className="subtitle is-size-5 mobile-headers">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
           </div>

@@ -14,7 +14,7 @@ function HomeSingleEvent() {
         </div>
         <div className="card-content">
           <p className="content-date is-size-7">LOCATION | 03.30.20</p>
-          <p className="title is-size-5-mobile is-size-4-tablet is-size-3-fullhd">
+          <p className="title is-size-6-mobile is-size-5-tablet is-size-3-fullhd">
             Lorem Ipsum Dolor
           </p>
           <p className="subtitle is-size-7-mobile is-size-6-tablet is-size-5-fullhd">

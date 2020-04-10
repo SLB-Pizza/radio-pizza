@@ -16,7 +16,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Ticker from "react-ticker";
 import PageVisibility from "react-page-visibility";
-import AudioSpectrum from "react-audio-spectrum";
 
 function RadioBar() {
   const dispatch = useContext(GlobalDispatchContext);
@@ -137,7 +136,7 @@ function RadioBar() {
           </a>
         </div>
         <div className="column is-narrow is-hidden-touch">
-          <p className="has-text-light">4:59PM NYC</p>
+          <p className="title is-size-7 has-text-light">4:59PM NYC</p>
         </div>
       </div>
     </div>

@@ -27,7 +27,7 @@ function ScheduleBar() {
     return (
       <Ticker mode="await" offset="run-in" speed={3}>
         {() => (
-          <p className="title is-size-6 has-text-light">
+          <p className="is-size-7 has-text-light">
             {date} – {showName}
           </p>
         )}
@@ -44,12 +44,12 @@ function ScheduleBar() {
             handleLiveTest();
           }}
         >
-          <p className="title is-size-6 has-text-light">
+          <p className="title is-size-7 has-text-light">
             {globalState.live ? "Listen Live" : "Next Show"}
           </p>
         </div>
         <div className="column upcoming is-hidden-mobile">
-          <p className="title is-size-6 has-text-light">
+          <p className="subtitle is-size-7 has-text-light">
             MON 4/21 - An HMBK Moment In Time
           </p>
         </div>
@@ -61,7 +61,7 @@ function ScheduleBar() {
         </div>
         <div className="column is-narrow" id="open-schedule">
           <button className="button" onClick={() => setOpen(!open)}>
-            <p className="title is-size-6">Schedule ▼</p>
+            <p className="title is-size-7">Schedule ▼</p>
           </button>
         </div>
       </div>

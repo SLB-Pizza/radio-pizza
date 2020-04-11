@@ -29,6 +29,9 @@
     background-color: darken($color: $primary, $amount: 20);
     border-bottom: 0.25rem solid $primary;
     transition: 0.25s ease-in-out;
+    // @include touch {
+    //   padding: 0.5rem auto;
+    // }
 
     &:hover {
       background-color: darken($color: $primary, $amount: 30);
@@ -45,6 +48,9 @@
       $color: darken($color: $primary, $amount: 30),
       $alpha: 0.75
     );
+    @include mobile {
+      padding: 0.5rem 0.25rem 0;
+    }
   }
 
   .resident-box {

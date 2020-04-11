@@ -18,7 +18,7 @@ function ResidentsIndexPage() {
       <div className="container is-fluid image-diffuser">
         <div className="columns is-mobile is-multiline">
           <div className="column is-full">
-            <p className="title is-size-1-desktop is-size-3-touch">
+            <p className="title is-size-1-desktop is-size-3-tablet is-size-4-mobile">
               Halfmoon Residents
             </p>
           </div>
@@ -31,7 +31,7 @@ function ResidentsIndexPage() {
             id="current"
             onClick={toggleColumn}
           >
-            <p className="title is-size-3-desktop is-size-5-touch has-text-centered">
+            <p className="title is-size-4-desktop is-size-6-touch has-text-centered">
               This Season
             </p>
           </div>
@@ -44,7 +44,7 @@ function ResidentsIndexPage() {
             id="alumni"
             onClick={toggleColumn}
           >
-            <p className="title is-size-3-desktop is-size-5-touch has-text-centered">
+            <p className="title is-size-4-desktop is-size-6-touch has-text-centered">
               Our Alumni
             </p>
           </div>

@@ -20,7 +20,7 @@ function SingleResident(props) {
             </div>
           </div>
           <div className="column">
-            <p className="title is-size-3-desktop is-size-5-touch">
+            <p className="title is-size-4-desktop is-size-6-touch">
               {props.name}
             </p>
           </div>
@@ -40,7 +40,7 @@ function SingleResident(props) {
             </div>
           </div>
           <div className="column">
-            <p className="title is-size-3-desktop is-size-5-touch">
+            <p className="title is-size-4-desktop is-size-6-touch">
               {props.name}
             </p>
           </div>

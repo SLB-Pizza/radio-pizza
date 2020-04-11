@@ -2,29 +2,34 @@
 // <Hero />
 //==================================
 .homepage-hero {
-  // There's a .75rem margin-top to account for somewhere. Has to do with setting up a flexbox.
-
-  @include tablet;
   margin-top: 8.25rem;
   height: calc(100vh - 10.5rem);
-  // max-height: calc(2048px - 10.5rem);
 
   background-image: url(https://source.unsplash.com/1920x1080/daily?music);
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
-  background-color: greenyellow;
   .columns .column {
-    background-color: rgba($color: cyan, $alpha: 0.5);
+    background-color: rgba($color: darkcyan, $alpha: 0.85);
   }
+}
+
+// Override default bulma card settings
+.card-content {
+  background-color: black;
+  padding: 0.75rem;
+}
+
+// Give the date of content items some space
+.content-date {
+  margin-bottom: 0.5rem;
 }
 
 //==================================
 // <HomeContent />
 //==================================
 .home-content {
-  @include tablet;
   margin-bottom: 3rem;
 
   // Make all content text white
@@ -44,6 +49,9 @@
 
     p {
       text-shadow: 2px 2px 2px black;
+      &:first-child {
+        margin-bottom: 2.5rem;
+      }
     }
 
     button {
@@ -51,25 +59,18 @@
     }
   }
 
-  // Give each card a solid white border
-  .card {
-    border: 0.125rem solid white;
-  }
-
-  // Override default bulma card settings
-  .card-content {
-    background-color: black;
-    padding: 0.75rem;
-  }
-
-  // Give the date of content items some space
-  .content-date {
-    margin-bottom: 0.5rem;
-  }
-
   // Give all mobile titles & subtitles a shadow
   p.mobile-headers {
     text-shadow: 3px 3px 2px black;
+  }
+
+  .columns.is-mobile.is-multiline {
+    .column {
+      padding-bottom: 0;
+      &:last-child {
+        padding-bottom: 1rem;
+      }
+    }
   }
 
   // Make mobile entries horizontally scrollable
@@ -77,71 +78,59 @@
     overflow-x: auto;
   }
 
-  // Pull "More XXX >" buttons to right of columns
+  // Pull "More >" buttons to right of columns
   .more-link {
-    padding-right: 0;
     margin-right: 0;
     margin-left: 0;
   }
 
-  // .image-diffuser {
-  //   background-color: rgba($color: #000000, $alpha: 0.6);
-  //   width: 100vw;
-  //   margin: 0;
-  // }
-
-  //==================================
-  // <HomeMixes />
-  //==================================
-  #home-mixes {
+  // Darken bg; create padding for sectional content
+  .image-diffuser {
+    background-color: rgba($color: #000000, $alpha: 0.65);
     padding: 3rem 2rem;
-    border-top: 0.25rem solid white;
 
-    // background-color: black;
-
-    background-image: url(https://source.unsplash.com/1920x1080/weekly?stars);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
-
-    .tag {
-      transition: 0.25s ease-in-out;
-      &:hover {
-        box-shadow: 2px 2px 4px grey;
-      }
+    @include mobile {
+      padding: 2rem 1rem;
     }
   }
+}
 
-  //==================================
-  // <HomeEvents />
-  //==================================
-  #home-events {
-    padding: 3rem 2rem;
-    border-top: 0.25rem solid white;
+//==================================
+// <HomeMixes />
+//==================================
+#home-mixes {
+  background-image: url(https://source.unsplash.com/1920x1080/weekly?nebula);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
 
-    // background-color: black;
+  border-top: 0.25rem solid $primary;
+}
 
-    background-image: url(https://source.unsplash.com/1920x1080/daily?stars);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
-  }
+//==================================
+// <HomeEvents />
+//==================================
+#home-events {
+  background-image: url(https://source.unsplash.com/1920x1080/?nebula);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
 
-  //==================================
-  // <HomeNews />
-  //==================================
-  #home-news {
-    padding: 3rem 2rem;
-    border-top: 0.25rem solid white;
+  border-top: 0.25rem solid $primary;
+}
 
-    // background-color: black;
+//==================================
+// <HomeNews />
+//==================================
+#home-news {
+  background-image: url(https://source.unsplash.com/1920x1080/?weekly?nebula);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
 
-    background-image: url(https://source.unsplash.com/1920x1080/?night-city);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
-  }
+  border-top: 0.25rem solid $primary;
+  border-bottom: 0.25rem solid $primary;
 }

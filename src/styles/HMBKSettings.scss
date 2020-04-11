@@ -1,7 +1,65 @@
+//==================================
+// BULMA VARIABLES
+//==================================
 $pink: #f600ff;
 
 $primary: $pink;
+// $primary-invert: black;
 
+//==================================
+// FONTS
+//==================================
+// OPTIONS
+// - Open Sans
+// - Titillium Web
+
+@font-face {
+  font-family: "Eurostile";
+  src: url("../fonts/eurostileltstd-boldex2.otf");
+}
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap");
+
+//==================================
+// GLOBAL STYLES
+//==================================
 body {
   background-color: black;
+  color: white;
+}
+
+.title {
+  font-family: "Eurostile", sans-serif;
+}
+
+p,
+.subtitle,
+.tag {
+  // font-family: "Titillium Web", sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+.tag {
+  border: 2px solid #888;
+  transition: 0.25s ease;
+
+  &:hover {
+    border: 2px solid $primary;
+  }
+}
+
+// Give each card a solid $primary border
+.card {
+  border: 0.25rem solid $primary;
+  margin: 0 0.125rem;
+  transition: ease-in-out 0.25s;
+
+  &:hover {
+    box-shadow: 10px 8px 5px black;
+  }
+}
+
+// Push the tagline after the title of a card down
+.card-content p.title + p {
+  padding-top: 0.5rem;
 }

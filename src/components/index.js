@@ -8,6 +8,7 @@
 export { default as TopNav } from "./TopNav";
 export { default as RadioBar } from "./RadioBar";
 export { default as RadioPlayer } from "./RadioPlayer";
+export { default as LiveBar } from "./LiveBar";
 export { default as ScheduleBar } from "./ScheduleBar";
 export { default as ScheduleModal } from "./ScheduleModal";
 export { default as ScheduleDropdown } from "./ScheduleDropdown";
@@ -58,6 +59,25 @@ export { default as CategoryItem } from "./CategoryItem";
 export { default as MobileNewsItem } from "./MobileNewsItem";
 
 /**
+ * ResidentsPage
+ * - SingleResident
+ */
+export { default as SingleResident } from "./SingleResident";
+
+/**
  * About Page
  */
 export { default as AboutPage } from "./AboutPage";
+
+/**
+ * Bio Page
+ */
+export { default as BioImageBlurb } from "./BioImageBlurb";
+export { default as BioMixList } from "./BioMixList";
+export { default as BioSingleMix } from "./BioSingleMix";
+export { default as BioHorizItem } from "./BioHorizItem";
+
+/**
+ * Test stuff
+ */
+export { default as InProgress } from "./InProgress";

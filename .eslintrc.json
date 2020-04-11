@@ -6,7 +6,7 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
-
+    "plugin:jsx-a11y/recommended",
     "plugin:prettier/recommended",
     "prettier"
   ],
@@ -21,11 +21,12 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": ["react"],
+  "plugins": ["react", "jsx-a11y"],
   "rules": {
     "indent": ["error", "tab"],
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "double"],
-    "semi": ["error", "always"]
+    "semi": ["error", "always"],
+    "jsx-a11y/rule-name": "warning"
   }
 }

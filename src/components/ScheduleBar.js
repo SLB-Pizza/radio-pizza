@@ -1,29 +1,69 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import Ticker from "react-ticker";
+import PageVisibility from "react-page-visibility";
 import {
-  ScheduleModal,
-  ScheduleDropdown,
-  ScheduleDatePicker,
-  ScheduleShowEntry
-} from "./index";
+  GlobalDispatchContext,
+  GlobalStateContext
+} from "../context/GlobalContextProvider";
+import { ScheduleModal, ScheduleDropdown } from "./index";
 
 function ScheduleBar() {
   const [open, setOpen] = useState(false);
+  const [pageIsVisible, setPageIsVisible] = useState(true);
+
+  const handleVisibilityChange = isVisible => {
+    setPageIsVisible(isVisible);
+  };
+
+  // TEST ONLY -- just for live toggle
+  const dispatch = useContext(GlobalDispatchContext);
+  const globalState = useContext(GlobalStateContext);
+
+  const handleLiveTest = async () => {
+    await dispatch({ type: "TOGGLE_LIVE_TEST" });
+  };
+
+  const nextShowTicker = (date, showName) => {
+    return (
+      <Ticker mode="await" offset="run-in" speed={3}>
+        {() => (
+          <p className="is-size-6 has-text-light">
+            {date} – {showName}
+          </p>
+        )}
+      </Ticker>
+    );
+  };
 
   return !open ? (
     <div className="schedule-bar container is-fluid">
-      <div className="columns is-vcentered is-mobile up-next">
-        <div className="column is-narrow">
-          <p className="is-size-6">in 1hr 1m</p>
+      <div className="columns is-vcentered is-mobile">
+        <div
+          className="column is-narrow at-time"
+          onClick={() => {
+            handleLiveTest();
+          }}
+        >
+          <p className="title is-size-7-touch is-size-6-desktop has-text-light">
+            {globalState.live ? "Listen Live" : "Next Show"}
+          </p>
         </div>
-        <div className="column">
-          <p className="title is-size-6 has-text-light">Loremip.</p>
+        <div className="column upcoming is-hidden-mobile">
+          <p className="is-size-6 has-text-light">
+            MON 4/21 - An HMBK Moment In Time
+          </p>
         </div>
-        <div className="column is-narrow" id="expand-button">
-          <button
-            className="button is-fullwidth is-black"
-            onClick={() => setOpen(!open)}
-          >
-            Schedule ▼
+        <div className="column upcoming is-hidden-tablet">
+          <PageVisibility onChange={handleVisibilityChange}>
+            {pageIsVisible &&
+              nextShowTicker("MON 4.21", "An HMBK Moment In Time")}
+          </PageVisibility>
+        </div>
+        <div className="column is-narrow" id="open-schedule">
+          <button className="button" onClick={() => setOpen(!open)}>
+            <p className="title is-size-7-touch is-size-6-desktop">
+              Schedule ▼
+            </p>
           </button>
         </div>
       </div>
@@ -31,76 +71,15 @@ function ScheduleBar() {
   ) : (
     <div className="schedule-bar container is-fluid is-open">
       {/*
-      FOR MOBILE
+      FOR TOUCH
       SCHEDULE MODAL
-      <ScheduleModal />
-      */}
-      <div className="modal is-active is-hidden-tablet">
-        <div className="modal-background"></div>
-        <div className="modal-card is-dark">
-          <header className="modal-card-head">
-            <div className="columns is-mobile schedule-modal">
-              <div className="column">
-                <p className="title is-size-2 has-text-light">Schedule</p>
-              </div>
-              <div className="column is-narrow">
-                <button
-                  className="delete is-large"
-                  aria-label="close schedule"
-                  onClick={() => setOpen(!open)}
-                ></button>
-              </div>
-            </div>
-            <div className="columns" id="scroll-instructions">
-              <div className="column">
-                <p className="is-size-7 has-text-centered">
-                  ⇦ SWIPE TO VIEW MORE DATES ⇨
-                </p>
-              </div>
-            </div>
-            <ScheduleDatePicker />
-          </header>
-          <section className="modal-card-body">
-            <ScheduleShowEntry />
-            <ScheduleShowEntry />
-            <ScheduleShowEntry />
-            <ScheduleShowEntry />
-            <ScheduleShowEntry />
-            <ScheduleShowEntry />
-            <ScheduleShowEntry />
-          </section>
-        </div>
-      </div>
+    */}
+      <ScheduleModal open={open} setOpen={setOpen} />
       {/*
       FOR DESKTOP
       BUILT INTO THE BAR
-      <ScheduleDropdown />
-      */}
-      <div className="columns up-next is-hidden-mobile">
-        <div className="column is-narrow">
-          <p>in 1hr 1m</p>
-        </div>
-        <div className="column">Lorem ipsum dolor sit.</div>
-      </div>
-      <div id="mobile-hide-dropdown">
-        <ScheduleDatePicker />
-        <ScheduleShowEntry />
-        <ScheduleShowEntry />
-        <ScheduleShowEntry />
-        <ScheduleShowEntry />
-        <ScheduleShowEntry />
-        <ScheduleShowEntry />
-      </div>
-      <div className="columns is-hidden-mobile">
-        <div className="column is-12 has-background-dark">
-          <button
-            className="button is-fullwidth is-dark"
-            onClick={() => setOpen(!open)}
-          >
-            Close
-          </button>
-        </div>
-      </div>
+    */}
+      <ScheduleDropdown open={open} setOpen={setOpen} />
     </div>
   );
 }

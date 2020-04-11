@@ -1,43 +1,52 @@
 import React, { useContext, useRef, useState } from "react";
-import { findDOMNode } from "react-dom";
-import { hot } from "react-hot-loader";
 import ReactPlayer from "react-player";
+import Ticker from "react-ticker";
+import PageVisibility from "react-page-visibility";
+import { hot } from "react-hot-loader";
+
 import {
   GlobalDispatchContext,
-  GlobalStateContext
+  GlobalStateContext,
 } from "../context/GlobalContextProvider";
-import axios from "axios";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
 
 function RadioPlayer(props) {
-  /**
-   * Eliminate width and height = 0 errors by breaking ReactPlayer
-   * out of normal document flow and throwing it above the top of the page
-   */
-  const playerStyle = {
-    position: "absolute",
-    top: "-175px"
-  };
-
   const dispatch = useContext(GlobalDispatchContext);
   const globalState = useContext(GlobalStateContext);
 
   const [localState, setLocalState] = useState({
     url: null,
     pip: false,
-    playing: true,
+    playing: false,
     controls: false,
     light: false,
-    volume: 1,
+    volume: 0.25,
     muted: false,
     played: 0,
     loaded: 0,
     duration: 0,
     playbackRate: 1.0,
-    loop: true
+    loop: true,
   });
+
+  /**
+   * Eliminate width and height = 0 errors by breaking ReactPlayer
+   * out of normal document flow and throwing it above the top of the page
+   */
+  const playerStyle = {
+    position: "absolute",
+    top: "-175px",
+    width: "1px",
+    height: "1px",
+    margin: "-1px",
+  };
+
+  const [pageIsVisible, setPageIsVisible] = useState(true);
+
+  const handleVisibilityChange = (isVisible) => {
+    setPageIsVisible(isVisible);
+  };
 
   const handlePlayPause = async () => {
     await setLocalState({ ...localState, playing: !localState.playing });
@@ -51,13 +60,13 @@ function RadioPlayer(props) {
     await setLocalState({ ...localState, playing: false });
   };
 
-  const load = async url => {
+  const load = async (url) => {
     await setLocalState({
       ...localState,
       url: url,
       played: 0,
       loaded: 0,
-      pip: false
+      pip: false,
     });
   };
 
@@ -69,41 +78,95 @@ function RadioPlayer(props) {
     return <button onClick={() => this.load(url)}>{label}</button>;
   };
 
+  const handleDuration = (duration) => {
+    setLocalState({ duration: duration });
+  };
+
+  const renderCurrentResident = (resident) => {
+    return (
+      <Ticker mode="await" offset="run-in" speed={3}>
+        {() => (
+          <>
+            <div id="live-light" />
+            <p className="is-size-7 has-text-light">{resident}</p>
+          </>
+        )}
+      </Ticker>
+    );
+  };
+
+  const renderNowPlaying = (title) => {
+    return (
+      <Ticker mode="await" offset="run-in" speed={3}>
+        {() => (
+          <div className="is-hidden-tablet" id="radioShowName">
+            <p className="title is-size-6 has-text-light">{title}</p>
+          </div>
+        )}
+      </Ticker>
+    );
+  };
+
   //prettier-ignore
   const player = useRef(ReactPlayer);
-  // const liveStatus =
 
   return (
     <div className="columns is-vcentered is-mobile radio-player">
-      <div className="column is-narrow">
+      <div className="column is-narrow play-pause">
         {!globalState.playing ? (
-          <span className="icon has-text-light">
-            <FontAwesomeIcon
-              icon={faPlay}
-              onClick={handlePlayPause}
-              size="2x"
-            />
-          </span>
+          <FontAwesomeIcon icon={faPlay} onClick={handlePlayPause} size="2x" />
         ) : (
-          <span className="icon has-text-light">
-            <FontAwesomeIcon
-              icon={faPause}
-              onClick={handlePlayPause}
-              size="2x"
-            />
-          </span>
+          <FontAwesomeIcon icon={faPause} onClick={handlePlayPause} size="2x" />
         )}
       </div>
       <div className="column" id="radioShowDetails">
-        <div id="radioShowTime">
-          <p className="is-size-7 has-text-light">{props.status}</p>
+        {globalState.live ? (
+          <>
+            {/* LIVE Layout */}
+            {/* Static Tablet & up LIVE artist */}
+            <div className="is-hidden-mobile" id="radioShowTime">
+              <div id="live-light" />
+              <p className="subtitle is-size-7 has-text-light">
+                LIVE - Pendulum
+              </p>
+            </div>
+            {/* Dynamic Mobile Ticker LIVE artist*/}
+            <div className="is-hidden-tablet" id="radioShowTime">
+              <PageVisibility onChange={handleVisibilityChange}>
+                {pageIsVisible && renderCurrentResident("Live - Pendulum")}
+              </PageVisibility>
+            </div>
+          </>
+        ) : (
+          <>
+            {/* NOT LIVE Layout */}
+            {/* Static Tablet & up artist */}
+            <div className="is-hidden-mobile" id="radioShowTime">
+              <p className="subtitle is-size-7 has-text-light ">Some Artist</p>
+            </div>
+            {/* Dynamic Mobile Ticker artist*/}
+            <div className="is-hidden-tablet" id="radioShowTime">
+              <PageVisibility onChange={handleVisibilityChange}>
+                {pageIsVisible && renderCurrentResident("Some Artist")}
+              </PageVisibility>
+            </div>
+          </>
+        )}
+
+        {/* Static tablet and up currentTrackTitle */}
+        <div className="is-hidden-mobile" id="radioShowName">
+          <p className="title is-size-6 has-text-light">{globalState.title}</p>
         </div>
-        <div id="radioShowName">
-          <p className="is-size-6 has-text-light">{globalState.title}</p>
-        </div>
+
+        {/* Dynamic mobile currentTrackTitle */}
+        <PageVisibility onChange={handleVisibilityChange}>
+          {pageIsVisible && renderNowPlaying(globalState.title)}
+        </PageVisibility>
       </div>
+
       <ReactPlayer
         className="cloud-player"
+        id="react-player"
         style={playerStyle}
         url={globalState.url}
         ref={player}
@@ -113,9 +176,10 @@ function RadioPlayer(props) {
         playing={globalState.playing}
         loop={globalState.loop}
         muted={globalState.muted}
+        onDuration={handleDuration}
         onPlay={handlePlay}
         onPause={handlePause}
-        onError={e => console.log("onError\n", e)}
+        onError={(e) => console.log("ReactPlayer has an issue ↴\n", e)}
         // onReady={() => console.log("onReady")}
         // onStart={() => console.log("onStart")}
         // onEnablePIP={this.handleEnablePIP}
@@ -124,7 +188,6 @@ function RadioPlayer(props) {
         // onSeek={e => console.log('onSeek', e)}
         // onEnded={this.handleEnded}
         // onProgress={this.handleProgress}
-        // onDuration={this.handleDuration}
       />
     </div>
   );
@@ -210,8 +273,4 @@ export default hot(module)(RadioPlayer);
 
 // export const handleClickFullscreen = () => {
 //   screenfull.request(findDOMNode(this.player));
-// };
-
-// export const ref = player => {
-//   this.player = player;
 // };

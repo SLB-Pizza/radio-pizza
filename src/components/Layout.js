@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import { withPrefix } from "gatsby";
 import useSiteMetadata from "./SiteMetadata";
 import { TopNav, BottomNav } from "../components";
+import "../styles/index.scss";
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata();
@@ -12,6 +13,7 @@ const TemplateWrapper = ({ children }) => {
         <html lang="en" />
         <title>{title}</title>
         <meta name="description" content={description} />
+        <meta name="theme-color" content="#f600ff" />
 
         <link
           rel="apple-touch-icon"
@@ -34,7 +36,7 @@ const TemplateWrapper = ({ children }) => {
         <link
           rel="mask-icon"
           href={`${withPrefix("/")}img/safari-pinned-tab.svg`}
-          color="#ff4400"
+          color="#f600ff"
         />
         <meta name="theme-color" content="#fff" />
 

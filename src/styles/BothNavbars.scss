@@ -1,8 +1,3 @@
-$top-nav-height: 7.5rem !default;
-$schedule-bar: 2.5rem !default;
-$player-fixed-z: 30 !default;
-$gap: 32px;
-
 //==================================
 // <TopNav />
 //==================================
@@ -10,28 +5,59 @@ $gap: 32px;
   display: flex;
   flex-direction: column;
   left: 0;
-  max-height: $top-nav-height;
+  max-height: 7.5rem;
   position: fixed;
   right: 0;
   top: 0;
-  z-index: $player-fixed-z;
+  z-index: 30;
   background-color: black;
 
   //==================================
   // <RadioBar />
   //==================================
 
-  // <ReactPlayer />
-  .cloud-player {
-    max-height: 3.5rem;
-  }
-
   .radio-bar {
     flex: 2;
     padding-top: 0.5rem;
     min-height: 5rem;
     margin-bottom: 0;
-    background-color: #333;
+    @include touch {
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+
+    .header-bar {
+      min-height: 5rem;
+      margin-left: -24px;
+      margin-right: -12px;
+    }
+
+    &.is-live {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      .live-bar {
+        flex: 1;
+        margin-top: 0;
+        height: 1.25rem;
+        background-color: $primary;
+        @include mobile {
+          .column {
+            padding: 0.25rem;
+          }
+        }
+      }
+      .header-bar {
+        flex: 3;
+        min-height: 3.75rem;
+        margin-left: 12px;
+        margin-right: 24px;
+        @include touch {
+          margin-left: -12px;
+          margin-right: 6px;
+        }
+      }
+    }
 
     #radioShowDetails {
       display: flex;
@@ -39,30 +65,100 @@ $gap: 32px;
 
       #radioShowTime {
         flex: 1;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        white-space: nowrap;
       }
       #radioShowName {
         flex: 1;
+        white-space: nowrap;
       }
     }
+
+    #test-ticker {
+      // font-family: "Stencilie", sans-serif;
+      font-family: "Eurostile", sans-serif;
+      color: black;
+      white-space: nowrap;
+    }
   }
+
+  .play-pause,
+  .mute-btn,
+  .chat-btn {
+    color: white;
+    transition: 0.25s ease-in-out;
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  #live-light {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    animation: live-light-pulse 2s infinite;
+  }
+
+  @keyframes live-light-pulse {
+    0% {
+      background-color: white;
+    }
+    50% {
+      background-color: $primary;
+    }
+    100% {
+      background-color: white;
+    }
+  }
+
+  //==================================
+  // <ReactPlayer />
+  //==================================
+  .cloud-player {
+    max-height: 3.5rem;
+  }
+
   //==================================
   // <ScheduleBar />
   //==================================
   .schedule-bar {
     flex: 1;
-    background-color: rgba($color: #000000, $alpha: 0.5);
     color: white;
-    min-height: $schedule-bar;
+    border-bottom: 0.25rem solid $primary;
+    min-height: 2.5rem;
     transition: ease-in-out 0.5s;
     -moz-transition: ease-in-out 0.5s;
     -webkit-transition: ease-in-out 0.5s;
 
-    #expand-button {
+    // Make schedule-bar fullwidth on touch
+    @include touch {
+      padding: 0 12px;
+    }
+
+    #open-schedule {
       padding: 0;
       margin: 0;
-      border-left: 0.25rem solid white;
-      button:hover {
-        background-color: #555;
+      transition: 0.25s ease-in-out;
+
+      button {
+        padding: 1px auto;
+        border-radius: 0;
+        background-color: transparent;
+        border-color: transparent;
+        p {
+          color: white;
+          transition: 0.25s ease;
+        }
+      }
+      &:hover {
+        button {
+          p {
+            color: $primary;
+          }
+        }
       }
     }
 
@@ -71,8 +167,8 @@ $gap: 32px;
       height: auto;
       background-color: transparent;
     }
-    // Each columns div should touch top and bottom
-    // Each column
+    // Each columns div marginless;
+    // Each column has padding
     .columns {
       margin-top: 0;
       margin-bottom: 0;
@@ -81,21 +177,12 @@ $gap: 32px;
       }
     }
 
-    .up-next {
-      background-color: rgba($color: #000000, $alpha: 0.5);
+    .upcoming {
+      white-space: nowrap;
     }
-
-    #mobile-hide-dropdown {
-      @include mobile {
-        display: none;
-      }
-    }
-
-    // Testing touch-size schedule modal
     //==================================
     // <ScheduleModal />
     //==================================
-
     #scroll-instructions {
       width: 100%;
       background-color: black;
@@ -107,10 +194,10 @@ $gap: 32px;
     }
 
     .modal-card {
-      margin: 3rem 0 4.5rem;
+      margin: 1.5rem 0 4rem;
       width: 90vw;
-      max-height: calc(100vh - 5.5rem);
-      box-shadow: 2.5px 2.5px 20px 2.5px whitesmoke;
+      max-height: calc(100vh - 5rem);
+      box-shadow: 2.5px 2.5px 10px 2.5px whitesmoke;
       background-color: transparent;
       border-radius: 0 0 2.5rem 2.5rem;
 
@@ -142,24 +229,22 @@ $gap: 32px;
     // <ScheduleDatePicker />
     //==================================
     .date-picker {
+      overflow-x: auto;
+      background-color: #2a2a2a;
       @include mobile {
         width: 100%;
       }
-
-      flex: 1;
-      background-color: #2a2a2a;
-      overflow-x: auto;
       p {
         color: white;
       }
       .day-of-week {
         padding: 0.5rem;
-        border-top: 1px white solid;
-        border-bottom: 1px white solid;
+        border-top: 0.125rem white solid;
+        border-bottom: 0.125rem white solid;
 
         // In-between borders
         &:not(:last-child) {
-          border-right: 1px white solid;
+          border-right: 0.125rem white solid;
         }
 
         &:hover {
@@ -169,7 +254,7 @@ $gap: 32px;
           }
         }
         &:active {
-          background-color: lightgrey;
+          background-color: $primary;
           p {
             color: black;
           }
@@ -179,28 +264,27 @@ $gap: 32px;
     //==================================
     // <ScheduleShowEntry />
     //==================================
-    .mobile-overscroll {
-      height: 20rem;
-      overflow-y: auto;
-      margin: 0;
-      padding: 0;
-    }
-
-    .show-entry {
-      flex: 1;
-      padding: 0.5rem 0;
+    .show-entries {
       background-color: black;
-      border-bottom: 1px dashed #ccc;
 
-      transition: 0.25s ease-in-out;
-      p {
-        color: white;
+      // Make list of show entries a scrollable list of dynamic height if window height < 720px
+      @include short-screen {
+        max-height: calc(100vh - 10.5rem - 15rem);
+        overflow-y: auto;
       }
 
-      &:hover {
-        background-color: grey;
+      .entry-container {
+        padding: 0.5rem;
+        border-bottom: 1px dotted #ccc;
+
         p {
-          color: black;
+          color: white;
+        }
+        &:hover {
+          background-color: grey;
+          p {
+            color: black;
+          }
         }
       }
     }
@@ -210,3 +294,32 @@ $gap: 32px;
 //==================================
 // <BottomNav />
 //==================================
+.navbar {
+  border-top: 0.25rem solid $primary;
+  background-color: black;
+  a,
+  span {
+    color: white;
+    transition: 0.25s ease;
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+.navbar-end.is-hidden-desktop {
+  display: flex;
+  flex-direction: row;
+  a {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+  a,
+  span {
+    color: blue;
+    transition: 0.25s ease;
+    &:hover {
+      color: $primary;
+    }
+  }
+}

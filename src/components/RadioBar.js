@@ -34,9 +34,22 @@ function RadioBar() {
   const [radioData, setRadioData] = useState({});
   const [mute, setMute] = useState(false);
   const [pageIsVisible, setPageIsVisible] = useState(true);
-  const [localTime, setLocalTime] = useState(dayjs().format('hh:mm a'));
-  const [nycTime, setNycTime] = useState(dayjs(new Date().toLocaleString("en-US", {timeZone: "America/New_York"})).format('hh:mm a'));
-  const [laTime, setLaTime] = useState(dayjs(new Date().toLocaleString("en-US", {timeZone: "America/Los_Angeles"})).format('hh:mm a'));
+  const [localTime, setLocalTime] = useState(dayjs());
+  const [nycTime, setNycTime] = useState(dayjs(new Date().toLocaleString("en-US", {timeZone: "America/New_York"})));
+  const [laTime, setLaTime] = useState(dayjs(new Date().toLocaleString("en-US", {timeZone: "America/Los_Angeles"})));
+
+  useEffect(() => {
+    const clock = setInterval(() => {
+      setLocalTime(localTime.add(1, 's'));
+      setNycTime(nycTime.add(1, 's'));
+      setLaTime(laTime.add(1, 's'));
+    }, 1000);
+
+
+    return () => {
+      clearInterval(clock)
+    }
+  });
 
 
   const handleVisibilityChange = isVisible => {
@@ -151,9 +164,9 @@ function RadioBar() {
           </a>
         </div>
         <div className="column is-narrow is-hidden-touch">
-          <p className="has-text-light">{localTime} Local</p>
-          {/* <p className="has-text-light">{nycTime} NYC</p> */}
-          <p className="has-text-light">{laTime} L.A.</p>
+          <p className="has-text-light">{localTime.format('hh:mm a')} Local</p>
+          {/* <p className="has-text-light">{nycTime.format('hh:mm:ss a')} NYC</p> */}
+          <p className="has-text-light">{laTime.format('ddd HH:mm a')} L.A.</p>
         </div>
       </div>
     </div>

@@ -164,9 +164,9 @@ function RadioBar() {
           </a>
         </div>
         <div className="column is-narrow is-hidden-touch">
-          <p className="has-text-light">{localTime.format('hh:mm a')} Local</p>
+          <p className="has-text-light">{localTime.format('hh:mm:ss a')} Local</p>
           {/* <p className="has-text-light">{nycTime.format('hh:mm:ss a')} NYC</p> */}
-          <p className="has-text-light">{laTime.format('ddd HH:mm a')} L.A.</p>
+          <p className="has-text-light">{laTime.format('ddd HH:mm:ss a')} L.A.</p>
         </div>
       </div>
     </div>

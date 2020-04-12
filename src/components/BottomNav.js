@@ -14,13 +14,14 @@ function BottomNav() {
     <nav
       className="navbar is-fixed-bottom"
       role="navigation"
-      aria-label="main navigation"
+      aria-label="navigation bar"
+      id="navigation"
     >
       <div className="navbar-brand">
         <div className="navbar-item">
           <Link to="/">
             <figure className="image is-32x32">
-              <img src="../img/halfmoon-3.png" alt="Halfmoon Logo" />
+              <img src="../img/halfmoon-3.png" alt="Return to home page" />
             </figure>
           </Link>
           <div className="navbar-item is-hidden-desktop">

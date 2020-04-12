@@ -5,7 +5,6 @@ function TopNav() {
   return (
     <div className="radio-and-schedule-bar">
       <RadioBar />
-
       <ScheduleBar />
     </div>
   );

@@ -4,25 +4,14 @@ import {
   GlobalStateContext
 } from "../context/GlobalContextProvider";
 import axios from "axios";
+import dayjs from "dayjs";
 import { RadioPlayer } from "./index";
 import { Link } from "gatsby";
-
-import dayjs from "dayjs";
-
-// var weekday = require('dayjs/plugin/weekday')
-// dayjs.extend(weekday)
-
-// var customParseFormat = require('dayjs/plugin/customParseFormat')
-// dayjs.extend(customParseFormat)
 
 const utc = require("dayjs/plugin/utc");
 dayjs.extend(utc);
 
-import {
-  faComments,
-  faVolumeUp,
-  faVolumeMute
-} from "@fortawesome/free-solid-svg-icons";
+import { faComments } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Ticker from "react-ticker";
@@ -31,8 +20,8 @@ import PageVisibility from "react-page-visibility";
 function RadioBar() {
   const dispatch = useContext(GlobalDispatchContext);
   const globalState = useContext(GlobalStateContext);
+
   const [radioData, setRadioData] = useState({});
-  const [mute, setMute] = useState(false);
   const [pageIsVisible, setPageIsVisible] = useState(true);
   const [localTime, setLocalTime] = useState(dayjs());
   const [nycTime, setNycTime] = useState(
@@ -58,10 +47,6 @@ function RadioBar() {
 
   const handleVisibilityChange = isVisible => {
     setPageIsVisible(isVisible);
-  };
-
-  const handleToggleMuted = async () => {
-    await dispatch({ type: "TOGGLE_MUTE" });
   };
 
   const handlePlayLive = async () => {
@@ -109,6 +94,10 @@ function RadioBar() {
           : "container is-fluid radio-bar"
       }
     >
+      <a href="#navigation" className="sr-only">
+        Jump to navigation bar
+      </a>
+
       {globalState.live ? (
         <PageVisibility onChange={handleVisibilityChange}>
           {pageIsVisible && renderLiveTicker(liveText)}
@@ -116,27 +105,6 @@ function RadioBar() {
       ) : null}
 
       <div className="columns is-vcentered is-mobile header-bar">
-        <div className="column is-narrow is-hidden-touch mute-btn">
-          {mute ? (
-            <FontAwesomeIcon
-              icon={faVolumeMute}
-              size="2x"
-              onClick={() => {
-                setMute(!mute);
-                handleToggleMuted();
-              }}
-            />
-          ) : (
-            <FontAwesomeIcon
-              icon={faVolumeUp}
-              size="2x"
-              onClick={() => {
-                setMute(!mute);
-                handleToggleMuted();
-              }}
-            />
-          )}
-        </div>
         <div className="column">
           <RadioPlayer
             status={radioData.status}
@@ -157,7 +125,7 @@ function RadioBar() {
           <p className="has-text-light">
             {localTime.format("hh:mm:ss a")} Local
           </p>
-          {/* <p className="has-text-light">{nycTime.format('hh:mm:ss a')} NYC</p> */}
+          <p className="has-text-light">{nycTime.format("hh:mm:ss a")} NYC</p>
           <p className="has-text-light">
             {laTime.format("ddd HH:mm:ss a")} L.A.
           </p>

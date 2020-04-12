@@ -6,13 +6,16 @@
   height: calc(100vh - 10.5rem);
 
   background-color: darken($color: $primary, $amount: 35);
-  // background-image: url(https://source.unsplash.com/1920x1080/daily?music);
-  // background-position: center center;
-  // background-repeat: no-repeat;
-  // background-attachment: scroll;
-  // background-size: cover;
+  background-image: url(https://source.unsplash.com/1920x1080/daily?coffee);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
   .columns .column {
-    background-color: rgba($color: darkcyan, $alpha: 0.85);
+    background-color: rgba(
+      $color: darken($color: $primary, $amount: 35),
+      $alpha: 0.85
+    );
   }
 }
 

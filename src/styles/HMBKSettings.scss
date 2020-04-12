@@ -23,6 +23,26 @@ $primary: $pink;
 //==================================
 // GLOBAL STYLES
 //==================================
+.sr-only {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  transition: 0.25s ease;
+  &:focus {
+    clip: auto;
+    height: auto;
+    overflow: auto;
+    position: absolute;
+    padding: 1rem;
+    width: auto;
+    background-color: darken($color: $primary, $amount: 35);
+    color: white;
+  }
+}
+
 body {
   background-color: black;
   color: white;

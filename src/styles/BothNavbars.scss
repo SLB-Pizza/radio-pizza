@@ -311,6 +311,18 @@
   }
 }
 
+.navbar-menu,
+.navbar-burger {
+  height: auto;
+  transition: 0.5s ease-in-out;
+}
+
+.navbar-menu.is-active,
+.navbar-burger.is-active {
+  height: auto;
+  transition: 0.5s ease-in-out;
+}
+
 .navbar-burger span {
   color: transparent;
   border: 0.125rem solid $primary;

@@ -64,7 +64,10 @@ function BottomNav() {
             </Link>
           </p>
           <div className="navbar-item has-dropdown has-dropdown-up">
-            <a className="navbar-link" onClick={() => setMenuOpen(!menuOpen)}>
+            <a
+              className="navbar-link"
+              // onClick={() => setMenuOpen(!menuOpen)}
+            >
               Content
             </a>
             <div className="navbar-dropdown">
@@ -101,8 +104,9 @@ function BottomNav() {
             href="https://www.mixcloud.com/HalfMoonbk/"
             className="navbar-item"
             onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Halfmoon on Mixcloud"
           >
-            <span className="icon is-medium">
+            <span className="icon is-medium" aria-hidden="true">
               <FontAwesomeIcon icon={faMixcloud} size="lg" />
             </span>
           </a>
@@ -110,8 +114,9 @@ function BottomNav() {
             href="https://www.instagram.com/halfmoonbk/"
             className="navbar-item"
             onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Halfmoon on Instagram"
           >
-            <span className="icon is-medium">
+            <span className="icon is-medium" aria-hidden="true">
               <FontAwesomeIcon icon={faInstagram} size="lg" />
             </span>
           </a>
@@ -119,8 +124,9 @@ function BottomNav() {
             href="https://twitter.com/halfmoonbk"
             className="navbar-item"
             onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Halfmoon on Twitter"
           >
-            <span className="icon is-medium">
+            <span className="icon is-medium" aria-hidden="true">
               <FontAwesomeIcon icon={faTwitter} size="lg" />
             </span>
           </a>
@@ -131,8 +137,9 @@ function BottomNav() {
             href="https://www.mixcloud.com/HalfMoonbk/"
             className="navbar-item"
             onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Halfmoon on Mixcloud"
           >
-            <span className="icon is-medium">
+            <span className="icon is-medium" aria-hidden="true">
               <FontAwesomeIcon icon={faMixcloud} size="lg" />
             </span>
           </a>
@@ -140,8 +147,9 @@ function BottomNav() {
             href="https://www.instagram.com/halfmoonbk/"
             className="navbar-item"
             onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Halfmoon on Instagram"
           >
-            <span className="icon is-medium">
+            <span className="icon is-medium" aria-hidden="true">
               <FontAwesomeIcon icon={faInstagram} size="lg" />
             </span>
           </a>
@@ -149,8 +157,9 @@ function BottomNav() {
             href="https://twitter.com/halfmoonbk"
             className="navbar-item"
             onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Halfmoon on Twitter"
           >
-            <span className="icon is-medium">
+            <span className="icon is-medium" aria-hidden="true">
               <FontAwesomeIcon icon={faTwitter} size="lg" />
             </span>
           </a>

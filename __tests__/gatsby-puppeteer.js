@@ -14,23 +14,24 @@ const deviceList = puppeteer.devices;
  *
  * Script testing variables
  * @param {boolean} takeShot - set to false when testing the script
- * @param {boolean} promptUserQuestions - gates CLI questionnaire to gather info
+ * @param {boolean} fullPageCapture - set true if page is taller than window height
  *
  * Situational variables
- * @param {boolean} fullPageCapture - set true if page is taller than window height
+ * @param {boolean} promptUserQuestions - gates CLI questionnaire to gather info
  * @param {boolean} clickItem - gates click script section
  * @param {string} clickTarget- the element to be clicked e.g. "div #expand-button"
  * @param {boolean} scrollToSection - gates scroll script section
  */
 const pageRoute = "bio";
 // const pageName = pageRoute === "" ? "home" : pageRoute;
-const pageVersion = "v2";
+const pageVersion = "v3";
 const pageURL = `http://localhost:8000/${pageRoute}`;
 
-const takeShot = false;
-const promptUserQuestions = false;
+const takeShot = true;
+const fullPageCapture = true;
+const auditDeploy = false;
 
-const fullPageCapture = false;
+const promptUserQuestions = false;
 const clickItem = false;
 const clickTarget = "div #expand-button";
 const scrollToSection = false;
@@ -61,7 +62,7 @@ const questions = [
     message: "Base URL?",
     default() {
       return "http://localhost:8000/";
-    },
+    }
   },
   {
     type: "input",
@@ -69,7 +70,7 @@ const questions = [
     message: "Page to screenshot?",
     default() {
       return "schedule";
-    },
+    }
   },
   {
     type: "input",
@@ -77,7 +78,7 @@ const questions = [
     message: "Page version?",
     default() {
       return "v1";
-    },
+    }
   },
   {
     type: "checkbox",
@@ -90,31 +91,31 @@ const questions = [
     choices: [
       new inquirer.Separator("Select a viewport group..."),
       {
-        name: "All Sizes",
+        name: "All Sizes"
       },
       {
-        name: "Touch Sizes",
+        name: "Touch Sizes"
       },
       {
-        name: "Desktop Sizes",
+        name: "Desktop Sizes"
       },
       new inquirer.Separator("...or pick the ones you need."),
       {
-        name: "Mobile",
+        name: "Mobile"
       },
       {
-        name: "Tablet",
+        name: "Tablet"
       },
       {
-        name: "Desktop",
+        name: "Desktop"
       },
       {
-        name: "Widescreen",
+        name: "Widescreen"
       },
       {
-        name: "FullHD",
-      },
-    ],
+        name: "FullHD"
+      }
+    ]
   },
   {
     type: "confirm",
@@ -135,8 +136,8 @@ const questions = [
     },
     default() {
       return true;
-    },
-  },
+    }
+  }
 ];
 
 const customDevices = [
@@ -150,8 +151,8 @@ const customDevices = [
       deviceScaleFactor: 1,
       isMobile: false,
       hasTouch: false,
-      isLandscape: true,
-    },
+      isLandscape: true
+    }
   },
   {
     name: "Widescreen",
@@ -163,8 +164,8 @@ const customDevices = [
       deviceScaleFactor: 1,
       isMobile: false,
       hasTouch: false,
-      isLandscape: true,
-    },
+      isLandscape: true
+    }
   },
   {
     name: "1080p",
@@ -175,9 +176,9 @@ const customDevices = [
       deviceScaleFactor: 1,
       isMobile: false,
       hasTouch: false,
-      isLandscape: true,
-    },
-  },
+      isLandscape: true
+    }
+  }
 ];
 
 const iPhoneSE = deviceList["iPhone SE"];
@@ -208,7 +209,7 @@ const allDevices = [
   iPhone6Plus,
   iPad,
   kindleFireHDX,
-  ...customDevices,
+  ...customDevices
 ];
 
 /**
@@ -226,7 +227,7 @@ const allDevices = [
  * @param {string[]} choices - array of strings from the user prompt
  * @returns {array} - array of selected viewports
  */
-const parseViewports = (choices) => {
+const parseViewports = choices => {
   console.log("Choices is:\n", choices, "\n");
 
   let viewports = new Set();
@@ -287,7 +288,7 @@ const dateString = () => {
     month: "short",
     hour: "2-digit",
     minute: "2-digit",
-    timeZone: "America/New_York",
+    timeZone: "America/New_York"
   });
 
   // Replace the comma and colon in the time expression with ""
@@ -304,7 +305,7 @@ const dateString = () => {
         figlet.textSync("Screenshots", {
           font: "Slant",
           horizontalLayout: "default",
-          verticalLayout: "default",
+          verticalLayout: "default"
         })
       )
     );
@@ -334,7 +335,7 @@ const dateString = () => {
     );
 
     const time = dateString();
-
+    let accessTimes = [];
     let count = 0;
     for (let device of allDevices) {
       count++;
@@ -380,12 +381,13 @@ const dateString = () => {
       let startNow = Date.now();
       await page.goto(`${pageURL}`, {
         waitUntil: ["load", "domcontentloaded", "networkidle2"],
-        timeout: 60000,
+        timeout: 60000
       });
       let endNow = Date.now();
       console.log(
         chalk.cyan(`  ┣ Page loaded successfully in ${endNow - startNow}ms.`)
       );
+      let loadTime = endNow - startNow;
 
       if (clickItem || scrollToSection) {
         console.log(chalk.cyan(`  ┃`));
@@ -420,10 +422,15 @@ const dateString = () => {
           path: `__tests__/screenshots/${pageRoute} ${pageVersion} | ${device.name} | ${time}.jpeg`,
           fullPage: fullPageCapture,
           type: "jpeg",
-          quality: 75,
+          quality: 75
         });
       }
 
+      accessTimes.push(loadTime);
+      if (!takeShot) {
+        console.log(chalk.yellow(`  ┣ Value pushed: ${loadTime}`));
+        console.log(chalk.yellow(`  ┣ accessTimes: ${accessTimes}`));
+      }
       // Success! Report back to the user.
       console.log(chalk.cyan(`  ┃`));
       console.log(
@@ -436,46 +443,63 @@ const dateString = () => {
           `  ┗ 💾  Saved to '/screenshots/${pageRoute} ${pageVersion} | ${device.name} | ${time}.jpeg'\n`
         )
       );
+
       // Close the current page - don't let them buildup or it'll slow down and timeout.
       await page.close();
     }
 
+    // Calculate metrics
+    const avgTime = times => times.reduce((a, b) => a + b, 0) / times.length;
+
     // Summarize screenshot total
     console.log(
       chalk.inverse.green(
-        `====== All ${count} screenshots captured successfully! ======\n`
+        `====== ${count} screenshots taken successfully! ======\n`
       )
     );
-
+    console.log(chalk.green(`  Results`));
+    console.log(chalk.green(`  ┃`));
     console.log(
-      chalk.white(
-        figlet.textSync("Lighthouse", {
-          font: "Slant",
-          horizontalLayout: "default",
-          verticalLayout: "default",
-        })
-      )
+      chalk.green(`  ┣ Average page load: ${avgTime(accessTimes)}ms.`)
     );
-    const url = `https://halfmoon-rebuild-wip-2020.netlify.com/`;
-    console.log(chalk.white(`\nAuditing ${url} with Lighthouse.\n`));
-
-    // Lighthouse will open URL. Puppeteer observes `targetchanged` and sets up network conditions.
-    // Possible race condition.
-    const { lhr } = await lighthouse(url, {
-      port: new URL(browser.wsEndpoint()).port,
-      output: "json",
-      logLevel: "info",
-    });
-
-    const auditCategories = ["Performance", ""];
-
     console.log(
-      chalk.white(
-        `\nLighthouse Audit Results:\n${Object.values(lhr.categories)
-          .map((c) => `${c.title} -- ${Math.floor(c.score * 100)}/100`)
-          .join("\n")}`
-      )
+      chalk.green(`  ┣ Fastest page load: ${Math.min(...accessTimes)}ms.`)
     );
+    console.log(
+      chalk.green(`  ┣ Slowest page load: ${Math.max(...accessTimes)}ms.`)
+    );
+
+    if (auditDeploy) {
+      console.log(
+        chalk.white(
+          figlet.textSync("Lighthouse", {
+            font: "Slant",
+            horizontalLayout: "default",
+            verticalLayout: "default"
+          })
+        )
+      );
+      const url = `https://halfmoon-rebuild-wip-2020.netlify.com/`;
+      console.log(chalk.white(`\nAuditing ${url} with Lighthouse.\n`));
+
+      // Lighthouse will open URL. Puppeteer observes `targetchanged` and sets up network conditions.
+      // Possible race condition.
+      const { lhr } = await lighthouse(url, {
+        port: new URL(browser.wsEndpoint()).port,
+        output: "json",
+        logLevel: "info"
+      });
+
+      const auditCategories = ["Performance", ""];
+
+      console.log(
+        chalk.white(
+          `\nLighthouse Audit Results:\n${Object.values(lhr.categories)
+            .map(c => `${c.title} -- ${Math.floor(c.score * 100)}/100`)
+            .join("\n")}`
+        )
+      );
+    }
 
     // Wrap everything up
     await browser.close();

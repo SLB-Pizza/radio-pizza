@@ -20,9 +20,14 @@ function BottomNav() {
         <div className="navbar-item">
           <Link to="/">
             <figure className="image is-32x32">
-              <img src="../img/halfmoon-3-crop.png" alt="Halfmoon Logo" />
+              <img src="../img/halfmoon-3.png" alt="Halfmoon Logo" />
             </figure>
           </Link>
+          <div className="navbar-item is-hidden-desktop">
+            <p className="title is-size-5-desktop is-size-6-tablet is-size-7-mobile has-text-light">
+              Ears to the concrete.
+            </p>
+          </div>
         </div>
         <span
           className={menuOpen ? "navbar-burger is-active" : "navbar-burger"}

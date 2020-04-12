@@ -49,22 +49,43 @@ function BottomNav() {
       >
         <div className="navbar-start">
           <p className="navbar-item">
-            <Link to="/schedule">Schedule</Link>
+            <Link to="/schedule" onClick={() => setMenuOpen(!menuOpen)}>
+              Schedule
+            </Link>
           </p>
           <p className="navbar-item">
-            <Link to="/residents">Residents</Link>
+            <Link to="/residents" onClick={() => setMenuOpen(!menuOpen)}>
+              Residents
+            </Link>
           </p>
           <p className="navbar-item">
-            <Link to="/bio">Bio</Link>
+            <Link to="/bio" onClick={() => setMenuOpen(!menuOpen)}>
+              Bio
+            </Link>
           </p>
           <div className="navbar-item has-dropdown has-dropdown-up">
-            <a className="navbar-link">Content</a>
+            <a className="navbar-link" onClick={() => setMenuOpen(!menuOpen)}>
+              Content
+            </a>
             <div className="navbar-dropdown">
-              <div className="navbar-item">Recent Mixes</div>
-              <a href="#" className="navbar-item">
+              <div
+                className="navbar-item"
+                onClick={() => setMenuOpen(!menuOpen)}
+              >
+                Recent Mixes
+              </div>
+              <a
+                href="#"
+                className="navbar-item"
+                onClick={() => setMenuOpen(!menuOpen)}
+              >
                 Live Events
               </a>
-              <a href="#" className="navbar-item">
+              <a
+                href="#"
+                className="navbar-item"
+                onClick={() => setMenuOpen(!menuOpen)}
+              >
                 Features
               </a>
             </div>
@@ -79,6 +100,7 @@ function BottomNav() {
           <a
             href="https://www.mixcloud.com/HalfMoonbk/"
             className="navbar-item"
+            onClick={() => setMenuOpen(!menuOpen)}
           >
             <span className="icon is-medium">
               <FontAwesomeIcon icon={faMixcloud} size="lg" />
@@ -87,12 +109,17 @@ function BottomNav() {
           <a
             href="https://www.instagram.com/halfmoonbk/"
             className="navbar-item"
+            onClick={() => setMenuOpen(!menuOpen)}
           >
             <span className="icon is-medium">
               <FontAwesomeIcon icon={faInstagram} size="lg" />
             </span>
           </a>
-          <a href="https://twitter.com/halfmoonbk" className="navbar-item">
+          <a
+            href="https://twitter.com/halfmoonbk"
+            className="navbar-item"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
             <span className="icon is-medium">
               <FontAwesomeIcon icon={faTwitter} size="lg" />
             </span>
@@ -103,6 +130,7 @@ function BottomNav() {
           <a
             href="https://www.mixcloud.com/HalfMoonbk/"
             className="navbar-item"
+            onClick={() => setMenuOpen(!menuOpen)}
           >
             <span className="icon is-medium">
               <FontAwesomeIcon icon={faMixcloud} size="lg" />
@@ -111,12 +139,17 @@ function BottomNav() {
           <a
             href="https://www.instagram.com/halfmoonbk/"
             className="navbar-item"
+            onClick={() => setMenuOpen(!menuOpen)}
           >
             <span className="icon is-medium">
               <FontAwesomeIcon icon={faInstagram} size="lg" />
             </span>
           </a>
-          <a href="https://twitter.com/halfmoonbk" className="navbar-item">
+          <a
+            href="https://twitter.com/halfmoonbk"
+            className="navbar-item"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
             <span className="icon is-medium">
               <FontAwesomeIcon icon={faTwitter} size="lg" />
             </span>

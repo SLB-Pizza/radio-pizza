@@ -12,15 +12,17 @@ function BottomNav() {
 
   return (
     <nav
-      className="navbar is-fixed-bottom is-black"
+      className="navbar is-fixed-bottom"
       role="navigation"
       aria-label="main navigation"
     >
       <div className="navbar-brand">
         <div className="navbar-item">
-          <p className="title is-size-5-desktop is-size-6-tablet is-size-7-mobile has-text-light">
-            Ears to the concrete.
-          </p>
+          <Link to="/">
+            <figure className="image is-32x32">
+              <img src="../img/halfmoon-3-crop.png" alt="Halfmoon Logo" />
+            </figure>
+          </Link>
         </div>
         <span
           className={menuOpen ? "navbar-burger is-active" : "navbar-burger"}
@@ -63,6 +65,11 @@ function BottomNav() {
           </div>
         </div>
         <div className="navbar-end is-hidden-touch">
+          <div className="navbar-item">
+            <p className="title is-size-6-desktop is-size-7-touch has-text-light">
+              Ears to the concrete.
+            </p>
+          </div>
           <a
             href="https://www.mixcloud.com/HalfMoonbk/"
             className="navbar-item"

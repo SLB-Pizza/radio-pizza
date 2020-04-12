@@ -7,7 +7,7 @@ import axios from "axios";
 import { RadioPlayer } from "./index";
 import { Link } from "gatsby";
 
-import dayjs from 'dayjs'
+import dayjs from "dayjs";
 
 // var weekday = require('dayjs/plugin/weekday')
 // dayjs.extend(weekday)
@@ -15,8 +15,8 @@ import dayjs from 'dayjs'
 // var customParseFormat = require('dayjs/plugin/customParseFormat')
 // dayjs.extend(customParseFormat)
 
-var utc = require('dayjs/plugin/utc')
-dayjs.extend(utc)
+const utc = require("dayjs/plugin/utc");
+dayjs.extend(utc);
 
 import {
   faComments,
@@ -35,22 +35,26 @@ function RadioBar() {
   const [mute, setMute] = useState(false);
   const [pageIsVisible, setPageIsVisible] = useState(true);
   const [localTime, setLocalTime] = useState(dayjs());
-  const [nycTime, setNycTime] = useState(dayjs(new Date().toLocaleString("en-US", {timeZone: "America/New_York"})));
-  const [laTime, setLaTime] = useState(dayjs(new Date().toLocaleString("en-US", {timeZone: "America/Los_Angeles"})));
+  const [nycTime, setNycTime] = useState(
+    dayjs(new Date().toLocaleString("en-US", { timeZone: "America/New_York" }))
+  );
+  const [laTime, setLaTime] = useState(
+    dayjs(
+      new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles" })
+    )
+  );
 
   useEffect(() => {
     const clock = setInterval(() => {
-      setLocalTime(localTime.add(1, 's'));
-      setNycTime(nycTime.add(1, 's'));
-      setLaTime(laTime.add(1, 's'));
+      setLocalTime(localTime.add(1, "s"));
+      setNycTime(nycTime.add(1, "s"));
+      setLaTime(laTime.add(1, "s"));
     }, 1000);
 
-
     return () => {
-      clearInterval(clock)
-    }
+      clearInterval(clock);
+    };
   });
-
 
   const handleVisibilityChange = isVisible => {
     setPageIsVisible(isVisible);
@@ -112,20 +116,6 @@ function RadioBar() {
       ) : null}
 
       <div className="columns is-vcentered is-mobile header-bar">
-        <div className="column is-narrow">
-          <Link to="/">
-            {globalState.live ? (
-              <figure className="image is-48x48">
-                <img src="../img/Halfmoon-3.png" alt="Halfmoon Logo" />
-              </figure>
-            ) : (
-              <figure className="image is-64x64">
-                <img src="../img/Halfmoon-3.png" alt="Halfmoon Logo" />
-              </figure>
-            )}
-          </Link>
-        </div>
-
         <div className="column is-narrow is-hidden-touch mute-btn">
           {mute ? (
             <FontAwesomeIcon
@@ -164,9 +154,13 @@ function RadioBar() {
           </a>
         </div>
         <div className="column is-narrow is-hidden-touch">
-          <p className="has-text-light">{localTime.format('hh:mm:ss a')} Local</p>
+          <p className="has-text-light">
+            {localTime.format("hh:mm:ss a")} Local
+          </p>
           {/* <p className="has-text-light">{nycTime.format('hh:mm:ss a')} NYC</p> */}
-          <p className="has-text-light">{laTime.format('ddd HH:mm:ss a')} L.A.</p>
+          <p className="has-text-light">
+            {laTime.format("ddd HH:mm:ss a")} L.A.
+          </p>
         </div>
       </div>
     </div>

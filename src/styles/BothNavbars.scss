@@ -305,6 +305,10 @@
       color: $primary;
     }
   }
+
+  #nav-menu {
+    background-color: black;
+  }
 }
 .navbar-end.is-hidden-desktop {
   display: flex;

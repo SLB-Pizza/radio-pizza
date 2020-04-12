@@ -5,11 +5,12 @@
   margin-top: 8.25rem;
   height: calc(100vh - 10.5rem);
 
-  background-image: url(https://source.unsplash.com/1920x1080/daily?music);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-size: cover;
+  background-color: darken($color: $primary, $amount: 35);
+  // background-image: url(https://source.unsplash.com/1920x1080/daily?music);
+  // background-position: center center;
+  // background-repeat: no-repeat;
+  // background-attachment: scroll;
+  // background-size: cover;
   .columns .column {
     background-color: rgba($color: darkcyan, $alpha: 0.85);
   }
@@ -99,11 +100,12 @@
 // <HomeMixes />
 //==================================
 #home-mixes {
-  background-image: url(https://source.unsplash.com/1920x1080/weekly?nebula);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-size: cover;
+  background-color: darken($color: $primary, $amount: 35);
+  // background-image: url(https://source.unsplash.com/1920x1080/weekly?nebula);
+  // background-position: center center;
+  // background-repeat: no-repeat;
+  // background-attachment: scroll;
+  // background-size: cover;
 
   border-top: 0.25rem solid $primary;
 }
@@ -112,11 +114,12 @@
 // <HomeEvents />
 //==================================
 #home-events {
-  background-image: url(https://source.unsplash.com/1920x1080/?nebula);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-size: cover;
+  background-color: darken($color: $primary, $amount: 35);
+  // background-image: url(https://source.unsplash.com/1920x1080/?nebula);
+  // background-position: center center;
+  // background-repeat: no-repeat;
+  // background-attachment: scroll;
+  // background-size: cover;
 
   border-top: 0.25rem solid $primary;
 }
@@ -125,11 +128,12 @@
 // <HomeNews />
 //==================================
 #home-news {
-  background-image: url(https://source.unsplash.com/1920x1080/?weekly?nebula);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-size: cover;
+  background-color: darken($color: $primary, $amount: 35);
+  // background-image: url(https://source.unsplash.com/1920x1080/?weekly?nebula);
+  // background-position: center center;
+  // background-repeat: no-repeat;
+  // background-attachment: scroll;
+  // background-size: cover;
 
   border-top: 0.25rem solid $primary;
   border-bottom: 0.25rem solid $primary;

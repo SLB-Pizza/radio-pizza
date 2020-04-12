@@ -310,6 +310,12 @@
     background-color: black;
   }
 }
+
+.navbar-burger span {
+  color: transparent;
+  border: 0.125rem solid $primary;
+}
+
 .navbar-end.is-hidden-desktop {
   display: flex;
   flex-direction: row;

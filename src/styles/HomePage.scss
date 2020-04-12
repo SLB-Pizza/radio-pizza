@@ -5,7 +5,7 @@
   margin-top: 8.25rem;
   height: calc(100vh - 10.5rem);
 
-  background-color: darken($color: $primary, $amount: 35);
+  background-color: darken($color: $primary, $amount: 45);
   background-image: url(https://source.unsplash.com/1920x1080/daily?coffee);
   background-position: center center;
   background-repeat: no-repeat;
@@ -13,7 +13,7 @@
   background-size: cover;
   .columns .column {
     background-color: rgba(
-      $color: darken($color: $primary, $amount: 35),
+      $color: darken($color: $primary, $amount: 45),
       $alpha: 0.85
     );
   }
@@ -90,7 +90,7 @@
 
   // Darken bg; create padding for sectional content
   .image-diffuser {
-    background-color: rgba($color: #000000, $alpha: 0.65);
+    // background-color: rgba($color: #000000, $alpha: 0.65);
     padding: 3rem 2rem;
 
     @include mobile {
@@ -103,7 +103,7 @@
 // <HomeMixes />
 //==================================
 #home-mixes {
-  background-color: darken($color: $primary, $amount: 35);
+  background-color: darken($color: $primary, $amount: 45);
   // background-image: url(https://source.unsplash.com/1920x1080/weekly?nebula);
   // background-position: center center;
   // background-repeat: no-repeat;
@@ -117,7 +117,7 @@
 // <HomeEvents />
 //==================================
 #home-events {
-  background-color: darken($color: $primary, $amount: 35);
+  background-color: darken($color: $primary, $amount: 45);
   // background-image: url(https://source.unsplash.com/1920x1080/?nebula);
   // background-position: center center;
   // background-repeat: no-repeat;
@@ -131,7 +131,7 @@
 // <HomeNews />
 //==================================
 #home-news {
-  background-color: darken($color: $primary, $amount: 35);
+  background-color: darken($color: $primary, $amount: 45);
   // background-image: url(https://source.unsplash.com/1920x1080/?weekly?nebula);
   // background-position: center center;
   // background-repeat: no-repeat;

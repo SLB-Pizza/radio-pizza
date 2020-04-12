@@ -307,7 +307,7 @@
   }
 
   #nav-menu {
-    background-color: black;
+    background-color: darken($color: $primary, $amount: 45);
   }
 }
 
@@ -326,10 +326,10 @@
   }
   a,
   span {
-    color: blue;
+    color: $primary;
     transition: 0.25s ease;
     &:hover {
-      color: $primary;
+      color: white;
     }
   }
 }

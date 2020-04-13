@@ -35,6 +35,7 @@
 //==================================
 .home-content {
   margin-bottom: 3rem;
+  background-color: darken($color: $primary, $amount: 45);
 
   // Make all content text white
   p {
@@ -99,45 +100,37 @@
   }
 }
 
+#home-mixes,
+#home-events,
+#home-news {
+  border-top: 0.25rem solid $primary;
+}
 //==================================
 // <HomeMixes />
 //==================================
-#home-mixes {
-  background-color: darken($color: $primary, $amount: 45);
-  // background-image: url(https://source.unsplash.com/1920x1080/weekly?nebula);
-  // background-position: center center;
-  // background-repeat: no-repeat;
-  // background-attachment: scroll;
-  // background-size: cover;
 
-  border-top: 0.25rem solid $primary;
-}
+// background-image: url(https://source.unsplash.com/1920x1080/weekly?nebula);
+// background-position: center center;
+// background-repeat: no-repeat;
+// background-attachment: scroll;
+// background-size: cover;
 
 //==================================
 // <HomeEvents />
 //==================================
-#home-events {
-  background-color: darken($color: $primary, $amount: 45);
-  // background-image: url(https://source.unsplash.com/1920x1080/?nebula);
-  // background-position: center center;
-  // background-repeat: no-repeat;
-  // background-attachment: scroll;
-  // background-size: cover;
 
-  border-top: 0.25rem solid $primary;
-}
+// background-image: url(https://source.unsplash.com/1920x1080/?nebula);
+// background-position: center center;
+// background-repeat: no-repeat;
+// background-attachment: scroll;
+// background-size: cover;
 
 //==================================
 // <HomeNews />
 //==================================
-#home-news {
-  background-color: darken($color: $primary, $amount: 45);
-  // background-image: url(https://source.unsplash.com/1920x1080/?weekly?nebula);
-  // background-position: center center;
-  // background-repeat: no-repeat;
-  // background-attachment: scroll;
-  // background-size: cover;
 
-  border-top: 0.25rem solid $primary;
-  border-bottom: 0.25rem solid $primary;
-}
+// background-image: url(https://source.unsplash.com/1920x1080/?weekly?nebula);
+// background-position: center center;
+// background-repeat: no-repeat;
+// background-attachment: scroll;
+// background-size: cover;

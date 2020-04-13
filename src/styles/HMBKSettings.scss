@@ -72,11 +72,26 @@ p,
 .card {
   border: 0.25rem solid darken($color: $primary, $amount: 20);
   margin: 0 0.125rem;
-  transition: ease-in-out 0.25s;
+  transition: 0.25s ease;
 
+  // Override default bulma card settings
+  .card-content {
+    background-color: black;
+    padding: 0.75rem;
+    transition: 0.25s ease;
+  }
+
+  // Give the date of content items some space
+  .content-date {
+    margin-bottom: 0.5rem;
+  }
   &:hover {
     border: 0.25rem solid $primary;
     box-shadow: 10px 8px 5px black;
+
+    .card-content {
+      background-color: darken($color: $primary, $amount: 30);
+    }
   }
 }
 

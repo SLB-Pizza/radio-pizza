@@ -26,6 +26,12 @@ function HomeMixes() {
               <HomeSingleMix />
               <HomeSingleMix />
               <HomeSingleMix />
+              <HomeSingleMix />
+              <HomeSingleMix />
+              <HomeSingleMix />
+              <HomeSingleMix />
+              <HomeSingleMix />
+              <HomeSingleMix />
             </div>
           </div>
         </div>
@@ -46,6 +52,12 @@ function HomeMixes() {
           </div>
         </div>
         <div className="columns is-mobile is-hidden-desktop mobile-single-items">
+          <HomeSingleMix />
+          <HomeSingleMix />
+          <HomeSingleMix />
+          <HomeSingleMix />
+          <HomeSingleMix />
+          <HomeSingleMix />
           <HomeSingleMix />
           <HomeSingleMix />
           <HomeSingleMix />

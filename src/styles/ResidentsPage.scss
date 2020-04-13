@@ -1,37 +1,37 @@
 .residents-page {
   margin-top: 8.25rem;
   margin-bottom: 3rem;
+  padding-bottom: 3rem;
   min-height: calc(100vh - 10.5rem);
+  background-color: darken($color: $primary, $amount: 45);
 
-  // background-image: url(../img/red-led-light-with-silhouette-of-a-man-3094799.jpg);
-  background-image: url(https://source.unsplash.com/1920x1080/weekly?nebula);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
+  // background-image: url(https://source.unsplash.com/1920x1080/weekly?nebula);
+  // background-position: center center;
+  // background-repeat: no-repeat;
+  // background-attachment: fixed;
+  // background-size: cover;
 
-  .image-diffuser {
-    background-color: rgba($color: black, $alpha: 0.25);
-    height: 100%;
-    padding-bottom: 3rem;
-  }
+  // .image-diffuser {
+  //   background-color: rgba($color: black, $alpha: 0.25);
+  //   height: 100%;
+  // }
 
   // Set all text to white
   p {
     color: white;
     &.title {
       text-shadow: 3px 3px 2px black;
-      padding: 0.5rem 0 0.75rem;
+      &.headline {
+        padding: 0.5rem 0 1rem;
+      }
     }
   }
 
+  // Each selector column (tab)
   .is-half {
     background-color: darken($color: $primary, $amount: 20);
     border-bottom: 0.25rem solid $primary;
     transition: 0.25s ease-in-out;
-    // @include touch {
-    //   padding: 0.5rem auto;
-    // }
 
     &:hover {
       background-color: darken($color: $primary, $amount: 30);
@@ -42,37 +42,34 @@
     }
   }
 
+  // Columns div under selection tabs
   .resident-selection {
-    padding: 2rem 1rem 0;
-    background-color: rgba(
-      $color: darken($color: $primary, $amount: 30),
-      $alpha: 0.75
-    );
+    background-color: darken($color: $primary, $amount: 40);
     @include mobile {
       padding: 0.5rem 0.25rem 0;
     }
   }
 
+  // Single column space for resident
   .resident-box {
-    @include mobile {
-      &:last-child {
-        margin-bottom: 3rem;
-      }
-    }
+    padding: 2rem;
   }
 
+  // Columns div inside resident-box
   .single-resident {
-    border: 0.125rem solid transparent;
-    transition: 0.125s ease-in-out;
-
-    &:hover {
-      background-color: rgba($color: #000000, $alpha: 0.5);
-    }
+    background-color: black;
+    border: 0.25rem solid darken($color: $primary, $amount: 20);
+    transition: 0.25s ease-in-out;
 
     .resident-image {
-      img {
-        border: 0.125rem solid white;
-      }
+      padding: 0;
+    }
+
+    &:hover {
+      border: 0.25rem solid $primary;
+      box-shadow: 10px 8px 5px black;
+
+      // background-color: rgba($color: #000000, $alpha: 0.75);
     }
   }
 }

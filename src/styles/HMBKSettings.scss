@@ -70,11 +70,12 @@ p,
 
 // Give each card a solid $primary border
 .card {
-  border: 0.25rem solid $primary;
+  border: 0.25rem solid darken($color: $primary, $amount: 20);
   margin: 0 0.125rem;
   transition: ease-in-out 0.25s;
 
   &:hover {
+    border: 0.25rem solid $primary;
     box-shadow: 10px 8px 5px black;
   }
 }

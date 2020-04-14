@@ -1,7 +1,7 @@
 ---
 name: HMBK Bug Report
 about: Issues in the HMBK repo
-title: "[BUG]"
+title: "❌ [BUG]"
 labels: bug
 assignees: ''
 
@@ -34,4 +34,4 @@ assignees: ''
 
 ## File(s) involved, include line(s) if known
 
-<!-- Example: https://github.com/SLB-Pizza/radio-pizza/blob/bc6a4fcbfcbad92044875b112c9dd34b1a38e5f7/src/styles/BothNavbars.scss#L309-L314 -->
+<!--Find the lines in the files on the branch the bug affects and copy/paste the permalink here. Example: https://github.com/SLB-Pizza/radio-pizza/blob/bc6a4fcbfcbad92044875b112c9dd34b1a38e5f7/src/styles/BothNavbars.scss#L309-L314 -->

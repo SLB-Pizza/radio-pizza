@@ -13,9 +13,7 @@ function ScheduleDropdown(props) {
         </div>
         <div className="column is-narrow" id="open-schedule">
           <button className="button" onClick={() => props.setOpen(!props.open)}>
-            <p className="title is-size-7-touch is-size-6-desktop">
-              Schedule ▼
-            </p>
+            <p className="title is-size-7-touch is-size-6-desktop">Close ▲</p>
           </button>
         </div>
       </div>

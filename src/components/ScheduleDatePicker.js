@@ -18,7 +18,7 @@ function ScheduleDatePicker() {
           key={day.date}
           className="column is-5-mobile has-text-centered day-of-week"
         >
-          <p className="title is-size-3-desktop is-size-4-touch">
+          <p className="title is-size-5-desktop is-size-6-touch">
             {day.dayOfWeek}
           </p>
           <p className="subtitle is-size-5-desktop is-size-6-touch">

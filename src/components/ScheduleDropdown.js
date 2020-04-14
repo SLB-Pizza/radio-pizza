@@ -3,13 +3,20 @@ import { ScheduleDatePicker, ScheduleShowEntry } from "./index";
 
 function ScheduleDropdown(props) {
   return (
-    <div className="is-hidden-mobile">
-      <div className="columns is-vcentered is-mobile up-next">
+    <>
+      <div className="columns is-vcentered is-mobile is-hidden-mobile up-next">
         <div className="column is-narrow">
           <p className="is-size-6">in 1hr 1m</p>
         </div>
         <div className="column">
           <p className="title is-size-6 has-text-light">Loremip.</p>
+        </div>
+        <div className="column is-narrow" id="open-schedule">
+          <button className="button" onClick={() => props.setOpen(!props.open)}>
+            <p className="title is-size-7-touch is-size-6-desktop">
+              Schedule ▼
+            </p>
+          </button>
         </div>
       </div>
       <ScheduleDatePicker />
@@ -21,17 +28,7 @@ function ScheduleDropdown(props) {
         <ScheduleShowEntry />
         <ScheduleShowEntry />
       </div>
-      <div className="columns">
-        <div className="column is-12 has-background-dark">
-          <button
-            className="button is-fullwidth is-dark"
-            onClick={() => props.setOpen(!props.open)}
-          >
-            Close
-          </button>
-        </div>
-      </div>
-    </div>
+    </>
   );
 }
 

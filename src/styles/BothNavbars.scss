@@ -306,8 +306,11 @@
     }
   }
 
-  #nav-menu {
-    background-color: darken($color: $primary, $amount: 45);
+  .navbar-menu {
+    background-color: black;
+    &.is-active {
+      background-color: darken($color: $primary, $amount: 40);
+    }
   }
 }
 

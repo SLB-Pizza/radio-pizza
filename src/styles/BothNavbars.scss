@@ -176,115 +176,115 @@
         padding: 0.5rem;
       }
     }
+  }
 
-    .upcoming {
-      white-space: nowrap;
+  .upcoming {
+    white-space: nowrap;
+  }
+  //==================================
+  // <ScheduleModal />
+  //==================================
+  #scroll-instructions {
+    width: 100%;
+    background-color: black;
+    p {
+      color: white;
+      font-variant: small-caps;
+      padding: 0rem;
     }
-    //==================================
-    // <ScheduleModal />
-    //==================================
-    #scroll-instructions {
-      width: 100%;
-      background-color: black;
-      p {
-        color: white;
-        font-variant: small-caps;
-        padding: 0rem;
-      }
+  }
+
+  .modal-card {
+    margin: 1.5rem 0 4rem;
+    width: 90vw;
+    max-height: calc(100vh - 5rem);
+    box-shadow: 2.5px 2.5px 10px 2.5px whitesmoke;
+    background-color: transparent;
+    border-radius: 0 0 2.5rem 2.5rem;
+
+    header {
+      padding: 0;
+      margin: 0;
     }
 
-    .modal-card {
-      margin: 1.5rem 0 4rem;
-      width: 90vw;
-      max-height: calc(100vh - 5rem);
-      box-shadow: 2.5px 2.5px 10px 2.5px whitesmoke;
-      background-color: transparent;
-      border-radius: 0 0 2.5rem 2.5rem;
+    .modal-card-head {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
 
-      header {
-        padding: 0;
-        margin: 0;
-      }
-
-      .modal-card-head {
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-        .schedule-modal {
-          background-color: black;
-          width: 100%;
-          padding: 0.25rem 0.25rem 0;
-        }
-      }
-
-      .modal-card-body {
-        padding: 0 1rem;
+      .schedule-modal {
         background-color: black;
-      }
-    }
-
-    //==================================
-    // <ScheduleDatePicker />
-    //==================================
-    .date-picker {
-      overflow-x: auto;
-      background-color: #2a2a2a;
-      @include mobile {
         width: 100%;
-      }
-      p {
-        color: white;
-      }
-      .day-of-week {
-        padding: 0.5rem;
-        border-top: 0.125rem white solid;
-        border-bottom: 0.125rem white solid;
-
-        // In-between borders
-        &:not(:last-child) {
-          border-right: 0.125rem white solid;
-        }
-
-        &:hover {
-          background-color: grey;
-          p {
-            color: white;
-          }
-        }
-        &:active {
-          background-color: $primary;
-          p {
-            color: black;
-          }
-        }
+        padding: 0.25rem 0.25rem 0;
       }
     }
-    //==================================
-    // <ScheduleShowEntry />
-    //==================================
-    .show-entries {
-      background-color: black;
 
-      // Make list of show entries a scrollable list of dynamic height if window height < 720px
-      @include short-screen {
-        max-height: calc(100vh - 10.5rem - 15rem);
-        overflow-y: auto;
+    .modal-card-body {
+      padding: 0 1rem;
+      background-color: black;
+    }
+  }
+
+  //==================================
+  // <ScheduleDatePicker />
+  //==================================
+  .date-picker {
+    overflow-x: auto;
+    background-color: #2a2a2a;
+    @include mobile {
+      width: 100%;
+    }
+    p {
+      color: white;
+    }
+    .day-of-week {
+      padding: 0.5rem;
+      border-top: 0.125rem white solid;
+      border-bottom: 0.125rem white solid;
+
+      // In-between borders
+      &:not(:last-child) {
+        border-right: 0.125rem white solid;
       }
 
-      .entry-container {
-        padding: 0.5rem;
-        border-bottom: 1px dotted #ccc;
-
+      &:hover {
+        background-color: grey;
         p {
           color: white;
         }
-        &:hover {
-          background-color: grey;
-          p {
-            color: black;
-          }
+      }
+      &:active {
+        background-color: $primary;
+        p {
+          color: black;
+        }
+      }
+    }
+  }
+  //==================================
+  // <ScheduleShowEntry />
+  //==================================
+  .show-entries {
+    background-color: black;
+
+    // Make list of show entries a scrollable list of dynamic height if window height < 720px
+    @include short-screen {
+      max-height: calc(100vh - 10.5rem - 15rem);
+      overflow-y: auto;
+    }
+
+    .entry-container {
+      padding: 0.5rem;
+      border-bottom: 1px dotted #ccc;
+
+      p {
+        color: white;
+      }
+      &:hover {
+        background-color: grey;
+        p {
+          color: black;
         }
       }
     }

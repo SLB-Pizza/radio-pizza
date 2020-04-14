@@ -20,14 +20,14 @@ function ScheduleDropdown(props) {
         </div>
       </div>
       <ScheduleDatePicker />
-      <div className="columns is-multiline is-mobile show-entries">
+      {/* <div className="columns is-multiline is-mobile show-entries">
         <ScheduleShowEntry />
         <ScheduleShowEntry />
         <ScheduleShowEntry />
         <ScheduleShowEntry />
         <ScheduleShowEntry />
         <ScheduleShowEntry />
-      </div>
+      </div> */}
     </>
   );
 }

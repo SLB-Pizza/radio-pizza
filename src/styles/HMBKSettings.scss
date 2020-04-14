@@ -49,7 +49,9 @@ p,
   }
 }
 
+//================================================
 // For screen-readers - bulma stuff was fussy
+//================================================
 .sr-only {
   clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
@@ -57,7 +59,7 @@ p,
   position: absolute;
   white-space: nowrap;
   width: 1px;
-  transition: 0.25s ease;
+  transition: 0.5s ease;
   &:focus {
     clip: auto;
     height: auto;
@@ -65,14 +67,19 @@ p,
     position: absolute;
     padding: 1rem;
     width: auto;
-    background-color: darken($color: $primary, $amount: 35);
+    background-color: darken($color: $primary, $amount: 40);
+    border: 0.25rem solid $primary;
     color: white;
   }
 }
 
 //================================================
-// Override default bulma card settings
+// Override default bulma card styles
 // Give each card a solid $primary border
+// Make bgColor of content black; dark purp onHover
+// Push the tagline after the title of a card down
+// Give the date of content items some space
+//================================================
 .card {
   border: 0.25rem solid darken($color: $primary, $amount: 20);
   margin: 0 0.125rem;
@@ -82,22 +89,21 @@ p,
     background-color: black;
     padding: 0.75rem;
     transition: 0.25s ease;
-    // Push the tagline after the title of a card down
     & p.title + p {
       padding-top: 0.5rem;
     }
   }
 
-  // Give the date of content items some space
   .content-date {
     margin-bottom: 0.5rem;
   }
+
   &:hover {
     border: 0.25rem solid $primary;
     box-shadow: 10px 8px 5px black;
 
     .card-content {
-      background-color: darken($color: $primary, $amount: 30);
+      background-color: darken($color: $primary, $amount: 35);
     }
   }
 }

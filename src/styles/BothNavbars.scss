@@ -306,24 +306,13 @@
     }
   }
 
+  // Make navbar menu on desktop black; mobile darkPurple
   .navbar-menu {
     background-color: black;
     &.is-active {
-      background-color: darken($color: $primary, $amount: 40);
+      background-color: darken($color: $primary, $amount: 42.5);
     }
   }
-}
-
-.navbar-menu,
-.navbar-burger {
-  height: auto;
-  transition: 0.5s ease-in-out;
-}
-
-.navbar-menu.is-active,
-.navbar-burger.is-active {
-  height: auto;
-  transition: 0.5s ease-in-out;
 }
 
 .navbar-burger span {

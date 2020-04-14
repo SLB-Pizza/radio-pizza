@@ -1,0 +1,44 @@
+---
+name: HMBK bug report
+about: Issues in the Halfmoon repo
+title: ''
+labels: ''
+assignees: ''
+
+---
+
+---
+name: HMBK Bug Report
+about: Issues in the HMBK repo
+---
+
+## What's the bug?
+
+<!-- Example: Colors won't stop toggling onClick-->
+
+## What's the expected behavior?
+
+<!-- Example: Colors don't toggle onClick-->
+
+## Steps to Reproduce
+
+<!-- 1. First step, etc -->
+
+1.
+2.
+3.
+
+
+## Pages & Viewports Affected
+
+<!-- **Pages:** home route, 'home-mixes' section-->
+<!-- **Viewports:** ALL, touch and desktop-->
+
+**Pages:**
+**Viewports:**
+
+## File(s) involved, include line(s) if known
+
+<!-- Example: https://github.com/SLB-Pizza/radio-pizza/blob/bc6a4fcbfcbad92044875b112c9dd34b1a38e5f7/src/styles/BothNavbars.scss#L309-L314 -->
+
+

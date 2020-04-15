@@ -106,7 +106,9 @@ function ScheduleBar() {
           </button>
         </div>
       </div>
-      <ScheduleDropdown open={open} setOpen={setOpen} />
+      <span className="is-hidden-mobile">
+        <ScheduleDropdown open={open} setOpen={setOpen} />
+      </span>
       {/*
       FOR TOUCH
       SCHEDULE MODAL

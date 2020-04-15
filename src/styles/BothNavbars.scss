@@ -185,21 +185,20 @@
   // <ScheduleModal />
   //==================================
   #scroll-instructions {
-    width: 100%;
+    // width: 100%;
     background-color: black;
     p {
-      color: white;
       font-variant: small-caps;
-      padding: 0rem;
+      // padding: 0rem;
     }
   }
 
   .modal-card {
     margin: 1.5rem 0 4rem;
     width: 90vw;
-    max-height: calc(100vh - 5rem);
-
-    background-color: transparent;
+    max-height: calc(100vh - 7rem);
+    background-color: darken($color: $primary, $amount: 40);
+    border: 0.25rem solid darken($color: $primary, $amount: 30);
 
     header {
       padding: 0;
@@ -212,16 +211,18 @@
       flex-direction: column;
       justify-content: space-between;
 
-      .schedule-modal {
+      .schedule-header {
         background-color: black;
         width: 100%;
         padding: 0.25rem 0.25rem 0;
       }
     }
 
+    section {
+      margin: 0;
+      padding: 0;
+    }
     .modal-card-body {
-      padding: 0 1rem;
-      background-color: black;
     }
   }
 
@@ -274,24 +275,24 @@
     border-top: 0.25rem solid $primary;
     padding: 0 0.5rem;
 
-    // Make list of show entries a scrollable list of dynamic height if window height < 720px
-    @include short-screen {
-      max-height: calc(100vh - 10.5rem - 15rem);
-      overflow-y: auto;
-    }
+    // // Make list of show entries a scrollable list of dynamic height if window height < 720px
+    // @include short-screen {
+    //   max-height: calc(100vh - 10.5rem - 15rem);
+    //   overflow-y: auto;
+    // }
 
     .single-show-entry {
       padding: 0.5rem;
-      border-bottom: 1px dotted #ccc;
 
-      p {
-        color: white;
+      &:not(:last-child) {
+        border-bottom: 3px dotted darken($color: $primary, $amount: 15);
       }
+
+      // p {
+      //   color: white;
+      // }
       &:hover {
-        background-color: grey;
-        p {
-          color: black;
-        }
+        background-color: darken($color: $primary, $amount: 30);
       }
     }
   }

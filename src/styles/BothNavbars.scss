@@ -198,9 +198,8 @@
     margin: 1.5rem 0 4rem;
     width: 90vw;
     max-height: calc(100vh - 5rem);
-    box-shadow: 2.5px 2.5px 10px 2.5px whitesmoke;
+
     background-color: transparent;
-    border-radius: 0 0 2.5rem 2.5rem;
 
     header {
       padding: 0;
@@ -231,13 +230,9 @@
   //==================================
   .date-picker {
     overflow-x: auto;
-    background-color: #2a2a2a;
-    @include mobile {
-      width: 100%;
-    }
-    p {
-      color: white;
-    }
+    // @include mobile {
+    //   width: 100%;
+    // }
   }
 
   .day-of-week {
@@ -267,15 +262,17 @@
     &.is-active {
       background-color: $primary;
       border-bottom: 0.25rem solid $primary;
-      border-left: 0.125rem solid transparent;
-      border-right: 0.125rem solid transparent;
+      border-left: 0.25rem solid transparent;
+      border-right: 0.25rem solid transparent;
     }
   }
   //==================================
   // <ScheduleShowEntry />
   //==================================
   .show-entries {
-    background-color: black;
+    background-color: darken($color: $primary, $amount: 40);
+    border-top: 0.25rem solid $primary;
+    padding: 0 0.5rem;
 
     // Make list of show entries a scrollable list of dynamic height if window height < 720px
     @include short-screen {
@@ -283,7 +280,7 @@
       overflow-y: auto;
     }
 
-    .entry-container {
+    .single-show-entry {
       padding: 0.5rem;
       border-bottom: 1px dotted #ccc;
 

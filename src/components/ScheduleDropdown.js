@@ -2,19 +2,22 @@ import React from "react";
 import { ScheduleDatePicker, ScheduleShowEntry } from "./index";
 
 function ScheduleDropdown(props) {
-  return (
-    <>
-      <ScheduleDatePicker />
-      <div className="columns is-multiline is-mobile show-entries">
-        <ScheduleShowEntry />
-        <ScheduleShowEntry />
-        <ScheduleShowEntry />
-        <ScheduleShowEntry />
-        <ScheduleShowEntry />
-        <ScheduleShowEntry />
-      </div>
-    </>
-  );
+  return <ScheduleDatePicker />;
 }
 
 export default ScheduleDropdown;
+
+{
+  /*
+  <ScheduleDatePicker />
+
+  <div className="columns is-multiline is-mobile show-entries">
+
+  <ScheduleShowEntry />
+  <ScheduleShowEntry />
+  <ScheduleShowEntry />
+  <ScheduleShowEntry />
+  <ScheduleShowEntry />
+<ScheduleShowEntry />
+</div> */
+}

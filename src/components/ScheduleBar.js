@@ -8,7 +8,7 @@ import {
 import { ScheduleModal, ScheduleDropdown } from "./index";
 
 function ScheduleBar() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const [pageIsVisible, setPageIsVisible] = useState(true);
 
   const handleVisibilityChange = isVisible => {

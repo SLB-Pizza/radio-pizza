@@ -24,18 +24,18 @@ function ScheduleModal(props) {
               <p className="is-size-7 has-text-centered">⇦ VIEW MORE DATES ⇨</p>
             </div>
           </div>
-          <ScheduleDatePicker />
         </header>
         <section className="modal-card-body">
-          <div className="columns is-multiline is-mobile show-entries">
+          <ScheduleDatePicker />
+          {/* <div className="columns is-multiline is-mobile show-entries"> */}
+          {/* <ScheduleShowEntry />
             <ScheduleShowEntry />
             <ScheduleShowEntry />
             <ScheduleShowEntry />
             <ScheduleShowEntry />
             <ScheduleShowEntry />
-            <ScheduleShowEntry />
-            <ScheduleShowEntry />
-          </div>
+            <ScheduleShowEntry /> */}
+          {/* </div> */}
         </section>
       </div>
     </div>

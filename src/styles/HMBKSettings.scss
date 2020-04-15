@@ -40,6 +40,12 @@ p,
   font-family: "IBM Plex Sans", sans-serif;
 }
 
+p,
+p.title,
+p.subtitle {
+  color: white;
+}
+
 .tag {
   border: 2px solid #888;
   transition: 0.25s ease;

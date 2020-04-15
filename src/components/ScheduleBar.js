@@ -35,6 +35,10 @@ function ScheduleBar() {
     );
   };
 
+  /**
+   * Schedule Bar LAYOUT
+   * CLOSED : OPEN
+   */
   return !open ? (
     <div className="schedule-bar container is-fluid">
       <div className="columns is-vcentered is-mobile">

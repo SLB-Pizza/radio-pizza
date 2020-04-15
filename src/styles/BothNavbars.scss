@@ -238,28 +238,37 @@
     p {
       color: white;
     }
-    .day-of-week {
-      padding: 0.5rem;
-      border-top: 0.125rem white solid;
-      border-bottom: 0.125rem white solid;
+  }
 
-      // In-between borders
-      &:not(:last-child) {
-        border-right: 0.125rem white solid;
-      }
+  .day-of-week {
+    padding: 0.5rem;
+    background-color: darken($color: $primary, $amount: 20);
 
-      &:hover {
-        background-color: grey;
-        p {
-          color: white;
-        }
+    border-left: 0.125rem solid darken($color: $primary, $amount: 25);
+    border-right: 0.125rem solid darken($color: $primary, $amount: 25);
+
+    // In-between borders
+    // &:not(:last-child) {
+    //   border-right: 0.25rem solid darken($color: $primary, $amount: 30);
+    // }
+
+    @include desktop {
+      &:first-child {
+        border-left: 0.25rem solid $primary;
       }
-      &:active {
-        background-color: $primary;
-        p {
-          color: black;
-        }
+      &:last-child {
+        border-right: 0.25rem solid $primary;
       }
+    }
+
+    &:hover {
+      background-color: darken($color: $primary, $amount: 30);
+    }
+    &.is-active {
+      background-color: $primary;
+      border-bottom: 0.25rem solid $primary;
+      border-left: 0.125rem solid transparent;
+      border-right: 0.125rem solid transparent;
     }
   }
   //==================================

@@ -2,7 +2,7 @@ import React from "react";
 import { ScheduleDatePicker, ScheduleShowEntry } from "./index";
 
 function ScheduleDropdown(props) {
-  return <ScheduleDatePicker />;
+  return <ScheduleShowEntry />;
 }
 
 export default ScheduleDropdown;

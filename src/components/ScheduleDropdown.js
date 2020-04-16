@@ -4,7 +4,7 @@ import { ScheduleShowEntry } from "./index";
 // See ScheduleShowEntry for details on this prop
 
 function ScheduleDropdown(props) {
-  return <ScheduleShowEntry showSchedLink={true} />;
+  return <ScheduleShowEntry fromDropdown={true} />;
 }
 
 export default ScheduleDropdown;

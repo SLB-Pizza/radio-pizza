@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "gatsby";
 import dayjs from "dayjs";
 
@@ -45,10 +45,27 @@ const fakeShowEntryData = [
 ];
 
 function ScheduleShowEntry(props) {
-  const [todayDate, setTodayDate] = useState();
+  const [todayDate, setTodayDate] = useState(dayjs());
+
+  useEffect(() => {
+    const date = setInterval(() => {
+      setTodayDate(todayDate.add(1, "s"));
+    }, 1000);
+
+    return () => {
+      clearInterval(date);
+    };
+  });
 
   return (
     <div className="columns is-multiline is-mobile show-entries">
+      {props.fromDropdown && (
+        <div className="column is-12">
+          <p className="title is-size-3-desktop is-size-5-touch">
+            {todayDate.format("ddd MMM D - hh:mm:ss a")}
+          </p>
+        </div>
+      )}
       {fakeShowEntryData.map(show => (
         <div key={show.showName} className="column is-12 single-show-entry">
           <div className="columns is-mobile is-vcentered">
@@ -74,7 +91,7 @@ function ScheduleShowEntry(props) {
       - Since this is reused on the site, toggle placement of link
       - Doesn't show on /schedule
        */}
-      {props.showSchedLink && (
+      {props.fromDropdown && (
         <div className="column is-12">
           <Link to="/schedule">View Full Schedule</Link>
         </div>

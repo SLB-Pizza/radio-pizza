@@ -44,37 +44,27 @@ function ScheduleDatePicker() {
   }
 
   return (
-    <>
-      <div className="columns is-mobile date-picker">
-        {fakeDateData.map(day => (
-          <div
-            key={day.date}
-            id={day.weekday}
-            className={
-              isChosen === day.weekday
-                ? "column is-5-mobile has-text-centered day-of-week is-active"
-                : "column is-5-mobile has-text-centered day-of-week"
-            }
-            onClick={toggleColumn}
-          >
-            <p className="title is-size-5-desktop is-size-6-touch">
-              {day.weekday}
-            </p>
-            <p className="subtitle is-size-6-desktop is-size-7-touch">
-              {day.date}
-            </p>
-          </div>
-        ))}
-      </div>
-      <div className="columns is-multiline is-mobile show-entries">
-        <ScheduleShowEntry />
-        <ScheduleShowEntry />
-        <ScheduleShowEntry />
-        <ScheduleShowEntry />
-        <ScheduleShowEntry />
-        <ScheduleShowEntry />
-      </div>
-    </>
+    <div className="columns is-mobile date-picker">
+      {fakeDateData.map(day => (
+        <div
+          key={day.date}
+          id={day.weekday}
+          className={
+            isChosen === day.weekday
+              ? "column is-5-mobile has-text-centered day-of-week is-active"
+              : "column is-5-mobile has-text-centered day-of-week"
+          }
+          onClick={toggleColumn}
+        >
+          <p className="title is-size-5-desktop is-size-6-touch">
+            {day.weekday}
+          </p>
+          <p className="subtitle is-size-6-desktop is-size-7-touch">
+            {day.date}
+          </p>
+        </div>
+      ))}
+    </div>
   );
 }
 

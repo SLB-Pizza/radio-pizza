@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby";
 
 const fakeShowEntryData = [
   {
@@ -61,6 +62,9 @@ function ScheduleShowEntry() {
           </div>
         </div>
       ))}
+      <div className="column is-12">
+        <Link to="/schedule">View Full Schedule</Link>
+      </div>
     </div>
   );
 }

@@ -1,23 +1,10 @@
 import React from "react";
-import { ScheduleDatePicker, ScheduleShowEntry } from "./index";
+import { ScheduleShowEntry } from "./index";
+
+// See ScheduleShowEntry for details on this prop
 
 function ScheduleDropdown(props) {
-  return <ScheduleShowEntry />;
+  return <ScheduleShowEntry showSchedLink={true} />;
 }
 
 export default ScheduleDropdown;
-
-{
-  /*
-  <ScheduleDatePicker />
-
-  <div className="columns is-multiline is-mobile show-entries">
-
-  <ScheduleShowEntry />
-  <ScheduleShowEntry />
-  <ScheduleShowEntry />
-  <ScheduleShowEntry />
-  <ScheduleShowEntry />
-<ScheduleShowEntry />
-</div> */
-}

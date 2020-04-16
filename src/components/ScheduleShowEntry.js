@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "gatsby";
+import dayjs from "dayjs";
+
+const utc = require("dayjs/plugin/utc");
+dayjs.extend(utc);
 
 const fakeShowEntryData = [
   {
@@ -40,7 +44,9 @@ const fakeShowEntryData = [
   }
 ];
 
-function ScheduleShowEntry() {
+function ScheduleShowEntry(props) {
+  const [todayDate, setTodayDate] = useState();
+
   return (
     <div className="columns is-multiline is-mobile show-entries">
       {fakeShowEntryData.map(show => (
@@ -62,9 +68,17 @@ function ScheduleShowEntry() {
           </div>
         </div>
       ))}
-      <div className="column is-12">
-        <Link to="/schedule">View Full Schedule</Link>
-      </div>
+
+      {/*
+      ScheduleDropdown sets and passes this as a prop down
+      - Since this is reused on the site, toggle placement of link
+      - Doesn't show on /schedule
+       */}
+      {props.showSchedLink && (
+        <div className="column is-12">
+          <Link to="/schedule">View Full Schedule</Link>
+        </div>
+      )}
     </div>
   );
 }

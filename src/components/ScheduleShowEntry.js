@@ -59,12 +59,26 @@ function ScheduleShowEntry(props) {
 
   return (
     <div className="columns is-multiline is-mobile show-entries">
+      {/*
+      ScheduleDropdown sets and passes this as a prop down
+      - Since this is reused on the site, toggle placement of link
+      - Doesn't show on /schedule
+      */}
       {props.fromDropdown && (
-        <div className="column is-12">
-          <p className="title is-size-3-desktop is-size-5-touch">
-            {todayDate.format("ddd MMM D - hh:mm:ss a")}
-          </p>
-        </div>
+        <>
+          <div className="column today-date">
+            <p className="title is-size-3-desktop is-size-5-touch ">
+              Schedule | {todayDate.format("ddd MMM D")}
+            </p>
+          </div>
+          <div className="column is-narrow today-date">
+            <Link to="/schedule">
+              <p className="is-size-4-desktop is-size-6-tablet">
+                Full Schedule
+              </p>
+            </Link>
+          </div>
+        </>
       )}
       {fakeShowEntryData.map(show => (
         <div key={show.showName} className="column is-12 single-show-entry">
@@ -85,17 +99,6 @@ function ScheduleShowEntry(props) {
           </div>
         </div>
       ))}
-
-      {/*
-      ScheduleDropdown sets and passes this as a prop down
-      - Since this is reused on the site, toggle placement of link
-      - Doesn't show on /schedule
-       */}
-      {props.fromDropdown && (
-        <div className="column is-12">
-          <Link to="/schedule">View Full Schedule</Link>
-        </div>
-      )}
     </div>
   );
 }

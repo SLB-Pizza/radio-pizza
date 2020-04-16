@@ -231,9 +231,6 @@
   //==================================
   .date-picker {
     overflow-x: auto;
-    // @include mobile {
-    //   width: 100%;
-    // }
   }
 
   .day-of-week {
@@ -271,9 +268,11 @@
   // <ScheduleShowEntry />
   //==================================
   .show-entries {
-    background-color: darken($color: $primary, $amount: 40);
-    border-top: 0.25rem solid $primary;
-    padding: 0 0.5rem;
+    // background-color: darken($color: $primary, $amount: 40);
+    background-color: black;
+    // border-left: 0.25rem solid darken($color: $primary, $amount: 15);
+    // border-right: 0.25rem solid darken($color: $primary, $amount: 15);
+    // border-bottom: 0.25rem solid darken($color: $primary, $amount: 15);
 
     // // Make list of show entries a scrollable list of dynamic height if window height < 720px
     // @include short-screen {
@@ -281,18 +280,24 @@
     //   overflow-y: auto;
     // }
 
-    .single-show-entry {
-      padding: 0.5rem;
-
-      &:not(:last-child) {
-        border-bottom: 3px dotted darken($color: $primary, $amount: 15);
+    .column {
+      &.today-date {
+        p {
+          padding: 0.5rem 0;
+        }
       }
 
-      // p {
-      //   color: white;
-      // }
-      &:hover {
-        background-color: darken($color: $primary, $amount: 30);
+      &.single-show-entry {
+        border-top: 0.125rem dotted darken($color: $primary, $amount: 15);
+        transition: 0.25s ease-in-out;
+
+        &:first-child {
+          margin-top: 5rem;
+        }
+
+        &:hover {
+          background-color: darken($color: $primary, $amount: 30);
+        }
       }
     }
   }

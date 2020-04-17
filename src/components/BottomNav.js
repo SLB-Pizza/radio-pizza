@@ -79,7 +79,7 @@ function BottomNav() {
           >
             Chat
           </a>
-          <div className="navbar-item has-dropdown has-dropdown-up">
+          <div className="navbar-item has-dropdown has-dropdown-up is-hoverable">
             <a
               className="navbar-link"
               // onClick={() => setMenuOpen(!menuOpen)}
@@ -87,12 +87,9 @@ function BottomNav() {
               Content
             </a>
             <div className="navbar-dropdown">
-              <div
-                className="navbar-item"
-                onClick={() => setMenuOpen(!menuOpen)}
-              >
+              <a className="navbar-item" onClick={() => setMenuOpen(!menuOpen)}>
                 Recent Mixes
-              </div>
+              </a>
               <a
                 href="#"
                 className="navbar-item"

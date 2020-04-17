@@ -26,7 +26,7 @@ function BottomNav() {
           </Link>
           <div className="navbar-item is-hidden-desktop">
             <p className="title is-size-5-desktop is-size-6-tablet is-size-7-mobile has-text-light">
-              Ears to the concrete.
+              Ears to the concrete
             </p>
           </div>
         </div>

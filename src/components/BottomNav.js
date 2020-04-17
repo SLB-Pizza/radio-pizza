@@ -48,21 +48,37 @@ function BottomNav() {
         id="nav-menu"
       >
         <div className="navbar-start">
-          <p className="navbar-item">
-            <Link to="/schedule" onClick={() => setMenuOpen(!menuOpen)}>
-              Schedule
-            </Link>
-          </p>
-          <p className="navbar-item">
-            <Link to="/residents" onClick={() => setMenuOpen(!menuOpen)}>
-              Residents
-            </Link>
-          </p>
-          <p className="navbar-item">
-            <Link to="/bio" onClick={() => setMenuOpen(!menuOpen)}>
-              Bio
-            </Link>
-          </p>
+          <Link
+            to="/schedule"
+            className="navbar-item"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            Schedule
+          </Link>
+
+          <Link
+            to="/residents"
+            className="navbar-item"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            Residents
+          </Link>
+
+          <Link
+            to="/bio"
+            className="navbar-item"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            Bio
+          </Link>
+          <a
+            className="navbar-item"
+            href="http://halfmoonradiochat.chatango.com/"
+            target="_blank"
+            rel="noopener"
+          >
+            Chat
+          </a>
           <div className="navbar-item has-dropdown has-dropdown-up">
             <a
               className="navbar-link"

@@ -48,22 +48,38 @@ function BottomNav() {
         id="nav-menu"
       >
         <div className="navbar-start">
-          <p className="navbar-item">
-            <Link to="/schedule" onClick={() => setMenuOpen(!menuOpen)}>
-              Schedule
-            </Link>
-          </p>
-          <p className="navbar-item">
-            <Link to="/residents" onClick={() => setMenuOpen(!menuOpen)}>
-              Residents
-            </Link>
-          </p>
-          <p className="navbar-item">
-            <Link to="/bio" onClick={() => setMenuOpen(!menuOpen)}>
-              Bio
-            </Link>
-          </p>
-          <div className="navbar-item has-dropdown has-dropdown-up">
+          <Link
+            to="/schedule"
+            className="navbar-item"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            Schedule
+          </Link>
+
+          <Link
+            to="/residents"
+            className="navbar-item"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            Residents
+          </Link>
+
+          <Link
+            to="/bio"
+            className="navbar-item"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            Bio
+          </Link>
+          <a
+            className="navbar-item"
+            href="http://halfmoonradiochat.chatango.com/"
+            target="_blank"
+            rel="noopener"
+          >
+            Chat
+          </a>
+          <div className="navbar-item has-dropdown has-dropdown-up is-hoverable">
             <a
               className="navbar-link"
               // onClick={() => setMenuOpen(!menuOpen)}
@@ -71,12 +87,9 @@ function BottomNav() {
               Content
             </a>
             <div className="navbar-dropdown">
-              <div
-                className="navbar-item"
-                onClick={() => setMenuOpen(!menuOpen)}
-              >
+              <a className="navbar-item" onClick={() => setMenuOpen(!menuOpen)}>
                 Recent Mixes
-              </div>
+              </a>
               <a
                 href="#"
                 className="navbar-item"

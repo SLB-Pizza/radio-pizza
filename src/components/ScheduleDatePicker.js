@@ -1,36 +1,69 @@
-import React from "react";
+import React, { useState } from "react";
+import { ScheduleShowEntry } from "./";
+// import dayjs from "dayjs";
+
+const fakeDateData = [
+  {
+    weekday: "TUE",
+    date: "Apr 14"
+  },
+  {
+    weekday: "WED",
+    date: "Apr 15"
+  },
+  {
+    weekday: "THU",
+    date: "Apr 16"
+  },
+  {
+    weekday: "FRI",
+    date: "Apr 17"
+  },
+  {
+    weekday: "SAT",
+    date: "Apr 18"
+  },
+  {
+    weekday: "SUN",
+    date: "Apr 19"
+  },
+  {
+    weekday: "MON",
+    date: "Apr 20"
+  }
+];
 
 function ScheduleDatePicker() {
+  const [isChosen, setIsChosen] = useState("TUE");
+
+  function toggleColumn(e) {
+    if (isChosen !== e.currentTarget.id) {
+      setIsChosen(e.currentTarget.id);
+    }
+    return;
+  }
+
   return (
     <div className="columns is-mobile date-picker">
-      <div className="column is-5-mobile has-text-centered day-of-week">
-        <p className="title is-size-3-desktop is-size-4-touch">MON</p>
-        <p className="subtitle is-size-5-desktop is-size-6-touch">3/16</p>
-      </div>
-      <div className="column is-5-mobile has-text-centered day-of-week">
-        <p className="title is-size-3-desktop is-size-4-touch">TUE</p>
-        <p className="subtitle is-size-5-desktop is-size-6-touch">3/17</p>
-      </div>
-      <div className="column is-5-mobile has-text-centered day-of-week">
-        <p className="title is-size-3-desktop is-size-4-touch">WED</p>
-        <p className="subtitle is-size-5-desktop is-size-6-touch">3/18</p>
-      </div>
-      <div className="column is-5-mobile has-text-centered day-of-week">
-        <p className="title is-size-3-desktop is-size-4-touch">THU</p>
-        <p className="subtitle is-size-5-desktop is-size-6-touch">3/19</p>
-      </div>
-      <div className="column is-5-mobile has-text-centered day-of-week">
-        <p className="title is-size-3-desktop is-size-4-touch">FRI</p>
-        <p className="subtitle is-size-5-desktop is-size-6-touch">3/20</p>
-      </div>
-      <div className="column is-5-mobile has-text-centered day-of-week">
-        <p className="title is-size-3-desktop is-size-4-touch">SAT</p>
-        <p className="subtitle is-size-5-desktop is-size-6-touch">3/21</p>
-      </div>
-      <div className="column is-5-mobile has-text-centered day-of-week">
-        <p className="title is-size-3-desktop is-size-4-touch">SUN</p>
-        <p className="subtitle is-size-5-desktop is-size-6-touch">3/22</p>
-      </div>
+      {fakeDateData.map(day => (
+        <div
+          key={day.date}
+          id={day.weekday}
+          className={
+            isChosen === day.weekday
+              ? "column is-5-mobile has-text-centered day-of-week is-active"
+              : "column is-5-mobile has-text-centered day-of-week"
+          }
+          onClick={toggleColumn}
+        >
+          <p className="title is-size-5-desktop is-size-6-touch">
+            {day.weekday}
+          </p>
+          <p className="subtitle is-size-6-desktop is-size-7-touch">
+            {day.date}
+          </p>
+        </div>
+      ))}
     </div>
   );
 }

@@ -4,7 +4,7 @@ import { BioImageBlurb, BioMixList } from "../../components/";
 function ResidentBioIndexPage() {
   return (
     <div className="resident-bio">
-      <div className="container is-fluid image-diffuser">
+      <div className="container is-fluid">
         <BioImageBlurb />
         <hr />
         <BioMixList />

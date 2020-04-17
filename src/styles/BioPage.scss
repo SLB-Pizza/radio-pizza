@@ -3,17 +3,18 @@
   margin-bottom: 3rem;
   min-height: calc(100vh - 10.5rem);
 
-  background-image: url(https://source.unsplash.com/1920x1080/weekly?stars);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
+  background-color: darken($color: $primary, $amount: 45);
+  // background-image: url(https://source.unsplash.com/1920x1080/weekly?stars);
+  // background-position: center center;
+  // background-repeat: no-repeat;
+  // background-attachment: fixed;
+  // background-size: cover;
 
-  .image-diffuser {
-    background-color: rgba($color: black, $alpha: 0.5);
-    padding-bottom: 3.5rem;
-    min-height: calc(100vh - 10.5rem);
-  }
+  // .image-diffuser {
+  //   background-color: rgba($color: black, $alpha: 0.5);
+  //   padding-bottom: 3.5rem;
+  //   min-height: calc(100vh - 10.5rem);
+  // }
 
   // Set all text to white
   p {

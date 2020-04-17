@@ -8,7 +8,7 @@ import {
 import { ScheduleModal, ScheduleDropdown } from "./index";
 
 function ScheduleBar() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const [pageIsVisible, setPageIsVisible] = useState(true);
 
   const handleVisibilityChange = isVisible => {
@@ -35,6 +35,10 @@ function ScheduleBar() {
     );
   };
 
+  /**
+   * Schedule Bar LAYOUT
+   * CLOSED : OPEN
+   */
   return !open ? (
     <div className="schedule-bar container is-fluid">
       <div className="columns is-vcentered is-mobile">
@@ -71,15 +75,45 @@ function ScheduleBar() {
   ) : (
     <div className="schedule-bar container is-fluid is-open">
       {/*
+      FOR DESKTOP
+      BUILT INTO THE BAR
+    */}
+      <div className="columns is-vcentered is-mobile is-hidden-mobile up-next">
+        <div
+          className="column is-narrow at-time"
+          onClick={() => {
+            handleLiveTest();
+          }}
+        >
+          <p className="title is-size-7-touch is-size-6-desktop has-text-light">
+            {globalState.live ? "Listen Live" : "Next Show"}
+          </p>
+        </div>
+        <div className="column upcoming is-hidden-mobile">
+          <p className="is-size-6 has-text-light">
+            MON 4/21 - An HMBK Moment In Time
+          </p>
+        </div>
+        <div className="column upcoming is-hidden-tablet">
+          <PageVisibility onChange={handleVisibilityChange}>
+            {pageIsVisible &&
+              nextShowTicker("MON 4.21", "An HMBK Moment In Time")}
+          </PageVisibility>
+        </div>
+        <div className="column is-narrow" id="open-schedule">
+          <button className="button" onClick={() => setOpen(!open)}>
+            <p className="title is-size-7-touch is-size-6-desktop">Close ▲</p>
+          </button>
+        </div>
+      </div>
+      <span className="is-hidden-mobile">
+        <ScheduleDropdown open={open} setOpen={setOpen} />
+      </span>
+      {/*
       FOR TOUCH
       SCHEDULE MODAL
     */}
       <ScheduleModal open={open} setOpen={setOpen} />
-      {/*
-      FOR DESKTOP
-      BUILT INTO THE BAR
-    */}
-      <ScheduleDropdown open={open} setOpen={setOpen} />
     </div>
   );
 }

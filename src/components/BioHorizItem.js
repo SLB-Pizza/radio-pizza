@@ -25,8 +25,8 @@ function BioHorizItem(props) {
               type: "CHANGE_URL",
               payload: {
                 url: url,
-                title: title,
-              },
+                title: title
+              }
             })
           }
         />
@@ -39,8 +39,8 @@ function BioHorizItem(props) {
               type: "CHANGE_URL",
               payload: {
                 url: url,
-                title: title,
-              },
+                title: title
+              }
             })
           }
         />
@@ -68,11 +68,11 @@ function BioHorizItem(props) {
           <p className="subtitle is-size-7-touch is-size-6-desktop">
             {props.date} | {props.artist}
           </p>
-          <p className="title is-size-5-touch is-size-4-desktop">
+          <p className="title is-size-6-touch is-size-5-desktop">
             {props.name}
           </p>
           <div className="tags is-hidden-touch">
-            {props.tags.map((tag) => (
+            {props.tags.map(tag => (
               <span key={tag} className="tag is-black">
                 {tag}
               </span>
@@ -80,7 +80,7 @@ function BioHorizItem(props) {
           </div>
         </div>
         <div className="column is-12 is-hidden-desktop tags">
-          {props.tags.map((tag) => (
+          {props.tags.map(tag => (
             <span key={tag} className="tag is-black">
               {tag}
             </span>

@@ -161,16 +161,11 @@ We'd love to hear your feedback!
     - Button only to show the status and will not be part of the final design - start time for the next show will be here
     - Click "not live" to toggle the way the Radio Bar will show there's a live broadcast - click again toggle it
 
-
-
-
-
-
 **BORDER THICKNESS CONSISTENCY**
 
 Yep that's a work-in-progress. I'll try switching everything over to HMBK pink for the next deploy to get a better idea which of all pink/all white/mixed should be the way we go,
 
->  think the main thing that's tripping me up is all of the different border types (dotted vs. solid / 4px vs 2px / pink vs white)
+> think the main thing that's tripping me up is all of the different border types (dotted vs. solid / 4px vs 2px / pink vs white)
 
 I'm thinking that solid colors and solid borders will likely be the best way forward here -- we'll see.
 
@@ -190,7 +185,7 @@ On the live bio page, the mix hover color should be a purplish-color that's a sh
 
 **HOVERING MECHANICS**
 
->  Is there a simpler way to incorporate a hover highlight mechanic (e.g. simply adding a glow to the border or border changing to pink vs. having it expand in space, etc.)
+> Is there a simpler way to incorporate a hover highlight mechanic (e.g. simply adding a glow to the border or border changing to pink vs. having it expand in space, etc.)
 
 Yep, we agree here too -- a version of this was implemented in this deploy, on the bio page mixes.
 
@@ -215,3 +210,41 @@ I did! They're awesome and I'd love to get more to start using as page/section b
 ---
 
 @edrickchu2 @surfallah @richarddominguez10
+
+# Fri Apr 10 Changelog
+
+## Major Changes
+
+### Changing
+
+### Addressing the Switch from Mix to Live Broadcast
+
+- I've programmed in a button for testing purposes only to show "live" layout vs "not live" layout
+
+#### Where is the button?
+
+- "Next Show" in the Schedule Bar, if you click that, it'll toggle the TopNav layout to show what it'll look live when HMBK is live/broadcasting
+- "Next Show" will change into "Listen Live"
+
+#### Ok, so that's the live layout, how do you listen to the live stuff?
+
+- When the site is launched, a user will be able to click/touch "Listen Live" to listen to the radio.co livestream.
+- Clicking/touching "Listen Live" right now will toggle the TopNav layout back to "Not Live" layout.
+
+#### Things to note
+
+- This toggle is test-deploy only to show the difference between "live" layout and "not live"
+
+### Fonts Added to the Site
+
+**NB: The current deploy does not have all the font sized correctly creating layout issues.**
+
+- Two fonts have been added to the site:
+  - Titling/Headline Font: Eurostile Bold Extended No.2
+  - Body Font: IBM Plex Sans >> [LINK TO FONT AND INFO](https://fonts.google.com/specimen/IBM+Plex+Sans)
+- Eurostile -- the font you guys have been using on your market
+- IBM Plex Sans -- FREE sans-serif font available served by Google Fonts that's weighty enough to stand enough against the width of Eurostile; tech looking retro sans-serif
+
+Neither of these have been confirmed as final for the site, just current options.
+
+With the knowledge of today's meeting in mind, I'll continue exploring font options to

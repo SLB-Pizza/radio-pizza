@@ -74,7 +74,7 @@ function ScheduleShowEntry(props) {
           <div className="column is-narrow today-date">
             <Link to="/schedule">
               <p className="is-size-4-desktop is-size-6-tablet">
-                Full Schedule
+                View Schedule
               </p>
             </Link>
           </div>

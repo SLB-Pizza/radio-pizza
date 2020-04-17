@@ -58,7 +58,7 @@ function ScheduleShowEntry(props) {
   });
 
   return (
-    <div className="columns is-multiline is-mobile show-entries">
+    <div className="columns is-multiline is-vcentered is-mobile show-entries">
       {/*
       ScheduleDropdown sets and passes this as a prop down
       - Since this is reused on the site, toggle placement of link
@@ -66,15 +66,19 @@ function ScheduleShowEntry(props) {
       */}
       {props.fromDropdown && (
         <>
-          <div className="column today-date">
-            <p className="title is-size-3-desktop is-size-5-touch ">
-              Schedule | {todayDate.format("ddd MMM D")}
+          <div className="column is-4 today-date">
+            <p className="title is-size-3-widescreen is-size-4-desktop is-size-5-touch has-text-centered">
+              {/* {todayDate.format("dddd, MMMM D")} */}
+              Saturday, December 28
             </p>
           </div>
-          <div className="column is-narrow today-date">
+          <div className="column is-8 today-date">
             <Link to="/schedule">
-              <p className="is-size-4-desktop is-size-6-tablet">
-                View Schedule
+              <p
+                className="is-size-4-widescreen is-size-5-desktop is-size-6-tablet has-text-right"
+                id="view-full-schedule"
+              >
+                View Full Schedule
               </p>
             </Link>
           </div>
@@ -83,16 +87,16 @@ function ScheduleShowEntry(props) {
       {fakeShowEntryData.map(show => (
         <div key={show.showName} className="column is-12 single-show-entry">
           <div className="columns is-mobile is-vcentered">
-            <div className="column is-3">
-              <p className="title is-size-5-desktop is-size-6-touch has-text-centered">
+            <div className="column is-4">
+              <p className="title is-size-3-widescreen is-size-4-desktop is-size-5-touch has-text-centered">
                 {show.startTime} – {show.endTime}
               </p>
             </div>
-            <div className="column is-9">
-              <p className="is-size-4-desktop is-size-6-touch">
+            <div className="column is-8">
+              <p className="is-size-4-widescreen is-size-5-desktop is-size-6-touch">
                 {show.showName}
               </p>
-              <p className="is-size-6-desktop is-size-7-touch">
+              <p className="is-size-5-widescreen is-size-6-desktop is-size-7-touch">
                 {show.hostInfo.join(", ")}
               </p>
             </div>

@@ -1,15 +1,15 @@
-import React, { useContext, useRef, useState } from "react";
-import ReactPlayer from "react-player";
-import Ticker from "react-ticker";
-import PageVisibility from "react-page-visibility";
-import { hot } from "react-hot-loader";
+import React, { useContext, useRef, useState } from 'react';
+import ReactPlayer from 'react-player';
+import Ticker from 'react-ticker';
+import PageVisibility from 'react-page-visibility';
+import { hot } from 'react-hot-loader';
 
 import {
   GlobalDispatchContext,
   GlobalStateContext,
-} from "../context/GlobalContextProvider";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
+} from '../context/GlobalContextProvider';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
 
 function RadioPlayer(props) {
   const dispatch = useContext(GlobalDispatchContext);
@@ -35,22 +35,22 @@ function RadioPlayer(props) {
    * out of normal document flow and throwing it above the top of the page
    */
   const playerStyle = {
-    position: "absolute",
-    top: "-175px",
-    width: "1px",
-    height: "1px",
-    margin: "-1px",
+    position: 'absolute',
+    top: '-175px',
+    width: '1px',
+    height: '1px',
+    margin: '-1px',
   };
 
   const [pageIsVisible, setPageIsVisible] = useState(true);
 
-  const handleVisibilityChange = (isVisible) => {
+  const handleVisibilityChange = isVisible => {
     setPageIsVisible(isVisible);
   };
 
   const handlePlayPause = async () => {
     await setLocalState({ ...localState, playing: !localState.playing });
-    await dispatch({ type: "TOGGLE_PLAYING" });
+    await dispatch({ type: 'TOGGLE_PLAYING' });
   };
   const handlePlay = async () => {
     await setLocalState({ ...localState, playing: true });
@@ -60,7 +60,7 @@ function RadioPlayer(props) {
     await setLocalState({ ...localState, playing: false });
   };
 
-  const load = async (url) => {
+  const load = async url => {
     await setLocalState({
       ...localState,
       url: url,
@@ -71,18 +71,18 @@ function RadioPlayer(props) {
   };
 
   const handleToggleMuted = async () => {
-    await dispatch({ type: "TOGGLE_MUTE" });
+    await dispatch({ type: 'TOGGLE_MUTE' });
   };
 
   const renderLoadButton = (url, label) => {
     return <button onClick={() => this.load(url)}>{label}</button>;
   };
 
-  const handleDuration = (duration) => {
+  const handleDuration = duration => {
     setLocalState({ duration: duration });
   };
 
-  const renderCurrentResident = (resident) => {
+  const renderCurrentResident = resident => {
     return (
       <Ticker mode="await" offset="run-in" speed={3}>
         {() => (
@@ -95,7 +95,7 @@ function RadioPlayer(props) {
     );
   };
 
-  const renderNowPlaying = (title) => {
+  const renderNowPlaying = title => {
     return (
       <Ticker mode="await" offset="run-in" speed={3}>
         {() => (
@@ -131,7 +131,7 @@ function RadioPlayer(props) {
             {/* Dynamic Mobile Ticker LIVE artist*/}
             <div className="is-hidden-tablet" id="radioShowTime">
               <PageVisibility onChange={handleVisibilityChange}>
-                {pageIsVisible && renderCurrentResident("Live - Pendulum")}
+                {pageIsVisible && renderCurrentResident('Live - Pendulum')}
               </PageVisibility>
             </div>
           </>
@@ -140,12 +140,12 @@ function RadioPlayer(props) {
             {/* NOT LIVE Layout */}
             {/* Static Tablet & up artist */}
             <div className="is-hidden-mobile" id="radioShowTime">
-              <p className="subtitle is-size-7">Some Artist</p>
+              <p className="subtitle is-size-7">{globalState.artist}</p>
             </div>
             {/* Dynamic Mobile Ticker artist*/}
             <div className="is-hidden-tablet" id="radioShowTime">
               <PageVisibility onChange={handleVisibilityChange}>
-                {pageIsVisible && renderCurrentResident("Some Artist")}
+                {pageIsVisible && renderCurrentResident(globalState.artist)}
               </PageVisibility>
             </div>
           </>
@@ -177,7 +177,7 @@ function RadioPlayer(props) {
         onDuration={handleDuration}
         onPlay={handlePlay}
         onPause={handlePause}
-        onError={(e) => console.log("ReactPlayer has an issue ↴\n", e)}
+        onError={e => console.log('ReactPlayer has an issue ↴\n', e)}
         // onReady={() => console.log("onReady")}
         // onStart={() => console.log("onStart")}
         // onEnablePIP={this.handleEnablePIP}

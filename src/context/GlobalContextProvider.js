@@ -1,12 +1,13 @@
-import React from "react";
+import React from 'react';
 
 export const GlobalStateContext = React.createContext();
 export const GlobalDispatchContext = React.createContext();
 
 const initialState = {
   url:
-    "https://soundcloud.com/soundcloud-scenes/sets/currents-next-gen-chillwave",
-  title: "Next Gen ChillWave",
+    'https://soundcloud.com/soundcloud-scenes/sets/currents-next-gen-chillwave',
+  title: 'Next Gen ChillWave',
+  artist: 'Half Moon BK',
   playing: false,
   controls: false,
   light: false,
@@ -22,35 +23,36 @@ const initialState = {
 
 function reducer(state, action) {
   switch (action.type) {
-    case "TOGGLE_PLAYING": {
+    case 'TOGGLE_PLAYING': {
       return {
         ...state,
         playing: !state.playing,
       };
     }
-    case "CHANGE_URL": {
+    case 'CHANGE_URL': {
       // If a new audio source is selected while playing is NOT playing, set to play
       return {
         ...state,
         url: action.payload.url,
         title: action.payload.title,
         playing: true,
+        artist: action.payload.artist,
       };
     }
-    case "TOGGLE_MUTE": {
+    case 'TOGGLE_MUTE': {
       return {
         ...state,
         muted: !state.muted,
       };
     }
-    case "TOGGLE_LIVE_TEST": {
+    case 'TOGGLE_LIVE_TEST': {
       return {
         ...state,
         live: !state.live,
       };
     }
     default:
-      throw new Error("Bad Action Type");
+      throw new Error('Bad Action Type');
   }
 }
 

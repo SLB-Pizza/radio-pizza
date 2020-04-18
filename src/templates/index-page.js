@@ -1,13 +1,13 @@
-import React, { useContext } from "react";
-import { Link, graphql } from "gatsby";
+import React, { useContext } from 'react';
+import { Link, graphql } from 'gatsby';
 import {
-  GlobalDispatchContext
+  GlobalDispatchContext,
   // GlobalStateContext
-} from "../context/GlobalContextProvider";
-import PropTypes from "prop-types";
+} from '../context/GlobalContextProvider';
+import PropTypes from 'prop-types';
 
-import "../styles/index.scss";
-import { Hero, HomeContent } from "../components";
+import '../styles/index.scss';
+import { Hero, HomeContent } from '../components';
 
 // import Layout from "../components/Layout";
 // import Features from "../components/Features";
@@ -20,54 +20,59 @@ export const IndexPageTemplate = ({
   subheading,
   mainpitch,
   description,
-  intro
+  intro,
 }) => {
   const dispatch = useContext(GlobalDispatchContext);
   // const state = useContext(GlobalStateContext);
 
-  const renderLoadButton = (url, title, label) => {
+  const renderLoadButton = (url, title, artist = 'HalfMoon NYC', label) => {
     return (
       <button
         className="button is-fullwidth"
         onClick={() =>
           dispatch({
-            type: "CHANGE_URL",
+            type: 'CHANGE_URL',
             payload: {
               url: url,
-              title: title
-            }
+              title: title,
+              artist: artist,
+            },
           })
-        }
-      >
+        }>
         {label}
       </button>
     );
   };
 
   const soundcloudBtn = renderLoadButton(
-    "https://soundcloud.com/soundcloud-scenes/sets/doom-folk-and-indie",
-    "Doom Folk and indie",
-    "SoundCloud"
+    'https://soundcloud.com/soundcloud-scenes/sets/doom-folk-and-indie',
+    'Doom Folk and indie',
+    'Some Artists Names',
+    'SoundCloud'
   );
   const mixcloudBtn = renderLoadButton(
-    "https://www.mixcloud.com/HalfMoonbk/guerrer-3122020/",
-    "Guerrer 03/12/2020",
-    "MixCloud"
+    'https://www.mixcloud.com/HalfMoonbk/guerrer-3122020/',
+    'Guerrer 03/12/2020',
+    'Guerrer',
+    'MixCloud'
   );
   const radioCoBtn = renderLoadButton(
-    "https://streamer.radio.co/sa3c47c55b/listen",
-    "Half Moon Radio",
-    "Radio.co - Halfmoon"
+    'https://streamer.radio.co/sa3c47c55b/listen',
+    'Half Moon Radio',
+    '[will be connected to clanerdar/radio.co in the future]',
+    'Radio.co - Halfmoon'
   );
   const youtubeBtn = renderLoadButton(
-    "https://youtu.be/yhCuCqJbOVE?t=1887",
-    "CYBER DREAM SYNTHWAVE MIX",
-    "Youtube"
+    'https://youtu.be/yhCuCqJbOVE?t=1887',
+    'CYBER DREAM SYNTHWAVE MIX',
+    'Varierty of Artists',
+    'Youtube'
   );
   const vimeoBtn = renderLoadButton(
-    "https://vimeo.com/350662849",
-    "Future to the Back Mix, Best of",
-    "Vimeo"
+    'https://vimeo.com/350662849',
+    'Future to the Back Mix, Best of',
+    'TEST NAME',
+    'Vimeo'
   );
 
   return (
@@ -92,8 +97,8 @@ IndexPageTemplate.propTypes = {
   mainpitch: PropTypes.object,
   description: PropTypes.string,
   intro: PropTypes.shape({
-    blurbs: PropTypes.array
-  })
+    blurbs: PropTypes.array,
+  }),
 };
 
 const IndexPage = ({ data }) => {
@@ -117,9 +122,9 @@ const IndexPage = ({ data }) => {
 IndexPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object
-    })
-  })
+      frontmatter: PropTypes.object,
+    }),
+  }),
 };
 
 export default IndexPage;

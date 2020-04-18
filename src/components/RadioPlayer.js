@@ -88,7 +88,7 @@ function RadioPlayer(props) {
         {() => (
           <>
             <div id="live-light" />
-            <p className="is-size-7 has-text-light">{resident}</p>
+            <p className="is-size-7">{resident}</p>
           </>
         )}
       </Ticker>
@@ -100,7 +100,7 @@ function RadioPlayer(props) {
       <Ticker mode="await" offset="run-in" speed={3}>
         {() => (
           <div className="is-hidden-tablet" id="radioShowName">
-            <p className="title is-size-6 has-text-light">{title}</p>
+            <p className="title is-size-5-desktop is-size-6-touch">{title}</p>
           </div>
         )}
       </Ticker>
@@ -126,9 +126,7 @@ function RadioPlayer(props) {
             {/* Static Tablet & up LIVE artist */}
             <div className="is-hidden-mobile" id="radioShowTime">
               <div id="live-light" />
-              <p className="subtitle is-size-7 has-text-light">
-                LIVE - Pendulum
-              </p>
+              <p className="subtitle is-size-7">LIVE - Pendulum</p>
             </div>
             {/* Dynamic Mobile Ticker LIVE artist*/}
             <div className="is-hidden-tablet" id="radioShowTime">
@@ -142,7 +140,7 @@ function RadioPlayer(props) {
             {/* NOT LIVE Layout */}
             {/* Static Tablet & up artist */}
             <div className="is-hidden-mobile" id="radioShowTime">
-              <p className="subtitle is-size-7 has-text-light ">Some Artist</p>
+              <p className="subtitle is-size-7">Some Artist</p>
             </div>
             {/* Dynamic Mobile Ticker artist*/}
             <div className="is-hidden-tablet" id="radioShowTime">
@@ -155,7 +153,7 @@ function RadioPlayer(props) {
 
         {/* Static tablet and up currentTrackTitle */}
         <div className="is-hidden-mobile" id="radioShowName">
-          <p className="title is-size-6 has-text-light">{globalState.title}</p>
+          <p className="title is-size-6">{globalState.title}</p>
         </div>
 
         {/* Dynamic mobile currentTrackTitle */}

@@ -3,7 +3,7 @@ import Ticker from "react-ticker";
 import PageVisibility from "react-page-visibility";
 import {
   GlobalDispatchContext,
-  GlobalStateContext
+  GlobalStateContext,
 } from "../context/GlobalContextProvider";
 import { ScheduleModal, ScheduleDropdown } from "./index";
 
@@ -11,7 +11,7 @@ function ScheduleBar() {
   const [open, setOpen] = useState(false);
   const [pageIsVisible, setPageIsVisible] = useState(true);
 
-  const handleVisibilityChange = isVisible => {
+  const handleVisibilityChange = (isVisible) => {
     setPageIsVisible(isVisible);
   };
 
@@ -27,8 +27,9 @@ function ScheduleBar() {
     return (
       <Ticker mode="await" offset="run-in" speed={3}>
         {() => (
-          <p className="is-size-6 has-text-light">
-            {date} – {showName}
+          <p className="is-size-6">
+            {/* {date} – {showName} */}
+            TEST - Next Show Title
           </p>
         )}
       </Ticker>
@@ -48,14 +49,12 @@ function ScheduleBar() {
             handleLiveTest();
           }}
         >
-          <p className="title is-size-7-touch is-size-6-desktop has-text-light">
+          <p className="title is-size-6">
             {globalState.live ? "Listen Live" : "Next Show"}
           </p>
         </div>
         <div className="column upcoming is-hidden-mobile">
-          <p className="is-size-6 has-text-light">
-            MON 4/21 - An HMBK Moment In Time
-          </p>
+          <p className="is-size-6">TEST - Next Show Title</p>
         </div>
         <div className="column upcoming is-hidden-tablet">
           <PageVisibility onChange={handleVisibilityChange}>
@@ -65,9 +64,7 @@ function ScheduleBar() {
         </div>
         <div className="column is-narrow" id="open-schedule">
           <button className="button" onClick={() => setOpen(!open)}>
-            <p className="title is-size-7-touch is-size-6-desktop">
-              Schedule ▼
-            </p>
+            <p className="title is-size-6">Schedule ▼</p>
           </button>
         </div>
       </div>
@@ -85,7 +82,7 @@ function ScheduleBar() {
             handleLiveTest();
           }}
         >
-          <p className="title is-size-7-touch is-size-6-desktop has-text-light">
+          <p className="title is-size-6">
             {globalState.live ? "Listen Live" : "Next Show"}
           </p>
         </div>
@@ -102,7 +99,7 @@ function ScheduleBar() {
         </div>
         <div className="column is-narrow" id="open-schedule">
           <button className="button" onClick={() => setOpen(!open)}>
-            <p className="title is-size-7-touch is-size-6-desktop">Close ▲</p>
+            <p className="title is-size-6">Close ▲</p>
           </button>
         </div>
       </div>

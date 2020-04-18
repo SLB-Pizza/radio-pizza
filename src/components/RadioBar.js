@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import {
   GlobalDispatchContext,
-  GlobalStateContext
+  GlobalStateContext,
 } from "../context/GlobalContextProvider";
 import axios from "axios";
 import dayjs from "dayjs";
@@ -45,7 +45,7 @@ function RadioBar() {
     };
   });
 
-  const handleVisibilityChange = isVisible => {
+  const handleVisibilityChange = (isVisible) => {
     setPageIsVisible(isVisible);
   };
 
@@ -54,22 +54,21 @@ function RadioBar() {
       type: "CHANGE_URL",
       payload: {
         url: "https://streamer.radio.co/sa3c47c55b/listen",
-        title: "Halfmoon Radio"
-      }
+        title: "Halfmoon Radio",
+      },
     });
   };
 
   const liveText = "Pendulum: Hold Your Colour 15th Anniversary Live Set";
-  const renderLiveTicker = text => {
+  const renderLiveTicker = (text) => {
     return (
-      <div className="columns is-vcentered live-bar">
-        <div className="column">
+      <div className="columns is-mobile is-vcentered live-bar">
+        <div className="column is-narrow live-invert">
+          <p className="title is-size-5 has-text-centered">ON AIR</p>
+        </div>
+        <div className="column live-ticker">
           <Ticker mode="await" offset="run-in" speed={3}>
-            {() => (
-              <p className="title is-size-6" id="test-ticker">
-                LIVE – {text}!
-              </p>
-            )}
+            {() => <p className="title is-size-5">{text}!</p>}
           </Ticker>
         </div>
       </div>
@@ -111,24 +110,9 @@ function RadioBar() {
             // currentTrack={radioData.current_track.title}
           />
         </div>
-        <div className="column is-narrow">
-          <a
-            className="chat-btn"
-            href="http://halfmoonradiochat.chatango.com/"
-            target="_blank"
-            rel="noopener"
-          >
-            <FontAwesomeIcon icon={faComments} size="2x" />
-          </a>
-        </div>
-        <div className="column is-narrow is-hidden-touch">
-          <p className="has-text-light">
-            {localTime.format("hh:mm:ss a")} Local
-          </p>
-          <p className="has-text-light">{nycTime.format("hh:mm:ss a")} NYC</p>
-          <p className="has-text-light">
-            {laTime.format("ddd HH:mm:ss a")} L.A.
-          </p>
+        <div className="column is-narrow is-hidden-mobile">
+          <p className="is-size-6">{laTime.format("HH:mm:ss")} LA</p>
+          <p className="is-size-6">{nycTime.format("HH:mm:ss")} NYC</p>
         </div>
       </div>
     </div>

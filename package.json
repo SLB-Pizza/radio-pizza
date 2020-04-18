@@ -19,7 +19,6 @@
     "@fortawesome/react-fontawesome": "^0.1.8",
     "axios": "^0.19.2",
     "bulma": "^0.8.0",
-    "date-fns": "^2.11.1",
     "dayjs": "^1.8.24",
     "eslint-config-fullstack": "^6.0.0",
     "eslint-plugin-react": "^7.17.0",

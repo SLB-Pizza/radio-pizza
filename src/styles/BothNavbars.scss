@@ -26,37 +26,55 @@
       padding-right: 12px;
     }
 
-    .header-bar {
-      min-height: 5rem;
-      margin-left: -24px;
-      margin-right: -12px;
-    }
-
     &.is-live {
       display: flex;
       flex-direction: column;
-      padding: 0;
+      padding: 0 12px;
+
       .live-bar {
         flex: 1;
         margin-top: 0;
-        height: 1.25rem;
+        padding: 0.25rem auto;
+        min-height: 1.75rem;
+        max-height: 1.75rem;
         background-color: $primary;
-        @include mobile {
-          .column {
-            padding: 0.25rem;
+
+        .live-invert {
+          background-color: black;
+          padding-left: 2rem;
+          padding-right: 2rem;
+          @include mobile {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+          }
+
+          p {
+            font-family: "Eurostile", sans-serif;
+            color: $primary;
+            white-space: nowrap;
+          }
+        }
+        .live-ticker {
+          padding: auto 0;
+          p {
+            color: black;
+            white-space: nowrap;
           }
         }
       }
+
       .header-bar {
         flex: 3;
+        margin-left: 0px;
+        margin-right: 12px;
         min-height: 3.75rem;
-        margin-left: 12px;
-        margin-right: 24px;
-        @include touch {
-          margin-left: -12px;
-          margin-right: 6px;
-        }
       }
+    }
+
+    .header-bar {
+      min-height: 5rem;
+      margin-left: -12px;
+      margin-right: 0px;
     }
 
     #radioShowDetails {
@@ -74,13 +92,6 @@
         flex: 1;
         white-space: nowrap;
       }
-    }
-
-    #test-ticker {
-      // font-family: "Stencilie", sans-serif;
-      font-family: "Eurostile", sans-serif;
-      color: black;
-      white-space: nowrap;
     }
   }
 

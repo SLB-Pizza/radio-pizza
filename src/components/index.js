@@ -81,3 +81,4 @@ export { default as BioHorizItem } from "./BioHorizItem";
  * Test stuff
  */
 export { default as InProgress } from "./InProgress";
+export { default as SingleMixCard } from "./SingleMixCard";

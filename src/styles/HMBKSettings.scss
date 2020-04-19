@@ -101,6 +101,10 @@ p.subtitle {
   margin: 0 0.125rem;
   transition: 0.25s ease;
 
+  .content-date {
+    margin-bottom: 0.5rem;
+  }
+
   .card-content {
     background-color: black;
     padding: 0.75rem;
@@ -110,8 +114,16 @@ p.subtitle {
     }
   }
 
-  .content-date {
-    margin-bottom: 0.5rem;
+  .play-btn-diffuser {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: ease-in-out 0.25s;
+
+    span {
+      color: transparent;
+      transition: ease-in-out 0.25s;
+    }
   }
 
   &:hover {
@@ -120,6 +132,34 @@ p.subtitle {
 
     .card-content {
       background-color: darken($color: $primary, $amount: 35);
+    }
+
+    .play-btn-diffuser {
+      display: flex;
+      justify-content: center;
+      background-color: rgba($color: black, $alpha: 0.75);
+
+      span {
+        color: white;
+        &:hover {
+          color: darken($color: $primary, $amount: 10);
+        }
+        &:active {
+          color: $primary;
+        }
+      }
+    }
+  }
+
+  .play-btn-diffuser {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: ease-in-out 0.25s;
+
+    span {
+      color: transparent;
+      transition: ease-in-out 0.25s;
     }
   }
 }

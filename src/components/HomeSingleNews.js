@@ -14,7 +14,7 @@ function HomeSingleNews() {
         </div>
         <div className="card-content">
           <p className="content-date subtitle is-size-7-touch is-size-6-desktop">
-            Category | 03.30.20
+            04.21.20 | Category
           </p>
           <p className="title is-size-6-mobile is-size-5-tablet is-size-4-fullhd">
             Lorem Ipsum Dolor

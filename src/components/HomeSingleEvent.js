@@ -14,13 +14,13 @@ function HomeSingleEvent() {
         </div>
         <div className="card-content">
           <p className="content-date subtitle is-size-7-touch is-size-6-desktop">
-            Location | 03.30.20
+            04.21.20 | Location
           </p>
           <p className="title is-size-6-mobile is-size-5-tablet is-size-4-fullhd">
             Lorem Ipsum Dolor
           </p>
           <p className="subtitle is-size-7-mobile is-size-6-tablet is-size-5-fullhd">
-            One line talking about this awesome event
+            One line talking about this awesome event.
           </p>
         </div>
       </div>

@@ -13,6 +13,7 @@ function BioHorizItem(props) {
    * @param {string} url - the audio url
    * @param {string} title - title of the audio
    */
+
   const playAudioSource = (url, title) => {
     return (
       <>
@@ -25,8 +26,8 @@ function BioHorizItem(props) {
               type: "CHANGE_URL",
               payload: {
                 url: url,
-                title: title
-              }
+                title: title,
+              },
             })
           }
         />
@@ -39,8 +40,8 @@ function BioHorizItem(props) {
               type: "CHANGE_URL",
               payload: {
                 url: url,
-                title: title
-              }
+                title: title,
+              },
             })
           }
         />
@@ -72,7 +73,7 @@ function BioHorizItem(props) {
             {props.name}
           </p>
           <div className="tags is-hidden-touch">
-            {props.tags.map(tag => (
+            {props.tags.map((tag) => (
               <span key={tag} className="tag is-black">
                 {tag}
               </span>
@@ -80,7 +81,7 @@ function BioHorizItem(props) {
           </div>
         </div>
         <div className="column is-12 is-hidden-desktop tags">
-          {props.tags.map(tag => (
+          {props.tags.map((tag) => (
             <span key={tag} className="tag is-black">
               {tag}
             </span>

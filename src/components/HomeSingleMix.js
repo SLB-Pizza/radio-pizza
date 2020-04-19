@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlayCircle } from "@fortawesome/free-solid-svg-icons";
 
 function HomeSingleMix() {
   return (
@@ -10,11 +12,14 @@ function HomeSingleMix() {
               src="https://source.unsplash.com/1080x1080/daily?concert"
               alt="mix-img"
             />
+            <div className="play-btn-diffuser is-overlay">
+              {/* <span>{playAudioSource(props.url, props.name)}</span> */}
+            </div>
           </figure>
         </div>
         <div className="card-content">
           <p className="content-date subtitle is-size-7-touch is-size-6-desktop">
-            Some Artist | 03.30.20
+            04.21.20 | Some Resident
           </p>
           <p className="title is-size-6-mobile is-size-5-tablet is-size-4-fullhd">
             Lorem Ipsum Dolor

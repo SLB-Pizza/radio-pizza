@@ -45,6 +45,11 @@ function SingleMixCard(props) {
     );
   };
 
+  /**
+   * imageAltText for accessibility purposes
+   */
+  const imageAltText = `image - ${props.name} by ${props.artist}`;
+
   return (
     <div className={props.columnLayout}>
       <div className="card">
@@ -52,7 +57,7 @@ function SingleMixCard(props) {
           <figure className="image is-1by1">
             <img
               src="https://source.unsplash.com/1080x1080/daily?concert"
-              alt="mix-img"
+              alt={imageAltText}
             />
             <div className="play-btn-diffuser is-overlay">
               <span>
@@ -64,20 +69,13 @@ function SingleMixCard(props) {
         </div>
         <div className="card-content">
           <p className="content-date subtitle is-size-7-touch is-size-6-desktop">
-            {/* 04.21.20 | Some Resident */}
             {props.date} | {props.artist}
           </p>
           <p className="title is-size-6-mobile is-size-5-tablet is-size-4-fullhd">
-            {/* Lorem Ipsum Dolor */}
             {props.name}
           </p>
 
           <div className="tags are-small">
-            {/* <span className="tag is-black">Genre</span>
-            <span className="tag is-black">Genrerock</span>
-            <span className="tag is-black">Alt-Genre</span>
-            <span className="tag is-black">Genrecore</span>
-            <span className="tag is-black">Post-Genre</span> */}
             {props.tags.map((tag) => (
               <span key={tag} className="tag is-black">
                 {tag}

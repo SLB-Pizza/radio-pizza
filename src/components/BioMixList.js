@@ -7,6 +7,16 @@ import { BioHorizItem, SingleMixCard } from "./index";
 
 const sampleMixes = [
   {
+    date: "03.02.20",
+    url:
+      "https://soundcloud.com/soundcloud-circuits/sets/equalizers-female-electronic-producers",
+    testSrc: "Soundcloud",
+    name: "Female Electronic Producers",
+    artist: "Circuits",
+    img: "../img/blastoyz.png",
+    tags: ["deep bass", "future bass", "dark", "beats", "international"],
+  },
+  {
     date: "10.21.19",
     url: "https://soundcloud.com/transmissionfestival/tmprg19-blastoyz",
     testSrc: "Soundcloud",
@@ -90,6 +100,26 @@ const sampleMixes = [
     artist: "UKF",
     img: "../img/lo-fi.jpg",
     tags: ["live set", "ukf", "drum & bass"],
+  },
+  {
+    date: "04.30.15",
+    url: "https://www.youtube.com/watch?v=cRmwFBK0cyk",
+    testSrc: "Youtube",
+    name: "Inferno (Cinder's Theme) - Killer Instinct Season 2 Soundtrack",
+    artist: "Mick Gordon",
+    img: "../img/lo-fi.jpg",
+    tags: ["metal", "electronic", "soundtrack"],
+  },
+
+  {
+    date: "04.21.16",
+    url:
+      "https://soundcloud.com/user18081971/avril-14th-reversed-music-not-audio",
+    testSrc: "Soundcloud",
+    name: "avril 14th, notes played backwards, not the audio",
+    artist: "Aphex Twin (user18081971)",
+    img: "../img/lo-fi.jpg",
+    tags: ["piano", "ambient", "atmospheric", "light"],
   },
 ];
 

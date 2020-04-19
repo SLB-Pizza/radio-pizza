@@ -18,6 +18,9 @@ function BottomNav() {
       id="navigation"
     >
       <div className="navbar-brand">
+        <div className="navbar-item ">
+          <p className="title is-size-6">Ears to the concrete.</p>
+        </div>
         <span
           className={menuOpen ? "navbar-burger is-active" : "navbar-burger"}
           role="button"
@@ -96,11 +99,6 @@ function BottomNav() {
           </div>
         </div>
         <div className="navbar-end is-hidden-touch">
-          <div className="navbar-item">
-            <p className="title is-size-6-desktop is-size-7-touch">
-              Ears to the concrete.
-            </p>
-          </div>
           <a
             href="https://www.mixcloud.com/HalfMoonbk/"
             className="navbar-item"

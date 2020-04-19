@@ -94,6 +94,9 @@ const sampleMixes = [
 ];
 
 function HomeMixes() {
+  // See SingleMixCard - playAudioButton() for details about playBtnInfo usage
+  const playBtnInfo = [{ btnSize: "7x" }];
+
   return (
     <div id="home-mixes">
       <div className="container is-fluid image-diffuser">
@@ -106,7 +109,7 @@ function HomeMixes() {
               <p className="title is-size-3">Daily Mixes</p>
               <p className="subtitle is-size-5">
                 These dummy mixes are the same as the ones on the sample bio
-                page. You can hover/touch and play them the same way. Try it!.
+                page. You can hover/touch and play them the same way. Try it!
               </p>
               <button className="sticky-link button">More ></button>
             </div>
@@ -123,6 +126,7 @@ function HomeMixes() {
                   artist={mix.artist}
                   img={mix.img}
                   tags={mix.tags}
+                  playBtnInfo={playBtnInfo}
                 />
               ))}
             </div>
@@ -155,6 +159,7 @@ function HomeMixes() {
               artist={mix.artist}
               img={mix.img}
               tags={mix.tags}
+              playBtnInfo={playBtnInfo}
             />
           ))}
         </div>

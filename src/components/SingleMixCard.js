@@ -8,43 +8,39 @@ function SingleMixCard(props) {
   const dispatch = useContext(GlobalDispatchContext);
 
   /**
-   * @function playAudioSource - function that takes in props from BioMixList and creates active YT audio sources
+   * @function playAudioButton - function that takes in props from BioMixList and creates active YT audio sources
    * @returns {jsx} A play icon that onClick dispatches the CHANGE_URL action, playing the audio source through RadioPlayer.js
-   * @param {string} url - the audio url
-   * @param {string} title - title of the audio
+   * @param {Object[]} buttons - the array of button object details to create functional mix play buttons
+   * @param {string} buttons.size - the size of the play button represented from 1x - 10x
+   * @param {string} buttons.url - the audio url
+   * @param {string} buttons.title - title of the audio
+   * @param {string} [buttons.viewportClass] - className to attach to the play button
    */
 
-  const playAudioSource = (url, title) => {
+  const playAudioButton = (url, title, playBtnInfo) => {
     return (
       <>
-        <FontAwesomeIcon
-          icon={faPlayCircle}
-          size="7x"
-          className="is-hidden-touch"
-          onClick={() =>
-            dispatch({
-              type: "CHANGE_URL",
-              payload: {
-                url: url,
-                title: title,
-              },
-            })
-          }
-        />
-        <FontAwesomeIcon
-          icon={faPlayCircle}
-          size="3x"
-          className="is-hidden-desktop"
-          onClick={() =>
-            dispatch({
-              type: "CHANGE_URL",
-              payload: {
-                url: url,
-                title: title,
-              },
-            })
-          }
-        />
+        {playBtnInfo.map((singleBtn) => (
+          <FontAwesomeIcon
+            key={singleBtn.btnSize}
+            icon={faPlayCircle}
+            size={singleBtn.btnSize}
+            className={
+              singleBtn.hasOwnProperty("viewportClass")
+                ? singleBtn.viewportClass
+                : ""
+            }
+            onClick={() =>
+              dispatch({
+                type: "CHANGE_URL",
+                payload: {
+                  url: url,
+                  title: title,
+                },
+              })
+            }
+          />
+        ))}
       </>
     );
   };
@@ -59,7 +55,10 @@ function SingleMixCard(props) {
               alt="mix-img"
             />
             <div className="play-btn-diffuser is-overlay">
-              <span>{playAudioSource(props.url, props.name)}</span>
+              <span>
+                {props.playBtnInfo &&
+                  playAudioButton(props.url, props.name, props.playBtnInfo)}
+              </span>
             </div>
           </figure>
         </div>
@@ -92,3 +91,32 @@ function SingleMixCard(props) {
 }
 
 export default SingleMixCard;
+
+// <FontAwesomeIcon
+//           icon={faPlayCircle}
+//           size="7x"
+//           className="is-hidden-touch"
+//           onClick={() =>
+//             dispatch({
+//               type: "CHANGE_URL",
+//               payload: {
+//                 url: url,
+//                 title: title,
+//               },
+//             })
+//           }
+//         />
+//         <FontAwesomeIcon
+//           icon={faPlayCircle}
+//           size="3x"
+//           className="is-hidden-desktop"
+//           onClick={() =>
+//             dispatch({
+//               type: "CHANGE_URL",
+//               payload: {
+//                 url: url,
+//                 title: title,
+//               },
+//             })
+//           }
+//         />

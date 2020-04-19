@@ -1,6 +1,10 @@
 import React from "react";
 import { BioHorizItem } from "./index";
 
+/**
+ * Dummy mixes with real data
+ */
+
 const sampleMixes = [
   {
     date: "10.21.19",
@@ -9,7 +13,7 @@ const sampleMixes = [
     name: "BLASTOYZ @ Transmission Prague 2019",
     artist: "BLASTOYZ",
     img: "../img/blastoyz.png",
-    tags: ["electro", "complextro", "trance", "psytrance", "live set"]
+    tags: ["electro", "complextro", "trance", "psytrance", "live set"],
   },
   {
     date: "04.28.2016",
@@ -19,7 +23,7 @@ const sampleMixes = [
     name: "sleepmakeswaves on Audiotree (Live)",
     artist: "sleepmakeswaves",
     img: "../img/sleepmakeswaves.jpg",
-    tags: ["post rock", "prog rock", "instrumental rock", "live set"]
+    tags: ["post rock", "prog rock", "instrumental rock", "live set"],
   },
   {
     date: "03.28.2020",
@@ -29,7 +33,7 @@ const sampleMixes = [
     name: "Countdown Virtual Rave-A-Thon",
     artist: "DJ Soda",
     img: "../img/dj-soda.jpg",
-    tags: ["electronic", "dubstep", "uk hardcore", "live set"]
+    tags: ["electronic", "dubstep", "uk hardcore", "live set"],
   },
   {
     date: "03.20.2020",
@@ -38,7 +42,7 @@ const sampleMixes = [
     name: "plusNONE - 3.25.2020",
     artist: "plusNONE",
     img: "../img/plusNONE-032020.jpg",
-    tags: ["plusNONE", "r&b", "neo soul", "hip hop"]
+    tags: ["plusNONE", "r&b", "neo soul", "hip hop"],
   },
   {
     date: "04.01.2020",
@@ -47,7 +51,7 @@ const sampleMixes = [
     name: "Shibuya Jazz Classics",
     artist: "Various Artists",
     img: "../img/shibuya-jazz.jpg",
-    tags: ["jazz", "modal jazz", "jazz fusion", "japanese jazz", "free jazz"]
+    tags: ["jazz", "modal jazz", "jazz fusion", "japanese jazz", "free jazz"],
   },
   {
     date: "02.02.2020",
@@ -56,9 +60,10 @@ const sampleMixes = [
     name: "lofi hip hop radio - beats to relax/study to",
     artist: "ChilledCow",
     img: "../img/lo-fi.jpg",
-    tags: ["lo-fi", "hip-hop", "ambient", "instrumental", "beats"]
-  }
+    tags: ["lo-fi", "hip-hop", "ambient", "instrumental", "beats"],
+  },
 ];
+const dummyTwelveMixes = [...sampleMixes, ...sampleMixes];
 
 function BioMixList(props) {
   return (
@@ -73,7 +78,7 @@ function BioMixList(props) {
         </p>
       </div>
       {/* SINGLE MIXES LIST */}
-      {sampleMixes.map(mix => (
+      {sampleMixes.map((mix) => (
         <BioHorizItem
           key={mix.name}
           date={mix.date}

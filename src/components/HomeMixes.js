@@ -144,7 +144,8 @@ function HomeMixes() {
           </div>
           <div className="column is-12">
             <p className="subtitle is-size-5 mobile-headers">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              These dummy mixes are the same as the ones on the sample bio page.
+              You can hover/touch and play them the same way. Try it!
             </p>
           </div>
         </div>

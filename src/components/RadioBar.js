@@ -104,6 +104,13 @@ function RadioBar() {
       ) : null}
 
       <div className="columns is-vcentered is-mobile header-bar">
+        <div className="column is-narrow">
+          <Link to="/">
+            <figure className="image is-64x64">
+              <img src="../img/halfmoon-3.png" alt="Return to home page" />
+            </figure>
+          </Link>
+        </div>
         <div className="column">
           <RadioPlayer
             status={radioData.status}

@@ -96,6 +96,8 @@ const sampleMixes = [
 function HomeMixes() {
   // See SingleMixCard - playAudioButton() for details about playBtnInfo usage
   const playBtnInfo = [{ btnSize: "7x" }];
+  const homeMixesLayout =
+    "column is-9-mobile is-two-fifths-tablet is-4-desktop";
 
   return (
     <div id="home-mixes">
@@ -127,6 +129,7 @@ function HomeMixes() {
                   img={mix.img}
                   tags={mix.tags}
                   playBtnInfo={playBtnInfo}
+                  columnLayout={homeMixesLayout}
                 />
               ))}
             </div>
@@ -161,6 +164,7 @@ function HomeMixes() {
               img={mix.img}
               tags={mix.tags}
               playBtnInfo={playBtnInfo}
+              columnLayout={homeMixesLayout}
             />
           ))}
         </div>

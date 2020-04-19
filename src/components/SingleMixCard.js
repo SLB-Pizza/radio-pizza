@@ -46,7 +46,7 @@ function SingleMixCard(props) {
   };
 
   return (
-    <div className="column is-9-mobile is-two-fifths-tablet is-4-desktop">
+    <div className={props.columnLayout}>
       <div className="card">
         <div className="card-image">
           <figure className="image is-1by1">

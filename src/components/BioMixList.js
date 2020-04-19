@@ -95,13 +95,12 @@ const sampleMixes = [
 
 function BioMixList(props) {
   // See SingleMixCard - playAudioButton() for details about playBtnInfo usage
-  const playBtnInfo = [
-    { btnSize: "7x", viewportClass: "is-hidden-touch" },
-    { btnSize: "3x", viewportClass: "is-hidden-desktop" },
-  ];
+  const playBtnInfo = [{ btnSize: "7x" }];
+  const mixListLayout =
+    "column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen";
 
   return (
-    <div className="columns is-vcentered is-multiline bio-mixes">
+    <div className="columns is-mobile is-multiline bio-mixes">
       <div className="column is-12">
         <p className="title is-size-2-desktop is-size-4-touch has-text-centered">
           Mixes by RowdyRobo
@@ -123,6 +122,7 @@ function BioMixList(props) {
           img={mix.img}
           tags={mix.tags}
           playBtnInfo={playBtnInfo}
+          columnLayout={mixListLayout}
         />
       ))}
     </div>
@@ -130,6 +130,8 @@ function BioMixList(props) {
 }
 
 export default BioMixList;
+
+// { btnSize: "3x", viewportClass: "is-hidden-desktop" },
 
 // {
 //   sampleMixes.map((mix) => (

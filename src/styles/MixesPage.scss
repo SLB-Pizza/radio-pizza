@@ -5,13 +5,14 @@
   min-height: calc(100vh - 10.5rem);
   background-color: darken($color: $primary, $amount: 45);
 
-  p.title {
+  p.title.is-size-1-desktop {
     text-shadow: 3px 3px 2px black;
     padding: 0.5rem 0 0.75rem;
   }
 }
 
 .search-box {
-  height: 10rem;
-  background-color: orange;
+  height: 3rem;
+  background-color: black;
+  border: 0.125rem dashed white;
 }

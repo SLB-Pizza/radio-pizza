@@ -140,7 +140,6 @@ function BioMixList(props) {
           tags are placeholder.
         </p>
       </div>
-      {/* SINGLE MIXES LIST */}
       {sampleMixes.map((mix) => (
         <SingleMixCard
           key={mix.name}

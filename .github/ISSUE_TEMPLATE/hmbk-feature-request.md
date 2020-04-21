@@ -7,6 +7,8 @@ assignees: ''
 
 ---
 
+<!-- Please select a project and appropriate milestone for this feature request -->
+
 ## What's the expected behavior?
 
 <!-- e.g. Calendar should pull data in and be displayed appropriately-->

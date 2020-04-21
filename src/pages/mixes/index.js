@@ -1,5 +1,7 @@
 import React from "react";
 import { SingleMixCard } from "../../components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch, faTag } from "@fortawesome/free-solid-svg-icons";
 
 /**
  * Dummy mixes with real data
@@ -123,6 +125,21 @@ const sampleMixes = [
   },
 ];
 
+const dummyOptions = [
+  "Argentina",
+  "Bolivia",
+  "Brazil",
+  "Chile",
+  "Colombia",
+  "Ecuador",
+  "Guyana",
+  "Paraguay",
+  "Peru",
+  "Suriname",
+  "Uruguay",
+  "Venezuela",
+];
+
 function MixesIndexPage() {
   const playBtnInfo = [{ btnSize: "7x" }];
   const mixListLayout =
@@ -142,72 +159,60 @@ function MixesIndexPage() {
         </div>
         <div className="column is-9-widescreen is-8-tablet is-12-mobile">
           <div className="field">
-            <div className="control is-expanded">
+            <div className="control is-expanded has-icons-left has-icons-right">
               <input
-                className="input is-medium is-hidden-touch"
+                className="input is-primary is-medium"
                 type="text"
                 placeholder="Search all mixes..."
               />
-              <input
-                className="input is-hidden-desktop"
-                type="text"
-                placeholder="Search all mixes..."
-              />
+              <span className="icon is-left is-medium">
+                <FontAwesomeIcon icon={faSearch} />
+              </span>
             </div>
           </div>
         </div>
         <div className="column is-3-widescreen is-4-tablet is-12-mobile">
-          <div className="field">
-            <div className="control is-expanded">
-              <div className="select is-medium is-fullwidth is-hidden-touch">
+          <div className="field is-hidden-mobile">
+            <div className="control is-expanded has-icons-left">
+              <div className="select is-medium is-fullwidth">
                 <select name="country">
-                  <option value="">Select a country</option>
-                  <option value="Argentina">Argentina</option>
-                  <option value="Bolivia">Bolivia</option>
-                  <option value="Brazil">Brazil</option>
-                  <option value="Chile">Chile</option>
-                  <option value="Colombia">Colombia</option>
-                  <option value="Ecuador">Ecuador</option>
-                  <option value="Guyana">Guyana</option>
-                  <option value="Paraguay">Paraguay</option>
-                  <option value="Peru">Peru</option>
-                  <option value="Suriname">Suriname</option>
-                  <option value="Uruguay">Uruguay</option>
-                  <option value="Venezuela">Venezuela</option>
+                  <option value="">--Country--</option>
+                  {dummyOptions.map((option) => (
+                    <>
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    </>
+                  ))}
                 </select>
               </div>
-              <div className="select is-fullwidth is-hidden-desktop">
+
+              <span className="icon is-left is-medium">
+                <FontAwesomeIcon icon={faTag} />
+              </span>
+            </div>
+          </div>
+          <div className="field is-hidden-tablet">
+            <div className="control is-expanded has-icons-left">
+              <div className="select is-fullwidth">
                 <select name="country">
-                  <option value="">Select a country</option>
-                  <option value="Argentina">Argentina</option>
-                  <option value="Bolivia">Bolivia</option>
-                  <option value="Brazil">Brazil</option>
-                  <option value="Chile">Chile</option>
-                  <option value="Colombia">Colombia</option>
-                  <option value="Ecuador">Ecuador</option>
-                  <option value="Guyana">Guyana</option>
-                  <option value="Paraguay">Paraguay</option>
-                  <option value="Peru">Peru</option>
-                  <option value="Suriname">Suriname</option>
-                  <option value="Uruguay">Uruguay</option>
-                  <option value="Venezuela">Venezuela</option>
+                  <option value="">--Country--</option>
+                  {dummyOptions.map((option) => (
+                    <>
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    </>
+                  ))}
                 </select>
               </div>
+
+              <span className="icon is-left">
+                <FontAwesomeIcon icon={faTag} />
+              </span>
             </div>
           </div>
         </div>
-        {/* <div className="column is-12-mobile is-narrow-tablet">
-          <div className="field">
-            <div className="control">
-              <button className="button is-medium is-dark is-hidden-touch">
-                Search
-              </button>
-              <button className="button is-fullwidth is-dark is-hidden-desktop">
-                Search
-              </button>
-            </div>
-          </div>
-        </div> */}
         {sampleMixes.map((mix) => (
           <SingleMixCard
             key={mix.name}

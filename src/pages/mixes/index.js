@@ -140,7 +140,7 @@ function MixesIndexPage() {
             hover/touch and play them the same way. Try it!
           </p>
         </div>
-        <div className="column is-12-mobile is-6-tablet is-9-widescreen">
+        <div className="column is-9-widescreen is-8-tablet is-12-mobile">
           <div className="field">
             <div className="control is-expanded">
               <input
@@ -156,7 +156,7 @@ function MixesIndexPage() {
             </div>
           </div>
         </div>
-        <div className="column is-12-mobile">
+        <div className="column is-3-widescreen is-4-tablet is-12-mobile">
           <div className="field">
             <div className="control is-expanded">
               <div className="select is-medium is-fullwidth is-hidden-touch">
@@ -196,7 +196,7 @@ function MixesIndexPage() {
             </div>
           </div>
         </div>
-        <div className="column is-12-mobile is-narrow-tablet">
+        {/* <div className="column is-12-mobile is-narrow-tablet">
           <div className="field">
             <div className="control">
               <button className="button is-medium is-dark is-hidden-touch">
@@ -207,7 +207,7 @@ function MixesIndexPage() {
               </button>
             </div>
           </div>
-        </div>
+        </div> */}
         {sampleMixes.map((mix) => (
           <SingleMixCard
             key={mix.name}

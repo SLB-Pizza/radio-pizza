@@ -135,7 +135,7 @@ function MixesIndexPage() {
           <p className="title is-size-1-desktop is-size-2-tablet is-size-3-mobile">
             Recent Mixes
           </p>
-          <p className="subtitle is-size-3-desktop is-size-4-tablet is-size-5-mobile">
+          <p className="subtitle is-size-4-desktop is-size-5-tablet is-size-6-mobile">
             These dummy mixes are the same as the ones on the home page. You can
             hover/touch and play them the same way. Try it!
           </p>

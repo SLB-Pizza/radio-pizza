@@ -77,6 +77,7 @@ function BottomNav() {
           >
             Chat
           </a>
+          {/*
           <div className="navbar-item has-dropdown has-dropdown-up is-hoverable">
             <a className="navbar-link">Content</a>
             <div className="navbar-dropdown">
@@ -99,6 +100,7 @@ function BottomNav() {
               </a>
             </div>
           </div>
+          */}
         </div>
         <div className="navbar-end is-hidden-touch">
           <a

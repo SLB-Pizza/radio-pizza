@@ -17,7 +17,7 @@ function SingleMixCard(props) {
    * @param {string} [buttons.viewportClass] - className to attach to the play button
    */
 
-  const playAudioButton = (url, title, playBtnInfo) => {
+  const playAudioButton = (url, title, artist, playBtnInfo) => {
     return (
       <>
         {playBtnInfo.map((singleBtn) => (
@@ -36,6 +36,7 @@ function SingleMixCard(props) {
                 payload: {
                   url: url,
                   title: title,
+                  artist: artist,
                 },
               })
             }
@@ -62,7 +63,12 @@ function SingleMixCard(props) {
             <div className="play-btn-diffuser is-overlay">
               <span>
                 {props.playBtnInfo &&
-                  playAudioButton(props.url, props.name, props.playBtnInfo)}
+                  playAudioButton(
+                    props.url,
+                    props.name,
+                    props.artist,
+                    props.playBtnInfo
+                  )}
               </span>
             </div>
           </figure>

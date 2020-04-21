@@ -1,7 +1,7 @@
 ---
 name: HMBK Bug Report
 about: Issues in the HMBK repo
-title: "❌ [BUG]"
+title: "❌ [BUG] **YOUR BUG ISSUE HERE**"
 labels: bug
 assignees: ''
 

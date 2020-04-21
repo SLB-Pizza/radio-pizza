@@ -62,6 +62,13 @@ function BottomNav() {
           >
             Bio
           </Link>
+          <Link
+            to="/mixes"
+            className="navbar-item"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            Mixes
+          </Link>
           <a
             className="navbar-item"
             href="http://halfmoonradiochat.chatango.com/"
@@ -71,12 +78,7 @@ function BottomNav() {
             Chat
           </a>
           <div className="navbar-item has-dropdown has-dropdown-up is-hoverable">
-            <a
-              className="navbar-link"
-              // onClick={() => setMenuOpen(!menuOpen)}
-            >
-              Content
-            </a>
+            <a className="navbar-link">Content</a>
             <div className="navbar-dropdown">
               <a className="navbar-item" onClick={() => setMenuOpen(!menuOpen)}>
                 Recent Mixes

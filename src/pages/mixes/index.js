@@ -132,14 +132,81 @@ function MixesIndexPage() {
     <div className="container is-fluid mixes-page">
       <div className="columns is-mobile is-multiline">
         <div className="column is-full">
-          <p className="title is-size-1-desktop is-size-3-tablet is-size-4-mobile headline">
-            Daily Mixes
+          <p className="title is-size-1-desktop is-size-2-tablet is-size-3-mobile">
+            Recent Mixes
+          </p>
+          <p className="subtitle is-size-3-desktop is-size-4-tablet is-size-5-mobile">
+            These dummy mixes are the same as the ones on the home page. You can
+            hover/touch and play them the same way. Try it!
           </p>
         </div>
-        <div className="column is-full search-box">
-          <p className="has-text-centered">
-            Daily Mix search placeholder space
-          </p>
+        <div className="column is-12-mobile is-6-tablet is-9-widescreen">
+          <div className="field">
+            <div className="control is-expanded">
+              <input
+                className="input is-medium is-hidden-touch"
+                type="text"
+                placeholder="Search all mixes..."
+              />
+              <input
+                className="input is-hidden-desktop"
+                type="text"
+                placeholder="Search all mixes..."
+              />
+            </div>
+          </div>
+        </div>
+        <div className="column is-12-mobile">
+          <div className="field">
+            <div className="control is-expanded">
+              <div className="select is-medium is-fullwidth is-hidden-touch">
+                <select name="country">
+                  <option value="">Select a country</option>
+                  <option value="Argentina">Argentina</option>
+                  <option value="Bolivia">Bolivia</option>
+                  <option value="Brazil">Brazil</option>
+                  <option value="Chile">Chile</option>
+                  <option value="Colombia">Colombia</option>
+                  <option value="Ecuador">Ecuador</option>
+                  <option value="Guyana">Guyana</option>
+                  <option value="Paraguay">Paraguay</option>
+                  <option value="Peru">Peru</option>
+                  <option value="Suriname">Suriname</option>
+                  <option value="Uruguay">Uruguay</option>
+                  <option value="Venezuela">Venezuela</option>
+                </select>
+              </div>
+              <div className="select is-fullwidth is-hidden-desktop">
+                <select name="country">
+                  <option value="">Select a country</option>
+                  <option value="Argentina">Argentina</option>
+                  <option value="Bolivia">Bolivia</option>
+                  <option value="Brazil">Brazil</option>
+                  <option value="Chile">Chile</option>
+                  <option value="Colombia">Colombia</option>
+                  <option value="Ecuador">Ecuador</option>
+                  <option value="Guyana">Guyana</option>
+                  <option value="Paraguay">Paraguay</option>
+                  <option value="Peru">Peru</option>
+                  <option value="Suriname">Suriname</option>
+                  <option value="Uruguay">Uruguay</option>
+                  <option value="Venezuela">Venezuela</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="column is-12-mobile is-narrow-tablet">
+          <div className="field">
+            <div className="control">
+              <button className="button is-medium is-dark is-hidden-touch">
+                Search
+              </button>
+              <button className="button is-fullwidth is-dark is-hidden-desktop">
+                Search
+              </button>
+            </div>
+          </div>
         </div>
         {sampleMixes.map((mix) => (
           <SingleMixCard

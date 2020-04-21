@@ -1,33 +1,22 @@
-import React from 'react';
+import React from "react";
 
-import Layout from '../../components/Layout';
-
-export default class DailyMixIndexPage extends React.Component {
-  render() {
-    return (
-      <Layout>
-        <div
-          className="full-width-image-container margin-top-0"
-          style={{
-            backgroundImage: `url('/img/halfmoon-3.png')`,
-          }}>
-          <h1
-            className="has-text-weight-bold is-size-1"
-            style={{
-              boxShadow: '0.5rem 0 0 #f40, -0.5rem 0 0 #f40',
-              backgroundColor: '#f40',
-              color: 'white',
-              padding: '1rem',
-            }}>
-            DJ's
-          </h1>
+function MixesIndexPage() {
+  return (
+    <div className="container is-fluid mixes-page">
+      <div className="columns is-mobile is-multiline">
+        <div className="column is-full">
+          <p className="title is-size-1-desktop is-size-3-tablet is-size-4-mobile headline">
+            Halfmoon Residents
+          </p>
         </div>
-        <section className="section">
-          <div className="container">
-            <div className="content"></div>
-          </div>
-        </section>
-      </Layout>
-    );
-  }
+        <div className="column is-full search-box">
+          <p className="title has-text-centered">
+            Search stuff placeholder space: 10rem
+          </p>
+        </div>
+      </div>
+    </div>
+  );
 }
+
+export default MixesIndexPage;

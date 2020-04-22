@@ -136,11 +136,10 @@ function BioMixList(props) {
           Mixes by RowdyRobo
         </p>
         <p className="subtitle is-size-4-desktop is-size-6-touch has-text-centered">
-          NB: These are test mixes. Hover (and touch) play buttons are active;
-          tags are placeholder.
+          These dummy mixes are the same as the ones on the home page. You can
+          hover/touch and play them the same way. Try it!
         </p>
       </div>
-      {/* SINGLE MIXES LIST */}
       {sampleMixes.map((mix) => (
         <SingleMixCard
           key={mix.name}

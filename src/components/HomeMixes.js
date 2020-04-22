@@ -138,7 +138,7 @@ function HomeMixes() {
         <div className="columns is-hidden-touch">
           <div className="column is-3">
             <div className="sticky-section-blurb">
-              <p className="title is-size-3">Daily Mixes</p>
+              <p className="title is-size-3">Recent Mixes</p>
               <p className="subtitle is-size-5">
                 These dummy mixes are the same as the ones on the sample bio
                 page. You can hover/touch and play them the same way. Try it!

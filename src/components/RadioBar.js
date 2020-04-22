@@ -11,7 +11,7 @@ import { Link } from "gatsby";
 const utc = require("dayjs/plugin/utc");
 dayjs.extend(utc);
 
-import { faComments } from "@fortawesome/free-solid-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Ticker from "react-ticker";
@@ -116,6 +116,11 @@ function RadioBar() {
             status={radioData.status}
             // currentTrack={radioData.current_track.title}
           />
+        </div>
+        <div className="column is-narrow">
+          <Link to="/search">
+            <FontAwesomeIcon icon={faSearch} size="2x" className="icon-color" />
+          </Link>
         </div>
         <div className="column is-narrow is-hidden-mobile">
           <p className="is-size-6">{laTime.format("HH:mm:ss")} LA</p>

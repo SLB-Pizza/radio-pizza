@@ -26,7 +26,7 @@ export { default as BottomNav } from "./BottomNav";
  * - Hero
  * - HomeContent
  * -- HomeMixes
- * --- HomeSingleMix
+ * --- SingleMixCard
  * -- HomeEvent
  * --- HomeSingleMix
  */
@@ -42,8 +42,6 @@ export { default as HomeSingleNews } from "./HomeSingleNews";
 /**
  * MixesPage
  */
-export { default as MixesPage } from "./MixesPage";
-export { default as SingleMix } from "./SingleMix";
 
 /**
  * SchedulePage

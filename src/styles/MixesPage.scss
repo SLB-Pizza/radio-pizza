@@ -1,67 +1,12 @@
 .mixes-page {
-  @include tablet;
   margin-top: 8.25rem;
-
-  padding-bottom: 5rem;
   margin-bottom: 3rem;
-  border-bottom: 0.25rem solid white;
+  padding-bottom: 3rem;
+  min-height: calc(100vh - 10.5rem);
+  background-color: darken($color: $primary, $amount: 45);
 
-  background-image: url(https://source.unsplash.com/1920x1080/daily?trance);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-size: cover;
-
-  // Set all text to white
-  p {
-    color: white;
-
-    // Give 'Radio Mixes' a shadow
-    &.title {
-      text-shadow: 3px 3px 2px black;
-      padding: 0.5rem 0 0.75rem;
-    }
-  }
-}
-
-.single-mix {
-  height: 12rem;
-  background-image: url(https://source.unsplash.com/1280x800/daily?nature);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-size: cover;
-  margin: 0 1rem 2rem;
-  padding: 0;
-  transition: ease-in-out 0.5s;
-  border: 0.125rem solid white;
-
-  &:hover {
-    margin: 0 0.25rem 2rem;
-    box-shadow: 10px 8px 5px black;
-  }
-
-  .black-overlay {
-    background-color: rgba($color: #000000, $alpha: 0.5);
-    height: 100%;
-    flex-direction: column;
-    justify-content: flex-end;
-
-    // Color schemes for mix types
-    .mix-category {
-      background-color: indigo;
-      padding: 0.25rem;
-      display: inline;
-    }
-
-    .mix-info {
-      margin-top: 0.25rem;
-      padding: 0 1.25rem 0.5rem;
-
-      // Give all mixtext a shadow
-      p {
-        text-shadow: 1px 1px 1px black;
-      }
-    }
+  p.title.is-size-1-desktop {
+    text-shadow: 3px 3px 2px black;
+    padding: 0.5rem 0 0.75rem;
   }
 }

@@ -1,0 +1,12 @@
+.mixes-page {
+  margin-top: 8.25rem;
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  min-height: calc(100vh - 10.5rem);
+  background-color: darken($color: $primary, $amount: 45);
+
+  p.title.is-size-1-desktop {
+    text-shadow: 3px 3px 2px black;
+    padding: 0.5rem 0 0.75rem;
+  }
+}

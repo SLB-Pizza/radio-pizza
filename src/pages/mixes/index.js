@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { SingleMixCard } from "../../components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faTag } from "@fortawesome/free-solid-svg-icons";
@@ -141,6 +141,8 @@ const dummyOptions = [
 ];
 
 function MixesIndexPage() {
+  const [searchInput, setSearchInput] = useState("");
+
   const playBtnInfo = [{ btnSize: "7x" }];
   const mixListLayout =
     "column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen";
@@ -160,6 +162,7 @@ function MixesIndexPage() {
         <div className="column is-9-widescreen is-8-tablet is-12-mobile">
           <div className="field">
             <div className="control is-expanded has-icons-left has-icons-right">
+              {/* <div className="control is-expanded has-icons-left has-icons-right is-loading is-medium"> */}
               <input
                 className="input is-primary is-medium"
                 type="text"

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MobileNewsItem, DesktopNewsItem, CategoryItem } from "./index";
+import { CategoryItem } from "./index";
 
 function NewsPage() {
   const [isOpen, setIsOpen] = useState("");

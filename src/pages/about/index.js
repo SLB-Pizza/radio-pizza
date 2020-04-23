@@ -1,6 +1,6 @@
 import React from "react";
 
-function AboutPage() {
+function AboutIndexPage() {
   return (
     <section className="about-page">
       <div className="about-pic">
@@ -28,4 +28,4 @@ function AboutPage() {
   );
 }
 
-export default AboutPage;
+export default AboutIndexPage;

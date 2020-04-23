@@ -101,12 +101,14 @@ function RadioPlayer(props) {
     );
   };
 
-  const renderNowPlaying = (title) => {
+  const renderNowPlaying = (resident, title) => {
     return (
       <Ticker mode="await" offset="run-in" speed={3}>
         {() => (
           <div className="is-hidden-tablet" id="radioShowName">
-            <p className="title is-size-5-desktop is-size-6-touch">{title}</p>
+            <p className="title is-size-5-desktop is-size-6-touch">
+              {resident} – {title}
+            </p>
           </div>
         )}
       </Ticker>
@@ -125,46 +127,19 @@ function RadioPlayer(props) {
           <FontAwesomeIcon icon={faPause} onClick={handlePlayPause} size="2x" />
         )}
       </div>
-      <div className="column" id="radioShowDetails">
-        {globalState.live ? (
-          <>
-            {/* LIVE Layout */}
-            {/* Static Tablet & up LIVE artist */}
-            <div className="is-hidden-mobile" id="radioShowTime">
-              <div id="live-light" />
-              <p className="subtitle is-size-7">LIVE - Pendulum</p>
-            </div>
-            {/* Dynamic Mobile Ticker LIVE artist*/}
-            <div className="is-hidden-tablet" id="radioShowTime">
-              <PageVisibility onChange={handleVisibilityChange}>
-                {pageIsVisible && renderCurrentResident("Live - Pendulum")}
-              </PageVisibility>
-            </div>
-          </>
-        ) : (
-          <>
-            {/* NOT LIVE Layout */}
-            {/* Static Tablet & up artist */}
-            <div className="is-hidden-mobile" id="radioShowTime">
-              <p className="subtitle is-size-7">{globalState.artist}</p>
-            </div>
-            {/* Dynamic Mobile Ticker artist*/}
-            <div className="is-hidden-tablet" id="radioShowTime">
-              <PageVisibility onChange={handleVisibilityChange}>
-                {pageIsVisible && renderCurrentResident(globalState.artist)}
-              </PageVisibility>
-            </div>
-          </>
-        )}
 
+      <div className="column" id="radioShowDetails">
         {/* Static tablet and up currentTrackTitle */}
         <div className="is-hidden-mobile" id="radioShowName">
-          <p className="title is-size-6">{globalState.title}</p>
+          <p className="title is-size-6">
+            {globalState.artist} – {globalState.title}
+          </p>
         </div>
 
         {/* Dynamic mobile currentTrackTitle */}
         <PageVisibility onChange={handleVisibilityChange}>
-          {pageIsVisible && renderNowPlaying(globalState.title)}
+          {pageIsVisible &&
+            renderNowPlaying(globalState.artist, globalState.title)}
         </PageVisibility>
       </div>
 

@@ -70,6 +70,13 @@ function BottomNav() {
           >
             Mixes
           </Link>
+          <Link
+            to="/about"
+            className="navbar-item"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            About Us
+          </Link>
           <a
             className="navbar-item"
             href="http://halfmoonradiochat.chatango.com/"

@@ -40,3 +40,20 @@ Same link as always: [https://halfmoon-rebuild-wip-2020.netlify.app/](https://ha
 
 Lot to look forward to if the size of our current issue list is anything to go by.
 
+
+
+# April 23
+
+## Deploy Changelog
+
+### Major Changes
+
+- `/about` page layout pruned to remove excess code; link added to bottom navbar
+  - Work-in-progress
+- `/search` base page layout added; link added to TopNav as search icon
+-
+
+
+## Deploy Link
+
+Same link as always: [https://halfmoon-rebuild-wip-2020.netlify.app/](https://halfmoon-rebuild-wip-2020.netlify.app/)

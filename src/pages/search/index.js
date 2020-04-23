@@ -28,8 +28,7 @@ function SearchIndexPage() {
             Search
           </p>
           <p className="subtitle is-size-4-desktop is-size-5-tablet is-size-6-mobile">
-            Not currently connected. You can see what search would look like by
-            typing anything in and hitting enter.
+            Search not connected at the moment.
           </p>
         </div>
         <div className="column is-full">

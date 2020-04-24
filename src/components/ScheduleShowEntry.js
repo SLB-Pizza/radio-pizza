@@ -9,39 +9,35 @@ const fakeShowEntryData = [
   {
     startTime: "12:00",
     endTime: "14:00",
-    showName: "Short Show",
-    hostInfo: ["Nhato"]
+    hostInfo: ["Nhato"],
   },
   {
     startTime: "12:00",
     endTime: "14:00",
-    showName: "Hardcore Till I Die Special",
-    hostInfo: ["Getty", "KO3 & Relect"]
+    hostInfo: ["Getty", "KO3 & Relect"],
   },
   {
     startTime: "12:00",
     endTime: "14:00",
     showName: "PLANET /// SHAPER -- 3 Man Crew",
-    hostInfo: ["JAKAZiD", "Tanuki", "Hommarju"]
+    hostInfo: ["JAKAZiD", "Tanuki", "Hommarju"],
   },
   {
     startTime: "12:00",
     endTime: "14:00",
-    showName: "Trancelucid",
-    hostInfo: ["DJ Shimamura"]
+    hostInfo: ["DJ Shimamura"],
   },
   {
     startTime: "12:00",
     endTime: "14:00",
-    showName: "DJ Noriken Live Set ft. Seventhrun",
-    hostInfo: ["Seventhrun", "DJ Noriken"]
+    hostInfo: ["Seventhrun", "DJ Noriken"],
   },
   {
     startTime: "12:00",
     endTime: "14:00",
     showName: "The Edge of The Drum & Bass Universe",
-    hostInfo: ["Netsky", "Matrix & Futurebound"]
-  }
+    hostInfo: ["Netsky", "Matrix & Futurebound"],
+  },
 ];
 
 function ScheduleShowEntry(props) {
@@ -68,8 +64,7 @@ function ScheduleShowEntry(props) {
         <>
           <div className="column is-4 today-date">
             <p className="title is-size-3-widescreen is-size-4-desktop is-size-5-touch has-text-centered">
-              {/* {todayDate.format("dddd, MMMM D")} */}
-              Saturday, December 28
+              {todayDate.format("dddd, MMMM D")}
             </p>
           </div>
           <div className="column is-8 today-date">
@@ -84,7 +79,7 @@ function ScheduleShowEntry(props) {
           </div>
         </>
       )}
-      {fakeShowEntryData.map(show => (
+      {fakeShowEntryData.map((show) => (
         <div key={show.showName} className="column is-12 single-show-entry">
           <div className="columns is-mobile is-vcentered">
             <div className="column is-4">
@@ -92,14 +87,22 @@ function ScheduleShowEntry(props) {
                 {show.startTime} – {show.endTime}
               </p>
             </div>
-            <div className="column is-8">
-              <p className="is-size-4-widescreen is-size-5-desktop is-size-6-touch">
-                {show.showName}
-              </p>
-              <p className="is-size-5-widescreen is-size-6-desktop is-size-7-touch">
-                {show.hostInfo.join(", ")}
-              </p>
-            </div>
+            {show.hasOwnProperty("showName") ? (
+              <div className="column is-8">
+                <p className="is-size-4-widescreen is-size-5-desktop is-size-6-touch">
+                  {show.showName}
+                </p>
+                <p className="is-size-5-widescreen is-size-6-desktop is-size-7-touch">
+                  {show.hostInfo.join(", ")}
+                </p>
+              </div>
+            ) : (
+              <div className="column is-8">
+                <p className="is-size-4-widescreen is-size-5-desktop is-size-6-touch">
+                  {show.hostInfo.join(", ")}
+                </p>
+              </div>
+            )}
           </div>
         </div>
       ))}

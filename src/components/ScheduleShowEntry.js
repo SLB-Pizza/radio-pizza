@@ -60,7 +60,7 @@ function ScheduleShowEntry(props) {
       - Since this is reused on the site, toggle placement of link
       - Doesn't show on /schedule
       */}
-      {props.fromDropdown && (
+      {props.fromNavbar && (
         <>
           <div className="column is-4 today-date">
             <p className="title is-size-3-widescreen is-size-4-desktop is-size-5-touch has-text-centered">

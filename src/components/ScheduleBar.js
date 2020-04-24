@@ -87,9 +87,7 @@ function ScheduleBar() {
           </p>
         </div>
         <div className="column upcoming is-hidden-mobile">
-          <p className="is-size-6 has-text-light">
-            MON 4/21 - An HMBK Moment In Time
-          </p>
+          <p className="is-size-6">TEST - Next Show Title</p>
         </div>
         <div className="column upcoming is-hidden-tablet">
           <PageVisibility onChange={handleVisibilityChange}>

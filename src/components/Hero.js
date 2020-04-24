@@ -6,7 +6,7 @@ function Hero(props) {
       <div className="container is-fluid">
         <div className="columns">
           <div className="column">
-            <p className="title is-size-3-mobile is-size-1-tablet has-text-centered has-text-light">
+            <p className="title is-size-3-mobile is-size-1-tablet has-text-centered">
               Test Sources
             </p>
           </div>

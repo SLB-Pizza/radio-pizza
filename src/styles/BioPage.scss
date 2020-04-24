@@ -1,6 +1,7 @@
 .resident-bio {
   margin-top: 8.25rem;
   margin-bottom: 3rem;
+  padding-bottom: 3rem;
   min-height: calc(100vh - 10.5rem);
 
   background-color: darken($color: $primary, $amount: 45);
@@ -10,21 +11,9 @@
   // background-attachment: fixed;
   // background-size: cover;
 
-  // .image-diffuser {
-  //   background-color: rgba($color: black, $alpha: 0.5);
-  //   padding-bottom: 3.5rem;
-  //   min-height: calc(100vh - 10.5rem);
-  // }
-
-  // Set all text to white
-  p {
-    color: white;
-
-    // Give 'Residents' a shadow
-    &.title {
-      text-shadow: 3px 3px 2px black;
-      padding: 0.5rem 0 0.75rem;
-    }
+  p.title {
+    text-shadow: 3px 3px 2px black;
+    padding: 0.5rem 0 0.75rem;
   }
 
   .resident-social-links {
@@ -50,6 +39,7 @@
     p:first-child() {
       margin-bottom: 1rem;
     }
+    padding-bottom: 2rem;
   }
 }
 

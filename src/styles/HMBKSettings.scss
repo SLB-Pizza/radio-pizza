@@ -97,7 +97,8 @@ p.subtitle {
 // Give the date of content items some space
 //================================================
 .card {
-  border: 0.25rem solid darken($color: $primary, $amount: 20);
+  // border: 0.25rem solid darken($color: $primary, $amount: 20);
+  border: 0.25rem solid white;
   margin: 0 0.125rem;
   transition: 0.25s ease;
 

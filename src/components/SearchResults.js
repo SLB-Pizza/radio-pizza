@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faTag } from "@fortawesome/free-solid-svg-icons";
-import { SingleMixCard } from "../../components";
+import React from "react";
+import { SingleMixCard, SingleResident } from "./index";
 
 /**
  * Dummy mixes with real data
@@ -129,110 +127,124 @@ const sampleMixes = [
   },
 ];
 
-const dummyOptions = [
-  "Argentina",
-  "Bolivia",
-  "Brazil",
-  "Chile",
-  "Colombia",
-  "Ecuador",
-  "Guyana",
-  "Paraguay",
-  "Peru",
-  "Suriname",
-  "Uruguay",
-  "Venezuela",
+const dummyArtists = [
+  {
+    name: "Black Ironbox",
+  },
+  {
+    name: "Riverbank Vervain",
+  },
+  {
+    name: "Rugel's Indianplantain",
+  },
+  {
+    name: "Rusby's Globemallow",
+  },
+  {
+    name: "Philonotis Moss",
+  },
+  {
+    name: "Hooker's Townsend Daisy",
+  },
+  {
+    name: "Streamside Fleabane",
+  },
+  {
+    name: "Alpine Lady's Mantle",
+  },
+  {
+    name: "Smooth Bogrush",
+  },
+  {
+    name: "Flatleaf Flatsedge",
+  },
+  {
+    name: "Alpine Draba",
+  },
+  {
+    name: "Pale Agoseris",
+  },
+  {
+    name: "African Signalgrass",
+  },
+  {
+    name: "Italian Buckthorn",
+  },
+  {
+    name: "Black Sweetwood",
+  },
+  {
+    name: "Frosted Lichen",
+  },
+  {
+    name: "Muskeg Lousewort",
+  },
+  {
+    name: "Armand Pine",
+  },
+  {
+    name: "Merced Monardella",
+  },
+  {
+    name: "Italian Woodbine",
+  },
+  {
+    name: "Sierra Currant",
+  },
+  {
+    name: "Monument Valley Milkvetch",
+  },
+  {
+    name: "Clauzadeana",
+  },
+  {
+    name: "Muenscher's Waternymph",
+  },
 ];
 
-function MixesIndexPage() {
-  const [searchInput, setSearchInput] = useState("");
-
-  const playBtnInfo = [{ btnSize: "7x" }];
-  const mixListLayout =
-    "column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen";
-
+const playBtnInfo = [{ btnSize: "7x" }];
+const mixListLayout =
+  "column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen";
+function SearchResults(props) {
   return (
-    <div className="container is-fluid mixes-page">
-      <div className="columns is-mobile is-multiline">
+    <>
+      {props.isSelected === "mixes"
+        ? sampleMixes.map((mix) => (
+            <SingleMixCard
+              key={mix.name}
+              date={mix.date}
+              url={mix.url}
+              testSrc={mix.testSrc}
+              name={mix.name}
+              artist={mix.artist}
+              img={mix.img}
+              tags={mix.tags}
+              playBtnInfo={playBtnInfo}
+              columnLayout={mixListLayout}
+            />
+          ))
+        : null}
+      {props.isSelected === "residents"
+        ? dummyArtists.map((resident) => (
+            <SingleResident key={resident.name} name={resident.name} />
+          ))
+        : null}
+      {props.isSelected === "events" ? (
         <div className="column is-full">
-          <p className="title is-size-1-desktop is-size-2-tablet is-size-3-mobile">
-            Recent Mixes
-          </p>
-          <p className="subtitle is-size-4-desktop is-size-5-tablet is-size-6-mobile">
-            These dummy mixes are the same as the ones on the home page. You can
-            hover/touch and play them the same way. Try it!
+          <p className="title is-size-5-desktop is-size-6-touch has-text-centered">
+            Dummy Events results here
           </p>
         </div>
-        <div className="column is-9-widescreen is-8-tablet is-12-mobile">
-          <div className="field">
-            <div className="control is-expanded has-icons-left has-icons-right">
-              {/* <div className="control is-expanded has-icons-left has-icons-right is-loading is-medium"> */}
-              <input
-                className="input is-primary is-medium"
-                type="text"
-                placeholder="Search all mixes..."
-              />
-              <span className="icon is-left is-medium">
-                <FontAwesomeIcon icon={faSearch} />
-              </span>
-            </div>
-          </div>
+      ) : null}
+      {props.isSelected === "news" ? (
+        <div className="column is-full">
+          <p className="title is-size-5-desktop is-size-6-touch has-text-centered">
+            Dummy News results here
+          </p>
         </div>
-        <div className="column is-3-widescreen is-4-tablet is-12-mobile">
-          <div className="field is-hidden-mobile">
-            <div className="control is-expanded has-icons-left">
-              <div className="select is-medium is-fullwidth">
-                <select name="country">
-                  <option value="">--Country--</option>
-                  {dummyOptions.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <span className="icon is-left is-medium">
-                <FontAwesomeIcon icon={faTag} />
-              </span>
-            </div>
-          </div>
-          <div className="field is-hidden-tablet">
-            <div className="control is-expanded has-icons-left">
-              <div className="select is-fullwidth">
-                <select name="country">
-                  <option value="">--Country--</option>
-                  {dummyOptions.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <span className="icon is-left">
-                <FontAwesomeIcon icon={faTag} />
-              </span>
-            </div>
-          </div>
-        </div>
-        {sampleMixes.map((mix) => (
-          <SingleMixCard
-            key={mix.name}
-            date={mix.date}
-            url={mix.url}
-            testSrc={mix.testSrc}
-            name={mix.name}
-            artist={mix.artist}
-            img={mix.img}
-            tags={mix.tags}
-            playBtnInfo={playBtnInfo}
-            columnLayout={mixListLayout}
-          />
-        ))}
-      </div>
-    </div>
+      ) : null}
+    </>
   );
 }
 
-export default MixesIndexPage;
+export default SearchResults;

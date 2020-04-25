@@ -17,7 +17,7 @@ function ResidentsIndexPage() {
     <div className="container is-fluid residents-page">
       <div className="columns is-mobile is-multiline">
         <div className="column is-full">
-          <p className="title is-size-1-desktop is-size-3-tablet is-size-4-mobile headline">
+          <p className="title is-size-1-desktop is-size-2-tablet is-size-3-mobile headline">
             Halfmoon Residents
           </p>
         </div>

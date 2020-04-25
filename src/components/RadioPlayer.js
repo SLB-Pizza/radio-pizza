@@ -106,7 +106,7 @@ function RadioPlayer(props) {
       <Ticker mode="await" offset="run-in" speed={3}>
         {() => (
           <div className="is-hidden-tablet" id="radioShowName">
-            <p className="title is-size-5-desktop is-size-6-touch">
+            <p className="title is-size-4-desktop is-size-5-touch">
               {resident} – {title}
             </p>
           </div>
@@ -131,7 +131,7 @@ function RadioPlayer(props) {
       <div className="column" id="radioShowDetails">
         {/* Static tablet and up currentTrackTitle */}
         <div className="is-hidden-mobile" id="radioShowName">
-          <p className="title is-size-6">
+          <p className="title is-size-5">
             {globalState.artist} – {globalState.title}
           </p>
         </div>

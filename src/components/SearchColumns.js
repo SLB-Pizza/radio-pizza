@@ -6,8 +6,8 @@ function SearchResults(props) {
       <div
         className={
           props.isSelected === "mixes"
-            ? "column is-3 is-hidden-mobile is-active"
-            : "column is-3 is-hidden-mobile"
+            ? "column is-4 is-hidden-mobile is-active"
+            : "column is-4 is-hidden-mobile"
         }
         id="mixes"
         onClick={props.toggleColumn}
@@ -19,8 +19,8 @@ function SearchResults(props) {
       <div
         className={
           props.isSelected === "residents"
-            ? "column is-3 is-hidden-mobile is-active"
-            : "column is-3 is-hidden-mobile"
+            ? "column is-4 is-hidden-mobile is-active"
+            : "column is-4 is-hidden-mobile"
         }
         id="residents"
         onClick={props.toggleColumn}
@@ -32,8 +32,8 @@ function SearchResults(props) {
       <div
         className={
           props.isSelected === "events"
-            ? "column is-3 is-hidden-mobile is-active"
-            : "column is-3 is-hidden-mobile"
+            ? "column is-4 is-hidden-mobile is-active"
+            : "column is-4 is-hidden-mobile"
         }
         id="events"
         onClick={props.toggleColumn}
@@ -45,8 +45,8 @@ function SearchResults(props) {
       {/* <div
         className={
           props.isSelected === "news"
-            ? "column is-3 is-hidden-mobile is-active"
-            : "column is-3 is-hidden-mobile"
+            ? "column is-4 is-hidden-mobile is-active"
+            : "column is-4 is-hidden-mobile"
         }
         id="news"
         onClick={props.toggleColumn}

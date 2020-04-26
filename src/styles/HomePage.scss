@@ -5,7 +5,7 @@
   margin-top: 8.25rem;
   height: calc(100vh - 10.5rem);
 
-  background-color: darken($color: $primary, $amount: 45);
+  // background-color: darken($color: $primary, $amount: 45);
   background-image: url(https://source.unsplash.com/1920x1080/daily?coffee);
   background-position: center center;
   background-repeat: no-repeat;
@@ -24,12 +24,12 @@
 //==================================
 .home-content {
   margin-bottom: 3rem;
-  background-color: darken($color: $primary, $amount: 45);
+  // background-color: darken($color: $primary, $amount: 45);
 
   // Make all content text white
-  p {
-    color: white;
-  }
+  // p {
+  //   color: white;
+  // }
 
   // Make each content sections' titles and taglines sticky
   .sticky-section-blurb {

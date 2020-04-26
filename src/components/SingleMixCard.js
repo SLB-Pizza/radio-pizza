@@ -71,16 +71,18 @@ function SingleMixCard(props) {
           </figure>
         </div>
         <div className="card-content">
-          <p className="content-date subtitle is-size-7-touch is-size-6-desktop">
-            {props.date} | {props.artist}
-          </p>
-          <p className="title is-size-6-mobile is-size-5-tablet is-size-4-fullhd">
-            {props.name}
-          </p>
+          <div className="content-text">
+            <p className="content-date subtitle is-size-7-touch is-size-6-desktop">
+              {props.date} | {props.artist}
+            </p>
+            <p className="title is-size-6-mobile is-size-5-tablet is-size-4-fullhd">
+              {props.name}
+            </p>
+          </div>
 
           <div className="tags are-small">
             {props.tags.map((tag) => (
-              <span key={tag} className="tag is-black">
+              <span key={tag} className="tag is-rounded is-black">
                 {tag}
               </span>
             ))}

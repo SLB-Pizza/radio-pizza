@@ -112,7 +112,7 @@ const sampleMixes = [
     name: "Inferno (Cinder's Theme) - Killer Instinct Season 2 Soundtrack",
     artist: "Mick Gordon",
     img: "../img/ki-s2.jpg",
-    tags: ["metal", "electronic", "soundtrack"],
+    tags: ["heavy metal", "dark electronic", "soundtrack"],
   },
 
   {

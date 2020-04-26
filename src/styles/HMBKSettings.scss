@@ -1,6 +1,8 @@
 //==================================
 // BULMA VARIABLES
 //==================================
+@import "./bulma.sass";
+
 $pink: #f600ff;
 
 $primary: $pink;
@@ -13,15 +15,7 @@ $primary: $pink;
 // - Open Sans
 // - Titillium Web
 
-@font-face {
-  font-family: "Eurostile";
-  src: url("../fonts/eurostileltstd-boldex2.otf");
-  font-display: swap;
-}
-
 @import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap");
-
-// @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap");
 
 //==================================
 // GLOBAL STYLES
@@ -32,10 +26,6 @@ body {
   color: white;
 }
 
-.eurostile {
-  font-family: "Eurostile", sans-serif;
-  font-display: swap;
-}
 .title {
   font-family: "Oxygen", sans-serif;
   font-weight: 700;
@@ -99,8 +89,19 @@ p.subtitle {
 .card {
   // border: 0.25rem solid darken($color: $primary, $amount: 20);
   border: 0.25rem solid white;
+  border-radius: 1rem;
   margin: 0 0.125rem;
   transition: 0.25s ease;
+
+  img {
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+  }
+
+  .play-btn-diffuser {
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+  }
 
   .content-date {
     margin-bottom: 0.5rem;
@@ -109,8 +110,19 @@ p.subtitle {
   .card-content {
     background-color: black;
     padding: 0.75rem;
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
     transition: 0.25s ease;
-    & p.title + p {
+
+    .content-text {
+      min-height: 7.5rem;
+      @include widescreen-only {
+        min-height: 6rem;
+      }
+      // background-color: purple;
+    }
+
+    p.title + p {
       padding-top: 0.5rem;
     }
   }
@@ -131,8 +143,20 @@ p.subtitle {
     border: 0.25rem solid $primary;
     box-shadow: 10px 8px 5px black;
 
+    // img {
+    //   border-top-left-radius: 0.75rem;
+    //   border-top-right-radius: 0.75rem;
+    // }
+
+    .play-btn-diffuser {
+      border-top-left-radius: 0.75rem;
+      border-top-right-radius: 0.75rem;
+    }
+
     .card-content {
       background-color: darken($color: $primary, $amount: 35);
+      border-bottom-left-radius: 0.75rem;
+      border-bottom-right-radius: 0.75rem;
     }
 
     .play-btn-diffuser {
@@ -163,4 +187,16 @@ p.subtitle {
       transition: ease-in-out 0.25s;
     }
   }
+}
+
+.tags {
+  // display: flex;
+  // flex-direction: row;
+  // // justify-content: flex-end;
+  // align-items: flex-end;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  // border: 1px solid white;
+  // background-color: orangered;
+  min-height: 4.5rem;
 }

@@ -81,7 +81,7 @@ const sampleMixes = [
     tags: [
       "jazz fusion",
       "prog rock",
-      "funk",
+      "funk band",
       "experimental",
       "live instruments",
     ],

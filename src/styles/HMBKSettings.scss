@@ -88,8 +88,8 @@ p.subtitle {
 //================================================
 .card {
   // border: 0.25rem solid darken($color: $primary, $amount: 20);
-  border: 0.25rem solid white;
-  border-radius: 1rem;
+  border: 2px solid white;
+  border-radius: 0.75rem;
   margin: 0 0.125rem;
   transition: 0.25s ease;
 
@@ -140,7 +140,7 @@ p.subtitle {
   }
 
   &:hover {
-    border: 0.25rem solid $primary;
+    border: 2px solid $primary;
     box-shadow: 10px 8px 5px black;
 
     // img {

@@ -153,7 +153,7 @@ function RadioBar() {
           </a>
         </div>
 
-        <div className="column is-narrow is-hidden-mobile">
+        <div className="column is-narrow is-hidden-touch">
           <p className="is-size-6">{laTime.format("HH:mm:ss")} LA</p>
           <p className="is-size-6">{nycTime.format("HH:mm:ss")} NYC</p>
         </div>

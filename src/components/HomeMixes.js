@@ -134,74 +134,72 @@ function HomeMixes() {
     "column is-9-mobile is-two-fifths-tablet is-4-desktop";
 
   return (
-    <div id="home-mixes">
-      <div className="container is-fluid image-diffuser">
-        {/*
+    <div className="container is-fluid image-diffuser" id="home-mixes">
+      {/*
       Desktop Sizes
       */}
-        <div className="columns is-hidden-touch">
-          <div className="column is-3">
-            <div className="sticky-section-blurb">
-              <p className="title is-size-3">Recent Mixes</p>
-              <p className="subtitle is-size-5">
-                These dummy mixes are the same as the ones on the sample bio
-                page. You can hover/touch and play them the same way. Try it!
-              </p>
-              <button className="sticky-link button">More ></button>
-            </div>
-          </div>
-          <div className="column is-9">
-            <div className="columns is-multiline">
-              {sampleMixes.map((mix) => (
-                <SingleMixCard
-                  key={mix.name}
-                  date={mix.date}
-                  url={mix.url}
-                  testSrc={mix.testSrc}
-                  name={mix.name}
-                  artist={mix.artist}
-                  img={mix.img}
-                  tags={mix.tags}
-                  playBtnInfo={playBtnInfo}
-                  columnLayout={homeMixesLayout}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-        {/*
-      Touch Sizes
-      */}
-        <div className="columns is-mobile is-multiline is-vcentered is-hidden-desktop">
-          <div className="column">
-            <p className="title is-size-3 mobile-headers">Daily Mixes</p>
-          </div>
-          <div className="column is-narrow more-link">
-            <button className="button is-small">More ></button>
-          </div>
-          <div className="column is-12">
-            <p className="subtitle is-size-5 mobile-headers">
+      <div className="columns is-hidden-touch">
+        <div className="column is-3">
+          <div className="sticky-section-blurb">
+            <p className="title is-size-3">Recent Mixes</p>
+            <p className="subtitle is-size-5">
               These dummy mixes are the same as the ones on the sample bio page.
               You can hover/touch and play them the same way. Try it!
             </p>
+            <button className="sticky-link button">More ></button>
           </div>
         </div>
-        <div className="columns is-mobile is-hidden-desktop mobile-single-items">
-          {sampleMixes.map((mix) => (
-            <SingleMixCard
-              key={mix.name}
-              date={mix.date}
-              url={mix.url}
-              testSrc={mix.testSrc}
-              name={mix.name}
-              artist={mix.artist}
-              img={mix.img}
-              tags={mix.tags}
-              playBtnInfo={playBtnInfo}
-              columnLayout={homeMixesLayout}
-            />
-          ))}
+        <div className="column is-9">
+          <div className="columns is-multiline">
+            {sampleMixes.map((mix) => (
+              <SingleMixCard
+                key={mix.name}
+                date={mix.date}
+                url={mix.url}
+                testSrc={mix.testSrc}
+                name={mix.name}
+                artist={mix.artist}
+                img={mix.img}
+                tags={mix.tags}
+                playBtnInfo={playBtnInfo}
+                columnLayout={homeMixesLayout}
+              />
+            ))}
+          </div>
         </div>
+      </div>
+      {/*
+      Touch Sizes
+      */}
+      <div className="columns is-mobile is-multiline is-vcentered is-hidden-desktop">
+        <div className="column">
+          <p className="title is-size-3 mobile-headers">Daily Mixes</p>
+        </div>
+        <div className="column is-narrow more-link">
+          <button className="button is-small">More ></button>
+        </div>
+        <div className="column is-12">
+          <p className="subtitle is-size-5 mobile-headers">
+            These dummy mixes are the same as the ones on the sample bio page.
+            You can hover/touch and play them the same way. Try it!
+          </p>
+        </div>
+      </div>
+      <div className="columns is-mobile is-hidden-desktop mobile-single-items">
+        {sampleMixes.map((mix) => (
+          <SingleMixCard
+            key={mix.name}
+            date={mix.date}
+            url={mix.url}
+            testSrc={mix.testSrc}
+            name={mix.name}
+            artist={mix.artist}
+            img={mix.img}
+            tags={mix.tags}
+            playBtnInfo={playBtnInfo}
+            columnLayout={homeMixesLayout}
+          />
+        ))}
       </div>
     </div>
   );

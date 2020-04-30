@@ -106,7 +106,10 @@ function RadioBar() {
       <div className="columns is-vcentered is-mobile header-bar">
         <div className="column is-narrow">
           <Link to="/">
-            <figure className="image is-64x64">
+            <figure className="image is-64x64 is-hidden-mobile">
+              <img src="../img/halfmoon-3.png" alt="Return to home page" />
+            </figure>
+            <figure className="image is-32x32 is-hidden-tablet">
               <img src="../img/halfmoon-3.png" alt="Return to home page" />
             </figure>
           </Link>

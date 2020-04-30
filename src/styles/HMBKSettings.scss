@@ -15,7 +15,15 @@ $primary: $pink;
 // - Open Sans
 // - Titillium Web
 
-@import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap");
+@font-face {
+  font-family: "Authentic Sans Condensed - 60";
+  src: url("../fonts/AUTHENTICSans-Condensed-60.woff") format("woff")
+    url("../fonts/AUTHENTICSans-Condensed-60.woff2") format("woff2");
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@400&display=swap");
+
+@import url("https://fonts.googleapis.com/css?family=Aldrich&display=swap");
 
 //==================================
 // GLOBAL STYLES
@@ -27,16 +35,15 @@ body {
 }
 
 .title {
-  font-family: "Oxygen", sans-serif;
-  font-weight: 700;
+  font-family: "Aldrich", sans-serif;
   font-display: swap;
 }
 
 p,
 .subtitle,
 .tag {
-  font-family: "Oxygen", sans-serif;
-  font-weight: 400;
+  font-family: "Authentic Sans Condensed - 60", sans-serif;
+  // font-weight: 400;
   font-display: swap;
 }
 

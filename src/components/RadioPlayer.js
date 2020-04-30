@@ -9,7 +9,7 @@ import {
   GlobalStateContext,
 } from "../context/GlobalContextProvider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
+import { faPlayCircle, faPauseCircle } from "@fortawesome/free-solid-svg-icons";
 
 function RadioPlayer(props) {
   const dispatch = useContext(GlobalDispatchContext);
@@ -122,9 +122,35 @@ function RadioPlayer(props) {
     <div className="columns is-vcentered is-mobile radio-player">
       <div className="column is-narrow icon-color">
         {!globalState.playing ? (
-          <FontAwesomeIcon icon={faPlay} onClick={handlePlayPause} size="2x" />
+          <>
+            <FontAwesomeIcon
+              icon={faPlayCircle}
+              onClick={handlePlayPause}
+              className="is-hidden-mobile"
+              size="2x"
+            />
+            <FontAwesomeIcon
+              icon={faPlayCircle}
+              onClick={handlePlayPause}
+              className="is-hidden-tablet"
+              size="lg"
+            />
+          </>
         ) : (
-          <FontAwesomeIcon icon={faPause} onClick={handlePlayPause} size="2x" />
+          <>
+            <FontAwesomeIcon
+              icon={faPauseCircle}
+              onClick={handlePlayPause}
+              className="is-hidden-mobile"
+              size="2x"
+            />
+            <FontAwesomeIcon
+              icon={faPauseCircle}
+              onClick={handlePlayPause}
+              className="is-hidden-tablet"
+              size="lg"
+            />
+          </>
         )}
       </div>
 

@@ -11,7 +11,7 @@ import { Link } from "gatsby";
 const utc = require("dayjs/plugin/utc");
 dayjs.extend(utc);
 
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faComments } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Ticker from "react-ticker";
@@ -119,9 +119,37 @@ function RadioBar() {
         </div>
         <div className="column is-narrow">
           <Link to="/search">
-            <FontAwesomeIcon icon={faSearch} size="2x" className="icon-color" />
+            <FontAwesomeIcon
+              icon={faSearch}
+              size="2x"
+              className="icon-color is-hidden-mobile"
+            />
+            <FontAwesomeIcon
+              icon={faSearch}
+              size="lg"
+              className="icon-color is-hidden-tablet"
+            />
           </Link>
         </div>
+        <div className="column is-narrow">
+          <a
+            href="http://halfmoonradiochat.chatango.com/"
+            target="_blank"
+            rel="noopener"
+          >
+            <FontAwesomeIcon
+              icon={faComments}
+              size="2x"
+              className="icon-color is-hidden-mobile"
+            />
+            <FontAwesomeIcon
+              icon={faComments}
+              size="lg"
+              className="icon-color is-hidden-tablet"
+            />
+          </a>
+        </div>
+
         <div className="column is-narrow is-hidden-mobile">
           <p className="is-size-6">{laTime.format("HH:mm:ss")} LA</p>
           <p className="is-size-6">{nycTime.format("HH:mm:ss")} NYC</p>

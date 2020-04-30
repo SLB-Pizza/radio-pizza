@@ -77,14 +77,7 @@ function BottomNav() {
           >
             About Us
           </Link>
-          <a
-            className="navbar-item"
-            href="http://halfmoonradiochat.chatango.com/"
-            target="_blank"
-            rel="noopener"
-          >
-            Chat
-          </a>
+
           {/*
           <div className="navbar-item has-dropdown has-dropdown-up is-hoverable">
             <a className="navbar-link">Content</a>

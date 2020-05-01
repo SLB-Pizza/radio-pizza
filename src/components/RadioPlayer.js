@@ -122,42 +122,24 @@ function RadioPlayer(props) {
     <div className="columns is-vcentered is-mobile radio-player">
       <div className="column is-narrow icon-color">
         {!globalState.playing ? (
-          <>
-            <FontAwesomeIcon
-              icon={faPlayCircle}
-              onClick={handlePlayPause}
-              className="is-hidden-mobile"
-              size="2x"
-            />
-            <FontAwesomeIcon
-              icon={faPlayCircle}
-              onClick={handlePlayPause}
-              className="is-hidden-tablet"
-              size="lg"
-            />
-          </>
+          <FontAwesomeIcon
+            icon={faPlayCircle}
+            onClick={handlePlayPause}
+            size="3x"
+          />
         ) : (
-          <>
-            <FontAwesomeIcon
-              icon={faPauseCircle}
-              onClick={handlePlayPause}
-              className="is-hidden-mobile"
-              size="2x"
-            />
-            <FontAwesomeIcon
-              icon={faPauseCircle}
-              onClick={handlePlayPause}
-              className="is-hidden-tablet"
-              size="lg"
-            />
-          </>
+          <FontAwesomeIcon
+            icon={faPauseCircle}
+            onClick={handlePlayPause}
+            size="3x"
+          />
         )}
       </div>
 
       <div className="column" id="radioShowDetails">
         {/* Static tablet and up currentTrackTitle */}
         <div className="is-hidden-mobile" id="radioShowName">
-          <p className="title is-size-5">
+          <p className="title is-size-6">
             {globalState.artist} – {globalState.title}
           </p>
         </div>

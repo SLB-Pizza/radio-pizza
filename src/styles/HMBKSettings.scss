@@ -72,7 +72,6 @@ p.subtitle {
   position: absolute;
   white-space: nowrap;
   width: 1px;
-  transition: 0.5s ease;
   &:focus {
     clip: auto;
     height: auto;
@@ -83,6 +82,7 @@ p.subtitle {
     background-color: darken($color: $primary, $amount: 40);
     border: 0.25rem solid $primary;
     color: white;
+    z-index: 999999;
   }
 }
 
@@ -140,7 +140,7 @@ p.subtitle {
     align-items: center;
     transition: ease-in-out 0.25s;
 
-    span {
+    div {
       color: transparent;
       transition: ease-in-out 0.25s;
     }

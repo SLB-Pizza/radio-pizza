@@ -107,12 +107,17 @@ function RadioBar() {
         <div className="column is-narrow">
           <Link to="/">
             <figure className="image is-64x64 is-hidden-mobile">
-              <img src="../img/halfmoon-3.png" alt="Return to home page" />
+              <img src={`../img/halfmoon-3.png`} alt="Return to home page" />
             </figure>
-            <figure className="image is-32x32 is-hidden-tablet">
-              <img src="../img/halfmoon-3.png" alt="Return to home page" />
+            <figure className="image is-48x48 is-hidden-tablet">
+              <img src={`../img/halfmoon-3.png`} alt="Return to home page" />
             </figure>
           </Link>
+        </div>
+        <div className="column is-narrow is-hidden-mobile">
+          <figure className="image is-64x64">
+            <img src={`${globalState.img}`} alt="Current mix" />
+          </figure>
         </div>
         <div className="column">
           <RadioPlayer
@@ -122,16 +127,12 @@ function RadioBar() {
         </div>
         <div className="column is-narrow">
           <Link to="/search">
-            <FontAwesomeIcon
+            {/* <FontAwesomeIcon
               icon={faSearch}
               size="2x"
               className="icon-color is-hidden-mobile"
-            />
-            <FontAwesomeIcon
-              icon={faSearch}
-              size="lg"
-              className="icon-color is-hidden-tablet"
-            />
+            /> */}
+            <FontAwesomeIcon icon={faSearch} size="lg" className="icon-color" />
           </Link>
         </div>
         <div className="column is-narrow">
@@ -140,15 +141,15 @@ function RadioBar() {
             target="_blank"
             rel="noopener"
           >
-            <FontAwesomeIcon
+            {/* <FontAwesomeIcon
               icon={faComments}
               size="2x"
               className="icon-color is-hidden-mobile"
-            />
+            /> */}
             <FontAwesomeIcon
               icon={faComments}
               size="lg"
-              className="icon-color is-hidden-tablet"
+              className="icon-color"
             />
           </a>
         </div>

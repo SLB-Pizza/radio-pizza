@@ -135,6 +135,11 @@ function RadioPlayer(props) {
           />
         )}
       </div>
+      <div className="column is-narrow is-hidden-mobile">
+        <figure className="image is-64x64">
+          <img src={`${globalState.img}`} alt="Current mix" />
+        </figure>
+      </div>
 
       <div className="column" id="radioShowDetails">
         {/* Static tablet and up currentTrackTitle */}

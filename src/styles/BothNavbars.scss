@@ -338,7 +338,7 @@
     background-color: black;
     &.is-active {
       @include touch {
-        background-color: darken($color: $primary, $amount: 42.5);
+        background-color: black;
       }
     }
   }

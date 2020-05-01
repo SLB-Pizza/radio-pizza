@@ -3,7 +3,6 @@
   margin-bottom: 3rem;
   padding-bottom: 3rem;
   min-height: calc(100vh - 10.5rem);
-  background-color: darken($color: $primary, $amount: 45);
 
   // Set all text to white
   p {
@@ -17,22 +16,35 @@
 
   // Each selector column (tab)
   .is-half {
-    background-color: darken($color: $primary, $amount: 20);
+    // background-color: darken($color: $primary, $amount: 20);
     border-bottom: 0.25rem solid $primary;
     transition: 0.25s ease-in-out;
+
+    &:first-child {
+      border-top-left-radius: 0.75rem;
+    }
+    &:last-child {
+      border-top-right-radius: 0.75rem;
+    }
 
     &:hover {
       background-color: darken($color: $primary, $amount: 30);
     }
     &.is-active {
-      background-color: $primary;
+      border-top: 0.125rem solid $primary;
+      border-left: 0.125rem solid $primary;
+      border-right: 0.125rem solid $primary;
       border-bottom: 0.25rem solid $primary;
     }
   }
 
   // Columns div under selection tabs
   .resident-selection {
-    background-color: darken($color: $primary, $amount: 40);
+    border-left: 0.125rem solid white;
+    border-right: 0.125rem solid white;
+    border-bottom: 0.125rem solid white;
+    border-bottom-right-radius: 0.75rem;
+    border-bottom-left-radius: 0.75rem;
     @include mobile {
       padding: 0.5rem 0.25rem 0;
     }

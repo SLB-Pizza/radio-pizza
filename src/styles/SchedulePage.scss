@@ -1,25 +1,17 @@
 .schedule-page {
-  @include tablet;
   margin-top: 8.25rem;
   height: calc(100vh - 10.5rem);
   border-bottom: 0.25rem solid white;
 
-  background-color: #2a2a2a;
-  background-image: url(https://source.unsplash.com/1920x1080/daily?dj);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-size: cover;
+  // background-image: url(https://source.unsplash.com/1920x1080/daily?dj);
+  // background-position: center center;
+  // background-repeat: no-repeat;
+  // background-attachment: scroll;
+  // background-size: cover;
 
-  // Set all text to white
-  p {
-    color: white;
-
-    // Give 'Schedule' a shadow
-    &.title {
-      text-shadow: 3px 3px 2px black;
-      padding: 0.5rem 0 0.75rem;
-    }
+  p.title {
+    text-shadow: 3px 3px 2px black;
+    padding: 0.5rem 0 0.75rem;
   }
 
   // Rules for the day selector

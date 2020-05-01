@@ -4,7 +4,6 @@
   padding-bottom: 3rem;
   min-height: calc(100vh - 10.5rem);
 
-  background-color: darken($color: $primary, $amount: 45);
   // background-image: url(https://source.unsplash.com/1920x1080/weekly?stars);
   // background-position: center center;
   // background-repeat: no-repeat;
@@ -107,14 +106,4 @@
       }
     }
   }
-  // .tags {
-  //   .tag {
-  //     border: 2px solid #888;
-  //     transition: 0.25s ease;
-
-  //     &:hover {
-  //       border: 2px solid white;
-  //     }
-  //   }
-  // }
 }

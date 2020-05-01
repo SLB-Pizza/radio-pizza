@@ -7,7 +7,7 @@ const initialState = {
   url:
     "https://soundcloud.com/soundcloud-scenes/sets/currents-next-gen-chillwave",
   title: "Next Gen ChillWave",
-  artist: "Half Moon BK",
+  artist: "Currents",
   img: "../img/next-gen-chillwave.jpg",
   playing: false,
   controls: false,

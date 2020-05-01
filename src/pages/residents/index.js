@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { SingleResident } from "../../components";
 
-// Fake Data
-// import dataSet from "../../__tests__/residentsFakeData.json";
+// Dummy data in __tests__ folder
+import dummyArtists from "../../../__tests__/dummyArtists.json";
 
 function ResidentsIndexPage() {
   const [isOpen, setIsOpen] = useState("current");
@@ -46,50 +46,22 @@ function ResidentsIndexPage() {
       </div>
       {isOpen === "current" ? (
         <div className="columns is-mobile is-multiline resident-selection">
-          <SingleResident name={"CurrentRobo"} />
-          <SingleResident name={"CurrentRobo"} />
-          <SingleResident name={"CurrentRobo"} />
-          <SingleResident name={"CurrentRobo"} />
-          <SingleResident name={"CurrentRobo"} />
-          <SingleResident name={"CurrentRobo"} />
-          <SingleResident name={"CurrentRobo"} />
-          <SingleResident name={"CurrentRobo"} />
-          <SingleResident name={"CurrentRobo"} />
-          <SingleResident name={"CurrentRobo"} />
-          <SingleResident name={"CurrentRobo"} />
-          <SingleResident name={"CurrentRobo"} />
-          <SingleResident name={"CurrentRobo"} />
-          <SingleResident name={"CurrentRobo"} />
-          <SingleResident name={"CurrentRobo"} />
-          <SingleResident name={"CurrentRobo"} />
-          <SingleResident name={"CurrentRobo"} />
-          <SingleResident name={"CurrentRobo"} />
-          <SingleResident name={"CurrentRobo"} />
-          <SingleResident name={"CurrentRobo"} />
+          {dummyArtists.map((resident) => (
+            <SingleResident
+              key={resident.name}
+              name={`${resident.name} | current`}
+            />
+          ))}
         </div>
       ) : null}
       {isOpen === "alumni" ? (
         <div className="columns is-mobile is-multiline resident-selection">
-          <SingleResident name={"AlumniRobo"} />
-          <SingleResident name={"AlumniRobo"} />
-          <SingleResident name={"AlumniRobo"} />
-          <SingleResident name={"AlumniRobo"} />
-          <SingleResident name={"AlumniRobo"} />
-          <SingleResident name={"AlumniRobo"} />
-          <SingleResident name={"AlumniRobo"} />
-          <SingleResident name={"AlumniRobo"} />
-          <SingleResident name={"AlumniRobo"} />
-          <SingleResident name={"AlumniRobo"} />
-          <SingleResident name={"AlumniRobo"} />
-          <SingleResident name={"AlumniRobo"} />
-          <SingleResident name={"AlumniRobo"} />
-          <SingleResident name={"AlumniRobo"} />
-          <SingleResident name={"AlumniRobo"} />
-          <SingleResident name={"AlumniRobo"} />
-          <SingleResident name={"AlumniRobo"} />
-          <SingleResident name={"AlumniRobo"} />
-          <SingleResident name={"AlumniRobo"} />
-          <SingleResident name={"AlumniRobo"} />
+          {dummyArtists.map((resident) => (
+            <SingleResident
+              key={resident.name}
+              name={`${resident.name} | alumnus`}
+            />
+          ))}
         </div>
       ) : null}
     </div>

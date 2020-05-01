@@ -136,7 +136,7 @@
   .schedule-bar {
     flex: 1;
     color: white;
-    border-bottom: 0.25rem solid $primary;
+    border-bottom: 0.125rem solid white;
     min-height: 2.5rem;
     transition: ease-in-out 0.5s;
     -moz-transition: ease-in-out 0.5s;
@@ -207,7 +207,7 @@
     width: 90vw;
     max-height: calc(100vh - 7rem);
     background-color: darken($color: $primary, $amount: 40);
-    border: 0.25rem solid darken($color: $primary, $amount: 30);
+    border: 0.125rem solid white;
 
     header {
       padding: 0;
@@ -279,9 +279,11 @@
   .show-entries {
     // background-color: darken($color: $primary, $amount: 40);
     background-color: black;
-    // border-left: 0.25rem solid darken($color: $primary, $amount: 15);
-    // border-right: 0.25rem solid darken($color: $primary, $amount: 15);
-    // border-bottom: 0.25rem solid darken($color: $primary, $amount: 15);
+    border-left: 0.125rem solid white;
+    border-right: 0.125rem solid white;
+    border-bottom: 0.125rem solid white;
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
 
     // // Make list of show entries a scrollable list of dynamic height if window height < 720px
     // @include short-screen {
@@ -301,7 +303,7 @@
       }
 
       &.single-show-entry {
-        border-top: 0.125rem dotted darken($color: $primary, $amount: 15);
+        border-top: 0.125rem solid white;
         transition: 0.25s ease-in-out;
 
         &:first-child {
@@ -320,7 +322,7 @@
 // <BottomNav />
 //==================================
 .navbar {
-  border-top: 0.25rem solid $primary;
+  border-top: 0.125rem solid white;
   background-color: black;
   a,
   span {

@@ -83,7 +83,7 @@ function ScheduleShowEntry(props) {
         <div key={show.showName} className="column is-12 single-show-entry">
           <div className="columns is-mobile is-vcentered">
             <div className="column is-4">
-              <p className="title is-size-4-desktop is-size-5-touch has-text-centered">
+              <p className="title is-size-5 has-text-centered">
                 {show.startTime} – {show.endTime}
               </p>
             </div>

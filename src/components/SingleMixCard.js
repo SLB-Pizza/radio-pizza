@@ -86,10 +86,10 @@ function SingleMixCard(props) {
         </div>
         <div className="card-content">
           <div className="content-text">
-            <p className="content-date subtitle is-size-7-touch is-size-6-desktop">
+            <p className="content-date subtitle is-size-7-touch is-size-7-desktop is-size-6-widescreen">
               {props.date} | {props.artist}
             </p>
-            <p className="title is-size-5-touch is-size-4-desktop">
+            <p className="title is-size-6-touch is-size-6-desktop is-size-5-widescreen">
               {props.name}
             </p>
           </div>

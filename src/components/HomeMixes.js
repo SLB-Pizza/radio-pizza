@@ -7,6 +7,31 @@ import { SingleMixCard } from "./index";
 
 const sampleMixes = [
   {
+    date: "08.11.17",
+    url:
+      "https://soundcloud.com/futuresocietycollective/moe-shop-owarini-tokyo-liveshow",
+    testSrc: "Soundcloud",
+    name: "Owarini Tokyo Liveshow",
+    artist: "Moe Shop",
+    img: "../img/moe-shop.jpeg",
+    tags: ["dance", "electro pop", "mashup", "future pop", "japanese"],
+  },
+  {
+    date: "06.14.19",
+    url: "https://soundcloud.com/thank-you-scientist/sets/terraformer-3",
+    testSrc: "Soundcloud",
+    name: "Terraformer",
+    artist: "Thank You Scientist",
+    img: "../img/terraformer.jpg",
+    tags: [
+      "jazz fusion",
+      "prog rock",
+      "funk band",
+      "experimental",
+      "live instruments",
+    ],
+  },
+  {
     date: "03.02.20",
     url:
       "https://soundcloud.com/soundcloud-circuits/sets/equalizers-female-electronic-producers",
@@ -71,21 +96,7 @@ const sampleMixes = [
     img: "../img/lo-fi.jpeg",
     tags: ["lo-fi", "hip-hop", "ambient", "instrumental", "beats"],
   },
-  {
-    date: "06.14.19",
-    url: "https://soundcloud.com/thank-you-scientist/sets/terraformer-3",
-    testSrc: "Soundcloud",
-    name: "Terraformer",
-    artist: "Thank You Scientist",
-    img: "../img/terraformer.jpg",
-    tags: [
-      "jazz fusion",
-      "prog rock",
-      "funk band",
-      "experimental",
-      "live instruments",
-    ],
-  },
+
   {
     date: "01.02.20",
     url:
@@ -96,15 +107,7 @@ const sampleMixes = [
     img: "../img/liquicity-2019.jpg",
     tags: ["electronic", "dance", "yearmix", "drum & bass"],
   },
-  {
-    date: "08.21.19",
-    url: "https://soundcloud.com/ukf/ukf-podcast-121-technimatic",
-    testSrc: "Soundcloud",
-    name: "UKF Podcast #121 - Technimatic",
-    artist: "UKF",
-    img: "../img/ukf-pod-121.jpg",
-    tags: ["live set", "ukf", "drum & bass", "liquid"],
-  },
+
   {
     date: "04.30.15",
     url: "https://www.youtube.com/watch?v=cRmwFBK0cyk",
@@ -142,7 +145,7 @@ function HomeMixes() {
         <div className="column is-3">
           <div className="sticky-section-blurb">
             <p className="title is-size-3">Recent Mixes</p>
-            <p className="subtitle is-size-5">
+            <p className="subtitle is-size-6">
               These dummy mixes are the same as the ones on the sample bio page.
               You can hover/touch and play them the same way. Try it!
             </p>
@@ -179,7 +182,7 @@ function HomeMixes() {
           <button className="button is-small">More ></button>
         </div>
         <div className="column is-12">
-          <p className="subtitle is-size-5 mobile-headers">
+          <p className="subtitle is-size-6 mobile-headers">
             These dummy mixes are the same as the ones on the sample bio page.
             You can hover/touch and play them the same way. Try it!
           </p>

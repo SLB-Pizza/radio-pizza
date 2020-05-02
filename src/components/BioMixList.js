@@ -13,10 +13,10 @@ function BioMixList(props) {
   return (
     <div className="columns is-mobile is-multiline bio-mixes">
       <div className="column is-12">
-        <p className="title is-size-2-desktop is-size-4-touch has-text-centered">
-          Mixes by RowdyRobo
+        <p className="title is-size-3-desktop is-size-4-touch has-text-centered">
+          Mixes
         </p>
-        <p className="subtitle is-size-4-desktop is-size-6-touch has-text-centered">
+        <p className="subtitle is-size-5-desktop is-size-6-touch">
           These dummy mixes are the same as the ones on the home page. You can
           hover/touch and play them the same way. Try it!
         </p>

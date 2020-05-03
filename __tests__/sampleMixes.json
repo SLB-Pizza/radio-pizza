@@ -1,5 +1,14 @@
 [
   {
+    "date": "05.12.82",
+    "url": "https://soundcloud.com/fairshun/casiopea-mint-jams-1982-full-album",
+    "testSrc": "Soundcloud",
+    "name": "Mint Jams",
+    "artist": "Casiopea",
+    "img": "../img/mint-jams.jpg",
+    "tags": ["jazz fusion", "live album", "1980s", "japanese"]
+  },
+  {
     "date": "08.11.17",
     "url": "https://soundcloud.com/futuresocietycollective/moe-shop-owarini-tokyo-liveshow",
     "testSrc": "Soundcloud",

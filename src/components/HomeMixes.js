@@ -4,6 +4,8 @@ import { SingleMixCard } from "./index";
 import sampleMixes from "../../__tests__/sampleMixes.json";
 
 function HomeMixes() {
+  const twelveMixes = sampleMixes.slice(0, 12);
+
   // See SingleMixCard - playAudioButton() for details about playBtnInfo usage
   const playBtnInfo = [{ btnSize: "7x" }];
   const homeMixesLayout =
@@ -27,7 +29,7 @@ function HomeMixes() {
         </div>
         <div className="column is-9">
           <div className="columns is-multiline">
-            {sampleMixes.map((mix) => (
+            {twelveMixes.map((mix) => (
               <SingleMixCard
                 key={mix.name}
                 date={mix.date}
@@ -62,7 +64,7 @@ function HomeMixes() {
         </div>
       </div>
       <div className="columns is-mobile is-hidden-desktop mobile-single-items">
-        {sampleMixes.map((mix) => (
+        {twelveMixes.map((mix) => (
           <SingleMixCard
             key={mix.name}
             date={mix.date}

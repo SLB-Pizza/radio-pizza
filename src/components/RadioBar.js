@@ -97,11 +97,11 @@ function RadioBar() {
         Jump to navigation bar
       </a>
 
-      {globalState.live ? (
+      {/* {globalState.live ? (
         <PageVisibility onChange={handleVisibilityChange}>
           {pageIsVisible && renderLiveTicker(liveText)}
         </PageVisibility>
-      ) : null}
+      ) : null} */}
 
       <div className="columns is-vcentered is-mobile header-bar">
         <div className="column is-narrow">

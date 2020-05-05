@@ -18,9 +18,10 @@ function BottomNav() {
       id="navigation"
     >
       <div className="navbar-brand">
-        <div className="navbar-item ">
-          <p className="title is-size-6">Ears to the concrete.</p>
-        </div>
+        <Link to="/" className="navbar-item" id="slogan">
+          Ears to the concrete.
+        </Link>
+
         <span
           className={menuOpen ? "navbar-burger is-active" : "navbar-burger"}
           role="button"

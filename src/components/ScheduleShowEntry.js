@@ -72,6 +72,7 @@ function ScheduleShowEntry(props) {
               <p
                 className="is-size-4-widescreen is-size-5-desktop is-size-6-tablet has-text-right"
                 id="view-full-schedule"
+                onClick={() => props.setOpen(!props.open)}
               >
                 View Full Schedule
               </p>

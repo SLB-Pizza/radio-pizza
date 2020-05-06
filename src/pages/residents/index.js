@@ -50,6 +50,7 @@ function ResidentsIndexPage() {
             <SingleResident
               key={resident.name}
               name={`${resident.name} | current`}
+              img={"https://source.unsplash.com/1280x1280/daily?cyberpunk"}
             />
           ))}
         </div>
@@ -60,6 +61,7 @@ function ResidentsIndexPage() {
             <SingleResident
               key={resident.name}
               name={`${resident.name} | alumnus`}
+              img={"https://source.unsplash.com/1280x1280/daily?robot"}
             />
           ))}
         </div>

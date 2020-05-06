@@ -7,15 +7,12 @@ function SingleResident(props) {
       <Link to="/bio">
         <div className="card">
           <div className="card-image">
-            <figure className="image is-2by1">
-              <img
-                src="https://source.unsplash.com/1280x640/weekly?cyberpunk"
-                alt="mix-img"
-              />
+            <figure className="image is-1by1">
+              <img src={props.img} alt="mix-img" />
             </figure>
           </div>
           <div className="card-content">
-            <p className="title is-size-6-mobile is-size-5-tablet is-size-4-fullhd">
+            <p className="title has-text-centered is-size-6-mobile is-size-5-tablet is-size-4-fullhd">
               {props.name}
             </p>
           </div>

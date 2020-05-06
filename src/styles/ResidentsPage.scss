@@ -13,66 +13,49 @@
       }
     }
   }
+}
+// Each selector column (tab)
+.is-half {
+  // background-color: darken($color: $primary, $amount: 20);
+  border-bottom: 0.25rem solid $primary;
+  transition: 0.25s ease-in-out;
 
-  // Each selector column (tab)
-  .is-half {
-    // background-color: darken($color: $primary, $amount: 20);
+  &:first-child {
+    border-top-left-radius: 0.75rem;
+  }
+  &:last-child {
+    border-top-right-radius: 0.75rem;
+  }
+
+  &:hover {
+    background-color: darken($color: $primary, $amount: 30);
+  }
+  &.is-active {
+    border-top: 0.125rem solid $primary;
+    border-left: 0.125rem solid $primary;
+    border-right: 0.125rem solid $primary;
     border-bottom: 0.25rem solid $primary;
-    transition: 0.25s ease-in-out;
-
-    &:first-child {
-      border-top-left-radius: 0.75rem;
-    }
-    &:last-child {
-      border-top-right-radius: 0.75rem;
-    }
-
-    &:hover {
-      background-color: darken($color: $primary, $amount: 30);
-    }
-    &.is-active {
-      border-top: 0.125rem solid $primary;
-      border-left: 0.125rem solid $primary;
-      border-right: 0.125rem solid $primary;
-      border-bottom: 0.25rem solid $primary;
-    }
   }
+}
 
-  // Columns div under selection tabs
-  .resident-selection {
-    border-left: 0.125rem solid white;
-    border-right: 0.125rem solid white;
-    border-bottom: 0.125rem solid white;
-    border-bottom-right-radius: 0.75rem;
-    border-bottom-left-radius: 0.75rem;
-    @include mobile {
-      padding: 0.5rem 0.25rem 0;
-    }
+// Columns div under selection tabs
+.resident-selection {
+  border-left: 0.125rem solid white;
+  border-right: 0.125rem solid white;
+  border-bottom: 0.125rem solid white;
+  border-bottom-right-radius: 0.75rem;
+  border-bottom-left-radius: 0.75rem;
+  @include mobile {
+    padding: 0.5rem 0.25rem 0;
   }
+}
 
-  // Single column space for resident
-  .resident-box {
-    padding: 2rem;
+// Single column space for resident
+.resident-box {
+  padding: 2rem;
+  .card-content {
+    min-height: 5rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
   }
-
-  // Code below replaced by standard card styling > TO REMOVE
-  //
-  // // Columns div inside resident-box
-  // .single-resident {
-  //   border: 0.25rem solid darken($color: $primary, $amount: 20);
-  //   background-color: black;
-  //   transition: 0.25s ease-in-out;
-
-  //   .resident-image {
-  //     padding: 0;
-  //   }
-
-  //   &:hover {
-  //     border: 0.25rem solid $primary;
-  //     background-color: darken($color: $primary, $amount: 30);
-  //     box-shadow: 10px 8px 5px black;
-
-  //     // background-color: rgba($color: #000000, $alpha: 0.75);
-  //   }
-  // }
 }

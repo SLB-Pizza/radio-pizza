@@ -12,7 +12,7 @@ function HomeMixes() {
     "column is-9-mobile is-two-fifths-tablet is-4-desktop";
 
   return (
-    <div className="container is-fluid image-diffuser" id="home-mixes">
+    <div className="container is-fluid" id="home-mixes">
       {/*
       Desktop Sizes
       */}

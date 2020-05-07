@@ -3,7 +3,7 @@ import { HomeSingleEvent } from "./index";
 
 function HomeEvents() {
   return (
-    <div className="container is-fluid image-diffuser" id="home-events">
+    <div className="container is-fluid" id="home-events">
       {/*
       Desktop Sizes
       */}

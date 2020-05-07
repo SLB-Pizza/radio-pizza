@@ -88,25 +88,12 @@ function RadioPlayer(props) {
     setLocalState({ duration: duration });
   };
 
-  const renderCurrentResident = (resident) => {
-    return (
-      <Ticker mode="await" offset="run-in" speed={3}>
-        {() => (
-          <>
-            <div id="live-light" />
-            <p className="is-size-7">{resident}</p>
-          </>
-        )}
-      </Ticker>
-    );
-  };
-
   const renderNowPlaying = (resident, title) => {
     return (
       <Ticker mode="await" offset="run-in" speed={3}>
         {() => (
           <div className="is-hidden-tablet" id="radioShowName">
-            <p className="title is-size-4-desktop is-size-5-touch">
+            <p className="title is-size-6-mobile">
               {resident} – {title}
             </p>
           </div>
@@ -120,17 +107,43 @@ function RadioPlayer(props) {
 
   return (
     <div className="columns is-vcentered is-mobile radio-player">
-      {/* <div className="column is-narrow">
+      <div className="column is-narrow">
         {!globalState.playing ? (
-          <FontAwesomeIcon icon={faPlay} className="icon-color" onClick={handlePlayPause} size="3x" />
+          <>
+            <FontAwesomeIcon
+              icon={faPlay}
+              className="icon-color is-hidden-mobile"
+              onClick={handlePlayPause}
+              size="2x"
+            />
+            <FontAwesomeIcon
+              icon={faPlay}
+              className="icon-color is-hidden-tablet"
+              onClick={handlePlayPause}
+              size="lg"
+            />
+          </>
         ) : (
-          <FontAwesomeIcon icon={faPause} className="icon-color" onClick={handlePlayPause} size="3x" />
+          <>
+            <FontAwesomeIcon
+              icon={faPause}
+              className="icon-color is-hidden-mobile"
+              onClick={handlePlayPause}
+              size="2x"
+            />
+            <FontAwesomeIcon
+              icon={faPause}
+              className="icon-color is-hidden-tablet"
+              onClick={handlePlayPause}
+              size="lg"
+            />
+          </>
         )}
-      </div> */}
+      </div>
       <div className="column is-narrow now-playing">
         <figure className="image is-64x64 is-hidden-mobile">
           <img src={`${globalState.img}`} alt="Current mix" />
-          <div className="play-btn-diffuser is-overlay">
+          {/* <div className="play-btn-diffuser is-overlay">
             {!globalState.playing ? (
               <FontAwesomeIcon
                 icon={faPlay}
@@ -146,11 +159,11 @@ function RadioPlayer(props) {
                 size="2x"
               />
             )}
-          </div>
+          </div> */}
         </figure>
-        <figure className="image is-48x48 is-hidden-tablet">
+        <figure className="image is-32x32 is-hidden-tablet">
           <img src={`${globalState.img}`} alt="Current mix" />
-          <div className="play-btn-diffuser is-overlay">
+          {/* <div className="radio-img-diffuser is-overlay">
             {!globalState.playing ? (
               <FontAwesomeIcon
                 icon={faPlay}
@@ -166,14 +179,14 @@ function RadioPlayer(props) {
                 size="lg"
               />
             )}
-          </div>
+          </div> */}
         </figure>
       </div>
 
       <div className="column" id="radioShowDetails">
         {/* Static tablet and up currentTrackTitle */}
         <div className="is-hidden-mobile" id="radioShowName">
-          <p className="title is-size-6">
+          <p className="title is-size-6-tablet">
             {globalState.artist} – {globalState.title}
           </p>
         </div>

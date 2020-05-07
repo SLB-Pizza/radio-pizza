@@ -16,7 +16,7 @@ function HomeNews() {
               En su cumpleaños, la decisión que tomó Nacional con sus empleados.
             </p>
 
-            <button className="sticky-link button">More ></button>
+            <button className="button">More ></button>
           </div>
         </div>
         <div className="column is-9">

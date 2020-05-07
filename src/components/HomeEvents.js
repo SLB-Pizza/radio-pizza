@@ -14,7 +14,7 @@ function HomeEvents() {
             <p className="subtitle is-size-5">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
-            <button className="sticky-link button">More ></button>
+            <button className="button">More ></button>
           </div>
         </div>
         <div className="column is-9">

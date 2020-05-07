@@ -24,7 +24,7 @@ function HomeMixes() {
               These dummy mixes are the same as the ones on the sample bio page.
               You can hover/touch and play them the same way. Try it!
             </p>
-            <button className="sticky-link button">More ></button>
+            <button className="button is-outlined is-rounded">More ></button>
           </div>
         </div>
         <div className="column is-9">

@@ -4,7 +4,6 @@
 @import "./bulma.sass";
 
 $pink: #f600ff;
-
 $primary: $pink;
 // $primary-invert: black;
 
@@ -138,8 +137,6 @@ p.subtitle {
       @include fullhd {
         min-height: 5.5rem;
       }
-
-      // background-color: purple;
     }
 
     p.title + p {
@@ -162,11 +159,6 @@ p.subtitle {
   &:hover {
     border: 2px solid $primary;
     box-shadow: 10px 8px 5px black;
-
-    // img {
-    //   border-top-left-radius: 0.75rem;
-    //   border-top-right-radius: 0.75rem;
-    // }
 
     .play-btn-diffuser {
       border-top-left-radius: 0.75rem;
@@ -195,19 +187,32 @@ p.subtitle {
       }
     }
   }
+}
 
-  .play-btn-diffuser {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.play-btn-diffuser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: ease-in-out 0.25s;
+
+  span {
+    color: transparent;
     transition: ease-in-out 0.25s;
-
-    span {
-      color: transparent;
-      transition: ease-in-out 0.25s;
-    }
   }
 }
+
+// @keyframes cover-img-radio {
+//   0% {
+//     background-color: rgba($color: black, $alpha: 0.5);
+//   }
+
+//   79% {
+//     background-color: rgba($color: black, $alpha: 0.75);
+//   }
+//   80% {
+//     background-color: transparent;
+//   }
+// }
 
 .tags {
   padding-bottom: 0;

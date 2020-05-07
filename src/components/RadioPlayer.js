@@ -9,7 +9,7 @@ import {
   GlobalStateContext,
 } from "../context/GlobalContextProvider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlayCircle, faPauseCircle } from "@fortawesome/free-solid-svg-icons";
+import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
 
 function RadioPlayer(props) {
   const dispatch = useContext(GlobalDispatchContext);
@@ -120,24 +120,53 @@ function RadioPlayer(props) {
 
   return (
     <div className="columns is-vcentered is-mobile radio-player">
-      <div className="column is-narrow icon-color">
+      {/* <div className="column is-narrow">
         {!globalState.playing ? (
-          <FontAwesomeIcon
-            icon={faPlayCircle}
-            onClick={handlePlayPause}
-            size="3x"
-          />
+          <FontAwesomeIcon icon={faPlay} className="icon-color" onClick={handlePlayPause} size="3x" />
         ) : (
-          <FontAwesomeIcon
-            icon={faPauseCircle}
-            onClick={handlePlayPause}
-            size="3x"
-          />
+          <FontAwesomeIcon icon={faPause} className="icon-color" onClick={handlePlayPause} size="3x" />
         )}
-      </div>
-      <div className="column is-narrow is-hidden-mobile">
-        <figure className="image is-64x64">
+      </div> */}
+      <div className="column is-narrow now-playing">
+        <figure className="image is-64x64 is-hidden-mobile">
           <img src={`${globalState.img}`} alt="Current mix" />
+          <div className="play-btn-diffuser is-overlay">
+            {!globalState.playing ? (
+              <FontAwesomeIcon
+                icon={faPlay}
+                onClick={handlePlayPause}
+                className="radio-play-btn"
+                size="2x"
+              />
+            ) : (
+              <FontAwesomeIcon
+                icon={faPause}
+                onClick={handlePlayPause}
+                className="radio-play-btn"
+                size="2x"
+              />
+            )}
+          </div>
+        </figure>
+        <figure className="image is-48x48 is-hidden-tablet">
+          <img src={`${globalState.img}`} alt="Current mix" />
+          <div className="play-btn-diffuser is-overlay">
+            {!globalState.playing ? (
+              <FontAwesomeIcon
+                icon={faPlay}
+                onClick={handlePlayPause}
+                className="icon-color"
+                size="lg"
+              />
+            ) : (
+              <FontAwesomeIcon
+                icon={faPause}
+                onClick={handlePlayPause}
+                className="icon-color"
+                size="lg"
+              />
+            )}
+          </div>
         </figure>
       </div>
 

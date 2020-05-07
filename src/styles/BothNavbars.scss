@@ -95,6 +95,30 @@
     }
   }
 
+  .now-playing figure {
+    border-radius: 0.75rem;
+    border: 0.125rem solid transparent;
+    img {
+      border-radius: 0.75rem;
+    }
+    .radio-play-btn {
+      color: transparent;
+    }
+    transition: 0.25s ease;
+
+    &:hover,
+    &:active {
+      border: 0.125rem solid white;
+      border-radius: 0.75rem;
+      img {
+        border-radius: 0.75rem;
+      }
+      .radio-play-btn {
+        color: white;
+      }
+    }
+  }
+
   .icon-color {
     color: white;
     transition: 0.25s ease-in-out;

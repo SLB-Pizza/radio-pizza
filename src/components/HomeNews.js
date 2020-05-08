@@ -16,7 +16,11 @@ function HomeNews() {
               En su cumpleaños, la decisión que tomó Nacional con sus empleados.
             </p>
 
-            <button className="button">More ></button>
+            <Link to="#">
+              <button className="button is-outlined is-rounded is-dark is-inverted">
+                All Mixes
+              </button>
+            </Link>
           </div>
         </div>
         <div className="column is-9">
@@ -34,7 +38,11 @@ function HomeNews() {
           <p className="title is-size-3 mobile-headers">Features</p>
         </div>
         <div className="column is-narrow more-link">
-          <button className="button is-small">More ></button>
+          <Link to="#">
+            <button className="button is-outlined is-rounded is-dark is-inverted">
+              All Mixes
+            </button>
+          </Link>
         </div>
         <div className="column is-12">
           <p className="subtitle is-size-5 mobile-headers">

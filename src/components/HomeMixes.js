@@ -1,6 +1,7 @@
 import React from "react";
-import { SingleMixCard } from "./index";
+import { Link } from "gatsby";
 
+import { SingleMixCard } from "./index";
 import sampleMixes from "../../__tests__/sampleMixes.json";
 
 function HomeMixes() {
@@ -24,7 +25,11 @@ function HomeMixes() {
               These dummy mixes are the same as the ones on the sample bio page.
               You can hover/touch and play them the same way. Try it!
             </p>
-            <button className="button is-outlined is-rounded">More ></button>
+            <Link to="/mixes">
+              <button className="button is-outlined is-rounded is-dark is-inverted">
+                All Mixes
+              </button>
+            </Link>
           </div>
         </div>
         <div className="column is-9">
@@ -54,7 +59,11 @@ function HomeMixes() {
           <p className="title is-size-3 mobile-headers">Daily Mixes</p>
         </div>
         <div className="column is-narrow more-link">
-          <button className="button is-small">More ></button>
+          <Link to="/mixes">
+            <button className="button is-outlined is-rounded is-dark is-inverted">
+              All Mixes
+            </button>
+          </Link>
         </div>
         <div className="column is-12">
           <p className="subtitle is-size-6 mobile-headers">

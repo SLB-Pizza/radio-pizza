@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "gatsby";
+
 import { HomeSingleEvent } from "./index";
 
 function HomeEvents() {
@@ -14,7 +16,11 @@ function HomeEvents() {
             <p className="subtitle is-size-5">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
-            <button className="button">More ></button>
+            <Link to="#">
+              <button className="button is-outlined is-rounded is-dark is-inverted">
+                All Events
+              </button>
+            </Link>
           </div>
         </div>
         <div className="column is-9">
@@ -33,7 +39,11 @@ function HomeEvents() {
           <p className="title is-size-3 mobile-headers">Live Events</p>
         </div>
         <div className="column is-narrow more-link">
-          <button className="button is-small">More ></button>
+          <Link to="#">
+            <button className="button is-outlined is-rounded is-dark is-inverted">
+              All Events
+            </button>
+          </Link>
         </div>
         <div className="column is-12">
           <p className="subtitle is-size-5 mobile-headers">

@@ -16,7 +16,7 @@ function HomeEvents() {
             <p className="subtitle is-size-5">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
-            <Link to="#">
+            <Link to="/">
               <button className="button is-outlined is-rounded is-dark is-inverted">
                 All Events
               </button>
@@ -39,7 +39,7 @@ function HomeEvents() {
           <p className="title is-size-3 mobile-headers">Live Events</p>
         </div>
         <div className="column is-narrow more-link">
-          <Link to="#">
+          <Link to="/">
             <button className="button is-outlined is-rounded is-dark is-inverted">
               All Events
             </button>

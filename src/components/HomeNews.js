@@ -16,7 +16,7 @@ function HomeNews() {
               En su cumpleaños, la decisión que tomó Nacional con sus empleados.
             </p>
 
-            <Link to="#">
+            <Link to="/">
               <button className="button is-outlined is-rounded is-dark is-inverted">
                 All Mixes
               </button>
@@ -38,7 +38,7 @@ function HomeNews() {
           <p className="title is-size-3 mobile-headers">Features</p>
         </div>
         <div className="column is-narrow more-link">
-          <Link to="#">
+          <Link to="/">
             <button className="button is-outlined is-rounded is-dark is-inverted">
               All Mixes
             </button>

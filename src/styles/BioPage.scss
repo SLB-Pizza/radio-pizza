@@ -42,7 +42,7 @@
 }
 
 .sticky-bio {
-  @include desktop {
+  @include tablet {
     position: -webkit-sticky;
     position: sticky;
     top: 8.5rem;
@@ -56,7 +56,7 @@
   flex-direction: row;
 
   justify-content: space-between;
-  padding: 0;
+  // padding: 0;
 
   span {
     color: white;

@@ -1,5 +1,14 @@
 [
   {
+    "date": "01.20.20",
+    "url": "https://soundcloud.com/monstercat/sets/infected-mushroom-more-than",
+    "testSrc": "Soundcloud",
+    "name": "More than Just a Name",
+    "artist": "Infected Mushroom",
+    "img": "../img/more-than-just-a-name.jpg",
+    "tags": ["electronic", "rock", "synths", "psytrance"]
+  },
+  {
     "date": "05.12.82",
     "url": "https://soundcloud.com/fairshun/casiopea-mint-jams-1982-full-album",
     "testSrc": "Soundcloud",
@@ -24,13 +33,7 @@
     "name": "Terraformer",
     "artist": "Thank You Scientist",
     "img": "../img/terraformer.jpg",
-    "tags": [
-      "jazz fusion",
-      "prog rock",
-      "funk band",
-      "experimental",
-      "live instruments"
-    ]
+    "tags": ["jazz fusion", "prog rock", "funk band", "experimental"]
   },
   {
     "date": "03.02.20",

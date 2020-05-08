@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  BioImageBlurb,
-  BioMixList,
-  HMBKDivider,
-  SingleMixCard,
-} from "../../components/";
+import { HMBKDivider, SingleMixCard } from "../../components/";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -20,12 +15,12 @@ import sampleMixes from "../../../__tests__/sampleMixes.json";
 
 function StickyBioIndexPage() {
   const playBtnInfo = [{ btnSize: "7x" }];
-  const mixListLayout = "column is-12-mobile is-6-tablet is-4-desktop";
+  const stickyBioLayout = "column is-12-mobile is-6-tablet is-4-desktop";
 
   return (
     <div className="container is-fluid resident-bio">
       <div className="columns is-multiline">
-        <div className="column is-3-desktop">
+        <div className="column is-3-desktop is-4-tablet is-12-mobile">
           <div className="columns is-multiline sticky-bio">
             <div className="column is-12">
               <figure className="image is-1by1">
@@ -48,35 +43,82 @@ function StickyBioIndexPage() {
               <div className="sticky-social-links">
                 <a href="https://twitter.com">
                   <span className="icon is-large">
-                    <FontAwesomeIcon icon={faTwitter} size="2x" />
+                    <FontAwesomeIcon
+                      icon={faTwitter}
+                      size="2x"
+                      className="is-hidden-touch"
+                    />
+                    <FontAwesomeIcon
+                      icon={faTwitter}
+                      size="lg"
+                      className="is-hidden-desktop"
+                    />
                   </span>
                 </a>
                 <a href="https://instagram.com">
                   <span className="icon is-large">
-                    <FontAwesomeIcon icon={faInstagram} size="2x" />
+                    <FontAwesomeIcon
+                      icon={faInstagram}
+                      size="2x"
+                      className="is-hidden-touch"
+                    />
+                    <FontAwesomeIcon
+                      icon={faInstagram}
+                      size="lg"
+                      className="is-hidden-desktop"
+                    />
                   </span>
                 </a>
                 <a href="https://soundcloud.com">
                   <span className="icon is-large">
-                    <FontAwesomeIcon icon={faSoundcloud} size="2x" />
+                    <FontAwesomeIcon
+                      icon={faSoundcloud}
+                      size="2x"
+                      className="is-hidden-touch"
+                    />
+                    <FontAwesomeIcon
+                      icon={faSoundcloud}
+                      size="lg"
+                      className="is-hidden-desktop"
+                    />
                   </span>
                 </a>
                 <a href="https://bandcamp.com">
                   <span className="icon is-large">
-                    <FontAwesomeIcon icon={faBandcamp} size="2x" />
+                    <FontAwesomeIcon
+                      icon={faBandcamp}
+                      size="2x"
+                      className="is-hidden-touch"
+                    />
+                    <FontAwesomeIcon
+                      icon={faBandcamp}
+                      size="lg"
+                      className="is-hidden-desktop"
+                    />
                   </span>
                 </a>
                 <a href="https://mixcloud.com">
                   <span className="icon is-large">
-                    <FontAwesomeIcon icon={faMixcloud} size="2x" />
+                    <FontAwesomeIcon
+                      icon={faMixcloud}
+                      size="2x"
+                      className="is-hidden-touch"
+                    />
+                    <FontAwesomeIcon
+                      icon={faMixcloud}
+                      size="lg"
+                      className="is-hidden-desktop"
+                    />
                   </span>
                 </a>
               </div>
             </div>
           </div>
         </div>
+        <hr className="is-hidden-tablet" />
+
         <div className="column is-9-desktop">
-          <div className="columns is-multiline is-vcentered">
+          <div className="columns is-multiline">
             {sampleMixes.map((mix) => (
               <SingleMixCard
                 key={mix.name}
@@ -88,28 +130,13 @@ function StickyBioIndexPage() {
                 img={mix.img}
                 tags={mix.tags}
                 playBtnInfo={playBtnInfo}
-                columnLayout={mixListLayout}
+                columnLayout={stickyBioLayout}
               />
             ))}
-            <div className="column">
-              <hr />
-            </div>
-            <div className="column is-narrow">
-              <figure className="image is-64x64">
-                <img src={`../../img/halfmoon-3.png`} alt="HalfmoonBK logo" />
-              </figure>
-            </div>
-
-            <div className="column">
-              <hr />
-            </div>
           </div>
+          <HMBKDivider />
         </div>
       </div>
-      {/* <BioImageBlurb />
-      <hr />
-            <HMBKDivider />
-      */}
     </div>
   );
 }

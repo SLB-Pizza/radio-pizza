@@ -64,6 +64,13 @@ function BottomNav() {
             Bio
           </Link>
           <Link
+            to="/sticky-bio"
+            className="navbar-item"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            Sticky Bio
+          </Link>
+          <Link
             to="/mixes"
             className="navbar-item"
             onClick={() => setMenuOpen(!menuOpen)}

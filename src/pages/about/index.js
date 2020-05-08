@@ -16,14 +16,19 @@ function AboutIndexPage() {
                 world through radio, events, and more.
               </p>
               <hr />
-              <p className="subtitle is-size-4">Team</p>
+              <p className="title is-size-5">Team</p>
               <p>Surf Allah – Owner & Founder</p>
               <p style={{ marginBottom: "2.5rem" }}>
                 Edrick Chu – Head of Marketing & Partnerships
               </p>
-              <p className="subtitle is-size-6">Contact</p>
+              <p className="title is-size-5">Contact</p>
               <p>Business: business@halfmoonbk.com</p>
-              <p>Info: info@halfmoonbk.com</p>
+              <p style={{ marginBottom: "2.5rem" }}>
+                Info: info@halfmoonbk.com
+              </p>
+              <p className="title is-size-5">Site</p>
+              <p>Designed by Christian Mejia</p>
+              <p>Programmed by Christian Mejia & Richard Dominguez</p>
             </div>
           </div>
         </div>

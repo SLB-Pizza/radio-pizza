@@ -108,32 +108,3 @@ function SingleMixCard(props) {
 }
 
 export default SingleMixCard;
-
-// <FontAwesomeIcon
-//           icon={faPlayCircle}
-//           size="7x"
-//           className="is-hidden-touch"
-//           onClick={() =>
-//             dispatch({
-//               type: "CHANGE_URL",
-//               payload: {
-//                 url: url,
-//                 title: title,
-//               },
-//             })
-//           }
-//         />
-//         <FontAwesomeIcon
-//           icon={faPlayCircle}
-//           size="3x"
-//           className="is-hidden-desktop"
-//           onClick={() =>
-//             dispatch({
-//               type: "CHANGE_URL",
-//               payload: {
-//                 url: url,
-//                 title: title,
-//               },
-//             })
-//           }
-//         />

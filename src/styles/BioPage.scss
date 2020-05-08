@@ -11,8 +11,7 @@
   // background-size: cover;
 
   p.title {
-    text-shadow: 3px 3px 2px black;
-    padding: 0.5rem 0 0.75rem;
+    padding: 1rem 0 0.5rem;
   }
 
   .resident-social-links {
@@ -39,6 +38,32 @@
       margin-bottom: 1rem;
     }
     padding-bottom: 2rem;
+  }
+}
+
+.sticky-bio {
+  @include desktop {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 8.5rem;
+    // border-right: 0.125rem solid white;
+  }
+}
+
+.sticky-social-links {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+  padding: 0;
+
+  span {
+    color: white;
+    transition: 0.25s $easing;
+    &:hover {
+      color: $primary;
+    }
   }
 }
 

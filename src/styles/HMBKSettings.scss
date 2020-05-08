@@ -104,7 +104,7 @@ p.subtitle {
   border: 2px solid white;
   border-radius: 0.75rem;
   margin: 0 0.125rem;
-  transition: 0.25s ease;
+  transition: 0.125s ease;
 
   img {
     border-top-left-radius: 0.75rem;
@@ -125,7 +125,7 @@ p.subtitle {
     padding: 0.75rem;
     border-bottom-left-radius: 0.75rem;
     border-bottom-right-radius: 0.75rem;
-    transition: 0.25s ease;
+    transition: 0.125s ease;
 
     .content-text {
       @include mobile {
@@ -167,14 +167,14 @@ p.subtitle {
     box-shadow: 10px 8px 5px black;
 
     .play-btn-diffuser {
-      border-top-left-radius: 0.75rem;
-      border-top-right-radius: 0.75rem;
+      border-top-left-radius: 0.6rem;
+      border-top-right-radius: 0.6rem;
     }
 
     .card-content {
       background-color: darken($color: $primary, $amount: 35);
-      border-bottom-left-radius: 0.75rem;
-      border-bottom-right-radius: 0.75rem;
+      border-bottom-left-radius: 0.6rem;
+      border-bottom-right-radius: 0.6rem;
     }
 
     .play-btn-diffuser {

@@ -321,14 +321,19 @@
 
   .column {
     &.today-date {
+      border-bottom: 0.125rem solid white;
+
       p {
         padding: 0.5rem 0;
       }
     }
 
     &.single-show-entry {
-      border-top: 0.125rem solid white;
       transition: 0.25s ease-in-out;
+
+      &.column:first-of-type {
+        border-bottom: 0.125rem solid white;
+      }
 
       &:first-child {
         margin-top: 5rem;

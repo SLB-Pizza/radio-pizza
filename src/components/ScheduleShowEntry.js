@@ -63,14 +63,14 @@ function ScheduleShowEntry(props) {
       {props.fromNavbar && (
         <>
           <div className="column is-4 today-date">
-            <p className="title is-size-3-widescreen is-size-4-desktop is-size-5-touch has-text-centered">
+            <p className="title is-size-4-widescreen is-size-5-desktop is-size-6-touch has-text-centered">
               {todayDate.format("dddd, MMMM D")}
             </p>
           </div>
           <div className="column is-8 today-date">
             <Link to="/schedule">
               <p
-                className="is-size-4-widescreen is-size-5-desktop is-size-6-tablet has-text-right"
+                className="is-size-5-desktop is-size-6-tablet has-text-right"
                 id="view-full-schedule"
                 onClick={() => props.setOpen(!props.open)}
               >
@@ -84,22 +84,22 @@ function ScheduleShowEntry(props) {
         <div key={show.showName} className="column is-12 single-show-entry">
           <div className="columns is-mobile is-vcentered">
             <div className="column is-4">
-              <p className="title is-size-5 has-text-centered">
+              <p className="title is-size-6 has-text-centered">
                 {show.startTime} – {show.endTime}
               </p>
             </div>
             {show.hasOwnProperty("showName") ? (
               <div className="column is-8">
-                <p className="is-size-4-widescreen is-size-5-desktop is-size-6-touch">
+                <p className="is-size-5-desktop is-size-6-touch">
                   {show.showName}
                 </p>
-                <p className="is-size-5-widescreen is-size-6-desktop is-size-7-touch">
+                <p className="is-size-6-desktop is-size-7-touch">
                   {show.hostInfo.join(", ")}
                 </p>
               </div>
             ) : (
               <div className="column is-8">
-                <p className="is-size-4-widescreen is-size-5-desktop is-size-6-touch">
+                <p className="is-size-5-desktop is-size-6-touch">
                   {show.hostInfo.join(", ")}
                 </p>
               </div>

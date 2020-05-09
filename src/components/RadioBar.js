@@ -123,11 +123,6 @@ function RadioBar() {
         </div>
         <div className="column is-narrow">
           <Link to="/search">
-            {/* <FontAwesomeIcon
-              icon={faSearch}
-              size="2x"
-              className="icon-color is-hidden-mobile"
-            /> */}
             <FontAwesomeIcon icon={faSearch} size="lg" className="icon-color" />
           </Link>
         </div>
@@ -137,11 +132,6 @@ function RadioBar() {
             target="_blank"
             rel="noopener"
           >
-            {/* <FontAwesomeIcon
-              icon={faComments}
-              size="2x"
-              className="icon-color is-hidden-mobile"
-            /> */}
             <FontAwesomeIcon
               icon={faComments}
               size="lg"

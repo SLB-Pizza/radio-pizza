@@ -161,9 +161,9 @@ function RadioPlayer(props) {
             )}
           </div> */}
         </figure>
-        <figure className="image is-32x32 is-hidden-tablet">
+        {/* <figure className="image is-32x32 is-hidden-tablet">
           <img src={`${globalState.img}`} alt="Current mix" />
-          {/* <div className="radio-img-diffuser is-overlay">
+        <div className="radio-img-diffuser is-overlay">
             {!globalState.playing ? (
               <FontAwesomeIcon
                 icon={faPlay}
@@ -179,8 +179,8 @@ function RadioPlayer(props) {
                 size="lg"
               />
             )}
-          </div> */}
-        </figure>
+          </div>
+        </figure> */}
       </div>
 
       <div className="column" id="radioShowDetails">

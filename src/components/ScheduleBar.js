@@ -29,7 +29,7 @@ function ScheduleBar() {
         {() => (
           <p className="subtitle is-size-7-mobile">
             {/* {date} – {showName} */}
-            Audiowide Title - Oxygen Body
+            Aldrich Title - Oxygen Body
           </p>
         )}
       </Ticker>
@@ -54,7 +54,7 @@ function ScheduleBar() {
           </p>
         </div>
         <div className="column upcoming is-hidden-mobile">
-          <p className="is-size-6-tablet">Audiowide Title - Oxygen Body</p>
+          <p className="is-size-6-tablet">Audiowide Tldrichxygen Body</p>
         </div>
         <div className="column upcoming is-hidden-tablet">
           <PageVisibility onChange={handleVisibilityChange}>
@@ -90,7 +90,7 @@ function ScheduleBar() {
         </div>
         <div className="column upcoming is-hidden-mobile">
           <p className="is-size-6-tablet is-size-7-mobile">
-            Audiowide Title - Oxygen Body
+            Aldrich Title - Oxygen Body
           </p>
         </div>
         <div className="column upcoming is-hidden-tablet">

@@ -140,8 +140,8 @@ function RadioPlayer(props) {
           </>
         )}
       </div>
-      <div className="column is-narrow now-playing">
-        <figure className="image is-64x64 is-hidden-mobile">
+      <div className="column is-narrow now-playing is-hidden-mobile">
+        <figure className="image is-64x64">
           <img src={`${globalState.img}`} alt="Current mix" />
           {/* <div className="play-btn-diffuser is-overlay">
             {!globalState.playing ? (

@@ -61,24 +61,20 @@ function ScheduleShowEntry(props) {
       - Doesn't show on /schedule
       */}
       {props.fromNavbar && (
-        <>
-          <div className="column is-4 today-date">
-            <p className="title is-size-4-widescreen is-size-5-desktop is-size-6-touch has-text-centered">
-              {todayDate.format("dddd, MMMM D")}
-            </p>
-          </div>
-          <div className="column is-8 today-date">
-            <Link to="/schedule">
-              <p
-                className="is-size-5-desktop is-size-6-tablet has-text-right"
-                id="view-full-schedule"
-                onClick={() => props.setOpen(!props.open)}
-              >
-                View Full Schedule
-              </p>
-            </Link>
-          </div>
-        </>
+        <div className="column is-12 today-date">
+          <p className="display-text is-size-6">
+            Schedule for {todayDate.format("dddd, MMMM D")}
+          </p>
+
+          <Link to="/schedule">
+            <button
+              className="button is-small is-outlined is-rounded is-dark is-inverted display-text"
+              onClick={() => props.setOpen(!props.open)}
+            >
+              View Full Schedule
+            </button>
+          </Link>
+        </div>
       )}
       {fakeShowEntryData.map((show) => (
         <div key={show.showName} className="column is-12 single-show-entry">
@@ -90,16 +86,14 @@ function ScheduleShowEntry(props) {
             </div>
             {show.hasOwnProperty("showName") ? (
               <div className="column is-8">
-                <p className="is-size-5-desktop is-size-6-touch">
-                  {show.showName}
-                </p>
-                <p className="is-size-6-desktop is-size-7-touch">
+                <p className="display-text is-size-6">{show.showName}</p>
+                <p className="display-text is-size-7">
                   {show.hostInfo.join(", ")}
                 </p>
               </div>
             ) : (
               <div className="column is-8">
-                <p className="is-size-5-desktop is-size-6-touch">
+                <p className="display-text is-size-6">
                   {show.hostInfo.join(", ")}
                 </p>
               </div>

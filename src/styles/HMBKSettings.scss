@@ -41,7 +41,8 @@ a {
 }
 
 .title,
-.display-text {
+.display-text,
+.navbar-item {
   font-family: "Aldrich", sans-serif;
   // font-family: "Audiowide", sans-serif;
   font-display: swap;
@@ -69,6 +70,10 @@ p.subtitle {
   &:hover {
     border: 2px solid $primary;
   }
+}
+
+button {
+  transition: 0.125s ease-in-out;
 }
 
 //================================================

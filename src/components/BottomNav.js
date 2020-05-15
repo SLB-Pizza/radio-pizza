@@ -41,14 +41,6 @@ function BottomNav() {
       >
         <div className="navbar-start">
           <Link
-            to="/schedule"
-            className="navbar-item"
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            Schedule
-          </Link>
-
-          <Link
             to="/residents"
             className="navbar-item"
             onClick={() => setMenuOpen(!menuOpen)}

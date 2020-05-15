@@ -20,56 +20,12 @@
   padding-top: 0.5rem;
   min-height: 5rem;
   margin-bottom: 0;
-  padding: 0 12px;
+  background-color: khaki;
 
   // @include touch {
   //   padding-left: 12px;
   //   padding-right: 12px;
   // }
-
-  &.is-live {
-    display: flex;
-    flex-direction: column;
-
-    .live-bar {
-      flex: 1;
-      margin-top: 0;
-      padding: 0.25rem auto;
-      min-height: 1.75rem;
-      max-height: 1.75rem;
-      background-color: $primary;
-
-      .live-invert {
-        background-color: black;
-        padding-left: 2rem;
-        padding-right: 2rem;
-        @include mobile {
-          padding-left: 0.5rem;
-          padding-right: 0.5rem;
-        }
-
-        p {
-          font-family: "Eurostile", sans-serif;
-          color: $primary;
-          white-space: nowrap;
-        }
-      }
-      .live-ticker {
-        padding: auto 0;
-        p {
-          color: black;
-          white-space: nowrap;
-        }
-      }
-    }
-
-    .header-bar {
-      flex: 3;
-      margin-left: 0px;
-      margin-right: 12px;
-      min-height: 3.75rem;
-    }
-  }
 
   .header-bar {
     min-height: 5rem;

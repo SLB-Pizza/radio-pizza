@@ -54,7 +54,7 @@ function ScheduleBar() {
           </p>
         </div>
         <div className="column upcoming is-hidden-mobile">
-          <p className="is-size-6-tablet">Audiowide Tldrichxygen Body</p>
+          <p className="is-size-6-tablet">Aldrich Title - Oxygen Body</p>
         </div>
         <div className="column upcoming is-hidden-tablet">
           <PageVisibility onChange={handleVisibilityChange}>

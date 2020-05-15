@@ -27,7 +27,7 @@ function ScheduleBar() {
     return (
       <Ticker mode="await" offset="run-in" speed={3}>
         {() => (
-          <p className="subtitle is-size-7-mobile">
+          <p className="is-size-7">
             {/* {date} – {showName} */}
             Aldrich Title - Oxygen Body
           </p>
@@ -49,9 +49,13 @@ function ScheduleBar() {
             handleLiveTest();
           }}
         >
-          <p className="title is-size-6-tablet is-size-7-mobile">
-            {globalState.live ? "Listen Live" : "Next Show"}
-          </p>
+          {globalState.live ? (
+            <button className="button is-small is-outlined is-rounded is-dark is-inverted display-text">
+              Listen Live
+            </button>
+          ) : (
+            <p className="display-text is-size-6">Next Show</p>
+          )}
         </div>
         <div className="column upcoming is-hidden-mobile">
           <p className="is-size-6-tablet">Aldrich Title - Oxygen Body</p>
@@ -63,10 +67,11 @@ function ScheduleBar() {
           </PageVisibility>
         </div>
         <div className="column is-narrow" id="open-schedule">
-          <button className="button" onClick={() => setOpen(!open)}>
-            <p className="title is-size-6-tablet is-size-7-mobile">
-              Schedule ▼
-            </p>
+          <button
+            className="button is-small is-outlined is-rounded is-dark is-inverted display-text"
+            onClick={() => setOpen(!open)}
+          >
+            Schedule ▼
           </button>
         </div>
       </div>
@@ -84,9 +89,13 @@ function ScheduleBar() {
             handleLiveTest();
           }}
         >
-          <p className="title is-size-6-tablet is-size-7-mobile">
-            {globalState.live ? "Listen Live" : "Next Show"}
-          </p>
+          {globalState.live ? (
+            <button className="button is-small is-outlined is-rounded is-dark is-inverted">
+              Listen Live
+            </button>
+          ) : (
+            <p className="display-text is-size-6">Next Show</p>
+          )}
         </div>
         <div className="column upcoming is-hidden-mobile">
           <p className="is-size-6-tablet is-size-7-mobile">
@@ -100,8 +109,11 @@ function ScheduleBar() {
           </PageVisibility>
         </div>
         <div className="column is-narrow" id="open-schedule">
-          <button className="button" onClick={() => setOpen(!open)}>
-            <p className="title is-size-6-tablet is-size-7 mobile">Close ▲</p>
+          <button
+            className="button is-small is-outlined is-rounded is-dark is-inverted display-text"
+            onClick={() => setOpen(!open)}
+          >
+            Close ▲
           </button>
         </div>
       </div>

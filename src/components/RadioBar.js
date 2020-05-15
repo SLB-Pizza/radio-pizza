@@ -86,13 +86,7 @@ function RadioBar() {
   }, []);
 
   return (
-    <div
-      className={
-        globalState.live
-          ? "container is-fluid radio-bar is-live"
-          : "container is-fluid radio-bar"
-      }
-    >
+    <div className="container is-fluid radio-bar">
       <a href="#navigation" className="sr-only">
         Jump to navigation bar
       </a>
@@ -103,7 +97,7 @@ function RadioBar() {
         </PageVisibility>
       ) : null} */}
 
-      <div className="columns is-vcentered is-mobile header-bar">
+      <div className="columns is-vcentered is-mobile">
         <div className="column is-narrow">
           <Link to="/">
             <figure className="image is-64x64 is-hidden-mobile">
@@ -141,8 +135,12 @@ function RadioBar() {
         </div>
 
         <div className="column is-narrow is-hidden-touch">
-          <p className="is-size-6">{laTime.format("HH:mm:ss")} LA</p>
-          <p className="is-size-6">{nycTime.format("HH:mm:ss")} NYC</p>
+          <p className="display-text is-size-6">
+            {laTime.format("HH:mm:ss")} LA
+          </p>
+          <p className="display-text is-size-6">
+            {nycTime.format("HH:mm:ss")} NYC
+          </p>
         </div>
       </div>
     </div>

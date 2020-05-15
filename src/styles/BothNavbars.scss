@@ -20,18 +20,6 @@
   padding-top: 0.5rem;
   min-height: 5rem;
   margin-bottom: 0;
-  background-color: khaki;
-
-  // @include touch {
-  //   padding-left: 12px;
-  //   padding-right: 12px;
-  // }
-
-  .header-bar {
-    min-height: 5rem;
-    margin-left: -12px;
-    margin-right: 0px;
-  }
 
   #radioShowDetails {
     display: flex;
@@ -95,7 +83,10 @@
   0% {
     background-color: white;
   }
-  50% {
+  20% {
+    background-color: $primary;
+  }
+  80% {
     background-color: $primary;
   }
   100% {
@@ -121,6 +112,7 @@
   transition: ease-in-out 0.5s;
   -moz-transition: ease-in-out 0.5s;
   -webkit-transition: ease-in-out 0.5s;
+  background-color: $primary;
 
   // Make schedule-bar fullwidth on touch
   @include touch {
@@ -131,24 +123,6 @@
     padding: 0;
     margin: 0;
     transition: 0.25s ease-in-out;
-
-    button {
-      padding: 1px auto;
-      border-radius: 0;
-      background-color: transparent;
-      border-color: transparent;
-      p {
-        color: white;
-        transition: 0.25s ease;
-      }
-    }
-    &:hover {
-      button {
-        p {
-          color: $primary;
-        }
-      }
-    }
   }
 
   // Set the schedule drawer to 25 rem

@@ -18,7 +18,7 @@ function BottomNav() {
       id="navigation"
     >
       <div className="navbar-brand">
-        <Link to="/" className="navbar-item" id="slogan">
+        <Link to="/" className="navbar-item display-text">
           Ears to the concrete.
         </Link>
 

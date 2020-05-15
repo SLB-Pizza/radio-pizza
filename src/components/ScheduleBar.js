@@ -27,7 +27,7 @@ function ScheduleBar() {
     return (
       <Ticker mode="await" offset="run-in" speed={3}>
         {() => (
-          <p className="is-size-7">
+          <p className="display-text is-size-7">
             {/* {date} – {showName} */}
             Aldrich Title - Oxygen Body
           </p>
@@ -44,7 +44,7 @@ function ScheduleBar() {
     <div className="schedule-bar container is-fluid">
       <div className="columns is-vcentered is-mobile">
         <div
-          className="column is-narrow at-time"
+          className="column is-narrow"
           onClick={() => {
             handleLiveTest();
           }}
@@ -54,11 +54,11 @@ function ScheduleBar() {
               Listen Live
             </button>
           ) : (
-            <p className="display-text is-size-6">Next Show</p>
+            <p className="display-text is-size-7">Next Show</p>
           )}
         </div>
         <div className="column upcoming is-hidden-mobile">
-          <p className="is-size-6-tablet">Aldrich Title - Oxygen Body</p>
+          <p className="display-text is-size-7">Aldrich Title - Oxygen Body</p>
         </div>
         <div className="column upcoming is-hidden-tablet">
           <PageVisibility onChange={handleVisibilityChange}>
@@ -66,12 +66,12 @@ function ScheduleBar() {
               nextShowTicker("MON 4.21", "An HMBK Moment In Time")}
           </PageVisibility>
         </div>
-        <div className="column is-narrow" id="open-schedule">
+        <div className="column is-narrow">
           <button
             className="button is-small is-outlined is-rounded is-dark is-inverted display-text"
             onClick={() => setOpen(!open)}
           >
-            Schedule ▼
+            Schedule
           </button>
         </div>
       </div>
@@ -84,23 +84,21 @@ function ScheduleBar() {
     */}
       <div className="columns is-vcentered is-mobile is-hidden-mobile up-next">
         <div
-          className="column is-narrow at-time"
+          className="column is-narrow"
           onClick={() => {
             handleLiveTest();
           }}
         >
           {globalState.live ? (
-            <button className="button is-small is-outlined is-rounded is-dark is-inverted">
+            <button className="button is-small is-outlined is-rounded is-dark is-inverted display-text">
               Listen Live
             </button>
           ) : (
-            <p className="display-text is-size-6">Next Show</p>
+            <p className="display-text is-size-7">Next Show</p>
           )}
         </div>
         <div className="column upcoming is-hidden-mobile">
-          <p className="is-size-6-tablet is-size-7-mobile">
-            Aldrich Title - Oxygen Body
-          </p>
+          <p className="display-text is-size-7">Aldrich Title - Oxygen Body</p>
         </div>
         <div className="column upcoming is-hidden-tablet">
           <PageVisibility onChange={handleVisibilityChange}>
@@ -108,12 +106,12 @@ function ScheduleBar() {
               nextShowTicker("MON 4.21", "An HMBK Moment In Time")}
           </PageVisibility>
         </div>
-        <div className="column is-narrow" id="open-schedule">
+        <div className="column is-narrow">
           <button
             className="button is-small is-outlined is-rounded is-dark is-inverted display-text"
             onClick={() => setOpen(!open)}
           >
-            Close ▲
+            Close
           </button>
         </div>
       </div>
@@ -130,3 +128,5 @@ function ScheduleBar() {
 }
 
 export default ScheduleBar;
+
+// ▼ ▲

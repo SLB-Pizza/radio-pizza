@@ -109,36 +109,24 @@
   color: white;
   border-bottom: 0.125rem solid white;
   min-height: 2.5rem;
-  transition: ease-in-out 0.5s;
-  -moz-transition: ease-in-out 0.5s;
-  -webkit-transition: ease-in-out 0.5s;
-  background-color: $primary;
+  background-color: rgba($color: $primary, $alpha: 0.25);
+  padding-top: 0.25rem;
 
-  // Make schedule-bar fullwidth on touch
-  @include touch {
-    padding: 0 12px;
+  .up-next {
+    //   margin-top: 0;
+    //   margin-bottom: 0;
   }
-
-  #open-schedule {
-    padding: 0;
-    margin: 0;
-    transition: 0.25s ease-in-out;
-  }
+  // // Make schedule-bar fullwidth on touch
+  // @include touch {
+  //   padding: 0 12px;
+  // }
 
   // Set the schedule drawer to 25 rem
   &.is-open {
     height: auto;
-    background-color: transparent;
   }
   // Each columns div marginless;
   // Each column has padding
-  .columns {
-    margin-top: 0;
-    margin-bottom: 0;
-    .column {
-      padding: 0.5rem;
-    }
-  }
 }
 
 .upcoming {

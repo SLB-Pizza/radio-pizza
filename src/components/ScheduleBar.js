@@ -54,11 +54,15 @@ function ScheduleBar() {
               Listen Live
             </button>
           ) : (
-            <p className="display-text is-size-7">Next Show</p>
+            <p className="display-text is-size-6-desktop is-size-7-touch">
+              Next Show
+            </p>
           )}
         </div>
         <div className="column upcoming is-hidden-mobile">
-          <p className="display-text is-size-7">Aldrich Title - Oxygen Body</p>
+          <p className="display-text is-size-6-desktop is-size-7-touch">
+            Aldrich Title - Oxygen Body
+          </p>
         </div>
         <div className="column upcoming is-hidden-tablet">
           <PageVisibility onChange={handleVisibilityChange}>
@@ -94,11 +98,15 @@ function ScheduleBar() {
               Listen Live
             </button>
           ) : (
-            <p className="display-text is-size-7">Next Show</p>
+            <p className="display-text is-size-6-desktop is-size-7-touch">
+              Next Show
+            </p>
           )}
         </div>
         <div className="column upcoming is-hidden-mobile">
-          <p className="display-text is-size-7">Aldrich Title - Oxygen Body</p>
+          <p className="display-text is-size-6-desktop is-size-7-touch">
+            Aldrich Title - Oxygen Body
+          </p>
         </div>
         <div className="column upcoming is-hidden-tablet">
           <PageVisibility onChange={handleVisibilityChange}>

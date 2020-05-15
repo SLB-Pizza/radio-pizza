@@ -42,7 +42,7 @@ function ScheduleBar() {
    */
   return !open ? (
     <div className="schedule-bar container is-fluid">
-      <div className="columns is-vcentered is-mobile">
+      <div className="columns is-vcentered is-mobile up-next">
         <div
           className="column is-narrow"
           onClick={() => {

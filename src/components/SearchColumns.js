@@ -2,7 +2,7 @@ import React from "react";
 
 function SearchResults(props) {
   return (
-    <>
+    <div className="columns is-mobile is-hidden-mobile">
       <div
         className={
           props.isSelected === "mixes"
@@ -12,7 +12,7 @@ function SearchResults(props) {
         id="mixes"
         onClick={props.toggleColumn}
       >
-        <button className="button is-outlined is-rounded is-dark is-inverted display-text">
+        <button className="button is-fullwidth is-outlined is-rounded is-dark is-inverted display-text">
           Mixes (40)
         </button>
       </div>
@@ -25,7 +25,7 @@ function SearchResults(props) {
         id="residents"
         onClick={props.toggleColumn}
       >
-        <button className="button is-outlined is-rounded is-dark is-inverted display-text">
+        <button className="button is-fullwidth is-outlined is-rounded is-dark is-inverted display-text">
           Residents (12)
         </button>
       </div>
@@ -38,7 +38,7 @@ function SearchResults(props) {
         id="events"
         onClick={props.toggleColumn}
       >
-        <button className="button is-outlined is-rounded is-dark is-inverted display-text">
+        <button className="button is-fullwidth is-outlined is-rounded is-dark is-inverted display-text">
           Events (5)
         </button>
       </div>
@@ -51,12 +51,12 @@ function SearchResults(props) {
         id="news"
         onClick={props.toggleColumn}
       >
-        <button className="button is-outlined is-rounded is-dark is-inverted display-text">
+        <button className="button is-fullwidth is-outlined is-rounded is-dark is-inverted display-text">
         </button>
         </p>
           News (10)
       </div> */}
-    </>
+    </div>
   );
 }
 

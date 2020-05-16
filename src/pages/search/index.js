@@ -74,9 +74,9 @@ function SearchIndexPage() {
           </div>
         </div>
       </div>
-      <div className="columns is-mobile is-hidden-mobile">
-        <SearchColumns toggleColumn={toggleColumn} isSelected={isSelected} />
-      </div>
+
+      <SearchColumns toggleColumn={toggleColumn} isSelected={isSelected} />
+
       {visibleLogo ? (
         <div className="column search-logo">
           <figure className="image is-128x128 is-hidden-tablet">

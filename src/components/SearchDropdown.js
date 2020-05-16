@@ -5,7 +5,7 @@ function SearchDropdown(props) {
     <div className="column is-full is-hidden-tablet">
       <div className="field">
         <div className="control is-expanded">
-          <div className="select is-medium is-fullwidth">
+          <div className="select is-fullwidth">
             <select name="searchResults">
               <option value="">Mixes (40)</option>
               <option value="">Residents (12)</option>

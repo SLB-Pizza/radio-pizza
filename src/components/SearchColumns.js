@@ -12,9 +12,9 @@ function SearchResults(props) {
         id="mixes"
         onClick={props.toggleColumn}
       >
-        <p className="title is-size-4-desktop is-size-5-touch has-text-centered">
+        <button className="button is-outlined is-rounded is-dark is-inverted display-text">
           Mixes (40)
-        </p>
+        </button>
       </div>
       <div
         className={
@@ -25,9 +25,9 @@ function SearchResults(props) {
         id="residents"
         onClick={props.toggleColumn}
       >
-        <p className="title is-size-4-desktop is-size-5-touch has-text-centered">
+        <button className="button is-outlined is-rounded is-dark is-inverted display-text">
           Residents (12)
-        </p>
+        </button>
       </div>
       <div
         className={
@@ -38,9 +38,9 @@ function SearchResults(props) {
         id="events"
         onClick={props.toggleColumn}
       >
-        <p className="title is-size-4-desktop is-size-5-touch has-text-centered">
+        <button className="button is-outlined is-rounded is-dark is-inverted display-text">
           Events (5)
-        </p>
+        </button>
       </div>
       {/* <div
         className={
@@ -51,9 +51,10 @@ function SearchResults(props) {
         id="news"
         onClick={props.toggleColumn}
       >
-        <p className="title is-size-4-desktop is-size-5-touch has-text-centered">
-          News (10)
+        <button className="button is-outlined is-rounded is-dark is-inverted display-text">
+        </button>
         </p>
+          News (10)
       </div> */}
     </>
   );

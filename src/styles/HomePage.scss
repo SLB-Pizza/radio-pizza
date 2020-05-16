@@ -48,20 +48,6 @@
     }
   }
 
-  // Give all mobile titles & subtitles a shadow
-  p.mobile-headers {
-    text-shadow: 3px 3px 2px black;
-  }
-
-  // .columns.is-mobile.is-multiline {
-  //   .column {
-  //     padding-bottom: 0;
-  //     &:last-child {
-  //       padding-bottom: 1rem;
-  //     }
-  //   }
-  // }
-
   // Make mobile entries horizontally scrollable
   .mobile-single-items {
     overflow-x: auto;

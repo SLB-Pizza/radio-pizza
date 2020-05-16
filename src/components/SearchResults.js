@@ -10,7 +10,7 @@ const mixListLayout =
   "column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen";
 function SearchResults(props) {
   return (
-    <>
+    <div className="columns is-mobile is-multiline">
       {props.isSelected === "mixes"
         ? sampleMixes.map((mix) => (
             <SingleMixCard
@@ -46,7 +46,7 @@ function SearchResults(props) {
           </p>
         </div>
       ) : null}
-    </>
+    </div>
   );
 }
 

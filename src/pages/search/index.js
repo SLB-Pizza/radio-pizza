@@ -6,7 +6,7 @@ import { SearchColumns, SearchDropdown, SearchResults } from "../../components";
 
 function SearchIndexPage() {
   const [isSelected, setIsSelected] = useState("mixes");
-  const [visibleLogo, setVisibleLogo] = useState(true);
+  const [visibleLogo, setVisibleLogo] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const [searchStatus, setSearchStatus] = useState(false);
 
@@ -29,40 +29,40 @@ function SearchIndexPage() {
   }
 
   return (
-    <div className="container is-fluid mixes-page">
-      <div className="columns is-mobile is-multiline">
-        <div className="column is-full">
+    <div className="container is-fluid site-content">
+      <div className="columns is-mobile">
+        {/* <div className="column is-full">
           <p
-            className="title is-size-1-desktop is-size-2-tablet is-size-3-mobile"
+            className="title is-size-3-desktop is-size-4-touch"
             onClick={() => {
               setVisibleLogo(!visibleLogo);
             }}
           >
             Search
           </p>
-          <p className="subtitle is-size-4-desktop is-size-5-tablet is-size-6-mobile">
+          <p className="subtitle is-size-5-desktop is-size-6-touch">
             Search non-functional – click/touch "Search" headline to see
             intended layout when functional. -WORK IN PROGRESS-
           </p>
-        </div>
+        </div> */}
         <div className="column is-full">
           <div className="field">
             <div
               className={
                 searchStatus
-                  ? "control is-expanded has-icons-left has-icons-right is-loading is-medium"
+                  ? "control is-expanded has-icons-left has-icons-right is-loading"
                   : "control is-expanded has-icons-left"
               }
             >
               <input
-                className="input is-primary is-medium"
+                className="input"
                 type="text"
                 value={searchValue}
                 onChange={handleChange}
                 onSubmit={handleSubmit}
                 placeholder="Search HalfmoonBK..."
               />
-              <span className="icon is-left is-medium">
+              <span className="icon is-left">
                 <FontAwesomeIcon icon={faSearch} />
               </span>
               {/* {searchStatus ? (
@@ -73,26 +73,25 @@ function SearchIndexPage() {
             </div>
           </div>
         </div>
-        {visibleLogo ? (
-          <div className="column search-logo">
-            <figure className="image is-128x128 is-hidden-tablet">
-              <img src="../../img/Halfmoon-3.png" alt="HalfMoonBK Logo" />
-            </figure>
-            <figure className="image is-256x256 is-hidden-mobile">
-              <img src="../../img/Halfmoon-3.png" alt="HalfMoonBK Logo" />
-            </figure>
-          </div>
-        ) : (
-          <>
-            <SearchColumns
-              toggleColumn={toggleColumn}
-              isSelected={isSelected}
-            />
-            <SearchDropdown />
-            <SearchResults isSelected={isSelected} />
-          </>
-        )}
       </div>
+      <div className="columns is-mobile is-hidden-mobile">
+        <SearchColumns toggleColumn={toggleColumn} isSelected={isSelected} />
+      </div>
+      {visibleLogo ? (
+        <div className="column search-logo">
+          <figure className="image is-128x128 is-hidden-tablet">
+            <img src="../../img/Halfmoon-3.png" alt="HalfMoonBK Logo" />
+          </figure>
+          <figure className="image is-256x256 is-hidden-mobile">
+            <img src="../../img/Halfmoon-3.png" alt="HalfMoonBK Logo" />
+          </figure>
+        </div>
+      ) : (
+        <>
+          <SearchDropdown />
+          <SearchResults isSelected={isSelected} />
+        </>
+      )}
     </div>
   );
 }

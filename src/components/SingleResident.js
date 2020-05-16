@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 
 function SingleResident(props) {
   return (
-    <div className="column is-4-widescreen is-6-tablet is-12-mobile resident-box">
+    <div className="column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen resident-box">
       <Link to="/bio">
         <div className="card">
           <div className="card-image">

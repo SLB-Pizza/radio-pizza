@@ -14,7 +14,7 @@ function ResidentsIndexPage() {
   }
 
   return (
-    <div className="container is-fluid residents-page">
+    <div className="container is-fluid site-content">
       <div className="columns is-mobile is-multiline">
         <div className="column is-full">
           <p className="title is-size-1-desktop is-size-2-tablet is-size-3-mobile headline">
@@ -28,9 +28,9 @@ function ResidentsIndexPage() {
           id="current"
           onClick={toggleColumn}
         >
-          <p className="title is-size-4-desktop is-size-6-touch has-text-centered">
+          <button className="button is-fullwidth is-outlined is-rounded is-dark is-inverted display-text">
             This Season
-          </p>
+          </button>
         </div>
         <div
           className={
@@ -39,13 +39,13 @@ function ResidentsIndexPage() {
           id="alumni"
           onClick={toggleColumn}
         >
-          <p className="title is-size-4-desktop is-size-6-touch has-text-centered">
+          <button className="button is-fullwidth is-outlined is-rounded is-dark is-inverted display-text">
             Our Alumni
-          </p>
+          </button>
         </div>
       </div>
       {isOpen === "current" ? (
-        <div className="columns is-mobile is-multiline resident-selection">
+        <div className="columns is-mobile is-multiline">
           {dummyArtists.map((resident) => (
             <SingleResident
               key={resident.name}
@@ -56,7 +56,7 @@ function ResidentsIndexPage() {
         </div>
       ) : null}
       {isOpen === "alumni" ? (
-        <div className="columns is-mobile is-multiline resident-selection">
+        <div className="columns is-mobile is-multiline">
           {dummyArtists.map((resident) => (
             <SingleResident
               key={resident.name}

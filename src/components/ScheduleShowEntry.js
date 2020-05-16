@@ -63,7 +63,7 @@ function ScheduleShowEntry(props) {
       {props.fromNavbar && (
         <div className="column is-12 today-date">
           <p className="display-text is-size-6">
-            Schedule for {todayDate.format("dddd, MMMM D")}
+            {todayDate.format("dddd, MMMM D")}
           </p>
 
           <Link to="/schedule">
@@ -86,14 +86,16 @@ function ScheduleShowEntry(props) {
             </div>
             {show.hasOwnProperty("showName") ? (
               <div className="column is-8">
-                <p className="display-text is-size-6">{show.showName}</p>
-                <p className="display-text is-size-7">
+                <p className="display-text is-size-6 has-text-centered">
+                  {show.showName}
+                </p>
+                <p className="display-text is-size-7 has-text-centered">
                   {show.hostInfo.join(", ")}
                 </p>
               </div>
             ) : (
               <div className="column is-8">
-                <p className="display-text is-size-6">
+                <p className="display-text is-size-6 has-text-centered">
                   {show.hostInfo.join(", ")}
                 </p>
               </div>

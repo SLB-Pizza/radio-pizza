@@ -2,7 +2,6 @@
 // <Hero />
 //==================================
 .homepage-hero {
-  margin-top: 8.25rem;
   height: calc(100vh - 10.5rem);
 
   // background-color: darken($color: $primary, $amount: 45);
@@ -22,42 +21,40 @@
 //==================================
 // <HomeContent />
 //==================================
-.home-content {
-  margin-bottom: 3rem;
-  // background-color: darken($color: $primary, $amount: 45);
 
-  // Make each content sections' titles and taglines sticky
-  .sticky-section-blurb {
-    position: -webkit-sticky;
-    position: sticky;
+// background-color: darken($color: $primary, $amount: 45);
 
-    // For clarity, please leave as following:
-    // top = calc(TopNav height + section container padding)
-    top: calc(8.25rem + 1rem);
-    // margin-bottom: 1rem;
+// Make each content sections' titles and taglines sticky
+.sticky-section-blurb {
+  position: -webkit-sticky;
+  position: sticky;
 
-    // p {
-    //   text-shadow: 2px 2px 2px black;
-    //   &:first-child {
-    //     margin-bottom: 2.5rem;
-    //   }
-    // }
+  // For clarity, please leave as following:
+  // top = calc(TopNav height + section container padding)
+  top: calc(8.25rem + 1rem);
+  // margin-bottom: 1rem;
 
-    button {
-      top: 0.5rem;
-    }
+  // p {
+  //   text-shadow: 2px 2px 2px black;
+  //   &:first-child {
+  //     margin-bottom: 2.5rem;
+  //   }
+  // }
+
+  button {
+    top: 0.5rem;
   }
+}
 
-  // Make mobile entries horizontally scrollable
-  .mobile-single-items {
-    overflow-x: auto;
-  }
+// Make mobile entries horizontally scrollable
+.mobile-single-items {
+  overflow-x: auto;
+}
 
-  // Pull "More >" buttons to right of columns
-  .more-link {
-    margin-right: 0;
-    margin-left: 0;
-  }
+// Pull "More >" buttons to right of columns
+.more-link {
+  margin-right: 0;
+  margin-left: 0;
 }
 
 #home-mixes,

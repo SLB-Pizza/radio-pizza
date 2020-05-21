@@ -2,9 +2,11 @@ import React from "react";
 
 function TestPage() {
   return (
-    <div className="container is-fluid single-page">
+    <div className="container is-fluid site-page">
       <div className="columns is-mobile">
-        <div className="column is-four-fifths">is-four-fifths</div>
+        <div className="column is-four-fifths">
+          <p>is-four-fifths</p>
+        </div>
         <div className="column">
           <p className="has-text-centered">X</p>
         </div>
@@ -14,17 +16,9 @@ function TestPage() {
       </div>
 
       <div className="columns is-mobile">
-        <div className="column is-three-quarters">is-three-quarters</div>
-        <div className="column">
-          <p className="has-text-centered">X</p>
+        <div className="column is-three-quarters">
+          <p>is-three-quarters</p>
         </div>
-        <div className="column">
-          <p className="has-text-centered">X</p>
-        </div>
-      </div>
-
-      <div className="columns is-mobile">
-        <div className="column is-two-thirds">is-two-thirds</div>
         <div className="column">
           <p className="has-text-centered">X</p>
         </div>
@@ -34,17 +28,9 @@ function TestPage() {
       </div>
 
       <div className="columns is-mobile">
-        <div className="column is-three-fifths">is-three-fifths</div>
-        <div className="column">
-          <p className="has-text-centered">X</p>
+        <div className="column is-two-thirds">
+          <p>is-two-thirds</p>
         </div>
-        <div className="column">
-          <p className="has-text-centered">X</p>
-        </div>
-      </div>
-
-      <div className="columns is-mobile">
-        <div className="column is-half">is-half</div>
         <div className="column">
           <p className="has-text-centered">X</p>
         </div>
@@ -54,17 +40,9 @@ function TestPage() {
       </div>
 
       <div className="columns is-mobile">
-        <div className="column is-two-fifths">is-two-fifths</div>
-        <div className="column">
-          <p className="has-text-centered">X</p>
+        <div className="column is-three-fifths">
+          <p>is-three-fifths</p>
         </div>
-        <div className="column">
-          <p className="has-text-centered">X</p>
-        </div>
-      </div>
-
-      <div className="columns is-mobile">
-        <div className="column is-one-third">is-one-third</div>
         <div className="column">
           <p className="has-text-centered">X</p>
         </div>
@@ -74,26 +52,9 @@ function TestPage() {
       </div>
 
       <div className="columns is-mobile">
-        <div className="column is-one-quarter">is-one-quarter</div>
-        <div className="column">
-          <p className="has-text-centered">X</p>
+        <div className="column is-half">
+          <p>is-half</p>
         </div>
-        <div className="column">
-          <p className="has-text-centered">X</p>
-        </div>
-      </div>
-
-      <div className="columns is-mobile">
-        <div className="column is-one-fifth">is-one-fifth</div>
-        <div className="column">
-          <p className="has-text-centered">X</p>
-        </div>
-        <div className="column">
-          <p className="has-text-centered">X</p>
-        </div>
-      </div>
-      <div className="columns is-mobile">
-        <div className="column is-four-fifths">is-four-fifths</div>
         <div className="column">
           <p className="has-text-centered">X</p>
         </div>
@@ -103,17 +64,9 @@ function TestPage() {
       </div>
 
       <div className="columns is-mobile">
-        <div className="column is-three-quarters">is-three-quarters</div>
-        <div className="column">
-          <p className="has-text-centered">X</p>
+        <div className="column is-two-fifths">
+          <p>is-two-fifths</p>
         </div>
-        <div className="column">
-          <p className="has-text-centered">X</p>
-        </div>
-      </div>
-
-      <div className="columns is-mobile">
-        <div className="column is-two-thirds">is-two-thirds</div>
         <div className="column">
           <p className="has-text-centered">X</p>
         </div>
@@ -123,17 +76,9 @@ function TestPage() {
       </div>
 
       <div className="columns is-mobile">
-        <div className="column is-three-fifths">is-three-fifths</div>
-        <div className="column">
-          <p className="has-text-centered">X</p>
+        <div className="column is-one-third">
+          <p>is-one-third</p>
         </div>
-        <div className="column">
-          <p className="has-text-centered">X</p>
-        </div>
-      </div>
-
-      <div className="columns is-mobile">
-        <div className="column is-half">is-half</div>
         <div className="column">
           <p className="has-text-centered">X</p>
         </div>
@@ -143,17 +88,9 @@ function TestPage() {
       </div>
 
       <div className="columns is-mobile">
-        <div className="column is-two-fifths">is-two-fifths</div>
-        <div className="column">
-          <p className="has-text-centered">X</p>
+        <div className="column is-one-quarter">
+          <p>is-one-quarter</p>
         </div>
-        <div className="column">
-          <p className="has-text-centered">X</p>
-        </div>
-      </div>
-
-      <div className="columns is-mobile">
-        <div className="column is-one-third">is-one-third</div>
         <div className="column">
           <p className="has-text-centered">X</p>
         </div>
@@ -163,7 +100,20 @@ function TestPage() {
       </div>
 
       <div className="columns is-mobile">
-        <div className="column is-one-quarter">is-one-quarter</div>
+        <div className="column is-one-fifth">
+          <p>is-one-fifth</p>
+        </div>
+        <div className="column">
+          <p className="has-text-centered">X</p>
+        </div>
+        <div className="column">
+          <p className="has-text-centered">X</p>
+        </div>
+      </div>
+      <div className="columns is-mobile">
+        <div className="column is-four-fifths">
+          <p>is-four-fifths</p>
+        </div>
         <div className="column">
           <p className="has-text-centered">X</p>
         </div>
@@ -173,16 +123,9 @@ function TestPage() {
       </div>
 
       <div className="columns is-mobile">
-        <div className="column is-one-fifth">is-one-fifth</div>
-        <div className="column">
-          <p className="has-text-centered">X</p>
+        <div className="column is-three-quarters">
+          <p>is-three-quarters</p>
         </div>
-        <div className="column">
-          <p className="has-text-centered">X</p>
-        </div>
-      </div>
-      <div className="columns is-mobile">
-        <div className="column is-four-fifths">is-four-fifths</div>
         <div className="column">
           <p className="has-text-centered">X</p>
         </div>
@@ -192,17 +135,9 @@ function TestPage() {
       </div>
 
       <div className="columns is-mobile">
-        <div className="column is-three-quarters">is-three-quarters</div>
-        <div className="column">
-          <p className="has-text-centered">X</p>
+        <div className="column is-two-thirds">
+          <p>is-two-thirds</p>
         </div>
-        <div className="column">
-          <p className="has-text-centered">X</p>
-        </div>
-      </div>
-
-      <div className="columns is-mobile">
-        <div className="column is-two-thirds">is-two-thirds</div>
         <div className="column">
           <p className="has-text-centered">X</p>
         </div>
@@ -212,17 +147,9 @@ function TestPage() {
       </div>
 
       <div className="columns is-mobile">
-        <div className="column is-three-fifths">is-three-fifths</div>
-        <div className="column">
-          <p className="has-text-centered">X</p>
+        <div className="column is-three-fifths">
+          <p>is-three-fifths</p>
         </div>
-        <div className="column">
-          <p className="has-text-centered">X</p>
-        </div>
-      </div>
-
-      <div className="columns is-mobile">
-        <div className="column is-half">is-half</div>
         <div className="column">
           <p className="has-text-centered">X</p>
         </div>
@@ -232,17 +159,9 @@ function TestPage() {
       </div>
 
       <div className="columns is-mobile">
-        <div className="column is-two-fifths">is-two-fifths</div>
-        <div className="column">
-          <p className="has-text-centered">X</p>
+        <div className="column is-half">
+          <p>is-half</p>
         </div>
-        <div className="column">
-          <p className="has-text-centered">X</p>
-        </div>
-      </div>
-
-      <div className="columns is-mobile">
-        <div className="column is-one-third">is-one-third</div>
         <div className="column">
           <p className="has-text-centered">X</p>
         </div>
@@ -252,7 +171,9 @@ function TestPage() {
       </div>
 
       <div className="columns is-mobile">
-        <div className="column is-one-quarter">is-one-quarter</div>
+        <div className="column is-two-fifths">
+          <p>is-two-fifths</p>
+        </div>
         <div className="column">
           <p className="has-text-centered">X</p>
         </div>
@@ -262,7 +183,140 @@ function TestPage() {
       </div>
 
       <div className="columns is-mobile">
-        <div className="column is-one-fifth">is-one-fifth</div>
+        <div className="column is-one-third">
+          <p>is-one-third</p>
+        </div>
+        <div className="column">
+          <p className="has-text-centered">X</p>
+        </div>
+        <div className="column">
+          <p className="has-text-centered">X</p>
+        </div>
+      </div>
+
+      <div className="columns is-mobile">
+        <div className="column is-one-quarter">
+          <p>is-one-quarter</p>
+        </div>
+        <div className="column">
+          <p className="has-text-centered">X</p>
+        </div>
+        <div className="column">
+          <p className="has-text-centered">X</p>
+        </div>
+      </div>
+
+      <div className="columns is-mobile">
+        <div className="column is-one-fifth">
+          <p>is-one-fifth</p>
+        </div>
+        <div className="column">
+          <p className="has-text-centered">X</p>
+        </div>
+        <div className="column">
+          <p className="has-text-centered">X</p>
+        </div>
+      </div>
+      <div className="columns is-mobile">
+        <div className="column is-four-fifths">
+          <p>is-four-fifths</p>
+        </div>
+        <div className="column">
+          <p className="has-text-centered">X</p>
+        </div>
+        <div className="column">
+          <p className="has-text-centered">X</p>
+        </div>
+      </div>
+
+      <div className="columns is-mobile">
+        <div className="column is-three-quarters">
+          <p>is-three-quarters</p>
+        </div>
+        <div className="column">
+          <p className="has-text-centered">X</p>
+        </div>
+        <div className="column">
+          <p className="has-text-centered">X</p>
+        </div>
+      </div>
+
+      <div className="columns is-mobile">
+        <div className="column is-two-thirds">
+          <p>is-two-thirds</p>
+        </div>
+        <div className="column">
+          <p className="has-text-centered">X</p>
+        </div>
+        <div className="column">
+          <p className="has-text-centered">X</p>
+        </div>
+      </div>
+
+      <div className="columns is-mobile">
+        <div className="column is-three-fifths">
+          <p>is-three-fifths</p>
+        </div>
+        <div className="column">
+          <p className="has-text-centered">X</p>
+        </div>
+        <div className="column">
+          <p className="has-text-centered">X</p>
+        </div>
+      </div>
+
+      <div className="columns is-mobile">
+        <div className="column is-half">
+          <p>is-half</p>
+        </div>
+        <div className="column">
+          <p className="has-text-centered">X</p>
+        </div>
+        <div className="column">
+          <p className="has-text-centered">X</p>
+        </div>
+      </div>
+
+      <div className="columns is-mobile">
+        <div className="column is-two-fifths">
+          <p>is-two-fifths</p>
+        </div>
+        <div className="column">
+          <p className="has-text-centered">X</p>
+        </div>
+        <div className="column">
+          <p className="has-text-centered">X</p>
+        </div>
+      </div>
+
+      <div className="columns is-mobile">
+        <div className="column is-one-third">
+          <p>is-one-third</p>
+        </div>
+        <div className="column">
+          <p className="has-text-centered">X</p>
+        </div>
+        <div className="column">
+          <p className="has-text-centered">X</p>
+        </div>
+      </div>
+
+      <div className="columns is-mobile">
+        <div className="column is-one-quarter">
+          <p>is-one-quarter</p>
+        </div>
+        <div className="column">
+          <p className="has-text-centered">X</p>
+        </div>
+        <div className="column">
+          <p className="has-text-centered">X</p>
+        </div>
+      </div>
+
+      <div className="columns is-mobile">
+        <div className="column is-one-fifth">
+          <p>is-one-fifth</p>
+        </div>
         <div className="column">
           <p className="has-text-centered">X</p>
         </div>

@@ -10,21 +10,16 @@ $primary: $pink;
 //==================================
 // FONTS
 //==================================
-// OPTIONS
-// - Open Sans
-// - Titillium Web
 
-@font-face {
-  font-family: "Authentic Sans Condensed - 60";
-  src: url("../fonts/AUTHENTICSans-Condensed-60.woff") format("woff")
-    url("../fonts/AUTHENTICSans-Condensed-60.woff2") format("woff2");
-}
+// @font-face {
+//   font-family: "Authentic Sans Condensed - 60";
+//   src: url("../fonts/AUTHENTICSans-Condensed-60.woff") format("woff")
+//     url("../fonts/AUTHENTICSans-Condensed-60.woff2") format("woff2");
+// }
 
 @import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@400&display=swap");
 
 @import url("https://fonts.googleapis.com/css?family=Aldrich&display=swap");
-
-// @import url("https://fonts.googleapis.com/css?family=Audiowide&display=swap");
 
 //==================================
 // GLOBAL STYLES
@@ -32,8 +27,17 @@ $primary: $pink;
 
 html,
 body {
-  background-color: black;
+  // background-color: black;
+  background-color: rgba($color: black, $alpha: 0.5); //test only
   color: white;
+}
+
+//top: 8.25rem with container
+//bottom: 3.75rem with container
+.site-page {
+  padding-top: 8.25rem;
+  padding-bottom: 5.75rem;
+  min-height: 100vh;
 }
 
 a {
@@ -44,16 +48,16 @@ a {
 .display-text,
 .navbar-item {
   font-family: "Aldrich", sans-serif;
-  // font-family: "Audiowide", sans-serif;
+  font-kerning: normal;
   font-display: swap;
 }
 
 p,
 .subtitle,
 .tag {
-  // font-family: "Authentic Sans Condensed - 60", sans-serif;
   font-family: "Oxygen";
   font-weight: 400;
+  font-kerning: normal;
   font-display: swap;
 }
 
@@ -74,20 +78,6 @@ p.subtitle {
 
 button {
   transition: 0.125s ease-in-out;
-}
-
-.single-page {
-  padding-top: 8.25rem;
-  padding-bottom: 6.75rem;
-  min-height: 100vh;
-
-  .columns .column:first-child {
-    background-color: darkgoldenrod;
-    border: 1px dashed white;
-  }
-  .columns .column:not(:first-child) {
-    border: 1px dashed white;
-  }
 }
 
 //===========================================
@@ -258,4 +248,16 @@ button {
   @include fullhd {
     min-height: 4rem;
   }
+}
+
+//===========================================
+// Test SASS - REMOVE LATER
+//===========================================
+
+.columns.test .column:first-child {
+  background-color: darkgoldenrod;
+  border: 1px dashed white;
+}
+.columns.test .column:not(:first-child) {
+  border: 1px dashed white;
 }

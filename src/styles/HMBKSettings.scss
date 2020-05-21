@@ -76,9 +76,23 @@ button {
   transition: 0.125s ease-in-out;
 }
 
-//================================================
+.single-page {
+  padding-top: 8.25rem;
+  padding-bottom: 6.75rem;
+  min-height: 100vh;
+
+  .columns .column:first-child {
+    background-color: darkgoldenrod;
+    border: 1px dashed white;
+  }
+  .columns .column:not(:first-child) {
+    border: 1px dashed white;
+  }
+}
+
+//===========================================
 // For screen-readers - bulma stuff was fussy
-//================================================
+//===========================================
 .sr-only {
   clip: rect(1px, 1px, 1px, 1px);
   height: 1px;

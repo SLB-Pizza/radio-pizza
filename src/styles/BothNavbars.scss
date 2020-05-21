@@ -10,8 +10,7 @@
   right: 0;
   top: 0;
   z-index: 30;
-  background-color: black;
-
+  background-color: rgba($color: black, $alpha: 0.5);
   .container {
     @include touch {
       padding-left: 12px;
@@ -267,7 +266,7 @@
 //==================================
 .navbar {
   border-top: 0.125rem solid white;
-  background-color: black;
+  background-color: rgba($color: black, $alpha: 0.5);
   a,
   span {
     color: white;
@@ -277,15 +276,15 @@
     }
   }
 
-  // Make navbar menu on desktop black; mobile darkPurple
-  .navbar-menu {
-    background-color: black;
-    &.is-active {
-      @include touch {
-        background-color: black;
-      }
-    }
-  }
+  // // Make navbar menu on desktop black; mobile darkPurple
+  // .navbar-menu {
+  //   background-color: black;
+  //   &.is-active {
+  //     @include touch {
+  //       background-color: black;
+  //     }
+  //   }
+  // }
 }
 
 .navbar-burger span {

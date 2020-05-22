@@ -35,79 +35,52 @@ function StickyBioIndexPage() {
                 Homebuilt MixMaster Droid rev.9001
               </p>
               <p className="is-size-6-desktop is-size-7-touch">
-                The only home we’ve ever known preserve and cherish that pale
-                blue dot. Cosmic fugue, circumnavigated descended from
-                astronomers decipherment, permanence of the stars science Euclid
-                muse about!
+                From the year 7020, comes the musical megamind that's traveled
+                across space and time. They're here to rock our planet.
               </p>
               <div className="sticky-social-links">
                 <a href="https://twitter.com">
-                  <span className="icon is-large">
+                  <span className="icon">
                     <FontAwesomeIcon
-                      icon={faTwitter}
-                      size="2x"
-                      className="is-hidden-touch"
-                    />
-                    <FontAwesomeIcon
+                      className="icon-color"
                       icon={faTwitter}
                       size="lg"
-                      className="is-hidden-desktop"
                     />
                   </span>
                 </a>
                 <a href="https://instagram.com">
-                  <span className="icon is-large">
+                  <span className="icon">
                     <FontAwesomeIcon
-                      icon={faInstagram}
-                      size="2x"
-                      className="is-hidden-touch"
-                    />
-                    <FontAwesomeIcon
+                      className="icon-color"
                       icon={faInstagram}
                       size="lg"
-                      className="is-hidden-desktop"
                     />
                   </span>
                 </a>
                 <a href="https://soundcloud.com">
-                  <span className="icon is-large">
+                  <span className="icon">
                     <FontAwesomeIcon
-                      icon={faSoundcloud}
-                      size="2x"
-                      className="is-hidden-touch"
-                    />
-                    <FontAwesomeIcon
+                      className="icon-color"
                       icon={faSoundcloud}
                       size="lg"
-                      className="is-hidden-desktop"
                     />
                   </span>
                 </a>
                 <a href="https://bandcamp.com">
-                  <span className="icon is-large">
+                  <span className="icon">
                     <FontAwesomeIcon
-                      icon={faBandcamp}
-                      size="2x"
-                      className="is-hidden-touch"
-                    />
-                    <FontAwesomeIcon
+                      className="icon-color"
                       icon={faBandcamp}
                       size="lg"
-                      className="is-hidden-desktop"
                     />
                   </span>
                 </a>
                 <a href="https://mixcloud.com">
-                  <span className="icon is-large">
+                  <span className="icon">
                     <FontAwesomeIcon
-                      icon={faMixcloud}
-                      size="2x"
-                      className="is-hidden-touch"
-                    />
-                    <FontAwesomeIcon
+                      className="icon-color"
                       icon={faMixcloud}
                       size="lg"
-                      className="is-hidden-desktop"
                     />
                   </span>
                 </a>

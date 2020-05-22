@@ -1,6 +1,3 @@
-export { default as BioHorizItem } from "./BioHorizItem";
-export { default as BioImageBlurb } from "./BioImageBlurb";
-export { default as BioMixList } from "./BioMixList";
 export { default as BottomNav } from "./BottomNav";
 export { default as CategoryItem } from "./CategoryItem";
 export { default as Hero } from "./Hero";

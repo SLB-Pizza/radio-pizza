@@ -80,6 +80,14 @@ button {
   transition: 0.125s ease-in-out;
 }
 
+.icon-color {
+  color: white;
+  transition: 0.25s ease-in-out;
+  &:hover {
+    color: $primary;
+  }
+}
+
 //===========================================
 // For screen-readers - bulma stuff was fussy
 //===========================================

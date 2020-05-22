@@ -47,14 +47,6 @@ function BottomNav() {
           >
             Residents
           </Link>
-
-          <Link
-            to="/bio"
-            className="navbar-item"
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            Bio
-          </Link>
           <Link
             to="/sticky-bio"
             className="navbar-item"

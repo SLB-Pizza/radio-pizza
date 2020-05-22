@@ -1,6 +1,6 @@
 import React from "react";
 
-function SearchResults(props) {
+function SearchColumns(props) {
   return (
     <div className="columns is-mobile is-hidden-mobile">
       <div
@@ -60,4 +60,4 @@ function SearchResults(props) {
   );
 }
 
-export default SearchResults;
+export default SearchColumns;

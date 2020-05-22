@@ -43,10 +43,11 @@
 
 .sticky-bio {
   @include tablet {
-    position: -webkit-sticky;
     position: sticky;
-    top: 8.5rem;
-    // border-right: 0.125rem solid white;
+    position: -webkit-sticky;
+    top: 7.5rem;
+    overflow-y: auto;
+    max-height: calc(100vh - 10.5rem);
   }
 }
 

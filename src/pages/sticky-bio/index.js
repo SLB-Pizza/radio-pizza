@@ -20,15 +20,15 @@ function StickyBioIndexPage() {
   return (
     <div className="container is-fluid site-page">
       <div className="columns is-multiline">
-        <div className="column is-3-desktop is-4-tablet is-12-mobile">
-          <div className="columns is-multiline sticky-bio">
+        <div className="column is-3-desktop is-4-tablet is-12-mobile sticky-bio">
+          <div className="columns is-multiline">
             <div className="column is-12">
               <figure className="image is-1by1">
                 <img src={`../img/cyberpunk-robo.jpg`} alt="Rowdy Robo" />
               </figure>
             </div>
             <div className="column is-12">
-              <p className="title is-size-3-desktop is-size-4-touch ">
+              <p className="title is-size-3-desktop is-size-5-touch ">
                 RowdyRobo
               </p>
               <p className="subtitle is-size-5-desktop is-size-6-touch">

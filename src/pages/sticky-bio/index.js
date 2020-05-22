@@ -18,7 +18,7 @@ function StickyBioIndexPage() {
   const stickyBioLayout = "column is-12-mobile is-6-tablet is-4-desktop";
 
   return (
-    <div className="container is-fluid resident-bio">
+    <div className="container is-fluid site-page">
       <div className="columns is-multiline">
         <div className="column is-3-desktop is-4-tablet is-12-mobile">
           <div className="columns is-multiline sticky-bio">

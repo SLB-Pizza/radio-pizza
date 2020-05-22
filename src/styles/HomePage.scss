@@ -21,9 +21,6 @@
 //==================================
 // <HomeContent />
 //==================================
-
-// background-color: darken($color: $primary, $amount: 45);
-
 // Make each content sections' titles and taglines sticky
 .sticky-section-blurb {
   position: -webkit-sticky;
@@ -32,14 +29,6 @@
   // For clarity, please leave as following:
   // top = calc(TopNav height + section container padding)
   top: calc(8.25rem + 1rem);
-  // margin-bottom: 1rem;
-
-  // p {
-  //   text-shadow: 2px 2px 2px black;
-  //   &:first-child {
-  //     margin-bottom: 2.5rem;
-  //   }
-  // }
 
   button {
     top: 0.5rem;

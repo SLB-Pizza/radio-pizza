@@ -1,39 +1,4 @@
-// .residents-page {
-//   margin-top: 8.25rem;
-//   margin-bottom: 3rem;
-//   padding-bottom: 3rem;
-//   min-height: calc(100vh - 10.5rem);
-
-//   // Set all text to white
-//   p.title.headline {
-//     padding: 0.5rem 0 1rem;
-//   }
-// }
-
-// Each selector column (tab)
-// .is-half {
-//   // background-color: darken($color: $primary, $amount: 20);
-//   // border-bottom: 0.25rem solid $primary;
-//   // transition: 0.25s ease-in-out;
-
-//   &:first-child {
-//     border-top-left-radius: 0.75rem;
-//   }
-//   &:last-child {
-//     border-top-right-radius: 0.75rem;
-//   }
-
-//   &:hover {
-//     background-color: darken($color: $primary, $amount: 30);
-//   }
-//   &.is-active {
-//     border-top: 0.125rem solid $primary;
-//     border-left: 0.125rem solid $primary;
-//     border-right: 0.125rem solid $primary;
-//     border-bottom: 0.25rem solid $primary;
-//   }
-// }
-
+// Page now uses .site-page
 // Single column space for resident
 .resident-box .card-content {
   min-height: 5rem;

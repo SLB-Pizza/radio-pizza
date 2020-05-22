@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ScheduleShowEntry } from "../../components";
+import { DateSelectorButton, ScheduleShowEntry } from "../../components";
 import dayjs from "dayjs";
 
 const utc = require("dayjs/plugin/utc");
@@ -29,6 +29,12 @@ function ScheduleIndexPage() {
     // setWholeWeekIds(idsArr);
   };
 
+  function toggleColumn(e) {
+    if (isSelected !== e.currentTarget.id) {
+      setIsSelected(e.currentTarget.id);
+    }
+  }
+
   useEffect(() => {
     const date = setInterval(() => {
       // Set today's date
@@ -48,50 +54,15 @@ function ScheduleIndexPage() {
     <div className="container is-fluid site-page">
       <div className="columns is-mobile">
         <div className="column is-full">
-          <p className="title is-size-3-desktop is-size-4-touch">Schedule</p>
+          <p className="title is-size-2-desktop is-size-3-touch">Schedule</p>
           <p className="subtitle is-size-5-desktop is-size-6-touch">
             All times are EST.
           </p>
         </div>
       </div>
-
-      <div className="columns is-vcentered is-mobile">
-        <div className="column">
-          <button className="button is-small is-fullwidth is-outlined is-rounded is-dark is-inverted display-text">
-            {todayDate.format("MM.DD")}
-          </button>
-        </div>
-        <div className="column">
-          <button className="button is-small is-fullwidth is-outlined is-rounded is-dark is-inverted  display-text">
-            {todayDate.add(1, "d").format("MM.DD")}
-          </button>
-        </div>
-        <div className="column">
-          <button className="button is-small is-fullwidth is-outlined is-rounded is-dark is-inverted  display-text">
-            {todayDate.add(2, "d").format("MM.DD")}
-          </button>
-        </div>
-        <div className="column">
-          <button className="button is-small is-fullwidth is-outlined is-rounded is-dark is-inverted  display-text">
-            {todayDate.add(3, "d").format("MM.DD")}
-          </button>
-        </div>
-        <div className="column">
-          <button className="button is-small is-fullwidth is-outlined is-rounded is-dark is-inverted  display-text">
-            {todayDate.add(4, "d").format("MM.DD")}
-          </button>
-        </div>
-        <div className="column">
-          <button className="button is-small is-fullwidth is-outlined is-rounded is-dark is-inverted  display-text">
-            {todayDate.add(5, "d").format("MM.DD")}
-          </button>
-        </div>
-        <div className="column">
-          <button className="button is-small is-fullwidth is-outlined is-rounded is-dark is-inverted  display-text">
-            {todayDate.add(6, "d").format("MM.DD")}
-          </button>
-        </div>
-      </div>
+      {/*  */}
+      <DateSelectorButton date={todayDate} />
+      <ScheduleShowEntry toggleColumn={toggleColumn} isSelected={isSelected} />
     </div>
   );
 }

@@ -15,7 +15,7 @@ export { default as RadioPlayer } from "./RadioPlayer";
 export { default as SearchColumns } from "./SearchColumns";
 export { default as SearchDropdown } from "./SearchDropdown";
 export { default as SearchResults } from "./SearchResults";
-export { default as SectionSelectorButton } from "./SectionSelectorButton";
+export { default as DateSelectorButton } from "./DateSelectorButton";
 export { default as ScheduleBar } from "./ScheduleBar";
 export { default as ScheduleDropdown } from "./ScheduleDropdown";
 export { default as ScheduleDatePicker } from "./ScheduleDatePicker";

@@ -14,7 +14,7 @@ function ResidentsIndexPage() {
   }
 
   return (
-    <div className="container is-fluid site-content">
+    <div className="container is-fluid site-page">
       <div className="columns is-mobile is-multiline">
         <div className="column is-full">
           <p className="title is-size-1-desktop is-size-2-tablet is-size-3-mobile headline">

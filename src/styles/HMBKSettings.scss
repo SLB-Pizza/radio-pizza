@@ -28,7 +28,11 @@ $primary: $pink;
 html,
 body {
   // background-color: black;
-  background-color: rgba($color: black, $alpha: 0.5); //test only
+  background-color: rgba($color: black, $alpha: 0.5);
+  color: white;
+}
+
+a {
   color: white;
 }
 
@@ -38,10 +42,6 @@ body {
   padding-top: 8.25rem;
   padding-bottom: 5.75rem;
   min-height: 100vh;
-}
-
-a {
-  color: white;
 }
 
 .title,

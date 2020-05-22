@@ -3,7 +3,7 @@ import React from "react";
 function TestPage() {
   return (
     <div className="container is-fluid site-page">
-      <div className="columns is-mobile">
+      <div className="columns test is-mobile">
         <div className="column is-four-fifths">
           <p>is-four-fifths</p>
         </div>
@@ -15,7 +15,7 @@ function TestPage() {
         </div>
       </div>
 
-      <div className="columns is-mobile">
+      <div className="columns test is-mobile">
         <div className="column is-three-quarters">
           <p>is-three-quarters</p>
         </div>
@@ -27,7 +27,7 @@ function TestPage() {
         </div>
       </div>
 
-      <div className="columns is-mobile">
+      <div className="columns test is-mobile">
         <div className="column is-two-thirds">
           <p>is-two-thirds</p>
         </div>
@@ -39,7 +39,7 @@ function TestPage() {
         </div>
       </div>
 
-      <div className="columns is-mobile">
+      <div className="columns test is-mobile">
         <div className="column is-three-fifths">
           <p>is-three-fifths</p>
         </div>
@@ -51,7 +51,7 @@ function TestPage() {
         </div>
       </div>
 
-      <div className="columns is-mobile">
+      <div className="columns test is-mobile">
         <div className="column is-half">
           <p>is-half</p>
         </div>
@@ -63,7 +63,7 @@ function TestPage() {
         </div>
       </div>
 
-      <div className="columns is-mobile">
+      <div className="columns test is-mobile">
         <div className="column is-two-fifths">
           <p>is-two-fifths</p>
         </div>
@@ -75,7 +75,7 @@ function TestPage() {
         </div>
       </div>
 
-      <div className="columns is-mobile">
+      <div className="columns test is-mobile">
         <div className="column is-one-third">
           <p>is-one-third</p>
         </div>
@@ -87,7 +87,7 @@ function TestPage() {
         </div>
       </div>
 
-      <div className="columns is-mobile">
+      <div className="columns test is-mobile">
         <div className="column is-one-quarter">
           <p>is-one-quarter</p>
         </div>
@@ -99,7 +99,7 @@ function TestPage() {
         </div>
       </div>
 
-      <div className="columns is-mobile">
+      <div className="columns test is-mobile">
         <div className="column is-one-fifth">
           <p>is-one-fifth</p>
         </div>
@@ -110,7 +110,7 @@ function TestPage() {
           <p className="has-text-centered">X</p>
         </div>
       </div>
-      <div className="columns is-mobile">
+      <div className="columns test is-mobile">
         <div className="column is-four-fifths">
           <p>is-four-fifths</p>
         </div>
@@ -122,7 +122,7 @@ function TestPage() {
         </div>
       </div>
 
-      <div className="columns is-mobile">
+      <div className="columns test is-mobile">
         <div className="column is-three-quarters">
           <p>is-three-quarters</p>
         </div>
@@ -134,7 +134,7 @@ function TestPage() {
         </div>
       </div>
 
-      <div className="columns is-mobile">
+      <div className="columns test is-mobile">
         <div className="column is-two-thirds">
           <p>is-two-thirds</p>
         </div>
@@ -146,7 +146,7 @@ function TestPage() {
         </div>
       </div>
 
-      <div className="columns is-mobile">
+      <div className="columns test is-mobile">
         <div className="column is-three-fifths">
           <p>is-three-fifths</p>
         </div>
@@ -158,7 +158,7 @@ function TestPage() {
         </div>
       </div>
 
-      <div className="columns is-mobile">
+      <div className="columns test is-mobile">
         <div className="column is-half">
           <p>is-half</p>
         </div>
@@ -170,7 +170,7 @@ function TestPage() {
         </div>
       </div>
 
-      <div className="columns is-mobile">
+      <div className="columns test is-mobile">
         <div className="column is-two-fifths">
           <p>is-two-fifths</p>
         </div>
@@ -182,7 +182,7 @@ function TestPage() {
         </div>
       </div>
 
-      <div className="columns is-mobile">
+      <div className="columns test is-mobile">
         <div className="column is-one-third">
           <p>is-one-third</p>
         </div>
@@ -194,7 +194,7 @@ function TestPage() {
         </div>
       </div>
 
-      <div className="columns is-mobile">
+      <div className="columns test is-mobile">
         <div className="column is-one-quarter">
           <p>is-one-quarter</p>
         </div>
@@ -206,7 +206,7 @@ function TestPage() {
         </div>
       </div>
 
-      <div className="columns is-mobile">
+      <div className="columns test is-mobile">
         <div className="column is-one-fifth">
           <p>is-one-fifth</p>
         </div>
@@ -217,7 +217,7 @@ function TestPage() {
           <p className="has-text-centered">X</p>
         </div>
       </div>
-      <div className="columns is-mobile">
+      <div className="columns test is-mobile">
         <div className="column is-four-fifths">
           <p>is-four-fifths</p>
         </div>
@@ -229,7 +229,7 @@ function TestPage() {
         </div>
       </div>
 
-      <div className="columns is-mobile">
+      <div className="columns test is-mobile">
         <div className="column is-three-quarters">
           <p>is-three-quarters</p>
         </div>
@@ -241,7 +241,7 @@ function TestPage() {
         </div>
       </div>
 
-      <div className="columns is-mobile">
+      <div className="columns test is-mobile">
         <div className="column is-two-thirds">
           <p>is-two-thirds</p>
         </div>
@@ -253,7 +253,7 @@ function TestPage() {
         </div>
       </div>
 
-      <div className="columns is-mobile">
+      <div className="columns test is-mobile">
         <div className="column is-three-fifths">
           <p>is-three-fifths</p>
         </div>
@@ -265,7 +265,7 @@ function TestPage() {
         </div>
       </div>
 
-      <div className="columns is-mobile">
+      <div className="columns test is-mobile">
         <div className="column is-half">
           <p>is-half</p>
         </div>
@@ -277,7 +277,7 @@ function TestPage() {
         </div>
       </div>
 
-      <div className="columns is-mobile">
+      <div className="columns test is-mobile">
         <div className="column is-two-fifths">
           <p>is-two-fifths</p>
         </div>
@@ -289,7 +289,7 @@ function TestPage() {
         </div>
       </div>
 
-      <div className="columns is-mobile">
+      <div className="columns test is-mobile">
         <div className="column is-one-third">
           <p>is-one-third</p>
         </div>
@@ -301,7 +301,7 @@ function TestPage() {
         </div>
       </div>
 
-      <div className="columns is-mobile">
+      <div className="columns test is-mobile">
         <div className="column is-one-quarter">
           <p>is-one-quarter</p>
         </div>
@@ -313,7 +313,7 @@ function TestPage() {
         </div>
       </div>
 
-      <div className="columns is-mobile">
+      <div className="columns test is-mobile">
         <div className="column is-one-fifth">
           <p>is-one-fifth</p>
         </div>

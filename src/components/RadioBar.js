@@ -100,10 +100,7 @@ function RadioBar() {
       <div className="columns is-vcentered is-mobile">
         <div className="column is-narrow">
           <Link to="/">
-            <figure className="image is-64x64 is-hidden-mobile">
-              <img src={`../img/halfmoon-3.png`} alt="Return to home page" />
-            </figure>
-            <figure className="image is-48x48 is-hidden-tablet">
+            <figure className="image is-48x48">
               <img src={`../img/halfmoon-3.png`} alt="Return to home page" />
             </figure>
           </Link>
@@ -135,11 +132,9 @@ function RadioBar() {
         </div>
 
         <div className="column is-narrow is-hidden-touch">
+          <p className="display-text is-size-6">{laTime.format("HH:mm")} LA</p>
           <p className="display-text is-size-6">
-            {laTime.format("HH:mm:ss")} LA
-          </p>
-          <p className="display-text is-size-6">
-            {nycTime.format("HH:mm:ss")} NYC
+            {nycTime.format("HH:mm")} NYC
           </p>
         </div>
       </div>

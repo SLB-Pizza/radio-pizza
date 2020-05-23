@@ -140,5 +140,3 @@ function ScheduleBar() {
 }
 
 export default ScheduleBar;
-
-// ▼ ▲

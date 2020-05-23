@@ -58,7 +58,7 @@ function MixesIndexPage() {
         <div className="column is-3-widescreen is-4-tablet is-12-mobile">
           <div className="field is-hidden-mobile">
             <div className="control is-expanded has-icons-left">
-              <div className="select is-medium is-fullwidth">
+              <div className="select is-medium is-fullwidth is-rounded">
                 <select name="country">
                   <option value="">--Country--</option>
                   {dummyOptions.map((option) => (

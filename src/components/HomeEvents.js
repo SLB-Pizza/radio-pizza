@@ -13,7 +13,7 @@ function HomeEvents() {
         <div className="column is-3">
           <div className="sticky-section-blurb">
             <p className="title is-size-3">Live Events</p>
-            <p className="subtitle is-size-5">
+            <p className="subtitle is-size-6">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
             <Link to="/">

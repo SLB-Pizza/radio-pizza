@@ -55,7 +55,7 @@ function SearchIndexPage() {
               }
             >
               <input
-                className="input"
+                className="input is-medium is-rounded"
                 type="text"
                 value={searchValue}
                 onChange={handleChange}

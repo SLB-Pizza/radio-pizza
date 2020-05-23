@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { GlobalDispatchContext } from "../context/GlobalContextProvider";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlayCircle } from "@fortawesome/free-solid-svg-icons";
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
 
 function SingleMixCard(props) {
   const dispatch = useContext(GlobalDispatchContext);
@@ -21,7 +21,7 @@ function SingleMixCard(props) {
     return playBtnInfo.map((singleBtn) => (
       <span key={title}>
         <FontAwesomeIcon
-          icon={faPlayCircle}
+          icon={faPlay}
           size={singleBtn.btnSize}
           className={
             singleBtn.hasOwnProperty("viewportClass")

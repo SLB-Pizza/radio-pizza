@@ -12,7 +12,7 @@ function SearchColumns(props) {
         id="mixes"
         onClick={props.toggleColumn}
       >
-        <button className="button is-fullwidth is-outlined is-rounded is-dark is-inverted display-text">
+        <button className="button is-fullwidth is-outlined is-rounded display-text">
           Mixes (40)
         </button>
       </div>
@@ -25,7 +25,7 @@ function SearchColumns(props) {
         id="residents"
         onClick={props.toggleColumn}
       >
-        <button className="button is-fullwidth is-outlined is-rounded is-dark is-inverted display-text">
+        <button className="button is-fullwidth is-outlined is-rounded display-text">
           Residents (12)
         </button>
       </div>
@@ -38,7 +38,7 @@ function SearchColumns(props) {
         id="events"
         onClick={props.toggleColumn}
       >
-        <button className="button is-fullwidth is-outlined is-rounded is-dark is-inverted display-text">
+        <button className="button is-fullwidth is-outlined is-rounded display-text">
           Events (5)
         </button>
       </div>
@@ -51,7 +51,7 @@ function SearchColumns(props) {
         id="news"
         onClick={props.toggleColumn}
       >
-        <button className="button is-fullwidth is-outlined is-rounded is-dark is-inverted display-text">
+        <button className="button is-fullwidth is-outlined is-rounded display-text">
         </button>
         </p>
           News (10)

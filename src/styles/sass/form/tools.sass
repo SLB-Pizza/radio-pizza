@@ -164,6 +164,9 @@ $help-size: $size-small !default
       &:focus
         & ~ .icon
           color: $input-icon-active-color
+      &:hover
+        & ~ .icon
+          color: darken($primary, 10)
       &.is-small ~ .icon
         font-size: $size-small
       &.is-medium ~ .icon

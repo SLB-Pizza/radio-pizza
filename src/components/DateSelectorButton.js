@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+// TODO: REFACTOR THIS SO THAT THIS IS NOT REPEATING CODE
+
 /**
  * @function DateSelectorButton - function that creates styled buttons with toggling functionality built in
  * @param {string[]} props.buttonTxtArr - array of strings to use as the text displayed in the button
@@ -13,37 +15,37 @@ function DateSelectorButton(props) {
   return (
     <div className="columns is-vcentered is-mobile">
       <div className="column">
-        <button className="button is-small is-fullwidth is-outlined is-rounded is-dark is-inverted display-text">
+        <button className="button is-small is-fullwidth is-outlined is-rounded display-text">
           {props.date.format("MM.DD")}
         </button>
       </div>
       <div className="column">
-        <button className="button is-small is-fullwidth is-outlined is-rounded is-dark is-inverted  display-text">
+        <button className="button is-small is-fullwidth is-outlined is-rounded display-text">
           {props.date.add(1, "d").format("MM.DD")}
         </button>
       </div>
       <div className="column">
-        <button className="button is-small is-fullwidth is-outlined is-rounded is-dark is-inverted  display-text">
+        <button className="button is-small is-fullwidth is-outlined is-rounded display-text">
           {props.date.add(2, "d").format("MM.DD")}
         </button>
       </div>
       <div className="column">
-        <button className="button is-small is-fullwidth is-outlined is-rounded is-dark is-inverted  display-text">
+        <button className="button is-small is-fullwidth is-outlined is-rounded display-text">
           {props.date.add(3, "d").format("MM.DD")}
         </button>
       </div>
       <div className="column">
-        <button className="button is-small is-fullwidth is-outlined is-rounded is-dark is-inverted  display-text">
+        <button className="button is-small is-fullwidth is-outlined is-rounded display-text">
           {props.date.add(4, "d").format("MM.DD")}
         </button>
       </div>
       <div className="column">
-        <button className="button is-small is-fullwidth is-outlined is-rounded is-dark is-inverted  display-text">
+        <button className="button is-small is-fullwidth is-outlined is-rounded display-text">
           {props.date.add(5, "d").format("MM.DD")}
         </button>
       </div>
       <div className="column">
-        <button className="button is-small is-fullwidth is-outlined is-rounded is-dark is-inverted  display-text">
+        <button className="button is-small is-fullwidth is-outlined is-rounded display-text">
           {props.date.add(6, "d").format("MM.DD")}
         </button>
       </div>

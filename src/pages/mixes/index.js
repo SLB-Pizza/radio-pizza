@@ -45,7 +45,7 @@ function MixesIndexPage() {
             <div className="control is-expanded has-icons-left has-icons-right">
               {/* <div className="control is-expanded has-icons-left has-icons-right is-loading is-medium"> */}
               <input
-                className="input is-primary is-medium"
+                className="input is-medium is-rounded"
                 type="text"
                 placeholder="Search all mixes..."
               />

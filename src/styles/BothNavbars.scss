@@ -50,30 +50,6 @@
   }
 }
 
-// .now-playing figure {
-//   border-radius: 0.75rem;
-//   border: 0.125rem solid transparent;
-//   img {
-//     border-radius: 0.75rem;
-//   }
-//   .radio-play-btn {
-//     color: transparent;
-//   }
-//   transition: 0.25s ease;
-
-//   &:hover,
-//   &:active {
-//     border: 0.125rem solid $primary;
-//     border-radius: 0.75rem;
-//     img {
-//       border-radius: 0.75rem;
-//     }
-//     .radio-play-btn {
-//       color: $primary;
-//     }
-//   }
-// }
-
 #live-light {
   width: 0.5rem;
   height: 0.5rem;
@@ -144,11 +120,9 @@
 // <ScheduleModal />
 //==================================
 #scroll-instructions {
-  // width: 100%;
   background-color: black;
   p {
     font-variant: small-caps;
-    // padding: 0rem;
   }
 }
 
@@ -197,11 +171,6 @@
   border-left: 0.125rem solid darken($color: $primary, $amount: 25);
   border-right: 0.125rem solid darken($color: $primary, $amount: 25);
 
-  // In-between borders
-  // &:not(:last-child) {
-  //   border-right: 0.25rem solid darken($color: $primary, $amount: 30);
-  // }
-
   @include desktop {
     &:first-child {
       border-left: 0.25rem solid $primary;
@@ -226,7 +195,7 @@
 //==================================
 .show-entries {
   // background-color: darken($color: $primary, $amount: 40);
-  background-color: rgba($color: black, $alpha: 0.95);
+  background-color: rgba($color: black, $alpha: 0.9);
   border-left: 0.125rem solid white;
   border-right: 0.125rem solid white;
   border-bottom: 0.125rem solid white;

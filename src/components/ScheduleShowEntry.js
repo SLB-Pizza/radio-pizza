@@ -68,7 +68,7 @@ function ScheduleShowEntry(props) {
 
           <Link to="/schedule">
             <button
-              className="button is-small is-outlined is-rounded is-dark is-inverted display-text"
+              className="button is-small is-outlined is-rounded display-text"
               onClick={() => props.setOpen(!props.open)}
             >
               View Full Schedule

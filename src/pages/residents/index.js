@@ -28,7 +28,7 @@ function ResidentsIndexPage() {
           id="current"
           onClick={toggleColumn}
         >
-          <button className="button is-fullwidth is-outlined is-rounded is-dark is-inverted display-text">
+          <button className="button is-fullwidth is-outlined is-rounded display-text">
             This Season
           </button>
         </div>
@@ -39,7 +39,7 @@ function ResidentsIndexPage() {
           id="alumni"
           onClick={toggleColumn}
         >
-          <button className="button is-fullwidth is-outlined is-rounded is-dark is-inverted display-text">
+          <button className="button is-fullwidth is-outlined is-rounded display-text">
             Our Alumni
           </button>
         </div>

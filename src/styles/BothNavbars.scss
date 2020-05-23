@@ -10,8 +10,8 @@
   right: 0;
   top: 0;
   z-index: 30;
-  // background-color: black;
-  background-color: rgba($color: black, $alpha: 0.5);
+  background-color: black;
+  // background-color: rgba($color: black, $alpha: 0.5);
   // background-color: transparent;
   .container {
     @include touch {
@@ -75,21 +75,34 @@
 // }
 
 #live-light {
-  width: 0.75rem;
-  height: 0.75rem;
+  width: 0.5rem;
+  height: 0.5rem;
   border-radius: 50%;
-  margin-right: 0.5rem;
-  animation: live-light-pulse 2s infinite;
+  margin-left: 0.5rem;
+  margin-bottom: 0.125rem;
+  animation: live-light-pulse 3s infinite;
 }
 
+#listen-live {
+  animation: border-pulse 3s infinite;
+}
+
+@keyframes border-pulse {
+  0% {
+    border-color: white;
+  }
+  50% {
+    border-color: $primary;
+  }
+  100% {
+    border-color: white;
+  }
+}
 @keyframes live-light-pulse {
   0% {
     background-color: white;
   }
-  20% {
-    background-color: $primary;
-  }
-  80% {
+  50% {
     background-color: $primary;
   }
   100% {
@@ -261,8 +274,8 @@
   border-top: 0.125rem solid white;
   // background-color: transparent;
 
-  // background-color: black;
-  background-color: rgba($color: black, $alpha: 0.5);
+  background-color: black;
+  // background-color: rgba($color: black, $alpha: 0.5);
   a,
   span {
     color: white;

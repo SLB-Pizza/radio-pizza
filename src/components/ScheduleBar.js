@@ -50,8 +50,12 @@ function ScheduleBar() {
           }}
         >
           {globalState.live ? (
-            <button className="button is-small is-outlined is-rounded is-dark is-inverted display-text">
-              Listen Live
+            <button
+              className="button is-small is-outlined is-rounded display-text"
+              id="listen-live"
+            >
+              <span>Listen Live</span>
+              <span className="icon" id="live-light" />
             </button>
           ) : (
             <p className="display-text is-size-6-desktop is-size-7-touch">
@@ -72,7 +76,7 @@ function ScheduleBar() {
         </div>
         <div className="column is-narrow">
           <button
-            className="button is-small is-outlined is-rounded is-dark is-inverted display-text"
+            className="button is-small is-outlined is-rounded display-text"
             onClick={() => setOpen(!open)}
           >
             Schedule
@@ -94,7 +98,7 @@ function ScheduleBar() {
           }}
         >
           {globalState.live ? (
-            <button className="button is-small is-outlined is-rounded is-dark is-inverted display-text">
+            <button className="button is-small is-outlined is-rounded display-text">
               Listen Live
             </button>
           ) : (
@@ -116,7 +120,7 @@ function ScheduleBar() {
         </div>
         <div className="column is-narrow">
           <button
-            className="button is-small is-outlined is-rounded is-dark is-inverted display-text"
+            className="button is-small is-outlined is-rounded display-text"
             onClick={() => setOpen(!open)}
           >
             Close

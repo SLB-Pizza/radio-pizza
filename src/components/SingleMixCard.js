@@ -94,9 +94,12 @@ function SingleMixCard(props) {
             </p>
           </div>
 
-          <div className="buttons are-small">
+          <div className="buttons are-tags">
             {props.tags.map((tag) => (
-              <button key={tag} className="button is-outlined is-rounded">
+              <button
+                key={tag}
+                className="button is-small is-outlined is-rounded"
+              >
                 {tag}
               </button>
             ))}

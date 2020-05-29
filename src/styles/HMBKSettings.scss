@@ -271,32 +271,20 @@ button {
   }
 }
 
-// @keyframes cover-img-radio {
-//   0% {
-//     background-color: rgba($color: black, $alpha: 0.5);
-//   }
+.buttons.are-tags {
+  min-height: 8rem;
 
-//   79% {
-//     background-color: rgba($color: black, $alpha: 0.75);
-//   }
-//   80% {
-//     background-color: transparent;
-//   }
-// }
-
-.buttons.are-small {
-  background-color: darkturquoise;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
   align-items: flex-end;
-  align-content: flex-end;
-
-  min-height: 6.5rem;
+  align-content: flex-start;
+  padding: 0;
   button {
     flex: 1;
   }
 
+  // OLD TAGS CONTAINER SIZINGS
   // @include mobile {
   //   min-height: 6rem;
   // }

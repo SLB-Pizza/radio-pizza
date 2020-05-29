@@ -1,20 +1,19 @@
 import React, { useContext, useEffect, useState } from "react";
+import axios from "axios";
+import dayjs from "dayjs";
+import { Link } from "gatsby";
+import { faSearch, faComments } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Ticker from "react-ticker";
+
+import { RadioPlayer } from "./index";
 import {
   GlobalDispatchContext,
   GlobalStateContext,
 } from "../context/GlobalContextProvider";
-import axios from "axios";
-import dayjs from "dayjs";
-import { RadioPlayer } from "./index";
-import { Link } from "gatsby";
 
 const utc = require("dayjs/plugin/utc");
 dayjs.extend(utc);
-
-import { faSearch, faComments } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-import Ticker from "react-ticker";
 import PageVisibility from "react-page-visibility";
 
 function RadioBar() {

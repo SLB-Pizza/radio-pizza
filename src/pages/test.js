@@ -1,8 +1,26 @@
 import React from "react";
 
+// Dummy data in __tests__ folder
+import sampleMixes from "../../__tests__/sampleMixes.json";
+
 function TestPage() {
   return (
     <div className="container is-fluid site-page">
+      <div className="columns btn-tags is-multiline">
+        {sampleMixes.map((mix) => (
+          <div key={mix.name} className="column is-3">
+            <h2>{mix.name}</h2>
+            <div className="buttons are-small">
+              {mix.tags.map((tag) => (
+                <button key={tag} className="button is-outlined is-rounded">
+                  {tag}
+                </button>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
       <div className="columns test is-mobile">
         <div className="column is-four-fifths">
           <p>is-four-fifths</p>

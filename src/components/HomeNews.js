@@ -12,12 +12,12 @@ function HomeNews() {
         <div className="column is-3">
           <div className="sticky-section-blurb">
             <p className="title is-size-3">Features</p>
-            <p className="subtitle is-size-5">
+            <p className="subtitle is-size-6">
               En su cumpleaños, la decisión que tomó Nacional con sus empleados.
             </p>
 
             <Link to="/">
-              <button className="button is-outlined is-rounded is-dark is-inverted">
+              <button className="button is-outlined is-rounded">
                 All Mixes
               </button>
             </Link>
@@ -39,9 +39,7 @@ function HomeNews() {
         </div>
         <div className="column is-narrow more-link">
           <Link to="/">
-            <button className="button is-outlined is-rounded is-dark is-inverted">
-              All Mixes
-            </button>
+            <button className="button is-outlined is-rounded">All Mixes</button>
           </Link>
         </div>
         <div className="column is-12">

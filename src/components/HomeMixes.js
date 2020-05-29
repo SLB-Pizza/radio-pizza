@@ -26,7 +26,7 @@ function HomeMixes() {
               You can hover/touch and play them the same way. Try it!
             </p>
             <Link to="/mixes">
-              <button className="button is-outlined is-rounded is-dark is-inverted">
+              <button className="button is-outlined is-rounded">
                 All Mixes
               </button>
             </Link>
@@ -60,7 +60,7 @@ function HomeMixes() {
         </div>
         <div className="column is-narrow more-link">
           <Link to="/mixes">
-            <button className="button is-outlined is-rounded is-dark is-inverted">
+            <button className="button is-outlined is-rounded">
               All Mixes
             </button>
           </Link>

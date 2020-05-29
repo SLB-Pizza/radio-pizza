@@ -17,7 +17,7 @@ function HomeEvents() {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
             <Link to="/">
-              <button className="button is-outlined is-rounded is-dark is-inverted">
+              <button className="button is-outlined is-rounded">
                 All Events
               </button>
             </Link>
@@ -40,7 +40,7 @@ function HomeEvents() {
         </div>
         <div className="column is-narrow more-link">
           <Link to="/">
-            <button className="button is-outlined is-rounded is-dark is-inverted">
+            <button className="button is-outlined is-rounded">
               All Events
             </button>
           </Link>

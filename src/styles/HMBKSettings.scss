@@ -281,7 +281,8 @@ button {
   align-content: flex-start;
   padding: 0;
   button {
-    flex: 1;
+    // flex: 1;
+    min-width: 6rem;
   }
 
   // OLD TAGS CONTAINER SIZINGS

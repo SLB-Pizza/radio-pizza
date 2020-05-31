@@ -10,7 +10,7 @@
   right: 0;
   top: 0;
   z-index: 30;
-  background-color: black;
+  // background-color: black;
   // background-color: rgba($color: black, $alpha: 0.5);
   // background-color: transparent;
   .container {
@@ -24,10 +24,13 @@
 // <RadioBar />
 //==================================
 .radio-bar {
-  flex: 2;
-  padding-top: 0.5rem;
-  min-height: 5rem;
-  margin-bottom: 0;
+  flex: 8;
+  // padding-top: 0.5rem;
+  min-height: 4rem;
+
+  // margin-bottom: 0;
+  border: 2px solid red;
+  background-color: rgba($color: darkslateblue, $alpha: 0.75);
   @include mobile {
     padding-top: 1rem;
   }
@@ -97,12 +100,11 @@
 // <ScheduleBar />
 //==================================
 .schedule-bar {
-  flex: 1;
+  flex: 7;
   color: white;
   border-bottom: 0.125rem solid white;
-  min-height: 2.5rem;
-  // background-color: rgba($color: $primary, $alpha: 0.25);
-  // background-color: rgba($color: $primary, $alpha: 0.25);
+  min-height: 3rem;
+  background-color: rgba($color: darkGreen, $alpha: 0.75);
   padding-top: 0.25rem;
 
   &.is-open {
@@ -110,6 +112,10 @@
   }
   .up-next {
     margin-bottom: 0.375rem;
+  }
+  .columns {
+    margin-top: -0.25rem;
+    // border: 2px solid red;
   }
 }
 

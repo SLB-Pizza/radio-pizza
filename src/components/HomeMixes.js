@@ -14,9 +14,7 @@ function HomeMixes() {
 
   return (
     <div className="container is-fluid" id="home-mixes">
-      {/*
-      Desktop Sizes
-      */}
+      {/* Desktop */}
       <div className="columns is-hidden-touch">
         <div className="column is-3">
           <div className="sticky-section-blurb">
@@ -51,18 +49,14 @@ function HomeMixes() {
           </div>
         </div>
       </div>
-      {/*
-      Touch Sizes
-      */}
+      {/* Touch */}
       <div className="columns is-mobile is-multiline is-vcentered is-hidden-desktop">
         <div className="column">
           <p className="title is-size-3 mobile-headers">Daily Mixes</p>
         </div>
         <div className="column is-narrow more-link">
           <Link to="/mixes">
-            <button className="button is-outlined is-rounded">
-              All Mixes
-            </button>
+            <button className="button is-outlined is-rounded">All Mixes</button>
           </Link>
         </div>
         <div className="column is-12">

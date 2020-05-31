@@ -29,9 +29,6 @@
   // margin-bottom: 0;
   min-height: 4rem;
   background-color: rgba($color: darkslateblue, $alpha: 0.75);
-  @include mobile {
-    padding-top: 1rem;
-  }
 
   #radioShowDetails {
     display: flex;

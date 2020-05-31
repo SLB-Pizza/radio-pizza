@@ -106,81 +106,29 @@ function RadioPlayer(props) {
   const player = useRef(ReactPlayer);
 
   return (
-    <div className="columns is-vcentered is-mobile radio-player">
+    <>
       <div className="column is-narrow">
         {!globalState.playing ? (
-          <>
-            <FontAwesomeIcon
-              icon={faPlay}
-              className="icon-color is-hidden-mobile"
-              onClick={handlePlayPause}
-              size="2x"
-            />
-            <FontAwesomeIcon
-              icon={faPlay}
-              className="icon-color is-hidden-tablet"
-              onClick={handlePlayPause}
-              size="lg"
-            />
-          </>
+          <FontAwesomeIcon
+            icon={faPlay}
+            className="icon-color"
+            onClick={handlePlayPause}
+            size="2x"
+          />
         ) : (
-          <>
-            <FontAwesomeIcon
-              icon={faPause}
-              className="icon-color is-hidden-mobile"
-              onClick={handlePlayPause}
-              size="2x"
-            />
-            <FontAwesomeIcon
-              icon={faPause}
-              className="icon-color is-hidden-tablet"
-              onClick={handlePlayPause}
-              size="lg"
-            />
-          </>
+          <FontAwesomeIcon
+            icon={faPause}
+            className="icon-color"
+            onClick={handlePlayPause}
+            size="2x"
+          />
         )}
       </div>
+
       <div className="column is-narrow now-playing is-hidden-mobile">
         <figure className="image is-48x48">
           <img src={`${globalState.img}`} alt="Current mix" />
-          {/* <div className="play-btn-diffuser is-overlay">
-            {!globalState.playing ? (
-              <FontAwesomeIcon
-                icon={faPlay}
-                onClick={handlePlayPause}
-                className="radio-play-btn"
-                size="2x"
-              />
-            ) : (
-              <FontAwesomeIcon
-                icon={faPause}
-                onClick={handlePlayPause}
-                className="radio-play-btn"
-                size="2x"
-              />
-            )}
-          </div> */}
         </figure>
-        {/* <figure className="image is-32x32 is-hidden-tablet">
-          <img src={`${globalState.img}`} alt="Current mix" />
-        <div className="radio-img-diffuser is-overlay">
-            {!globalState.playing ? (
-              <FontAwesomeIcon
-                icon={faPlay}
-                onClick={handlePlayPause}
-                className="icon-color"
-                size="lg"
-              />
-            ) : (
-              <FontAwesomeIcon
-                icon={faPause}
-                onClick={handlePlayPause}
-                className="icon-color"
-                size="lg"
-              />
-            )}
-          </div>
-        </figure> */}
       </div>
 
       <div className="column" id="radioShowDetails">
@@ -223,7 +171,7 @@ function RadioPlayer(props) {
         // onEnded={this.handleEnded}
         // onProgress={this.handleProgress}
       />
-    </div>
+    </>
   );
 }
 

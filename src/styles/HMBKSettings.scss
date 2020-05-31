@@ -51,7 +51,6 @@ $button-active-border-color: darken($primary, 20);
 //     url("../fonts/AUTHENTICSans-Condensed-60.woff2") format("woff2");
 // }
 @import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@400&display=swap");
-
 @import url("https://fonts.googleapis.com/css?family=Aldrich&display=swap");
 
 //==================================
@@ -61,11 +60,6 @@ $button-active-border-color: darken($primary, 20);
 html,
 body {
   background-color: black;
-  // background-color: rgba($color: black, $alpha: 0.5);
-  color: white;
-}
-
-a {
   color: white;
 }
 
@@ -94,23 +88,15 @@ p,
   font-display: swap;
 }
 
+a,
 p,
 p.title,
 p.subtitle {
   color: white;
 }
 
-.tag {
-  border: 2px solid #888;
-  transition: 0.25s ease;
-
-  &:hover {
-    border: 2px solid $primary;
-  }
-}
-
 button {
-  transition: 0.125s ease-in-out;
+  transition: 0.25s ease-in-out;
   &.date-selector {
     display: flex;
     flex-direction: column;
@@ -130,6 +116,11 @@ button {
   &:hover {
     color: $primary;
   }
+}
+
+::placeholder {
+  /* Most modern browsers support this now. */
+  color: white;
 }
 
 //===========================================
@@ -164,7 +155,6 @@ button {
 // Give the date of content items some space
 //================================================
 .card {
-  // border: 0.25rem solid darken($color: $primary, $amount: 20);
   border: 2px solid white;
   border-radius: 0.75rem;
   margin: 0 0.125rem;

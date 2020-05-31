@@ -30,8 +30,8 @@ function SearchIndexPage() {
 
   return (
     <div className="container is-fluid site-content">
-      <div className="columns is-mobile">
-        {/* <div className="column is-full">
+      <div className="columns is-mobile is-multiline">
+        <div className="column is-full">
           <p
             className="title is-size-3-desktop is-size-4-touch"
             onClick={() => {
@@ -44,7 +44,7 @@ function SearchIndexPage() {
             Search non-functional – click/touch "Search" headline to see
             intended layout when functional. -WORK IN PROGRESS-
           </p>
-        </div> */}
+        </div>
         <div className="column is-full">
           <div className="field">
             <div

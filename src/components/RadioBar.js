@@ -105,9 +105,7 @@ function RadioBar() {
           </Link>
         </div>
 
-        <div className="column">
-          <RadioPlayer status={radioData.status} />
-        </div>
+        <RadioPlayer status={radioData.status} />
 
         <div className="column is-narrow">
           <Link to="/search">

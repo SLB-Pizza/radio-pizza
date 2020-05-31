@@ -26,10 +26,8 @@
 .radio-bar {
   flex: 8;
   // padding-top: 0.5rem;
-  min-height: 4rem;
-
   // margin-bottom: 0;
-  border: 2px solid red;
+  min-height: 4rem;
   background-color: rgba($color: darkslateblue, $alpha: 0.75);
   @include mobile {
     padding-top: 1rem;
@@ -50,6 +48,12 @@
       flex: 1;
       white-space: nowrap;
     }
+  }
+  .columns {
+    margin-top: 0rem;
+    border: 2px solid red;
+    background-color: rgba($color: orange, $alpha: 0.5);
+    max-height: 4rem;
   }
 }
 
@@ -115,7 +119,6 @@
   }
   .columns {
     margin-top: -0.25rem;
-    // border: 2px solid red;
   }
 }
 

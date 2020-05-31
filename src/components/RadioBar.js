@@ -106,16 +106,15 @@ function RadioBar() {
         </div>
 
         <div className="column">
-          <RadioPlayer
-            status={radioData.status}
-            // currentTrack={radioData.current_track.title}
-          />
+          <RadioPlayer status={radioData.status} />
         </div>
+
         <div className="column is-narrow">
           <Link to="/search">
             <FontAwesomeIcon icon={faSearch} size="lg" className="icon-color" />
           </Link>
         </div>
+
         <div className="column is-narrow">
           <a
             href="http://halfmoonradiochat.chatango.com/"

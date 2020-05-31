@@ -263,17 +263,12 @@ button {
 
 .buttons.are-tags {
   min-height: 8rem;
-
   display: flex;
   flex-direction: row;
   flex-wrap: wrap-reverse;
   align-items: flex-end;
   align-content: flex-start;
   padding: 0;
-  button {
-    // flex: 1;
-    min-width: 6rem;
-  }
 
   // OLD TAGS CONTAINER SIZINGS
   // @include mobile {

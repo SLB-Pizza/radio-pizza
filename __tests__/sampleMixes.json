@@ -1,5 +1,14 @@
 [
   {
+    "date": "05.29.20",
+    "url": "https://soundcloud.com/koan-sound/sets/silk-wave",
+    "testSrc": "Soundcloud",
+    "name": "Silk Wave",
+    "artist": "KOAN Sound",
+    "img": "../img/silk-wave.jpg",
+    "tags": ["electronic", "funk", "glitch hop", "dubstep", "vocals"]
+  },
+  {
     "date": "01.20.20",
     "url": "https://soundcloud.com/monstercat/sets/infected-mushroom-more-than",
     "testSrc": "Soundcloud",

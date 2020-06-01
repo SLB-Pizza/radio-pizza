@@ -51,7 +51,7 @@ $button-active-border-color: darken($primary, 20);
 //     url("../fonts/AUTHENTICSans-Condensed-60.woff2") format("woff2");
 // }
 @import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@400&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Aldrich&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Aldrich&display=swap");
 
 //==================================
 // GLOBAL STYLES
@@ -71,12 +71,15 @@ body {
   min-height: 100vh;
 }
 
+button.button,
 .title,
 .display-text,
 .navbar-item {
   font-family: "Aldrich", sans-serif;
   font-kerning: normal;
   font-display: swap;
+  // font-weight: $weight-normal;
+  // letter-spacing: -0.0125rem;
 }
 
 p,
@@ -319,3 +322,14 @@ button {
     align-content: flex-end;
   }
 }
+
+// .columns.mobile-home-content {
+//   // background-color: darkslategray;
+//   .column:not(:last-child) {
+//     border: 1px dashed darksalmon;
+//     // max-height: 3.5rem;
+//     p.subtitle {
+//       padding-top: 0;
+//     }
+//   }
+// }

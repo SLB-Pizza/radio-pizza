@@ -63,11 +63,11 @@ function RadioBar() {
     return (
       <div className="columns is-mobile is-vcentered live-bar">
         <div className="column is-narrow live-invert">
-          <p className="title is-size-5 has-text-centered">ON AIR</p>
+          <p className="display-text is-size-5 has-text-centered">ON AIR</p>
         </div>
         <div className="column live-ticker">
           <Ticker mode="await" offset="run-in" speed={3}>
-            {() => <p className="title is-size-5">{text}!</p>}
+            {() => <p className="display-text is-size-5">{text}!</p>}
           </Ticker>
         </div>
       </div>

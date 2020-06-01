@@ -39,7 +39,7 @@ function StickyBioIndexPage() {
                 across space and time. They're here to rock our planet.
               </p>
               <div className="sticky-social-links">
-                <a href="https://twitter.com" target="_blank">
+                <a href="https://twitter.com" target="_blank" rel="noopener">
                   <span className="icon">
                     <FontAwesomeIcon
                       className="icon-color"
@@ -48,7 +48,7 @@ function StickyBioIndexPage() {
                     />
                   </span>
                 </a>
-                <a href="https://instagram.com" target="_blank">
+                <a href="https://instagram.com" target="_blank" rel="noopener">
                   <span className="icon">
                     <FontAwesomeIcon
                       className="icon-color"
@@ -57,7 +57,7 @@ function StickyBioIndexPage() {
                     />
                   </span>
                 </a>
-                <a href="https://soundcloud.com" target="_blank">
+                <a href="https://soundcloud.com" target="_blank" rel="noopener">
                   <span className="icon">
                     <FontAwesomeIcon
                       className="icon-color"
@@ -66,7 +66,7 @@ function StickyBioIndexPage() {
                     />
                   </span>
                 </a>
-                <a href="https://bandcamp.com" target="_blank">
+                <a href="https://bandcamp.com" target="_blank" rel="noopener">
                   <span className="icon">
                     <FontAwesomeIcon
                       className="icon-color"
@@ -75,7 +75,7 @@ function StickyBioIndexPage() {
                     />
                   </span>
                 </a>
-                <a href="https://mixcloud.com" target="_blank">
+                <a href="https://mixcloud.com" target="_blank" rel="noopener">
                   <span className="icon">
                     <FontAwesomeIcon
                       className="icon-color"

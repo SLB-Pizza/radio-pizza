@@ -15,37 +15,37 @@ function DateSelectorButton(props) {
   return (
     <div className="columns is-vcentered is-mobile mobile-date-selector">
       <div className="column">
-        <button className="button is-small is-fullwidth is-outlined is-rounded display-text">
+        <button className="button is-small is-fullwidth is-outlined is-rounded">
           {props.date.format("MM.DD")}
         </button>
       </div>
       <div className="column">
-        <button className="button is-small is-fullwidth is-outlined is-rounded display-text">
+        <button className="button is-small is-fullwidth is-outlined is-rounded">
           {props.date.add(1, "d").format("MM.DD")}
         </button>
       </div>
       <div className="column">
-        <button className="button is-small is-fullwidth is-outlined is-rounded display-text">
+        <button className="button is-small is-fullwidth is-outlined is-rounded">
           {props.date.add(2, "d").format("MM.DD")}
         </button>
       </div>
       <div className="column">
-        <button className="button is-small is-fullwidth is-outlined is-rounded display-text">
+        <button className="button is-small is-fullwidth is-outlined is-rounded">
           {props.date.add(3, "d").format("MM.DD")}
         </button>
       </div>
       <div className="column">
-        <button className="button is-small is-fullwidth is-outlined is-rounded display-text">
+        <button className="button is-small is-fullwidth is-outlined is-rounded">
           {props.date.add(4, "d").format("MM.DD")}
         </button>
       </div>
       <div className="column">
-        <button className="button is-small is-fullwidth is-outlined is-rounded display-text">
+        <button className="button is-small is-fullwidth is-outlined is-rounded">
           {props.date.add(5, "d").format("MM.DD")}
         </button>
       </div>
       <div className="column">
-        <button className="button is-small is-fullwidth is-outlined is-rounded display-text">
+        <button className="button is-small is-fullwidth is-outlined is-rounded">
           {props.date.add(6, "d").format("MM.DD")}
         </button>
       </div>

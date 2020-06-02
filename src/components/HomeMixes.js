@@ -49,7 +49,7 @@ function HomeMixes() {
           </div>
         </div>
       </div>
-      {/* Touch */}
+      {/* TOUCH */}
       <div className="columns is-mobile is-multiline is-vcentered is-hidden-desktop mobile-home-content">
         <div className="column">
           <p className="display-text is-size-4">Daily Mixes</p>

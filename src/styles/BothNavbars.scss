@@ -10,7 +10,7 @@
   right: 0;
   top: 0;
   z-index: 30;
-  // background-color: black;
+  background-color: black;
   // background-color: rgba($color: black, $alpha: 0.5);
   // background-color: transparent;
   .container {
@@ -25,10 +25,10 @@
 //==================================
 .radio-bar {
   flex: 8;
+  min-height: 4rem;
   // padding-top: 0.5rem;
   // margin-bottom: 0;
-  min-height: 4rem;
-  background-color: rgba($color: darkslateblue, $alpha: 0.75);
+  // background-color: rgba($color: darkslateblue, $alpha: 0.75);
 
   #radioShowDetails {
     display: flex;
@@ -48,9 +48,9 @@
   }
   .columns {
     margin-top: 0rem;
-    border: 2px solid red;
-    background-color: rgba($color: orange, $alpha: 0.5);
     max-height: 4rem;
+    // border: 2px solid red;
+    // background-color: rgba($color: orange, $alpha: 0.5);
   }
 }
 
@@ -105,8 +105,8 @@
   color: white;
   border-bottom: 0.125rem solid white;
   min-height: 3rem;
-  background-color: rgba($color: darkGreen, $alpha: 0.75);
   padding-top: 0.25rem;
+  // background-color: rgba($color: darkGreen, $alpha: 0.75);
 
   &.is-open {
     height: auto;

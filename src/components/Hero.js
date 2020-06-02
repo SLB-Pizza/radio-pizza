@@ -7,7 +7,7 @@ function Hero(props) {
         <div className="columns">
           <div className="column">
             <p className="title is-size-3-mobile is-size-1-tablet has-text-centered">
-              Test Sources
+              Sources
             </p>
           </div>
         </div>

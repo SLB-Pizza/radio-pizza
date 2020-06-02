@@ -14,17 +14,17 @@ function HomeMixes() {
 
   return (
     <div className="container is-fluid" id="home-mixes">
-      {/* Desktop */}
+      {/* DESKTOP */}
       <div className="columns is-hidden-touch">
         <div className="column is-3">
           <div className="sticky-section-blurb">
-            <p className="title is-size-3">Recent Mixes</p>
+            <p className="display-text is-size-3">Recent Mixes</p>
             <p className="subtitle is-size-6">
               These dummy mixes are the same as the ones on the sample bio page.
               You can hover/touch and play them the same way. Try it!
             </p>
             <Link to="/mixes">
-              <button className="button is-outlined is-rounded">
+              <button className="button is-small is-outlined is-rounded display-text">
                 All Mixes
               </button>
             </Link>
@@ -50,17 +50,19 @@ function HomeMixes() {
         </div>
       </div>
       {/* Touch */}
-      <div className="columns is-mobile is-multiline is-vcentered is-hidden-desktop">
+      <div className="columns is-mobile is-multiline is-vcentered is-hidden-desktop mobile-home-content">
         <div className="column">
-          <p className="title is-size-3 mobile-headers">Daily Mixes</p>
+          <p className="display-text is-size-4">Daily Mixes</p>
         </div>
-        <div className="column is-narrow more-link">
+        <div className="column is-narrow">
           <Link to="/mixes">
-            <button className="button is-outlined is-rounded">All Mixes</button>
+            <button className="button is-small is-outlined is-rounded">
+              All Mixes
+            </button>
           </Link>
         </div>
-        <div className="column is-12">
-          <p className="subtitle is-size-6 mobile-headers">
+        <div className="column is-12 mobile-home-description">
+          <p className="subtitle is-size-6">
             These dummy mixes are the same as the ones on the sample bio page.
             You can hover/touch and play them the same way. Try it!
           </p>

@@ -51,7 +51,7 @@ function ScheduleBar() {
         >
           {globalState.live ? (
             <button
-              className="button is-small is-outlined is-rounded display-text"
+              className="button is-small is-outlined is-rounded"
               id="listen-live"
             >
               <span>Listen Live</span>
@@ -76,7 +76,7 @@ function ScheduleBar() {
         </div>
         <div className="column is-narrow">
           <button
-            className="button is-small is-outlined is-rounded display-text"
+            className="button is-small is-outlined is-rounded"
             onClick={() => setOpen(!open)}
           >
             Schedule
@@ -98,7 +98,7 @@ function ScheduleBar() {
           }}
         >
           {globalState.live ? (
-            <button className="button is-small is-outlined is-rounded display-text">
+            <button className="button is-small is-outlined is-rounded">
               Listen Live
             </button>
           ) : (
@@ -120,7 +120,7 @@ function ScheduleBar() {
         </div>
         <div className="column is-narrow">
           <button
-            className="button is-small is-outlined is-rounded display-text"
+            className="button is-small is-outlined is-rounded"
             onClick={() => setOpen(!open)}
           >
             Close

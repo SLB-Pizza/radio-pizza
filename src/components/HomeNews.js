@@ -5,19 +5,17 @@ import { HomeSingleNews } from "./index";
 function HomeNews() {
   return (
     <div className="container is-fluid" id="home-news">
-      {/*
-      Desktop Sizes
-      */}
+      {/* DESKTOP */}
       <div className="columns is-hidden-touch">
         <div className="column is-3">
           <div className="sticky-section-blurb">
-            <p className="title is-size-3">Features</p>
+            <p className="display-text is-size-3">Features</p>
             <p className="subtitle is-size-6">
               En su cumpleaños, la decisión que tomó Nacional con sus empleados.
             </p>
 
             <Link to="/">
-              <button className="button is-outlined is-rounded">
+              <button className="button is-small is-outlined is-rounded">
                 All Mixes
               </button>
             </Link>
@@ -35,15 +33,17 @@ function HomeNews() {
       */}
       <div className="columns is-mobile is-multiline is-vcentered is-hidden-desktop">
         <div className="column">
-          <p className="title is-size-3 mobile-headers">Features</p>
+          <p className="display-text is-size-4">Features</p>
         </div>
-        <div className="column is-narrow more-link">
+        <div className="column is-narrow">
           <Link to="/">
-            <button className="button is-outlined is-rounded">All Mixes</button>
+            <button className="button is-small is-outlined is-rounded">
+              All Mixes
+            </button>
           </Link>
         </div>
         <div className="column is-12">
-          <p className="subtitle is-size-5 mobile-headers">
+          <p className="subtitle is-size-6">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
         </div>

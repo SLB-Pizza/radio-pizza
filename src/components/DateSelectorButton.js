@@ -13,7 +13,7 @@ import React, { useState } from "react";
 
 function DateSelectorButton(props) {
   return (
-    <div className="columns is-vcentered is-mobile">
+    <div className="columns is-vcentered is-mobile mobile-date-selector">
       <div className="column">
         <button className="button is-small is-fullwidth is-outlined is-rounded display-text">
           {props.date.format("MM.DD")}

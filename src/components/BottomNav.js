@@ -48,11 +48,11 @@ function BottomNav() {
             Residents
           </Link>
           <Link
-            to="/sticky-bio"
+            to="/bio"
             className="navbar-item"
             onClick={() => setMenuOpen(!menuOpen)}
           >
-            Sticky Bio
+            Bio
           </Link>
           <Link
             to="/mixes"
@@ -66,7 +66,7 @@ function BottomNav() {
             className="navbar-item"
             onClick={() => setMenuOpen(!menuOpen)}
           >
-            About Us
+            About
           </Link>
 
           {/*

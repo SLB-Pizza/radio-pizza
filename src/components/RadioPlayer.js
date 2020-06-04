@@ -125,19 +125,22 @@ function RadioPlayer(props) {
         )}
       </div>
 
-      <div className="column is-narrow now-playing is-hidden-mobile">
+      <div className="column is-hidden-mobile" id="now-playing-img">
         <figure className="image is-48x48">
           <img src={`${globalState.img}`} alt="Current mix" />
         </figure>
       </div>
 
-      <div className="column" id="radioShowDetails">
+      <div className="column" id="now-play-details">
         {/* Static tablet and up currentTrackTitle */}
-        <div className="is-hidden-mobile" id="radioShowName">
+        <p className="display-text is-size-7-tablet">{globalState.artist}</p>
+        <p className="display-text is-size-6-tablet">{globalState.title}</p>
+
+        {/* <div className="is-hidden-mobile" id="radioShowName">
           <p className="display-text is-size-6-tablet">
             {globalState.artist} – {globalState.title}
           </p>
-        </div>
+        </div> */}
 
         {/* Dynamic mobile currentTrackTitle */}
         <PageVisibility onChange={handleVisibilityChange}>

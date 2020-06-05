@@ -1,0 +1,44 @@
+[
+  {
+    "eventName": "Rolling Loud",
+    "date": "05.10.20",
+    "location": "Miami, Florida",
+    "img": "../img/test/RollingLoud.jpg",
+    "blurb": "In only a few short years Rolling Loud shot up to become the undisputed king of all hip hop festival series."
+  },
+  {
+    "eventName": "Stagecoach Festival",
+    "date": "04.24.20",
+    "location": "Indio, California",
+    "img": "../img/test/stagecoach.jpg",
+    "blurb": "Stagecoach is the Coachella of country music in every way."
+  },
+  {
+    "eventName": "Desert Daze Festival",
+    "date": "10.30.20",
+    "location": "Moreno Beach, California",
+    "img": "../img/test/desertDaze.jpg",
+    "blurb": "Desert Daze's palm tree lined, beach-fronted location on Lake Perris."
+  },
+  {
+    "eventName": "Firefly Music Festival",
+    "date": "06.18.20",
+    "location": "Dover, Delaware",
+    "img": "../img/test/FireflyMusic.jpg",
+    "blurb": "An American multi-genre behemoth, Firefly is the east coast's biggest camping festival."
+  },
+  {
+    "eventName": "III Points",
+    "date": "05.01.20",
+    "location": "Miami, Florida",
+    "img": "../img/test/iiiPoints.jpg",
+    "blurb": "One of the country's leading boutique festivals, III Points has been raising the bar in terms of giving creativity a platform since 2013."
+  },
+  {
+    "eventName": "Governors Ball Music Festival",
+    "date": "05.31.20",
+    "location": "Randall's Island, New York",
+    "img": "../img/test/GovBall.jpg",
+    "blurb": "Another event which proves the music loving potential of Randall's Island Park is Govenors Ball, an exciting and infectious mix of rock, hip-hop, electronic, pop and folk."
+  }
+]

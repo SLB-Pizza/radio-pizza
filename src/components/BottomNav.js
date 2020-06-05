@@ -62,6 +62,13 @@ function BottomNav() {
             Mixes
           </Link>
           <Link
+            to="/events"
+            className="navbar-item"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            Events
+          </Link>
+          <Link
             to="/about"
             className="navbar-item"
             onClick={() => setMenuOpen(!menuOpen)}

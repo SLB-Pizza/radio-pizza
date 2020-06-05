@@ -125,29 +125,43 @@ function RadioPlayer(props) {
         )}
       </div>
 
-      <div className="column is-hidden-mobile" id="now-playing-img">
+      <div className="column" id="now-playing">
+        <div className="is-hidden-mobile" id="now-playing-img">
+          <figure className="image is-48x48">
+            <img src={`${globalState.img}`} alt="Current mix" />
+          </figure>
+        </div>
+        <div id="now-playing-details">
+          <p className="display-text is-size-7">{globalState.artist}</p>
+          <p className="display-text is-size-6-tablet is-size-7-mobile">
+            {globalState.title}
+          </p>
+        </div>
+      </div>
+
+      {/* <div className="column is-hidden-mobile" id="now-playing-img">
         <figure className="image is-48x48">
           <img src={`${globalState.img}`} alt="Current mix" />
         </figure>
       </div>
 
-      <div className="column" id="now-play-details">
-        {/* Static tablet and up currentTrackTitle */}
-        <p className="display-text is-size-7-tablet">{globalState.artist}</p>
-        <p className="display-text is-size-6-tablet">{globalState.title}</p>
+      <div className="column" id="now-play-details"> */}
+      {/* Static tablet and up currentTrackTitle */}
+      {/* <p className="display-text is-size-7-tablet">{globalState.artist}</p>
+        <p className="display-text is-size-6-tablet">{globalState.title}</p> */}
 
-        {/* <div className="is-hidden-mobile" id="radioShowName">
+      {/* <div className="is-hidden-mobile" id="radioShowName">
           <p className="display-text is-size-6-tablet">
             {globalState.artist} – {globalState.title}
           </p>
         </div> */}
 
-        {/* Dynamic mobile currentTrackTitle */}
-        <PageVisibility onChange={handleVisibilityChange}>
+      {/* Dynamic mobile currentTrackTitle */}
+      {/* <PageVisibility onChange={handleVisibilityChange}>
           {pageIsVisible &&
             renderNowPlaying(globalState.artist, globalState.title)}
         </PageVisibility>
-      </div>
+      </div> */}
 
       <ReactPlayer
         className="cloud-player"

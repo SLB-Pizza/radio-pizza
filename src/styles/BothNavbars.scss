@@ -49,20 +49,27 @@
   //   }
   // }
 
-  span.icon {
-    background-color: darkgreen;
+  #now-playing {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    transition: 0.5s ease;
   }
 
   #now-playing-img {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-content: center;
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-content: center;
+    }
   }
 
   #now-playing-details {
     display: flex;
     flex-direction: column;
+    align-content: flex-end;
+    margin-left: 1rem;
     p {
       flex: 1;
     }

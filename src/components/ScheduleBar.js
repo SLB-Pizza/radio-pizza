@@ -59,12 +59,12 @@ function ScheduleBar() {
             </button>
           ) : (
             <p className="display-text is-size-6-desktop is-size-7-touch">
-              Next Show
+              Next Show >
             </p>
           )}
         </div>
         <div className="column upcoming is-hidden-mobile">
-          <p className="display-text is-size-6-desktop is-size-7-touch has-text-centered">
+          <p className="display-text is-size-6-desktop is-size-7-touch">
             Aldrich Title - Oxygen Body
           </p>
         </div>

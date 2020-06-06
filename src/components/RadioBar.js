@@ -105,6 +105,15 @@ function RadioBar() {
           </Link>
         </div>
 
+        {/*
+        RadioPlayer returns a fragment with the following structure:
+        <>
+          <column is-narrow>
+          <column is-narrow>
+          <column>
+          <RadioPlayer>
+        </>
+        */}
         <RadioPlayer status={radioData.status} />
 
         <div className="column is-narrow">

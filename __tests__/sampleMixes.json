@@ -5,7 +5,7 @@
     "testSrc": "Soundcloud",
     "name": "Silk Wave",
     "artist": "KOAN Sound",
-    "img": "../img/silk-wave.jpg",
+    "img": "../img/test/silk-wave.jpg",
     "tags": ["electronic", "funk", "glitch hop", "dubstep", "vocals"]
   },
   {
@@ -14,7 +14,7 @@
     "testSrc": "Soundcloud",
     "name": "More than Just a Name",
     "artist": "Infected Mushroom",
-    "img": "../img/more-than-just-a-name.jpg",
+    "img": "../img/test/more-than-just-a-name.jpg",
     "tags": ["electronic", "rock", "synths", "psytrance"]
   },
   {
@@ -23,7 +23,7 @@
     "testSrc": "Soundcloud",
     "name": "Mint Jams",
     "artist": "Casiopea",
-    "img": "../img/mint-jams.jpg",
+    "img": "../img/test/mint-jams.jpg",
     "tags": ["jazz fusion", "live album", "1980s", "japanese"]
   },
   {
@@ -32,7 +32,7 @@
     "testSrc": "Soundcloud",
     "name": "Owarini Tokyo Liveshow",
     "artist": "Moe Shop",
-    "img": "../img/moe-shop.jpeg",
+    "img": "../img/test/moe-shop.jpeg",
     "tags": ["dance", "electro pop", "mashup", "future pop", "japanese"]
   },
   {
@@ -41,7 +41,7 @@
     "testSrc": "Soundcloud",
     "name": "Terraformer",
     "artist": "Thank You Scientist",
-    "img": "../img/terraformer.jpg",
+    "img": "../img/test/terraformer.jpg",
     "tags": ["jazz fusion", "prog rock", "funk band", "experimental"]
   },
   {
@@ -50,7 +50,7 @@
     "testSrc": "Soundcloud",
     "name": "Female Electronic Producers",
     "artist": "Circuits",
-    "img": "../img/fem-elec-prod.jpg",
+    "img": "../img/test/fem-elec-prod.jpg",
     "tags": ["deep bass", "future bass", "dark", "beats", "international"]
   },
   {
@@ -59,7 +59,7 @@
     "testSrc": "Soundcloud",
     "name": "BLASTOYZ @ Transmission Prague 2019",
     "artist": "BLASTOYZ",
-    "img": "../img/blastoyz.png",
+    "img": "../img/test/blastoyz.png",
     "tags": ["electro", "complextro", "trance", "psytrance", "live set"]
   },
   {
@@ -68,7 +68,7 @@
     "testSrc": "Soundcloud",
     "name": "sleepmakeswaves on Audiotree (Live)",
     "artist": "sleepmakeswaves",
-    "img": "../img/sleepmakeswaves.jpg",
+    "img": "../img/test/sleepmakeswaves.jpg",
     "tags": ["post rock", "prog rock", "instrumental rock", "live set"]
   },
   {
@@ -77,7 +77,7 @@
     "testSrc": "Soundcloud",
     "name": "Countdown Virtual Rave-A-Thon",
     "artist": "DJ Soda",
-    "img": "../img/dj-soda.jpg",
+    "img": "../img/test/dj-soda.jpg",
     "tags": ["electronic", "dubstep", "uk hardcore", "live set"]
   },
   {
@@ -86,7 +86,7 @@
     "testSrc": "Mixcloud",
     "name": "plusNONE - 3.25.2020",
     "artist": "plusNONE",
-    "img": "../img/plusNONE-032020.jpg",
+    "img": "../img/test/plusNONE-032020.jpg",
     "tags": ["plusNONE", "r&b", "neo soul", "hip hop"]
   },
   {
@@ -95,7 +95,7 @@
     "testSrc": "Mixcloud",
     "name": "Shibuya Jazz Classics",
     "artist": "Various Artists",
-    "img": "../img/shibuya-jazz.jpg",
+    "img": "../img/test/shibuya-jazz.jpg",
     "tags": ["jazz", "modal jazz", "jazz fusion", "japanese jazz", "free jazz"]
   },
   {
@@ -104,7 +104,7 @@
     "testSrc": "Youtube Livestream",
     "name": "lofi hip hop radio - beats to relax/study to",
     "artist": "ChilledCow",
-    "img": "../img/lo-fi.jpeg",
+    "img": "../img/test/lo-fi.jpeg",
     "tags": ["lo-fi", "hip-hop", "ambient", "instrumental", "beats"]
   },
   {
@@ -113,7 +113,7 @@
     "testSrc": "Soundcloud",
     "name": "Liquicity Yearmix 2019 (Mixed by Maduk)",
     "artist": "Maduk",
-    "img": "../img/liquicity-2019.jpg",
+    "img": "../img/test/liquicity-2019.jpg",
     "tags": ["electronic", "dance", "yearmix", "drum & bass"]
   },
   {
@@ -122,7 +122,7 @@
     "testSrc": "Youtube",
     "name": "Inferno (Cinder's Theme) - Killer Instinct Season 2 Soundtrack",
     "artist": "Mick Gordon",
-    "img": "../img/ki-s2.jpg",
+    "img": "../img/test/ki-s2.jpg",
     "tags": ["heavy metal", "dark electronic", "soundtrack"]
   },
   {
@@ -131,7 +131,7 @@
     "testSrc": "Soundcloud",
     "name": "avril 14th, notes played backwards, not the audio",
     "artist": "Aphex Twin (user18081971)",
-    "img": "../img/aphex.jpg",
+    "img": "../img/test/aphex.jpg",
     "tags": ["piano", "ambient", "atmospheric", "light"]
   }
 ]

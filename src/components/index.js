@@ -21,6 +21,7 @@ export { default as ScheduleDropdown } from "./ScheduleDropdown";
 export { default as ScheduleDatePicker } from "./ScheduleDatePicker";
 export { default as ScheduleModal } from "./ScheduleModal";
 export { default as ScheduleShowEntry } from "./ScheduleShowEntry";
+export { default as SingleEventCard } from "./SingleEventCard";
 export { default as SingleMixCard } from "./SingleMixCard";
 export { default as SingleResident } from "./SingleResident";
 export { default as StickyBioBlurb } from "./StickyBioBlurb";

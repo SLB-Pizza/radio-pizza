@@ -14,7 +14,7 @@ function HomeEvents() {
             <p className="subtitle is-size-6">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
-            <Link to="/">
+            <Link to="/events">
               <button className="button is-small is-outlined is-rounded">
                 All Events
               </button>
@@ -35,7 +35,7 @@ function HomeEvents() {
           <p className="display-text is-size-4">Live Events</p>
         </div>
         <div className="column is-narrow">
-          <Link to="/">
+          <Link to="/events">
             <button className="button is-small is-outlined is-rounded">
               All Events
             </button>

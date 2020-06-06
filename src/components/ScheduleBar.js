@@ -59,7 +59,7 @@ function ScheduleBar() {
             </button>
           ) : (
             <p className="display-text is-size-6-desktop is-size-7-touch">
-              Next Show
+              Next Show >
             </p>
           )}
         </div>

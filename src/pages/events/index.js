@@ -1,33 +1,34 @@
-import React from 'react';
+import React from "react";
+import { SingleEventCard } from "../../components";
 
-import Layout from '../../components/Layout';
+import dummyEvents from "../../../__tests__/dummyEvents.json";
 
-export default class EventsIndexPage extends React.Component {
-  render() {
-    return (
-      <Layout>
-        <div
-          className="full-width-image-container margin-top-0"
-          style={{
-            backgroundImage: `url('/img/halfmoon-3.png')`,
-          }}>
-          <h1
-            className="has-text-weight-bold is-size-1"
-            style={{
-              boxShadow: '0.5rem 0 0 #f40, -0.5rem 0 0 #f40',
-              backgroundColor: '#f40',
-              color: 'white',
-              padding: '1rem',
-            }}>
+function EventsIndexPage() {
+  return (
+    <div className="container is-fluid site-page">
+      <div className="columns is-mobile is-multiline">
+        <div className="column is-full">
+          <p className="display-text is-size-2-desktop is-size-3-touch">
             Events
-          </h1>
+          </p>
         </div>
-        <section className="section">
-          <div className="container">
-            <div className="content"></div>
+        {dummyEvents.map((event) => (
+          <div
+            key={event.eventName}
+            className="column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen"
+          >
+            <SingleEventCard
+              eventName={event.eventName}
+              date={event.date}
+              location={event.location}
+              img={event.img}
+              blurb={event.blurb}
+            />
           </div>
-        </section>
-      </Layout>
-    );
-  }
+        ))}
+      </div>
+    </div>
+  );
 }
+
+export default EventsIndexPage;

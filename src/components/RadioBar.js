@@ -100,11 +100,23 @@ function RadioBar() {
         <div className="column is-narrow">
           <Link to="/">
             <figure className="image is-48x48">
-              <img src={`../img/halfmoon-3.png`} alt="Return to home page" />
+              <img
+                src={`../img/test/halfmoon-3.png`}
+                alt="Return to home page"
+              />
             </figure>
           </Link>
         </div>
 
+        {/*
+        RadioPlayer returns a fragment with the following structure:
+        <>
+          <column is-narrow>
+          <column is-narrow>
+          <column>
+          <RadioPlayer>
+        </>
+        */}
         <RadioPlayer status={radioData.status} />
 
         <div className="column is-narrow">

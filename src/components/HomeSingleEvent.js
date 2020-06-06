@@ -20,7 +20,8 @@ function HomeSingleEvent() {
             Lorem Ipsum Dolor
           </p>
           <p className="subtitle is-size-7-mobile is-size-6-tablet is-size-5-fullhd">
-            One line talking about this awesome event.
+            One line hooking the reader in to find out more about this awesome
+            event.
           </p>
         </div>
       </div>

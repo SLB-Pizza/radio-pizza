@@ -24,7 +24,7 @@ function StickyBioIndexPage() {
           <div className="columns is-multiline">
             <div className="column is-12">
               <figure className="image is-1by1">
-                <img src={`../img/cyberpunk-robo.jpg`} alt="Rowdy Robo" />
+                <img src={`../img/test/cyberpunk-robo.jpg`} alt="Rowdy Robo" />
               </figure>
             </div>
             <div className="column is-12">

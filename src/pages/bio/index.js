@@ -15,7 +15,7 @@ import sampleMixes from "../../../__tests__/sampleMixes.json";
 
 function StickyBioIndexPage() {
   const playBtnInfo = [{ btnSize: "7x" }];
-  const stickyBioLayout = "column is-12-mobile is-6-tablet is-4-desktop";
+  const stickyBioLayout = "column is-12-mobile is-6-tablet is-3-desktop";
 
   return (
     <div className="container is-fluid site-page">
@@ -28,13 +28,10 @@ function StickyBioIndexPage() {
               </figure>
             </div>
             <div className="column is-12">
-              <p className="title is-size-3-desktop is-size-5-touch ">
+              <p className="title is-size-4-desktop is-size-5-touch ">
                 RowdyRobo
               </p>
-              <p className="subtitle is-size-5-desktop is-size-6-touch">
-                Homebuilt MixMaster Droid rev.9001
-              </p>
-              <p className="is-size-6-desktop is-size-7-touch">
+              <p className="subtitle is-size-6-desktop is-size-7-touch">
                 From the year 7020, comes the musical megamind that's traveled
                 across space and time. They're here to rock our planet.
               </p>

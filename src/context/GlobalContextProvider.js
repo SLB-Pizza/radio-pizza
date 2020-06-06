@@ -8,7 +8,7 @@ const initialState = {
     "https://soundcloud.com/soundcloud-scenes/sets/currents-next-gen-chillwave",
   title: "Next Gen ChillWave",
   artist: "Currents",
-  img: "../img/next-gen-chillwave.jpg",
+  img: "../img/test/next-gen-chillwave.jpg",
   playing: false,
   controls: false,
   light: false,

@@ -39,6 +39,27 @@
     "date": "05.31.20",
     "location": "Randall's Island, New York",
     "img": "../img/test/GovBall.jpg",
+    "blurb": "Another event which proves the music loving potential of Randall's Island Park is Governors Ball, an exciting and infectious mix of rock, hip-hop, electronic, pop and folk."
+  },
+  {
+    "eventName": "Electric Daisy Carnival Las Vegas",
+    "date": "05.17.20",
+    "location": "Las Vegas, Nevada",
+    "img": "../img/test/GovBall.jpg",
+    "blurb": "Another event which proves the music loving potential of Randall's Island Park is Govenors Ball, an exciting and infectious mix of rock, hip-hop, electronic, pop and folk."
+  },
+  {
+    "eventName": "Governors Ball Music Festival",
+    "date": "05.31.20",
+    "location": "Randall's Island, New York",
+    "img": "../img/test/GovBall.jpg",
+    "blurb": "Another event which proves the music loving potential of Randall's Island Park is Govenors Ball, an exciting and infectious mix of rock, hip-hop, electronic, pop and folk."
+  },
+  {
+    "eventName": "Governors Ball Music Festival",
+    "date": "05.31.20",
+    "location": "Randall's Island, New York",
+    "img": "../img/test/GovBall.jpg",
     "blurb": "Another event which proves the music loving potential of Randall's Island Park is Govenors Ball, an exciting and infectious mix of rock, hip-hop, electronic, pop and folk."
   }
 ]

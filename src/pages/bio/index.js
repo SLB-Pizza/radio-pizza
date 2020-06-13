@@ -14,13 +14,12 @@ import {
 import sampleMixes from "../../../__tests__/sampleMixes.json";
 
 function StickyBioIndexPage() {
-  const playBtnInfo = [{ btnSize: "7x" }];
-  const stickyBioLayout = "column is-12-mobile is-6-tablet is-3-desktop";
+  const stickyBioLayout = "column is-12-mobile is-12-tablet is-3-desktop";
 
   return (
     <div className="container is-fluid site-page">
       <div className="columns is-multiline">
-        <div className="column is-3-desktop is-4-tablet is-12-mobile sticky-bio">
+        <div className="column is-3-desktop is-5-tablet is-12-mobile sticky-bio">
           <div className="columns is-multiline">
             <div className="column is-12">
               <figure className="image is-1by1">
@@ -99,7 +98,6 @@ function StickyBioIndexPage() {
                 artist={mix.artist}
                 img={mix.img}
                 tags={mix.tags}
-                playBtnInfo={playBtnInfo}
                 columnLayout={stickyBioLayout}
               />
             ))}

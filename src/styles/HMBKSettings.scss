@@ -194,7 +194,8 @@ button {
 
     .content-text {
       @include mobile {
-        min-height: 5rem;
+        // background-color: green;
+        height: auto;
       }
       @include tablet-only {
         min-height: 5.5rem;
@@ -208,6 +209,10 @@ button {
       @include fullhd {
         min-height: 5.5rem;
       }
+    }
+
+    .event-text {
+      min-height: 6rem;
     }
 
     p.title + p {
@@ -262,7 +267,6 @@ button {
     .play-btn-diffuser {
       display: flex;
       justify-content: center;
-      // background-color: rgba($color: black, $alpha: 0.75);
 
       span {
         color: white;
@@ -292,7 +296,6 @@ button {
 }
 
 .buttons.are-tags {
-  min-height: 8rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap-reverse;
@@ -301,18 +304,19 @@ button {
   padding: 0;
 
   // OLD TAGS CONTAINER SIZINGS
-  // @include mobile {
-  //   min-height: 6rem;
-  // }
-  // @include from($tablet) {
-  //   min-height: 6rem;
-  // }
-  // @include widescreen-only {
-  //   min-height: 5rem;
-  // }
-  // @include fullhd {
-  //   min-height: 4rem;
-  // }
+  @include mobile {
+    padding-top: 1rem;
+    // background-color: orange;
+  }
+  @include from($tablet) {
+    min-height: 6rem;
+  }
+  @include widescreen-only {
+    min-height: 5rem;
+  }
+  @include fullhd {
+    min-height: 4rem;
+  }
 }
 
 //===========================================

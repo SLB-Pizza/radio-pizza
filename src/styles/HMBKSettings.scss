@@ -333,3 +333,30 @@ button {
 //     }
 //   }
 // }
+
+// Duotone testing
+$dt-base: #f600ff;
+$dt-bg-blend: multiply;
+$dt-blur: 0px;
+$dt-fg-blend: lighten;
+$dt-foreground: #16006f;
+$dt-opacity: 1;
+$dt-spacing: 1%;
+
+.btn-tags figure {
+  background-color: $dt-base;
+
+  img {
+    filter: grayscale(100%) contrast(1) blur(0px);
+    mix-blend-mode: $dt-bg-blend;
+    opacity: $dt-opacity;
+    object-fit: cover;
+  }
+
+  &::before {
+    background-color: $dt-foreground;
+    content: "";
+    mix-blend-mode: $dt-fg-blend;
+    z-index: 1000;
+  }
+}

@@ -17,17 +17,27 @@ function SingleMixCard(props) {
    * @param {string} [buttons.viewportClass] - className to attach to the play button
    */
 
-  const playAudioButton = (url, title, artist, img, playBtnInfo) => {
-    return playBtnInfo.map((singleBtn) => (
-      <span key={title}>
-        <FontAwesomeIcon
-          icon={faPlay}
-          size={singleBtn.btnSize}
-          className={
-            singleBtn.hasOwnProperty("viewportClass")
-              ? singleBtn.viewportClass
-              : ""
-          }
+  const playAudioButton = (url, title, artist, img, btnSize) => {
+    return (
+      <FontAwesomeIcon
+        icon={faPlay}
+        size={btnSize}
+        className="icon-color"
+        onClick={() =>
+          dispatch({
+            type: "CHANGE_URL",
+            payload: {
+              url: url,
+              title: title,
+              artist: artist,
+              img: img,
+            },
+          })
+        }
+      >
+        <a
+          href="#"
+          className="sr-only is-overlay"
           onClick={() =>
             dispatch({
               type: "CHANGE_URL",
@@ -35,30 +45,14 @@ function SingleMixCard(props) {
                 url: url,
                 title: title,
                 artist: artist,
-                img: img,
               },
             })
           }
         >
-          <a
-            href="#"
-            className="sr-only is-overlay"
-            onClick={() =>
-              dispatch({
-                type: "CHANGE_URL",
-                payload: {
-                  url: url,
-                  title: title,
-                  artist: artist,
-                },
-              })
-            }
-          >
-            Play This Mix
-          </a>
-        </FontAwesomeIcon>
-      </span>
-    ));
+          Play This Mix
+        </a>
+      </FontAwesomeIcon>
+    );
   };
 
   /**
@@ -73,13 +67,13 @@ function SingleMixCard(props) {
           <figure className="image is-1by1">
             <img src={props.img} alt={imageAltText} />
             <div className="play-btn-diffuser is-overlay">
-              {props.playBtnInfo &&
+              {props.btnSize &&
                 playAudioButton(
                   props.url,
                   props.name,
                   props.artist,
                   props.img,
-                  props.playBtnInfo
+                  props.btnSize
                 )}
             </div>
           </figure>

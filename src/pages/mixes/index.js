@@ -24,7 +24,6 @@ const dummyOptions = [
 function MixesIndexPage() {
   const [searchInput, setSearchInput] = useState("");
 
-  const playBtnInfo = [{ btnSize: "7x" }];
   const mixListLayout =
     "column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen";
 
@@ -103,7 +102,6 @@ function MixesIndexPage() {
             artist={mix.artist}
             img={mix.img}
             tags={mix.tags}
-            playBtnInfo={playBtnInfo}
             columnLayout={mixListLayout}
           />
         ))}

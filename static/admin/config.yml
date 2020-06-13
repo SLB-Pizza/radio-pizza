@@ -459,3 +459,258 @@ collections:
                   },
                 ],
             }
+
+  - name: 'weeklySchedule'
+    label: 'Weekly Schedule'
+    folder: 'src/pages/weeklySchedule'
+    create: false
+    identifier_field: title
+    slug: '{{slug}}-{{year}}-{{month}}-{{day}}'
+    fields:
+      - {
+          label: 'Template Key',
+          name: 'templateKey',
+          widget: 'hidden',
+          default: 'weeklySchedule',
+        }
+      - { label: 'Sunday', name: 'sunday', widget: 'string' }
+      - {
+          label: '12:00 AM - 1:00 AM',
+          name: 'sun00',
+          widget: 'relation',
+          collection: 'shows',
+          displayFields: ['name'],
+          searchFields: ['name'],
+          valueField: 'name',
+          multiple: false,
+        }
+        - {
+          label: '1:00 AM - 2:00 AM',
+          name: 'sun01',
+          widget: 'relation',
+          collection: 'shows',
+          displayFields: ['name'],
+          searchFields: ['name'],
+          valueField: 'name',
+          multiple: false,
+        }
+        - {
+          label: '2:00 AM - 3:00 AM',
+          name: 'sun02',
+          widget: 'relation',
+          collection: 'shows',
+          displayFields: ['name'],
+          searchFields: ['name'],
+          valueField: 'name',
+          multiple: false,
+        }
+        - {
+          label: '3:00 AM - 4:00 AM',
+          name: 'sun03',
+          widget: 'relation',
+          collection: 'shows',
+          displayFields: ['name'],
+          searchFields: ['name'],
+          valueField: 'name',
+          multiple: false,
+        }
+        - {
+          label: '4:00 AM - 5:00 AM',
+          name: 'sun04',
+          widget: 'relation',
+          collection: 'shows',
+          displayFields: ['name'],
+          searchFields: ['name'],
+          valueField: 'name',
+          multiple: false,
+        }
+        - {
+          label: '5:00 AM - 6:00 AM',
+          name: 'sun05',
+          widget: 'relation',
+          collection: 'shows',
+          displayFields: ['name'],
+          searchFields: ['name'],
+          valueField: 'name',
+          multiple: false,
+        }
+        - {
+          label: '6:00 AM - 7:00 AM',
+          name: 'sun06',
+          widget: 'relation',
+          collection: 'shows',
+          displayFields: ['name'],
+          searchFields: ['name'],
+          valueField: 'name',
+          multiple: false,
+        }
+        - {
+          label: '7:00 AM - 8:00 AM',
+          name: 'sun07',
+          widget: 'relation',
+          collection: 'shows',
+          displayFields: ['name'],
+          searchFields: ['name'],
+          valueField: 'name',
+          multiple: false,
+        }
+        - {
+          label: '8:00 AM - 9:00 AM',
+          name: 'sun08',
+          widget: 'relation',
+          collection: 'shows',
+          displayFields: ['name'],
+          searchFields: ['name'],
+          valueField: 'name',
+          multiple: false,
+        }
+        - {
+          label: '9:00 AM - 10:00 AM',
+          name: 'sun09',
+          widget: 'relation',
+          collection: 'shows',
+          displayFields: ['name'],
+          searchFields: ['name'],
+          valueField: 'name',
+          multiple: false,
+        }
+        - {
+          label: '10:00 AM - 11:00 AM',
+          name: 'sun10',
+          widget: 'relation',
+          collection: 'shows',
+          displayFields: ['name'],
+          searchFields: ['name'],
+          valueField: 'name',
+          multiple: false,
+        }
+        - {
+          label: '11:00 AM - 12:00 PM',
+          name: 'sun11',
+          widget: 'relation',
+          collection: 'shows',
+          displayFields: ['name'],
+          searchFields: ['name'],
+          valueField: 'name',
+          multiple: false,
+        }
+        - {
+          label: '12:00 PM - 1:00 PM',
+          name: 'sun12',
+          widget: 'relation',
+          collection: 'shows',
+          displayFields: ['name'],
+          searchFields: ['name'],
+          valueField: 'name',
+          multiple: false,
+        }
+        - {
+          label: '1:00 PM - 2:00 PM',
+          name: 'sun13',
+          widget: 'relation',
+          collection: 'shows',
+          displayFields: ['name'],
+          searchFields: ['name'],
+          valueField: 'name',
+          multiple: false,
+        }
+        - {
+          label: '2:00 PM - 3:00 PM',
+          name: 'sun14',
+          widget: 'relation',
+          collection: 'shows',
+          displayFields: ['name'],
+          searchFields: ['name'],
+          valueField: 'name',
+          multiple: false,
+        }
+        - {
+          label: '3:00 PM - 4:00 PM',
+          name: 'sun15',
+          widget: 'relation',
+          collection: 'shows',
+          displayFields: ['name'],
+          searchFields: ['name'],
+          valueField: 'name',
+          multiple: false,
+        }
+        - {
+          label: '4:00 PM - 5:00 PM',
+          name: 'sun16',
+          widget: 'relation',
+          collection: 'shows',
+          displayFields: ['name'],
+          searchFields: ['name'],
+          valueField: 'name',
+          multiple: false,
+        }
+        - {
+          label: '5:00 PM - 6:00 PM',
+          name: 'sun17,
+          widget: 'relation',
+          collection: 'shows',
+          displayFields: ['name'],
+          searchFields: ['name'],
+          valueField: 'name',
+          multiple: false,
+        }
+        - {
+          label: '6:00 PM - 7:00 PM',
+          name: 'sun18',
+          widget: 'relation',
+          collection: 'shows',
+          displayFields: ['name'],
+          searchFields: ['name'],
+          valueField: 'name',
+          multiple: false,
+        }
+        - {
+          label: '7:00 PM - 8:00 PM',
+          name: 'sun19',
+          widget: 'relation',
+          collection: 'shows',
+          displayFields: ['name'],
+          searchFields: ['name'],
+          valueField: 'name',
+          multiple: false,
+        }
+        - {
+          label: '8:00 PM - 9:00 PM',
+          name: 'sun20',
+          widget: 'relation',
+          collection: 'shows',
+          displayFields: ['name'],
+          searchFields: ['name'],
+          valueField: 'name',
+          multiple: false,
+        }
+        - {
+          label: '9:00 PM - 10:00 PM',
+          name: 'sun21',
+          widget: 'relation',
+          collection: 'shows',
+          displayFields: ['name'],
+          searchFields: ['name'],
+          valueField: 'name',
+          multiple: false,
+        }
+        - {
+          label: '10:00 PM - 11:00 PM',
+          name: 'sun22',
+          widget: 'relation',
+          collection: 'shows',
+          displayFields: ['name'],
+          searchFields: ['name'],
+          valueField: 'name',
+          multiple: false,
+        }
+        - {
+          label: '11:00 PM - 12:00 AM',
+          name: 'sun23',
+          widget: 'relation',
+          collection: 'shows',
+          displayFields: ['name'],
+          searchFields: ['name'],
+          valueField: 'name',
+          multiple: false,
+        }

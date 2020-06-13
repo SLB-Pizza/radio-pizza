@@ -14,7 +14,8 @@ import {
 import sampleMixes from "../../../__tests__/sampleMixes.json";
 
 function StickyBioIndexPage() {
-  const stickyBioLayout = "column is-12-mobile is-12-tablet is-3-desktop";
+  const stickyBioLayout =
+    "column is-12-mobile is-12-tablet is-6-desktop is-4-widescreen";
 
   return (
     <div className="container is-fluid site-page">

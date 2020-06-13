@@ -193,22 +193,25 @@ button {
     transition: 0.125s ease;
 
     .content-text {
-      @include mobile {
-        // background-color: green;
-        height: auto;
-      }
-      @include tablet-only {
-        min-height: 5.5rem;
-      }
-      @include desktop-only {
-        min-height: 6rem;
-      }
-      @include widescreen-only {
-        min-height: 6.5rem;
-      }
-      @include fullhd {
-        min-height: 5.5rem;
-      }
+      min-height: 4rem;
+      padding-bottom: 0.5rem;
+
+      // background-color: green;
+      // @include mobile {
+      //   height: auto;
+      // }
+      // @include tablet-only {
+      //   min-height: 5.5rem;
+      // }
+      // @include desktop-only {
+      //   min-height: 6rem;
+      // }
+      // @include widescreen-only {
+      //   min-height: 6.5rem;
+      // }
+      // @include fullhd {
+      //   min-height: 5.5rem;
+      // }
     }
 
     .event-text {
@@ -301,22 +304,23 @@ button {
   flex-wrap: wrap-reverse;
   align-items: flex-end;
   align-content: flex-start;
-  padding: 0;
+  min-height: 5rem;
+  padding-top: 0.5rem;
 
-  // OLD TAGS CONTAINER SIZINGS
-  @include mobile {
-    padding-top: 1rem;
-    // background-color: orange;
-  }
-  @include from($tablet) {
-    min-height: 6rem;
-  }
-  @include widescreen-only {
-    min-height: 5rem;
-  }
-  @include fullhd {
-    min-height: 4rem;
-  }
+  // background-color: orange;
+
+  // // OLD TAGS CONTAINER SIZINGS
+  // @include mobile {
+  // }
+  // @include from($tablet) {
+  //   min-height: 4rem;
+  // }
+  // @include widescreen-only {
+  //   min-height: 5rem;
+  // }
+  // @include fullhd {
+  //   min-height: 4rem;
+  // }
 }
 
 //===========================================

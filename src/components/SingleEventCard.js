@@ -18,7 +18,9 @@ function SingleEventCard(props) {
           <p className="title is-size-6-touch is-size-6-desktop is-size-5-widescreen">
             {props.eventName}
           </p>
-          <p className="is-size-6-touch is-size-6-desktop">{props.blurb}</p>
+          <p className="event-blurb text-truncate is-size-6-touch is-size-6-desktop">
+            {props.blurb}
+          </p>
         </div>
       </div>
     </div>

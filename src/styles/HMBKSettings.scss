@@ -58,7 +58,7 @@ $button-active-border-color: darken($primary, 20);
 //==================================
 // Duotone testing
 $dt-base: #f600ff;
-$dt-bg-blend: hard-light;
+$dt-bg-blend: multiply;
 $dt-blur: 0px;
 $dt-fg-blend: lighten;
 $dt-foreground: #16006f;
@@ -134,6 +134,12 @@ button {
   color: white;
 }
 
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: pre-line;
+}
+
 //===========================================
 // For screen-readers - bulma stuff was fussy
 //===========================================
@@ -171,6 +177,10 @@ button {
   margin: 0 0.125rem;
   transition: 0.5s ease;
 
+  figure {
+    transition: 0.5s ease;
+  }
+
   img {
     border-top-left-radius: 0.75rem;
     border-top-right-radius: 0.75rem;
@@ -193,7 +203,6 @@ button {
     transition: 0.125s ease;
 
     .content-text {
-      min-height: 4rem;
       padding-bottom: 0.5rem;
 
       // background-color: green;
@@ -215,7 +224,13 @@ button {
     }
 
     .event-text {
-      min-height: 6rem;
+      background-color: darkblue;
+      // min-height: 6rem;
+    }
+
+    .event-blurb {
+      background-color: darkgreen;
+      max-height: 3.5rem;
     }
 
     p.title + p {
@@ -242,6 +257,7 @@ button {
       border-top-left-radius: 0.6rem;
       border-top-right-radius: 0.6rem;
       background-color: $dt-base;
+
       img {
         filter: grayscale(100%) contrast(1) blur(0px);
         mix-blend-mode: $dt-bg-blend;
@@ -304,7 +320,7 @@ button {
   flex-wrap: wrap-reverse;
   align-items: flex-end;
   align-content: flex-start;
-  min-height: 5rem;
+  min-height: 7rem;
   padding-top: 0.5rem;
 
   // background-color: orange;
@@ -369,19 +385,19 @@ button {
 //   }
 // }
 
-.btn-tags figure {
-  background-color: $dt-base;
-  img {
-    filter: grayscale(100%) contrast(1) blur(0px);
-    mix-blend-mode: $dt-bg-blend;
-    opacity: $dt-opacity;
-    object-fit: cover;
-  }
+// .btn-tags figure {
+//   background-color: $dt-base;
+//   img {
+//     filter: grayscale(100%) contrast(1) blur(0px);
+//     mix-blend-mode: $dt-bg-blend;
+//     opacity: $dt-opacity;
+//     object-fit: cover;
+//   }
 
-  &::before {
-    background-color: $dt-foreground;
-    content: "";
-    mix-blend-mode: $dt-fg-blend;
-    z-index: 1000;
-  }
-}
+//   &::before {
+//     background-color: $dt-foreground;
+//     content: "";
+//     mix-blend-mode: $dt-fg-blend;
+//     z-index: 1000;
+//   }
+// }

@@ -24,6 +24,7 @@ function ScheduleBar() {
   };
 
   const showLiveStatus = () => (globalState.live ? "true" : "false");
+  // END TEST CODE
 
   const nextShowTicker = (date, showName) => {
     return (
@@ -43,7 +44,13 @@ function ScheduleBar() {
    * CLOSED : OPEN
    */
   return !open ? (
-    <div className="schedule-bar container is-fluid">
+    <div
+      className={
+        globalState.live
+          ? "schedule-bar container is-fluid is-live"
+          : "schedule-bar container is-fluid"
+      }
+    >
       <div className="columns is-vcentered is-mobile up-next">
         <div
           className="column is-narrow"
@@ -61,7 +68,7 @@ function ScheduleBar() {
             </button>
           ) : (
             <p className="display-text is-size-6-desktop is-size-7-touch">
-              Next Show >
+              Next Show
             </p>
           )}
         </div>
@@ -87,11 +94,13 @@ function ScheduleBar() {
       </div>
     </div>
   ) : (
-    <div className="schedule-bar container is-fluid is-open">
-      {/*
-      FOR DESKTOP
-      BUILT INTO THE BAR
-    */}
+    <div
+      className={
+        globalState.live
+          ? "schedule-bar container is-fluid is-open is-live"
+          : "schedule-bar container is-fluid is-open"
+      }
+    >
       <div className="columns is-vcentered is-mobile is-hidden-mobile up-next">
         <div
           className="column is-narrow"

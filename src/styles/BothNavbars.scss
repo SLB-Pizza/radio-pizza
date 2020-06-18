@@ -135,8 +135,11 @@
   border-bottom: 0.125rem solid white;
   min-height: 3rem;
   padding-top: 0.25rem;
+  transition: 0.5s;
   // background-color: rgba($color: darkGreen, $alpha: 0.75);
-
+  &.is-live {
+    background-color: darken($color: $primary, $amount: 20);
+  }
   &.is-open {
     height: auto;
   }

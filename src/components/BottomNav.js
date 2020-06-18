@@ -107,6 +107,8 @@ function BottomNav() {
             className="navbar-item"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Halfmoon on Mixcloud"
+            target="_blank"
+            rel="noopener"
           >
             <span className="icon is-medium" aria-hidden="true">
               <FontAwesomeIcon icon={faMixcloud} size="lg" />
@@ -117,6 +119,8 @@ function BottomNav() {
             className="navbar-item"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Halfmoon on Instagram"
+            target="_blank"
+            rel="noopener"
           >
             <span className="icon is-medium" aria-hidden="true">
               <FontAwesomeIcon icon={faInstagram} size="lg" />
@@ -127,6 +131,8 @@ function BottomNav() {
             className="navbar-item"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Halfmoon on Twitter"
+            target="_blank"
+            rel="noopener"
           >
             <span className="icon is-medium" aria-hidden="true">
               <FontAwesomeIcon icon={faTwitter} size="lg" />
@@ -140,6 +146,8 @@ function BottomNav() {
             className="navbar-item"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Halfmoon on Mixcloud"
+            target="_blank"
+            rel="noopener"
           >
             <span className="icon is-medium" aria-hidden="true">
               <FontAwesomeIcon icon={faMixcloud} size="lg" />
@@ -150,6 +158,8 @@ function BottomNav() {
             className="navbar-item"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Halfmoon on Instagram"
+            target="_blank"
+            rel="noopener"
           >
             <span className="icon is-medium" aria-hidden="true">
               <FontAwesomeIcon icon={faInstagram} size="lg" />
@@ -160,6 +170,8 @@ function BottomNav() {
             className="navbar-item"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Halfmoon on Twitter"
+            target="_blank"
+            rel="noopener"
           >
             <span className="icon is-medium" aria-hidden="true">
               <FontAwesomeIcon icon={faTwitter} size="lg" />

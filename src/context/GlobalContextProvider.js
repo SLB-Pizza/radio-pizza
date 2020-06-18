@@ -20,6 +20,7 @@ const initialState = {
   playbackRate: 1.0,
   loop: true,
   live: false,
+  playingRadio: false,
 };
 
 function reducer(state, action) {
@@ -30,8 +31,8 @@ function reducer(state, action) {
         playing: !state.playing,
       };
     }
+    // If a new audio source is selected while playing is NOT playing, set to play
     case "CHANGE_URL": {
-      // If a new audio source is selected while playing is NOT playing, set to play
       return {
         ...state,
         url: action.payload.url,
@@ -51,6 +52,11 @@ function reducer(state, action) {
       return {
         ...state,
         live: !state.live,
+      };
+    }
+    case "PLAY_LIVE_RADIO": {
+      return {
+        ...state,
       };
     }
     default:

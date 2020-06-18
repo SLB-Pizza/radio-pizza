@@ -23,6 +23,8 @@ function ScheduleBar() {
     await dispatch({ type: "TOGGLE_LIVE_TEST" });
   };
 
+  const showLiveStatus = () => (globalState.live ? "true" : "false");
+
   const nextShowTicker = (date, showName) => {
     return (
       <Ticker mode="await" offset="run-in" speed={3}>
@@ -65,7 +67,7 @@ function ScheduleBar() {
         </div>
         <div className="column upcoming is-hidden-mobile">
           <p className="display-text is-size-6-desktop is-size-7-touch">
-            Aldrich Title - Oxygen Body
+            globalState.live: {showLiveStatus()}
           </p>
         </div>
         <div className="column upcoming is-hidden-tablet">

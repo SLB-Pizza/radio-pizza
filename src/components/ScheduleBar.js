@@ -1,4 +1,12 @@
 import React, { useState, useContext } from "react";
+import { Link } from "gatsby";
+
+import {
+  faSearch,
+  faComments,
+  faCalendarAlt,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Ticker from "react-ticker";
 import PageVisibility from "react-page-visibility";
 import {
@@ -10,6 +18,12 @@ import { ScheduleModal, ScheduleDropdown } from "./index";
 function ScheduleBar() {
   const dispatch = useContext(GlobalDispatchContext);
   const globalState = useContext(GlobalStateContext);
+
+  const toggleSchedule = async () => {
+    await dispatch({ type: "TOGGLE_SCHEDULE" });
+    console.log("globalState.scheduleOpen:", globalState.scheduleOpen);
+  };
+
   const [open, setOpen] = useState(false);
   const [pageIsVisible, setPageIsVisible] = useState(true);
 
@@ -80,12 +94,31 @@ function ScheduleBar() {
           </PageVisibility>
         </div>
         <div className="column is-narrow">
-          <button
-            className="button is-small is-outlined is-rounded"
-            onClick={() => setOpen(!open)}
+          <FontAwesomeIcon
+            icon={faCalendarAlt}
+            size="lg"
+            className="icon-color"
+            onClick={() => toggleSchedule()}
+          />
+        </div>
+        <div className="column is-narrow">
+          <Link to="/search">
+            <FontAwesomeIcon icon={faSearch} size="lg" className="icon-color" />
+          </Link>
+        </div>
+
+        <div className="column is-narrow">
+          <a
+            href="http://halfmoonradiochat.chatango.com/"
+            target="_blank"
+            rel="noopener"
           >
-            Close
-          </button>
+            <FontAwesomeIcon
+              icon={faComments}
+              size="lg"
+              className="icon-color"
+            />
+          </a>
         </div>
       </div>
       <span className="is-hidden-mobile">
@@ -138,12 +171,31 @@ function ScheduleBar() {
           </PageVisibility>
         </div>
         <div className="column is-narrow">
-          <button
-            className="button is-small is-outlined is-rounded"
-            onClick={() => setOpen(!open)}
+          <FontAwesomeIcon
+            icon={faCalendarAlt}
+            size="lg"
+            className="icon-color"
+            onClick={() => toggleSchedule()}
+          />
+        </div>
+        <div className="column is-narrow">
+          <Link to="/search">
+            <FontAwesomeIcon icon={faSearch} size="lg" className="icon-color" />
+          </Link>
+        </div>
+
+        <div className="column is-narrow">
+          <a
+            href="http://halfmoonradiochat.chatango.com/"
+            target="_blank"
+            rel="noopener"
           >
-            Schedule
-          </button>
+            <FontAwesomeIcon
+              icon={faComments}
+              size="lg"
+              className="icon-color"
+            />
+          </a>
         </div>
       </div>
     </div>

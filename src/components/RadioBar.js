@@ -62,6 +62,11 @@ function RadioBar() {
     });
   };
 
+  const toggleSchedule = async () => {
+    await dispatch({ type: "TOGGLE_SCHEDULE" });
+    console.log("globalState.scheduleOpen:", globalState.scheduleOpen);
+  };
+
   const liveText = "Pendulum: Hold Your Colour 15th Anniversary Live Set";
   const renderLiveTicker = (text) => {
     return (
@@ -128,6 +133,7 @@ function RadioBar() {
             icon={faCalendarAlt}
             size="lg"
             className="icon-color"
+            onClick={() => toggleSchedule()}
           />
         </div>
         <div className="column is-narrow">

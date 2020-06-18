@@ -8,6 +8,8 @@ import {
 import { ScheduleModal, ScheduleDropdown } from "./index";
 
 function ScheduleBar() {
+  const dispatch = useContext(GlobalDispatchContext);
+  const globalState = useContext(GlobalStateContext);
   const [open, setOpen] = useState(false);
   const [pageIsVisible, setPageIsVisible] = useState(true);
 
@@ -16,9 +18,6 @@ function ScheduleBar() {
   };
 
   // TEST ONLY -- just for live toggle
-  const dispatch = useContext(GlobalDispatchContext);
-  const globalState = useContext(GlobalStateContext);
-
   const handleLiveTest = async () => {
     await dispatch({ type: "TOGGLE_LIVE_TEST" });
   };
@@ -43,57 +42,7 @@ function ScheduleBar() {
    * Schedule Bar LAYOUT
    * CLOSED : OPEN
    */
-  return !open ? (
-    <div
-      className={
-        globalState.live
-          ? "schedule-bar container is-fluid is-live"
-          : "schedule-bar container is-fluid"
-      }
-    >
-      <div className="columns is-vcentered is-mobile up-next">
-        <div
-          className="column is-narrow"
-          onClick={() => {
-            handleLiveTest();
-          }}
-        >
-          {globalState.live ? (
-            <button
-              className="button is-small is-outlined is-rounded"
-              id="listen-live"
-            >
-              <span>Listen Live</span>
-              <span className="icon" id="live-light" />
-            </button>
-          ) : (
-            <p className="display-text is-size-6-desktop is-size-7-touch">
-              Next Show
-            </p>
-          )}
-        </div>
-        <div className="column upcoming is-hidden-mobile">
-          <p className="display-text is-size-6-desktop is-size-7-touch">
-            globalState.live: {showLiveStatus()}
-          </p>
-        </div>
-        <div className="column upcoming is-hidden-tablet">
-          <PageVisibility onChange={handleVisibilityChange}>
-            {pageIsVisible &&
-              nextShowTicker("MON 4.21", "An HMBK Moment In Time")}
-          </PageVisibility>
-        </div>
-        <div className="column is-narrow">
-          <button
-            className="button is-small is-outlined is-rounded"
-            onClick={() => setOpen(!open)}
-          >
-            Schedule
-          </button>
-        </div>
-      </div>
-    </div>
-  ) : (
+  return globalState.scheduleOpen ? (
     <div
       className={
         globalState.live
@@ -147,6 +96,56 @@ function ScheduleBar() {
       SCHEDULE MODAL
     */}
       <ScheduleModal open={open} setOpen={setOpen} />
+    </div>
+  ) : (
+    <div
+      className={
+        globalState.live
+          ? "schedule-bar container is-fluid is-live"
+          : "schedule-bar container is-fluid"
+      }
+    >
+      <div className="columns is-vcentered is-mobile up-next">
+        <div
+          className="column is-narrow"
+          onClick={() => {
+            handleLiveTest();
+          }}
+        >
+          {globalState.live ? (
+            <button
+              className="button is-small is-outlined is-rounded"
+              id="listen-live"
+            >
+              <span>Listen Live</span>
+              <span className="icon" id="live-light" />
+            </button>
+          ) : (
+            <p className="display-text is-size-6-desktop is-size-7-touch">
+              Next Show
+            </p>
+          )}
+        </div>
+        <div className="column upcoming is-hidden-mobile">
+          <p className="display-text is-size-6-desktop is-size-7-touch">
+            globalState.live: {showLiveStatus()}
+          </p>
+        </div>
+        <div className="column upcoming is-hidden-tablet">
+          <PageVisibility onChange={handleVisibilityChange}>
+            {pageIsVisible &&
+              nextShowTicker("MON 4.21", "An HMBK Moment In Time")}
+          </PageVisibility>
+        </div>
+        <div className="column is-narrow">
+          <button
+            className="button is-small is-outlined is-rounded"
+            onClick={() => setOpen(!open)}
+          >
+            Schedule
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

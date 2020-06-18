@@ -21,6 +21,7 @@ const initialState = {
   loop: true,
   live: false,
   playingRadio: false,
+  scheduleOpen: false,
 };
 
 function reducer(state, action) {
@@ -42,6 +43,10 @@ function reducer(state, action) {
         img: action.payload.img,
       };
     }
+    case "TOGGLE_SCHEDULE": {
+      return { ...state, scheduleOpen: !state.scheduleOpen };
+    }
+
     case "TOGGLE_MUTE": {
       return {
         ...state,

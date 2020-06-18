@@ -133,7 +133,7 @@ function RadioPlayer(props) {
         </div>
         <div id="now-playing-details">
           <p className="display-text is-size-7">{globalState.artist}</p>
-          <p className="display-text is-size-6-tablet is-size-7-mobile">
+          <p className="title is-size-6-tablet is-size-7-mobile">
             {globalState.title}
           </p>
         </div>

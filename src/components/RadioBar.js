@@ -2,7 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import dayjs from "dayjs";
 import { Link } from "gatsby";
-import { faSearch, faComments } from "@fortawesome/free-solid-svg-icons";
+import {
+  faSearch,
+  faComments,
+  faCalendarAlt,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Ticker from "react-ticker";
 
@@ -119,6 +123,13 @@ function RadioBar() {
         */}
         <RadioPlayer status={radioData.status} />
 
+        <div className="column is-narrow">
+          <FontAwesomeIcon
+            icon={faCalendarAlt}
+            size="lg"
+            className="icon-color"
+          />
+        </div>
         <div className="column is-narrow">
           <Link to="/search">
             <FontAwesomeIcon icon={faSearch} size="lg" className="icon-color" />

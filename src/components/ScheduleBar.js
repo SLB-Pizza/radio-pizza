@@ -110,7 +110,8 @@ function ScheduleBar() {
         >
           {globalState.live ? (
             <button className="button is-small is-outlined is-rounded">
-              Listen Live
+              <span>Listen Live</span>
+              <span className="icon" id="live-light" />
             </button>
           ) : (
             <p className="display-text is-size-6-desktop is-size-7-touch">

@@ -13,7 +13,7 @@
   background-color: black;
   transition: 0.5s;
   &.is-live {
-    background-color: darken($color: $primary, $amount: 20);
+    background-color: darken($color: $primary, $amount: 30);
   }
 
   .container {
@@ -87,12 +87,7 @@
 }
 
 #live-light {
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 50%;
-  margin-left: 0.5rem;
-  margin-bottom: 0.125rem;
-  animation: live-light-pulse 3s infinite;
+  animation: live-light-pulse 2s infinite;
 }
 
 #listen-live {
@@ -112,13 +107,13 @@
 }
 @keyframes live-light-pulse {
   0% {
-    background-color: white;
+    color: white;
   }
   50% {
-    background-color: $primary;
+    color: $primary;
   }
   100% {
-    background-color: white;
+    color: white;
   }
 }
 

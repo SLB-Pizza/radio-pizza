@@ -5,6 +5,8 @@ import {
   faSearch,
   faComments,
   faCalendarAlt,
+  faBroadcastTower,
+  faBlenderPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Ticker from "react-ticker";
@@ -74,7 +76,13 @@ function ScheduleBar() {
           {globalState.live ? (
             <button className="button is-small is-outlined is-rounded">
               <span>Listen Live</span>
-              <span className="icon" id="live-light" />
+              <span className="icon">
+                <FontAwesomeIcon
+                  icon={faBroadcastTower}
+                  size="1x"
+                  id="live-light"
+                />
+              </span>
             </button>
           ) : (
             <p className="display-text is-size-6-desktop is-size-7-touch">
@@ -84,7 +92,7 @@ function ScheduleBar() {
         </div>
         <div className="column upcoming is-hidden-mobile">
           <p className="display-text is-size-6-desktop is-size-7-touch">
-            Aldrich Title - Oxygen Body
+            globalState.live: {showLiveStatus()}{" "}
           </p>
         </div>
         <div className="column upcoming is-hidden-tablet">
@@ -146,12 +154,15 @@ function ScheduleBar() {
           }}
         >
           {globalState.live ? (
-            <button
-              className="button is-small is-outlined is-rounded"
-              id="listen-live"
-            >
+            <button className="button is-small is-outlined is-rounded">
               <span>Listen Live</span>
-              <span className="icon" id="live-light" />
+              <span className="icon">
+                <FontAwesomeIcon
+                  icon={faBroadcastTower}
+                  size="1x"
+                  id="live-light"
+                />
+              </span>
             </button>
           ) : (
             <p className="display-text is-size-6-desktop is-size-7-touch">

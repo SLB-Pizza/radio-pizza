@@ -62,6 +62,7 @@ function reducer(state, action) {
     case "PLAY_LIVE_RADIO": {
       return {
         ...state,
+        playingRadio: true,
       };
     }
     default:

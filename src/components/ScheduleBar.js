@@ -6,7 +6,7 @@ import {
   faComments,
   faCalendarAlt,
   faBroadcastTower,
-  faBlenderPhone,
+  faHeadphones,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Ticker from "react-ticker";
@@ -75,14 +75,29 @@ function ScheduleBar() {
         >
           {globalState.live ? (
             <button className="button is-small is-outlined is-rounded">
-              <span>Listen Live</span>
-              <span className="icon">
-                <FontAwesomeIcon
-                  icon={faBroadcastTower}
-                  size="1x"
-                  id="live-light"
-                />
-              </span>
+              {globalState.playingRadio ? (
+                <>
+                  <span>Now Listening</span>
+                  <span className="icon">
+                    <FontAwesomeIcon
+                      icon={faHeadphones}
+                      size="1x"
+                      className="live-light"
+                    />
+                  </span>
+                </>
+              ) : (
+                <>
+                  <span>Listen Live</span>
+                  <span className="icon">
+                    <FontAwesomeIcon
+                      icon={faBroadcastTower}
+                      size="1x"
+                      className="live-light"
+                    />
+                  </span>
+                </>
+              )}
             </button>
           ) : (
             <p className="display-text is-size-6-desktop is-size-7-touch">
@@ -155,14 +170,29 @@ function ScheduleBar() {
         >
           {globalState.live ? (
             <button className="button is-small is-outlined is-rounded">
-              <span>Listen Live</span>
-              <span className="icon">
-                <FontAwesomeIcon
-                  icon={faBroadcastTower}
-                  size="1x"
-                  id="live-light"
-                />
-              </span>
+              {globalState.playingRadio ? (
+                <>
+                  <span>Now Listening</span>
+                  <span className="icon">
+                    <FontAwesomeIcon
+                      icon={faHeadphones}
+                      size="1x"
+                      className="live-light"
+                    />
+                  </span>
+                </>
+              ) : (
+                <>
+                  <span>Listen Live</span>
+                  <span className="icon">
+                    <FontAwesomeIcon
+                      icon={faBroadcastTower}
+                      size="1x"
+                      className="live-light"
+                    />
+                  </span>
+                </>
+              )}
             </button>
           ) : (
             <p className="display-text is-size-6-desktop is-size-7-touch">

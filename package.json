@@ -49,6 +49,7 @@
     "react-page-visibility": "^5.1.0",
     "react-player": "^1.14.2",
     "react-redux": "^7.1.3",
+    "react-responsive-carousel": "^3.2.8",
     "react-slick": "^0.26.1",
     "react-ticker": "^1.2.2",
     "redux": "^4.0.4",

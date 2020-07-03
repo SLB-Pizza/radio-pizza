@@ -80,13 +80,13 @@ function ScheduleShowEntry(props) {
         <div key={show.showName} className="column is-12 single-show-entry">
           <div className="columns is-mobile is-vcentered">
             <div className="column is-4">
-              <p className="title is-size-6 has-text-centered">
+              <p className="title is-size-6-tablet is-size-7-mobile has-text-centered">
                 {show.startTime} – {show.endTime}
               </p>
             </div>
             {show.hasOwnProperty("showName") ? (
               <div className="column is-8">
-                <p className="display-text is-size-6 has-text-centered">
+                <p className="display-text is-size-6-tablet is-size-7-mobile has-text-centered">
                   {show.showName}
                 </p>
                 <p className="display-text is-size-7 has-text-centered">
@@ -95,7 +95,7 @@ function ScheduleShowEntry(props) {
               </div>
             ) : (
               <div className="column is-8">
-                <p className="display-text is-size-6 has-text-centered">
+                <p className="display-text is-size-6-tablet is-size-7-mobile has-text-centered">
                   {show.hostInfo.join(", ")}
                 </p>
               </div>

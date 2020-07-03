@@ -2,36 +2,47 @@ import React from "react";
 import Slider from "react-slick";
 
 function Hero(props) {
-  let settings = {
+  const settings = {
     adaptiveHeight: true,
     dots: false,
     fade: true,
     infinite: true,
     lazyLoad: true,
-    speed: 500,
+    autoplay: true,
+    autoplaySpeed: 3500,
+    speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
     swipeToSlide: true,
   };
+
   return (
     <div className="homepage-hero">
       <div className="container is-fluid">
         <Slider {...settings}>
-          <div className="columns">
-            <div className="column">
+          <div
+            className="columns"
+            style={{
+              backgroundImage:
+                "https://source.unsplash.com/1920x1080/daily?coffee",
+              backgroundPosition: "center center",
+              backgroundRepeat: "no-repeat",
+              backgroundAttachment: "scroll",
+              backgroundSize: "cover",
+            }}
+          >
+            <div className="columns">
               <img
-                src="https://source.unsplash.com/1920x1080/daily?coffee"
-                alt="coffee"
+                src="https://source.unsplash.com/1920x1080/daily?guitar"
+                alt="guitar"
               />
             </div>
           </div>
           <div className="columns">
-            <div className="column">
-              <img
-                src="https://source.unsplash.com/1920x1080/daily?headphones"
-                alt="headphones"
-              />
-            </div>
+            <img
+              src="https://source.unsplash.com/1920x1080/daily?headphones"
+              alt="headphones"
+            />
           </div>
           <div className="columns">
             <div className="column">

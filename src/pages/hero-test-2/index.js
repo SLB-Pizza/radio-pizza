@@ -7,22 +7,22 @@ const AutoplaySlider = withAutoplay(AwesomeSlider);
 function AwesomeTest() {
   const testMedia = [
     {
-      source: "https://source.unsplash.com/1920x1080/?movies",
+      source: "https://source.unsplash.com/1920x1080/weekly?movies",
     },
     {
-      source: "https://source.unsplash.com/1920x1080/?food",
+      source: "https://source.unsplash.com/1920x1080/weekly?food",
     },
     {
-      source: "https://source.unsplash.com/1920x1080/?music",
+      source: "https://source.unsplash.com/1920x1080/weekly?music",
     },
     {
-      source: "https://source.unsplash.com/1920x1080/?art",
+      source: "https://source.unsplash.com/1920x1080/weekly?art",
     },
     {
-      source: "https://source.unsplash.com/1920x1080/?water",
+      source: "https://source.unsplash.com/1920x1080/weekly?water",
     },
     {
-      source: "https://source.unsplash.com/1920x1080/?concert",
+      source: "https://source.unsplash.com/1920x1080/weekly?concert",
     },
   ];
 
@@ -37,50 +37,7 @@ function AwesomeTest() {
     <div className="container is-fluid site-content">
       <div className="columns">
         <AwesomeSlider bullets={false} fillParent={true}>
-          <div
-            style={{
-              backgroundImage: "https://source.unsplash.com/1920x1080/?movies",
-              backgroundAttachment: "no-repeat",
-              backgroundSize: "cover",
-            }}
-          >
-            <p className="title is-size-1">123098</p>
-          </div>
-          <div
-            style={{
-              backgroundImage: "https://source.unsplash.com/1920x1080/?food",
-            }}
-          >
-            123098
-          </div>
-          <div
-            style={{
-              backgroundImage: "https://source.unsplash.com/1920x1080/?music",
-            }}
-          >
-            123098
-          </div>
-          <div
-            style={{
-              backgroundImage: "https://source.unsplash.com/1920x1080/?art",
-            }}
-          >
-            123098
-          </div>
-          <div
-            style={{
-              backgroundImage: "https://source.unsplash.com/1920x1080/?water",
-            }}
-          >
-            123098
-          </div>
-          <div
-            style={{
-              backgroundImage: "https://source.unsplash.com/1920x1080/?concert",
-            }}
-          >
-            123098
-          </div>
+          <div data-src="../img/art-test.jpeg" />
         </AwesomeSlider>
       </div>
     </div>
@@ -88,3 +45,48 @@ function AwesomeTest() {
 }
 
 export default AwesomeTest;
+
+//  <div
+//             style={{
+//               backgroundImage: "https://source.unsplash.com/1920x1080/?movies",
+//               backgroundAttachment: "no-repeat",
+//               backgroundSize: "cover",
+//             }}
+//           >
+//             <p className="title is-size-1">123098</p>
+//           </div>
+//           <div
+//             style={{
+//               backgroundImage: "https://source.unsplash.com/1920x1080/?food",
+//             }}
+//           >
+//             123098
+//           </div>
+//           <div
+//             style={{
+//               backgroundImage: "https://source.unsplash.com/1920x1080/?music",
+//             }}
+//           >
+//             123098
+//           </div>
+//           <div
+//             style={{
+//               backgroundImage: "https://source.unsplash.com/1920x1080/?art",
+//             }}
+//           >
+//             123098
+//           </div>
+//           <div
+//             style={{
+//               backgroundImage: "https://source.unsplash.com/1920x1080/?water",
+//             }}
+//           >
+//             123098
+//           </div>
+//           <div
+//             style={{
+//               backgroundImage: "https://source.unsplash.com/1920x1080/?concert",
+//             }}
+//           >
+//             123098
+//           </div>

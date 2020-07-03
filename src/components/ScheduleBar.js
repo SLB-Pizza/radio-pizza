@@ -66,7 +66,7 @@ function ScheduleBar() {
           : "schedule-bar container is-fluid is-open"
       }
     >
-      <div className="columns is-vcentered is-mobile is-hidden-mobile up-next">
+      <div className="columns is-vcentered is-mobile up-next">
         <div
           className="column is-narrow"
           onClick={() => {
@@ -144,14 +144,14 @@ function ScheduleBar() {
           </a>
         </div>
       </div>
-      <span className="is-hidden-mobile">
-        <ScheduleDropdown open={open} setOpen={setOpen} />
-      </span>
+      {/* <span className="is-hidden-mobile"> */}
+      <ScheduleDropdown open={open} setOpen={setOpen} />
+      {/* </span> */}
       {/*
       FOR TOUCH
       SCHEDULE MODAL
     */}
-      <ScheduleModal open={open} setOpen={setOpen} />
+      {/* <ScheduleModal open={open} setOpen={setOpen} /> */}
     </div>
   ) : (
     <div

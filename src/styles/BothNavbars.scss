@@ -12,7 +12,11 @@
   z-index: 30;
   background-color: black;
   &.is-live {
-    background: linear-gradient(to bottom, #000, $primary);
+    background: linear-gradient(to bottom, #000 80%, darken($primary, 1));
+    background-size: 105% 105%;
+
+    animation: bg-top-nav-pulse 1s ease-in-out infinite;
+    -webkit-animation: bg-top-nav-pulse 1s ease-in-out infinite;
   }
 
   .container {
@@ -93,6 +97,18 @@
   animation: border-pulse 3s infinite;
 }
 
+@keyframes bg-top-nav-pulse {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 51% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+
 @keyframes border-pulse {
   0% {
     border-color: white;
@@ -151,14 +167,14 @@
   border-bottom: 0.125rem solid white;
   min-height: 3.5rem;
   padding-top: 0.25rem;
-  transition: 0.5s ease-in-out;
+  // transition: 0.5s ease-in-out;
 
-  &.is-live {
-    border-bottom: 0.125rem solid $primary;
-    animation: border-pulse 1s infinite, border-size-bounce 0.75s infinite;
-    -webkit-animation: border-pulse 1s infinite,
-      border-size-bounce 0.5s infinite;
-  }
+  // &.is-live {
+  //   border-bottom: 0.125rem solid $primary;
+  //   animation: border-pulse 1s infinite, border-size-bounce 0.75s infinite;
+  //   -webkit-animation: border-pulse 1s infinite,
+  //     border-size-bounce 0.5s infinite;
+  // }
   &.is-open {
     height: auto;
   }

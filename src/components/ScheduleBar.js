@@ -144,14 +144,7 @@ function ScheduleBar() {
           </a>
         </div>
       </div>
-      {/* <span className="is-hidden-mobile"> */}
       <ScheduleDropdown open={open} setOpen={setOpen} />
-      {/* </span> */}
-      {/*
-      FOR TOUCH
-      SCHEDULE MODAL
-    */}
-      {/* <ScheduleModal open={open} setOpen={setOpen} /> */}
     </div>
   ) : (
     <div

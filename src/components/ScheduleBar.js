@@ -15,7 +15,7 @@ import {
   GlobalDispatchContext,
   GlobalStateContext,
 } from "../context/GlobalContextProvider";
-import { ScheduleModal, ScheduleDropdown } from "./index";
+import { ScheduleDropdown } from "./index";
 
 function ScheduleBar() {
   const dispatch = useContext(GlobalDispatchContext);

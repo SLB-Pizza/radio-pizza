@@ -77,7 +77,7 @@ function ScheduleShowEntry(props) {
         </div>
       )}
       {fakeShowEntryData.map((show) => (
-        <div key={show.showName} className="column is-12 single-show-entry">
+        <div key={show.hostInfo} className="column is-12 single-show-entry">
           <div className="columns is-mobile is-vcentered">
             <div className="column is-4">
               <p className="title is-size-6-tablet is-size-7-mobile has-text-centered">

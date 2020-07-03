@@ -11,6 +11,9 @@
   top: 0;
   z-index: 30;
   background-color: black;
+  &.is-live {
+    background: linear-gradient(to bottom, #000, $primary);
+  }
 
   .container {
     @include touch {
@@ -101,6 +104,25 @@
     border-color: white;
   }
 }
+
+@keyframes border-size-bounce {
+  0% {
+    border-width: 0.125rem;
+  }
+  33% {
+    border-width: 0.175rem;
+  }
+  50% {
+    border-width: 0.25rem;
+  }
+  66% {
+    border-width: 0.175rem;
+  }
+  100% {
+    border-width: 0.125rem;
+  }
+}
+
 @keyframes live-light-pulse {
   0% {
     color: white;
@@ -129,9 +151,13 @@
   border-bottom: 0.125rem solid white;
   min-height: 3.5rem;
   padding-top: 0.25rem;
+  transition: 0.5s ease-in-out;
 
   &.is-live {
     border-bottom: 0.125rem solid $primary;
+    animation: border-pulse 1s infinite, border-size-bounce 0.75s infinite;
+    -webkit-animation: border-pulse 1s infinite,
+      border-size-bounce 0.5s infinite;
   }
   &.is-open {
     height: auto;

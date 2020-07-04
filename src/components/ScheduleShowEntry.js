@@ -57,7 +57,7 @@ function ScheduleShowEntry(props) {
     <div className="columns is-multiline is-vcentered is-mobile show-entries">
       {/*
       ScheduleDropdown sets and passes this as a prop down
-      - Since this is reused on the site, toggle placement of link
+      - Since this is reused on the site, toggle placement of linkeE
       - Doesn't show on /schedule
       */}
       {props.fromNavbar && (

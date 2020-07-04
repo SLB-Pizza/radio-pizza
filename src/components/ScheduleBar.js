@@ -66,7 +66,7 @@ function ScheduleBar() {
           : "schedule-bar container is-fluid is-open"
       }
     >
-      <div className="columns is-vcentered is-mobile up-next">
+      <div className="columns is-vcentered is-mobile is-variable is-2 up-next">
         <div
           className="column is-narrow"
           onClick={() => {
@@ -77,7 +77,8 @@ function ScheduleBar() {
             <button className="button is-small is-outlined is-rounded">
               {globalState.playingRadio ? (
                 <>
-                  <span>Now Listening</span>
+                  <span className="is-hidden-mobile">Now Listening</span>
+                  <span className="is-hidden-tablet">Live</span>
                   <span className="icon">
                     <FontAwesomeIcon
                       icon={faHeadphones}
@@ -88,7 +89,8 @@ function ScheduleBar() {
                 </>
               ) : (
                 <>
-                  <span>Listen Live</span>
+                  <span className="is-hidden-mobile">Listen Live</span>
+                  <span className="is-hidden-tablet">Live</span>
                   <span className="icon">
                     <FontAwesomeIcon
                       icon={faBroadcastTower}
@@ -119,14 +121,14 @@ function ScheduleBar() {
         <div className="column is-narrow">
           <FontAwesomeIcon
             icon={faCalendarAlt}
-            size="lg"
+            size="1x"
             className="icon-color"
             onClick={() => toggleSchedule()}
           />
         </div>
         <div className="column is-narrow">
           <Link to="/search">
-            <FontAwesomeIcon icon={faSearch} size="lg" className="icon-color" />
+            <FontAwesomeIcon icon={faSearch} size="1x" className="icon-color" />
           </Link>
         </div>
 
@@ -138,7 +140,7 @@ function ScheduleBar() {
           >
             <FontAwesomeIcon
               icon={faComments}
-              size="lg"
+              size="1x"
               className="icon-color"
             />
           </a>
@@ -154,7 +156,7 @@ function ScheduleBar() {
           : "schedule-bar container is-fluid"
       }
     >
-      <div className="columns is-vcentered is-mobile up-next">
+      <div className="columns is-vcentered is-mobile is-variable is-2 up-next">
         <div
           className="column is-narrow"
           onClick={() => {
@@ -207,14 +209,14 @@ function ScheduleBar() {
         <div className="column is-narrow">
           <FontAwesomeIcon
             icon={faCalendarAlt}
-            size="lg"
+            size="1x"
             className="icon-color"
             onClick={() => toggleSchedule()}
           />
         </div>
         <div className="column is-narrow">
           <Link to="/search">
-            <FontAwesomeIcon icon={faSearch} size="lg" className="icon-color" />
+            <FontAwesomeIcon icon={faSearch} size="1x" className="icon-color" />
           </Link>
         </div>
 
@@ -226,7 +228,7 @@ function ScheduleBar() {
           >
             <FontAwesomeIcon
               icon={faComments}
-              size="lg"
+              size="1x"
               className="icon-color"
             />
           </a>

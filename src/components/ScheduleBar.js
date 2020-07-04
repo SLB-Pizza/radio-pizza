@@ -144,7 +144,11 @@ function ScheduleBar() {
           </a>
         </div>
       </div>
-      <ScheduleDropdown open={open} setOpen={setOpen} />
+      <ScheduleDropdown
+        open={open}
+        setOpen={setOpen}
+        toggleSchedule={toggleSchedule}
+      />
     </div>
   ) : (
     <div

@@ -60,22 +60,24 @@ function ScheduleShowEntry(props) {
       - Since this is reused on the site, toggle placement of linkeE
       - Doesn't show on /schedule
       */}
-      {props.fromNavbar && (
-        <div className="column is-12 today-date">
-          <p className="display-text is-size-6">
-            {todayDate.format("dddd, MMMM D")}
-          </p>
+      <div className="column is-12 today-date">
+        <p className="display-text is-size-6">
+          {todayDate.format("dddd, MMMM D")}
+        </p>
 
-          <Link to="/schedule">
-            <button
-              className="button is-small is-outlined is-rounded display-text"
-              onClick={() => props.setOpen(!props.open)}
-            >
-              View Full Schedule
-            </button>
-          </Link>
-        </div>
-      )}
+        <Link to="/schedule">
+          <button
+            className="button is-small is-outlined is-rounded display-text"
+            onClick={() => {
+              props.setOpen(!props.open);
+              props.toggleSchedule();
+            }}
+          >
+            Full Schedule
+          </button>
+        </Link>
+      </div>
+
       {fakeShowEntryData.map((show) => (
         <div key={show.hostInfo} className="column is-12 single-show-entry">
           <div className="columns is-mobile is-vcentered">

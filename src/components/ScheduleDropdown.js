@@ -8,6 +8,7 @@ function ScheduleDropdown(props) {
     <ScheduleShowEntry
       open={props.open}
       setOpen={props.setOpen}
+      toggleSchedule={props.toggleSchedule}
       fromNavbar={true}
     />
   );

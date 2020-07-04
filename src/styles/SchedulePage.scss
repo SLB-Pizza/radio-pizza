@@ -2,6 +2,25 @@
   overflow-x: auto;
 }
 
+.schedule-page-entries {
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  border: 0.125rem solid white;
+  border-radius: 0.75rem;
+
+  .single-show-entry {
+    transition: 0.25s ease-in-out;
+    border-top: 0.125rem solid white;
+    @include tablet {
+      min-height: 2.5rem;
+    }
+
+    &:hover {
+      background-color: darken($color: $primary, $amount: 30);
+    }
+  }
+}
+
 // .schedule-page {
 //   margin-top: 8.25rem;
 //   height: calc(100vh - 10.5rem);

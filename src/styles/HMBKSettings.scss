@@ -140,6 +140,12 @@ button {
   white-space: pre-line;
 }
 
+.single-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 //===========================================
 // For screen-readers - bulma stuff was fussy
 //===========================================

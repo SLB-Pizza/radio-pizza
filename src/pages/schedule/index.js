@@ -29,6 +29,41 @@ function ScheduleIndexPage() {
     // setWholeWeekIds(idsArr);
   };
 
+  const fakeShowEntryData = [
+    {
+      startTime: "12:00",
+      endTime: "14:00",
+      hostInfo: ["Nhato"],
+    },
+    {
+      startTime: "12:00",
+      endTime: "14:00",
+      hostInfo: ["Getty", "KO3 & Relect"],
+    },
+    {
+      startTime: "12:00",
+      endTime: "14:00",
+      showName: "PLANET /// SHAPER -- 3 Man Crew",
+      hostInfo: ["JAKAZiD", "Tanuki", "Hommarju"],
+    },
+    {
+      startTime: "12:00",
+      endTime: "14:00",
+      hostInfo: ["DJ Shimamura"],
+    },
+    {
+      startTime: "12:00",
+      endTime: "14:00",
+      hostInfo: ["Seventhrun", "DJ Noriken"],
+    },
+    {
+      startTime: "12:00",
+      endTime: "14:00",
+      showName: "The Edge of The Drum & Bass Universe",
+      hostInfo: ["Netsky", "Matrix & Futurebound"],
+    },
+  ];
+
   function toggleColumn(e) {
     if (isSelected !== e.currentTarget.id) {
       setIsSelected(e.currentTarget.id);
@@ -52,17 +87,51 @@ function ScheduleIndexPage() {
 
   return (
     <div className="container is-fluid site-page">
-      <div className="columns is-mobile">
-        <div className="column is-full">
+      <div className="columns is-mobile is-multiline">
+        <div className="column">
           <p className="title is-size-2-desktop is-size-3-touch">Schedule</p>
           <p className="subtitle is-size-5-desktop is-size-6-touch">
-            All times are EST.
+            All times are NYC.
           </p>
         </div>
       </div>
-      {/*  */}
+
       <DateSelectorButton date={todayDate} />
-      <ScheduleShowEntry toggleColumn={toggleColumn} isSelected={isSelected} />
+
+      <div className="columns is-multiline is-vcentered is-mobile schedule-page-entries">
+        <div className="column is-12 today-date">
+          <p className="title is-size-4 has-text-centered">
+            {todayDate.format("dddd, MMMM D")}
+          </p>
+        </div>
+        {fakeShowEntryData.map((show) => (
+          <div key={show.hostInfo} className="column is-12 single-show-entry">
+            <div className="columns is-mobile is-vcentered">
+              <div className="column is-4">
+                <p className="title is-size-6-tablet is-size-7-mobile has-text-centered">
+                  {show.startTime} – {show.endTime}
+                </p>
+              </div>
+              {show.hasOwnProperty("showName") ? (
+                <div className="column is-8">
+                  <p className="title is-size-6-tablet is-size-7-mobile has-text-centered">
+                    {show.showName}
+                  </p>
+                  <p className="subtitle is-size-7 has-text-centered">
+                    {show.hostInfo.join(", ")}
+                  </p>
+                </div>
+              ) : (
+                <div className="column is-8">
+                  <p className="subtitle is-size-6-tablet is-size-7-mobile has-text-centered">
+                    {show.hostInfo.join(", ")}
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

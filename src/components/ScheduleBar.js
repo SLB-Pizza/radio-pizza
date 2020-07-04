@@ -77,8 +77,7 @@ function ScheduleBar() {
             <button className="button is-small is-outlined is-rounded">
               {globalState.playingRadio ? (
                 <>
-                  <span className="is-hidden-mobile">Now Listening</span>
-                  <span className="is-hidden-tablet">Live</span>
+                  <span>Listening</span>
                   <span className="icon">
                     <FontAwesomeIcon
                       icon={faHeadphones}
@@ -89,8 +88,7 @@ function ScheduleBar() {
                 </>
               ) : (
                 <>
-                  <span className="is-hidden-mobile">Listen Live</span>
-                  <span className="is-hidden-tablet">Live</span>
+                  <span>Live</span>
                   <span className="icon">
                     <FontAwesomeIcon
                       icon={faBroadcastTower}
@@ -167,7 +165,7 @@ function ScheduleBar() {
             <button className="button is-small is-outlined is-rounded">
               {globalState.playingRadio ? (
                 <>
-                  <span>Now Listening</span>
+                  <span>Listening</span>
                   <span className="icon">
                     <FontAwesomeIcon
                       icon={faHeadphones}
@@ -178,7 +176,7 @@ function ScheduleBar() {
                 </>
               ) : (
                 <>
-                  <span>Listen Live</span>
+                  <span>Live</span>
                   <span className="icon">
                     <FontAwesomeIcon
                       icon={faBroadcastTower}

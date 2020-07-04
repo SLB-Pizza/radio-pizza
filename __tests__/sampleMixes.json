@@ -1,5 +1,23 @@
 [
   {
+    "date": "10.18.16",
+    "url": "https://www.youtube.com/watch?v=bpfK7F5O614",
+    "testSrc": "Youtube",
+    "name": "Circadia",
+    "artist": "Jardín de la Croix",
+    "img": "../img/test/circadia.jpg",
+    "tags": ["instrumental", "math rock", "prog rock", "post rock"]
+  },
+  {
+    "date": "06.19.20",
+    "url": "https://soundcloud.com/jardindelacroixofficial/sets/letargo-6",
+    "testSrc": "Soundcloud",
+    "name": "Letargo",
+    "artist": "Jardín de la Croix",
+    "img": "../img/test/letargo.jpg",
+    "tags": ["instrumental", "math rock", "prog rock", "post rock"]
+  },
+  {
     "date": "05.29.20",
     "url": "https://soundcloud.com/koan-sound/sets/silk-wave",
     "testSrc": "Soundcloud",

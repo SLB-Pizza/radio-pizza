@@ -9,7 +9,10 @@ function TestPage() {
       <div className="columns btn-tags is-multiline">
         {sampleMixes.map((mix) => (
           <div key={mix.name} className="column is-3">
-            <h2>{mix.name}</h2>
+            <figure className="image is-1by1">
+              <img src={mix.img} alt={`image - ${mix.name} by ${mix.artist}`} />
+            </figure>
+            {/* <h2>{mix.name}</h2> */}
             <div className="buttons are-small">
               {mix.tags.map((tag) => (
                 <button key={tag} className="button is-outlined is-rounded">

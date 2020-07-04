@@ -17,17 +17,12 @@ function SingleMixCard(props) {
    * @param {string} [buttons.viewportClass] - className to attach to the play button
    */
 
-  const playAudioButton = (url, title, artist, img, playBtnInfo) => {
-    return playBtnInfo.map((singleBtn) => (
-      <span key={title}>
+  const playAudioButton = (url, title, artist, img) => {
+    return (
+      <span>
         <FontAwesomeIcon
           icon={faPlay}
-          size={singleBtn.btnSize}
-          className={
-            singleBtn.hasOwnProperty("viewportClass")
-              ? singleBtn.viewportClass
-              : ""
-          }
+          size="5x"
           onClick={() =>
             dispatch({
               type: "CHANGE_URL",
@@ -58,7 +53,7 @@ function SingleMixCard(props) {
           </a>
         </FontAwesomeIcon>
       </span>
-    ));
+    );
   };
 
   /**
@@ -73,14 +68,7 @@ function SingleMixCard(props) {
           <figure className="image is-1by1">
             <img src={props.img} alt={imageAltText} />
             <div className="play-btn-diffuser is-overlay">
-              {props.playBtnInfo &&
-                playAudioButton(
-                  props.url,
-                  props.name,
-                  props.artist,
-                  props.img,
-                  props.playBtnInfo
-                )}
+              {playAudioButton(props.url, props.name, props.artist, props.img)}
             </div>
           </figure>
         </div>

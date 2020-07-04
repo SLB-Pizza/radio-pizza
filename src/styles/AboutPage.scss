@@ -1,31 +1,8 @@
-.about-page {
-  margin-top: 7.5rem;
+#about {
   height: calc(100vh - 10.5rem);
-  display: flex;
-  align-items: stretch;
+}
 
-  .about-pic {
-    flex: 5;
-    background-image: url(https://source.unsplash.com/960x1080/daily?dj);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
-
-    // flex the inner logo
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .about-info {
-    flex: 7;
-    display: flex;
-    align-items: center;
-    background-color: #151515;
-
-    & p {
-      color: white;
-    }
-  }
+#about {
+  height: calc(100vh - 10.5rem);
+  background-color: deeppink;
 }

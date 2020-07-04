@@ -2,198 +2,200 @@ backend:
   name: git-gateway
   branch: master
   commit_messages:
-    create: 'Create {{collection}} “{{slug}}”'
-    update: 'Update {{collection}} “{{slug}}”'
-    delete: 'Delete {{collection}} “{{slug}}”'
-    uploadMedia: '[skip ci] Upload “{{path}}”'
-    deleteMedia: '[skip ci] Delete “{{path}}”'
+    create: "Create {{collection}} “{{slug}}”"
+    update: "Update {{collection}} “{{slug}}”"
+    delete: "Delete {{collection}} “{{slug}}”"
+    uploadMedia: "[skip ci] Upload “{{path}}”"
+    deleteMedia: "[skip ci] Delete “{{path}}”"
+
+local_backend: true
 
 media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: 'blog'
-    label: 'Blog'
-    folder: 'src/pages/blog'
+  - name: "blog"
+    label: "Blog"
+    folder: "src/pages/blog"
     create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {
-          label: 'Template Key',
-          name: 'templateKey',
-          widget: 'hidden',
-          default: 'blog-post',
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "blog-post",
         }
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'text' }
-      - { label: 'Featured Post', name: 'featuredpost', widget: 'boolean' }
-      - { label: 'Featured Image', name: 'featuredimage', widget: image }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
-      - { label: 'Tags', name: 'tags', widget: 'list' }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Featured Post", name: "featuredpost", widget: "boolean" }
+      - { label: "Featured Image", name: "featuredimage", widget: image }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list" }
 
-  - name: 'djs'
-    label: 'Djs'
-    folder: 'src/pages/djs'
+  - name: "djs"
+    label: "Djs"
+    folder: "src/pages/djs"
     create: true
     identifier_field: name
-    slug: '{{slug}}'
+    slug: "{{slug}}"
     fields:
       - {
-          label: 'Template Key',
-          name: 'templateKey',
-          widget: 'hidden',
-          default: 'djs',
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "djs",
         }
-      - { label: 'Name', name: 'name', widget: 'string' }
-      - { label: 'Add Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'text' }
-      - { label: 'Featured Artist', name: 'featuredartist', widget: 'boolean' }
-      - { label: 'Artist Image', name: 'artistimage', widget: image }
-      - { label: 'Featured Image', name: 'featuredimage', widget: image }
-      - { label: 'Streams', name: 'streams', widget: 'markdown' }
-      - { label: 'Tags', name: 'tags', widget: 'list' }
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Add Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Featured Artist", name: "featuredartist", widget: "boolean" }
+      - { label: "Artist Image", name: "artistimage", widget: image }
+      - { label: "Featured Image", name: "featuredimage", widget: image }
+      - { label: "Streams", name: "streams", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list" }
 
-  - name: 'events'
-    label: 'Events'
-    folder: 'src/pages/events'
+  - name: "events"
+    label: "Events"
+    folder: "src/pages/events"
     create: true
     identifier_field: title
-    slug: '{{slug}}-{{year}}-{{month}}-{{day}}'
+    slug: "{{slug}}-{{year}}-{{month}}-{{day}}"
     fields:
       - {
-          label: 'Template Key',
-          name: 'templateKey',
-          widget: 'hidden',
-          default: 'events',
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "events",
         }
-      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: "Title", name: "title", widget: "string" }
       - {
-          label: 'Start Time',
-          name: 'start',
-          widget: 'datetime',
-          dateFormat: 'DD.MM.YYYY',
-          timeFormat: 'HH:mm',
-        }
-      - {
-          label: 'End Time',
-          name: 'end',
-          widget: 'datetime',
-          dateFormat: 'DD.MM.YYYY',
-          timeFormat: 'HH:mm',
+          label: "Start Time",
+          name: "start",
+          widget: "datetime",
+          dateFormat: "DD.MM.YYYY",
+          timeFormat: "HH:mm",
         }
       - {
-          label: 'Active Event',
-          name: 'active',
-          widget: 'boolean',
+          label: "End Time",
+          name: "end",
+          widget: "datetime",
+          dateFormat: "DD.MM.YYYY",
+          timeFormat: "HH:mm",
+        }
+      - {
+          label: "Active Event",
+          name: "active",
+          widget: "boolean",
           default: true,
         }
-      - { label: 'Description', name: 'description', widget: 'text' }
+      - { label: "Description", name: "description", widget: "text" }
 
-      - { label: 'Event Image', name: 'eventimage', widget: image }
+      - { label: "Event Image", name: "eventimage", widget: image }
       - {
-          label: 'Featured Event Image',
-          name: 'featuredeventimage',
+          label: "Featured Event Image",
+          name: "featuredeventimage",
           widget: image,
         }
       - {
-          label: 'Event Location',
-          name: 'location',
-          widget: 'string',
-          hint: 'Add street address here',
+          label: "Event Location",
+          name: "location",
+          widget: "string",
+          hint: "Add street address here",
         }
       - {
-          label: 'Event URL',
-          name: 'eventurl',
-          widget: 'string',
-          hint: 'add EventBrite URL here',
+          label: "Event URL",
+          name: "eventurl",
+          widget: "string",
+          hint: "add EventBrite URL here",
         }
-      - { label: 'Tags', name: 'tags', widget: 'list' }
+      - { label: "Tags", name: "tags", widget: "list" }
 
-  - name: 'shows'
-    label: 'Shows'
-    folder: 'src/pages/shows'
+  - name: "shows"
+    label: "Shows"
+    folder: "src/pages/shows"
     create: true
     identifier_field: name
-    slug: '{{slug}}-{{year}}-{{month}}-{{day}}'
+    slug: "{{slug}}-{{year}}-{{month}}-{{day}}"
     fields:
       - {
-          label: 'Template Key',
-          name: 'templateKey',
-          widget: 'hidden',
-          default: 'shows',
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "shows",
         }
-      - { label: 'Name', name: 'name', widget: 'string' }
-      - { label: 'Description', name: 'description', widget: 'text' }
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
       - {
-          label: 'Recurring Show',
-          name: 'recurring',
-          widget: 'boolean',
-          hint: 'Does the Show Repeat?',
+          label: "Recurring Show",
+          name: "recurring",
+          widget: "boolean",
+          hint: "Does the Show Repeat?",
           required: false,
         }
       - {
-          label: 'Air Time',
-          name: 'airtime',
-          widget: 'datetime',
-          hint: 'Show time for either type of show',
+          label: "Air Time",
+          name: "airtime",
+          widget: "datetime",
+          hint: "Show time for either type of show",
         }
       - {
-          label: 'Replay Days',
-          name: 'replays',
-          widget: 'select',
+          label: "Replay Days",
+          name: "replays",
+          widget: "select",
           multiple: true,
           required: false,
           options:
             [
-              'Sunday',
-              'Monday',
-              'Tuesday',
-              'Wednesday',
-              'Thursday',
-              'Friday',
-              'Saturday',
+              "Sunday",
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
             ],
         }
-      - { label: 'Show Image', name: 'showimage', widget: image }
+      - { label: "Show Image", name: "showimage", widget: image }
       - {
-          label: 'Featured Show Image',
-          name: 'featuredshowimage',
+          label: "Featured Show Image",
+          name: "featuredshowimage",
           widget: image,
         }
       - {
-          label: 'Featured Artist',
-          name: 'featuredartist',
-          widget: 'relation',
-          collection: 'djs',
-          displayFields: ['name', 'tags'],
-          searchFields: ['name', 'tags'],
-          valueField: 'name',
+          label: "Featured Artist",
+          name: "featuredartist",
+          widget: "relation",
+          collection: "djs",
+          displayFields: ["name", "tags"],
+          searchFields: ["name", "tags"],
+          valueField: "name",
           multiple: false,
         }
       - {
-          label: 'URL',
-          name: 'streamurl',
-          widget: 'string',
-          hint: 'Put the mixcloud URL here',
+          label: "URL",
+          name: "streamurl",
+          widget: "string",
+          hint: "Put the mixcloud URL here",
         }
-      - { label: 'Tags', name: 'tags', widget: 'list' }
-      
-  - name: 'mixes'
-    label: 'Mixes'
-    folder: 'src/pages/mixes'
+      - { label: "Tags", name: "tags", widget: "list" }
+
+  - name: "mixes"
+    label: "Mixes"
+    folder: "src/pages/mixes"
     create: true
     identifier_field: name
-    slug: '{{slug}}-{{year}}-{{month}}-{{day}}'
+    slug: "{{slug}}-{{year}}-{{month}}-{{day}}"
     fields:
       - {
-          label: 'Template Key',
-          name: 'templateKey',
-          widget: 'hidden',
-          default: 'mixes',
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "mixes",
         }
-      - { label: 'Name', name: 'name', widget: 'string' }
-      - { label: 'Description', name: 'description', widget: 'text' }
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
       # - {
       #     label: 'Recurring Show',
       #     name: 'recurring',
@@ -224,42 +226,42 @@ collections:
       #         'Saturday',
       #       ],
       #   }
-      - { label: 'Daily Mix Image', name: 'dailymiximage', widget: image }
+      - { label: "Daily Mix Image", name: "dailymiximage", widget: image }
       - {
-          label: 'Featured Daily Mix Image',
-          name: 'featureddailymiximage',
+          label: "Featured Daily Mix Image",
+          name: "featureddailymiximage",
           widget: image,
         }
       - {
-          label: 'Artist List',
-          name: 'featuredartist',
-          widget: 'relation',
-          collection: 'djs',
-          displayFields: ['name', 'tags'],
-          searchFields: ['name', 'tags'],
-          valueField: 'name',
+          label: "Artist List",
+          name: "featuredartist",
+          widget: "relation",
+          collection: "djs",
+          displayFields: ["name", "tags"],
+          searchFields: ["name", "tags"],
+          valueField: "name",
           multiple: true,
         }
       - {
-          label: 'MIX URLS',
-          name: 'streamurls',
-          widget: 'string',
-          hint: 'Put URLs here to make a playlist ***separate by commas***',
+          label: "MIX URLS",
+          name: "streamurls",
+          widget: "string",
+          hint: "Put URLs here to make a playlist ***separate by commas***",
         }
-      - { label: 'Tags', name: 'tags', widget: 'list' }
+      - { label: "Tags", name: "tags", widget: "list" }
 
-  - name: 'pages'
-    label: 'Pages'
+  - name: "pages"
+    label: "Pages"
     files:
-      - file: 'src/pages/index.md'
-        label: 'Landing Page'
-        name: 'index'
+      - file: "src/pages/index.md"
+        label: "Landing Page"
+        name: "index"
         fields:
           - {
-              label: 'Template Key',
-              name: 'templateKey',
-              widget: 'hidden',
-              default: 'index-page',
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "index-page",
             }
           - { label: Title, name: title, widget: string }
           - { label: Image, name: image, widget: image }
@@ -336,27 +338,27 @@ collections:
                   },
                 ],
             }
-      - file: 'src/pages/about/index.md'
-        label: 'About'
-        name: 'about'
+      - file: "src/pages/about/index.md"
+        label: "About"
+        name: "about"
         fields:
           - {
-              label: 'Template Key',
-              name: 'templateKey',
-              widget: 'hidden',
-              default: 'about-page',
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "about-page",
             }
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Body', name: 'body', widget: 'markdown' }
-      - file: 'src/pages/products/index.md'
-        label: 'Products Page'
-        name: 'products'
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "src/pages/products/index.md"
+        label: "Products Page"
+        name: "products"
         fields:
           - {
-              label: 'Template Key',
-              name: 'templateKey',
-              widget: 'hidden',
-              default: 'product-page',
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "product-page",
             }
           - { label: Title, name: title, widget: string }
           - { label: Image, name: image, widget: image }

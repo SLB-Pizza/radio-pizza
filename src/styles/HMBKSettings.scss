@@ -33,8 +33,8 @@ $button-hover-border-color: darken($primary, 10);
 $button-text-hover-background-color: $primary;
 $button-focus-color: $white;
 $button-focus-border-color: $primary;
-$button-active-color: darken($primary, 20);
-$button-active-border-color: darken($primary, 20);
+$button-active-color: darken($primary, 15);
+$button-active-border-color: darken($primary, 15);
 
 //==================================
 // dropdown element variables
@@ -56,6 +56,14 @@ $button-active-border-color: darken($primary, 20);
 //==================================
 // GLOBAL STYLES
 //==================================
+// Duotone testing
+$dt-base: #f600ff;
+$dt-bg-blend: multiply;
+$dt-blur: 0px;
+$dt-fg-blend: lighten;
+$dt-foreground: #16006f;
+$dt-opacity: 1;
+$dt-spacing: 1%;
 
 html,
 body {
@@ -126,6 +134,18 @@ button {
   color: white;
 }
 
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: pre-line;
+}
+
+.single-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 //===========================================
 // For screen-readers - bulma stuff was fussy
 //===========================================
@@ -161,7 +181,11 @@ button {
   border: 2px solid white;
   border-radius: 0.75rem;
   margin: 0 0.125rem;
-  transition: 0.125s ease;
+  transition: 0.5s ease;
+
+  figure {
+    transition: 0.5s ease;
+  }
 
   img {
     border-top-left-radius: 0.75rem;
@@ -185,21 +209,34 @@ button {
     transition: 0.125s ease;
 
     .content-text {
-      @include mobile {
-        min-height: 5rem;
-      }
-      @include tablet-only {
-        min-height: 5.5rem;
-      }
-      @include desktop-only {
-        min-height: 6rem;
-      }
-      @include widescreen-only {
-        min-height: 6.5rem;
-      }
-      @include fullhd {
-        min-height: 5.5rem;
-      }
+      padding-bottom: 0.5rem;
+
+      // background-color: green;
+      // @include mobile {
+      //   height: auto;
+      // }
+      // @include tablet-only {
+      //   min-height: 5.5rem;
+      // }
+      // @include desktop-only {
+      //   min-height: 6rem;
+      // }
+      // @include widescreen-only {
+      //   min-height: 6.5rem;
+      // }
+      // @include fullhd {
+      //   min-height: 5.5rem;
+      // }
+    }
+
+    .event-text {
+      background-color: darkblue;
+      // min-height: 6rem;
+    }
+
+    .event-blurb {
+      background-color: darkgreen;
+      max-height: 3.5rem;
     }
 
     p.title + p {
@@ -221,7 +258,26 @@ button {
 
   &:hover {
     border: 2px solid $primary;
-    box-shadow: 10px 8px 5px black;
+
+    figure {
+      border-top-left-radius: 0.6rem;
+      border-top-right-radius: 0.6rem;
+      background-color: $dt-base;
+
+      img {
+        filter: grayscale(100%) contrast(1) blur(0px);
+        mix-blend-mode: $dt-bg-blend;
+        opacity: $dt-opacity;
+        object-fit: cover;
+      }
+
+      &::before {
+        background-color: $dt-foreground;
+        content: "";
+        mix-blend-mode: $dt-fg-blend;
+        z-index: 1000;
+      }
+    }
 
     .play-btn-diffuser {
       border-top-left-radius: 0.6rem;
@@ -229,7 +285,6 @@ button {
     }
 
     .card-content {
-      background-color: darken($color: $primary, $amount: 35);
       border-bottom-left-radius: 0.6rem;
       border-bottom-right-radius: 0.6rem;
     }
@@ -237,12 +292,13 @@ button {
     .play-btn-diffuser {
       display: flex;
       justify-content: center;
-      background-color: rgba($color: black, $alpha: 0.75);
 
       span {
         color: white;
+        transition: 0.25 ease;
+
         &:hover {
-          color: darken($color: $primary, $amount: 10);
+          color: darken($color: $primary, $amount: 20);
         }
         &:active {
           color: $primary;
@@ -265,20 +321,21 @@ button {
 }
 
 .buttons.are-tags {
-  min-height: 8rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap-reverse;
   align-items: flex-end;
   align-content: flex-start;
-  padding: 0;
+  min-height: 7rem;
+  padding-top: 0.5rem;
 
-  // OLD TAGS CONTAINER SIZINGS
+  // background-color: orange;
+
+  // // OLD TAGS CONTAINER SIZINGS
   // @include mobile {
-  //   min-height: 6rem;
   // }
   // @include from($tablet) {
-  //   min-height: 6rem;
+  //   min-height: 4rem;
   // }
   // @include widescreen-only {
   //   min-height: 5rem;
@@ -331,5 +388,22 @@ button {
 //     p.subtitle {
 //       padding-top: 0;
 //     }
+//   }
+// }
+
+// .btn-tags figure {
+//   background-color: $dt-base;
+//   img {
+//     filter: grayscale(100%) contrast(1) blur(0px);
+//     mix-blend-mode: $dt-bg-blend;
+//     opacity: $dt-opacity;
+//     object-fit: cover;
+//   }
+
+//   &::before {
+//     background-color: $dt-foreground;
+//     content: "";
+//     mix-blend-mode: $dt-fg-blend;
+//     z-index: 1000;
 //   }
 // }

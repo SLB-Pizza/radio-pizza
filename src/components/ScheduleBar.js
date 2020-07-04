@@ -45,7 +45,7 @@ function ScheduleBar() {
     return (
       <Ticker mode="await" offset="run-in" speed={3}>
         {() => (
-          <p className="display-text is-size-7">
+          <p className="display-text  is-size-7">
             {/* {date} – {showName} */}
             Aldrich Title - Oxygen Body
           </p>

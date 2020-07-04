@@ -100,7 +100,7 @@ function ScheduleIndexPage() {
 
       <div className="columns is-multiline is-vcentered is-mobile schedule-page-entries">
         <div className="column is-12 today-date">
-          <p className="title is-size-4 has-text-centered">
+          <p className="title is-size-4-desktop is-size-5-mobile has-text-centered">
             {todayDate.format("dddd, MMMM D")}
           </p>
         </div>

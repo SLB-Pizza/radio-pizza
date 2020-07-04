@@ -125,15 +125,17 @@ function RadioPlayer(props) {
         )}
       </div>
 
+      <div className="column is-narrow">
+        <figure className="image is-48x48">
+          <img src={`${globalState.img}`} alt="Current mix" />
+        </figure>
+      </div>
       <div className="column" id="now-playing">
-        <div className="is-hidden-mobile" id="now-playing-img">
-          <figure className="image is-48x48">
-            <img src={`${globalState.img}`} alt="Current mix" />
-          </figure>
-        </div>
         <div id="now-playing-details">
-          <p className="display-text is-size-7">{globalState.artist}</p>
-          <p className="title is-size-6-tablet is-size-7-mobile">
+          <p className="subtitle single-truncate is-size-7">
+            {globalState.artist}
+          </p>
+          <p className="title single-truncate is-size-6-tablet is-size-7-mobile">
             {globalState.title}
           </p>
         </div>

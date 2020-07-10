@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { GlobalDispatchContext } from "../context/GlobalContextProvider";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faPlay } from "@fortawesome/free-solid-svg-icons";
 
 function SingleMixCard(props) {
   const dispatch = useContext(GlobalDispatchContext);

@@ -15,7 +15,7 @@ import {
   GlobalDispatchContext,
   GlobalStateContext,
 } from "../context/GlobalContextProvider";
-import { ScheduleDropdown } from "./index";
+import { ScheduleDropdown, OutsideClick } from "./index";
 
 function ScheduleBar() {
   const dispatch = useContext(GlobalDispatchContext);
@@ -54,32 +54,6 @@ function ScheduleBar() {
           </p>
         )}
       </Ticker>
-    );
-  };
-
-  const OutsideClick = ({ children, onClick }) => {
-    const refs = React.Children.map(children, () => React.createRef());
-
-    const handleClick = (e) => {
-      const isOutside = refs.every((ref) => {
-        return !ref.current.contains(e.target);
-      });
-
-      if (isOutside) {
-        onClick();
-      }
-    };
-
-    useEffect(() => {
-      document.addEventListener("click", handleClick);
-
-      return () => {
-        document.removeEventListener("click", handleClick);
-      };
-    });
-
-    return React.Children.map(children, (element, idx) =>
-      React.cloneElement(element, { ref: refs[idx] })
     );
   };
 

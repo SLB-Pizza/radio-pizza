@@ -26,7 +26,10 @@ function ScheduleBar() {
 
   const toggleSchedule = async () => {
     await dispatch({ type: "TOGGLE_SCHEDULE" });
-    // console.log("globalState.scheduleOpen:", globalState.scheduleOpen);
+  };
+
+  const closeSchedule = async () => {
+    await dispatch({ type: "CLOSE_SCHEDULE" });
   };
 
   const handleVisibilityChange = (isVisible) => {
@@ -85,9 +88,7 @@ function ScheduleBar() {
    * CLOSED : OPEN
    */
   return globalState.scheduleOpen ? (
-    <OutsideClick
-      onClick={() => alert("You clicked outside the open schedule")}
-    >
+    <OutsideClick onClick={() => closeSchedule()}>
       <div
         className={
           globalState.live
@@ -100,10 +101,14 @@ function ScheduleBar() {
             className="column is-narrow"
             onClick={() => {
               handleLiveTest();
+              closeSchedule();
             }}
           >
             {globalState.live ? (
-              <button className="button is-small is-outlined is-rounded">
+              <button
+                className="button is-small is-outlined is-rounded"
+                onClick={() => closeSchedule()}
+              >
                 {globalState.playingRadio ? (
                   <>
                     <span>Listening</span>
@@ -156,6 +161,7 @@ function ScheduleBar() {
           <div className="column is-narrow">
             <Link to="/search">
               <FontAwesomeIcon
+                onClick={() => closeSchedule()}
                 icon={faSearch}
                 size="1x"
                 className="icon-color"
@@ -170,6 +176,7 @@ function ScheduleBar() {
               rel="noopener"
             >
               <FontAwesomeIcon
+                onClick={() => closeSchedule()}
                 icon={faComments}
                 size="1x"
                 className="icon-color"
@@ -197,10 +204,14 @@ function ScheduleBar() {
           className="column is-narrow"
           onClick={() => {
             handleLiveTest();
+            closeSchedule();
           }}
         >
           {globalState.live ? (
-            <button className="button is-small is-outlined is-rounded">
+            <button
+              className="button is-small is-outlined is-rounded"
+              onClick={() => closeSchedule()}
+            >
               {globalState.playingRadio ? (
                 <>
                   <span>Listening</span>
@@ -244,15 +255,20 @@ function ScheduleBar() {
         </div>
         <div className="column is-narrow">
           <FontAwesomeIcon
+            onClick={() => toggleSchedule()}
             icon={faCalendarAlt}
             size="1x"
             className="icon-color"
-            onClick={() => toggleSchedule()}
           />
         </div>
         <div className="column is-narrow">
           <Link to="/search">
-            <FontAwesomeIcon icon={faSearch} size="1x" className="icon-color" />
+            <FontAwesomeIcon
+              onClick={() => closeSchedule()}
+              icon={faSearch}
+              size="1x"
+              className="icon-color"
+            />
           </Link>
         </div>
 
@@ -263,6 +279,7 @@ function ScheduleBar() {
             rel="noopener"
           >
             <FontAwesomeIcon
+              onClick={() => closeSchedule()}
               icon={faComments}
               size="1x"
               className="icon-color"

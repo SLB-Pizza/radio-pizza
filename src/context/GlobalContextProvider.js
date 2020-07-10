@@ -43,6 +43,10 @@ function reducer(state, action) {
         img: action.payload.img,
       };
     }
+    case "CLOSE_SCHEDULE": {
+      return { ...state, scheduleOpen: false };
+    }
+
     case "TOGGLE_SCHEDULE": {
       return { ...state, scheduleOpen: !state.scheduleOpen };
     }

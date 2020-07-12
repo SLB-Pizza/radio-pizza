@@ -2,7 +2,6 @@ import React from "react";
 import { SingleEventCard } from "../../components";
 
 import dummyEvents from "../../../__tests__/dummyEvents.json";
-
 function EventsIndexPage() {
   return (
     <div className="container is-fluid site-page">

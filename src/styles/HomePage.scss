@@ -1,11 +1,18 @@
 //==================================
 // <Hero />
 //==================================
+.hero-test-2 {
+  max-height: calc(100vh - 10.5rem);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
 
 .hero-test-3 {
-  position: absolute;
-  top: 8.5rem;
-  bottom: 4rem;
+  // position: absolute;
+  // top: 8.5rem;
+  // bottom: 4rem;
   width: 100vw;
   height: calc(100vh - 10.5rem);
   background-position: center center;

@@ -69,14 +69,14 @@ function Hero(props) {
 export default Hero;
 
 // return (
-//     <div className="container is-fluid">
-//       <div className="columns">
-//         <div className="column">
-//           <p className="title is-size-3-mobile is-size-1-tablet has-text-centered">
-//             Sources
-//           </p>
-//         </div>
-//       </div>
+// <div className="container is-fluid">
+//   <div className="columns">
+//     <div className="column">
+//       <p className="title is-size-3-mobile is-size-1-tablet has-text-centered">
+//         Sources
+//       </p>
+//     </div>
+//   </div>
 //       <div className="columns">
 //         <div className="column">{props.soundcloudBtn}</div>
 //         <div className="column">{props.mixcloudBtn}</div>

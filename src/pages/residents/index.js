@@ -4,6 +4,15 @@ import { SingleResident } from "../../components";
 // Dummy data in __tests__ folder
 import dummyArtists from "../../../__tests__/dummyArtists.json";
 
+/**
+ * TO REMOVE IN THIS FILE FOR SHIPMENT
+ * dummyArtists
+ * alphabetizedResidents helper function (do it in gql query)
+ *
+ * TO CHANGE IN THIS FILE
+ * change alphabetizedResidents map to actual artist data
+ */
+
 function ResidentsIndexPage() {
   const [isOpen, setIsOpen] = useState("current");
 
@@ -12,6 +21,19 @@ function ResidentsIndexPage() {
       setIsOpen(e.currentTarget.id);
     }
   }
+
+  const alphabetizedResidents = dummyArtists.sort((a, b) => {
+    let nameA = a.name.toUpperCase(); // make both uppercase so...
+    let nameB = b.name.toUpperCase(); // ...it ignore capitals in sorting
+
+    if (nameA < nameB) {
+      return -1; //nameA comes first
+    }
+    if (nameA > nameB) {
+      return 1; // nameB comes first
+    }
+    return 0; // names are the same
+  });
 
   return (
     <div className="container is-fluid site-page">
@@ -46,7 +68,7 @@ function ResidentsIndexPage() {
       </div>
       {isOpen === "current" ? (
         <div className="columns is-mobile is-multiline">
-          {dummyArtists.map((resident) => (
+          {alphabetizedResidents.map((resident) => (
             <SingleResident
               key={resident.name}
               name={`${resident.name} | current`}
@@ -57,7 +79,7 @@ function ResidentsIndexPage() {
       ) : null}
       {isOpen === "alumni" ? (
         <div className="columns is-mobile is-multiline">
-          {dummyArtists.map((resident) => (
+          {alphabetizedResidents.map((resident) => (
             <SingleResident
               key={resident.name}
               name={`${resident.name} | alumnus`}

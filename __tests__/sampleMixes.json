@@ -3,7 +3,7 @@
     "date": "10.18.16",
     "url": "https://www.youtube.com/watch?v=bpfK7F5O614",
     "testSrc": "Youtube",
-    "name": "Circadia",
+    "title": "Circadia",
     "artist": "Jardín de la Croix",
     "img": "../img/test/circadia.jpg",
     "tags": ["instrumental", "math rock", "prog rock", "post rock"]
@@ -12,7 +12,7 @@
     "date": "06.19.20",
     "url": "https://soundcloud.com/jardindelacroixofficial/sets/letargo-6",
     "testSrc": "Soundcloud",
-    "name": "Letargo",
+    "title": "Letargo",
     "artist": "Jardín de la Croix",
     "img": "../img/test/letargo.jpg",
     "tags": ["instrumental", "math rock", "prog rock", "post rock"]
@@ -21,7 +21,7 @@
     "date": "05.29.20",
     "url": "https://soundcloud.com/koan-sound/sets/silk-wave",
     "testSrc": "Soundcloud",
-    "name": "Silk Wave",
+    "title": "Silk Wave",
     "artist": "KOAN Sound",
     "img": "../img/test/silk-wave.jpg",
     "tags": ["electronic", "funk", "glitch hop", "dubstep", "vocals"]
@@ -30,7 +30,7 @@
     "date": "01.20.20",
     "url": "https://soundcloud.com/monstercat/sets/infected-mushroom-more-than",
     "testSrc": "Soundcloud",
-    "name": "More than Just a Name",
+    "title": "More than Just a Name",
     "artist": "Infected Mushroom",
     "img": "../img/test/more-than-just-a-name.jpg",
     "tags": ["electronic", "rock", "synths", "psytrance"]
@@ -39,7 +39,7 @@
     "date": "05.12.82",
     "url": "https://soundcloud.com/fairshun/casiopea-mint-jams-1982-full-album",
     "testSrc": "Soundcloud",
-    "name": "Mint Jams",
+    "title": "Mint Jams",
     "artist": "Casiopea",
     "img": "../img/test/mint-jams.jpg",
     "tags": ["jazz fusion", "live album", "1980s", "japanese"]
@@ -48,7 +48,7 @@
     "date": "08.11.17",
     "url": "https://soundcloud.com/futuresocietycollective/moe-shop-owarini-tokyo-liveshow",
     "testSrc": "Soundcloud",
-    "name": "Owarini Tokyo Liveshow",
+    "title": "Owarini Tokyo Liveshow",
     "artist": "Moe Shop",
     "img": "../img/test/moe-shop.jpeg",
     "tags": ["dance", "electro pop", "mashup", "future pop", "japanese"]
@@ -57,7 +57,7 @@
     "date": "06.14.19",
     "url": "https://soundcloud.com/thank-you-scientist/sets/terraformer-3",
     "testSrc": "Soundcloud",
-    "name": "Terraformer",
+    "title": "Terraformer",
     "artist": "Thank You Scientist",
     "img": "../img/test/terraformer.jpg",
     "tags": ["jazz fusion", "prog rock", "funk band", "experimental"]
@@ -66,7 +66,7 @@
     "date": "03.02.20",
     "url": "https://soundcloud.com/soundcloud-circuits/sets/equalizers-female-electronic-producers",
     "testSrc": "Soundcloud",
-    "name": "Female Electronic Producers",
+    "title": "Female Electronic Producers",
     "artist": "Circuits",
     "img": "../img/test/fem-elec-prod.jpg",
     "tags": ["deep bass", "future bass", "dark", "beats", "international"]
@@ -75,7 +75,7 @@
     "date": "10.21.19",
     "url": "https://soundcloud.com/transmissionfestival/tmprg19-blastoyz",
     "testSrc": "Soundcloud",
-    "name": "BLASTOYZ @ Transmission Prague 2019",
+    "title": "BLASTOYZ @ Transmission Prague 2019",
     "artist": "BLASTOYZ",
     "img": "../img/test/blastoyz.png",
     "tags": ["electro", "complextro", "trance", "psytrance", "live set"]
@@ -84,7 +84,7 @@
     "date": "04.28.16",
     "url": "https://soundcloud.com/sleepmakeswaves/sets/sleepmakeswaves-on-audiotree",
     "testSrc": "Soundcloud",
-    "name": "sleepmakeswaves on Audiotree (Live)",
+    "title": "sleepmakeswaves on Audiotree (Live)",
     "artist": "sleepmakeswaves",
     "img": "../img/test/sleepmakeswaves.jpg",
     "tags": ["post rock", "prog rock", "instrumental rock", "live set"]
@@ -93,7 +93,7 @@
     "date": "03.28.20",
     "url": "https://soundcloud.com/derek-d2/dj-soda-countdown-virtual-rave",
     "testSrc": "Soundcloud",
-    "name": "Countdown Virtual Rave-A-Thon",
+    "title": "Countdown Virtual Rave-A-Thon",
     "artist": "DJ Soda",
     "img": "../img/test/dj-soda.jpg",
     "tags": ["electronic", "dubstep", "uk hardcore", "live set"]
@@ -102,7 +102,7 @@
     "date": "03.20.20",
     "url": "https://www.mixcloud.com/HalfMoonbk/plusnone-3252020/",
     "testSrc": "Mixcloud",
-    "name": "plusNONE - 3.25.2020",
+    "title": "plusNONE - 3.25.2020",
     "artist": "plusNONE",
     "img": "../img/test/plusNONE-032020.jpg",
     "tags": ["plusNONE", "r&b", "neo soul", "hip hop"]
@@ -111,7 +111,7 @@
     "date": "04.01.20",
     "url": "https://www.mixcloud.com/adamkvasnica3/shibuya-jazz-classics/",
     "testSrc": "Mixcloud",
-    "name": "Shibuya Jazz Classics",
+    "title": "Shibuya Jazz Classics",
     "artist": "Various Artists",
     "img": "../img/test/shibuya-jazz.jpg",
     "tags": ["jazz", "modal jazz", "jazz fusion", "japanese jazz", "free jazz"]
@@ -120,7 +120,7 @@
     "date": "02.02.20",
     "url": "https://youtu.be/5qap5aO4i9A",
     "testSrc": "Youtube Livestream",
-    "name": "lofi hip hop radio - beats to relax/study to",
+    "title": "lofi hip hop radio - beats to relax/study to",
     "artist": "ChilledCow",
     "img": "../img/test/lo-fi.jpeg",
     "tags": ["lo-fi", "hip-hop", "ambient", "instrumental", "beats"]
@@ -129,7 +129,7 @@
     "date": "01.02.20",
     "url": "https://soundcloud.com/madukdnb/liquicity-yearmix-2019-mixed-by-maduk",
     "testSrc": "Soundcloud",
-    "name": "Liquicity Yearmix 2019 (Mixed by Maduk)",
+    "title": "Liquicity Yearmix 2019 (Mixed by Maduk)",
     "artist": "Maduk",
     "img": "../img/test/liquicity-2019.jpg",
     "tags": ["electronic", "dance", "yearmix", "drum & bass"]
@@ -138,7 +138,7 @@
     "date": "04.30.15",
     "url": "https://www.youtube.com/watch?v=cRmwFBK0cyk",
     "testSrc": "Youtube",
-    "name": "Inferno (Cinder's Theme) - Killer Instinct Season 2 Soundtrack",
+    "title": "Inferno (Cinder's Theme) - Killer Instinct Season 2 Soundtrack",
     "artist": "Mick Gordon",
     "img": "../img/test/ki-s2.jpg",
     "tags": ["heavy metal", "dark electronic", "soundtrack"]
@@ -147,7 +147,7 @@
     "date": "04.21.16",
     "url": "https://soundcloud.com/user18081971/avril-14th-reversed-music-not-audio",
     "testSrc": "Soundcloud",
-    "name": "avril 14th, notes played backwards, not the audio",
+    "title": "avril 14th, notes played backwards, not the audio",
     "artist": "Aphex Twin (user18081971)",
     "img": "../img/test/aphex.jpg",
     "tags": ["piano", "ambient", "atmospheric", "light"]

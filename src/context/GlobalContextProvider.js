@@ -38,8 +38,8 @@ function reducer(state, action) {
         ...state,
         url: action.payload.url,
         title: action.payload.title,
-        playing: true,
         artist: action.payload.artist,
+        playing: true,
         img: action.payload.img,
       };
     }

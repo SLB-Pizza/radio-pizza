@@ -61,9 +61,9 @@ function RadioPlayer(props) {
     setLocalState({ ...localState, playing: false });
   };
 
-  const handleLoadingComplete = async () => {
+  const handleMixReady = async () => {
     await setLocalState({ ...localState, loading: true });
-    console.log(`loading complete`);
+    console.log(`READY: ${globalState.title}`);
   };
 
   const load = async (url) => {
@@ -181,11 +181,11 @@ function RadioPlayer(props) {
         onPlay={handlePlay}
         onPause={handlePause}
         onError={(e) => console.log("ReactPlayer has an issue ↴\n", e)}
-        onReady={handleLoadingComplete}
-        // onStart={() => console.log("onStart")}
+        onReady={handleMixReady}
+        onStart={() => console.log(`PLAYING: ${globalState.title}`)}
         // onEnablePIP={this.handleEnablePIP}
         // onDisablePIP={this.handleDisablePIP}
-        // onBuffer={() => console.log('onBuffer')}
+        onBuffer={() => console.log("onBuffer")}
         // onSeek={e => console.log('onSeek', e)}
         // onEnded={this.handleEnded}
         // onProgress={this.handleProgress}

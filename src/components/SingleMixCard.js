@@ -57,7 +57,7 @@ function SingleMixCard(props) {
               {props.date} | {props.artist}
             </p>
             <p className="title is-size-6-touch is-size-6-desktop is-size-5-widescreen">
-              {props.name}
+              {props.title}
             </p>
           </div>
 

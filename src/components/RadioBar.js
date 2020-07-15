@@ -12,7 +12,7 @@ import {
 
 const utc = require("dayjs/plugin/utc");
 dayjs.extend(utc);
-import PageVisibility from "react-page-visibility";
+// import PageVisibility from "react-page-visibility";
 
 function RadioBar() {
   const dispatch = useContext(GlobalDispatchContext);
@@ -106,18 +106,9 @@ function RadioBar() {
           </Link>
         </div>
 
-        {/*
-        RadioPlayer returns a fragment with the following structure:
-        <>
-          <column is-narrow>
-          <column is-narrow>
-          <column>
-          <RadioPlayer>
-        </>
-        */}
         <RadioPlayer status={radioData.status} />
 
-        <div className="column is-narrow is-hidden-touch">
+        <div className="column is-narrow is-hidden-mobile">
           <p className="display-text is-size-6">{laTime.format("HH:mm")} LA</p>
           <p className="display-text is-size-6">
             {nycTime.format("HH:mm")} NYC

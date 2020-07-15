@@ -59,16 +59,17 @@ function ScheduleBar() {
 
   /**
    * Schedule Bar LAYOUT
-   * CLOSED : OPEN
+   * OPEN : CLOSED
    */
   return globalState.scheduleOpen ? (
-    <OutsideClick onClick={() => closeSchedule()}>
+    <OutsideClick id={"schedule-bar"} onClick={() => closeSchedule()}>
       <div
         className={
           globalState.live
             ? "schedule-bar container is-fluid is-open is-live"
             : "schedule-bar container is-fluid is-open"
         }
+        id="schedule-bar"
       >
         <div className="columns is-vcentered is-mobile is-variable is-2 up-next">
           <div

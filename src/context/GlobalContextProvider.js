@@ -22,6 +22,7 @@ const initialState = {
   live: false,
   playingRadio: false,
   scheduleOpen: false,
+  navMenuOpen: false,
 };
 
 function reducer(state, action) {
@@ -43,6 +44,15 @@ function reducer(state, action) {
         img: action.payload.img,
       };
     }
+
+    case "CLOSE_NAVMENU": {
+      return { ...state, navMenuOpen: false };
+    }
+
+    case "TOGGLE_NAVMENU": {
+      return { ...state, navMenuOpen: !state.navMenuOpen };
+    }
+
     case "CLOSE_SCHEDULE": {
       return { ...state, scheduleOpen: false };
     }

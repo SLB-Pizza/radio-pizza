@@ -267,6 +267,7 @@ button {
 
   &:hover {
     border: 2px solid $primary;
+    cursor: pointer;
 
     figure {
       border-top-left-radius: 0.6rem;
@@ -278,7 +279,6 @@ button {
         mix-blend-mode: $dt-bg-blend;
         opacity: $dt-opacity;
         object-fit: cover;
-        cursor: pointer;
       }
 
       &::before {

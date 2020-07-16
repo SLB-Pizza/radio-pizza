@@ -1,10 +1,19 @@
 [
   {
+    "date": "12.02.19",
+    "url": "https://www.youtube.com/watch?v=VLV-vhJCMwU",
+    "testSrc": "Youtube",
+    "title": "RIP Genre [178BPM Neurofunk/Crossbreed Mix]",
+    "resident": "Rems ITG",
+    "img": "../img/test/neurofunk.jpg",
+    "tags": ["neurofunk", "drum n' bass", "electronic", "live set"]
+  },
+  {
     "date": "10.18.16",
     "url": "https://www.youtube.com/watch?v=bpfK7F5O614",
     "testSrc": "Youtube",
     "title": "Circadia",
-    "artist": "Jardín de la Croix",
+    "resident": "Jardín de la Croix",
     "img": "../img/test/circadia.jpg",
     "tags": ["instrumental", "math rock", "prog rock", "post rock"]
   },
@@ -13,7 +22,7 @@
     "url": "https://soundcloud.com/jardindelacroixofficial/sets/letargo-6",
     "testSrc": "Soundcloud",
     "title": "Letargo",
-    "artist": "Jardín de la Croix",
+    "resident": "Jardín de la Croix",
     "img": "../img/test/letargo.jpg",
     "tags": ["instrumental", "math rock", "prog rock", "post rock"]
   },
@@ -22,7 +31,7 @@
     "url": "https://soundcloud.com/koan-sound/sets/silk-wave",
     "testSrc": "Soundcloud",
     "title": "Silk Wave",
-    "artist": "KOAN Sound",
+    "resident": "KOAN Sound",
     "img": "../img/test/silk-wave.jpg",
     "tags": ["electronic", "funk", "glitch hop", "dubstep", "vocals"]
   },
@@ -31,7 +40,7 @@
     "url": "https://soundcloud.com/monstercat/sets/infected-mushroom-more-than",
     "testSrc": "Soundcloud",
     "title": "More than Just a Name",
-    "artist": "Infected Mushroom",
+    "resident": "Infected Mushroom",
     "img": "../img/test/more-than-just-a-name.jpg",
     "tags": ["electronic", "rock", "synths", "psytrance"]
   },
@@ -40,7 +49,7 @@
     "url": "https://soundcloud.com/fairshun/casiopea-mint-jams-1982-full-album",
     "testSrc": "Soundcloud",
     "title": "Mint Jams",
-    "artist": "Casiopea",
+    "resident": "Casiopea",
     "img": "../img/test/mint-jams.jpg",
     "tags": ["jazz fusion", "live album", "1980s", "japanese"]
   },
@@ -49,7 +58,7 @@
     "url": "https://soundcloud.com/futuresocietycollective/moe-shop-owarini-tokyo-liveshow",
     "testSrc": "Soundcloud",
     "title": "Owarini Tokyo Liveshow",
-    "artist": "Moe Shop",
+    "resident": "Moe Shop",
     "img": "../img/test/moe-shop.jpeg",
     "tags": ["dance", "electro pop", "mashup", "future pop", "japanese"]
   },
@@ -58,7 +67,7 @@
     "url": "https://soundcloud.com/thank-you-scientist/sets/terraformer-3",
     "testSrc": "Soundcloud",
     "title": "Terraformer",
-    "artist": "Thank You Scientist",
+    "resident": "Thank You Scientist",
     "img": "../img/test/terraformer.jpg",
     "tags": ["jazz fusion", "prog rock", "funk band", "experimental"]
   },
@@ -67,7 +76,7 @@
     "url": "https://soundcloud.com/soundcloud-circuits/sets/equalizers-female-electronic-producers",
     "testSrc": "Soundcloud",
     "title": "Female Electronic Producers",
-    "artist": "Circuits",
+    "resident": "Circuits",
     "img": "../img/test/fem-elec-prod.jpg",
     "tags": ["deep bass", "future bass", "dark", "beats", "international"]
   },
@@ -76,7 +85,7 @@
     "url": "https://soundcloud.com/transmissionfestival/tmprg19-blastoyz",
     "testSrc": "Soundcloud",
     "title": "BLASTOYZ @ Transmission Prague 2019",
-    "artist": "BLASTOYZ",
+    "resident": "BLASTOYZ",
     "img": "../img/test/blastoyz.png",
     "tags": ["electro", "complextro", "trance", "psytrance", "live set"]
   },
@@ -85,7 +94,7 @@
     "url": "https://soundcloud.com/sleepmakeswaves/sets/sleepmakeswaves-on-audiotree",
     "testSrc": "Soundcloud",
     "title": "sleepmakeswaves on Audiotree (Live)",
-    "artist": "sleepmakeswaves",
+    "resident": "sleepmakeswaves",
     "img": "../img/test/sleepmakeswaves.jpg",
     "tags": ["post rock", "prog rock", "instrumental rock", "live set"]
   },
@@ -94,7 +103,7 @@
     "url": "https://soundcloud.com/derek-d2/dj-soda-countdown-virtual-rave",
     "testSrc": "Soundcloud",
     "title": "Countdown Virtual Rave-A-Thon",
-    "artist": "DJ Soda",
+    "resident": "DJ Soda",
     "img": "../img/test/dj-soda.jpg",
     "tags": ["electronic", "dubstep", "uk hardcore", "live set"]
   },
@@ -103,7 +112,7 @@
     "url": "https://www.mixcloud.com/HalfMoonbk/plusnone-3252020/",
     "testSrc": "Mixcloud",
     "title": "plusNONE - 3.25.2020",
-    "artist": "plusNONE",
+    "resident": "plusNONE",
     "img": "../img/test/plusNONE-032020.jpg",
     "tags": ["plusNONE", "r&b", "neo soul", "hip hop"]
   },
@@ -112,7 +121,7 @@
     "url": "https://www.mixcloud.com/adamkvasnica3/shibuya-jazz-classics/",
     "testSrc": "Mixcloud",
     "title": "Shibuya Jazz Classics",
-    "artist": "Various Artists",
+    "resident": "Various residents",
     "img": "../img/test/shibuya-jazz.jpg",
     "tags": ["jazz", "modal jazz", "jazz fusion", "japanese jazz", "free jazz"]
   },
@@ -121,7 +130,7 @@
     "url": "https://youtu.be/5qap5aO4i9A",
     "testSrc": "Youtube Livestream",
     "title": "lofi hip hop radio - beats to relax/study to",
-    "artist": "ChilledCow",
+    "resident": "ChilledCow",
     "img": "../img/test/lo-fi.jpeg",
     "tags": ["lo-fi", "hip-hop", "ambient", "instrumental", "beats"]
   },
@@ -130,7 +139,7 @@
     "url": "https://soundcloud.com/madukdnb/liquicity-yearmix-2019-mixed-by-maduk",
     "testSrc": "Soundcloud",
     "title": "Liquicity Yearmix 2019 (Mixed by Maduk)",
-    "artist": "Maduk",
+    "resident": "Maduk",
     "img": "../img/test/liquicity-2019.jpg",
     "tags": ["electronic", "dance", "yearmix", "drum & bass"]
   },
@@ -139,7 +148,7 @@
     "url": "https://www.youtube.com/watch?v=cRmwFBK0cyk",
     "testSrc": "Youtube",
     "title": "Inferno (Cinder's Theme) - Killer Instinct Season 2 Soundtrack",
-    "artist": "Mick Gordon",
+    "resident": "Mick Gordon",
     "img": "../img/test/ki-s2.jpg",
     "tags": ["heavy metal", "dark electronic", "soundtrack"]
   },
@@ -148,7 +157,7 @@
     "url": "https://soundcloud.com/user18081971/avril-14th-reversed-music-not-audio",
     "testSrc": "Soundcloud",
     "title": "avril 14th, notes played backwards, not the audio",
-    "artist": "Aphex Twin (user18081971)",
+    "resident": "Aphex Twin (user18081971)",
     "img": "../img/test/aphex.jpg",
     "tags": ["piano", "ambient", "atmospheric", "light"]
   }

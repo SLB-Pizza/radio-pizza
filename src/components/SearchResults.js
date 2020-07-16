@@ -19,7 +19,7 @@ function SearchResults(props) {
               url={mix.url}
               testSrc={mix.testSrc}
               title={mix.title}
-              artist={mix.artist}
+              resident={mix.resident}
               img={mix.img}
               tags={mix.tags}
               playBtnInfo={playBtnInfo}

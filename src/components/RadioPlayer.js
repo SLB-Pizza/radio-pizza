@@ -66,12 +66,12 @@ function RadioPlayer(props) {
     console.log(`READY: ${globalState.title}`);
   };
 
-  const handleVolumeChange = (e) => {
-    let value = parseFloat(e.target.value);
-    console.log("current volume", value);
+  // const handleVolumeChange = (e) => {
+  //   let value = parseFloat(e.target.value);
+  //   console.log("current volume", value);
 
-    setLocalState({ volume: value });
-  };
+  //   setLocalState({ volume: value });
+  // };
 
   const load = async (url) => {
     await setLocalState({
@@ -140,7 +140,7 @@ function RadioPlayer(props) {
       <div className="column" id="now-playing">
         <div id="now-playing-details">
           <p className="subtitle single-truncate is-size-7">
-            {globalState.artist}
+            {globalState.resident}
           </p>
           <p className="title single-truncate is-size-6-tablet is-size-7-mobile">
             {globalState.title}
@@ -148,7 +148,7 @@ function RadioPlayer(props) {
         </div>
       </div>
 
-      <div className="column">
+      {/* <div className="column">
         <input
           type="range"
           min="0"
@@ -158,7 +158,7 @@ function RadioPlayer(props) {
           onChange={(e) => handleVolumeChange(e)}
         />
         <p className="is-size-6">{localState.volume}</p>
-      </div>
+      </div> */}
 
       {/* <div className="column is-hidden-mobile" id="now-playing-img">
         <figure className="image is-48x48">
@@ -168,19 +168,19 @@ function RadioPlayer(props) {
 
       <div className="column" id="now-play-details"> */}
       {/* Static tablet and up currentTrackTitle */}
-      {/* <p className="display-text is-size-7-tablet">{globalState.artist}</p>
+      {/* <p className="display-text is-size-7-tablet">{globalState.resident}</p>
         <p className="display-text is-size-6-tablet">{globalState.title}</p> */}
 
       {/* <div className="is-hidden-mobile" id="radioShowName">
           <p className="display-text is-size-6-tablet">
-            {globalState.artist} – {globalState.title}
+            {globalState.resident} – {globalState.title}
           </p>
         </div> */}
 
       {/* Dynamic mobile currentTrackTitle */}
       {/* <PageVisibility onChange={handleVisibilityChange}>
           {pageIsVisible &&
-            renderNowPlaying(globalState.artist, globalState.title)}
+            renderNowPlaying(globalState.resident, globalState.title)}
         </PageVisibility>
       </div> */}
 

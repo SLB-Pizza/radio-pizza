@@ -7,7 +7,7 @@ const initialState = {
   url:
     "https://soundcloud.com/soundcloud-scenes/sets/currents-next-gen-chillwave",
   title: "Next Gen ChillWave",
-  artist: "Currents",
+  resident: "Currents",
   img: "../img/test/next-gen-chillwave.jpg",
   playing: false,
   controls: false,
@@ -39,7 +39,7 @@ function reducer(state, action) {
         ...state,
         url: action.payload.url,
         title: action.payload.title,
-        artist: action.payload.artist,
+        resident: action.payload.resident,
         playing: true,
         img: action.payload.img,
       };

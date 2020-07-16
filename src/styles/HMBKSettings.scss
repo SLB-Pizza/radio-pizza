@@ -86,6 +86,7 @@ button.button,
   font-family: "Aldrich", sans-serif;
   font-kerning: normal;
   font-display: swap;
+  font-weight: 600;
   // font-weight: $weight-normal;
   // letter-spacing: -0.0125rem;
 }
@@ -277,6 +278,7 @@ button {
         mix-blend-mode: $dt-bg-blend;
         opacity: $dt-opacity;
         object-fit: cover;
+        cursor: pointer;
       }
 
       &::before {

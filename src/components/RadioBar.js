@@ -42,9 +42,9 @@ function RadioBar() {
     };
   });
 
-  const handleVisibilityChange = (isVisible) => {
-    setPageIsVisible(isVisible);
-  };
+  // const handleVisibilityChange = (isVisible) => {
+  //   setPageIsVisible(isVisible);
+  // };
 
   const handlePlayLive = async () => {
     await dispatch({
@@ -56,21 +56,21 @@ function RadioBar() {
     });
   };
 
-  const liveText = "Pendulum: Hold Your Colour 15th Anniversary Live Set";
-  const renderLiveTicker = (text) => {
-    return (
-      <div className="columns is-mobile is-vcentered live-bar">
-        <div className="column is-narrow live-invert">
-          <p className="display-text is-size-5 has-text-centered">ON AIR</p>
-        </div>
-        <div className="column live-ticker">
-          <Ticker mode="await" offset="run-in" speed={3}>
-            {() => <p className="display-text is-size-5">{text}!</p>}
-          </Ticker>
-        </div>
-      </div>
-    );
-  };
+  // const liveText = "Pendulum: Hold Your Colour 15th Anniversary Live Set";
+  // const renderLiveTicker = (text) => {
+  //   return (
+  //     <div className="columns is-mobile is-vcentered live-bar">
+  //       <div className="column is-narrow live-invert">
+  //         <p className="display-text is-size-5 has-text-centered">ON AIR</p>
+  //       </div>
+  //       <div className="column live-ticker">
+  //         <Ticker mode="await" offset="run-in" speed={3}>
+  //           {() => <p className="display-text is-size-5">{text}!</p>}
+  //         </Ticker>
+  //       </div>
+  //     </div>
+  //   );
+  // };
 
   useEffect(() => {
     async function getRadioData() {

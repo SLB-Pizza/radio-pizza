@@ -66,6 +66,13 @@ function RadioPlayer(props) {
     console.log(`READY: ${globalState.title}`);
   };
 
+  const handleVolumeChange = (e) => {
+    let value = parseFloat(e.target.value);
+    console.log("current volume", value);
+
+    setLocalState({ volume: value });
+  };
+
   const load = async (url) => {
     await setLocalState({
       ...localState,
@@ -88,19 +95,19 @@ function RadioPlayer(props) {
     setLocalState({ duration: duration });
   };
 
-  const renderNowPlaying = (resident, title) => {
-    return (
-      <Ticker mode="await" offset="run-in" speed={3}>
-        {() => (
-          <div className="is-hidden-tablet" id="radioShowName">
-            <p className="display-text is-size-6-mobile">
-              {resident} – {title}
-            </p>
-          </div>
-        )}
-      </Ticker>
-    );
-  };
+  // const renderNowPlaying = (resident, title) => {
+  //   return (
+  //     <Ticker mode="await" offset="run-in" speed={3}>
+  //       {() => (
+  //         <div className="is-hidden-tablet" id="radioShowName">
+  //           <p className="display-text is-size-6-mobile">
+  //             {resident} – {title}
+  //           </p>
+  //         </div>
+  //       )}
+  //     </Ticker>
+  //   );
+  // };
 
   //prettier-ignore
   const player = useRef(ReactPlayer);
@@ -139,6 +146,18 @@ function RadioPlayer(props) {
             {globalState.title}
           </p>
         </div>
+      </div>
+
+      <div className="column">
+        <input
+          type="range"
+          min="0"
+          max="1"
+          step="0.05"
+          value={localState.volume}
+          onChange={(e) => handleVolumeChange(e)}
+        />
+        <p className="is-size-6">{localState.volume}</p>
       </div>
 
       {/* <div className="column is-hidden-mobile" id="now-playing-img">

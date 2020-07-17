@@ -259,8 +259,9 @@ button {
     align-items: center;
     transition: ease-in-out 0.25s;
 
-    div {
+    .play-icon {
       color: transparent;
+      border: 2px solid transparent;
       transition: ease-in-out 0.25s;
     }
   }
@@ -303,30 +304,19 @@ button {
       display: flex;
       justify-content: center;
 
-      span {
+      .play-icon {
         color: white;
         transition: 0.25 ease;
 
+        // Button gets lost in color
         &:hover {
-          color: darken($color: $primary, $amount: 20);
+          filter: drop-shadow(0.75rem 0.75rem 0.5rem black);
         }
         &:active {
-          color: $primary;
+          color: darken($color: $primary, $amount: 30);
         }
       }
     }
-  }
-}
-
-.play-btn-diffuser {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: ease-in-out 0.25s;
-
-  span {
-    color: transparent;
-    transition: ease-in-out 0.25s;
   }
 }
 

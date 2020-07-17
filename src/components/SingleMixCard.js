@@ -17,23 +17,22 @@ function SingleMixCard(props) {
 
   const playAudioButton = (url, title, resident, img) => {
     return (
-      <span>
-        <FontAwesomeIcon
-          icon={faPlay}
-          size="5x"
-          onClick={() =>
-            dispatch({
-              type: "CHANGE_URL",
-              payload: {
-                url: url,
-                title: title,
-                resident: resident,
-                img: img,
-              },
-            })
-          }
-        />
-      </span>
+      <FontAwesomeIcon
+        icon={faPlay}
+        size="5x"
+        className="play-icon"
+        onClick={() =>
+          dispatch({
+            type: "CHANGE_URL",
+            payload: {
+              url: url,
+              title: title,
+              resident: resident,
+              img: img,
+            },
+          })
+        }
+      />
     );
   };
 

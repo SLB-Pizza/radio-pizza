@@ -130,7 +130,7 @@ button {
   }
 }
 
-::placeholder {
+input::placeholder {
   /* Most modern browsers support this now. */
   color: white;
 }

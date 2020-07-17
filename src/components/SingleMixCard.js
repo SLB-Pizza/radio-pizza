@@ -77,7 +77,7 @@ function SingleMixCard(props) {
 
         <div className="card-content">
           <div className="content-text">
-            <p className="content-date subtitle is-size-7-touch is-size-7-desktop is-size-6-widescreen">
+            <p className="content-date sc-truncate subtitle is-size-7-touch is-size-7-desktop is-size-6-widescreen">
               {props.date} | {props.resident}
             </p>
             <p className="title is-size-6-touch is-size-6-desktop is-size-5-widescreen">

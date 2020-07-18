@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { GlobalDispatchContext } from "../context/GlobalContextProvider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import NanoClamp from "nanoclamp";
 
 function SingleMixCard(props) {
   const dispatch = useContext(GlobalDispatchContext);
@@ -77,14 +78,16 @@ function SingleMixCard(props) {
 
         <div className="card-content">
           <div className="content-text">
-            <p className="content-date sc-truncate subtitle is-size-7-touch is-size-7-desktop is-size-6-widescreen">
+            <p className="content-details sc-truncate subtitle is-size-7">
               {props.date} | {props.resident}
             </p>
-            <p className="title is-size-6-touch is-size-6-desktop is-size-5-widescreen">
-              {props.title}
-            </p>
+            <NanoClamp
+              className="title is-size-6"
+              is="p"
+              lines={2}
+              text={props.title}
+            />
           </div>
-
           <div className="buttons are-tags">
             {props.tags.map((tag) => (
               <button

@@ -206,9 +206,9 @@ input::placeholder {
     border-top-right-radius: 0.75rem;
   }
 
-  .content-date {
-    margin-bottom: 0.5rem;
-  }
+  // .content-details {
+  //   margin-bottom: 0.5rem;
+  // }
 
   .card-content {
     background-color: black;
@@ -218,8 +218,9 @@ input::placeholder {
     transition: 0.125s ease;
 
     .content-text {
-      padding-bottom: 0.5rem;
-
+      padding-bottom: 0.25rem;
+      background-color: darkturquoise;
+      min-height: 3.75rem; //FHD
       // background-color: green;
       // @include mobile {
       //   height: auto;
@@ -327,6 +328,7 @@ input::placeholder {
   align-items: flex-end;
   align-content: flex-start;
   min-height: 7rem;
+  background-color: darkolivegreen;
   padding-top: 0.5rem;
 
   // background-color: orange;

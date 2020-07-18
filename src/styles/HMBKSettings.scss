@@ -86,6 +86,7 @@ button.button,
   font-family: "Aldrich", sans-serif;
   font-kerning: normal;
   font-display: swap;
+  font-weight: 600;
   // font-weight: $weight-normal;
   // letter-spacing: -0.0125rem;
 }
@@ -129,7 +130,7 @@ button {
   }
 }
 
-::placeholder {
+input::placeholder {
   /* Most modern browsers support this now. */
   color: white;
 }
@@ -138,6 +139,14 @@ button {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: pre-line;
+}
+
+// SoundCloud's version of things
+.sc-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: normal;
 }
 
 .single-truncate {
@@ -197,9 +206,9 @@ button {
     border-top-right-radius: 0.75rem;
   }
 
-  .content-date {
-    margin-bottom: 0.5rem;
-  }
+  // .content-details {
+  //   margin-bottom: 0.5rem;
+  // }
 
   .card-content {
     background-color: black;
@@ -209,7 +218,11 @@ button {
     transition: 0.125s ease;
 
     .content-text {
-      padding-bottom: 0.5rem;
+      padding-bottom: 0.25rem;
+      background-color: darkturquoise;
+      min-height: 3.75rem; //FHD
+
+      // Comment in place only for this commit; no other changes made.
 
       // background-color: green;
       // @include mobile {
@@ -250,14 +263,16 @@ button {
     align-items: center;
     transition: ease-in-out 0.25s;
 
-    div {
+    .play-icon {
       color: transparent;
+      border: 2px solid transparent;
       transition: ease-in-out 0.25s;
     }
   }
 
   &:hover {
     border: 2px solid $primary;
+    cursor: pointer;
 
     figure {
       border-top-left-radius: 0.6rem;
@@ -293,30 +308,19 @@ button {
       display: flex;
       justify-content: center;
 
-      span {
+      .play-icon {
         color: white;
         transition: 0.25 ease;
 
+        // Button gets lost in color
         &:hover {
-          color: darken($color: $primary, $amount: 20);
+          filter: drop-shadow(0.75rem 0.75rem 0.5rem black);
         }
         &:active {
-          color: $primary;
+          color: darken($color: $primary, $amount: 30);
         }
       }
     }
-  }
-}
-
-.play-btn-diffuser {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: ease-in-out 0.25s;
-
-  span {
-    color: transparent;
-    transition: ease-in-out 0.25s;
   }
 }
 
@@ -327,6 +331,7 @@ button {
   align-items: flex-end;
   align-content: flex-start;
   min-height: 7rem;
+  background-color: darkolivegreen;
   padding-top: 0.5rem;
 
   // background-color: orange;

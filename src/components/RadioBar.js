@@ -12,7 +12,7 @@ import {
 
 const utc = require("dayjs/plugin/utc");
 dayjs.extend(utc);
-import PageVisibility from "react-page-visibility";
+// import PageVisibility from "react-page-visibility";
 
 function RadioBar() {
   const dispatch = useContext(GlobalDispatchContext);
@@ -42,9 +42,9 @@ function RadioBar() {
     };
   });
 
-  const handleVisibilityChange = (isVisible) => {
-    setPageIsVisible(isVisible);
-  };
+  // const handleVisibilityChange = (isVisible) => {
+  //   setPageIsVisible(isVisible);
+  // };
 
   const handlePlayLive = async () => {
     await dispatch({
@@ -56,21 +56,21 @@ function RadioBar() {
     });
   };
 
-  const liveText = "Pendulum: Hold Your Colour 15th Anniversary Live Set";
-  const renderLiveTicker = (text) => {
-    return (
-      <div className="columns is-mobile is-vcentered live-bar">
-        <div className="column is-narrow live-invert">
-          <p className="display-text is-size-5 has-text-centered">ON AIR</p>
-        </div>
-        <div className="column live-ticker">
-          <Ticker mode="await" offset="run-in" speed={3}>
-            {() => <p className="display-text is-size-5">{text}!</p>}
-          </Ticker>
-        </div>
-      </div>
-    );
-  };
+  // const liveText = "Pendulum: Hold Your Colour 15th Anniversary Live Set";
+  // const renderLiveTicker = (text) => {
+  //   return (
+  //     <div className="columns is-mobile is-vcentered live-bar">
+  //       <div className="column is-narrow live-invert">
+  //         <p className="display-text is-size-5 has-text-centered">ON AIR</p>
+  //       </div>
+  //       <div className="column live-ticker">
+  //         <Ticker mode="await" offset="run-in" speed={3}>
+  //           {() => <p className="display-text is-size-5">{text}!</p>}
+  //         </Ticker>
+  //       </div>
+  //     </div>
+  //   );
+  // };
 
   useEffect(() => {
     async function getRadioData() {
@@ -106,18 +106,9 @@ function RadioBar() {
           </Link>
         </div>
 
-        {/*
-        RadioPlayer returns a fragment with the following structure:
-        <>
-          <column is-narrow>
-          <column is-narrow>
-          <column>
-          <RadioPlayer>
-        </>
-        */}
         <RadioPlayer status={radioData.status} />
 
-        <div className="column is-narrow is-hidden-touch">
+        <div className="column is-narrow is-hidden-mobile">
           <p className="display-text is-size-6">{laTime.format("HH:mm")} LA</p>
           <p className="display-text is-size-6">
             {nycTime.format("HH:mm")} NYC

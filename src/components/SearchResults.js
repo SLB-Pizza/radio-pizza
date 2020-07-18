@@ -14,12 +14,12 @@ function SearchResults(props) {
       {props.isSelected === "mixes"
         ? sampleMixes.map((mix) => (
             <SingleMixCard
-              key={mix.name}
+              key={mix.title}
               date={mix.date}
               url={mix.url}
               testSrc={mix.testSrc}
-              name={mix.name}
-              artist={mix.artist}
+              title={mix.title}
+              resident={mix.resident}
               img={mix.img}
               tags={mix.tags}
               playBtnInfo={playBtnInfo}

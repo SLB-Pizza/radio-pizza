@@ -7,7 +7,7 @@ const initialState = {
   url:
     "https://soundcloud.com/soundcloud-scenes/sets/currents-next-gen-chillwave",
   title: "Next Gen ChillWave",
-  artist: "Currents",
+  resident: "Currents",
   img: "../img/test/next-gen-chillwave.jpg",
   playing: false,
   controls: false,
@@ -22,6 +22,7 @@ const initialState = {
   live: false,
   playingRadio: false,
   scheduleOpen: false,
+  navMenuOpen: false,
 };
 
 function reducer(state, action) {
@@ -38,11 +39,20 @@ function reducer(state, action) {
         ...state,
         url: action.payload.url,
         title: action.payload.title,
+        resident: action.payload.resident,
         playing: true,
-        artist: action.payload.artist,
         img: action.payload.img,
       };
     }
+
+    case "CLOSE_NAVMENU": {
+      return { ...state, navMenuOpen: false };
+    }
+
+    case "TOGGLE_NAVMENU": {
+      return { ...state, navMenuOpen: !state.navMenuOpen };
+    }
+
     case "CLOSE_SCHEDULE": {
       return { ...state, scheduleOpen: false };
     }

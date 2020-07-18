@@ -1,14 +1,10 @@
 import React, { useEffect } from "react";
 
-export default function OutsideClick({ children, onClick }) {
-  const refs = React.Children.map(children, () => React.createRef());
-
+export default function OutsideClick({ children, onClick, id }) {
   const handleClick = (e) => {
-    const isOutside = refs.every((ref) => {
-      return !ref.current.contains(e.target);
-    });
+    const element = document.getElementById(id);
 
-    if (isOutside) {
+    if (element && e.target !== element && !element.contains(e.target)) {
       onClick();
     }
   };
@@ -19,9 +15,7 @@ export default function OutsideClick({ children, onClick }) {
     return () => {
       document.removeEventListener("click", handleClick);
     };
-  });
+  }, []);
 
-  return React.Children.map(children, (element, idx) =>
-    React.cloneElement(element, { ref: refs[idx] })
-  );
+  return children;
 }

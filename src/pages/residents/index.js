@@ -4,6 +4,15 @@ import { SingleResident } from "../../components";
 // Dummy data in __tests__ folder
 import dummyArtists from "../../../__tests__/dummyArtists.json";
 
+/**
+ * TO REMOVE IN THIS FILE FOR SHIPMENT
+ * dummyArtists
+ * alphabetizedResidents helper function (do it in gql query)
+ *
+ * TO CHANGE IN THIS FILE
+ * change alphabetizedResidents map to actual artist data
+ */
+
 function ResidentsIndexPage() {
   const [isOpen, setIsOpen] = useState("current");
 

@@ -61,10 +61,17 @@ function RadioPlayer(props) {
     setLocalState({ ...localState, playing: false });
   };
 
-  const handleLoadingComplete = async () => {
+  const handleMixReady = async () => {
     await setLocalState({ ...localState, loading: true });
-    console.log(`loading complete`);
+    console.log(`READY: ${globalState.title}`);
   };
+
+  // const handleVolumeChange = (e) => {
+  //   let value = parseFloat(e.target.value);
+  //   console.log("current volume", value);
+
+  //   setLocalState({ volume: value });
+  // };
 
   const load = async (url) => {
     await setLocalState({
@@ -88,19 +95,19 @@ function RadioPlayer(props) {
     setLocalState({ duration: duration });
   };
 
-  const renderNowPlaying = (resident, title) => {
-    return (
-      <Ticker mode="await" offset="run-in" speed={3}>
-        {() => (
-          <div className="is-hidden-tablet" id="radioShowName">
-            <p className="display-text is-size-6-mobile">
-              {resident} – {title}
-            </p>
-          </div>
-        )}
-      </Ticker>
-    );
-  };
+  // const renderNowPlaying = (resident, title) => {
+  //   return (
+  //     <Ticker mode="await" offset="run-in" speed={3}>
+  //       {() => (
+  //         <div className="is-hidden-tablet" id="radioShowName">
+  //           <p className="display-text is-size-6-mobile">
+  //             {resident} – {title}
+  //           </p>
+  //         </div>
+  //       )}
+  //     </Ticker>
+  //   );
+  // };
 
   //prettier-ignore
   const player = useRef(ReactPlayer);
@@ -130,16 +137,26 @@ function RadioPlayer(props) {
           <img src={`${globalState.img}`} alt="Current mix" />
         </figure>
       </div>
-      <div className="column" id="now-playing">
+      <div className="column sc-truncate" id="now-playing">
         <div id="now-playing-details">
-          <p className="subtitle single-truncate is-size-7">
-            {globalState.artist}
-          </p>
-          <p className="title single-truncate is-size-6-tablet is-size-7-mobile">
+          <p className="subtitle is-size-7">{globalState.resident}</p>
+          <p className="title is-size-6-tablet is-size-7-mobile">
             {globalState.title}
           </p>
         </div>
       </div>
+
+      {/* <div className="column">
+        <input
+          type="range"
+          min="0"
+          max="1"
+          step="0.05"
+          value={localState.volume}
+          onChange={(e) => handleVolumeChange(e)}
+        />
+        <p className="is-size-6">{localState.volume}</p>
+      </div> */}
 
       {/* <div className="column is-hidden-mobile" id="now-playing-img">
         <figure className="image is-48x48">
@@ -149,19 +166,19 @@ function RadioPlayer(props) {
 
       <div className="column" id="now-play-details"> */}
       {/* Static tablet and up currentTrackTitle */}
-      {/* <p className="display-text is-size-7-tablet">{globalState.artist}</p>
+      {/* <p className="display-text is-size-7-tablet">{globalState.resident}</p>
         <p className="display-text is-size-6-tablet">{globalState.title}</p> */}
 
       {/* <div className="is-hidden-mobile" id="radioShowName">
           <p className="display-text is-size-6-tablet">
-            {globalState.artist} – {globalState.title}
+            {globalState.resident} – {globalState.title}
           </p>
         </div> */}
 
       {/* Dynamic mobile currentTrackTitle */}
       {/* <PageVisibility onChange={handleVisibilityChange}>
           {pageIsVisible &&
-            renderNowPlaying(globalState.artist, globalState.title)}
+            renderNowPlaying(globalState.resident, globalState.title)}
         </PageVisibility>
       </div> */}
 
@@ -181,11 +198,11 @@ function RadioPlayer(props) {
         onPlay={handlePlay}
         onPause={handlePause}
         onError={(e) => console.log("ReactPlayer has an issue ↴\n", e)}
-        onReady={handleLoadingComplete}
-        // onStart={() => console.log("onStart")}
+        onReady={handleMixReady}
+        onStart={() => console.log(`PLAYING: ${globalState.title}`)}
         // onEnablePIP={this.handleEnablePIP}
         // onDisablePIP={this.handleDisablePIP}
-        // onBuffer={() => console.log('onBuffer')}
+        onBuffer={() => console.log("onBuffer")}
         // onSeek={e => console.log('onSeek', e)}
         // onEnded={this.handleEnded}
         // onProgress={this.handleProgress}

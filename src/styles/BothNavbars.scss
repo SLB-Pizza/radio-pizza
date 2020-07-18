@@ -15,8 +15,9 @@
     background: linear-gradient(to bottom, #000 80%, darken($primary, 1));
     background-size: 105% 105%;
 
-    animation: bg-top-nav-pulse 0.4138s ease-in-out infinite;
-    -webkit-animation: bg-top-nav-pulse 0.4138s ease-in-out infinite;
+    // 60s / 128bpm = 1 pulse every 0.46875s
+    animation: bg-top-nav-pulse 0.46875s ease-in-out infinite;
+    -webkit-animation: bg-top-nav-pulse 0.46875s ease-in-out infinite;
   }
 
   .container {

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import { Link } from "gatsby";
 
 import {
@@ -15,19 +15,22 @@ import {
   GlobalDispatchContext,
   GlobalStateContext,
 } from "../context/GlobalContextProvider";
-import { ScheduleDropdown } from "./index";
+import { ScheduleDropdown, OutsideClick } from "./index";
 
 function ScheduleBar() {
   const dispatch = useContext(GlobalDispatchContext);
   const globalState = useContext(GlobalStateContext);
 
-  const toggleSchedule = async () => {
-    await dispatch({ type: "TOGGLE_SCHEDULE" });
-    console.log("globalState.scheduleOpen:", globalState.scheduleOpen);
-  };
-
   const [open, setOpen] = useState(false);
   const [pageIsVisible, setPageIsVisible] = useState(true);
+
+  const toggleSchedule = async () => {
+    await dispatch({ type: "TOGGLE_SCHEDULE" });
+  };
+
+  const closeSchedule = async () => {
+    await dispatch({ type: "CLOSE_SCHEDULE" });
+  };
 
   const handleVisibilityChange = (isVisible) => {
     setPageIsVisible(isVisible);
@@ -56,100 +59,113 @@ function ScheduleBar() {
 
   /**
    * Schedule Bar LAYOUT
-   * CLOSED : OPEN
+   * OPEN : CLOSED
    */
   return globalState.scheduleOpen ? (
-    <div
-      className={
-        globalState.live
-          ? "schedule-bar container is-fluid is-open is-live"
-          : "schedule-bar container is-fluid is-open"
-      }
-    >
-      <div className="columns is-vcentered is-mobile is-variable is-2 up-next">
-        <div
-          className="column is-narrow"
-          onClick={() => {
-            handleLiveTest();
-          }}
-        >
-          {globalState.live ? (
-            <button className="button is-small is-outlined is-rounded">
-              {globalState.playingRadio ? (
-                <>
-                  <span>Listening</span>
-                  <span className="icon">
-                    <FontAwesomeIcon
-                      icon={faHeadphones}
-                      size="1x"
-                      className="live-light"
-                    />
-                  </span>
-                </>
-              ) : (
-                <>
-                  <span>Live</span>
-                  <span className="icon">
-                    <FontAwesomeIcon
-                      icon={faBroadcastTower}
-                      size="1x"
-                      className="live-light"
-                    />
-                  </span>
-                </>
-              )}
-            </button>
-          ) : (
-            <p className="display-text is-size-6-desktop is-size-7-touch">
-              Next Show
-            </p>
-          )}
-        </div>
-        <div className="column upcoming is-hidden-mobile">
-          <p className="display-text is-size-6-desktop is-size-7-touch">
-            globalState.live: {showLiveStatus()}{" "}
-          </p>
-        </div>
-        <div className="column upcoming is-hidden-tablet">
-          <PageVisibility onChange={handleVisibilityChange}>
-            {pageIsVisible &&
-              nextShowTicker("MON 4.21", "An HMBK Moment In Time")}
-          </PageVisibility>
-        </div>
-        <div className="column is-narrow">
-          <FontAwesomeIcon
-            icon={faCalendarAlt}
-            size="1x"
-            className="icon-color"
-            onClick={() => toggleSchedule()}
-          />
-        </div>
-        <div className="column is-narrow">
-          <Link to="/search">
-            <FontAwesomeIcon icon={faSearch} size="1x" className="icon-color" />
-          </Link>
-        </div>
-
-        <div className="column is-narrow">
-          <a
-            href="http://halfmoonradiochat.chatango.com/"
-            target="_blank"
-            rel="noopener"
+    <OutsideClick id={"schedule-bar"} onClick={() => closeSchedule()}>
+      <div
+        className={
+          globalState.live
+            ? "schedule-bar container is-fluid is-open is-live"
+            : "schedule-bar container is-fluid is-open"
+        }
+        id="schedule-bar"
+      >
+        <div className="columns is-vcentered is-mobile is-variable is-2 up-next">
+          <div
+            className="column is-narrow"
+            onClick={() => {
+              handleLiveTest();
+              closeSchedule();
+            }}
           >
+            {globalState.live ? (
+              <button
+                className="button is-small is-outlined is-rounded"
+                onClick={() => closeSchedule()}
+              >
+                {globalState.playingRadio ? (
+                  <>
+                    <span>Listening</span>
+                    <span className="icon">
+                      <FontAwesomeIcon
+                        icon={faHeadphones}
+                        size="1x"
+                        className="live-light"
+                      />
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <span>Live</span>
+                    <span className="icon">
+                      <FontAwesomeIcon
+                        icon={faBroadcastTower}
+                        size="1x"
+                        className="live-light"
+                      />
+                    </span>
+                  </>
+                )}
+              </button>
+            ) : (
+              <p className="display-text is-size-6-desktop is-size-7-touch">
+                Next Show
+              </p>
+            )}
+          </div>
+          <div className="column upcoming is-hidden-mobile">
+            <p className="display-text is-size-6-desktop is-size-7-touch">
+              globalState.live: {showLiveStatus()}{" "}
+            </p>
+          </div>
+          <div className="column upcoming is-hidden-tablet">
+            <PageVisibility onChange={handleVisibilityChange}>
+              {pageIsVisible &&
+                nextShowTicker("MON 4.21", "An HMBK Moment In Time")}
+            </PageVisibility>
+          </div>
+          <div className="column is-narrow">
             <FontAwesomeIcon
-              icon={faComments}
+              icon={faCalendarAlt}
               size="1x"
               className="icon-color"
+              onClick={() => toggleSchedule()}
             />
-          </a>
+          </div>
+          <div className="column is-narrow">
+            <Link to="/search">
+              <FontAwesomeIcon
+                onClick={() => closeSchedule()}
+                icon={faSearch}
+                size="1x"
+                className="icon-color"
+              />
+            </Link>
+          </div>
+
+          <div className="column is-narrow">
+            <a
+              href="http://halfmoonradiochat.chatango.com/"
+              target="_blank"
+              rel="noopener"
+            >
+              <FontAwesomeIcon
+                onClick={() => closeSchedule()}
+                icon={faComments}
+                size="1x"
+                className="icon-color"
+              />
+            </a>
+          </div>
         </div>
+        <ScheduleDropdown
+          open={open}
+          setOpen={setOpen}
+          toggleSchedule={toggleSchedule}
+        />
       </div>
-      <ScheduleDropdown
-        open={open}
-        setOpen={setOpen}
-        toggleSchedule={toggleSchedule}
-      />
-    </div>
+    </OutsideClick>
   ) : (
     <div
       className={
@@ -163,10 +179,14 @@ function ScheduleBar() {
           className="column is-narrow"
           onClick={() => {
             handleLiveTest();
+            closeSchedule();
           }}
         >
           {globalState.live ? (
-            <button className="button is-small is-outlined is-rounded">
+            <button
+              className="button is-small is-outlined is-rounded"
+              onClick={() => closeSchedule()}
+            >
               {globalState.playingRadio ? (
                 <>
                   <span>Listening</span>
@@ -210,15 +230,20 @@ function ScheduleBar() {
         </div>
         <div className="column is-narrow">
           <FontAwesomeIcon
+            onClick={() => toggleSchedule()}
             icon={faCalendarAlt}
             size="1x"
             className="icon-color"
-            onClick={() => toggleSchedule()}
           />
         </div>
         <div className="column is-narrow">
           <Link to="/search">
-            <FontAwesomeIcon icon={faSearch} size="1x" className="icon-color" />
+            <FontAwesomeIcon
+              onClick={() => closeSchedule()}
+              icon={faSearch}
+              size="1x"
+              className="icon-color"
+            />
           </Link>
         </div>
 
@@ -229,6 +254,7 @@ function ScheduleBar() {
             rel="noopener"
           >
             <FontAwesomeIcon
+              onClick={() => closeSchedule()}
               icon={faComments}
               size="1x"
               className="icon-color"

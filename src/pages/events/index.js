@@ -4,6 +4,9 @@ import { SingleEventCard } from "../../components";
 
 import dummyEvents from "../../../__tests__/dummyEvents.json";
 function EventsIndexPage() {
+  const eventPageLayout =
+    "column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen";
+
   return (
     <div className="container is-fluid site-page">
       <div className="columns is-mobile is-multiline">
@@ -13,18 +16,15 @@ function EventsIndexPage() {
           </p>
         </div>
         {dummyEvents.map((event) => (
-          <div
+          <SingleEventCard
             key={event.eventName}
-            className="column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen"
-          >
-            <SingleEventCard
-              eventName={event.eventName}
-              date={event.date}
-              location={event.location}
-              img={event.img}
-              blurb={event.blurb}
-            />
-          </div>
+            eventColumnLayout={eventPageLayout}
+            eventName={event.eventName}
+            date={event.date}
+            location={event.location}
+            img={event.img}
+            blurb={event.blurb}
+          />
         ))}
       </div>
     </div>

@@ -10,6 +10,12 @@ $primary: $pink;
 // $primary-invert: black;
 
 //==================================
+// text variables
+//==================================
+$title-color: $white;
+$subtitle-color: $white;
+
+//==================================
 // /search page stuff
 //==================================
 $input-color: white;
@@ -42,6 +48,15 @@ $button-active-border-color: darken($primary, 15);
 // $dropdown-content-arrow: white;
 // $dropdown-item-active-background-color: white;
 
+// Duotone variables
+$dt-base: #f600ff;
+$dt-bg-blend: multiply;
+$dt-blur: 0px;
+$dt-fg-blend: lighten;
+$dt-foreground: #16006f;
+$dt-opacity: 1;
+$dt-spacing: 1%;
+
 //==================================
 // FONTS
 //==================================
@@ -56,14 +71,6 @@ $button-active-border-color: darken($primary, 15);
 //==================================
 // GLOBAL STYLES
 //==================================
-// Duotone testing
-$dt-base: #f600ff;
-$dt-bg-blend: multiply;
-$dt-blur: 0px;
-$dt-fg-blend: lighten;
-$dt-foreground: #16006f;
-$dt-opacity: 1;
-$dt-spacing: 1%;
 
 html,
 body {
@@ -74,7 +81,7 @@ body {
 //top: 8.25rem with container
 //bottom: 3.75rem with container
 .site-page {
-  padding-top: 8.25rem;
+  padding-top: 7.625rem;
   padding-bottom: 3.75rem;
   min-height: 100vh;
 }
@@ -239,20 +246,6 @@ input::placeholder {
       // @include fullhd {
       //   min-height: 5.5rem;
       // }
-    }
-
-    .event-text {
-      background-color: darkblue;
-      // min-height: 6rem;
-    }
-
-    .event-blurb {
-      background-color: darkgreen;
-      max-height: 3.5rem;
-    }
-
-    p.title + p {
-      padding-top: 0.5rem;
     }
   }
 

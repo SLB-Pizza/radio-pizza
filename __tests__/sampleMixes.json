@@ -1,173 +1,179 @@
 [
   {
-    "date": "05.15.19",
-    "url": "https://soundcloud.com/dave-aliveintheory/russian-hard-bass-2019-live-mix-by-dj-slavine",
-    "testSrc": "Soundcloud",
-    "title": "Russian Hard Bass 2019 LIVE Mix | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- ",
-    "resident": "DJ Slavine | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- ",
-    "img": "../img/test/hardbass.jpg",
-    "tags": ["electronic", "hardbass", "vocals", "live set"]
+    "mixDate": "05.15.19",
+    "mixUrl": "https://soundcloud.com/dave-aliveintheory/russian-hard-bass-2019-live-mix-by-dj-slavine",
+    "mixTestSrc": "Soundcloud",
+    "mixTitle": "Russian Hard Bass 2019 LIVE Mix | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- ",
+    "mixResident": "DJ Slavine | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- ",
+    "mixImg": "../img/test/hardbass.jpg",
+    "mixTags": ["electronic", "hardbass", "vocals", "live set"]
   },
   {
-    "date": "12.02.19",
-    "url": "https://www.youtube.com/watch?v=VLV-vhJCMwU",
-    "testSrc": "Youtube",
-    "title": "RIP Genre [178BPM Neurofunk/Crossbreed Mix]",
-    "resident": "Rems ITG",
-    "img": "../img/test/neurofunk.jpg",
-    "tags": ["neurofunk", "drum n' bass", "electronic", "live set"]
+    "mixDate": "12.02.19",
+    "mixUrl": "https://www.youtube.com/watch?v=VLV-vhJCMwU",
+    "mixTestSrc": "Youtube",
+    "mixTitle": "RIP Genre [178BPM Neurofunk/Crossbreed Mix]",
+    "mixResident": "Rems ITG",
+    "mixImg": "../img/test/neurofunk.jpg",
+    "mixTags": ["neurofunk", "drum n' bass", "electronic", "live set"]
   },
   {
-    "date": "10.18.16",
-    "url": "https://www.youtube.com/watch?v=bpfK7F5O614",
-    "testSrc": "Youtube",
-    "title": "Circadia",
-    "resident": "Jardín de la Croix",
-    "img": "../img/test/circadia.jpg",
-    "tags": ["instrumental", "math rock", "prog rock", "post rock"]
+    "mixDate": "10.18.16",
+    "mixUrl": "https://www.youtube.com/watch?v=bpfK7F5O614",
+    "mixTestSrc": "Youtube",
+    "mixTitle": "Circadia",
+    "mixResident": "Jardín de la Croix",
+    "mixImg": "../img/test/circadia.jpg",
+    "mixTags": ["instrumental", "math rock", "prog rock", "post rock"]
   },
   {
-    "date": "06.19.20",
-    "url": "https://soundcloud.com/jardindelacroixofficial/sets/letargo-6",
-    "testSrc": "Soundcloud",
-    "title": "Letargo",
-    "resident": "Jardín de la Croix",
-    "img": "../img/test/letargo.jpg",
-    "tags": ["instrumental", "math rock", "prog rock", "post rock"]
+    "mixDate": "06.19.20",
+    "mixUrl": "https://soundcloud.com/jardindelacroixofficial/sets/letargo-6",
+    "mixTestSrc": "Soundcloud",
+    "mixTitle": "Letargo",
+    "mixResident": "Jardín de la Croix",
+    "mixImg": "../img/test/letargo.jpg",
+    "mixTags": ["instrumental", "math rock", "prog rock", "post rock"]
   },
   {
-    "date": "05.29.20",
-    "url": "https://soundcloud.com/koan-sound/sets/silk-wave",
-    "testSrc": "Soundcloud",
-    "title": "Silk Wave",
-    "resident": "KOAN Sound",
-    "img": "../img/test/silk-wave.jpg",
-    "tags": ["electronic", "funk", "glitch hop", "dubstep", "vocals"]
+    "mixDate": "05.29.20",
+    "mixUrl": "https://soundcloud.com/koan-sound/sets/silk-wave",
+    "mixTestSrc": "Soundcloud",
+    "mixTitle": "Silk Wave",
+    "mixResident": "KOAN Sound",
+    "mixImg": "../img/test/silk-wave.jpg",
+    "mixTags": ["electronic", "funk", "glitch hop", "dubstep", "vocals"]
   },
   {
-    "date": "01.20.20",
-    "url": "https://soundcloud.com/monstercat/sets/infected-mushroom-more-than",
-    "testSrc": "Soundcloud",
-    "title": "More than Just a Name",
-    "resident": "Infected Mushroom",
-    "img": "../img/test/more-than-just-a-name.jpg",
-    "tags": ["electronic", "rock", "synths", "psytrance"]
+    "mixDate": "01.20.20",
+    "mixUrl": "https://soundcloud.com/monstercat/sets/infected-mushroom-more-than",
+    "mixTestSrc": "Soundcloud",
+    "mixTitle": "More than Just a Name",
+    "mixResident": "Infected Mushroom",
+    "mixImg": "../img/test/more-than-just-a-name.jpg",
+    "mixTags": ["electronic", "rock", "synths", "psytrance"]
   },
   {
-    "date": "05.12.82",
-    "url": "https://soundcloud.com/fairshun/casiopea-mint-jams-1982-full-album",
-    "testSrc": "Soundcloud",
-    "title": "Mint Jams",
-    "resident": "Casiopea",
-    "img": "../img/test/mint-jams.jpg",
-    "tags": ["jazz fusion", "live album", "1980s", "japanese"]
+    "mixDate": "05.12.82",
+    "mixUrl": "https://soundcloud.com/fairshun/casiopea-mint-jams-1982-full-album",
+    "mixTestSrc": "Soundcloud",
+    "mixTitle": "Mint Jams",
+    "mixResident": "Casiopea",
+    "mixImg": "../img/test/mint-jams.jpg",
+    "mixTags": ["jazz fusion", "live album", "1980s", "japanese"]
   },
   {
-    "date": "08.11.17",
-    "url": "https://soundcloud.com/futuresocietycollective/moe-shop-owarini-tokyo-liveshow",
-    "testSrc": "Soundcloud",
-    "title": "Owarini Tokyo Liveshow",
-    "resident": "Moe Shop",
-    "img": "../img/test/moe-shop.jpeg",
-    "tags": ["dance", "electro pop", "mashup", "future pop", "japanese"]
+    "mixDate": "08.11.17",
+    "mixUrl": "https://soundcloud.com/futuresocietycollective/moe-shop-owarini-tokyo-liveshow",
+    "mixTestSrc": "Soundcloud",
+    "mixTitle": "Owarini Tokyo Liveshow",
+    "mixResident": "Moe Shop",
+    "mixImg": "../img/test/moe-shop.jpeg",
+    "mixTags": ["dance", "electro pop", "mashup", "future pop", "japanese"]
   },
   {
-    "date": "06.14.19",
-    "url": "https://soundcloud.com/thank-you-scientist/sets/terraformer-3",
-    "testSrc": "Soundcloud",
-    "title": "Terraformer",
-    "resident": "Thank You Scientist",
-    "img": "../img/test/terraformer.jpg",
-    "tags": ["jazz fusion", "prog rock", "funk band", "experimental"]
+    "mixDate": "06.14.19",
+    "mixUrl": "https://soundcloud.com/thank-you-scientist/sets/terraformer-3",
+    "mixTestSrc": "Soundcloud",
+    "mixTitle": "Terraformer",
+    "mixResident": "Thank You Scientist",
+    "mixImg": "../img/test/terraformer.jpg",
+    "mixTags": ["jazz fusion", "prog rock", "funk band", "experimental"]
   },
   {
-    "date": "03.02.20",
-    "url": "https://soundcloud.com/soundcloud-circuits/sets/equalizers-female-electronic-producers",
-    "testSrc": "Soundcloud",
-    "title": "Female Electronic Producers",
-    "resident": "Circuits",
-    "img": "../img/test/fem-elec-prod.jpg",
-    "tags": ["deep bass", "future bass", "dark", "beats", "international"]
+    "mixDate": "03.02.20",
+    "mixUrl": "https://soundcloud.com/soundcloud-circuits/sets/equalizers-female-electronic-producers",
+    "mixTestSrc": "Soundcloud",
+    "mixTitle": "Female Electronic Producers",
+    "mixResident": "Circuits",
+    "mixImg": "../img/test/fem-elec-prod.jpg",
+    "mixTags": ["deep bass", "future bass", "dark", "beats", "international"]
   },
   {
-    "date": "10.21.19",
-    "url": "https://soundcloud.com/transmissionfestival/tmprg19-blastoyz",
-    "testSrc": "Soundcloud",
-    "title": "BLASTOYZ @ Transmission Prague 2019",
-    "resident": "BLASTOYZ",
-    "img": "../img/test/blastoyz.png",
-    "tags": ["electro", "complextro", "trance", "psytrance", "live set"]
+    "mixDate": "10.21.19",
+    "mixUrl": "https://soundcloud.com/transmissionfestival/tmprg19-blastoyz",
+    "mixTestSrc": "Soundcloud",
+    "mixTitle": "BLASTOYZ @ Transmission Prague 2019",
+    "mixResident": "BLASTOYZ",
+    "mixImg": "../img/test/blastoyz.png",
+    "mixTags": ["electro", "complextro", "trance", "psytrance", "live set"]
   },
   {
-    "date": "04.28.16",
-    "url": "https://soundcloud.com/sleepmakeswaves/sets/sleepmakeswaves-on-audiotree",
-    "testSrc": "Soundcloud",
-    "title": "sleepmakeswaves on Audiotree (Live)",
-    "resident": "sleepmakeswaves",
-    "img": "../img/test/sleepmakeswaves.jpg",
-    "tags": ["post rock", "prog rock", "instrumental rock", "live set"]
+    "mixDate": "04.28.16",
+    "mixUrl": "https://soundcloud.com/sleepmakeswaves/sets/sleepmakeswaves-on-audiotree",
+    "mixTestSrc": "Soundcloud",
+    "mixTitle": "sleepmakeswaves on Audiotree (Live)",
+    "mixResident": "sleepmakeswaves",
+    "mixImg": "../img/test/sleepmakeswaves.jpg",
+    "mixTags": ["post rock", "prog rock", "instrumental rock", "live set"]
   },
   {
-    "date": "03.28.20",
-    "url": "https://soundcloud.com/derek-d2/dj-soda-countdown-virtual-rave",
-    "testSrc": "Soundcloud",
-    "title": "Countdown Virtual Rave-A-Thon",
-    "resident": "DJ Soda",
-    "img": "../img/test/dj-soda.jpg",
-    "tags": ["electronic", "dubstep", "uk hardcore", "live set"]
+    "mixDate": "03.28.20",
+    "mixUrl": "https://soundcloud.com/derek-d2/dj-soda-countdown-virtual-rave",
+    "mixTestSrc": "Soundcloud",
+    "mixTitle": "Countdown Virtual Rave-A-Thon",
+    "mixResident": "DJ Soda",
+    "mixImg": "../img/test/dj-soda.jpg",
+    "mixTags": ["electronic", "dubstep", "uk hardcore", "live set"]
   },
   {
-    "date": "03.20.20",
-    "url": "https://www.mixcloud.com/HalfMoonbk/plusnone-3252020/",
-    "testSrc": "Mixcloud",
-    "title": "plusNONE - 3.25.2020",
-    "resident": "plusNONE",
-    "img": "../img/test/plusNONE-032020.jpg",
-    "tags": ["plusNONE", "r&b", "neo soul", "hip hop"]
+    "mixDate": "03.20.20",
+    "mixUrl": "https://www.mixcloud.com/HalfMoonbk/plusnone-3252020/",
+    "mixTestSrc": "Mixcloud",
+    "mixTitle": "plusNONE - 3.25.2020",
+    "mixResident": "plusNONE",
+    "mixImg": "../img/test/plusNONE-032020.jpg",
+    "mixTags": ["plusNONE", "r&b", "neo soul", "hip hop"]
   },
   {
-    "date": "04.01.20",
-    "url": "https://www.mixcloud.com/adamkvasnica3/shibuya-jazz-classics/",
-    "testSrc": "Mixcloud",
-    "title": "Shibuya Jazz Classics",
-    "resident": "Various residents",
-    "img": "../img/test/shibuya-jazz.jpg",
-    "tags": ["jazz", "modal jazz", "jazz fusion", "japanese jazz", "free jazz"]
+    "mixDate": "04.01.20",
+    "mixUrl": "https://www.mixcloud.com/adamkvasnica3/shibuya-jazz-classics/",
+    "mixTestSrc": "Mixcloud",
+    "mixTitle": "Shibuya Jazz Classics",
+    "mixResident": "Various residents",
+    "mixImg": "../img/test/shibuya-jazz.jpg",
+    "mixTags": [
+      "jazz",
+      "modal jazz",
+      "jazz fusion",
+      "japanese jazz",
+      "free jazz"
+    ]
   },
   {
-    "date": "02.02.20",
-    "url": "https://youtu.be/5qap5aO4i9A",
-    "testSrc": "Youtube Livestream",
-    "title": "lofi hip hop radio - beats to relax/study to",
-    "resident": "ChilledCow",
-    "img": "../img/test/lo-fi.jpeg",
-    "tags": ["lo-fi", "hip-hop", "ambient", "instrumental", "beats"]
+    "mixDate": "02.02.20",
+    "mixUrl": "https://youtu.be/5qap5aO4i9A",
+    "mixTestSrc": "Youtube Livestream",
+    "mixTitle": "lofi hip hop radio - beats to relax/study to",
+    "mixResident": "ChilledCow",
+    "mixImg": "../img/test/lo-fi.jpeg",
+    "mixTags": ["lo-fi", "hip-hop", "ambient", "instrumental", "beats"]
   },
   {
-    "date": "01.02.20",
-    "url": "https://soundcloud.com/madukdnb/liquicity-yearmix-2019-mixed-by-maduk",
-    "testSrc": "Soundcloud",
-    "title": "Liquicity Yearmix 2019 (Mixed by Maduk)",
-    "resident": "Maduk",
-    "img": "../img/test/liquicity-2019.jpg",
-    "tags": ["electronic", "dance", "yearmix", "drum & bass"]
+    "mixDate": "01.02.20",
+    "mixUrl": "https://soundcloud.com/madukdnb/liquicity-yearmix-2019-mixed-by-maduk",
+    "mixTestSrc": "Soundcloud",
+    "mixTitle": "Liquicity Yearmix 2019 (Mixed by Maduk)",
+    "mixResident": "Maduk",
+    "mixImg": "../img/test/liquicity-2019.jpg",
+    "mixTags": ["electronic", "dance", "yearmix", "drum & bass"]
   },
   {
-    "date": "04.30.15",
-    "url": "https://www.youtube.com/watch?v=cRmwFBK0cyk",
-    "testSrc": "Youtube",
-    "title": "Inferno (Cinder's Theme) - Killer Instinct Season 2 Soundtrack",
-    "resident": "Mick Gordon",
-    "img": "../img/test/ki-s2.jpg",
-    "tags": ["heavy metal", "dark electronic", "soundtrack"]
+    "mixDate": "04.30.15",
+    "mixUrl": "https://www.youtube.com/watch?v=cRmwFBK0cyk",
+    "mixTestSrc": "Youtube",
+    "mixTitle": "Inferno (Cinder's Theme) - Killer Instinct Season 2 Soundtrack",
+    "mixResident": "Mick Gordon",
+    "mixImg": "../img/test/ki-s2.jpg",
+    "mixTags": ["heavy metal", "dark electronic", "soundtrack"]
   },
   {
-    "date": "04.21.16",
-    "url": "https://soundcloud.com/user18081971/avril-14th-reversed-music-not-audio",
-    "testSrc": "Soundcloud",
-    "title": "avril 14th, notes played backwards, not the audio",
-    "resident": "Aphex Twin (user18081971)",
-    "img": "../img/test/aphex.jpg",
-    "tags": ["piano", "ambient", "atmospheric", "light"]
+    "mixDate": "04.21.16",
+    "mixUrl": "https://soundcloud.com/user18081971/avril-14th-reversed-music-not-audio",
+    "mixTestSrc": "Soundcloud",
+    "mixTitle": "avril 14th, notes played backwards, not the audio",
+    "mixResident": "Aphex Twin (user18081971)",
+    "mixImg": "../img/test/aphex.jpg",
+    "mixTags": ["piano", "ambient", "atmospheric", "light"]
   }
 ]

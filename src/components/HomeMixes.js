@@ -7,7 +7,6 @@ import sampleMixes from "../../__tests__/sampleMixes.json";
 function HomeMixes() {
   const twelveMixes = sampleMixes.slice(0, 12);
 
-  // See SingleMixCard - playAudioButton() for details about playBtnInfo usage
   const homeMixesLayout =
     "column is-9-mobile is-two-fifths-tablet is-4-desktop";
 
@@ -33,14 +32,14 @@ function HomeMixes() {
           <div className="columns is-multiline">
             {twelveMixes.map((mix) => (
               <SingleMixCard
-                key={mix.title}
-                date={mix.date}
-                url={mix.url}
-                testSrc={mix.testSrc}
-                title={mix.title}
-                resident={mix.resident}
-                img={mix.img}
-                tags={mix.tags}
+                key={mix.mixTitle}
+                date={mix.mixDate}
+                url={mix.mixUrl}
+                testSrc={mix.mixTestSrc}
+                title={mix.mixTitle}
+                resident={mix.mixResident}
+                img={mix.mixImg}
+                tags={mix.mixTags}
                 columnLayout={homeMixesLayout}
               />
             ))}
@@ -69,14 +68,14 @@ function HomeMixes() {
       <div className="columns is-mobile is-hidden-desktop mobile-single-items">
         {twelveMixes.map((mix) => (
           <SingleMixCard
-            key={mix.title}
-            date={mix.date}
-            url={mix.url}
-            testSrc={mix.testSrc}
-            title={mix.title}
-            resident={mix.resident}
-            img={mix.img}
-            tags={mix.tags}
+            key={mix.mixTitle}
+            date={mix.mixDate}
+            url={mix.mixUrl}
+            testSrc={mix.mixTestSrc}
+            title={mix.mixTitle}
+            resident={mix.mixResident}
+            img={mix.mixImg}
+            tags={mix.mixTags}
             columnLayout={homeMixesLayout}
           />
         ))}

@@ -16,7 +16,7 @@ function SingleMixCard(props) {
    * @returns {jsx} A play icon that onClick dispatches the CHANGE_URL action, playing the audio source through RadioPlayer.js
    */
 
-  const playAudioButton = (url, title, resident, img) => {
+  const playAudioButton = (mixUrl, mixTitle, mixResident, mixImg) => {
     return (
       <FontAwesomeIcon
         icon={faPlay}
@@ -26,10 +26,10 @@ function SingleMixCard(props) {
           dispatch({
             type: "CHANGE_URL",
             payload: {
-              url: url,
-              title: title,
-              resident: resident,
-              img: img,
+              url: mixUrl,
+              title: mixTitle,
+              resident: mixResident,
+              img: mixImg,
             },
           })
         }

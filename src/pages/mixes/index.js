@@ -105,7 +105,6 @@ function MixesIndexPage() {
             resident={mix.mixResident}
             img={mix.mixImg}
             tags={mix.mixTags}
-            btnSize={btnSize}
             columnLayout={mixListLayout}
           />
         ))}

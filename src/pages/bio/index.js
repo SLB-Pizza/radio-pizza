@@ -14,13 +14,16 @@ import {
 import sampleMixes from "../../../__tests__/sampleMixes.json";
 
 function StickyBioIndexPage() {
+  /**
+   * @param {string} stickyBioLayout - The string that will be used as the className to style this component's SingleMixCard data mapping. This string follows the site's bulma.io column styling conventions.
+   */
   const stickyBioLayout =
     "column is-12-mobile is-12-tablet is-6-desktop is-4-widescreen";
 
   return (
     <div className="container is-fluid site-page">
       <div className="columns is-multiline">
-        <div className="column is-3-desktop is-5-tablet is-12-mobile sticky-bio">
+        <div className="column is-3-desktop is-6-tablet is-12-mobile sticky-bio">
           <div className="columns is-multiline">
             <div className="column is-12">
               <figure className="image is-1by1">

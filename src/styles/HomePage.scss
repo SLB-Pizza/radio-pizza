@@ -2,8 +2,12 @@
 // <Hero />
 //==================================
 .slider-sizing {
+  cursor: pointer;
   width: 100vw;
   height: calc(100vh - 10.625rem);
+  &:active {
+    cursor: grabbing;
+  }
 }
 
 .hero-title {
@@ -14,34 +18,6 @@
   background-color: rgba($color: black, $alpha: 0.9);
 }
 
-.hero-test-2 {
-  max-height: calc(100vh - 10.5rem);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-size: cover;
-}
-
-.hero-test-3 {
-  // position: absolute;
-  // top: 8.5rem;
-  // bottom: 4rem;
-  width: 100vw;
-  height: calc(100vh - 10.5rem);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-size: cover;
-
-  .columns .column {
-    background-color: rgba(
-      $color: darken($color: $primary, $amount: 45),
-      $alpha: 0.85
-    );
-  }
-
-  // will-change: translate, opacity;
-}
 .homepage-hero {
   height: calc(100vh - 10.5rem);
   background-position: center center;

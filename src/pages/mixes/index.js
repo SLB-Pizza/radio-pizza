@@ -24,7 +24,9 @@ const dummyOptions = [
 function MixesIndexPage() {
   const [searchInput, setSearchInput] = useState("");
 
-  const btnSize = "5x";
+  /**
+   * @param {string} mixListLayout - The string that will be used as the className to style this component's SingleMixCard data mapping. This string follows the site's bulma.io column styling conventions.
+   */
   const mixListLayout =
     "column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen";
 

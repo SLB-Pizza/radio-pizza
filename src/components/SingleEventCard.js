@@ -1,4 +1,5 @@
 import React from "react";
+import NanoClamp from "nanoclamp";
 
 function SingleEventCard(props) {
   const imageAltText = `image - ${props.eventName} in ${props.location}`;
@@ -12,15 +13,19 @@ function SingleEventCard(props) {
       </div>
       <div className="card-content">
         <div className="event-text">
-          <p className="content-date subtitle is-size-7">
+          <p className="content-date sc-truncate subtitle is-size-7">
             {props.date} | {props.location}
           </p>
           <p className="title is-size-6-touch is-size-6-desktop is-size-5-widescreen">
             {props.eventName}
           </p>
-          <p className="event-blurb text-truncate is-size-6-touch is-size-6-desktop">
-            {props.blurb}
-          </p>
+          <NanoClamp
+            className="is-size-6"
+            is="p"
+            lines={2}
+            ellipsis={"...read more >"}
+            text={props.blurb}
+          />
         </div>
       </div>
     </div>

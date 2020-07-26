@@ -7,7 +7,6 @@ import sampleMixes from "../../__tests__/sampleMixes.json";
 function HomeMixes() {
   const twelveMixes = sampleMixes.slice(0, 12);
 
-  // See SingleMixCard - playAudioButton() for details about playBtnInfo usage
   const homeMixesLayout =
     "column is-9-mobile is-two-fifths-tablet is-4-desktop";
 

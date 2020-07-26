@@ -5,7 +5,7 @@ import { navigate } from "gatsby";
 
 const dummySlides = [
   {
-    bgUrl: "https://source.unsplash.com/1920x1080/daily?space",
+    bgUrl: "/static/terraformer-ed094d03f2e3f0b51bf4af47d56a6370.jpg",
     headline: "Slide 1",
     blurb: "Something incredible is waiting to be known - the sky calls to us.",
     contentLink: "https://www.instagram.com/?hl=en",
@@ -38,7 +38,7 @@ function HeroContentCarousel() {
    * @param {string} slidesArr[].headline - Short string announcing that slide's content
    * @param {string} slidesArr[].blurb - Medium string giving context to that slide's content; might be a call to action or a breadcrumb for the reader
    * @param {string} slidesArr[].contentLink - This can either be an internal link e.g. "/events", or an external link e.g. "https://www.instagram.com"
-   * @returns {jsx} a complete layout fragment for use with the <Slider> component below
+   * @returns {jsx} a complete layout fragment for use in the return statement, inside the <Slider> component
    */
 
   const slideGenerator = (slidesArr) => {
@@ -81,14 +81,10 @@ function HeroContentCarousel() {
   const heroBullets = { backgroundColor: "#000", border: "2px solid white" };
 
   return (
-    <div className="site-page">
-      <div className="slider-sizing">
-        <Slider auto={timePerSlide} hasBullets bulletStyle={heroBullets}>
-          {slideGenerator(dummySlides)}
-        </Slider>
-      </div>
-
-      <HomeContent />
+    <div className="slider-sizing">
+      <Slider auto={timePerSlide} hasBullets bulletStyle={heroBullets}>
+        {slideGenerator(dummySlides)}
+      </Slider>
     </div>
   );
 }

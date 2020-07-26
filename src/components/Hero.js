@@ -4,14 +4,8 @@ import { navigate } from "gatsby";
 
 const dummySlides = [
   {
-    bgUrl: "/static/terraformer-ed094d03f2e3f0b51bf4af47d56a6370.jpg",
-    headline: "Slide 1",
-    blurb: "Something incredible is waiting to be known - the sky calls to us.",
-    contentLink: "https://www.instagram.com/?hl=en",
-  },
-  {
     bgUrl: "https://source.unsplash.com/1920x1080/daily?music",
-    headline: "Slide 2",
+    headline: "/bio",
     blurb: "Music your way instrument jazz saxophone big boom bap sound.",
     contentLink: "/bio",
   },
@@ -26,6 +20,12 @@ const dummySlides = [
     headline: "Slide 4",
     blurb: "Finest dishes meal dinner family time barbeque on a stick.",
     contentLink: "/search",
+  },
+  {
+    bgUrl: "https://source.unsplash.com/1920x1080/daily?concert",
+    headline: "External Link",
+    blurb: "Click anywhere on this slide; it links to HMBK twitter.",
+    contentLink: "https://twitter.com/halfmoonbk",
   },
 ];
 
@@ -56,11 +56,11 @@ function HeroContentCarousel() {
           <div className="container">
             <div className="columns">
               <div className="column">
-                <h1 className="title is-size-3-desktop is-size-4-touch hero-title">
+                <h1 className="title is-size-3-desktop is-size-4-touch is-size-5-mobile hero-title">
                   {slide.headline}
                 </h1>
                 <br />
-                <h2 className="subtitle is-size-5-desktop is-size-6-touch hero-title">
+                <h2 className="subtitle is-size-5-desktop is-size-6-touch is-size-7-mobile hero-title">
                   {slide.blurb}
                 </h2>
               </div>

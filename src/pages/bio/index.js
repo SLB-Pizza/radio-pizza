@@ -23,7 +23,7 @@ function StickyBioIndexPage() {
   return (
     <div className="container is-fluid site-page">
       <div className="columns is-multiline">
-        <div className="column is-3-desktop is-4-tablet is-12-mobile sticky-bio">
+        <div className="column is-4-desktop is-4-tablet is-12-mobile sticky-bio">
           <div className="columns is-multiline">
             <div className="column is-12">
               <figure className="image is-1by1">
@@ -90,7 +90,7 @@ function StickyBioIndexPage() {
         </div>
         <hr className="is-hidden-desktop" />
 
-        <div className="column is-9-desktop is-8-tablet">
+        <div className="column is-8">
           <div className="columns is-multiline">
             {sampleMixes.map((mix) => (
               <SingleMixCard

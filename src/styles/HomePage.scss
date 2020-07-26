@@ -1,16 +1,17 @@
 //==================================
 // <Hero />
 //==================================
+.slider-sizing {
+  width: 100vw;
+  height: calc(100vh - 10.625rem);
+}
+
 .hero-title {
   display: inline-block;
   padding: 0.75rem 0.75rem 0.5rem;
   border: 2px solid white;
   border-radius: 0.75rem;
-  background-color: black;
-  transition: 0.5s ease;
-  &:hover {
-    background-color: darken($color: $primary, $amount: 30);
-  }
+  background-color: rgba($color: black, $alpha: 0.9);
 }
 
 .hero-test-2 {
@@ -42,26 +43,11 @@
   // will-change: translate, opacity;
 }
 .homepage-hero {
-  // height: calc(100vh - 10.5rem);
-  // background-position: center center;
-  // background-repeat: no-repeat;
-  // background-attachment: scroll;
-  // background-size: cover;
-
-  // will-change: opacity;
-
-  // background-color: darken($color: $primary, $amount: 45);
-  // background-image: url(https://source.unsplash.com/1920x1080/daily?racing);
-  // background-position: center center;
-  // background-repeat: no-repeat;
-  // background-attachment: scroll;
-  // background-size: cover;
-  // .columns .column {
-  //   background-color: rgba(
-  //     $color: darken($color: $primary, $amount: 45),
-  //     $alpha: 0.85
-  //   );
-  // }
+  height: calc(100vh - 10.5rem);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
 }
 
 //==================================

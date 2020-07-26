@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React from "react";
 import Slider from "@farbenmeer/react-spring-slider";
 import { HomeContent } from "../../components/index";
 import { navigate } from "gatsby";
@@ -6,7 +6,7 @@ import { navigate } from "gatsby";
 const dummySlides = [
   {
     bgUrl: "https://source.unsplash.com/1920x1080/daily?space",
-    headline: "Slide 0",
+    headline: "Slide 1",
     blurb: "Something incredible is waiting to be known - the sky calls to us.",
     contentLink: "https://www.instagram.com/?hl=en",
   },
@@ -30,7 +30,7 @@ const dummySlides = [
   },
 ];
 
-function ReactSpringSlider() {
+function HeroContentCarousel() {
   /**
    * @function slideGenerator
    * @param {Object[]} slidesArr - An array containing data objects from the GraphQL query for the home page.
@@ -45,27 +45,26 @@ function ReactSpringSlider() {
     return slidesArr.map((slide, idx) => (
       <section
         key={idx}
-        className="hero is-fullheight-with-navbar"
+        className="hero is-fullheight-with-navbar homepage-hero"
         draggable="false"
         onClick={() => {
           navigate(`${slide.contentLink}`);
         }}
         style={{
-          height: `calc(100vh - 10.5rem)`,
           backgroundImage: `url(${slide.bgUrl})`,
-          backgroundPosition: "center center",
-          backgroundRepeat: "no-repeat",
-          backgroundAttachment: "scroll",
-          backgroundSize: "cover",
         }}
       >
         <div className="hero-body">
           <div className="container">
             <div className="columns">
               <div className="column">
-                <h1 className="title hero-title">{slide.headline}</h1>
+                <h1 className="title is-size-3-desktop is-size-4-touch hero-title">
+                  {slide.headline}
+                </h1>
                 <br />
-                <h2 className="subtitle hero-title">{slide.blurb}</h2>
+                <h2 className="subtitle is-size-5-desktop is-size-6-touch hero-title">
+                  {slide.blurb}
+                </h2>
               </div>
             </div>
           </div>
@@ -74,19 +73,17 @@ function ReactSpringSlider() {
     ));
   };
 
+  /**
+   * @param {number} timePerSlide - amount of time in ms to stay on each slide before <Slider> auto moves to next slide; preset to 8000
+   * @param {object} heroBullets - style object to pass as props for <Slider>
+   */
+  const timePerSlide = 8000;
+  const heroBullets = { backgroundColor: "#000", border: "2px solid white" };
+
   return (
     <div className="site-page">
-      <div
-        style={{
-          width: "100vw",
-          height: `calc(100vh - 10.75rem)`,
-        }}
-      >
-        <Slider
-          auto={8000}
-          hasBullets
-          bulletStyle={{ backgroundColor: "#000", border: "2px solid white" }}
-        >
+      <div className="slider-sizing">
+        <Slider auto={timePerSlide} hasBullets bulletStyle={heroBullets}>
           {slideGenerator(dummySlides)}
         </Slider>
       </div>
@@ -96,72 +93,4 @@ function ReactSpringSlider() {
   );
 }
 
-export default ReactSpringSlider;
-
-// const slideGenerator = (slidesArr) => {
-//   return slidesArr.map((slide, idx) => (
-//     <div
-//       key={idx}
-//       className="container is-fluid"
-//       draggable="false"
-//       onClick={() => {
-//         navigate(`${slide.contentLink}`);
-//       }}
-//       style={{
-//         height: `calc(100vh - 10.5rem)`,
-//         backgroundImage: `url(${slide.url})`,
-//         backgroundPosition: "center center",
-//         backgroundRepeat: "no-repeat",
-//         backgroundAttachment: "scroll",
-//         backgroundSize: "cover",
-//       }}
-//     >
-//       <div className="columns">
-//         <div className="column">
-//           <p className="title is-size-1 has-text-centered">Source #{idx}</p>
-//           <p>Go to {slide.contentLink}</p>
-//         </div>
-//       </div>
-//     </div>
-//   ));
-// };
-
-// function layoutGenerator(layouts) {
-//   return layouts.map((layout, idx) => (
-//     <div key={`${idx} - ${layout.text}`} className="container is-fluid">
-//       <div
-//         className="columns"
-//         style={{
-//           backgroundImage: `${layout.url}`,
-// backgroundPosition: "center center",
-// backgroundRepeat: "no-repeat",
-// backgroundAttachment: "scroll",
-// backgroundSize: "cover",
-//         }}
-//       >
-//         {console.log(layout)}
-//         <div className="column">
-//           <p className="title is-size-3-mobile is-size-1-tablet has-text-centered">
-//             {layout.text}
-//           </p>
-//         </div>
-//       </div>
-//       {/* <div className="columns">
-//         <div className="column">Column 1</div>
-//         <div className="column">Column 2</div>
-//         <div className="column">Column 3</div>
-//         <div className="column">Column 4</div>
-//         <div className="column">Column 5</div>
-//       </div> */}
-//     </div>
-//   ));
-// }
-
-// style={{
-//   maxHeight: `calc((100vh - 10.5rem))`,
-//   backgroundImage: `url(${coffee})`,
-//   backgroundPosition: "center",
-//   backgroundRepeat: "no-repeat",
-//   backgroundAttachment: "scroll",
-//   backgroundSize: "cover",
-// }}
+export default HeroContentCarousel;

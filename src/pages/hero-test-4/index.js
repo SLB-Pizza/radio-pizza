@@ -82,7 +82,11 @@ function ReactSpringSlider() {
           height: `calc(100vh - 10.75rem)`,
         }}
       >
-        <Slider auto={8000} hasBullets>
+        <Slider
+          auto={8000}
+          hasBullets
+          bulletStyle={{ backgroundColor: "#000", border: "2px solid white" }}
+        >
           {slideGenerator(dummySlides)}
         </Slider>
       </div>

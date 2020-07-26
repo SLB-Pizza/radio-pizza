@@ -3,30 +3,44 @@ import Slider from "@farbenmeer/react-spring-slider";
 import { HomeContent } from "../../components/index";
 import { navigate } from "gatsby";
 
-const slides = [
+const dummySlides = [
   {
-    url: "https://source.unsplash.com/1920x1080/daily?coffee",
-    text: "Slide 0",
-    internalLink: "/events",
+    bgUrl: "https://source.unsplash.com/1920x1080/daily?space",
+    headline: "Slide 0",
+    blurb: "Something incredible is waiting to be known - the sky calls to us.",
+    contentLink: "https://www.instagram.com/?hl=en",
   },
   {
-    url: "https://source.unsplash.com/1920x1080/daily?music",
-    text: "Slide 2",
-    internalLink: "/bio",
+    bgUrl: "https://source.unsplash.com/1920x1080/daily?music",
+    headline: "Slide 2",
+    blurb: "Music your way instrument jazz saxophone big boom bap sound.",
+    contentLink: "/bio",
   },
   {
-    url: "https://source.unsplash.com/1920x1080/daily?headphones",
-    text: "Slide 3",
-    internalLink: "/mixes",
+    bgUrl: "https://source.unsplash.com/1920x1080/daily?headphones",
+    headline: "Slide 3",
+    blurb: "Expertly crafted aural experience hand-made artisan materials.",
+    contentLink: "/mixes",
   },
   {
-    url: "https://source.unsplash.com/1920x1080/daily?food",
-    text: "Slide 4",
-    internalLink: "/search",
+    bgUrl: "https://source.unsplash.com/1920x1080/daily?food",
+    headline: "Slide 4",
+    blurb: "Finest dishes meal dinner family time barbeque on a stick.",
+    contentLink: "/search",
   },
 ];
 
 function ReactSpringSlider() {
+  /**
+   * @function slideGenerator
+   * @param {Object[]} slidesArr - An array containing data objects from the GraphQL query for the home page.
+   * @param {string} slidesArr[].bgUrl - The location of that slides background image
+   * @param {string} slidesArr[].headline - Short string announcing that slide's content
+   * @param {string} slidesArr[].blurb - Medium string giving context to that slide's content; might be a call to action or a breadcrumb for the reader
+   * @param {string} slidesArr[].contentLink - This can either be an internal link e.g. "/events", or an external link e.g. "https://www.instagram.com"
+   * @returns {jsx} a complete layout fragment for use with the <Slider> component below
+   */
+
   const slideGenerator = (slidesArr) => {
     return slidesArr.map((slide, idx) => (
       <section
@@ -34,11 +48,11 @@ function ReactSpringSlider() {
         className="hero is-fullheight-with-navbar"
         draggable="false"
         onClick={() => {
-          navigate(`${slide.internalLink}`);
+          navigate(`${slide.contentLink}`);
         }}
         style={{
           height: `calc(100vh - 10.5rem)`,
-          backgroundImage: `url(${slide.url})`,
+          backgroundImage: `url(${slide.bgUrl})`,
           backgroundPosition: "center center",
           backgroundRepeat: "no-repeat",
           backgroundAttachment: "scroll",
@@ -49,8 +63,9 @@ function ReactSpringSlider() {
           <div className="container">
             <div className="columns">
               <div className="column">
-                <h1 className="title hero-title">Source #{idx}</h1>
-                <h2>Go to {slide.internalLink}</h2>
+                <h1 className="title hero-title">{slide.headline}</h1>
+                <br />
+                <h2 className="subtitle hero-title">{slide.blurb}</h2>
               </div>
             </div>
           </div>
@@ -67,8 +82,8 @@ function ReactSpringSlider() {
           height: `calc(100vh - 10.75rem)`,
         }}
       >
-        <Slider auto={2000} hasBullets hasArrows>
-          {slideGenerator(slides)}
+        <Slider auto={8000} hasBullets>
+          {slideGenerator(dummySlides)}
         </Slider>
       </div>
 
@@ -86,7 +101,7 @@ export default ReactSpringSlider;
 //       className="container is-fluid"
 //       draggable="false"
 //       onClick={() => {
-//         navigate(`${slide.internalLink}`);
+//         navigate(`${slide.contentLink}`);
 //       }}
 //       style={{
 //         height: `calc(100vh - 10.5rem)`,
@@ -100,7 +115,7 @@ export default ReactSpringSlider;
 //       <div className="columns">
 //         <div className="column">
 //           <p className="title is-size-1 has-text-centered">Source #{idx}</p>
-//           <p>Go to {slide.internalLink}</p>
+//           <p>Go to {slide.contentLink}</p>
 //         </div>
 //       </div>
 //     </div>

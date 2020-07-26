@@ -68,6 +68,7 @@ function Hero(props) {
 
 export default Hero;
 
+// Old Static Single Image Layout Placeholder
 // return (
 // <div className="container is-fluid">
 //   <div className="columns">

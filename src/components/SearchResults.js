@@ -31,7 +31,11 @@ function SearchResults(props) {
         : null}
       {props.isSelected === "residents"
         ? dummyArtists.map((resident) => (
-            <SingleResident key={resident.name} name={resident.name} />
+            <SingleResident
+              key={resident.name}
+              name={resident.name}
+              img={"https://source.unsplash.com/1280x1280/daily?robot"}
+            />
           ))
         : null}
       {props.isSelected === "events"

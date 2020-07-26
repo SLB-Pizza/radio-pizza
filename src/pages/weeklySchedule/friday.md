@@ -1,6 +1,6 @@
 ---
-templateKey: 'about-page'
-path: /weeklySchedule
+templateKey: 'weekly-schedule'
+path: /weekly-schedule
 fri00: none
 fri01: none
 fri02: none

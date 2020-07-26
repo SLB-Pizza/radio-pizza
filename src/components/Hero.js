@@ -56,7 +56,7 @@ function HeroContentCarousel() {
           <div className="container">
             <div className="columns">
               <div className="column">
-                <h1 className="title is-size-3-desktop is-size-4-touch is-size-5-mobile hero-title">
+                <h1 className="title is-size-3-desktop is-size-5-touch is-size-6-mobile hero-title">
                   {slide.headline}
                 </h1>
                 <br />
@@ -73,14 +73,26 @@ function HeroContentCarousel() {
 
   /**
    * @param {number} timePerSlide - amount of time in ms to stay on each slide before <Slider> auto moves to next slide; preset to 8000
-   * @param {object} heroBullets - style object to pass as props for <Slider>
+   * @param {object} heroBullets - style object for bullets to pass as props for <Slider>
+   * @param {object} heroArrows - style object for arrows to pass as props for <Slider>
    */
   const timePerSlide = 8000;
   const heroBullets = { backgroundColor: "#000", border: "2px solid white" };
+  const heroArrows = {
+    border: "solid white",
+    borderWidth: "0 5px 5px 0",
+    color: "black",
+  };
 
   return (
     <div className="slider-sizing">
-      <Slider auto={timePerSlide} hasBullets bulletStyle={heroBullets}>
+      <Slider
+        auto={timePerSlide}
+        hasArrows
+        arrowStyle={heroArrows}
+        hasBullets
+        bulletStyle={heroBullets}
+      >
         {slideGenerator(dummySlides)}
       </Slider>
     </div>

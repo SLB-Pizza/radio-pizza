@@ -32,13 +32,13 @@ export const WeeklyScheduleTemplate = ({
 	);
 };
 
-BlogPostTemplate.propTypes = {
-	content: PropTypes.node.isRequired,
-	contentComponent: PropTypes.func,
-	description: PropTypes.string,
-	title: PropTypes.string,
-	helmet: PropTypes.object,
-};
+// WeeklyScheduleTemplate.propTypes = {
+// 	content: PropTypes.node.isRequired,
+// 	contentComponent: PropTypes.func,
+// 	description: PropTypes.string,
+// 	title: PropTypes.string,
+// 	helmet: PropTypes.object,
+// };
 
 const WeeklySchedule = ({ data }) => {
 	const { markdownRemark: post } = data;
@@ -74,15 +74,11 @@ WeeklySchedule.propTypes = {
 export default WeeklySchedule;
 
 export const pageQuery = graphql`
-	query WeeklyScheduleByID($id: String!) {
-		markdownRemark(id: { eq: $id }) {
-			id
-			html
-			frontmatter {
-				date(formatString: "MMMM DD, YYYY")
+	query WeeklyScheduleDummyQuery {
+		site {
+			siteMetadata {
 				title
 				description
-				tags
 			}
 		}
 	}

@@ -8,7 +8,7 @@ function TestPage() {
     <div className="container is-fluid site-page">
       <div className="columns btn-tags is-multiline">
         {sampleMixes.map((mix) => (
-          <div key={mix.title} className="column is-3">
+          <div key={mix.mixTitle} className="column is-3">
             <figure className="image is-1by1">
               <img src={mix.img} alt={`image - ${mix.name} by ${mix.artist}`} />
             </figure>

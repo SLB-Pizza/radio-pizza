@@ -33,14 +33,14 @@ function HomeMixes() {
           <div className="columns is-multiline">
             {twelveMixes.map((mix) => (
               <SingleMixCard
-                key={mix.title}
-                date={mix.date}
-                url={mix.url}
-                testSrc={mix.testSrc}
-                title={mix.title}
-                resident={mix.resident}
-                img={mix.img}
-                tags={mix.tags}
+                key={mix.mixTitle}
+                date={mix.mixDate}
+                url={mix.mixUrl}
+                testSrc={mix.mixTestSrc}
+                title={mix.mixTitle}
+                resident={mix.mixResident}
+                img={mix.mixImg}
+                tags={mix.mixTags}
                 columnLayout={homeMixesLayout}
               />
             ))}
@@ -69,14 +69,14 @@ function HomeMixes() {
       <div className="columns is-mobile is-hidden-desktop mobile-single-items">
         {twelveMixes.map((mix) => (
           <SingleMixCard
-            key={mix.title}
-            date={mix.date}
-            url={mix.url}
-            testSrc={mix.testSrc}
-            title={mix.title}
-            resident={mix.resident}
-            img={mix.img}
-            tags={mix.tags}
+            key={mix.mixTitle}
+            date={mix.mixDate}
+            url={mix.mixUrl}
+            testSrc={mix.mixTestSrc}
+            title={mix.mixTitle}
+            resident={mix.mixResident}
+            img={mix.mixImg}
+            tags={mix.mixTags}
             columnLayout={homeMixesLayout}
           />
         ))}

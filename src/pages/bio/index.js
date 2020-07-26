@@ -94,14 +94,14 @@ function StickyBioIndexPage() {
           <div className="columns is-multiline">
             {sampleMixes.map((mix) => (
               <SingleMixCard
-                key={mix.title}
-                date={mix.date}
-                url={mix.url}
-                testSrc={mix.testSrc}
-                title={mix.title}
-                resident={mix.resident}
-                img={mix.img}
-                tags={mix.tags}
+                key={mix.mixTitle}
+                date={mix.mixDate}
+                url={mix.mixUrl}
+                testSrc={mix.mixTestSrc}
+                title={mix.mixTitle}
+                resident={mix.mixResident}
+                img={mix.mixImg}
+                tags={mix.mixTags}
                 columnLayout={stickyBioLayout}
               />
             ))}

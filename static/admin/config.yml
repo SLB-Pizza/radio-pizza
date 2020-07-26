@@ -50,7 +50,6 @@ collections:
       - { label: 'Name', name: 'name', widget: 'string' }
       - { label: 'Add Date', name: 'date', widget: 'datetime' }
       - { label: 'Description', name: 'description', widget: 'text' }
-      - { label: 'Featured Artist', name: 'featuredartist', widget: 'boolean' }
       - { label: 'Artist Image', name: 'artistimage', widget: image }
       - { label: 'Featured Image', name: 'featuredimage', widget: image }
       - { label: 'Streams', name: 'streams', widget: 'markdown' }

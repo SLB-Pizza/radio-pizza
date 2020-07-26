@@ -1,6 +1,15 @@
 //==================================
 // <Hero />
 //==================================
+.hero-title {
+  display: inline-block;
+  padding: 0.75rem 0.75rem 0.5rem;
+  border: 2px solid white;
+  border-radius: 0.75rem;
+  background-color: black;
+  transition: 0.5s ease;
+}
+
 .hero-test-2 {
   max-height: calc(100vh - 10.5rem);
   background-position: center center;
@@ -30,7 +39,7 @@
   // will-change: translate, opacity;
 }
 .homepage-hero {
-  height: calc(100vh - 10.5rem);
+  // height: calc(100vh - 10.5rem);
   // background-position: center center;
   // background-repeat: no-repeat;
   // background-attachment: scroll;
@@ -38,12 +47,12 @@
 
   // will-change: opacity;
 
-  background-color: darken($color: $primary, $amount: 45);
-  background-image: url(https://source.unsplash.com/1920x1080/daily?racing);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-size: cover;
+  // background-color: darken($color: $primary, $amount: 45);
+  // background-image: url(https://source.unsplash.com/1920x1080/daily?racing);
+  // background-position: center center;
+  // background-repeat: no-repeat;
+  // background-attachment: scroll;
+  // background-size: cover;
   // .columns .column {
   //   background-color: rgba(
   //     $color: darken($color: $primary, $amount: 45),

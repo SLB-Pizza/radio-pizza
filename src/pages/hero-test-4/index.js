@@ -5,25 +5,21 @@ import { navigate } from "gatsby";
 
 const slides = [
   {
-    id: 0,
     url: "https://source.unsplash.com/1920x1080/daily?coffee",
     text: "Slide 0",
     internalLink: "/events",
   },
   {
-    id: 1,
     url: "https://source.unsplash.com/1920x1080/daily?music",
     text: "Slide 2",
     internalLink: "/bio",
   },
   {
-    id: 2,
     url: "https://source.unsplash.com/1920x1080/daily?headphones",
     text: "Slide 3",
     internalLink: "/mixes",
   },
   {
-    id: 3,
     url: "https://source.unsplash.com/1920x1080/daily?food",
     text: "Slide 4",
     internalLink: "/search",
@@ -31,13 +27,11 @@ const slides = [
 ];
 
 function ReactSpringSlider() {
-  const coffee = "https://source.unsplash.com/1920x1080/daily?coffee";
-
   const slideGenerator = (slidesArr) => {
     return slidesArr.map((slide, idx) => (
-      <div
+      <section
         key={idx}
-        className="container is-fluid"
+        className="hero is-fullheight-with-navbar"
         draggable="false"
         onClick={() => {
           navigate(`${slide.internalLink}`);
@@ -51,13 +45,17 @@ function ReactSpringSlider() {
           backgroundSize: "cover",
         }}
       >
-        <div className="columns">
-          <div className="column">
-            <p className="title is-size-1 has-text-centered">Source #{idx}</p>
-            <p>Go to {slide.internalLink}</p>
+        <div className="hero-body">
+          <div className="container">
+            <div className="columns">
+              <div className="column">
+                <h1 className="title hero-title">Source #{idx}</h1>
+                <h2>Go to {slide.internalLink}</h2>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     ));
   };
 
@@ -66,10 +64,10 @@ function ReactSpringSlider() {
       <div
         style={{
           width: "100vw",
-          height: `calc(100vh - 10.5rem)`,
+          height: `calc(100vh - 10.75rem)`,
         }}
       >
-        <Slider auto={8000} hasBullets hasArrows>
+        <Slider auto={2000} hasBullets hasArrows>
           {slideGenerator(slides)}
         </Slider>
       </div>
@@ -80,6 +78,34 @@ function ReactSpringSlider() {
 }
 
 export default ReactSpringSlider;
+
+// const slideGenerator = (slidesArr) => {
+//   return slidesArr.map((slide, idx) => (
+//     <div
+//       key={idx}
+//       className="container is-fluid"
+//       draggable="false"
+//       onClick={() => {
+//         navigate(`${slide.internalLink}`);
+//       }}
+//       style={{
+//         height: `calc(100vh - 10.5rem)`,
+//         backgroundImage: `url(${slide.url})`,
+//         backgroundPosition: "center center",
+//         backgroundRepeat: "no-repeat",
+//         backgroundAttachment: "scroll",
+//         backgroundSize: "cover",
+//       }}
+//     >
+//       <div className="columns">
+//         <div className="column">
+//           <p className="title is-size-1 has-text-centered">Source #{idx}</p>
+//           <p>Go to {slide.internalLink}</p>
+//         </div>
+//       </div>
+//     </div>
+//   ));
+// };
 
 // function layoutGenerator(layouts) {
 //   return layouts.map((layout, idx) => (

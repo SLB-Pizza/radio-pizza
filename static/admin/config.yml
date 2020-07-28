@@ -1,14 +1,4 @@
 backend:
-<<<<<<< HEAD
-    name: git-gateway
-    branch: CMS/weeklySchedule
-    commit_messages:
-        create: 'Create {{collection}} “{{slug}}”'
-        update: 'Update {{collection}} “{{slug}}”'
-        delete: 'Delete {{collection}} “{{slug}}”'
-        uploadMedia: '[skip ci] Upload “{{path}}”'
-        deleteMedia: '[skip ci] Delete “{{path}}”'
-=======
   name: git-gateway
   branch: master
   commit_messages:
@@ -17,25 +7,11 @@ backend:
     delete: 'Delete {{collection}} “{{slug}}”'
     uploadMedia: '[skip ci] Upload “{{path}}”'
     deleteMedia: '[skip ci] Delete “{{path}}”'
->>>>>>> 694bc05c015768a51352449142bfbb3798cb6f94
 
 media_folder: static/img
 public_folder: /img
 
 collections:
-<<<<<<< HEAD
-    - name: 'blog'
-      label: 'Blog'
-      folder: 'src/pages/blog'
-      create: true
-      slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
-      fields:
-          - {
-                label: 'Template Key',
-                name: 'templateKey',
-                widget: 'hidden',
-                default: 'blog-post',
-=======
   - name: 'blog'
     label: 'Blog'
     folder: 'src/pages/blog'
@@ -201,7 +177,7 @@ collections:
           hint: 'Put the mixcloud URL here',
         }
       - { label: 'Tags', name: 'tags', widget: 'list' }
-      
+
   - name: 'mixes'
     label: 'Mixes'
     folder: 'src/pages/mixes'
@@ -283,7 +259,6 @@ collections:
               name: 'templateKey',
               widget: 'hidden',
               default: 'index-page',
->>>>>>> 694bc05c015768a51352449142bfbb3798cb6f94
             }
           - { label: 'Title', name: 'title', widget: 'string' }
           - { label: 'Publish Date', name: 'date', widget: 'datetime' }

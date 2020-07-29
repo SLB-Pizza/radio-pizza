@@ -7,7 +7,7 @@ const initialState = {
   url:
     "https://soundcloud.com/soundcloud-scenes/sets/currents-next-gen-chillwave",
   title: "Next Gen ChillWave",
-  artist: "Currents",
+  resident: "Currents",
   img: "../img/test/next-gen-chillwave.jpg",
   playing: false,
   controls: false,
@@ -20,6 +20,9 @@ const initialState = {
   playbackRate: 1.0,
   loop: true,
   live: false,
+  playingRadio: false,
+  scheduleOpen: false,
+  navMenuOpen: false,
 };
 
 function reducer(state, action) {
@@ -30,17 +33,34 @@ function reducer(state, action) {
         playing: !state.playing,
       };
     }
+    // If a new audio source is selected while playing is NOT playing, set to play
     case "CHANGE_URL": {
-      // If a new audio source is selected while playing is NOT playing, set to play
       return {
         ...state,
         url: action.payload.url,
         title: action.payload.title,
+        resident: action.payload.resident,
         playing: true,
-        artist: action.payload.artist,
         img: action.payload.img,
       };
     }
+
+    case "CLOSE_NAVMENU": {
+      return { ...state, navMenuOpen: false };
+    }
+
+    case "TOGGLE_NAVMENU": {
+      return { ...state, navMenuOpen: !state.navMenuOpen };
+    }
+
+    case "CLOSE_SCHEDULE": {
+      return { ...state, scheduleOpen: false };
+    }
+
+    case "TOGGLE_SCHEDULE": {
+      return { ...state, scheduleOpen: !state.scheduleOpen };
+    }
+
     case "TOGGLE_MUTE": {
       return {
         ...state,
@@ -51,6 +71,13 @@ function reducer(state, action) {
       return {
         ...state,
         live: !state.live,
+      };
+    }
+    case "PLAY_LIVE_RADIO": {
+      return {
+        ...state,
+        playing: true,
+        playingRadio: true,
       };
     }
     default:

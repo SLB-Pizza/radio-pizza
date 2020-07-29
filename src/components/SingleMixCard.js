@@ -1,99 +1,93 @@
 import React, { useContext } from "react";
 import { GlobalDispatchContext } from "../context/GlobalContextProvider";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import NanoClamp from "nanoclamp";
 
 function SingleMixCard(props) {
   const dispatch = useContext(GlobalDispatchContext);
 
   /**
    * @function playAudioButton - function that takes in props from BioMixList and creates active YT audio sources
+   * @param {string} url - URL of the mix to play
+   * @param {string} title - title of the mix to play; shown in TopNav
+   * @param {string} resident - resident that made the mix; shown in TopNav
+   * @param {string} img - the mix's image; shown in TopNav
    * @returns {jsx} A play icon that onClick dispatches the CHANGE_URL action, playing the audio source through RadioPlayer.js
-   * @param {Object[]} buttons - the array of button object details to create functional mix play buttons
-   * @param {string} buttons.size - the size of the play button represented from 1x - 10x
-   * @param {string} buttons.url - the audio url
-   * @param {string} buttons.title - title of the audio
-   * @param {string} [buttons.viewportClass] - className to attach to the play button
    */
 
-  const playAudioButton = (url, title, artist, img, playBtnInfo) => {
-    return playBtnInfo.map((singleBtn) => (
-      <span key={title}>
-        <FontAwesomeIcon
-          icon={faPlay}
-          size={singleBtn.btnSize}
-          className={
-            singleBtn.hasOwnProperty("viewportClass")
-              ? singleBtn.viewportClass
-              : ""
-          }
-          onClick={() =>
-            dispatch({
-              type: "CHANGE_URL",
-              payload: {
-                url: url,
-                title: title,
-                artist: artist,
-                img: img,
-              },
-            })
-          }
-        >
+  const playAudioButton = (mixUrl, mixTitle, mixResident, mixImg) => {
+    return (
+      <FontAwesomeIcon
+        icon={faPlay}
+        size="5x"
+        className="play-icon"
+        onClick={() =>
+          dispatch({
+            type: "CHANGE_URL",
+            payload: {
+              url: mixUrl,
+              title: mixTitle,
+              resident: mixResident,
+              img: mixImg,
+            },
+          })
+        }
+      />
+    );
+  };
+
+  /**
+   * imageAltText for accessibility purposes
+   */
+  const imageAltText = `image - ${props.title} by ${props.resident}`;
+
+  return (
+    <div className={props.columnLayout}>
+      <div className="card">
+        <div className="card-image">
           <a
             href="#"
-            className="sr-only is-overlay"
+            className="sr-only display-text"
             onClick={() =>
               dispatch({
                 type: "CHANGE_URL",
                 payload: {
-                  url: url,
-                  title: title,
-                  artist: artist,
+                  url: props.url,
+                  title: props.title,
+                  resident: props.resident,
+                  img: props.img,
                 },
               })
             }
           >
             Play This Mix
           </a>
-        </FontAwesomeIcon>
-      </span>
-    ));
-  };
-
-  /**
-   * imageAltText for accessibility purposes
-   */
-  const imageAltText = `image - ${props.name} by ${props.artist}`;
-
-  return (
-    <div className={props.columnLayout}>
-      <div className="card">
-        <div className="card-image">
           <figure className="image is-1by1">
             <img src={props.img} alt={imageAltText} />
             <div className="play-btn-diffuser is-overlay">
-              {props.playBtnInfo &&
-                playAudioButton(
-                  props.url,
-                  props.name,
-                  props.artist,
-                  props.img,
-                  props.playBtnInfo
-                )}
+              {playAudioButton(
+                props.url,
+                props.title,
+                props.resident,
+                props.img
+              )}
             </div>
           </figure>
         </div>
+
         <div className="card-content">
           <div className="content-text">
-            <p className="content-date subtitle is-size-7-touch is-size-7-desktop is-size-6-widescreen">
-              {props.date} | {props.artist}
+            <p className="content-details sc-truncate subtitle is-size-7">
+              {props.date} | {props.resident}
             </p>
-            <p className="title is-size-6-touch is-size-6-desktop is-size-5-widescreen">
-              {props.name}
-            </p>
+            <NanoClamp
+              className="title is-size-6"
+              is="p"
+              lines={2}
+              text={props.title}
+            />
           </div>
-
           <div className="buttons are-tags">
             {props.tags.map((tag) => (
               <button

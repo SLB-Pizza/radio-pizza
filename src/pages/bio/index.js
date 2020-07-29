@@ -14,13 +14,16 @@ import {
 import sampleMixes from "../../../__tests__/sampleMixes.json";
 
 function StickyBioIndexPage() {
-  const playBtnInfo = [{ btnSize: "7x" }];
-  const stickyBioLayout = "column is-12-mobile is-6-tablet is-3-desktop";
+  /**
+   * @param {string} stickyBioLayout - The string that will be used as the className to style this component's SingleMixCard data mapping. This string follows the site's bulma.io column styling conventions.
+   */
+  const stickyBioLayout =
+    "column is-12-mobile is-12-tablet is-6-desktop is-4-widescreen";
 
   return (
     <div className="container is-fluid site-page">
       <div className="columns is-multiline">
-        <div className="column is-3-desktop is-4-tablet is-12-mobile sticky-bio">
+        <div className="column is-4-desktop is-4-tablet is-12-mobile sticky-bio">
           <div className="columns is-multiline">
             <div className="column is-12">
               <figure className="image is-1by1">
@@ -85,21 +88,20 @@ function StickyBioIndexPage() {
             </div>
           </div>
         </div>
-        <hr className="is-hidden-tablet" />
+        <hr className="is-hidden-desktop" />
 
-        <div className="column is-9-desktop">
+        <div className="column is-8">
           <div className="columns is-multiline">
             {sampleMixes.map((mix) => (
               <SingleMixCard
-                key={mix.name}
-                date={mix.date}
-                url={mix.url}
-                testSrc={mix.testSrc}
-                name={mix.name}
-                artist={mix.artist}
-                img={mix.img}
-                tags={mix.tags}
-                playBtnInfo={playBtnInfo}
+                key={mix.mixTitle}
+                date={mix.mixDate}
+                url={mix.mixUrl}
+                testSrc={mix.mixTestSrc}
+                title={mix.mixTitle}
+                resident={mix.mixResident}
+                img={mix.mixImg}
+                tags={mix.mixTags}
                 columnLayout={stickyBioLayout}
               />
             ))}

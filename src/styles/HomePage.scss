@@ -1,21 +1,29 @@
 //==================================
 // <Hero />
 //==================================
+.slider-sizing {
+  cursor: pointer;
+  width: 100vw;
+  height: calc(100vh - 10.625rem);
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.hero-title {
+  display: inline-block;
+  padding: 0.75rem 0.75rem 0.5rem;
+  border: 2px solid white;
+  border-radius: 0.75rem;
+  background-color: rgba($color: black, $alpha: 0.9);
+}
+
 .homepage-hero {
   height: calc(100vh - 10.5rem);
-
-  // background-color: darken($color: $primary, $amount: 45);
-  background-image: url(https://source.unsplash.com/1920x1080/daily?coffee);
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
-  .columns .column {
-    background-color: rgba(
-      $color: darken($color: $primary, $amount: 45),
-      $alpha: 0.85
-    );
-  }
 }
 
 //==================================

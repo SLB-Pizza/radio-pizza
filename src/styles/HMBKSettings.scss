@@ -10,6 +10,12 @@ $primary: $pink;
 // $primary-invert: black;
 
 //==================================
+// text variables
+//==================================
+$title-color: $white;
+$subtitle-color: $white;
+
+//==================================
 // /search page stuff
 //==================================
 $input-color: white;
@@ -33,14 +39,23 @@ $button-hover-border-color: darken($primary, 10);
 $button-text-hover-background-color: $primary;
 $button-focus-color: $white;
 $button-focus-border-color: $primary;
-$button-active-color: darken($primary, 20);
-$button-active-border-color: darken($primary, 20);
+$button-active-color: darken($primary, 15);
+$button-active-border-color: darken($primary, 15);
 
 //==================================
 // dropdown element variables
 //==================================
 // $dropdown-content-arrow: white;
 // $dropdown-item-active-background-color: white;
+
+// Duotone variables
+$dt-base: #f600ff;
+$dt-bg-blend: multiply;
+$dt-blur: 0px;
+$dt-fg-blend: lighten;
+$dt-foreground: #16006f;
+$dt-opacity: 1;
+$dt-spacing: 1%;
 
 //==================================
 // FONTS
@@ -66,7 +81,7 @@ body {
 //top: 8.25rem with container
 //bottom: 3.75rem with container
 .site-page {
-  padding-top: 8.25rem;
+  padding-top: 7.625rem;
   padding-bottom: 3.75rem;
   min-height: 100vh;
 }
@@ -78,6 +93,7 @@ button.button,
   font-family: "Aldrich", sans-serif;
   font-kerning: normal;
   font-display: swap;
+  font-weight: 600;
   // font-weight: $weight-normal;
   // letter-spacing: -0.0125rem;
 }
@@ -121,9 +137,29 @@ button {
   }
 }
 
-::placeholder {
+input::placeholder {
   /* Most modern browsers support this now. */
   color: white;
+}
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: pre-line;
+}
+
+// SoundCloud's version of things
+.sc-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: normal;
+}
+
+.single-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 //===========================================
@@ -161,7 +197,11 @@ button {
   border: 2px solid white;
   border-radius: 0.75rem;
   margin: 0 0.125rem;
-  transition: 0.125s ease;
+  transition: 0.5s ease;
+
+  figure {
+    transition: 0.5s ease;
+  }
 
   img {
     border-top-left-radius: 0.75rem;
@@ -173,9 +213,9 @@ button {
     border-top-right-radius: 0.75rem;
   }
 
-  .content-date {
-    margin-bottom: 0.5rem;
-  }
+  // .content-details {
+  //   margin-bottom: 0.5rem;
+  // }
 
   .card-content {
     background-color: black;
@@ -185,25 +225,27 @@ button {
     transition: 0.125s ease;
 
     .content-text {
-      @include mobile {
-        min-height: 5rem;
-      }
-      @include tablet-only {
-        min-height: 5.5rem;
-      }
-      @include desktop-only {
-        min-height: 6rem;
-      }
-      @include widescreen-only {
-        min-height: 6.5rem;
-      }
-      @include fullhd {
-        min-height: 5.5rem;
-      }
-    }
+      padding-bottom: 0.25rem;
+      min-height: 3.75rem; //FHD
 
-    p.title + p {
-      padding-top: 0.5rem;
+      // Comment in place only for this commit; no other changes made.
+
+      // background-color: green;
+      // @include mobile {
+      //   height: auto;
+      // }
+      // @include tablet-only {
+      //   min-height: 5.5rem;
+      // }
+      // @include desktop-only {
+      //   min-height: 6rem;
+      // }
+      // @include widescreen-only {
+      //   min-height: 6.5rem;
+      // }
+      // @include fullhd {
+      //   min-height: 5.5rem;
+      // }
     }
   }
 
@@ -213,15 +255,36 @@ button {
     align-items: center;
     transition: ease-in-out 0.25s;
 
-    div {
+    .play-icon {
       color: transparent;
+      border: 2px solid transparent;
       transition: ease-in-out 0.25s;
     }
   }
 
   &:hover {
     border: 2px solid $primary;
-    box-shadow: 10px 8px 5px black;
+    cursor: pointer;
+
+    figure {
+      border-top-left-radius: 0.6rem;
+      border-top-right-radius: 0.6rem;
+      background-color: $dt-base;
+
+      img {
+        filter: grayscale(100%) contrast(1) blur(0px);
+        mix-blend-mode: $dt-bg-blend;
+        opacity: $dt-opacity;
+        object-fit: cover;
+      }
+
+      &::before {
+        background-color: $dt-foreground;
+        content: "";
+        mix-blend-mode: $dt-fg-blend;
+        z-index: 1000;
+      }
+    }
 
     .play-btn-diffuser {
       border-top-left-radius: 0.6rem;
@@ -229,7 +292,6 @@ button {
     }
 
     .card-content {
-      background-color: darken($color: $primary, $amount: 35);
       border-bottom-left-radius: 0.6rem;
       border-bottom-right-radius: 0.6rem;
     }
@@ -237,48 +299,39 @@ button {
     .play-btn-diffuser {
       display: flex;
       justify-content: center;
-      background-color: rgba($color: black, $alpha: 0.75);
 
-      span {
+      .play-icon {
         color: white;
+        transition: 0.25 ease;
+
+        // Button gets lost in color
         &:hover {
-          color: darken($color: $primary, $amount: 10);
+          filter: drop-shadow(0.75rem 0.75rem 0.5rem black);
         }
         &:active {
-          color: $primary;
+          color: darken($color: $primary, $amount: 30);
         }
       }
     }
   }
 }
 
-.play-btn-diffuser {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: ease-in-out 0.25s;
-
-  span {
-    color: transparent;
-    transition: ease-in-out 0.25s;
-  }
-}
-
 .buttons.are-tags {
-  min-height: 8rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap-reverse;
   align-items: flex-end;
   align-content: flex-start;
-  padding: 0;
+  min-height: 7rem;
+  padding-top: 0.5rem;
 
-  // OLD TAGS CONTAINER SIZINGS
+  // background-color: orange;
+
+  // // OLD TAGS CONTAINER SIZINGS
   // @include mobile {
-  //   min-height: 6rem;
   // }
   // @include from($tablet) {
-  //   min-height: 6rem;
+  //   min-height: 4rem;
   // }
   // @include widescreen-only {
   //   min-height: 5rem;
@@ -331,5 +384,22 @@ button {
 //     p.subtitle {
 //       padding-top: 0;
 //     }
+//   }
+// }
+
+// .btn-tags figure {
+//   background-color: $dt-base;
+//   img {
+//     filter: grayscale(100%) contrast(1) blur(0px);
+//     mix-blend-mode: $dt-bg-blend;
+//     opacity: $dt-opacity;
+//     object-fit: cover;
+//   }
+
+//   &::before {
+//     background-color: $dt-foreground;
+//     content: "";
+//     mix-blend-mode: $dt-fg-blend;
+//     z-index: 1000;
 //   }
 // }

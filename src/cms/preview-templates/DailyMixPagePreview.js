@@ -1,17 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { DailyMixPageTemplate } from '../../templates/daily-mix';
+import React from "react";
+import PropTypes from "prop-types";
+import { DailyMixPageTemplate } from "../../templates/daily-mix";
 
 const DailyMixPagePreview = ({ entry, widgetFor }) => (
-  <DailymixPageTemplate
-    content={widgetFor('mixes')}
-    description={entry.getIn(['data', 'description'])}
-    tags={entry.getIn(['data', 'tags'])}
-    title={entry.getIn(['data', 'name'])}
-    artistList={entry.getIn(['data', 'artistlist'])}
-    dailyMixImage={entry.getIn(['data', 'dailymiximage'])}
-    featuredDailyMixImage={entry.getIn(['data', 'featureddailymiximage'])}
-    urls={entry.getIn(['data', 'streamurls'])}
+  <DailyMixPageTemplate
+    content={widgetFor("mixes")}
+    description={entry.getIn(["data", "description"])}
+    tags={entry.getIn(["data", "tags"])}
+    title={entry.getIn(["data", "name"])}
+    artistList={entry.getIn(["data", "artistlist"])}
+    dailyMixImage={entry.getIn(["data", "dailymiximage"])}
+    featuredDailyMixImage={entry.getIn(["data", "featureddailymiximage"])}
+    urls={entry.getIn(["data", "streamurls"])}
   />
 );
 

@@ -33,7 +33,7 @@ function HeroContentCarousel() {
   /**
    * @function slideGenerator
    * @param {Object[]} slidesArr - An array containing data objects from the GraphQL query for the home page.
-   * @param {string} slidesArr[].bgUrl - The URL of that slide's background image. This can be a relative local path (e.g. "/static/something-local.jpg") or an external image link (e.g. "https://source.unsplash.com/1920x1080/daily?music"). Both work
+   * @param {string} slidesArr[].bgUrl - The URL of that slide's background image. This can be a relative local path (e.g. "/static/something-local.jpg") or an external image link (e.g. "https://source.unsplash.com/1920x1080/daily?music"). Both work.
    * @param {string} slidesArr[].headline - Short string announcing that slide's content
    * @param {string} slidesArr[].blurb - Medium string giving context to that slide's content; might be a call to action or a breadcrumb for the reader
    * @param {string} slidesArr[].contentLink - The link to navigate to onClick, This can either be an internal link (e.g. "/events"), or an external link (e.g. "https://www.instagram.com").

@@ -112,6 +112,7 @@ function ScheduleIndexPage() {
                   {show.startTime} – {show.endTime}
                 </p>
               </div>
+
               {show.hasOwnProperty("showName") ? (
                 <div className="column is-8">
                   <p className="title is-size-6-tablet is-size-7-mobile has-text-centered">

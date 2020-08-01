@@ -7,7 +7,6 @@
 
 $pink: #f600ff;
 $primary: $pink;
-// $primary-invert: black;
 
 //==================================
 // text variables
@@ -112,7 +111,9 @@ p,
 a,
 p,
 p.title,
-p.subtitle {
+p.subtitle,
+ol,
+ul {
   color: white;
 }
 

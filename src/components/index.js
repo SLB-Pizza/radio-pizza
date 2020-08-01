@@ -1,5 +1,6 @@
 export { default as BottomNav } from "./BottomNav";
 export { default as CategoryItem } from "./CategoryItem";
+export { default as CMSSlides } from "./CMSSlides";
 export { default as Hero } from "./Hero";
 export { default as HMBKDivider } from "./HMBKDivider";
 export { default as HomeContent } from "./HomeContent";

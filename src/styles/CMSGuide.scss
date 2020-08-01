@@ -2,9 +2,9 @@
   border: 2px solid white;
   border-radius: 0.75rem;
 
-  &:first-child {
-    margin-top: 2rem;
-  }
+  // &:first-child {
+  //   margin-top: 1rem;
+  // }
 
   .column.is-flex-desktop {
     flex-direction: column;
@@ -17,7 +17,17 @@
 }
 
 .cms-warning {
-  border: 2px solid red;
-  border-radius: 0.75rem;
-  background-color: darkred;
+  animation: cms-warning-border 2s infinite;
+}
+
+@keyframes cms-warning-border {
+  0%,
+  100% {
+    border: 2px solid red;
+    border-radius: 0.75rem;
+  }
+  50% {
+    border: 2px solid white;
+    border-radius: 0.75rem;
+  }
 }

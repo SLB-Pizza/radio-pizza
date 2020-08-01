@@ -38,6 +38,14 @@ export const query = graphql`
               layout_bg_image
               slide_headline
               slide_cta
+              slide_link {
+                _linkType
+                ... on PRISMIC__ExternalLink {
+                  target
+                  _linkType
+                  url
+                }
+              }
             }
           }
         }

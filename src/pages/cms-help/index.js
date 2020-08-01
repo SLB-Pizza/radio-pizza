@@ -8,11 +8,18 @@ export default function CMSHelp({ data }) {
   if (!prismicContent) return null;
   const document = prismicContent.node;
 
-  const guideExamples = {
-    sampleSlide: document.homepage_carousel[0],
+  // Grab a section of document's data and then destructure for use
+  const sampleSlide = document.homepage_carousel[0];
+  const slideData = {
+    bgUrl: sampleSlide.slide_bg_url.url,
+    bgAlt: sampleSlide.slide_bg_url.alt,
+    slideHeadline: sampleSlide.slide_headline,
+    slideCta: sampleSlide.slide_cta,
+    slideLink: sampleSlide.slide_link.url,
+    slideLinkTarget: sampleSlide.slide_link.target,
   };
 
-  console.log(guideExamples);
+  console.log("slideData", slideData);
 
   return (
     <section className="container is-fluid site-page">
@@ -20,8 +27,6 @@ export default function CMSHelp({ data }) {
         <div className="content">
           <div className="column is-12">
             <h1 className="title">Guide to HMBK CMS</h1>
-            <h2 className="subtitle">Sample Slide</h2>
-            <p>This example uses the current first slide.</p>
           </div>
         </div>
       </div>
@@ -40,25 +45,43 @@ export default function CMSHelp({ data }) {
             <h4 className="subtitle">Background Image for Carousel Slide</h4>
           </div>
           <figure className="image is-16by9">
-            <img
-              src={guideExamples.sampleSlide.slide_bg_url.url}
-              alt={guideExamples.sampleSlide.slide_bg_url.alt}
-            />
+            <img src={slideData.bgUrl} alt={slideData.bgAlt} />
           </figure>
         </div>
-        <div className="column is-half-desktop">
-          <h4 className="subtitle">Slide Headline</h4>
-          <p>{RichText.asText(guideExamples.sampleSlide.slide_headline)}</p>
-          <h4 className="subtitle">Slide Call To Action</h4>
-          <p>{RichText.asText(guideExamples.sampleSlide.slide_cta)}</p>
-          <h4 className="subtitle">Slide Link</h4>
-          <p>{guideExamples.sampleSlide.slide_link.url}</p>
-          <div className="cms-warning">
+        <div className="column is-half-desktop is-flex-desktop">
+          <div className={slideData.bgAlt === null ? "cms-warning" : ""}>
+            <h4 className="subtitle">Does this BG image have alt text?</h4>
+            {slideData.bgAlt === null ? (
+              <p>❌ NO</p>
+            ) : (
+              <p>✅ YES: {slideData.bgAlt}</p>
+            )}
+            <a
+              className="icon-color"
+              href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Accessibility_concerns"
+              target="_blank"
+            >
+              Why alt text is important ↗
+            </a>
+          </div>
+          <div>
+            <h4 className="subtitle">Slide Headline</h4>
+            <p>{RichText.asText(slideData.slideHeadline)}</p>
+          </div>
+          <div>
+            <h4 className="subtitle">Slide Call To Action</h4>
+            <p>{RichText.asText(slideData.slideCta)}</p>
+          </div>
+          <div
+            className={
+              slideData.slideLinkTarget === "null" ? "cms-warning" : ""
+            }
+          >
+            <h4 className="subtitle">Slide Link</h4>
+            <p>{slideData.slideLink}</p>
             <p>
               Opens in new tab?{" "}
-              {guideExamples.sampleSlide.slide_link.target === "null"
-                ? "Yes"
-                : "No"}
+              {slideData.slideLinkTarget === "null" ? "Yes" : "No"}
             </p>
           </div>
         </div>

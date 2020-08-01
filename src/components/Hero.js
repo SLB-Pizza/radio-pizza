@@ -2,32 +2,32 @@ import React from "react";
 import Slider from "@farbenmeer/react-spring-slider";
 import { navigate } from "gatsby";
 
-// const dummySlides = [
-//   {
-//     bgUrl: "https://source.unsplash.com/1920x1080/daily?music",
-//     headline: "/bio",
-//     blurb: "Music your way instrument jazz saxophone big boom bap sound.",
-//     contentLink: "/bio",
-//   },
-//   {
-//     bgUrl: "https://source.unsplash.com/1920x1080/daily?headphones",
-//     headline: "Slide 3",
-//     blurb: "Expertly crafted aural experience hand-made artisan materials.",
-//     contentLink: "/mixes",
-//   },
-//   {
-//     bgUrl: "https://source.unsplash.com/1920x1080/daily?food",
-//     headline: "Slide 4",
-//     blurb: "Finest dishes meal dinner family time barbeque on a stick.",
-//     contentLink: "/search",
-//   },
-//   {
-//     bgUrl: "https://source.unsplash.com/1920x1080/daily?concert",
-//     headline: "External Link",
-//     blurb: "Click anywhere on this slide; it links to HMBK twitter.",
-//     contentLink: "https://twitter.com/halfmoonbk",
-//   },
-// ];
+const dummySlides = [
+  {
+    bgUrl: "https://source.unsplash.com/1920x1080/daily?music",
+    headline: "/bio",
+    blurb: "Music your way instrument jazz saxophone big boom bap sound.",
+    contentLink: "/bio",
+  },
+  {
+    bgUrl: "https://source.unsplash.com/1920x1080/daily?headphones",
+    headline: "Slide 3",
+    blurb: "Expertly crafted aural experience hand-made artisan materials.",
+    contentLink: "/mixes",
+  },
+  {
+    bgUrl: "https://source.unsplash.com/1920x1080/daily?food",
+    headline: "Slide 4",
+    blurb: "Finest dishes meal dinner family time barbeque on a stick.",
+    contentLink: "/search",
+  },
+  {
+    bgUrl: "https://source.unsplash.com/1920x1080/daily?concert",
+    headline: "External Link",
+    blurb: "Click anywhere on this slide; it links to HMBK twitter.",
+    contentLink: "https://twitter.com/halfmoonbk",
+  },
+];
 
 function HeroContentCarousel(props) {
   /**

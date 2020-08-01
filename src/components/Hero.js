@@ -40,7 +40,6 @@ function HeroContentCarousel(props) {
    * @param {string} slidesArray[].slide_link - The link to navigate to onClick, This can either be an internal link (e.g. "/events"), or an external link (e.g. "https://www.instagram.com").
    * @returns {jsx} a complete layout fragment for use in the return statement, inside the <Slider> component
    */
-
   const slideGenerator = (slidesArray) => {
     return slidesArray.map((slide, idx) => (
       <section
@@ -50,7 +49,7 @@ function HeroContentCarousel(props) {
           navigate(`${slide.slide_link.url}`);
         }}
         style={{
-          backgroundImage: `url(${slide.layout_bg_image.url})`,
+          backgroundImage: `url(${slide.slide_bg_url.url})`,
         }}
       >
         <div className="hero-body">
@@ -77,6 +76,7 @@ function HeroContentCarousel(props) {
    * @param {object} heroBullets - style object for bullets to pass as props for <Slider>
    * @param {object} heroArrows - style object for arrows to pass as props for <Slider>
    */
+
   const timePerSlide = 8000;
   const heroBullets = { backgroundColor: "#000", border: "2px solid white" };
   const heroArrows = {

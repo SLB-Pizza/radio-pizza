@@ -17,13 +17,29 @@ function IndexPageTemplate({ data }) {
   // Grab the data object from prismicContent
   const document = prismicContent.node;
 
-  // Grab the homepageCarousel array of data objects
+  // Create objects by pulling data values from document to pass as props to components in return statement.
   const slidesForHero = document.homepage_carousel;
+  const homeMixesText = {
+    mixesHeadline: document.home_mixes_headline,
+    mixesSectionBlurb: document.home_mixes_blurb,
+  };
+  const homeEventsText = {
+    eventsHeadline: document.home_events_headline,
+    eventsSectionBlurb: document.home_events_blurb,
+  };
+  const homeFeaturesText = {
+    featuresHeadline: document.home_features_headline,
+    featuresSectionBlurb: document.home_features_blurb,
+  };
 
   return (
     <div className="has-navbar-fixed-bottom site-page">
       <Hero slides={slidesForHero} />
-      <HomeContent />
+      <HomeContent
+        homeMixesText={homeMixesText}
+        homeEventsText={homeEventsText}
+        homeFeaturesText={homeFeaturesText}
+      />
     </div>
   );
 }
@@ -34,19 +50,25 @@ export const query = graphql`
       allHomepages {
         edges {
           node {
-            _linkType
             homepage_carousel {
               slide_bg_url
               slide_cta
+              slide_headline
               slide_link {
+                _linkType
                 ... on PRISMIC__ExternalLink {
                   target
                   _linkType
                   url
                 }
               }
-              slide_headline
             }
+            home_mixes_headline
+            home_mixes_blurb
+            home_events_headline
+            home_events_blurb
+            home_features_headline
+            home_features_blurb
           }
         }
       }

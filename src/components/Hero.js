@@ -2,46 +2,46 @@ import React from "react";
 import Slider from "@farbenmeer/react-spring-slider";
 import { navigate } from "gatsby";
 
-const dummySlides = [
-  {
-    bgUrl: "https://source.unsplash.com/1920x1080/daily?music",
-    headline: "/bio",
-    blurb: "Music your way instrument jazz saxophone big boom bap sound.",
-    contentLink: "/bio",
-  },
-  {
-    bgUrl: "https://source.unsplash.com/1920x1080/daily?headphones",
-    headline: "Slide 3",
-    blurb: "Expertly crafted aural experience hand-made artisan materials.",
-    contentLink: "/mixes",
-  },
-  {
-    bgUrl: "https://source.unsplash.com/1920x1080/daily?food",
-    headline: "Slide 4",
-    blurb: "Finest dishes meal dinner family time barbeque on a stick.",
-    contentLink: "/search",
-  },
-  {
-    bgUrl: "https://source.unsplash.com/1920x1080/daily?concert",
-    headline: "External Link",
-    blurb: "Click anywhere on this slide; it links to HMBK twitter.",
-    contentLink: "https://twitter.com/halfmoonbk",
-  },
-];
+// const dummySlides = [
+//   {
+//     bgUrl: "https://source.unsplash.com/1920x1080/daily?music",
+//     headline: "/bio",
+//     blurb: "Music your way instrument jazz saxophone big boom bap sound.",
+//     contentLink: "/bio",
+//   },
+//   {
+//     bgUrl: "https://source.unsplash.com/1920x1080/daily?headphones",
+//     headline: "Slide 3",
+//     blurb: "Expertly crafted aural experience hand-made artisan materials.",
+//     contentLink: "/mixes",
+//   },
+//   {
+//     bgUrl: "https://source.unsplash.com/1920x1080/daily?food",
+//     headline: "Slide 4",
+//     blurb: "Finest dishes meal dinner family time barbeque on a stick.",
+//     contentLink: "/search",
+//   },
+//   {
+//     bgUrl: "https://source.unsplash.com/1920x1080/daily?concert",
+//     headline: "External Link",
+//     blurb: "Click anywhere on this slide; it links to HMBK twitter.",
+//     contentLink: "https://twitter.com/halfmoonbk",
+//   },
+// ];
 
-function HeroContentCarousel() {
+function HeroContentCarousel(props) {
   /**
    * @function slideGenerator
-   * @param {Object[]} slidesArr - An array containing data objects from the GraphQL query for the home page.
-   * @param {string} slidesArr[].bgUrl - The URL of that slide's background image. This can be a relative local path (e.g. "/static/something-local.jpg") or an external image link (e.g. "https://source.unsplash.com/1920x1080/daily?music"). Both work.
-   * @param {string} slidesArr[].headline - Short string announcing that slide's content
-   * @param {string} slidesArr[].blurb - Medium string giving context to that slide's content; might be a call to action or a breadcrumb for the reader
-   * @param {string} slidesArr[].contentLink - The link to navigate to onClick, This can either be an internal link (e.g. "/events"), or an external link (e.g. "https://www.instagram.com").
+   * @param {Object[]} slidesArray - An array containing data objects from the GraphQL query for the home page.
+   * @param {string} slidesArray[].bgUrl - The URL of that slide's background image. This can be a relative local path (e.g. "/static/something-local.jpg") or an external image link (e.g. "https://source.unsplash.com/1920x1080/daily?music"). Both work.
+   * @param {string} slidesArray[].headline - Short string announcing that slide's content
+   * @param {string} slidesArray[].blurb - Medium string giving context to that slide's content; might be a call to action or a breadcrumb for the reader
+   * @param {string} slidesArray[].contentLink - The link to navigate to onClick, This can either be an internal link (e.g. "/events"), or an external link (e.g. "https://www.instagram.com").
    * @returns {jsx} a complete layout fragment for use in the return statement, inside the <Slider> component
    */
 
-  const slideGenerator = (slidesArr) => {
-    return slidesArr.map((slide, idx) => (
+  const slideGenerator = (slidesArray) => {
+    return slidesArray.map((slide, idx) => (
       <section
         key={idx}
         className="hero is-fullheight-with-navbar homepage-hero"

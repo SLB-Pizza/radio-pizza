@@ -1,0 +1,13 @@
+.cms-section {
+  border: 2px solid white;
+  border-radius: 0.75rem;
+
+  &:first-child {
+    margin-top: 2rem;
+  }
+}
+
+.cms-warning {
+  border: 2px solid red;
+  background-color: darkred;
+}

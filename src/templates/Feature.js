@@ -5,7 +5,7 @@ const FeatureTemplate = ({ path }) => (
   <main className="container is-fluid site-page">
     <section className="columns">
       <div className="column is-full">
-        <h1>DATA PATA: {path}</h1>
+        <h1 className="title">DATA PATA: {path}</h1>
         {/* <pre>{JSON.stringify(data, null, 4)}</pre> */}
       </div>
     </section>

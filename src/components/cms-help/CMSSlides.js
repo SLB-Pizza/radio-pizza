@@ -5,7 +5,7 @@ export default function CMSSlides(props) {
   const { slideData } = props;
 
   return (
-    <div className="columns is-multiline cms-section" id="slides">
+    <section className="columns is-multiline cms-section" id="slides">
       <div className="column is-12">
         <div className="content">
           <h2 className="subtitle">Sample Slide</h2>
@@ -71,23 +71,29 @@ export default function CMSSlides(props) {
         </div>
         <div>
           <h4 className="subtitle">Slide Headline</h4>
-          <p>> {RichText.asText(slideData.slideHeadline)}</p>
+          <p>
+            {">"} {RichText.asText(slideData.slideHeadline)}
+          </p>
         </div>
         <div>
           <h4 className="subtitle">Slide Call To Action</h4>
-          <p>> {RichText.asText(slideData.slideCta)}</p>
+          <p>
+            {">"} {RichText.asText(slideData.slideCta)}
+          </p>
         </div>
         <div
           className={slideData.slideLinkTarget === "null" ? "cms-warning" : ""}
         >
           <h4 className="subtitle">Slide Link</h4>
-          <p>> {slideData.slideLink}</p>
+          <p>
+            {">"} {slideData.slideLink}
+          </p>
           <p>
             Opens in new tab?{" "}
             {slideData.slideLinkTarget === "null" ? "Yes" : "No"}
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

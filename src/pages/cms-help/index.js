@@ -1,16 +1,17 @@
 import React from "react";
 import { graphql, Link, StaticQuery } from "gatsby";
+import { RichText } from "prismic-reactjs";
 
-import { CMSSlides } from "../../components";
+import { CMSSlides, HomeContentSample } from "../../components";
 
 export default function CMSHelp({ data }) {
   const prismicContent = data.prismic.allHomepages.edges[0];
   if (!prismicContent) return null;
   const document = prismicContent.node;
 
-  // Grab a section of document's data and then destructure for use
   console.log(document);
 
+  // Grab portions of document's data and then destructure for use as props
   const sampleSlide = document.homepage_carousel[0];
   const slideData = {
     bgUrl: sampleSlide.slide_bg_url.url,
@@ -21,8 +22,17 @@ export default function CMSHelp({ data }) {
     slideLinkTarget: sampleSlide.slide_link.target,
   };
 
+  const homeContentData = {
+    mixesHeadline: document.home_mixes_headline,
+    mixesBlurb: document.home_mixes_blurb,
+    eventsHeadline: document.home_events_headline,
+    eventsBlurb: document.home_events_blurb,
+    featuresHeadline: document.home_features_headline,
+    featuresBlurb: document.home_features_blurb,
+  };
+
   return (
-    <section className="container is-fluid site-page">
+    <main className="container is-fluid site-page">
       <div className="columns">
         <div className="content">
           <div className="column is-12">
@@ -38,8 +48,9 @@ export default function CMSHelp({ data }) {
         </div>
       </div>
       <CMSSlides slideData={slideData} />
+      <HomeContentSample homeContentData={homeContentData} />
       <hr />
-    </section>
+    </main>
   );
 }
 

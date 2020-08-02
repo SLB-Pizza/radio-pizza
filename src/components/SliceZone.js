@@ -1,7 +1,9 @@
 import React from "react";
 
-const SliceZone = ({ sliceZone }) => {
-  return sliceZone.map((slice, index) => <p key={index}>{slice.type}</p>);
-};
-
-export default SliceZone;
+export default function SliceZone({ sliceZone }) {
+  return sliceZone.map((slice, index) => (
+    <p className="subtitle is-size-3" key={index}>
+      {slice.type}
+    </p>
+  ));
+}

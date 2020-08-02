@@ -67,7 +67,15 @@ module.exports = {
     {
       resolve: "gatsby-source-prismic-graphql",
       options: {
-        repositoryName: "hmbk-cms", // https://hmbk-cms.prismic.io/
+        repositoryName: "hmbk-cms", // https://hmbk-cms.prismic.io/,
+        pages: [
+          {
+            type: "Feature",
+            match: "/features/:uid",
+            path: "/feature-preview",
+            component: require.resolve("./src/templates/Feature.js"),
+          },
+        ],
       },
     },
     {

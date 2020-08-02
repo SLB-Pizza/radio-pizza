@@ -1,169 +1,80 @@
-import React, { useContext } from "react";
-import { Link, graphql } from "gatsby";
-import {
-  GlobalDispatchContext,
-  // GlobalStateContext
-} from "../context/GlobalContextProvider";
+import React from "react";
+import { graphql } from "gatsby";
 import PropTypes from "prop-types";
 
 import "../styles/index.scss";
 import { Hero, HomeContent } from "../components";
 
-// import Layout from "../components/Layout";
-// import Features from "../components/Features";
-// import BlogRoll from "../components/BlogRoll";
+function IndexPageTemplate({ data }) {
+  // Focus the node for the prismicContent check below.
+  const prismicContent = data.prismic.allHomepages.edges[0];
 
-export const IndexPageTemplate = ({
-  image,
-  title,
-  heading,
-  subheading,
-  mainpitch,
-  description,
-  intro,
-}) => {
-  const dispatch = useContext(GlobalDispatchContext);
-  // const state = useContext(GlobalStateContext);
+  /**
+   * This line is here to prevent an error from occurring when you eventually deploy the site live. There is an issue with the preview functionality that requires this check on every page.
+   * Details: https://prismic.io/docs/gatsby/rendering/retrieve-the-document-object#21_0-adding-a-validation-check
+   */
+  if (!prismicContent) return null;
 
-  const renderLoadButton = (url, title, artist = "HalfMoon NYC", label) => {
-    return (
-      <button
-        className="button is-fullwidth"
-        onClick={() =>
-          dispatch({
-            type: "CHANGE_URL",
-            payload: {
-              url: url,
-              title: title,
-              artist: artist,
-            },
-          })
-        }
-      >
-        {label}
-      </button>
-    );
+  // Grab the data object from prismicContent
+  const document = prismicContent.node;
+
+  // Create objects by pulling data values from document to pass as props to components in return statement.
+  const slidesForHero = document.homepage_carousel;
+  const homeMixesText = {
+    mixesHeadline: document.home_mixes_headline,
+    mixesSectionBlurb: document.home_mixes_blurb,
   };
-
-  const soundcloudBtn = renderLoadButton(
-    "https://soundcloud.com/soundcloud-scenes/sets/doom-folk-and-indie",
-    "Doom Folk and indie",
-    "Some Artists Names",
-    "SoundCloud"
-  );
-  const mixcloudBtn = renderLoadButton(
-    "https://www.mixcloud.com/HalfMoonbk/guerrer-3122020/",
-    "Guerrer 03/12/2020",
-    "Guerrer",
-    "MixCloud"
-  );
-  const radioCoBtn = renderLoadButton(
-    "https://streamer.radio.co/sa3c47c55b/listen",
-    "Half Moon Radio",
-    "[will be connected to clanerdar/radio.co in the future]",
-    "Radio.co - Halfmoon"
-  );
-  const youtubeBtn = renderLoadButton(
-    "https://youtu.be/yhCuCqJbOVE?t=1887",
-    "CYBER DREAM SYNTHWAVE MIX",
-    "Varierty of Artists",
-    "Youtube"
-  );
-  const vimeoBtn = renderLoadButton(
-    "https://vimeo.com/350662849",
-    "Future to the Back Mix, Best of",
-    "TEST NAME",
-    "Vimeo"
-  );
+  const homeEventsText = {
+    eventsHeadline: document.home_events_headline,
+    eventsSectionBlurb: document.home_events_blurb,
+  };
+  const homeFeaturesText = {
+    featuresHeadline: document.home_features_headline,
+    featuresSectionBlurb: document.home_features_blurb,
+  };
 
   return (
     <div className="has-navbar-fixed-bottom site-page">
-      <Hero
-        soundcloudBtn={soundcloudBtn}
-        mixcloudBtn={mixcloudBtn}
-        radioCoBtn={radioCoBtn}
-        youtubeBtn={youtubeBtn}
-        vimeoBtn={vimeoBtn}
+      <Hero slides={slidesForHero} />
+      <HomeContent
+        homeMixesText={homeMixesText}
+        homeEventsText={homeEventsText}
+        homeFeaturesText={homeFeaturesText}
       />
-      <HomeContent />
     </div>
   );
-};
+}
 
-IndexPageTemplate.propTypes = {
-  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  title: PropTypes.string,
-  heading: PropTypes.string,
-  subheading: PropTypes.string,
-  mainpitch: PropTypes.object,
-  description: PropTypes.string,
-  intro: PropTypes.shape({
-    blurbs: PropTypes.array,
-  }),
-};
-
-const IndexPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark;
-
-  return (
-    // <Layout>
-    <IndexPageTemplate
-      image={frontmatter.image}
-      title={frontmatter.title}
-      heading={frontmatter.heading}
-      subheading={frontmatter.subheading}
-      mainpitch={frontmatter.mainpitch}
-      description={frontmatter.description}
-      intro={frontmatter.intro}
-    />
-    // </Layout>
-  );
-};
-
-IndexPage.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
-    }),
-  }),
-};
-
-export default IndexPage;
-
-export const pageQuery = graphql`
-  query IndexPageTemplate {
-    markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
-      frontmatter {
-        title
-        image {
-          childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        heading
-        subheading
-        mainpitch {
-          title
-          description
-        }
-        description
-        intro {
-          blurbs {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
+export const query = graphql`
+  {
+    prismic {
+      allHomepages {
+        edges {
+          node {
+            homepage_carousel {
+              slide_bg_url
+              slide_cta
+              slide_headline
+              slide_link {
+                _linkType
+                ... on PRISMIC__ExternalLink {
+                  target
+                  _linkType
+                  url
                 }
               }
             }
-            text
+            home_mixes_headline
+            home_mixes_blurb
+            home_events_headline
+            home_events_blurb
+            home_features_headline
+            home_features_blurb
           }
-          heading
-          description
         }
       }
     }
   }
 `;
+
+export default IndexPageTemplate;

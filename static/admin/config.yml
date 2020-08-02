@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: master
+  branch: CMS/weeklySchedule
   commit_messages:
     create: "Create {{collection}} “{{slug}}”"
     update: "Update {{collection}} “{{slug}}”"
@@ -25,6 +25,7 @@ collections:
           name: "templateKey",
           widget: "hidden",
           default: "blog-post",
+          `,
         }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
@@ -33,7 +34,6 @@ collections:
       - { label: "Featured Image", name: "featuredimage", widget: image }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Tags", name: "tags", widget: "list" }
-
   - name: "djs"
     label: "Djs"
     folder: "src/pages/djs"
@@ -460,4 +460,1926 @@ collections:
                       ],
                   },
                 ],
+            }
+
+  - name: "weeklySchedule"
+    label: "Weekly Schedule"
+    files:
+      - file: "src/pages/weeklySchedule/sunday.md"
+        label: "Sunday Schedule"
+        name: "sunday"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "weekly-schedule",
+            }
+          - {
+              label: "12:00 AM - 1:00 AM",
+              name: "sun00",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "1:00 AM - 2:00 AM",
+              name: "sun01",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "2:00 AM - 3:00 AM",
+              name: "sun02",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "3:00 AM - 4:00 AM",
+              name: "sun03",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "4:00 AM - 5:00 AM",
+              name: "sun04",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "5:00 AM - 6:00 AM",
+              name: "sun05",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "6:00 AM - 7:00 AM",
+              name: "sun06",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "7:00 AM - 8:00 AM",
+              name: "sun07",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "8:00 AM - 9:00 AM",
+              name: "sun08",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "9:00 AM - 10:00 AM",
+              name: "sun09",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "10:00 AM - 11:00 AM",
+              name: "sun10",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "11:00 AM - 12:00 PM",
+              name: "sun11",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "12:00 PM - 1:00 PM",
+              name: "sun12",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "1:00 PM - 2:00 PM",
+              name: "sun13",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "2:00 PM - 3:00 PM",
+              name: "sun14",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "3:00 PM - 4:00 PM",
+              name: "sun15",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "4:00 PM - 5:00 PM",
+              name: "sun16",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "5:00 PM - 6:00 PM",
+              name: "sun17",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "6:00 PM - 7:00 PM",
+              name: "sun18",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "7:00 PM - 8:00 PM",
+              name: "sun19",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "8:00 PM - 9:00 PM",
+              name: "sun20",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "9:00 PM - 10:00 PM",
+              name: "sun21",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "10:00 PM - 11:00 PM",
+              name: "sun22",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "11:00 PM - 12:00 AM",
+              name: "sun23",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+      - file: "src/pages/weeklySchedule/monday.md"
+        label: "Monday Schedule"
+        name: "monday"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "weekly-schedule",
+            }
+          - {
+              label: "12:00 AM - 1:00 AM",
+              name: "mon00",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "1:00 AM - 2:00 AM",
+              name: "mon01",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "2:00 AM - 3:00 AM",
+              name: "mon02",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "3:00 AM - 4:00 AM",
+              name: "mon03",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "4:00 AM - 5:00 AM",
+              name: "mon04",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "5:00 AM - 6:00 AM",
+              name: "mon05",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "6:00 AM - 7:00 AM",
+              name: "mon06",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "7:00 AM - 8:00 AM",
+              name: "mon07",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "8:00 AM - 9:00 AM",
+              name: "mon08",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "9:00 AM - 10:00 AM",
+              name: "mon09",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "10:00 AM - 11:00 AM",
+              name: "mon10",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "11:00 AM - 12:00 PM",
+              name: "mon11",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "12:00 PM - 1:00 PM",
+              name: "mon12",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "1:00 PM - 2:00 PM",
+              name: "mon13",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "2:00 PM - 3:00 PM",
+              name: "mon14",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "3:00 PM - 4:00 PM",
+              name: "mon15",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "4:00 PM - 5:00 PM",
+              name: "mon16",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "5:00 PM - 6:00 PM",
+              name: "mon17",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "6:00 PM - 7:00 PM",
+              name: "mon18",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "7:00 PM - 8:00 PM",
+              name: "mon19",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "8:00 PM - 9:00 PM",
+              name: "mon20",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "9:00 PM - 10:00 PM",
+              name: "mon21",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "10:00 PM - 11:00 PM",
+              name: "mon22",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "11:00 PM - 12:00 AM",
+              name: "mon23",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+      - file: "src/pages/weeklySchedule/tuesday.md"
+        label: "Tuesday Schedule"
+        name: "tuesday"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "weekly-schedule",
+            }
+          - {
+              label: "12:00 AM - 1:00 AM",
+              name: "tues00",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "1:00 AM - 2:00 AM",
+              name: "tues01",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "2:00 AM - 3:00 AM",
+              name: "tues02",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "3:00 AM - 4:00 AM",
+              name: "tues03",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "4:00 AM - 5:00 AM",
+              name: "tues04",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "5:00 AM - 6:00 AM",
+              name: "tues05",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "6:00 AM - 7:00 AM",
+              name: "tues06",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "7:00 AM - 8:00 AM",
+              name: "tues07",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "8:00 AM - 9:00 AM",
+              name: "tues08",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "9:00 AM - 10:00 AM",
+              name: "tues09",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "10:00 AM - 11:00 AM",
+              name: "tues10",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "11:00 AM - 12:00 PM",
+              name: "tues11",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "12:00 PM - 1:00 PM",
+              name: "tues12",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "1:00 PM - 2:00 PM",
+              name: "tues13",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "2:00 PM - 3:00 PM",
+              name: "tues14",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "3:00 PM - 4:00 PM",
+              name: "tues15",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "4:00 PM - 5:00 PM",
+              name: "tues16",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "5:00 PM - 6:00 PM",
+              name: "tues17",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "6:00 PM - 7:00 PM",
+              name: "tues18",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "7:00 PM - 8:00 PM",
+              name: "tues19",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "8:00 PM - 9:00 PM",
+              name: "tues20",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "9:00 PM - 10:00 PM",
+              name: "tues21",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "10:00 PM - 11:00 PM",
+              name: "tues22",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "11:00 PM - 12:00 AM",
+              name: "tues23",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+      - file: "src/pages/weeklySchedule/wednesday.md"
+        label: "Wednesday Schedule"
+        name: "wednesday"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "weekly-schedule",
+            }
+          - {
+              label: "12:00 AM - 1:00 AM",
+              name: "weds00",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "1:00 AM - 2:00 AM",
+              name: "weds01",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "2:00 AM - 3:00 AM",
+              name: "weds02",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "3:00 AM - 4:00 AM",
+              name: "weds03",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "4:00 AM - 5:00 AM",
+              name: "weds04",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "5:00 AM - 6:00 AM",
+              name: "weds05",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "6:00 AM - 7:00 AM",
+              name: "weds06",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "7:00 AM - 8:00 AM",
+              name: "weds07",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "8:00 AM - 9:00 AM",
+              name: "weds08",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "9:00 AM - 10:00 AM",
+              name: "weds09",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "10:00 AM - 11:00 AM",
+              name: "weds10",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "11:00 AM - 12:00 PM",
+              name: "weds11",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "12:00 PM - 1:00 PM",
+              name: "weds12",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "1:00 PM - 2:00 PM",
+              name: "weds13",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "2:00 PM - 3:00 PM",
+              name: "weds14",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "3:00 PM - 4:00 PM",
+              name: "weds15",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "4:00 PM - 5:00 PM",
+              name: "weds16",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "5:00 PM - 6:00 PM",
+              name: "weds17",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "6:00 PM - 7:00 PM",
+              name: "weds18",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "7:00 PM - 8:00 PM",
+              name: "weds19",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "8:00 PM - 9:00 PM",
+              name: "weds20",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "9:00 PM - 10:00 PM",
+              name: "weds21",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "10:00 PM - 11:00 PM",
+              name: "weds22",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "11:00 PM - 12:00 AM",
+              name: "weds23",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+      - file: "src/pages/weeklySchedule/thursday.md"
+        label: "Thursday Schedule"
+        name: "thursday"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "weekly-schedule",
+            }
+          - {
+              label: "12:00 AM - 1:00 AM",
+              name: "thurs00",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "1:00 AM - 2:00 AM",
+              name: "thurs01",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "2:00 AM - 3:00 AM",
+              name: "thurs02",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "3:00 AM - 4:00 AM",
+              name: "thurs03",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "4:00 AM - 5:00 AM",
+              name: "thurs04",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "5:00 AM - 6:00 AM",
+              name: "thurs05",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "6:00 AM - 7:00 AM",
+              name: "thurs06",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "7:00 AM - 8:00 AM",
+              name: "thurs07",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "8:00 AM - 9:00 AM",
+              name: "thurs08",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "9:00 AM - 10:00 AM",
+              name: "thurs09",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "10:00 AM - 11:00 AM",
+              name: "thurs10",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "11:00 AM - 12:00 PM",
+              name: "thurs11",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "12:00 PM - 1:00 PM",
+              name: "thurs12",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "1:00 PM - 2:00 PM",
+              name: "thurs13",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "2:00 PM - 3:00 PM",
+              name: "thurs14",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "3:00 PM - 4:00 PM",
+              name: "thurs15",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "4:00 PM - 5:00 PM",
+              name: "thurs16",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "5:00 PM - 6:00 PM",
+              name: "thurs17",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "6:00 PM - 7:00 PM",
+              name: "thurs18",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "7:00 PM - 8:00 PM",
+              name: "thurs19",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "8:00 PM - 9:00 PM",
+              name: "thurs20",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "9:00 PM - 10:00 PM",
+              name: "thurs21",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "10:00 PM - 11:00 PM",
+              name: "thurs22",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "11:00 PM - 12:00 AM",
+              name: "thurs23",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+      - file: "src/pages/weeklySchedule/friday.md"
+        label: "Friday Schedule"
+        name: "friday"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "weekly-schedule",
+            }
+          - {
+              label: "12:00 AM - 1:00 AM",
+              name: "fri00",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "1:00 AM - 2:00 AM",
+              name: "fri01",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "2:00 AM - 3:00 AM",
+              name: "fri02",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "3:00 AM - 4:00 AM",
+              name: "fri03",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "4:00 AM - 5:00 AM",
+              name: "fri04",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "5:00 AM - 6:00 AM",
+              name: "fri05",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "6:00 AM - 7:00 AM",
+              name: "fri06",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "7:00 AM - 8:00 AM",
+              name: "fri07",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "8:00 AM - 9:00 AM",
+              name: "fri08",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "9:00 AM - 10:00 AM",
+              name: "fri09",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "10:00 AM - 11:00 AM",
+              name: "fri10",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "11:00 AM - 12:00 PM",
+              name: "fri11",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "12:00 PM - 1:00 PM",
+              name: "fri12",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "1:00 PM - 2:00 PM",
+              name: "fri13",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "2:00 PM - 3:00 PM",
+              name: "fri14",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "3:00 PM - 4:00 PM",
+              name: "fri15",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "4:00 PM - 5:00 PM",
+              name: "fri16",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "5:00 PM - 6:00 PM",
+              name: "fri17",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "6:00 PM - 7:00 PM",
+              name: "fri18",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "7:00 PM - 8:00 PM",
+              name: "fri19",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "8:00 PM - 9:00 PM",
+              name: "fri20",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "9:00 PM - 10:00 PM",
+              name: "fri21",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "10:00 PM - 11:00 PM",
+              name: "fri22",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "11:00 PM - 12:00 AM",
+              name: "fri23",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+      - file: "src/pages/weeklySchedule/saturday.md"
+        label: "Saturday Schedule"
+        name: "saturday"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "weekly-schedule",
+            }
+          - {
+              label: "12:00 AM - 1:00 AM",
+              name: "sat00",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "1:00 AM - 2:00 AM",
+              name: "sat01",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "2:00 AM - 3:00 AM",
+              name: "sat02",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "3:00 AM - 4:00 AM",
+              name: "sat03",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "4:00 AM - 5:00 AM",
+              name: "sat04",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "5:00 AM - 6:00 AM",
+              name: "sat05",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "6:00 AM - 7:00 AM",
+              name: "sat06",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "7:00 AM - 8:00 AM",
+              name: "sat07",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "8:00 AM - 9:00 AM",
+              name: "sat08",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "9:00 AM - 10:00 AM",
+              name: "sat09",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "10:00 AM - 11:00 AM",
+              name: "sat10",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "11:00 AM - 12:00 PM",
+              name: "sat11",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "12:00 PM - 1:00 PM",
+              name: "sat12",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "1:00 PM - 2:00 PM",
+              name: "sat13",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "2:00 PM - 3:00 PM",
+              name: "sat14",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "3:00 PM - 4:00 PM",
+              name: "sat15",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "4:00 PM - 5:00 PM",
+              name: "sat16",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "5:00 PM - 6:00 PM",
+              name: "sat17",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "6:00 PM - 7:00 PM",
+              name: "sat18",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "7:00 PM - 8:00 PM",
+              name: "sat19",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "8:00 PM - 9:00 PM",
+              name: "sat20",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "9:00 PM - 10:00 PM",
+              name: "sat21",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "10:00 PM - 11:00 PM",
+              name: "sat22",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
+            }
+          - {
+              label: "11:00 PM - 12:00 AM",
+              name: "sat23",
+              widget: "relation",
+              default: "none",
+              collection: "shows",
+              displayFields: ["name"],
+              searchFields: ["name"],
+              valueField: "name",
+              multiple: false,
             }

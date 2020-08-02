@@ -7,13 +7,13 @@
 
 $pink: #f600ff;
 $primary: $pink;
-// $primary-invert: black;
 
 //==================================
 // text variables
 //==================================
 $title-color: $white;
 $subtitle-color: $white;
+$content-heading-color: $white;
 
 //==================================
 // /search page stuff
@@ -48,7 +48,10 @@ $button-active-border-color: darken($primary, 15);
 // $dropdown-content-arrow: white;
 // $dropdown-item-active-background-color: white;
 
+//==================================
 // Duotone variables
+//==================================
+
 $dt-base: #f600ff;
 $dt-bg-blend: multiply;
 $dt-blur: 0px;
@@ -94,8 +97,6 @@ button.button,
   font-kerning: normal;
   font-display: swap;
   font-weight: 600;
-  // font-weight: $weight-normal;
-  // letter-spacing: -0.0125rem;
 }
 
 p,
@@ -110,7 +111,9 @@ p,
 a,
 p,
 p.title,
-p.subtitle {
+p.subtitle,
+ol,
+ul {
   color: white;
 }
 

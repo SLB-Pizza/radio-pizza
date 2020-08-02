@@ -1,3 +1,7 @@
+// Page /cms-help components
+export { default as CMSSlides } from "./cms-help/CMSSlides";
+export { default as HomeContentSample } from "./cms-help/HomeContentSample";
+
 export { default as BottomNav } from "./BottomNav";
 export { default as CategoryItem } from "./CategoryItem";
 export { default as Hero } from "./Hero";
@@ -22,6 +26,7 @@ export { default as ScheduleDropdown } from "./ScheduleDropdown";
 export { default as ScheduleDatePicker } from "./ScheduleDatePicker";
 export { default as ScheduleModal } from "./ScheduleModal";
 export { default as ScheduleShowEntry } from "./ScheduleShowEntry";
+export { default as SliceZone } from "./SliceZone";
 export { default as SingleEventCard } from "./SingleEventCard";
 export { default as SingleMixCard } from "./SingleMixCard";
 export { default as SingleResident } from "./SingleResident";

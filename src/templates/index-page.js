@@ -8,6 +8,7 @@ import { Hero, HomeContent } from "../components";
 function IndexPageTemplate({ data }) {
   // Focus the node for the prismicContent check below.
   const prismicContent = data.prismic.allHomepages.edges[0];
+
   /**
    * This line is here to prevent an error from occurring when you eventually deploy the site live. There is an issue with the preview functionality that requires this check on every page.
    * Details: https://prismic.io/docs/gatsby/rendering/retrieve-the-document-object#21_0-adding-a-validation-check

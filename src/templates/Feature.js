@@ -9,20 +9,24 @@ const FeatureTemplate = ({ data, path }) => {
 
   return (
     <main className="container is-fluid site-page">
-      <section className="columns">
-        <div className="column is-full">
-          <h1 className="title">Data Path: {path}</h1>
-          <hr />
-          <h2 className="subtitle">Slice Types</h2>
-          <SliceZone sliceZone={document.body} />
-          <hr />
-          <h2 className="subtitle">Data from FeaturesQuery</h2>
-          <pre>{JSON.stringify(document.body, null, 2)}</pre>
-        </div>
-      </section>
+      <SliceZone sliceZone={document.body} />
     </main>
   );
 };
+
+{
+  /* <section className="columns">
+<div className="column is-full">
+  <h1 className="title">Data Path: {path}</h1>
+  <hr />
+  <h2 className="subtitle">Slice Types</h2>
+  <SliceZone sliceZone={document.body} />
+  <hr />
+  <h2 className="subtitle">Data from FeaturesQuery</h2>
+  <pre>{JSON.stringify(document.body, null, 2)}</pre>
+</div>
+</section> */
+}
 
 export const query = graphql`
   query FeaturesQuery($uid: String) {
@@ -70,3 +74,18 @@ export const query = graphql`
 `;
 
 export default FeatureTemplate;
+
+// Example nested data sections
+{
+  /* <section className="columns">
+<div className="column is-full">
+  <h1 className="title">Data Path: {path}</h1>
+  <hr />
+  <h2 className="subtitle">Slice Types</h2>
+  <SliceZone sliceZone={document.body} />
+  <hr />
+  <h2 className="subtitle">Data from FeaturesQuery</h2>
+  <pre>{JSON.stringify(document.body, null, 2)}</pre>
+</div>
+</section> */
+}

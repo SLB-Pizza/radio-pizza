@@ -1,15 +1,16 @@
 import React from "react";
 import { graphql, Link, StaticQuery } from "gatsby";
-import { withPreview } from "gatsby-source-prismic-graphql";
 
 import { CMSSlides } from "../../components";
 
 export default function CMSHelp({ data }) {
-  const prismicContent = data.prismic._allDocuments.edges[0];
+  const prismicContent = data.prismic.allHomepages.edges[0];
   if (!prismicContent) return null;
   const document = prismicContent.node;
 
   // Grab a section of document's data and then destructure for use
+  console.log(document);
+
   const sampleSlide = document.homepage_carousel[0];
   const slideData = {
     bgUrl: sampleSlide.slide_bg_url.url,
@@ -42,24 +43,27 @@ export default function CMSHelp({ data }) {
   );
 }
 
-export const guideQuery = graphql`
-  {
+export const query = graphql`
+  query CMSHelpCarouselSection {
     prismic {
-      _allDocuments {
+      allHomepages {
         edges {
           node {
-            ... on PRISMIC_Homepage {
-              _linkType
-              homepage_carousel {
-                slide_bg_url
-                slide_headline
-                slide_cta
-                slide_link {
-                  ... on PRISMIC__ExternalLink {
-                    target
-                    _linkType
-                    url
-                  }
+            home_mixes_headline
+            home_mixes_blurb
+            home_events_headline
+            home_events_blurb
+            home_features_headline
+            home_features_blurb
+            homepage_carousel {
+              slide_bg_url
+              slide_headline
+              slide_cta
+              slide_link {
+                ... on PRISMIC__ExternalLink {
+                  target
+                  _linkType
+                  url
                 }
               }
             }

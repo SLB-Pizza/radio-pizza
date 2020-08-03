@@ -47,7 +47,12 @@ export default function SampleFeature() {
         Full Width Image Sizes
       </p>
       {fwiTestData.map((fwi, index) => (
-        <FullWidthImage details={fwi} key={`index-${index}`} />
+        <FullWidthImage
+          type={fwi.type}
+          data={fwi.data}
+          bgUrl={fwi.bgUrl}
+          key={`index-${index}`}
+        />
       ))}
       <p className="title is-size-2 has-text-centered">
         Blockquotes with and without images

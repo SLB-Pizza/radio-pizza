@@ -2,7 +2,7 @@ import React from "react";
 
 // const FullWidthImage = ({ slice }) => {
 const FullWidthImage = (props) => {
-  const { type, data, bgUrl } = props.details;
+  const { type, data, bgUrl } = props;
 
   let imgStyle = null;
   if (bgUrl) {
@@ -27,11 +27,11 @@ const FullWidthImage = (props) => {
   }
 
   return (
-    <section class={heroClassName} style={imgStyle}>
-      <div class="hero-body">
-        <div class="container">
-          <p class="title is-size-3">{data}</p>
-          <h2 class="subtitle">Full Width Image Title</h2>
+    <section className={heroClassName} style={imgStyle}>
+      <div className="hero-body">
+        <div className="container">
+          <p className="title is-size-3">{data}</p>
+          <h2 className="subtitle">Full Width Image Title</h2>
         </div>
       </div>
     </section>

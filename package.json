@@ -12,6 +12,11 @@
       "url": "https://richarddominguez.dev"
     }
   ],
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "main": "n/a",
   "dependencies": {
     "@farbenmeer/react-spring-slider": "^1.2.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
@@ -64,22 +69,17 @@
     "smarquee": "^1.0.5",
     "uuid": "^3.2.1"
   },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
-  "main": "n/a",
-  "scripts": {
-    "clean": "gatsby clean",
-    "start": "npm run develop",
-    "build": "npm run clean && gatsby build",
-    "develop": "npm run clean && gatsby develop -H 0.0.0.0",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
-    "preinstall": "npx npm-force-resolutions",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "screenshots": "node __tests__/gatsby-puppeteer.js"
-  },
   "devDependencies": {
+    "@babel/core": "^7.11.0",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-docs": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addon-storysource": "^5.3.19",
+    "@storybook/addon-viewport": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/react": "^5.3.19",
+    "babel-loader": "^8.1.0",
+    "babel-preset-react-app": "^9.1.2",
     "chalk": "^3.0.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
@@ -95,6 +95,18 @@
     "prettier": "^1.19.1",
     "puppeteer": "^2.1.1",
     "url": "^0.11.0"
+  },
+  "scripts": {
+    "clean": "gatsby clean",
+    "start": "npm run develop",
+    "build": "npm run clean && gatsby build",
+    "develop": "npm run clean && gatsby develop -H 0.0.0.0",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
+    "preinstall": "npx npm-force-resolutions",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "screenshots": "node __tests__/gatsby-puppeteer.js",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "resolutions": {
     "gatsby-source-graphql-universal": "3.3.0"

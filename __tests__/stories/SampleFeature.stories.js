@@ -3,7 +3,7 @@ import { Blockquote, FullWidthImage } from "../../src/components/slices";
 import "../../src/styles/index.scss";
 
 export default {
-  title: "Prismic CMS Slices/Sample Feature",
+  title: "Prismic CMS Slices/Sample Layouts",
 };
 
 const fwiBgUrl = "https://w.wallhaven.cc/full/lq/wallhaven-lqwgdy.jpg";

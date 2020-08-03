@@ -58,7 +58,7 @@ export default function SampleFeature() {
         Blockquotes with and without images
       </p>
       {blockquoteTest.map((quote, index) => (
-        <Blockquote details={quote} key={`index-${index}`} />
+        <Blockquote bgUrl={quote.bgUrl} key={`index-${index}`} />
       ))}
     </main>
   );

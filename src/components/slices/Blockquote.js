@@ -2,7 +2,7 @@ import React from "react";
 
 // const Blockquote = ( { slice }) => {
 const Blockquote = (props) => {
-  const { bgUrl } = props.details;
+  const { bgUrl } = props;
 
   let imgStyle = null;
   if (bgUrl) {

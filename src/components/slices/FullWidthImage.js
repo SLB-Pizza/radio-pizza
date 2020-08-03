@@ -1,19 +1,38 @@
 import React from "react";
 
-const FullWidthImage = ({ slice }) => {
-  const imgUrl =
-    "https://images.prismic.io/hmbk-cms/7a050f39-fc51-4148-8272-cbb5ed05e261_wallhaven-g8gxo3.png?auto=compress,format";
+// const FullWidthImage = ({ slice }) => {
+const imgUrl =
+  "https://images.prismic.io/hmbk-cms/3665ac51-0ceb-4701-9e54-1a3699401d13_wallhaven-vm2o9m.jpg?auto=compress,format";
+
+const FullWidthImage = (props) => {
+  const { type, data } = props.details;
+
+  let heroClassName = "";
+
+  switch (type) {
+    case "short":
+      heroClassName = "hero sample-feature";
+      break;
+    case "medium":
+      heroClassName = "hero is-medium sample-feature";
+      break;
+    case "large":
+      heroClassName = "hero is-large sample-feature";
+      break;
+    default:
+      heroClassName = "hero sample-feature";
+  }
 
   return (
     <section
-      class="hero is-medium"
+      class={heroClassName}
       style={{
         backgroundImage: `url(${imgUrl})`,
       }}
     >
       <div class="hero-body">
         <div class="container">
-          <h1 class="title">Full Width Image Title</h1>
+          <p class="title is-size-3">{data}</p>
           <h2 class="subtitle">Full Width Image Title</h2>
         </div>
       </div>

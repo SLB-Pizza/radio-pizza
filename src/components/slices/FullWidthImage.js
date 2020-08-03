@@ -19,7 +19,7 @@ const FullWidthImage = (props) => {
     case "medium":
       heroClassName = "hero is-medium sample-feature";
       break;
-    case "large":
+    case "tall":
       heroClassName = "hero is-large sample-feature";
       break;
     default:

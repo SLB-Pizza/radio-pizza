@@ -15,7 +15,7 @@ const fwiTestData = [
       "https://images.prismic.io/hmbk-cms/3665ac51-0ceb-4701-9e54-1a3699401d13_wallhaven-vm2o9m.jpg?auto=compress,format",
   },
   {
-    type: "large",
+    type: "tall",
     data: "Tall Full Width Image",
     bgUrl:
       "https://images.prismic.io/hmbk-cms/3665ac51-0ceb-4701-9e54-1a3699401d13_wallhaven-vm2o9m.jpg?auto=compress,format",

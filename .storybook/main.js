@@ -1,5 +1,3 @@
-const path = require("path");
-
 module.exports = {
   stories: ["../__tests__/stories/**/*.stories.(js|mdx)"],
   addons: [
@@ -30,18 +28,15 @@ module.exports = {
     ];
 
     config.module.rules.push({
-      test: /\.scss$/,
+      // Grab all .sass and .scss files in this repo
+      test: /\.s[ac]ss$/i,
       use: [
-        { loader: require.resolve("style-loader") },
-        {
-          loader: require.resolve("css-loader"),
-          options: {
-            importLoaders: 1,
-            modules: true,
-            sourceMap: true,
-          },
-        },
-        { loader: require.resolve("sass-loader") },
+        // Creates `style` nodes from JS strings
+        "style-loader",
+        // Translates CSS into CommonJS
+        "css-loader",
+        // Compiles Sass to CSS
+        "sass-loader",
       ],
     });
 

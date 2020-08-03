@@ -25,5 +25,5 @@ export const Medium = () => (
   />
 );
 export const Tall = () => (
-  <FullWidthImage type={"short"} data={"Tall Full Width Image"} bgUrl={bgURL} />
+  <FullWidthImage type={"tall"} data={"Tall Full Width Image"} bgUrl={bgURL} />
 );

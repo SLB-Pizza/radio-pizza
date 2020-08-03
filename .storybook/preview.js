@@ -1,7 +1,8 @@
 import { action } from "@storybook/addon-actions";
-import { addParameters } from "@storybook/react";
+import { addParameters, addDecorator } from "@storybook/react";
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 import { DocsPage, DocsContainer } from "@storybook/addon-docs/blocks";
+import { withA11y } from "@storybook/addon-a11y";
 
 /**
  * Gatsby's Link overrides:
@@ -37,3 +38,5 @@ addParameters({
     viewports: INITIAL_VIEWPORTS,
   },
 });
+
+addDecorator(withA11y);

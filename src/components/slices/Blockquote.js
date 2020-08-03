@@ -20,7 +20,7 @@ const Blockquote = (props) => {
         backgroundImage: `url(${bgURL})`,
       };
       blockClassNames += " light-bg";
-      citeClassNames += " light-bg";
+      citeClassNames += " has-text-black";
       break;
     case "dark": // Blockquote with dark color background image
       imgStyle = {

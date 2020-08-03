@@ -2,14 +2,16 @@ import React from "react";
 
 // const Blockquote = ( { slice }) => {
 const Blockquote = (props) => {
-  const { bgUrl } = props;
+  const { bgURL, bgType } = props;
 
   let imgStyle = null;
-  if (bgUrl) {
+  if (bgURL) {
     imgStyle = {
-      backgroundImage: `url(${bgUrl})`,
+      backgroundImage: `url(${bgURL})`,
     };
   }
+
+  let bgType = null;
 
   return (
     <section className="hero sample-feature" style={imgStyle}>

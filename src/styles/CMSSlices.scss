@@ -1,3 +1,24 @@
+// ================================
+// CMS Slice -- Blockquote.js
+// ================================
+blockquote {
+  &.light-bg {
+    border-left: 5px solid black;
+    color: black;
+  }
+  &.dark-bg {
+    border-left: 5px solid white;
+  }
+}
+
+cite.light-bg {
+  color: black;
+}
+
+// ================================
+// CMS Slice -- Blockquote.js
+// ================================
+
 section.sample-feature {
   margin-bottom: 3rem;
 }

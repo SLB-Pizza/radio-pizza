@@ -1,5 +1,6 @@
 import { action } from "@storybook/addon-actions";
 import { addParameters } from "@storybook/react";
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 import { DocsPage, DocsContainer } from "@storybook/addon-docs/blocks";
 
 /**
@@ -31,5 +32,8 @@ addParameters({
   docs: {
     container: DocsContainer,
     page: DocsPage,
+  },
+  viewport: {
+    viewports: INITIAL_VIEWPORTS,
   },
 });

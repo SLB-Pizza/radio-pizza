@@ -5,6 +5,7 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-storysource",
     "@storybook/addon-docs",
+    "@storybook/addon-viewport/register",
   ],
   webpackFinal: async (config) => {
     // Transpile Gatsby module because Gatsby includes un-transpiled ES6 code.

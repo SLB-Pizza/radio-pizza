@@ -6,8 +6,10 @@ const Blockquote = (props) => {
 
   // Declare imgStyle to default to no background image; black page background
   let imgStyle = null;
-  let blockColors = null;
-  let citeColors = null;
+
+  let blockClassNames = "is-size-1-desktop is-size-3-tablet is-size-4-mobile";
+  let citeClassNames =
+    "is-size-4-desktop is-size-5-tablet is-size-6-mobile has-text-right";
 
   switch (bgType) {
     case "none": // Blockquote with no background image
@@ -17,25 +19,15 @@ const Blockquote = (props) => {
       imgStyle = {
         backgroundImage: `url(${bgURL})`,
       };
-      blockColors = {
-        borderLeft: "5px solid black",
-        color: "black",
-      };
-      citeColors = {
-        color: "black",
-      };
+      blockClassNames += " light-bg";
+      citeClassNames += " light-bg";
       break;
     case "dark": // Blockquote with dark color background image
       imgStyle = {
         backgroundImage: `url(${bgURL})`,
       };
-      blockColors = {
-        borderLeft: "5px solid white",
-        color: "white",
-      };
-      citeColors = {
-        color: "white",
-      };
+      blockClassNames += " dark-bg";
+      citeClassNames += " has-text-white";
       break;
     default:
       imgStyle = null;
@@ -46,19 +38,11 @@ const Blockquote = (props) => {
       <div className="hero-body">
         <div className="container">
           <div className="content">
-            <blockquote
-              className="is-size-1-desktop is-size-3-tablet is-size-4-mobile"
-              style={blockColors}
-            >
+            <blockquote className={blockClassNames}>
               If we open a quarrel between past and present, we shall find that
               we have lost the future.
             </blockquote>
-            <cite
-              className="is-size-4-desktop is-size-5-tablet is-size-6-mobile has-text-right"
-              style={citeColors}
-            >
-              Winston Churchill
-            </cite>
+            <cite className={citeClassNames}>Winston Churchill</cite>
           </div>
         </div>
       </div>

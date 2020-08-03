@@ -31,46 +31,11 @@ const fwiTestData = [
 const blockquoteTest = [
   {
     type: "short",
-    data: "Short Full Width Images",
-    bgUrl:
-      "https://images.prismic.io/hmbk-cms/3665ac51-0ceb-4701-9e54-1a3699401d13_wallhaven-vm2o9m.jpg?auto=compress,format",
-  },
-  {
-    type: "medium",
-    data: "Medium Full Width Image",
-    bgUrl:
-      "https://images.prismic.io/hmbk-cms/3665ac51-0ceb-4701-9e54-1a3699401d13_wallhaven-vm2o9m.jpg?auto=compress,format",
-  },
-  {
-    type: "large",
-    data: "Tall Full Width Image",
-    bgUrl:
-      "https://images.prismic.io/hmbk-cms/3665ac51-0ceb-4701-9e54-1a3699401d13_wallhaven-vm2o9m.jpg?auto=compress,format",
-  },
-  {
-    type: "xxxabc",
-    data: "Fallback (regular)",
     bgUrl:
       "https://images.prismic.io/hmbk-cms/3665ac51-0ceb-4701-9e54-1a3699401d13_wallhaven-vm2o9m.jpg?auto=compress,format",
   },
   {
     type: "short",
-    data: "Short Full Width Images",
-    bgUrl: null,
-  },
-  {
-    type: "medium",
-    data: "Medium Full Width Image",
-    bgUrl: null,
-  },
-  {
-    type: "large",
-    data: "Tall Full Width Image",
-    bgUrl: null,
-  },
-  {
-    type: "xxxabc",
-    data: "Fallback (regular)",
     bgUrl: null,
   },
 ];
@@ -84,6 +49,9 @@ export default function SampleFeature() {
       {fwiTestData.map((fwi, index) => (
         <FullWidthImage details={fwi} key={`index-${index}`} />
       ))}
+      <p className="title is-size-2 has-text-centered">
+        Blockquotes with and without images
+      </p>
       {blockquoteTest.map((quote, index) => (
         <Blockquote details={quote} key={`index-${index}`} />
       ))}

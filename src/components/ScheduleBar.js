@@ -7,6 +7,7 @@ import {
   faCalendarAlt,
   faBroadcastTower,
   faHeadphones,
+  faQuestionCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Ticker from "react-ticker";
@@ -260,6 +261,17 @@ function ScheduleBar() {
               className="icon-color"
             />
           </a>
+        </div>
+
+        <div className="column is-narrow">
+          <Link to="/cms-help">
+            <FontAwesomeIcon
+              onClick={() => closeSchedule()}
+              icon={faQuestionCircle}
+              size="1x"
+              className="icon-color"
+            />
+          </Link>
         </div>
       </div>
     </div>

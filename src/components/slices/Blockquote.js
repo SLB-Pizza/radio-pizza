@@ -2,7 +2,7 @@ import React from "react";
 
 // const Blockquote = ( { slice }) => {
 const Blockquote = (props) => {
-  const { type, bgUrl } = props.details;
+  const { bgUrl } = props.details;
 
   let imgStyle = null;
   if (bgUrl) {
@@ -11,31 +11,18 @@ const Blockquote = (props) => {
     };
   }
 
-  let heroClassName = "";
-  switch (type) {
-    case "short":
-      heroClassName = "hero sample-feature";
-      break;
-    case "medium":
-      heroClassName = "hero is-medium sample-feature";
-      break;
-    case "large":
-      heroClassName = "hero is-large sample-feature";
-      break;
-    default:
-      heroClassName = "hero sample-feature";
-  }
-
   return (
-    <section class={heroClassName} style={imgStyle}>
-      <div class="hero-body">
-        <div class="container">
+    <section className="hero sample-feature" style={imgStyle}>
+      <div className="hero-body">
+        <div className="container">
           <div className="content">
-            <blockquote>
+            <blockquote className="is-size-1-desktop is-size-3-tablet is-size-4-mobile">
               If we open a quarrel between past and present, we shall find that
               we have lost the future.
-              <cite>Winston Churchill</cite>
             </blockquote>
+            <cite className="is-size-4-desktop is-size-5-tablet is-size-6-mobile has-text-right">
+              Winston Churchill
+            </cite>
           </div>
         </div>
       </div>

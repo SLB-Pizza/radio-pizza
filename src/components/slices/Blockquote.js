@@ -1,8 +1,8 @@
 import React from "react";
 
-// const FullWidthImage = ({ slice }) => {
-const FullWidthImage = (props) => {
-  const { type, data, bgUrl } = props.details;
+// const Blockquote = ( { slice }) => {
+const Blockquote = (props) => {
+  const { type, bgUrl } = props.details;
 
   let imgStyle = null;
   if (bgUrl) {
@@ -30,12 +30,17 @@ const FullWidthImage = (props) => {
     <section class={heroClassName} style={imgStyle}>
       <div class="hero-body">
         <div class="container">
-          <p class="title is-size-3">{data}</p>
-          <h2 class="subtitle">Full Width Image Title</h2>
+          <div className="content">
+            <blockquote>
+              If we open a quarrel between past and present, we shall find that
+              we have lost the future.
+              <cite>Winston Churchill</cite>
+            </blockquote>
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-export default FullWidthImage;
+export default Blockquote;

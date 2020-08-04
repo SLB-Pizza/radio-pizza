@@ -27,9 +27,9 @@ const Blockquote = (props) => {
         backgroundImage: `url(${bgURL})`,
       };
       blockClassNames += " dark-bg";
-      citeClassNames += " has-text-white";
       break;
     default:
+      // Default to white text on black, no background image
       imgStyle = null;
   }
 

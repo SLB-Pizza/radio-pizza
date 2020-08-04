@@ -8,12 +8,15 @@ const FeatureTemplate = ({ data, path }) => {
   const document = prismicContent.node;
 
   return (
-    <main className="container is-fluid site-page">
-      <SliceZone sliceZone={document.body} />
+    <main className="site-page">
+      <pre>{JSON.stringify(document.body, null, 2)}</pre>
     </main>
   );
 };
 
+{
+  /* <SliceZone sliceZone={document.body} /> */
+}
 {
   /* <section className="columns">
 <div className="column is-full">
@@ -36,34 +39,17 @@ export const query = graphql`
           node {
             _meta {
               uid
-              tags
             }
             body {
-              ... on PRISMIC_FeatureBodyBanner_with_caption {
+              ... on PRISMIC_FeatureBodyBlockquote {
                 type
-                label
                 primary {
-                  image_banner
-                  title_of_banner
-                  description
-                  button_label
+                  blockquote_type
+                  blockquote_text
+                  blockquote_attribution
+                  blockquote_bg_img
                 }
-              }
-              ... on PRISMIC_FeatureBodyText {
-                type
                 label
-                primary {
-                  text
-                }
-              }
-              ... on PRISMIC_FeatureBodyQuote {
-                type
-                label
-                primary {
-                  quote
-                  name_of_the_author
-                  portrait_author
-                }
               }
             }
           }

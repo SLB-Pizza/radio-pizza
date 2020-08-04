@@ -7,16 +7,16 @@ const FeatureTemplate = ({ data, path }) => {
   if (!prismicContent) return null;
   const document = prismicContent.node;
 
+  // Gr
+
   return (
     <main className="site-page">
-      <pre>{JSON.stringify(document.body, null, 2)}</pre>
+      <SliceZone sliceZone={document.body} />
+      <pre>{JSON.stringify(document, null, 2)}</pre>
     </main>
   );
 };
 
-{
-  /* <SliceZone sliceZone={document.body} /> */
-}
 {
   /* <section className="columns">
 <div className="column is-full">

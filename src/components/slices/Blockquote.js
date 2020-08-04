@@ -2,6 +2,8 @@ import React from "react";
 
 // const Blockquote = ( { slice }) => {
 const Blockquote = (props) => {
+  console.log("inside blockquote", props);
+
   const { bgURL, bgType } = props;
 
   // Declare imgStyle to default to no background image; black page background

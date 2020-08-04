@@ -10,7 +10,7 @@ const FeatureTemplate = ({ data }) => {
   return (
     <main className="site-page">
       <SliceZone sliceZone={document.body} />
-      <pre>{JSON.stringify(document.body[0].primary, null, 2)}</pre>
+      <pre>{JSON.stringify(document.body, null, 2)}</pre>
     </main>
   );
 };

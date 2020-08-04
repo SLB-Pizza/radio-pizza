@@ -8,28 +8,87 @@ export default {
 };
 
 // =======================
-// Background Image URLs
+// Mock Slice Data from CMS
 // =======================
-const bgTypes = {
-  none: "none",
-  light: "light",
-  dark: "dark",
+
+const noBGSlice = {
+  primary: {
+    blockquote_type: "None: no background image; white quote text on black",
+    blockquote_text: [
+      {
+        type: "paragraph",
+        text:
+          "We are made of star stuff. We are a way for the cosmos to know itself.",
+        spans: [],
+      },
+    ],
+    blockquote_attribution: [
+      {
+        type: "paragraph",
+        text: "Carl Sagan, Cosmos",
+        spans: [],
+      },
+    ],
+    blockquote_bg_img: {
+      url:
+        "https://images.prismic.io/hmbk-cms/874d566f-66e0-491f-ab1c-3372019385f1_wallhaven-yjm67g_1920x1200.png?auto=compress,format",
+    },
+  },
 };
 
-const bgURLs = {
-  light: "https://w.wallhaven.cc/full/0q/wallhaven-0qg7xq.jpg",
-  dark: "https://w.wallhaven.cc/full/lq/wallhaven-lqwgdy.jpg",
+const lightBGSlice = {
+  primary: {
+    blockquote_type: "Light: light background image; black quote text",
+    blockquote_text: [
+      {
+        type: "paragraph",
+        text:
+          "We are made of star stuff. We are a way for the cosmos to know itself.",
+        spans: [],
+      },
+    ],
+    blockquote_attribution: [
+      {
+        type: "paragraph",
+        text: "Carl Sagan, Cosmos",
+        spans: [],
+      },
+    ],
+    blockquote_bg_img: {
+      url: "https://w.wallhaven.cc/full/0q/wallhaven-0qg7xq.jpg",
+    },
+  },
 };
+const darkBGSlice = {
+  primary: {
+    blockquote_type: "Dark: dark background image; white quote text",
+    blockquote_text: [
+      {
+        type: "paragraph",
+        text:
+          "We are made of star stuff. We are a way for the cosmos to know itself.",
+        spans: [],
+      },
+    ],
+    blockquote_attribution: [
+      {
+        type: "paragraph",
+        text: "Carl Sagan, Cosmos",
+        spans: [],
+      },
+    ],
+    blockquote_bg_img: {
+      url: "https://w.wallhaven.cc/full/lq/wallhaven-lqwgdy.jpg",
+    },
+  },
+};
+
 // =======================
 // Stories
 // =======================
 
-export const noBG = () => <Blockquote bgType={bgTypes.none} />;
+export const noBG = () => <Blockquote slice={noBGSlice} />;
 
-export const DarkBG = () => (
-  <Blockquote bgURL={bgURLs.dark} bgType={bgTypes.dark} />
-);
+export const DarkBG = () => <Blockquote slice={darkBGSlice} />;
 
-export const LightBG = () => (
-  <Blockquote bgURL={bgURLs.light} bgType={bgTypes.light} />
-);
+export const LightBG = () => <Blockquote slice={lightBGSlice} />;

@@ -1,13 +1,31 @@
 // ================================
 // CMS Slice -- Blockquote.js
 // ================================
-blockquote {
+blockquote p,
+cite {
+  font-family: "Poppins", sans-serif;
+}
+
+blockquote p {
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1.15;
   &.light-bg {
     border-left: 5px solid black;
     color: black;
   }
   &.dark-bg {
     border-left: 5px solid white;
+  }
+}
+
+cite {
+  margin-top: -3rem;
+  font-weight: 500;
+  padding: 1.25rem 1.5rem;
+  display: block;
+  &:before {
+    content: "\2014 \2009";
   }
 }
 

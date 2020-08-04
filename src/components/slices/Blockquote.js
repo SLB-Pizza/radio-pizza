@@ -1,12 +1,39 @@
 import React from "react";
+import { RichText } from "prismic-reactjs";
 
-// const Blockquote = ( { slice }) => {
-const Blockquote = (props) => {
-  console.log("inside blockquote", props);
+/**
+ * @function Blockquote
+ * @param {{Object}} slice - destructured slice received from SliceZone.js
+ * @returns {jsx}
+ */
 
-  const { bgURL, bgType } = props;
+const Blockquote = ({ slice }) => {
+  /**
+   * First, we need to deterimine the type of blockquote from slice.primary.blockquote_type.
+   *
+   * Prismic has a limitation when it comes to the developer's ability to give the end user, in this case, the writer, proper instructions outside of being able to set the placeholder text for the given field in the CMS.
+   *
+   * In this particular instance, to best inform the user of what each choice in the blockquote_type select dropdown is, I have written the options out as follows:
+   * - None: no background image; white quote text on black
+   * - Light: light background image; black quote text
+   * - Dark: dark background image; white quote text
+   *
+   * The first word of each option matches a case in the switch statement below.This informs the user and also allows me, the dev, to easily pull the type by doing the following:
+   * - a .split() on the ":" character
+   * - grabbing the first entry of the created array
+   * - finally, transforming that string to all lowercase to match the cases in the switch statement.
+   */
 
-  // Declare imgStyle to default to no background image; black page background
+  const bgType = slice.primary.blockquote_type.split(": ")[0].toLowerCase();
+
+  // Now grab the rest of the slice details.
+  const quoteText = slice.primary.blockquote_text;
+  const quoteAuthor = slice.primary.blockquote_attribution;
+  const bgURL = slice.primary.blockquote_bg_img.url;
+
+  /**
+   * Declare imgStyle as null so that no inline object is passed to the inline call in the return. Doing so sets the default to no background image; black page background, the "none" blockquote type.
+   */
   let imgStyle = null;
 
   let blockClassNames = "is-size-1-desktop is-size-3-tablet is-size-4-mobile";
@@ -41,10 +68,11 @@ const Blockquote = (props) => {
         <div className="container">
           <div className="content">
             <blockquote className={blockClassNames}>
-              If we open a quarrel between past and present, we shall find that
-              we have lost the future.
+              {RichText.render(quoteText)}
             </blockquote>
-            <cite className={citeClassNames}>Winston Churchill</cite>
+            <cite className={citeClassNames}>
+              {RichText.asText(quoteAuthor)}
+            </cite>
           </div>
         </div>
       </div>

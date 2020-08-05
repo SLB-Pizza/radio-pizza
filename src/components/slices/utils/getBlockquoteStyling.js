@@ -1,4 +1,11 @@
 const getBlockquoteStyling = (type, bgIMG) => {
+  /**
+   * @param {Object} styling - contains the data needed to style the Blockquote properly.
+   * @property {?Object} styling.imgStyle - the style object to inject the url from bgIMG into the main Blockquote <section> element, if the type calls for it. It's default is null so that no inline object is passed to the inline call in the return. Doing so sets the default to no background image; black page background, the "none" blockquote type.
+   * @property {string} styling.blockClassNames - the string used as the className for the <blockquote> element in Blockquote.js
+   * @property {string} styling.citeClassNames - the string used as the className for the <cite> element in Blockquote.js
+   */
+
   let styling = {
     imgStyle: null,
     blockClassNames: "is-size-1-desktop is-size-3-tablet is-size-4-mobile",
@@ -7,7 +14,7 @@ const getBlockquoteStyling = (type, bgIMG) => {
   };
 
   /**
-   * First, we need to deterimine the type of blockquote from slice.primary.blockquote_type.
+   * First, we need to deterimine the type of blockquote from blockquote_type.
    *
    * Prismic has a limitation when it comes to the developer's ability to give the end user, in this case, the writer, proper instructions outside of being able to set the placeholder text for the given field in the CMS.
    *
@@ -23,12 +30,7 @@ const getBlockquoteStyling = (type, bgIMG) => {
    */
 
   const bgType = type.split(": ")[0].toLowerCase();
-
   const bgURL = bgIMG.url;
-
-  /**
-   * Declare imgStyle as null so that no inline object is passed to the inline call in the return. Doing so sets the default to no background image; black page background, the "none" blockquote type.
-   */
 
   switch (bgType) {
     case "none": // Blockquote with no background image

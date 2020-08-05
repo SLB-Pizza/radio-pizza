@@ -18,7 +18,7 @@ function Blockquote({ slice }) {
   } = slice.primary;
 
   // Pass the type and the bg_type objects to getBlockStyling to derive styling
-  let blockquoteStyling = getBlockquoteStyling(
+  const blockquoteStyling = getBlockquoteStyling(
     blockquote_type,
     blockquote_bg_img
   );

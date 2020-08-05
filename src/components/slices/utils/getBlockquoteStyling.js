@@ -1,4 +1,4 @@
-const getBlockquoteStyling = (blockquoteSlice) => {
+const getBlockquoteStyling = (type, bgIMG) => {
   let styling = {
     imgStyle: null,
     blockClassNames: "is-size-1-desktop is-size-3-tablet is-size-4-mobile",
@@ -22,11 +22,9 @@ const getBlockquoteStyling = (blockquoteSlice) => {
    * - finally, transforming that string to all lowercase to match the cases in the switch statement.
    */
 
-  const bgType = blockquoteSlice.primary.blockquote_type
-    .split(": ")[0]
-    .toLowerCase();
+  const bgType = type.split(": ")[0].toLowerCase();
 
-  const bgURL = blockquoteSlice.primary.blockquote_bg_img.url;
+  const bgURL = bgIMG.url;
 
   /**
    * Declare imgStyle as null so that no inline object is passed to the inline call in the return. Doing so sets the default to no background image; black page background, the "none" blockquote type.

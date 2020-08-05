@@ -4,16 +4,24 @@ import getBlockquoteStyling from "./utils/getBlockquoteStyling";
 
 /**
  * @function Blockquote
- * @param {object} { slice }
+ * @param {object} slice - the data object coming from Prismic CMS that contains all data needed to create the Blockquote slice
  * @returns {jsx}
  */
 
 function Blockquote({ slice }) {
-  let blockquoteStyling = getBlockquoteStyling(slice);
+  // Destructure slice.primary for ease of use below.
+  const {
+    blockquote_text,
+    blockquote_attribution,
+    blockquote_type,
+    blockquote_bg_img,
+  } = slice.primary;
 
-  // Now grab the rest of the blockquoteSlice details.
-  const quoteText = slice.primary.blockquote_text;
-  const quoteAuthor = slice.primary.blockquote_attribution;
+  // Pass the type and the bg_type objects to getBlockStyling to derive styling
+  let blockquoteStyling = getBlockquoteStyling(
+    blockquote_type,
+    blockquote_bg_img
+  );
 
   return (
     <section className="hero sample-feature" style={blockquoteStyling.imgStyle}>
@@ -21,10 +29,10 @@ function Blockquote({ slice }) {
         <div className="container">
           <div className="content">
             <blockquote className={blockquoteStyling.blockClassNames}>
-              {RichText.render(quoteText)}
+              {RichText.render(blockquote_text)}
             </blockquote>
             <cite className={blockquoteStyling.citeClassNames}>
-              {RichText.asText(quoteAuthor)}
+              {RichText.asText(blockquote_attribution)}
             </cite>
           </div>
         </div>

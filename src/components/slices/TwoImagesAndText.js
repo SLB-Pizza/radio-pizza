@@ -6,6 +6,9 @@ import React from "react";
  * @returns {jsx}
  */
 function TwoImagesAndText({ slice }) {
+  // Derive the styling for TwoImagesAndText
+  // let tiatStyling =
+
   const threeEvenColumnsObj = {
     "section-1": "column is-one-third",
     "section-2": "column is-one-third",
@@ -27,12 +30,12 @@ function TwoImagesAndText({ slice }) {
       <div className="columns is-mobile">
         <div className="column is-4">
           <figure className="image is-square">
-            <img src={`../../static/img/test/bright-forest.png`} />
+            <img src="https://w.wallhaven.cc/full/4o/wallhaven-4ozkll.jpg" />
           </figure>
         </div>
         <div className="column is-4">
           <figure className="image is-square">
-            <img src={`../../static/img/test/fantasy-forest.png`} />
+            <img src="https://w.wallhaven.cc/full/43/wallhaven-43dx59.jpg" />
           </figure>
         </div>
         <div className="column is-4">

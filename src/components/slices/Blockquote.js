@@ -1,13 +1,16 @@
 import React from "react";
 import { RichText } from "prismic-reactjs";
 
-/**
- * @function Blockquote
- * @param {{Object}} slice - destructured slice received from SliceZone.js
- * @returns {jsx}
- */
+const getBlockquoteStyling = (blockquoteSlice) => {
+  console.log("inside GBS", blockquoteSlice);
 
-const Blockquote = ({ slice }) => {
+  let styling = {
+    imgStyle: null,
+    blockClassNames: "is-size-1-desktop is-size-3-tablet is-size-4-mobile",
+    citeClassNames:
+      "is-size-4-desktop is-size-5-tablet is-size-6-mobile has-text-right",
+  };
+
   /**
    * First, we need to deterimine the type of blockquote from slice.primary.blockquote_type.
    *
@@ -24,53 +27,63 @@ const Blockquote = ({ slice }) => {
    * - finally, transforming that string to all lowercase to match the cases in the switch statement.
    */
 
-  const bgType = slice.primary.blockquote_type.split(": ")[0].toLowerCase();
+  const bgType = blockquoteSlice.primary.blockquote_type
+    .split(": ")[0]
+    .toLowerCase();
 
-  // Now grab the rest of the slice details.
-  const quoteText = slice.primary.blockquote_text;
-  const quoteAuthor = slice.primary.blockquote_attribution;
-  const bgURL = slice.primary.blockquote_bg_img.url;
+  const bgURL = blockquoteSlice.primary.blockquote_bg_img.url;
 
   /**
    * Declare imgStyle as null so that no inline object is passed to the inline call in the return. Doing so sets the default to no background image; black page background, the "none" blockquote type.
    */
-  let imgStyle = null;
-
-  let blockClassNames = "is-size-1-desktop is-size-3-tablet is-size-4-mobile";
-  let citeClassNames =
-    "is-size-4-desktop is-size-5-tablet is-size-6-mobile has-text-right";
 
   switch (bgType) {
     case "none": // Blockquote with no background image
-      imgStyle = null;
+      styling.imgStyle = null;
       break;
     case "light": // Blockquote with light color background image--
-      imgStyle = {
+      styling.imgStyle = {
         backgroundImage: `url(${bgURL})`,
       };
-      blockClassNames += " light-bg";
-      citeClassNames += " has-text-black";
+      styling.blockClassNames += " light-bg";
+      styling.citeClassNames += " has-text-black";
       break;
     case "dark": // Blockquote with dark color background image
-      imgStyle = {
+      styling.imgStyle = {
         backgroundImage: `url(${bgURL})`,
       };
-      blockClassNames += " dark-bg";
+      styling.blockClassNames += " dark-bg";
       break;
     default:
       // Default to white text on black, no background image
-      imgStyle = null;
+      styling.imgStyle = null;
   }
 
+  return styling;
+};
+
+/**
+ * @function Blockquote
+ * @param {{Object}} slice - destructured slice received from SliceZone.js
+ * @returns {jsx}
+ */
+
+const Blockquote = ({ slice }) => {
+  let blockquoteStyling = getBlockquoteStyling(slice);
+
+  // Now grab the rest of the blockquoteSlice details.
+  const quoteText = slice.primary.blockquote_text;
+  const quoteAuthor = slice.primary.blockquote_attribution;
+
   return (
-    <section className="hero sample-feature" style={imgStyle}>
+    <section className="hero sample-feature" style={blockquoteStyling.imgStyle}>
       <div className="hero-body">
         <div className="container">
           <div className="content">
-            <blockquote className={blockClassNames}>
+            <blockquote className={blockquoteStyling.blockClassNames}>
               {RichText.render(quoteText)}
             </blockquote>
-            <cite className={citeClassNames}>
+            <cite className={blockquoteStyling.citeClassNames}>
               {RichText.asText(quoteAuthor)}
             </cite>
           </div>

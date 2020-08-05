@@ -4,11 +4,11 @@ import getBlockquoteStyling from "./utils/getBlockquoteStyling";
 
 /**
  * @function Blockquote
- * @param {{Object}} slice - destructured slice received from SliceZone.js
+ * @param {object} { slice }
  * @returns {jsx}
  */
 
-const Blockquote = ({ slice }) => {
+function Blockquote({ slice }) {
   let blockquoteStyling = getBlockquoteStyling(slice);
 
   // Now grab the rest of the blockquoteSlice details.
@@ -31,6 +31,6 @@ const Blockquote = ({ slice }) => {
       </div>
     </section>
   );
-};
+}
 
 export default Blockquote;

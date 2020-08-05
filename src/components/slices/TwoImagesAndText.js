@@ -1,6 +1,11 @@
 import React from "react";
 
-const TwoImagesAndText = ({ slice }) => {
+/**
+ * @function TwoImagesAndText
+ * @param {object} { slice }
+ * @returns {jsx}
+ */
+function TwoImagesAndText({ slice }) {
   const threeEvenColumnsObj = {
     "section-1": "column is-one-third",
     "section-2": "column is-one-third",
@@ -45,6 +50,6 @@ const TwoImagesAndText = ({ slice }) => {
       </div>
     </section>
   );
-};
+}
 
 export default TwoImagesAndText;

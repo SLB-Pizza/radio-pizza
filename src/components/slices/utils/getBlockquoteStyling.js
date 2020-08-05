@@ -53,7 +53,6 @@ const getBlockquoteStyling = (blockquoteSlice) => {
       // Default to white text on black, no background image
       styling.imgStyle = null;
   }
-
   return styling;
 };
 

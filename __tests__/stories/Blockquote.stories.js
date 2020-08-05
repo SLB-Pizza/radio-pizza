@@ -59,6 +59,7 @@ const lightBGSlice = {
     },
   },
 };
+
 const darkBGSlice = {
   primary: {
     blockquote_type: "Dark: dark background image; white quote text",

@@ -44,7 +44,7 @@ const Blockquote = ({ slice }) => {
     case "none": // Blockquote with no background image
       imgStyle = null;
       break;
-    case "light": // Blockquote with light color background image
+    case "light": // Blockquote with light color background image--
       imgStyle = {
         backgroundImage: `url(${bgURL})`,
       };
@@ -56,7 +56,6 @@ const Blockquote = ({ slice }) => {
         backgroundImage: `url(${bgURL})`,
       };
       blockClassNames += " dark-bg";
-      citeClassNames += " has-text-white";
       break;
     default:
       // Default to white text on black, no background image

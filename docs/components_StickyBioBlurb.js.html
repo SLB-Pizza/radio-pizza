@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/StickyBioBlurb.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/StickyBioBlurb.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTwitter,
+  faInstagram,
+  faSoundcloud,
+  faMixcloud,
+  faBandcamp,
+} from "@fortawesome/free-brands-svg-icons";
+
+function StickyBioBlurb(props) {
+  /**
+   * @function residentSocialIcons - function that takes in props from BioMixList and creates active YT audio sources
+   * @returns {link} An &lt;a> tag with an icon that redirects out to the appropriate platform
+   * @param {string} url - link to the resident's page on a platform  (bandcamp, soundcloud, mixcloud, etc.)
+   * @param {icon} title - name of the corresponding FontAwesomeIcon
+   */
+  const residentSocialIcons = (url, icon) => {
+    return (
+      &lt;a key={icon} href={url}>
+        &lt;span className="icon">
+          &lt;FontAwesomeIcon icon={icon} size="3x" />
+        &lt;/span>
+      &lt;/a>
+    );
+  };
+
+  const sampleSocial = [
+    {
+      url: "https://twitter.com/home",
+      icon: "faTwitter",
+    },
+    {
+      url: "https://instagram.com",
+      icon: "faInstagram",
+    },
+    {
+      url: "https://soundcloud.com",
+      icon: "faSoundCloud",
+    },
+    {
+      url: "https://bandcamp.com",
+      icon: "faBandcamp",
+    },
+  ];
+
+  return (
+    &lt;div className="columns is-vcentered">
+      &lt;div className="column is-6-tablet">
+        &lt;figure className="image is-1by1">
+          &lt;img src={`../img/cyberpunk-robo.jpg`} alt="Rowdy Robo" />
+        &lt;/figure>
+      &lt;/div>
+      &lt;div className="column is-6-tablet">
+        &lt;p className="title is-size-2-desktop is-size-3-touch ">RowdyRobo&lt;/p>
+        &lt;p className="subtitle is-size-4-desktop is-size-5-touch">
+          Homebuilt MixMaster Droid rev.9001
+        &lt;/p>
+        &lt;p className="is-size-5-desktop is-size-6-touch">
+          The only home we’ve ever known preserve and cherish that pale blue
+          dot. Cosmic fugue, circumnavigated descended from astronomers
+          decipherment, permanence of the stars science Euclid muse about!
+        &lt;/p>
+        &lt;div className="resident-social-links">
+          &lt;a href="https://twitter.com">
+            &lt;span className="icon is-large">
+              &lt;FontAwesomeIcon icon={faTwitter} size="2x" />
+            &lt;/span>
+          &lt;/a>
+          &lt;a href="https://instagram.com">
+            &lt;span className="icon is-large">
+              &lt;FontAwesomeIcon icon={faInstagram} size="2x" />
+            &lt;/span>
+          &lt;/a>
+          &lt;a href="https://soundcloud.com">
+            &lt;span className="icon is-large">
+              &lt;FontAwesomeIcon icon={faSoundcloud} size="2x" />
+            &lt;/span>
+          &lt;/a>
+          &lt;a href="https://bandcamp.com">
+            &lt;span className="icon is-large">
+              &lt;FontAwesomeIcon icon={faBandcamp} size="2x" />
+            &lt;/span>
+          &lt;/a>
+          &lt;a href="https://mixcloud.com">
+            &lt;span className="icon is-large">
+              &lt;FontAwesomeIcon icon={faMixcloud} size="2x" />
+            &lt;/span>
+          &lt;/a>
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+  );
+}
+
+export default StickyBioBlurb;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Blockquote">Blockquote</a></li><li><a href="global.html#DateSelectorButton-functionthatcreatesstyledbuttonswithtogglingfunctionalitybuiltin">DateSelectorButton - function that creates styled buttons with toggling functionality built in</a></li><li><a href="global.html#linkResolver">linkResolver</a></li><li><a href="global.html#playAudioButton-functionthattakesinpropsfromBioMixListandcreatesactiveYTaudiosources">playAudioButton - function that takes in props from BioMixList and creates active YT audio sources</a></li><li><a href="global.html#ResidentsIndexPage">ResidentsIndexPage</a></li><li><a href="global.html#residentSocialIcons-functionthattakesinpropsfromBioMixListandcreatesactiveYTaudiosources">residentSocialIcons - function that takes in props from BioMixList and creates active YT audio sources</a></li><li><a href="global.html#slideGenerator">slideGenerator</a></li><li><a href="global.html#TwoImagesAndText">TwoImagesAndText</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.5</a> on Wed Aug 05 2020 17:29:53 GMT-0400 (Eastern Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

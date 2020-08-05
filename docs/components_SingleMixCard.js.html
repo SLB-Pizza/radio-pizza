@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/SingleMixCard.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/SingleMixCard.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useContext } from "react";
+import { GlobalDispatchContext } from "../context/GlobalContextProvider";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import NanoClamp from "nanoclamp";
+
+function SingleMixCard(props) {
+  const dispatch = useContext(GlobalDispatchContext);
+
+  /**
+   * @function playAudioButton - function that takes in props from BioMixList and creates active YT audio sources
+   * @param {string} url - URL of the mix to play
+   * @param {string} title - title of the mix to play; shown in TopNav
+   * @param {string} resident - resident that made the mix; shown in TopNav
+   * @param {string} img - the mix's image; shown in TopNav
+   * @returns {jsx} A play icon that onClick dispatches the CHANGE_URL action, playing the audio source through RadioPlayer.js
+   */
+
+  const playAudioButton = (mixUrl, mixTitle, mixResident, mixImg) => {
+    return (
+      &lt;FontAwesomeIcon
+        icon={faPlay}
+        size="5x"
+        className="play-icon"
+        onClick={() =>
+          dispatch({
+            type: "CHANGE_URL",
+            payload: {
+              url: mixUrl,
+              title: mixTitle,
+              resident: mixResident,
+              img: mixImg,
+            },
+          })
+        }
+      />
+    );
+  };
+
+  /**
+   * imageAltText for accessibility purposes
+   */
+  const imageAltText = `image - ${props.title} by ${props.resident}`;
+
+  return (
+    &lt;div className={props.columnLayout}>
+      &lt;div className="card">
+        &lt;div className="card-image">
+          &lt;a
+            href="#"
+            className="sr-only display-text"
+            onClick={() =>
+              dispatch({
+                type: "CHANGE_URL",
+                payload: {
+                  url: props.url,
+                  title: props.title,
+                  resident: props.resident,
+                  img: props.img,
+                },
+              })
+            }
+          >
+            Play This Mix
+          &lt;/a>
+          &lt;figure className="image is-1by1">
+            &lt;img src={props.img} alt={imageAltText} />
+            &lt;div className="play-btn-diffuser is-overlay">
+              {playAudioButton(
+                props.url,
+                props.title,
+                props.resident,
+                props.img
+              )}
+            &lt;/div>
+          &lt;/figure>
+        &lt;/div>
+
+        &lt;div className="card-content">
+          &lt;div className="content-text">
+            &lt;p className="content-details sc-truncate subtitle is-size-7">
+              {props.date} | {props.resident}
+            &lt;/p>
+            &lt;NanoClamp
+              className="title is-size-6"
+              is="p"
+              lines={2}
+              text={props.title}
+            />
+          &lt;/div>
+          &lt;div className="buttons are-tags">
+            {props.tags.map((tag) => (
+              &lt;button
+                key={tag}
+                className="button is-small is-outlined is-rounded"
+              >
+                {tag}
+              &lt;/button>
+            ))}
+          &lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+  );
+}
+
+export default SingleMixCard;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Blockquote">Blockquote</a></li><li><a href="global.html#DateSelectorButton-functionthatcreatesstyledbuttonswithtogglingfunctionalitybuiltin">DateSelectorButton - function that creates styled buttons with toggling functionality built in</a></li><li><a href="global.html#linkResolver">linkResolver</a></li><li><a href="global.html#playAudioButton-functionthattakesinpropsfromBioMixListandcreatesactiveYTaudiosources">playAudioButton - function that takes in props from BioMixList and creates active YT audio sources</a></li><li><a href="global.html#ResidentsIndexPage">ResidentsIndexPage</a></li><li><a href="global.html#residentSocialIcons-functionthattakesinpropsfromBioMixListandcreatesactiveYTaudiosources">residentSocialIcons - function that takes in props from BioMixList and creates active YT audio sources</a></li><li><a href="global.html#slideGenerator">slideGenerator</a></li><li><a href="global.html#TwoImagesAndText">TwoImagesAndText</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.5</a> on Wed Aug 05 2020 17:29:53 GMT-0400 (Eastern Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

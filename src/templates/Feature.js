@@ -26,6 +26,17 @@ export const query = graphql`
               uid
             }
             body {
+              ... on PRISMIC_FeatureBodyHeadline_block {
+                type
+                primary {
+                  feature_headline_img
+                  feature_category
+                  feature_subcategory
+                  feature_headline
+                  feature_subtitle
+                  feature_byline
+                }
+              }
               ... on PRISMIC_FeatureBodyBlockquote {
                 type
                 label

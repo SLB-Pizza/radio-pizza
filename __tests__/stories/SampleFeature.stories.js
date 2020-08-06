@@ -37,7 +37,7 @@ const blockquoteSlice = {
 };
 const twoImageAndTextSlice = {
   primary: {
-    tiat_layout: "Rightt: Image-Image-Text",
+    tiat_layout: "Right: Image-Image-Text",
     tiat_is_gapless: false,
     tiat_text: [
       {

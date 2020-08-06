@@ -16,8 +16,6 @@ function HeadlineBlock({ slice, metadata }) {
   } = slice.primary;
 
   const { firstPublicationDate, lastPublicationDate } = metadata;
-  const { hmbk_staff_name, hmbk_staff_position } = feature_author;
-  const allCapsCategory = feature_category.toUpperCase();
 
   /**
    * @function processPublicationDates
@@ -29,20 +27,20 @@ function HeadlineBlock({ slice, metadata }) {
     // Default dateDetails to firstPubDate and never updated
     let dateDetails = {
       pubDate: firstPubDate,
-      updated: false,
+      hasBeenUpdated: false,
     };
 
     // Determine whether this feature has been update since first publication
     const hasBeenUpdated = firstPubDate !== lastPubDate ? true : false;
 
-    dateDetails.updated = hasBeenUpdated;
-    let tempDateObject = hasBeenUpdated
-      ? dayjs(lastPubDate)
-      : dayjs(firstPubDate);
+    // Update dateDetails
+    dateDetails.hasBeenUpdated = hasBeenUpdated;
 
+    // If the feature has been updated
     dateDetails.pubDate = hasBeenUpdated
-      ? tempDateObject.format("MMMM D, YYYY – HH:mm")
-      : tempDateObject.format("MMMM D, YYYY");
+      ? dayjs(lastPubDate).format("MMMM D, YYYY – HH:mm")
+      : dayjs(firstPubDate).format("MMMM D, YYYY");
+
     return dateDetails;
   }
 
@@ -50,6 +48,8 @@ function HeadlineBlock({ slice, metadata }) {
     firstPublicationDate,
     lastPublicationDate
   );
+  const { hmbk_staff_name, hmbk_staff_position } = feature_author;
+  const allCapsCategory = feature_category.toUpperCase();
 
   return (
     <section className="hero">
@@ -109,7 +109,7 @@ function HeadlineBlock({ slice, metadata }) {
                     </p>
                   </div>
                   <div className="column is-narrow">
-                    {featureDateDetails.updated ? (
+                    {featureDateDetails.hasBeenUpdated ? (
                       <p>Updated {featureDateDetails.pubDate}</p>
                     ) : (
                       <p>{featureDateDetails.pubDate}</p>

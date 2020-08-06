@@ -10,6 +10,7 @@ const FeatureTemplate = ({ data }) => {
   return (
     <main className="site-page">
       <SliceZone sliceZone={document.body} />
+      <h1 className="subtitle">document.body Data Object</h1>
       <pre>{JSON.stringify(document.body, null, 2)}</pre>
     </main>
   );
@@ -27,13 +28,24 @@ export const query = graphql`
             body {
               ... on PRISMIC_FeatureBodyBlockquote {
                 type
+                label
                 primary {
                   blockquote_type
                   blockquote_text
                   blockquote_attribution
                   blockquote_bg_img
                 }
+              }
+              ... on PRISMIC_FeatureBodyTwo_images___text {
+                type
                 label
+                primary {
+                  tiat_layout
+                  tiat_text
+                  tiat_is_gapless
+                  tiat_left_img
+                  tiat_right_img
+                }
               }
             }
           }

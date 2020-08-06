@@ -13,3 +13,4 @@ export { default as TwoImagesAndText } from "./TwoImagesAndText";
  * These helper components are the modular bits the Slice Layout Components call that allow us to provide layout variations the end user desires.
  */
 export { default as ContentHelper } from "./helpers/ContentHelper";
+export { default as ImageHelper } from "./helpers/ImageHelper";

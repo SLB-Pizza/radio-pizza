@@ -1,5 +1,5 @@
 import React from "react";
-import getTIATLayout from "./utils/getTIATLayout";
+import { ContentHelper, ImageHelper } from "./index";
 
 /**
  * @function TwoImagesAndText
@@ -15,30 +15,31 @@ function TwoImagesAndText({ slice }) {
     tiat_right_img,
   } = slice.primary;
 
-  // Derive the styling for TwoImagesAndText
-  const tiatComponentArray = getTIATLayout(
-    tiat_layout,
-    tiat_is_gapless,
-    tiat_text,
-    tiat_left_img,
-    tiat_right_img
-  );
+  const layoutType = tiat_layout.split(".")[0];
 
   const columnsClassName = tiat_is_gapless
     ? "columns is-mobile is-multiline is-gapless"
     : "columns is-mobile is-multiline";
 
+  const tiatContentClass = "column is-half";
+  const tiatImageClass = "column is-one-quarter";
+
   return (
     <section className="container">
       <div className={columnsClassName}>
-        {/* {tiatComponentArray.map((component, index) => {
-          const TIATComponent = component;
-
-          if (TIATComponent) {
-            return <TIATComponent key={`tiat-${index}`} />;
-          }
-          return null;
-        })} */}
+        {layoutType === "Left" ? (
+          <>
+            <ContentHelper text={tiat_text} sliceClassName={tiatContentClass} />
+            <ImageHelper url={tiat_left_img.url} alt={tiat_left_img.alt} />
+            <ImageHelper url={tiat_right_img.url} alt={tiat_right_img.alt} />
+          </>
+        ) : (
+          <>
+            <ContentHelper text={tiat_text} sliceClassName={tiatContentClass} />
+            <ImageHelper url={tiat_left_img.url} alt={tiat_left_img.alt} />
+            <ImageHelper url={tiat_right_img.url} alt={tiat_right_img.alt} />
+          </>
+        )}
       </div>
     </section>
   );

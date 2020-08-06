@@ -9,7 +9,7 @@ export default {
 
 const threeEvenColumns = {
   primary: {
-    tiat_layout: "Left: Text section on left > Text-Image-Image",
+    tiat_layout: "Left: Text-Image-Image",
     tiat_is_gapless: false,
     tiat_text: [
       {

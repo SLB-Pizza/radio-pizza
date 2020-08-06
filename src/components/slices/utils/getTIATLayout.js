@@ -1,55 +1,54 @@
 import React from "react";
 import ContentHelper from "../helpers/ContentHelper";
+import ImageHelper from "../helpers/ImageHelper";
 
 /**
- *
- *
+ * @function getTIATLayout - TIAT aka Two Images and Text
  * @param {*} layout
  * @param {*} text
  * @param {*} leftImg
  * @param {*} rightImg
  * @returns
  */
-const getTIATLayout = (layout, text, leftImg, rightImg) => {
+const getTIATLayout = (layout, gapless, text, leftImg, rightImg) => {
   // pull layout type
+  const layoutType = layout.split(".")[0];
+  /**
+   * Layout Types
+   *
+   * Left: Text section on left > Text-Image-Image
+   * Right: Text section on right > Image-Image-Text
+   */
 
-  // layout types
-  // 1. Text-Image-Image: all columns ⅓ width
-  // 2. Image-Image-Text: all columns ⅓ width
-  // 3. Text-Image-Image: Text ½ width, each Image ¼ width
-  // 4. Image-Image-Text: Text ½ width, each Image ¼ width
+  let componentArray = [];
 
   switch (layoutType) {
-    case "1":
+    case "Left": // 1. Text-Image-Image: all columns same width
+      componentArray = [
+        <ContentHelper text={text} />,
+        <ImageHelper url={leftImg.url} alt={leftImg.alt} />,
+        <ImageHelper url={rightImg.url} alt={rightImg.alt} />,
+      ];
       break;
+    case "Right": // Image-Image-Text: all columns same width
+      componentArray = [
+        <ContentHelper text={"abc"} />,
+        <ImageHelper url={leftImg.url} alt={leftImg.alt} />,
+        <ImageHelper url={rightImg.url} alt={rightImg.alt} />,
+      ];
+      break;
+
     default:
+      // default to Text-Text-Image
+      componentArray = [
+        <ContentHelper text={"abc"} />,
+        <ImageHelper url={leftImg.url} alt={leftImg.alt} />,
+        <ImageHelper url={rightImg.url} alt={rightImg.alt} />,
+      ];
       break;
   }
 
-  // declare layout types
-  const defaultStyles = {
-    "column-order": [],
-    gapless: false,
-    "section-1": "column is-one-third",
-    "section-2": "column is-one-third",
-    "section-3": "column is-one-third",
-  };
-
-  const halfLeftObj = {
-    "section-1": "column is-half",
-    "section-2": "column is-one-quarter",
-    "section-3": "column is-one-quarter",
-  };
-  const halfRightObj = {
-    "section-1": "column is-one-quarter",
-    "section-2": "column is-one-quarter",
-    "section-3": "column is-half",
-  };
-
-  const tiatSliceComponents = {
-    content: ContentHelper,
-    image,
-  };
-
-  return;
+  return componentArray;
 };
+
+export default getTIATLayout;

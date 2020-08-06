@@ -9,7 +9,8 @@ export default {
 
 const threeEvenColumns = {
   primary: {
-    tiat_layout: "Even Right",
+    tiat_layout: "Left: Text section on left > Text-Image-Image",
+    tiat_is_gapless: false,
     tiat_text: [
       {
         type: "paragraph",
@@ -20,11 +21,15 @@ const threeEvenColumns = {
     ],
     tiat_left_img: {
       url: "https://w.wallhaven.cc/full/4o/wallhaven-4ozkll.jpg",
+      alt: "A tree-lined valley",
     },
     tiat_right_img: {
       url: "https://w.wallhaven.cc/full/43/wallhaven-43dx59.jpg",
+      alt: "A tree covered road in late autumn",
     },
   },
 };
 
-export const ContentRight_ThreeEvenColumns = () => <TwoImagesAndText />;
+export const ContentRight_ThreeEvenColumns = () => (
+  <TwoImagesAndText slice={threeEvenColumns} />
+);

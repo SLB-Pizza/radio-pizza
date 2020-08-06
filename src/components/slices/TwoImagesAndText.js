@@ -1,4 +1,5 @@
 import React from "react";
+import getTIATLayout from "./utils/getTIATLayout";
 
 /**
  * @function TwoImagesAndText
@@ -6,50 +7,38 @@ import React from "react";
  * @returns {jsx}
  */
 function TwoImagesAndText({ slice }) {
+  const {
+    tiat_layout,
+    tiat_is_gapless,
+    tiat_text,
+    tiat_left_img,
+    tiat_right_img,
+  } = slice.primary;
+
   // Derive the styling for TwoImagesAndText
-  // let tiatStyling =
+  const tiatComponentArray = getTIATLayout(
+    tiat_layout,
+    tiat_is_gapless,
+    tiat_text,
+    tiat_left_img,
+    tiat_right_img
+  );
 
-  const threeEvenColumnsObj = {
-    "section-1": "column is-one-third",
-    "section-2": "column is-one-third",
-    "section-3": "column is-one-third",
-  };
+  const columnsClassName = tiat_is_gapless
+    ? "columns is-mobile is-multiline is-gapless"
+    : "columns is-mobile is-multiline";
 
-  const halfLeftObj = {
-    "section-1": "column is-half",
-    "section-2": "column is-one-quarter",
-    "section-3": "column is-one-quarter",
-  };
-  const halfRightObj = {
-    "section-1": "column is-one-quarter",
-    "section-2": "column is-one-quarter",
-    "section-3": "column is-half",
-  };
   return (
     <section className="container">
-      <div className="columns is-mobile">
-        <div className="column is-4">
-          <figure className="image is-square">
-            <img src="https://w.wallhaven.cc/full/4o/wallhaven-4ozkll.jpg" />
-          </figure>
-        </div>
-        <div className="column is-4">
-          <figure className="image is-square">
-            <img src="https://w.wallhaven.cc/full/43/wallhaven-43dx59.jpg" />
-          </figure>
-        </div>
-        <div className="column is-4">
-          <div className="content">
-            <p>
-              HODOR? Hodor hodor! Hodor... Hodor hodor. Hodor! Hodor hodor.
-              Hodor? Hodor, hodor, hodor hodor.
-            </p>
-            <p>
-              HODOR HODOR! Hodor, hodor. Hodor. Hodor. Hodor, hodor. Hodor.
-              Hodor. Hodor, hodor, hodor hodor. HODOR HODOR! Hodor hodor HODOR!
-            </p>
-          </div>
-        </div>
+      <div className={columnsClassName}>
+        {/* {tiatComponentArray.map((component, index) => {
+          const TIATComponent = component;
+
+          if (TIATComponent) {
+            return <TIATComponent key={`tiat-${index}`} />;
+          }
+          return null;
+        })} */}
       </div>
     </section>
   );

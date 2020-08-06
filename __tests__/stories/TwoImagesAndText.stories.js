@@ -10,7 +10,7 @@ export default {
 const threeEvenColumns = {
   primary: {
     tiat_layout: "Even Right",
-    tiat_content_text: [
+    tiat_text: [
       {
         type: "paragraph",
         text:
@@ -18,10 +18,10 @@ const threeEvenColumns = {
         spans: [],
       },
     ],
-    tiat_left_image: {
+    tiat_left_img: {
       url: "https://w.wallhaven.cc/full/4o/wallhaven-4ozkll.jpg",
     },
-    tiat_right_image: {
+    tiat_right_img: {
       url: "https://w.wallhaven.cc/full/43/wallhaven-43dx59.jpg",
     },
   },

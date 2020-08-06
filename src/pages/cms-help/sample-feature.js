@@ -28,17 +28,29 @@ const fwiTestData = [
   },
 ];
 
-const blockquoteTest = [
-  {
-    type: "short",
-    bgUrl:
-      "https://images.prismic.io/hmbk-cms/3665ac51-0ceb-4701-9e54-1a3699401d13_wallhaven-vm2o9m.jpg?auto=compress,format",
+const blockquoteTest = {
+  primary: {
+    blockquote_type: "Light: light background image; black quote text",
+    blockquote_text: [
+      {
+        type: "paragraph",
+        text:
+          "We are made of star stuff. We are a way for the cosmos to know itself.",
+        spans: [],
+      },
+    ],
+    blockquote_attribution: [
+      {
+        type: "paragraph",
+        text: "Carl Sagan, Cosmos",
+        spans: [],
+      },
+    ],
+    blockquote_bg_img: {
+      url: "https://w.wallhaven.cc/full/0q/wallhaven-0qg7xq.jpg",
+    },
   },
-  {
-    type: "short",
-    bgUrl: null,
-  },
-];
+};
 
 export default function SampleFeature() {
   return (
@@ -57,9 +69,7 @@ export default function SampleFeature() {
       <p className="title is-size-2 has-text-centered">
         Blockquotes with and without images
       </p>
-      {blockquoteTest.map((quote, index) => (
-        <Blockquote bgUrl={quote.bgUrl} key={`index-${index}`} />
-      ))}
+      <Blockquote slice={blockquoteTest} />
     </main>
   );
 }

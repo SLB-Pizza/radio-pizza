@@ -3,33 +3,6 @@ import Slider from "@farbenmeer/react-spring-slider";
 import { navigate } from "gatsby";
 import { RichText } from "prismic-reactjs";
 
-const dummySlides = [
-  {
-    layout_bg_image: "https://source.unsplash.com/1920x1080/daily?music",
-    slide_headline: "/bio",
-    slide_cta: "Music your way instrument jazz saxophone big boom bap sound.",
-    slide_link: "/bio",
-  },
-  {
-    layout_bg_image: "https://source.unsplash.com/1920x1080/daily?headphones",
-    slide_headline: "Slide 3",
-    slide_cta: "Expertly crafted aural experience hand-made artisan materials.",
-    slide_link: "/mixes",
-  },
-  {
-    layout_bg_image: "https://source.unsplash.com/1920x1080/daily?food",
-    slide_headline: "Slide 4",
-    slide_cta: "Finest dishes meal dinner family time barbeque on a stick.",
-    slide_link: "/search",
-  },
-  {
-    layout_bg_image: "https://source.unsplash.com/1920x1080/daily?concert",
-    slide_headline: "External Link",
-    slide_cta: "Click anywhere on this slide; it links to HMBK twitter.",
-    slide_link: "https://twitter.com/halfmoonbk",
-  },
-];
-
 function HeroContentCarousel(props) {
   /**
    * @function slideGenerator

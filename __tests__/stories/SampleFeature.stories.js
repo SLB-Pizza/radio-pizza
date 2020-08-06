@@ -1,5 +1,9 @@
 import React from "react";
-import { Blockquote, FullWidthImage } from "../../src/components/slices";
+import {
+  Blockquote,
+  FullWidthImage,
+  TwoImagesAndText,
+} from "../../src/components/slices";
 import "../../src/styles/index.scss";
 
 export default {
@@ -31,6 +35,28 @@ const blockquoteSlice = {
     },
   },
 };
+const twoImageAndTextSlice = {
+  primary: {
+    tiat_layout: "Rightt: Image-Image-Text",
+    tiat_is_gapless: false,
+    tiat_text: [
+      {
+        type: "paragraph",
+        text:
+          "Take up one idea. Make that one idea your life - think of it, dream of it, live on that idea. Let the brain, muscles, nerves, every part of your body, be full of that idea, and just leave every other idea alone. This is the way to success.",
+        spans: [],
+      },
+    ],
+    tiat_left_img: {
+      url: "https://w.wallhaven.cc/full/4o/wallhaven-4ozkll.jpg",
+      alt: "A tree-lined valley",
+    },
+    tiat_right_img: {
+      url: "https://w.wallhaven.cc/full/43/wallhaven-43dx59.jpg",
+      alt: "A tree covered road in late autumn",
+    },
+  },
+};
 
 export const SampleFeature = () => (
   <>
@@ -40,5 +66,6 @@ export const SampleFeature = () => (
       bgUrl={fwiBgUrl}
     />
     <Blockquote slice={blockquoteSlice} />
+    <TwoImagesAndText slice={twoImageAndTextSlice} />
   </>
 );

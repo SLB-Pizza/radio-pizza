@@ -7,11 +7,22 @@ const FeatureTemplate = ({ data }) => {
   if (!prismicContent) return null;
   const document = prismicContent.node;
 
+  // Grab the metadata for the feature and the CMS slice data
+  const featureMetadata = document._meta;
+  const featureSliceData = document.body;
+
   return (
     <main className="site-page">
-      <SliceZone sliceZone={document.body} />
-      <h1 className="subtitle">document.body Data Object</h1>
-      <pre>{JSON.stringify(document.body, null, 2)}</pre>
+      <SliceZone
+        sliceZone={featureSliceData}
+        featureMetadata={featureMetadata}
+      />
+      <hr />
+      <h1 className="title">Data Objects passed into{" <SliceZone />"}</h1>
+      <h3 className="subtitle">featureMetadata Data Object</h3>
+      <pre>{JSON.stringify(featureMetadata, null, 2)}</pre>
+      <h3 className="subtitle">document.body Data Object</h3>
+      <pre>{JSON.stringify(featureSliceData, null, 2)}</pre>
     </main>
   );
 };
@@ -24,17 +35,28 @@ export const query = graphql`
           node {
             _meta {
               uid
+              firstPublicationDate
+              lastPublicationDate
+              type
+              tags
             }
             body {
               ... on PRISMIC_FeatureBodyHeadline_block {
                 type
+                label
                 primary {
                   feature_headline_img
                   feature_category
                   feature_subcategory
                   feature_headline
                   feature_subtitle
-                  feature_byline
+                  feature_author_pic
+                  feature_author {
+                    ... on PRISMIC_Staff {
+                      hmbk_staff_name
+                      hmbk_staff_position
+                    }
+                  }
                 }
               }
               ... on PRISMIC_FeatureBodyBlockquote {
@@ -67,18 +89,3 @@ export const query = graphql`
 `;
 
 export default FeatureTemplate;
-
-// Example nested data sections
-{
-  /* <section className="columns">
-<div className="column is-full">
-  <h1 className="title">Data Path: {path}</h1>
-  <hr />
-  <h2 className="subtitle">Slice Types</h2>
-  <SliceZone sliceZone={document.body} />
-  <hr />
-  <h2 className="subtitle">Data from FeaturesQuery</h2>
-  <pre>{JSON.stringify(document.body, null, 2)}</pre>
-</div>
-</section> */
-}

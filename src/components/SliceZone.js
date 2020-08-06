@@ -6,7 +6,7 @@ import {
   TwoImagesAndText,
 } from "./slices";
 
-export default function SliceZone({ sliceZone }) {
+export default function SliceZone({ sliceZone, featureMetadata }) {
   // Structure the imported Slice Components with their api value
   const sliceComponents = {
     full_width_image: FullWidthImage,
@@ -19,7 +19,13 @@ export default function SliceZone({ sliceZone }) {
     const SliceComponent = sliceComponents[slice.type];
 
     if (SliceComponent) {
-      return <SliceComponent slice={slice} key={`slice-${index}`} />;
+      return (
+        <SliceComponent
+          slice={slice}
+          metadata={featureMetadata}
+          key={`slice-${index}`}
+        />
+      );
     }
     return null;
   });

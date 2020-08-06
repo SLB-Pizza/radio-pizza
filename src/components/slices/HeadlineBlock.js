@@ -1,5 +1,8 @@
 import React from "react";
 import { RichText } from "prismic-reactjs";
+import dayjs from "dayjs";
+const utc = require("dayjs/plugin/utc");
+dayjs.extend(utc);
 
 function HeadlineBlock({ slice, metadata }) {
   const {
@@ -12,13 +15,41 @@ function HeadlineBlock({ slice, metadata }) {
     feature_author_pic,
   } = slice.primary;
 
+  const { firstPublicationDate, lastPublicationDate } = metadata;
   const { hmbk_staff_name, hmbk_staff_position } = feature_author;
   const allCapsCategory = feature_category.toUpperCase();
 
-  // Determine whether this feature has been update since first publication
-  const { firstPublicationDate, lastPublicationDate } = metadata;
-  const hasBeenUpdated =
-    firstPublicationDate === lastPublicationDate ? false : true;
+  /**
+   * @function processPublicationDates
+   * @param {String} firstPubDate - date of initial publish; comes from feature_metadata
+   * @param {String} lastPubDate - date of most recent publish(update); comes from feature_metadata
+   * @returns {Object} dateDetails
+   */
+  function processPublicationDates(firstPubDate, lastPubDate) {
+    // Default dateDetails to firstPubDate and never updated
+    let dateDetails = {
+      pubDate: firstPubDate,
+      updated: false,
+    };
+
+    // Determine whether this feature has been update since first publication
+    const hasBeenUpdated = firstPubDate !== lastPubDate ? true : false;
+
+    dateDetails.updated = hasBeenUpdated;
+    let tempDateObject = hasBeenUpdated
+      ? dayjs(lastPubDate)
+      : dayjs(firstPubDate);
+
+    dateDetails.pubDate = hasBeenUpdated
+      ? tempDateObject.format("MMMM D, YYYY – HH:mm")
+      : tempDateObject.format("MMMM D, YYYY");
+    return dateDetails;
+  }
+
+  const featureDateDetails = processPublicationDates(
+    firstPublicationDate,
+    lastPublicationDate
+  );
 
   return (
     <section className="hero">
@@ -36,8 +67,8 @@ function HeadlineBlock({ slice, metadata }) {
           <div
             className="columns"
             style={{
-              marginTop: "5vh",
-              backgroundColor: "rgba(0,0,0, .85)",
+              marginTop: "10vh",
+              backgroundColor: "rgba(0,0,0, .75)",
               minHeight: "25vh",
               border: "2px solid white",
               borderRadius: ".75rem",
@@ -58,12 +89,13 @@ function HeadlineBlock({ slice, metadata }) {
                 <h3 className="headline-block-subtitle has-text-centered">
                   {RichText.asText(feature_subtitle)}
                 </h3>
-                <hr style={{ margin: "2rem 45%" }} />
+                <hr style={{ margin: "2rem 45% .5rem" }} />
                 <div className="columns is-centered is-vcentered">
                   <div className="column is-narrow">
                     <figure className="image is-48x48">
                       <img
                         className="is-rounded"
+                        style={{ border: "2px solid white" }}
                         src={feature_author_pic.url}
                         alt={`${hmbk_staff_name}, ${hmbk_staff_position}`}
                       />
@@ -77,15 +109,12 @@ function HeadlineBlock({ slice, metadata }) {
                     </p>
                   </div>
                   <div className="column is-narrow">
-                    <p className="has-text-centered">{firstPublicationDate}</p>
+                    {featureDateDetails.updated ? (
+                      <p>Updated {featureDateDetails.pubDate}</p>
+                    ) : (
+                      <p>{featureDateDetails.pubDate}</p>
+                    )}
                   </div>
-                  {hasBeenUpdated ? (
-                    <div className="column is-narrow">
-                      <p className="has-text-grey has-text-centered">
-                        {lastPublicationDate}
-                      </p>
-                    </div>
-                  ) : null}
                 </div>
               </div>
             </div>

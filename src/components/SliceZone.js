@@ -6,6 +6,11 @@ import {
   TwoImagesAndText,
 } from "./slices";
 
+/** *
+ * @function sliceZone - Receives params as props from a template file. Processes the sliceZone object to match slice types, the keys in sliceComponents, to their corresponding component values.
+ * @param {Object} { sliceZone, featureMetadata }
+ * @returns {jsx} Returns components selected by sliceComponents key that have been hydrated with data to create the given page's layout.
+ */
 export default function SliceZone({ sliceZone, featureMetadata }) {
   // Structure the imported Slice Components with their api value
   const sliceComponents = {
@@ -48,7 +53,7 @@ export default function SliceZone({ sliceZone, featureMetadata }) {
  *
  * <main className="site-page">
  *    <div>
- *      <section>{slice}</section>
+ *      <section>{slice layout here}</section>
  *    </div>
  * </main>
  */

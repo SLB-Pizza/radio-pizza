@@ -54,27 +54,14 @@ function HeadlineBlock({ slice, metadata }) {
   return (
     <section className="hero">
       <div
-        className="hero-body"
+        className="hero-body headline-block"
         style={{
-          height: "35vh",
           backgroundImage: `url(${feature_headline_img.url})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center center",
-          marginBottom: "15vh",
         }}
       >
         <div className="container">
-          <div
-            className="columns"
-            style={{
-              marginTop: "10vh",
-              backgroundColor: "rgba(0,0,0, .75)",
-              minHeight: "25vh",
-              border: "2px solid white",
-              borderRadius: ".75rem",
-            }}
-          >
-            <div className="column" style={{ padding: "1.5rem" }}>
+          <div className="columns">
+            <div className="column">
               <p className="is-size-6 has-text-centered">
                 {allCapsCategory}
                 <span className="has-text-primary">
@@ -89,19 +76,16 @@ function HeadlineBlock({ slice, metadata }) {
                 <h3 className="headline-block-subtitle has-text-centered">
                   {RichText.asText(feature_subtitle)}
                 </h3>
-                <hr style={{ margin: "2rem 45% .5rem" }} />
+                <hr />
                 <div className="columns is-centered is-vcentered">
-                  <div className="column is-narrow">
+                  <div className="column is-narrow author">
                     <figure className="image is-48x48">
                       <img
                         className="is-rounded"
-                        style={{ border: "2px solid white" }}
                         src={feature_author_pic.url}
                         alt={`${hmbk_staff_name}, ${hmbk_staff_position}`}
                       />
                     </figure>
-                  </div>
-                  <div className="column is-narrow">
                     <p className="has-text-centered">
                       {hmbk_staff_name}
                       {", "}

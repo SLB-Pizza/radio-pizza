@@ -32,7 +32,8 @@ const darkImageSlice = {
     feature_headline: [
       {
         type: "heading1",
-        text: "Beyond 174: The Search for the Ultimate High Speed Workout",
+        text:
+          "Beyond 174: The Search for the Ultimate High Speed Workout Songs to Keep You Moving",
         spans: [],
       },
     ],

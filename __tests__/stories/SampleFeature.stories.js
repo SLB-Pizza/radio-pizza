@@ -36,7 +36,7 @@ const headlineSlice = {
     feature_headline: [
       {
         type: "heading1",
-        text: "Beyond 174: The Search for the Ultimate High Speed Workout",
+        text: "Three Word Title",
         spans: [],
       },
     ],

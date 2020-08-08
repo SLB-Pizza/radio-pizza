@@ -77,3 +77,44 @@ section.sample-feature {
     border-radius: 0.75rem;
   }
 }
+
+// ================================
+// CMS Slice -- HeadlineBlock.js
+// ================================
+
+.headline-block {
+  height: 25rem;
+  background-size: cover;
+  background-position: center center;
+  margin-bottom: 15rem;
+
+  .container > .columns {
+    margin-top: 10rem;
+    background-color: rgba($color: black, $alpha: 0.85);
+    border: 2px solid white;
+    border-radius: 0.75rem;
+  }
+
+  div.column:first-child {
+    padding: 1.5rem;
+  }
+
+  hr {
+    margin: 2rem 35% 0.5rem;
+  }
+
+  .author {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    img,
+    p {
+      flex: 1;
+    }
+  }
+
+  img.is-rounded {
+    border: 2px solid white;
+  }
+}

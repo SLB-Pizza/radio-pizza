@@ -19,9 +19,17 @@ const FeatureTemplate = ({ data }) => {
       />
       <hr />
       <h1 className="title">Data Objects passed into{" <SliceZone />"}</h1>
-      <h3 className="subtitle">featureMetadata Data Object</h3>
-      <pre>{JSON.stringify(featureMetadata, null, 2)}</pre>
-      <h3 className="subtitle">document.body Data Object</h3>
+      <h3 className="subtitle">
+        {`"/features/${featureMetadata.uid}"`} -- featureMetadata Data Object
+      </h3>
+      {featureSliceData.map((slice, index) => (
+        <div key={index} style={{ marginTop: "2rem" }}>
+          <h3 className="subtitle">
+            {slice.type === null ? "Unused Slice" : slice.type} Data Object
+          </h3>
+          <pre>{JSON.stringify(slice, null, 2)}</pre>
+        </div>
+      ))}
       <pre>{JSON.stringify(featureSliceData, null, 2)}</pre>
     </main>
   );

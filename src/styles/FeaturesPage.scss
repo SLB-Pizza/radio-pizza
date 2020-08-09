@@ -1,0 +1,15 @@
+// ================================
+// StickyFeature.js
+// ================================
+.lead-feature {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 7.5em;
+  z-index: 100;
+
+  img {
+    border: 2px solid white;
+    border-radius: 0.75rem;
+    opacity: 0.25;
+  }
+}

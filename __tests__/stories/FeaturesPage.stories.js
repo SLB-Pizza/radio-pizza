@@ -1,21 +1,16 @@
 import React from "react";
-import { StickyFeature } from "../../src/components/";
+import { StickyFeature } from "../../src/components";
 import "../../src/styles/index.scss";
 
 export default {
-  title: "Prismic CMS Slices/Headline Block",
+  title: "Prismic CMS Slices/Sample Layouts",
   component: StickyFeature,
 };
 
-const metadata = {
-  uid: "dev-test-feature-1",
-  firstPublicationDate: "2020-08-02T17:45:25+0000",
-  lastPublicationDate: "2020-08-06T21:25:19+0000",
-  type: "feature",
-  tags: [],
-};
-
-const darkImageSlice = {
+const leadFeatureData = {
+  __typename: "PRISMIC_FeatureBodyHeadline_block",
+  type: "headline_block",
+  label: null,
   primary: {
     feature_headline_img: {
       dimensions: {
@@ -32,8 +27,7 @@ const darkImageSlice = {
     feature_headline: [
       {
         type: "heading1",
-        text:
-          "Beyond 174: The Search for the Ultimate High Speed Workout Songs to Keep You Moving",
+        text: "Beyond 174: The Search for the Ultimate High Speed Workout",
         spans: [],
       },
     ],
@@ -55,18 +49,13 @@ const darkImageSlice = {
       url:
         "https://images.prismic.io/hmbk-cms/33e0177d-19d2-45f3-b30e-c666552c512e_gabriel-garcia-marquez-2.jpg?auto=compress,format&rect=76,0,750,750&w=750&h=750",
     },
-    feature_author: {
-      __typename: "PRISMIC_Staff",
-      hmbk_staff_name: "Gabriel Garcia Marquez",
-      hmbk_staff_position: "Nobel Laureate",
-    },
   },
 };
 
-export const baseLayout = () => (
+export const FeaturesPage = () => (
   <>
     <main style={{ backgroundColor: "black", minHeight: "100vh" }}>
-      <HeadlineBlock slice={darkImageSlice} metadata={metadata} />
+      <StickyFeature leadFeatureData={leadFeatureData} />
     </main>
   </>
 );

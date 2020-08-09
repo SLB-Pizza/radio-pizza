@@ -1,4 +1,5 @@
 import React from "react";
+import { StickyFeature } from "../../components";
 
 export default function FeaturesIndexPage({ data }) {
   // Focus the node for the prismicContent check below.
@@ -14,16 +15,17 @@ export default function FeaturesIndexPage({ data }) {
   const document = prismicContent.node;
 
   return (
-    <div className="container is-fluid site-page">
+    <main className="container is-fluid site-page">
       <div className="columns is-multiline">
         <div className="column is-12">
           <h1 className="title is-size-3-desktop is-size-4-touch">Features</h1>
-          <div className="column is-12">
-            <pre>{JSON.stringify(document, null, 2)}</pre>
-          </div>
+        </div>
+        {/* <StickyFeature /> */}
+        <div className="column is-12">
+          <pre>{JSON.stringify(document, null, 2)}</pre>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 

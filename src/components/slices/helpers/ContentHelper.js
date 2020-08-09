@@ -4,6 +4,10 @@ import { RichText } from "prismic-reactjs";
 export default function ContentHelper(props) {
   const defaultClassName = "column is-12";
 
+  console.log("inside Content Helper", props);
+
+  if (props.type === "text") {
+  }
   const contentColumnClass = props.sliceClassName
     ? props.sliceClassName
     : defaultClassName;

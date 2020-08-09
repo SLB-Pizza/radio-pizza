@@ -35,9 +35,9 @@ function TwoImagesAndText({ slice }) {
           </>
         ) : (
           <>
-            <ContentHelper text={tiat_text} sliceClassName={tiatContentClass} />
             <ImageHelper url={tiat_left_img.url} alt={tiat_left_img.alt} />
             <ImageHelper url={tiat_right_img.url} alt={tiat_right_img.alt} />
+            <ContentHelper text={tiat_text} sliceClassName={tiatContentClass} />
           </>
         )}
       </div>

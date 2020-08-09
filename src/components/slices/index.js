@@ -6,6 +6,7 @@
 export { default as Blockquote } from "./Blockquote";
 export { default as FullWidthImage } from "./FullWidthImage";
 export { default as HeadlineBlock } from "./HeadlineBlock";
+export { default as TextBlock } from "./TextBlock";
 export { default as TwoImagesAndText } from "./TwoImagesAndText";
 
 /**

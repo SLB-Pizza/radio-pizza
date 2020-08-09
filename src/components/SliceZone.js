@@ -4,7 +4,7 @@ import {
   HeadlineBlock,
   FullWidthImage,
   TwoImagesAndText,
-  ContentHelper,
+  TextBlock,
 } from "./slices";
 
 /** *
@@ -38,11 +38,10 @@ export default function SliceZone({ sliceZone, featureMetadata }) {
     blockquote: Blockquote,
     two_images___text: TwoImagesAndText,
     headline_block: HeadlineBlock,
+    text: TextBlock,
   };
 
   const sliceZoneContent = sliceZone.map((slice, index) => {
-    console.log("in sliceZone", slice.type);
-
     const SliceComponent = sliceComponents[slice.type];
 
     if (SliceComponent) {

@@ -1,4 +1,13 @@
-const getBlockquoteStyling = (type, bgIMG) => {
+/**
+ *
+ * @function getBlockquoteStyling
+ * @param {String} type
+ * @param {Object} bgIMG
+ * @property {String} bgIMG.url - the URL that would be passing into styling.imgStyle should the Blockquote be the type that has a background image
+ * @returns {object}
+ */
+
+export default function getBlockquoteStyling(type, bgIMG) {
   /**
    * @param {Object} styling - contains the data needed to style the Blockquote properly.
    * @property {?Object} styling.imgStyle - the style object to inject the url from bgIMG into the main Blockquote <section> element, if the type calls for it. It's default is null so that no inline object is passed to the inline call in the return. Doing so sets the default to no background image; black page background, the "none" blockquote type.
@@ -54,6 +63,4 @@ const getBlockquoteStyling = (type, bgIMG) => {
       styling.imgStyle = null;
   }
   return styling;
-};
-
-export default getBlockquoteStyling;
+}

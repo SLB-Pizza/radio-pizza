@@ -1,5 +1,5 @@
 import React from "react";
-import {} from "../components/slices/utils";
+import processPublicationDates from "../utils/processPublicationDates";
 
 export default function StickyFeature({ leadFeatureData }) {
   /**

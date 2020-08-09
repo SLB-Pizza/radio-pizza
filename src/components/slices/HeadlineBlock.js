@@ -1,6 +1,6 @@
 import React from "react";
 import { RichText } from "prismic-reactjs";
-import processPublicationDates from "./utils/processPublicationDates";
+import processPublicationDates from "../../utils/processPublicationDates";
 
 /**
  *

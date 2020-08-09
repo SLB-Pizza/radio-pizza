@@ -1,6 +1,6 @@
 import React from "react";
 import { RichText } from "prismic-reactjs";
-import getBlockquoteStyling from "./utils/getBlockquoteStyling";
+import getBlockquoteStyling from "../../utils/getBlockquoteStyling";
 
 /**
  * @function Blockquote

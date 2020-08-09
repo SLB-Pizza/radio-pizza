@@ -8,48 +8,76 @@ export default {
 };
 
 const leadFeatureData = {
-  __typename: "PRISMIC_FeatureBodyHeadline_block",
-  type: "headline_block",
-  label: null,
-  primary: {
-    feature_headline_img: {
-      dimensions: {
-        width: 2880,
-        height: 1800,
-      },
-      alt: "oslo escalator",
-      copyright: null,
-      url:
-        "https://images.prismic.io/hmbk-cms/450e3121-5d28-48eb-961c-937cfd5bd364_wallhaven-w8yxlr.jpg?auto=compress,format",
-    },
-    feature_category: "music",
-    feature_subcategory: "playlists",
-    feature_headline: [
-      {
-        type: "heading1",
-        text: "Beyond 174: The Search for the Ultimate High Speed Workout",
-        spans: [],
-      },
-    ],
-    feature_subtitle: [
-      {
-        type: "heading4",
-        text:
-          "These ten must-add songs will bring your next workout to blistering heights.",
-        spans: [],
-      },
-    ],
-    feature_author_pic: {
-      dimensions: {
-        width: 750,
-        height: 750,
-      },
-      alt: "Gabo",
-      copyright: null,
-      url:
-        "https://images.prismic.io/hmbk-cms/33e0177d-19d2-45f3-b30e-c666552c512e_gabriel-garcia-marquez-2.jpg?auto=compress,format&rect=76,0,750,750&w=750&h=750",
-    },
+  _meta: {
+    uid: "dev-test-feature-2",
+    firstPublicationDate: "2020-08-09T20:00:36+0000",
+    lastPublicationDate: "2020-08-09T20:00:36+0000",
+    type: "feature",
+    tags: [],
   },
+  body: [
+    {
+      __typename: "PRISMIC_FeatureBodyHeadline_block",
+      type: "headline_block",
+      primary: {
+        feature_headline_img: {
+          dimensions: {
+            width: 1920,
+            height: 1200,
+          },
+          alt: null,
+          copyright: null,
+          url:
+            "https://images.prismic.io/hmbk-cms/1f89b439-fa60-4b11-b3b1-1ad296c8721f_wallhaven-p8vj53_1920x1200.png?auto=compress,format",
+        },
+        feature_category: "Events",
+        feature_subcategory: "Denali Fest",
+        feature_headline: [
+          {
+            type: "heading1",
+            text:
+              "The Mountain Awaits: Summit Fest 2025 Will Be the World's Highest Music Festival",
+            spans: [],
+          },
+        ],
+        feature_subtitle: [
+          {
+            type: "heading4",
+            text:
+              "The air will be rich with the sound of music 3000 meters up.",
+            spans: [],
+          },
+        ],
+        feature_author_pic: {
+          dimensions: {
+            width: 1080,
+            height: 1080,
+          },
+          alt: "This is actually Albert Camus",
+          copyright: null,
+          url:
+            "https://images.prismic.io/hmbk-cms/5574603a-80c8-400b-8b3a-34c469871a38_wallhaven-01kz39.jpg?auto=compress,format&rect=259,0,1080,1080&w=1080&h=1080",
+        },
+        feature_author: {
+          __typename: "PRISMIC_Staff",
+          hmbk_staff_name: "Christian Mejia",
+          hmbk_staff_position: "Super Developer",
+        },
+      },
+    },
+    {
+      __typename: "PRISMIC_FeatureBodyText",
+    },
+    {
+      __typename: "PRISMIC_FeatureBodyTwo_images___text",
+    },
+    {
+      __typename: "PRISMIC_FeatureBodyText",
+    },
+    {
+      __typename: "PRISMIC_FeatureBodyBlockquote",
+    },
+  ],
 };
 
 export const FeaturesPage = () => (

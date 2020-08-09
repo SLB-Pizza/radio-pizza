@@ -2,7 +2,16 @@ import React from "react";
 import { RichText } from "prismic-reactjs";
 import processPublicationDates from "./utils/processPublicationDates";
 
+/**
+ *
+ *
+ * @param {*} { slice, metadata }
+ * @returns
+ */
 function HeadlineBlock({ slice, metadata }) {
+  /**
+   * Destructure slice and metadata for ease of use.
+   */
   const {
     feature_headline_img,
     feature_category,
@@ -14,12 +23,19 @@ function HeadlineBlock({ slice, metadata }) {
   } = slice.primary;
 
   const { firstPublicationDate, lastPublicationDate } = metadata;
+  const { hmbk_staff_name, hmbk_staff_position } = feature_author;
 
+  /**
+   * Send the publication date info off to be processed.
+   */
   const featureDateDetails = processPublicationDates(
     firstPublicationDate,
     lastPublicationDate
   );
-  const { hmbk_staff_name, hmbk_staff_position } = feature_author;
+
+  /**
+   * Transform feature_category for layout use.
+   */
   const allCapsCategory = feature_category.toUpperCase();
 
   return (
@@ -33,23 +49,21 @@ function HeadlineBlock({ slice, metadata }) {
         <div className="container">
           <div className="columns">
             <div className="column">
-              <p className="is-size-6 has-text-centered">
+              <p className="is-size-6-desktop is-size-7-touch has-text-centered category">
                 {allCapsCategory}
-                <span className="has-text-primary">
-                  {" ‣ " + feature_subcategory}
-                </span>
+                <span>{" ‣ " + feature_subcategory}</span>
               </p>
               <div className="content">
-                <h1 className="title is-size-1 has-text-centered">
+                <h1 className="title is-size-1-widescreen is-size-2-desktop is-size-3-tablet is-size-4-mobile has-text-centered">
                   {RichText.asText(feature_headline)}
                 </h1>
 
-                <h3 className="headline-block-subtitle has-text-centered">
+                <h3 className="is-size-4-desktop is-size-6-touch has-text-centered">
                   {RichText.asText(feature_subtitle)}
                 </h3>
                 <hr />
                 <div className="columns is-centered is-vcentered">
-                  <div className="column is-narrow author">
+                  <div className="column is-narrow">
                     <figure className="image is-48x48">
                       <img
                         className="is-rounded"
@@ -57,6 +71,8 @@ function HeadlineBlock({ slice, metadata }) {
                         alt={`${hmbk_staff_name}, ${hmbk_staff_position}`}
                       />
                     </figure>
+                  </div>
+                  <div className="column is-narrow">
                     <p className="has-text-centered">
                       {hmbk_staff_name}
                       {", "}

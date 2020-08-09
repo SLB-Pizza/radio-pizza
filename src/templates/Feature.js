@@ -25,12 +25,11 @@ const FeatureTemplate = ({ data }) => {
       {featureSliceData.map((slice, index) => (
         <div key={index} style={{ marginTop: "2rem" }}>
           <h3 className="subtitle">
-            {slice.type === null ? "Unused Slice" : slice.type} Data Object
+            {slice.type === undefined ? "Unused Slice" : slice.type} Data Object
           </h3>
           <pre>{JSON.stringify(slice, null, 2)}</pre>
         </div>
       ))}
-      <pre>{JSON.stringify(featureSliceData, null, 2)}</pre>
     </main>
   );
 };

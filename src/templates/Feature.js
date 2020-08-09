@@ -62,6 +62,11 @@ export const query = graphql`
                     ... on PRISMIC_Staff {
                       hmbk_staff_name
                       hmbk_staff_position
+                      _meta {
+                        uid
+                        type
+                      }
+                      _linkType
                     }
                   }
                 }
@@ -85,6 +90,37 @@ export const query = graphql`
                   tiat_is_gapless
                   tiat_left_img
                   tiat_right_img
+                }
+              }
+              ... on PRISMIC_FeatureBodyText {
+                type
+                primary {
+                  set_first_letter
+                  body_text
+                }
+              }
+              ... on PRISMIC_FeatureBodyBanner_with_caption {
+                type
+                label
+                primary {
+                  image_banner
+                  title_of_banner
+                  description
+                  button_label
+                }
+              }
+              ... on PRISMIC_FeatureBodyAuthor_pic_and_quote {
+                type
+                label
+              }
+            }
+            body1 {
+              ... on PRISMIC_FeatureBody1Deveverycontenttype {
+                type
+                label
+                primary {
+                  title
+                  img
                 }
               }
             }

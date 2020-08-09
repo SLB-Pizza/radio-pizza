@@ -4,41 +4,14 @@ import {
   HeadlineBlock,
   FullWidthImage,
   TwoImagesAndText,
+  ContentHelper,
 } from "./slices";
 
 /** *
  * @function sliceZone - Receives params as props from a template file. Processes the sliceZone object to match slice types, the keys in sliceComponents, to their corresponding component values.
  * @param {Object} { sliceZone, featureMetadata }
  * @returns {jsx} Returns components selected by sliceComponents key that have been hydrated with data to create the given page's layout.
- */
-export default function SliceZone({ sliceZone, featureMetadata }) {
-  // Structure the imported Slice Components with their api value
-  const sliceComponents = {
-    full_width_image: FullWidthImage,
-    blockquote: Blockquote,
-    two_images___text: TwoImagesAndText,
-    headline_block: HeadlineBlock,
-  };
-
-  const sliceZoneContent = sliceZone.map((slice, index) => {
-    const SliceComponent = sliceComponents[slice.type];
-
-    if (SliceComponent) {
-      return (
-        <SliceComponent
-          slice={slice}
-          metadata={featureMetadata}
-          key={`slice-${index}`}
-        />
-      );
-    }
-    return null;
-  });
-
-  return <>{sliceZoneContent}</>;
-}
-
-/**
+ *
  * Why is sliceZoneContent is returned in a fragment and not wrapped in an element?
  *
  * The template that has the query for the data to pass as props into SliceZone returns a structure as follows:
@@ -57,3 +30,32 @@ export default function SliceZone({ sliceZone, featureMetadata }) {
  *    </div>
  * </main>
  */
+
+export default function SliceZone({ sliceZone, featureMetadata }) {
+  // Structure the imported Slice Components with their api value
+  const sliceComponents = {
+    full_width_image: FullWidthImage,
+    blockquote: Blockquote,
+    two_images___text: TwoImagesAndText,
+    headline_block: HeadlineBlock,
+  };
+
+  const sliceZoneContent = sliceZone.map((slice, index) => {
+    console.log("in sliceZone", slice.type);
+
+    const SliceComponent = sliceComponents[slice.type];
+
+    if (SliceComponent) {
+      return (
+        <SliceComponent
+          slice={slice}
+          metadata={featureMetadata}
+          key={`slice-${index}`}
+        />
+      );
+    }
+    return null;
+  });
+
+  return <>{sliceZoneContent}</>;
+}

@@ -31,7 +31,7 @@ function MixesIndexPage() {
     "column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen";
 
   return (
-    <div className="container is-fluid mixes-page">
+    <div className="container is-fluid site-page">
       <div className="columns is-mobile is-multiline">
         <div className="column is-full">
           <p className="title is-size-3-desktop is-size-4-touch">

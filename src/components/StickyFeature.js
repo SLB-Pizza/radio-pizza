@@ -6,7 +6,7 @@ export default function StickyFeature({ leadFeatureData }) {
    * leadFeatureData is an object with "_meta" and "body" keys available
    */
 
-  console.log(leadFeatureData);
+  console.log("StickyFeature > {leadFeatureData}", leadFeatureData);
   const {
     feature_headline_img,
     feature_category,
@@ -15,29 +15,29 @@ export default function StickyFeature({ leadFeatureData }) {
     feature_subtitle,
     feature_author,
     feature_author_pic,
-  } = leadFeatureData.body.primary;
+  } = leadFeatureData.body[0].primary;
 
-  const DummyColumn = () => {
-    return (
-      <>
-        <div className="column is-3"></div>
-        <div className="column is-9">
-          <figure className="image is-3by1">
-            <img
-              src={feature_headline_img.url}
-              alt={feature_headline_img.alt}
-            />
-          </figure>
-        </div>
-      </>
-    );
-  };
+  // const DummyColumn = () => {
+  //   return (
+  //     <>
+  //       <div className="column is-3"></div>
+  //       <div className="column is-9">
+  //         <figure className="image is-3by1">
+  //           <img
+  //             src={feature_headline_img.url}
+  //             alt={feature_headline_img.alt}
+  //           />
+  //         </figure>
+  //       </div>
+  //     </>
+  //   );
+  // };
 
   return (
     <>
       <section className="container is-fluid">
-        <div className="columns is-mobile lead-feature">
-          <div className="column is-3"></div>
+        <div className="columns is-mobile">
+          <div className="column is-3">No variables</div>
           <div className="column is-9">
             <figure className="image is-3by1">
               <img
@@ -47,7 +47,7 @@ export default function StickyFeature({ leadFeatureData }) {
             </figure>
           </div>
         </div>
-        <div className="columns is-mobile is-multiline other-features">
+        {/* <div className="columns is-mobile is-multiline other-features">
           <DummyColumn />
           <DummyColumn />
           <DummyColumn />
@@ -78,7 +78,7 @@ export default function StickyFeature({ leadFeatureData }) {
           <DummyColumn />
           <DummyColumn />
           <DummyColumn />
-        </div>
+        </div>*/}
       </section>
     </>
   );

@@ -20,13 +20,20 @@ export default function FeaturesIndexPage({ data }) {
    * The remaining array of node objects can be mapped over normally using XYZ_Component.
    */
 
+  const dataDocument = prismicContent;
   const leadFeature = prismicContent.shift();
   const leadFeatureData = leadFeature.node;
   const allOtherFeatures = prismicContent;
 
+  const { _meta, body } = leadFeatureData;
+
+  // console.log("index > leadFeatureData", leadFeatureData);
+  console.log("index > leadFeatureData.body", body);
+  console.log("index > leadFeatureData._meta", _meta);
+
   return (
-    <main className="site-page">
-      {/* <StickyFeature leadFeatureData={leadFeature} /> */}
+    <main className="site-page all-features">
+      <StickyFeature leadFeatureData={leadFeatureData} />
       <section className="container is-fluid">
         <div className="columns is-multiline">
           <div className="column is-12">

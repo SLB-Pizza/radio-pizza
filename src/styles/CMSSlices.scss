@@ -1,4 +1,18 @@
 // ================================
+// Used to debug
+// ================================
+// main.feature section:nth-child(n) {
+//   background-color: rgba($color: darkgreen, $alpha: 0.75);
+// }
+// main.feature section:nth-child(2n) {
+//   background-color: rgba($color: darkslateblue, $alpha: 0.75);
+// }
+
+main.feature section {
+  margin: 2rem auto;
+}
+
+// ================================
 // CMS Slice -- Blockquote.js
 // ================================
 section.hero h1.has-text-centered,

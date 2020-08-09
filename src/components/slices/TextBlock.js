@@ -10,7 +10,9 @@ export default function TextBlock({ slice }) {
   return (
     <section class="container">
       <div className="columns">
-        <div className="content">{RichText.render(body_text)}</div>
+        <div className="column is-full">
+          <div className="content">{RichText.render(body_text)}</div>
+        </div>
       </div>
     </section>
   );

@@ -96,6 +96,13 @@ function BottomNav() {
               Events
             </Link>
             <Link
+              to="/features"
+              className="navbar-item"
+              onClick={() => toggleNavMenu()}
+            >
+              Features
+            </Link>
+            <Link
               to="/about"
               className="navbar-item"
               onClick={() => toggleNavMenu()}

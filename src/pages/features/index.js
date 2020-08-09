@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby";
 import { StickyFeature } from "../../components";
 import PropTypes from "prop-types";
 
@@ -34,11 +35,21 @@ export default function FeaturesIndexPage({ data }) {
   return (
     <main className="site-page all-features">
       <StickyFeature leadFeatureData={leadFeatureData} />
+      <ul>
+        <li>
+          <Link to="/features/dev-test-feature-1">Link to Test Feature 1</Link>
+        </li>
+        <li>
+          <Link to="/features/dev-test-feature-2">Link to Test Feature 2</Link>
+        </li>
+      </ul>
+      <hr />
+
       <section className="container is-fluid">
         <div className="columns is-multiline">
           <div className="column is-12">
             <h1 className="title is-size-3-desktop is-size-4-touch">
-              Features
+              Features Data
             </h1>
           </div>
           <div className="column is-12">

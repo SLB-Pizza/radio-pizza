@@ -10,20 +10,29 @@ dayjs.extend(utc);
  */
 
 export default function processPublicationDates(firstPubDate, lastPubDate) {
-  // Default dateDetails to firstPubDate and never updated
+  /**
+   * Default dateDetails to firstPubDate and never updated
+   */
   let dateDetails = {
     pubDate: firstPubDate,
     hasBeenUpdated: false,
   };
 
-  // Determine whether this feature has been update since first publication
-  const hasBeenUpdated = firstPubDate !== lastPubDate ? true : false;
+  /**
+   * Determine if feature has been updated by comparing first and last publication dates.
+   */
+  const updated = firstPubDate !== lastPubDate ? true : false;
 
-  // Update dateDetails
-  dateDetails.hasBeenUpdated = hasBeenUpdated;
+  /**
+   * Update the dateDetails object with the value of updated
+   */
+  dateDetails.hasBeenUpdated = updated;
 
-  // If the feature has been updated
-  dateDetails.pubDate = hasBeenUpdated
+  /**
+   * If the feature has been updated, format pubDate to include the time of update after the update's date e.g. August 6, 2020 - 17:25
+   * If the feature has NOT been update, format pubDate to show just the date of publication e.g. August 2, 2020
+   */
+  dateDetails.pubDate = updated
     ? dayjs(lastPubDate).format("MMMM D, YYYY – HH:mm")
     : dayjs(firstPubDate).format("MMMM D, YYYY");
 

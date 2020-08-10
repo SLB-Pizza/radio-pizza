@@ -27,6 +27,7 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React from "react";
+import { ContentHelper, ImageHelper } from "./index";
 
 /**
  * @function TwoImagesAndText
@@ -34,47 +35,39 @@
  * @returns {jsx}
  */
 function TwoImagesAndText({ slice }) {
-  const threeEvenColumnsObj = {
-    "section-1": "column is-one-third",
-    "section-2": "column is-one-third",
-    "section-3": "column is-one-third",
-  };
+  const {
+    tiat_layout,
+    tiat_is_gapless,
+    tiat_text,
+    tiat_left_img,
+    tiat_right_img,
+  } = slice.primary;
 
-  const halfLeftObj = {
-    "section-1": "column is-half",
-    "section-2": "column is-one-quarter",
-    "section-3": "column is-one-quarter",
-  };
-  const halfRightObj = {
-    "section-1": "column is-one-quarter",
-    "section-2": "column is-one-quarter",
-    "section-3": "column is-half",
-  };
+  const layoutType = tiat_layout.split(".")[0];
+
+  const columnsClassName = tiat_is_gapless
+    ? "columns is-mobile is-multiline is-gapless"
+    : "columns is-mobile is-multiline";
+
+  const tiatContentClass = "column is-half";
+  const tiatImageClass = "column is-one-quarter";
+
   return (
     &lt;section className="container">
-      &lt;div className="columns is-mobile">
-        &lt;div className="column is-4">
-          &lt;figure className="image is-square">
-            &lt;img src={`../../static/img/test/bright-forest.png`} />
-          &lt;/figure>
-        &lt;/div>
-        &lt;div className="column is-4">
-          &lt;figure className="image is-square">
-            &lt;img src={`../../static/img/test/fantasy-forest.png`} />
-          &lt;/figure>
-        &lt;/div>
-        &lt;div className="column is-4">
-          &lt;div className="content">
-            &lt;p>
-              HODOR? Hodor hodor! Hodor... Hodor hodor. Hodor! Hodor hodor.
-              Hodor? Hodor, hodor, hodor hodor.
-            &lt;/p>
-            &lt;p>
-              HODOR HODOR! Hodor, hodor. Hodor. Hodor. Hodor, hodor. Hodor.
-              Hodor. Hodor, hodor, hodor hodor. HODOR HODOR! Hodor hodor HODOR!
-            &lt;/p>
-          &lt;/div>
-        &lt;/div>
+      &lt;div className={columnsClassName}>
+        {layoutType === "Left" ? (
+          &lt;>
+            &lt;ContentHelper text={tiat_text} sliceClassName={tiatContentClass} />
+            &lt;ImageHelper url={tiat_left_img.url} alt={tiat_left_img.alt} />
+            &lt;ImageHelper url={tiat_right_img.url} alt={tiat_right_img.alt} />
+          &lt;/>
+        ) : (
+          &lt;>
+            &lt;ImageHelper url={tiat_left_img.url} alt={tiat_left_img.alt} />
+            &lt;ImageHelper url={tiat_right_img.url} alt={tiat_right_img.alt} />
+            &lt;ContentHelper text={tiat_text} sliceClassName={tiatContentClass} />
+          &lt;/>
+        )}
       &lt;/div>
     &lt;/section>
   );
@@ -91,13 +84,13 @@ export default TwoImagesAndText;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Blockquote">Blockquote</a></li><li><a href="global.html#DateSelectorButton-functionthatcreatesstyledbuttonswithtogglingfunctionalitybuiltin">DateSelectorButton - function that creates styled buttons with toggling functionality built in</a></li><li><a href="global.html#linkResolver">linkResolver</a></li><li><a href="global.html#playAudioButton-functionthattakesinpropsfromBioMixListandcreatesactiveYTaudiosources">playAudioButton - function that takes in props from BioMixList and creates active YT audio sources</a></li><li><a href="global.html#ResidentsIndexPage">ResidentsIndexPage</a></li><li><a href="global.html#residentSocialIcons-functionthattakesinpropsfromBioMixListandcreatesactiveYTaudiosources">residentSocialIcons - function that takes in props from BioMixList and creates active YT audio sources</a></li><li><a href="global.html#slideGenerator">slideGenerator</a></li><li><a href="global.html#TwoImagesAndText">TwoImagesAndText</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Blockquote.html">Blockquote</a></li><li><a href="HeadlineBlock.html">HeadlineBlock</a></li></ul><h3>Global</h3><ul><li><a href="global.html#DateSelectorButton-functionthatcreatesstyledbuttonswithtogglingfunctionalitybuiltin">DateSelectorButton - function that creates styled buttons with toggling functionality built in</a></li><li><a href="global.html#getBlockquoteStyling">getBlockquoteStyling</a></li><li><a href="global.html#linkResolver">linkResolver</a></li><li><a href="global.html#playAudioButton-functionthattakesinpropsfromBioMixListandcreatesactiveYTaudiosources">playAudioButton - function that takes in props from BioMixList and creates active YT audio sources</a></li><li><a href="global.html#processPublicationDates">processPublicationDates</a></li><li><a href="global.html#ResidentsIndexPage">ResidentsIndexPage</a></li><li><a href="global.html#residentSocialIcons-functionthattakesinpropsfromBioMixListandcreatesactiveYTaudiosources">residentSocialIcons - function that takes in props from BioMixList and creates active YT audio sources</a></li><li><a href="global.html#slideGenerator">slideGenerator</a></li><li><a href="global.html#TwoImagesAndText">TwoImagesAndText</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.5</a> on Wed Aug 05 2020 17:29:53 GMT-0400 (Eastern Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.5</a> on Sun Aug 09 2020 20:33:49 GMT-0400 (Eastern Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>

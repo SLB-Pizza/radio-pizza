@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/slices/Blockquote.js</title>
+    <title>JSDoc: Source: components/SliceZone.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/slices/Blockquote.js</h1>
+    <h1 class="page-title">Source: components/SliceZone.js</h1>
 
     
 
@@ -27,59 +27,65 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React from "react";
-import { RichText } from "prismic-reactjs";
-import getBlockquoteStyling from "../../utils/getBlockquoteStyling";
+import {
+  Blockquote,
+  HeadlineBlock,
+  FullWidthImage,
+  TwoImagesAndText,
+  TextBlock,
+} from "./slices";
 
-/**
- * @component
- * @param {object} slice - the data object coming from Prismic CMS that contains all data needed to create the Blockquote slice
- * @returns {jsx}
+/** *
+ * @function sliceZone - Receives params as props from a template file. Processes the sliceZone object to match slice types, the keys in sliceComponents, to their corresponding component values.
+ * @param {Object} { sliceZone, featureMetadata }
+ * @returns {jsx} Returns components selected by sliceComponents key that have been hydrated with data to create the given page's layout.
+ *
+ * Why is sliceZoneContent is returned in a fragment and not wrapped in an element?
+ *
+ * The template that has the query for the data to pass as props into SliceZone returns a structure as follows:
+ * &lt;main className="site-page">
+ *    &lt;SliceZone
+        sliceZone={featureSliceData}
+        featureMetadata={featureMetadata}
+      />
+ * &lt;/main>
+ *
+ * Each CMS Slice returned by SliceZone is wrapped in a &lt;section> element, so if we did, there would be unnecessary elements between &lt;main> and the &lt;section>'s -> e.g.
+ *
+ * &lt;main className="site-page">
+ *    &lt;div>
+ *      &lt;section>{slice layout here}&lt;/section>
+ *    &lt;/div>
+ * &lt;/main>
  */
 
-function Blockquote({ slice }) {
-  /**
-   * @namespace
-   * @memberof slice.primary {String} blockquote_type
-   * @memberof slice.primary {Object[]} blockquote_text - Array of paragraph objects containing the quote's text that is passed into RichText.render() inside the blockquote element
-   * @memberof slice.primary {Object[]} blockquote_attribution - Array of paragraph objects containing quote attribution details that is passed into RichText.render() inside the cite element
-   * @memberof slice.primary {Object} blockquote_bg_img
-   * @property {String} blockquote_bg_img.url - the URL from Prismic of background image injected the section element
-   * @property {String} blockquote_bg_img.alt - the alt text from Prismic of background image injected the section element
-   */
-  const {
-    blockquote_type,
-    blockquote_text,
-    blockquote_attribution,
-    blockquote_bg_img,
-  } = slice.primary;
+export default function SliceZone({ sliceZone, featureMetadata }) {
+  // Structure the imported Slice Components with their api value
+  const sliceComponents = {
+    full_width_image: FullWidthImage,
+    blockquote: Blockquote,
+    two_images___text: TwoImagesAndText,
+    headline_block: HeadlineBlock,
+    text: TextBlock,
+  };
 
-  /**
-   * Pass the type and the bg_type objects to {@link getBlockquoteStyling} to derive styling.
-   */
-  const blockquoteStyling = getBlockquoteStyling(
-    blockquote_type,
-    blockquote_bg_img
-  );
+  const sliceZoneContent = sliceZone.map((slice, index) => {
+    const SliceComponent = sliceComponents[slice.type];
 
-  return (
-    &lt;section className="hero sample-feature" style={blockquoteStyling.imgStyle}>
-      &lt;div className="hero-body">
-        &lt;div className="container">
-          &lt;div className="content">
-            &lt;blockquote className={blockquoteStyling.blockClassNames}>
-              {RichText.render(blockquote_text)}
-            &lt;/blockquote>
-            &lt;cite className={blockquoteStyling.citeClassNames}>
-              {RichText.asText(blockquote_attribution)}
-            &lt;/cite>
-          &lt;/div>
-        &lt;/div>
-      &lt;/div>
-    &lt;/section>
-  );
+    if (SliceComponent) {
+      return (
+        &lt;SliceComponent
+          slice={slice}
+          metadata={featureMetadata}
+          key={`slice-${index}`}
+        />
+      );
+    }
+    return null;
+  });
+
+  return &lt;>{sliceZoneContent}&lt;/>;
 }
-
-export default Blockquote;
 </code></pre>
         </article>
     </section>

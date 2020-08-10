@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/slices/Blockquote.js</title>
+    <title>JSDoc: Source: utils/processPublicationDates.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/slices/Blockquote.js</h1>
+    <h1 class="page-title">Source: utils/processPublicationDates.js</h1>
 
     
 
@@ -26,60 +26,46 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React from "react";
-import { RichText } from "prismic-reactjs";
-import getBlockquoteStyling from "../../utils/getBlockquoteStyling";
+            <pre class="prettyprint source linenums"><code>import dayjs from "dayjs";
+const utc = require("dayjs/plugin/utc");
+dayjs.extend(utc);
 
 /**
- * @component
- * @param {object} slice - the data object coming from Prismic CMS that contains all data needed to create the Blockquote slice
- * @returns {jsx}
+ * @function processPublicationDates
+ * @param {String} firstPubDate - date of initial publish; comes from feature_metadata
+ * @param {String} lastPubDate - date of most recent publish(update); comes from feature_metadata
+ * @returns {Object} dateDetails
  */
 
-function Blockquote({ slice }) {
+export default function processPublicationDates(firstPubDate, lastPubDate) {
   /**
-   * @namespace
-   * @memberof slice.primary {String} blockquote_type
-   * @memberof slice.primary {Object[]} blockquote_text - Array of paragraph objects containing the quote's text that is passed into RichText.render() inside the blockquote element
-   * @memberof slice.primary {Object[]} blockquote_attribution - Array of paragraph objects containing quote attribution details that is passed into RichText.render() inside the cite element
-   * @memberof slice.primary {Object} blockquote_bg_img
-   * @property {String} blockquote_bg_img.url - the URL from Prismic of background image injected the section element
-   * @property {String} blockquote_bg_img.alt - the alt text from Prismic of background image injected the section element
+   * Default dateDetails to firstPubDate and never updated
    */
-  const {
-    blockquote_type,
-    blockquote_text,
-    blockquote_attribution,
-    blockquote_bg_img,
-  } = slice.primary;
+  let dateDetails = {
+    pubDate: firstPubDate,
+    hasBeenUpdated: false,
+  };
 
   /**
-   * Pass the type and the bg_type objects to {@link getBlockquoteStyling} to derive styling.
+   * Determine if feature has been updated by comparing first and last publication dates.
    */
-  const blockquoteStyling = getBlockquoteStyling(
-    blockquote_type,
-    blockquote_bg_img
-  );
+  const updated = firstPubDate !== lastPubDate ? true : false;
 
-  return (
-    &lt;section className="hero sample-feature" style={blockquoteStyling.imgStyle}>
-      &lt;div className="hero-body">
-        &lt;div className="container">
-          &lt;div className="content">
-            &lt;blockquote className={blockquoteStyling.blockClassNames}>
-              {RichText.render(blockquote_text)}
-            &lt;/blockquote>
-            &lt;cite className={blockquoteStyling.citeClassNames}>
-              {RichText.asText(blockquote_attribution)}
-            &lt;/cite>
-          &lt;/div>
-        &lt;/div>
-      &lt;/div>
-    &lt;/section>
-  );
+  /**
+   * Update the dateDetails object with the value of updated
+   */
+  dateDetails.hasBeenUpdated = updated;
+
+  /**
+   * If the feature has been updated, format pubDate to include the time of update after the update's date e.g. August 6, 2020 - 17:25
+   * If the feature has NOT been update, format pubDate to show just the date of publication e.g. August 2, 2020
+   */
+  dateDetails.pubDate = updated
+    ? dayjs(lastPubDate).format("MMMM D, YYYY – HH:mm")
+    : dayjs(firstPubDate).format("MMMM D, YYYY");
+
+  return dateDetails;
 }
-
-export default Blockquote;
 </code></pre>
         </article>
     </section>

@@ -7,7 +7,7 @@ import {
   TextBlock,
 } from "./slices";
 
-/** *
+/**
  * @function sliceZone - Receives params as props from a template file. Processes the sliceZone object to match slice types, the keys in sliceComponents, to their corresponding component values.
  * @param {Object} { sliceZone, featureMetadata }
  * @returns {jsx} Returns components selected by sliceComponents key that have been hydrated with data to create the given page's layout.
@@ -31,8 +31,10 @@ import {
  * </main>
  */
 
-export default function SliceZone({ sliceZone, featureMetadata }) {
-  // Structure the imported Slice Components with their api value
+function SliceZone({ sliceZone, featureMetadata }) {
+  /**
+   * Structure the imported Slice Components with their Prismic API "type" value
+   */
   const sliceComponents = {
     full_width_image: FullWidthImage,
     blockquote: Blockquote,
@@ -58,3 +60,5 @@ export default function SliceZone({ sliceZone, featureMetadata }) {
 
   return <>{sliceZoneContent}</>;
 }
+
+export default SliceZone;

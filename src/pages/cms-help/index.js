@@ -44,6 +44,7 @@ export default function CMSHelp({ data }) {
                 <li>Sample Slide</li>
               </ul>
             </ul>
+            <Link to="/cms-help/sample-feature">View Sample Feature</Link>
           </div>
         </div>
       </div>

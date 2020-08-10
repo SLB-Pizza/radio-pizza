@@ -1,0 +1,132 @@
+// ================================
+// Used to debug
+// ================================
+// main.feature section:nth-child(n) {
+//   background-color: rgba($color: darkgreen, $alpha: 0.75);
+// }
+// main.feature section:nth-child(2n) {
+//   background-color: rgba($color: darkslateblue, $alpha: 0.75);
+// }
+
+main.feature section {
+  margin: 2rem auto;
+}
+
+// ================================
+// CMS Slice -- Blockquote.js
+// ================================
+section.hero h1.has-text-centered,
+section.hero p.has-text-centered,
+blockquote p,
+cite,
+.headline-block {
+  font-family: "Poppins", sans-serif;
+}
+
+blockquote p {
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1.15;
+  &.light-bg {
+    border-left: 5px solid black;
+    color: black;
+  }
+  &.dark-bg {
+    border-left: 5px solid white;
+  }
+}
+
+h3.headline-block-subtitle {
+  font-weight: 300;
+}
+
+cite {
+  margin-top: -3rem;
+  font-weight: 500;
+  padding: 1.25rem 1.5rem;
+  display: block;
+  &:before {
+    content: "\2014 \2009";
+  }
+}
+
+// ================================
+// CMS Slice -- Blockquote.js
+// ================================
+
+section.sample-feature {
+  margin-bottom: 3rem;
+}
+
+.columns.cms-section {
+  border: 2px solid white;
+  border-radius: 0.75rem;
+  margin-bottom: 3rem;
+
+  // &:first-child {
+  //   margin-top: 1rem;
+  // }
+
+  .column.is-flex-desktop {
+    flex-direction: column;
+    div {
+      flex: 1;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.cms-warning {
+  animation: cms-warning-border 2s infinite;
+}
+
+@keyframes cms-warning-border {
+  0%,
+  100% {
+    border: 2px solid red;
+    border-radius: 0.75rem;
+  }
+  50% {
+    border: 2px solid white;
+    border-radius: 0.75rem;
+  }
+}
+
+// ================================
+// CMS Slice -- HeadlineBlock.js
+// ================================
+
+.headline-block {
+  height: 25rem;
+  background-size: cover;
+  background-position: center center;
+  margin-bottom: 15rem;
+  .container > .columns {
+    padding: 1rem;
+    margin-top: 10rem;
+    background-color: rgba($color: black, $alpha: 0.85);
+    border: 2px solid white;
+    border-radius: 0.75rem;
+  }
+
+  .category {
+    padding-bottom: 1rem;
+  }
+
+  h3 {
+    font-weight: 300;
+  }
+
+  hr {
+    margin: 2rem 35% 1rem;
+  }
+
+  .column.author {
+    border: 1px dotted red;
+  }
+
+  img.is-rounded {
+    border: 2px solid white;
+  }
+}

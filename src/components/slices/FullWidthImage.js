@@ -1,21 +1,46 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-const FullWidthImage = ({ slice }) => (
-  <section
-    class="hero is-medium is-primary is-bold"
-    style={{
-      backgroundImage: url(
-        "https://images.prismic.io/hmbk-cms/a0964540-5c50-49f1-9d9e-f034dff29707_wallhaven-4g6k87.jpg?auto=compress,format"
-      ),
-    }}
-  >
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title">Full Width Image Title</h1>
-        <h2 class="subtitle">Full Width Image Title</h2>
+// const FullWidthImage = ({ slice }) => {
+export default function FullWidthImage(props) {
+  const { type, data, bgUrl } = props;
+
+  let imgStyle = null;
+  if (bgUrl) {
+    imgStyle = {
+      backgroundImage: `url(${bgUrl})`,
+    };
+  }
+
+  let heroClassName = "";
+  switch (type) {
+    case "short":
+      heroClassName = "hero sample-feature";
+      break;
+    case "medium":
+      heroClassName = "hero is-medium sample-feature";
+      break;
+    case "tall":
+      heroClassName = "hero is-large sample-feature";
+      break;
+    default:
+      heroClassName = "hero sample-feature";
+  }
+
+  return (
+    <section className={heroClassName} style={imgStyle}>
+      <div className="hero-body">
+        <div className="container">
+          <p className="title is-size-3">{data}</p>
+          <h2 className="subtitle">Full Width Image Title</h2>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+}
 
-export default FullWidthImage;
+FullWidthImage.propTypes = {
+  type: PropTypes.oneOf(["short", "medium", "tall"]),
+  data: PropTypes.string.isRequired,
+  bgUrl: PropTypes.string.isRequired,
+};

@@ -2,31 +2,37 @@ import React from "react";
 import { graphql } from "gatsby";
 import { SliceZone } from "../components";
 
-const FeatureTemplate = ({ data, path }) => {
+const FeatureTemplate = ({ data }) => {
   const prismicContent = data.prismic.allFeatures.edges[0];
   if (!prismicContent) return null;
   const document = prismicContent.node;
 
+  // Grab the metadata for the feature and the CMS slice data
+  const featureMetadata = document._meta;
+  const featureSliceData = document.body;
+
   return (
-    <main className="container is-fluid site-page">
-      <SliceZone sliceZone={document.body} />
+    <main className="site-page feature">
+      <SliceZone
+        sliceZone={featureSliceData}
+        featureMetadata={featureMetadata}
+      />
+      <hr />
+      <h1 className="title">Data Objects passed into{" <SliceZone />"}</h1>
+      <h3 className="subtitle">
+        {`"/features/${featureMetadata.uid}"`} -- featureMetadata Data Object
+      </h3>
+      {featureSliceData.map((slice, index) => (
+        <div key={index} style={{ marginTop: "2rem" }}>
+          <h3 className="subtitle">
+            {slice.type === undefined ? "Unused Slice" : slice.type} Data Object
+          </h3>
+          <pre>{JSON.stringify(slice, null, 2)}</pre>
+        </div>
+      ))}
     </main>
   );
 };
-
-{
-  /* <section className="columns">
-<div className="column is-full">
-  <h1 className="title">Data Path: {path}</h1>
-  <hr />
-  <h2 className="subtitle">Slice Types</h2>
-  <SliceZone sliceZone={document.body} />
-  <hr />
-  <h2 className="subtitle">Data from FeaturesQuery</h2>
-  <pre>{JSON.stringify(document.body, null, 2)}</pre>
-</div>
-</section> */
-}
 
 export const query = graphql`
   query FeaturesQuery($uid: String) {
@@ -36,9 +42,63 @@ export const query = graphql`
           node {
             _meta {
               uid
+              firstPublicationDate
+              lastPublicationDate
+              type
               tags
             }
             body {
+              ... on PRISMIC_FeatureBodyHeadline_block {
+                type
+                label
+                primary {
+                  feature_headline_img
+                  feature_category
+                  feature_subcategory
+                  feature_headline
+                  feature_subtitle
+                  feature_author_pic
+                  feature_author {
+                    ... on PRISMIC_Staff {
+                      hmbk_staff_name
+                      hmbk_staff_position
+                      _meta {
+                        uid
+                        type
+                      }
+                      _linkType
+                    }
+                  }
+                }
+              }
+              ... on PRISMIC_FeatureBodyBlockquote {
+                type
+                label
+                primary {
+                  blockquote_type
+                  blockquote_text
+                  blockquote_attribution
+                  blockquote_bg_img
+                }
+              }
+              ... on PRISMIC_FeatureBodyTwo_images___text {
+                type
+                label
+                primary {
+                  tiat_layout
+                  tiat_text
+                  tiat_is_gapless
+                  tiat_left_img
+                  tiat_right_img
+                }
+              }
+              ... on PRISMIC_FeatureBodyText {
+                type
+                primary {
+                  set_first_letter
+                  body_text
+                }
+              }
               ... on PRISMIC_FeatureBodyBanner_with_caption {
                 type
                 label
@@ -49,20 +109,18 @@ export const query = graphql`
                   button_label
                 }
               }
-              ... on PRISMIC_FeatureBodyText {
+              ... on PRISMIC_FeatureBodyAuthor_pic_and_quote {
                 type
                 label
-                primary {
-                  text
-                }
               }
-              ... on PRISMIC_FeatureBodyQuote {
+            }
+            body1 {
+              ... on PRISMIC_FeatureBody1Deveverycontenttype {
                 type
                 label
                 primary {
-                  quote
-                  name_of_the_author
-                  portrait_author
+                  title
+                  img
                 }
               }
             }
@@ -74,18 +132,3 @@ export const query = graphql`
 `;
 
 export default FeatureTemplate;
-
-// Example nested data sections
-{
-  /* <section className="columns">
-<div className="column is-full">
-  <h1 className="title">Data Path: {path}</h1>
-  <hr />
-  <h2 className="subtitle">Slice Types</h2>
-  <SliceZone sliceZone={document.body} />
-  <hr />
-  <h2 className="subtitle">Data from FeaturesQuery</h2>
-  <pre>{JSON.stringify(document.body, null, 2)}</pre>
-</div>
-</section> */
-}

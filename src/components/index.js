@@ -18,6 +18,7 @@ export { default as NewsPage } from "./NewsPage";
 export { default as RadioBar } from "./RadioBar";
 export { default as RadioPlayer } from "./RadioPlayer";
 export { default as SearchColumns } from "./SearchColumns";
+export { default as StickyFeature } from "./StickyFeature";
 export { default as SearchDropdown } from "./SearchDropdown";
 export { default as SearchResults } from "./SearchResults";
 export { default as DateSelectorButton } from "./DateSelectorButton";

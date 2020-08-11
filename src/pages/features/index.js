@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
 import { StickyFeature } from "../../components";
+import { ParallaxHeadlineBlock } from "../../components/slices";
 import PropTypes from "prop-types";
 
 export default function FeaturesIndexPage({ data }) {
@@ -22,9 +23,8 @@ export default function FeaturesIndexPage({ data }) {
    */
 
   const dataDocument = prismicContent;
-  const leadFeature = prismicContent.shift();
-  const leadFeatureData = leadFeature.node;
-  const allOtherFeatures = prismicContent;
+  const leadFeatureData = dataDocument[0].node;
+  const allOtherFeatures = dataDocument.slice(1);
 
   const { _meta, body } = leadFeatureData;
 
@@ -33,8 +33,9 @@ export default function FeaturesIndexPage({ data }) {
   console.log("index > leadFeatureData._meta", _meta);
 
   return (
-    <main className="site-page all-features">
-      <StickyFeature leadFeatureData={leadFeatureData} />
+    <main className="site-page">
+      <ParallaxHeadlineBlock />
+      {/* <StickyFeature leadFeatureData={leadFeatureData} />
       <ul>
         <li>
           <Link to="/features/dev-test-feature-1">Link to Test Feature 1</Link>
@@ -43,9 +44,9 @@ export default function FeaturesIndexPage({ data }) {
           <Link to="/features/dev-test-feature-2">Link to Test Feature 2</Link>
         </li>
       </ul>
-      <hr />
+      <hr /> */}
 
-      <section className="container is-fluid">
+      {/* <section className="container is-fluid" style={{ marginTop: "10rem" }}>
         <div className="columns is-multiline">
           <div className="column is-12">
             <h1 className="title is-size-3-desktop is-size-4-touch">
@@ -61,7 +62,7 @@ export default function FeaturesIndexPage({ data }) {
             <pre>{JSON.stringify(allOtherFeatures, null, 2)}</pre>
           </div>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 }

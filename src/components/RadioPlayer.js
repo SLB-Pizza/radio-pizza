@@ -11,6 +11,11 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
 
+/**
+ * @component
+ * @param {Object} props
+ * @returns {jsx}
+ */
 function RadioPlayer(props) {
   const dispatch = useContext(GlobalDispatchContext);
   const globalState = useContext(GlobalStateContext);
@@ -32,7 +37,7 @@ function RadioPlayer(props) {
   });
 
   /**
-   * Eliminate width and height = 0 errors by breaking ReactPlayer
+   * @const {Object} playerStyle - Eliminate width and height = 0 errors by breaking ReactPlayer
    * out of normal document flow and throwing it above the top of the page
    */
   const playerStyle = {

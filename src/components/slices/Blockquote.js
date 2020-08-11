@@ -3,6 +3,8 @@ import { RichText } from "prismic-reactjs";
 import getBlockquoteStyling from "../../utils/getBlockquoteStyling";
 
 /**
+ * @category CMS
+ * @subcategory Slices
  * @component
  * @param {object} slice - the data object coming from Prismic CMS that contains all data needed to create the Blockquote slice
  * @returns {jsx}

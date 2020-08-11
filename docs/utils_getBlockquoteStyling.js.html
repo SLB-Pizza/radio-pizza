@@ -1,25 +1,84 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>JSDoc: Source: utils/getBlockquoteStyling.js</title>
 
-    <script src="scripts/prettify/prettify.js"> </script>
-    <script src="scripts/prettify/lang-css.js"> </script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> utils/getBlockquoteStyling.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
 </head>
 
-<body>
 
-<div id="main">
 
-    <h1 class="page-title">Source: utils/getBlockquoteStyling.js</h1>
-
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
     
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    API Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="RadioPlayer.html">RadioPlayer</a></li></ul><h3>Global</h3><ul><li><a href="global.html#getBlockquoteStyling">getBlockquoteStyling</a></li><li><a href="global.html#imageAltText">imageAltText</a></li><li><a href="global.html#linkResolver">linkResolver</a></li><li><a href="global.html#playerStyle">playerStyle</a></li><li><a href="global.html#processPublicationDates">processPublicationDates</a></li><li><a href="global.html#ResidentsIndexPage">ResidentsIndexPage</a></li><li><a href="global.html#sliceZone">sliceZone</a></li></ul></div><div class="category"><h2>CMS</h2><h3>Components / Slices</h3><ul><li><a href="Blockquote.html">Blockquote</a></li><li><a href="HeadlineBlock.html">HeadlineBlock</a></li><li><a href="TwoImagesAndText.html">TwoImagesAndText</a></li></ul></div><div class="category"><h2>Site Elements</h2><h3>Components / Layout Helper</h3><ul><li><a href="DateSelectorButton.html">DateSelectorButton</a></li><li><a href="playAudioButton.html">playAudioButton</a></li><li><a href="residentSocialIcons.html">residentSocialIcons</a></li></ul><h3>Global</h3><ul><li><a href="global.html#slideGenerator">slideGenerator</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>utils/getBlockquoteStyling.js</h1>
+                </header>
+                
 
 
 
@@ -27,7 +86,12 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
+ * Prismic has a limitation when it comes to the developer's ability to give the end user, in this case, the writer, proper instructions outside of being able to set the placeholder text for the given field in the CMS.
  *
+ * In this particular instance, to best inform the user of what each choice in the blockquote_type select dropdown is, I have written the options out as follows:
+ * - None: no background image; white quote text on black
+ * - Light: light background image; black quote text
+ * - Dark: dark background image; white quote text
  * @function getBlockquoteStyling
  * @param {String} type
  * @param {Object} bgIMG
@@ -37,12 +101,12 @@
 
 export default function getBlockquoteStyling(type, bgIMG) {
   /**
-   * @param {Object} styling - contains the data needed to style the Blockquote properly.
-   * @property {?Object} styling.imgStyle - the style object to inject the url from bgIMG into the main Blockquote &lt;section> element, if the type calls for it. It's default is null so that no inline object is passed to the inline call in the return. Doing so sets the default to no background image; black page background, the "none" blockquote type.
-   * @property {string} styling.blockClassNames - the string used as the className for the &lt;blockquote> element in Blockquote.js
-   * @property {string} styling.citeClassNames - the string used as the className for the &lt;cite> element in Blockquote.js
+   * Contains the data needed to style the Blockquote properly.
+   * @typedef {Object} styling
+   * @property {?Object} styling.imgStyle - the style object to inject the url from bgIMG into the main Blockquote `&lt;section>` element, if the type calls for it. It defaults to `null` so that no inline object is passed to the inline call in the return. Doing so sets the default to no background image; black page background, the "none" blockquote type.
+   * @property {string} styling.blockClassNames - the string used as the className for the `&lt;blockquote>` element in Blockquote.js
+   * @property {string} styling.citeClassNames - the string used as the className for the `&lt;cite>` element in Blockquote.js
    */
-
   let styling = {
     imgStyle: null,
     blockClassNames: "is-size-1-desktop is-size-3-tablet is-size-4-mobile",
@@ -51,22 +115,17 @@ export default function getBlockquoteStyling(type, bgIMG) {
   };
 
   /**
-   * First, we need to deterimine the type of blockquote from blockquote_type.
-   *
-   * Prismic has a limitation when it comes to the developer's ability to give the end user, in this case, the writer, proper instructions outside of being able to set the placeholder text for the given field in the CMS.
-   *
-   * In this particular instance, to best inform the user of what each choice in the blockquote_type select dropdown is, I have written the options out as follows:
-   * - None: no background image; white quote text on black
-   * - Light: light background image; black quote text
-   * - Dark: dark background image; white quote text
    *
    * The first word of each option matches a case in the switch statement below.This informs the user and also allows me, the dev, to easily pull the type by doing the following:
    * - a .split() on the ":" character
    * - grabbing the first entry of the created array
    * - finally, transforming that string to all lowercase to match the cases in the switch statement.
    */
-
   const bgType = type.split(": ")[0].toLowerCase();
+
+  /**
+   * Grab the url from the bgURL data object.
+   */
   const bgURL = bgIMG.url;
 
   switch (bgType) {
@@ -99,19 +158,25 @@ export default function getBlockquoteStyling(type, bgIMG) {
 
 
 
-</div>
-
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Blockquote.html">Blockquote</a></li><li><a href="HeadlineBlock.html">HeadlineBlock</a></li></ul><h3>Global</h3><ul><li><a href="global.html#DateSelectorButton-functionthatcreatesstyledbuttonswithtogglingfunctionalitybuiltin">DateSelectorButton - function that creates styled buttons with toggling functionality built in</a></li><li><a href="global.html#getBlockquoteStyling">getBlockquoteStyling</a></li><li><a href="global.html#linkResolver">linkResolver</a></li><li><a href="global.html#playAudioButton-functionthattakesinpropsfromBioMixListandcreatesactiveYTaudiosources">playAudioButton - function that takes in props from BioMixList and creates active YT audio sources</a></li><li><a href="global.html#processPublicationDates">processPublicationDates</a></li><li><a href="global.html#ResidentsIndexPage">ResidentsIndexPage</a></li><li><a href="global.html#residentSocialIcons-functionthattakesinpropsfromBioMixListandcreatesactiveYTaudiosources">residentSocialIcons - function that takes in props from BioMixList and creates active YT audio sources</a></li><li><a href="global.html#slideGenerator">slideGenerator</a></li><li><a href="global.html#TwoImagesAndText">TwoImagesAndText</a></li></ul>
-</nav>
-
-<br class="clear">
-
-<footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.5</a> on Mon Aug 10 2020 14:19:43 GMT-0400 (Eastern Daylight Time)
-</footer>
-
-<script> prettyPrint(); </script>
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
 <script src="scripts/linenumber.js"> </script>
+
 </body>
 </html>

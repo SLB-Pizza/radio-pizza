@@ -2,6 +2,10 @@ import React from "react";
 import { ContentHelper, ImageHelper } from "./index";
 
 /**
+ * Creates a Slice Component that display two images and some text. The text section can be either on the left of the right.
+ * @category CMS
+ * @subcategory Slices
+ * @component
  * @function TwoImagesAndText
  * @param {object} { slice }
  * @returns {jsx}
@@ -15,6 +19,9 @@ function TwoImagesAndText({ slice }) {
     tiat_right_img,
   } = slice.primary;
 
+  /**
+   * Derive layout type by processing tiat_layout. Same process followed as {@link getBlockquoteStyling}
+   */
   const layoutType = tiat_layout.split(".")[0];
 
   const columnsClassName = tiat_is_gapless

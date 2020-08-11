@@ -3,6 +3,8 @@ import { RichText } from "prismic-reactjs";
 import processPublicationDates from "../../utils/processPublicationDates";
 
 /**
+ * @category CMS
+ * @subcategory Slices
  * @component
  * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create the HeadlineBlock slice
  * @param {Object} metadata - data object from Prismic CMS that contains
@@ -10,7 +12,8 @@ import processPublicationDates from "../../utils/processPublicationDates";
  */
 function HeadlineBlock({ slice, metadata }) {
   /**
-   * Destructure slice and metadata for ease of use.
+   * @namespace
+   * @memberof slice
    */
   const {
     feature_headline_img,
@@ -26,7 +29,7 @@ function HeadlineBlock({ slice, metadata }) {
   const { hmbk_staff_name, hmbk_staff_position } = feature_author;
 
   /**
-   * Send the publication date info off to be processed.
+   * Send the publication date info off to {@link processPublicationDates}.
    */
   const featureDateDetails = processPublicationDates(
     firstPublicationDate,

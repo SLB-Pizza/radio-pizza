@@ -11,6 +11,8 @@ import dummyArtists from "../../../__tests__/dummyArtists.json";
  *
  * TO CHANGE IN THIS FILE
  * change alphabetizedResidents map to actual artist data
+ *
+ * Something's up when docing this function
  */
 
 function ResidentsIndexPage() {

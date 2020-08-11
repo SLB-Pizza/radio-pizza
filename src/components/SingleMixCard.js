@@ -1,46 +1,17 @@
 import React, { useContext } from "react";
 import { GlobalDispatchContext } from "../context/GlobalContextProvider";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import playAudioButton from "../utils/playAudioButton";
+
 import NanoClamp from "nanoclamp";
 
 function SingleMixCard(props) {
+  // console.log("inside SMC", props);
   const dispatch = useContext(GlobalDispatchContext);
 
   /**
-   * @function playAudioButton - function that takes in props from BioMixList and creates active YT audio sources
-   * @param {string} url - URL of the mix to play
-   * @param {string} title - title of the mix to play; shown in TopNav
-   * @param {string} resident - resident that made the mix; shown in TopNav
-   * @param {string} img - the mix's image; shown in TopNav
-   * @returns {jsx} A play icon that onClick dispatches the CHANGE_URL action, playing the audio source through RadioPlayer.js
+   * @const {String} imageAltText - create image alt text for accessibility purposes
    */
-
-  const playAudioButton = (mixUrl, mixTitle, mixResident, mixImg) => {
-    return (
-      <FontAwesomeIcon
-        icon={faPlay}
-        size="5x"
-        className="play-icon"
-        onClick={() =>
-          dispatch({
-            type: "CHANGE_URL",
-            payload: {
-              url: mixUrl,
-              title: mixTitle,
-              resident: mixResident,
-              img: mixImg,
-            },
-          })
-        }
-      />
-    );
-  };
-
-  /**
-   * imageAltText for accessibility purposes
-   */
-  const imageAltText = `image - ${props.title} by ${props.resident}`;
+  const imageAltText = `${props.title} by ${props.resident}`;
 
   return (
     <div className={props.columnLayout}>

@@ -9,22 +9,6 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 function StickyBioBlurb(props) {
-  /**
-   * @function residentSocialIcons - function that takes in props from BioMixList and creates active YT audio sources
-   * @returns {link} An <a> tag with an icon that redirects out to the appropriate platform
-   * @param {string} url - link to the resident's page on a platform  (bandcamp, soundcloud, mixcloud, etc.)
-   * @param {icon} title - name of the corresponding FontAwesomeIcon
-   */
-  const residentSocialIcons = (url, icon) => {
-    return (
-      <a key={icon} href={url}>
-        <span className="icon">
-          <FontAwesomeIcon icon={icon} size="3x" />
-        </span>
-      </a>
-    );
-  };
-
   const sampleSocial = [
     {
       url: "https://twitter.com/home",

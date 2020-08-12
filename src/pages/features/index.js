@@ -49,9 +49,12 @@ export default function FeaturesIndexPage({ data }) {
       {/* <section className="container is-fluid" style={{ marginTop: "10rem" }}>
         <div className="columns is-multiline">
           <div className="column is-12">
-            <h1 className="title is-size-3-desktop is-size-4-touch">
+            <p
+              className="title is-size-3-desktop is-size-4-touch"
+              id="first-text"
+            >
               Features Data
-            </h1>
+            </p>
           </div>
           <div className="column is-12">
             <h1 className="title">leadFeatureData Data Object</h1>

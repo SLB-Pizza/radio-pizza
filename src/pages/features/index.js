@@ -34,8 +34,7 @@ export default function FeaturesIndexPage({ data }) {
 
   return (
     <main className="site-page">
-      <ParallaxHeadlineBlock />
-      {/* <StickyFeature leadFeatureData={leadFeatureData} />
+      <StickyFeature leadFeatureData={leadFeatureData} />
       <ul>
         <li>
           <Link to="/features/dev-test-feature-1">Link to Test Feature 1</Link>
@@ -44,9 +43,9 @@ export default function FeaturesIndexPage({ data }) {
           <Link to="/features/dev-test-feature-2">Link to Test Feature 2</Link>
         </li>
       </ul>
-      <hr /> */}
+      <hr />
 
-      {/* <section className="container is-fluid" style={{ marginTop: "10rem" }}>
+      <section className="container is-fluid" style={{ marginTop: "10rem" }}>
         <div className="columns is-multiline">
           <div className="column is-12">
             <p
@@ -65,7 +64,7 @@ export default function FeaturesIndexPage({ data }) {
             <pre>{JSON.stringify(allOtherFeatures, null, 2)}</pre>
           </div>
         </div>
-      </section> */}
+      </section>
     </main>
   );
 }

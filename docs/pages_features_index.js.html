@@ -68,7 +68,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="RadioPlayer.html">RadioPlayer</a></li></ul><h3>Global</h3><ul><li><a href="global.html#bgType">bgType</a></li><li><a href="global.html#getBlockquoteStyling">getBlockquoteStyling</a></li><li><a href="global.html#imageAltText">imageAltText</a></li><li><a href="global.html#linkResolver">linkResolver</a></li><li><a href="global.html#playerStyle">playerStyle</a></li><li><a href="global.html#processPublicationDates">processPublicationDates</a></li><li><a href="global.html#ResidentsIndexPage">ResidentsIndexPage</a></li><li><a href="global.html#sliceZone">sliceZone</a></li><li><a href="global.html#styling">styling</a></li></ul></div><div class="category"><h2>CMS</h2><h3>Components / Slices</h3><ul><li><a href="Blockquote.html">Blockquote</a></li><li><a href="HeadlineBlock.html">HeadlineBlock</a></li><li><a href="TwoImagesAndText.html">TwoImagesAndText</a></li></ul></div><div class="category"><h2>Site Elements</h2><h3>Components / Layout Helper</h3><ul><li><a href="DateSelectorButton.html">DateSelectorButton</a></li><li><a href="playAudioButton.html">playAudioButton</a></li><li><a href="residentSocialIcons.html">residentSocialIcons</a></li></ul><h3>Global</h3><ul><li><a href="global.html#slideGenerator">slideGenerator</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="RadioPlayer.html">RadioPlayer</a></li></ul><h3>Global</h3><ul><li><a href="global.html#bgType">bgType</a></li><li><a href="global.html#getBlockquoteStyling">getBlockquoteStyling</a></li><li><a href="global.html#imageAltText">imageAltText</a></li><li><a href="global.html#linkResolver">linkResolver</a></li><li><a href="global.html#playerStyle">playerStyle</a></li><li><a href="global.html#processPublicationDates">processPublicationDates</a></li><li><a href="global.html#ResidentsIndexPage">ResidentsIndexPage</a></li><li><a href="global.html#sliceZone">sliceZone</a></li><li><a href="global.html#styling">styling</a></li></ul></div><div class="category"><h2>CMS</h2><h3>Components / Slices</h3><ul><li><a href="Blockquote.html">Blockquote</a></li><li><a href="HeadlineBlock.html">HeadlineBlock</a></li><li><a href="module.exports.html">exports</a></li><li><a href="TwoImagesAndText.html">TwoImagesAndText</a></li></ul></div><div class="category"><h2>Site Elements</h2><h3>Components / Layout Helper</h3><ul><li><a href="DateSelectorButton.html">DateSelectorButton</a></li><li><a href="playAudioButton.html">playAudioButton</a></li><li><a href="residentSocialIcons.html">residentSocialIcons</a></li></ul><h3>Global</h3><ul><li><a href="global.html#slideGenerator">slideGenerator</a></li></ul></div>
                 
             </nav>
         </div>
@@ -88,6 +88,7 @@
             <pre class="prettyprint source linenums"><code>import React from "react";
 import { Link, graphql } from "gatsby";
 import { StickyFeature } from "../../components";
+import { ParallaxHeadlineBlock } from "../../components/slices";
 import PropTypes from "prop-types";
 
 export default function FeaturesIndexPage({ data }) {
@@ -109,9 +110,8 @@ export default function FeaturesIndexPage({ data }) {
    */
 
   const dataDocument = prismicContent;
-  const leadFeature = prismicContent.shift();
-  const leadFeatureData = leadFeature.node;
-  const allOtherFeatures = prismicContent;
+  const leadFeatureData = dataDocument[0].node;
+  const allOtherFeatures = dataDocument.slice(1);
 
   const { _meta, body } = leadFeatureData;
 
@@ -120,8 +120,9 @@ export default function FeaturesIndexPage({ data }) {
   console.log("index > leadFeatureData._meta", _meta);
 
   return (
-    &lt;main className="site-page all-features">
-      &lt;StickyFeature leadFeatureData={leadFeatureData} />
+    &lt;main className="site-page">
+      &lt;ParallaxHeadlineBlock />
+      {/* &lt;StickyFeature leadFeatureData={leadFeatureData} />
       &lt;ul>
         &lt;li>
           &lt;Link to="/features/dev-test-feature-1">Link to Test Feature 1&lt;/Link>
@@ -130,14 +131,17 @@ export default function FeaturesIndexPage({ data }) {
           &lt;Link to="/features/dev-test-feature-2">Link to Test Feature 2&lt;/Link>
         &lt;/li>
       &lt;/ul>
-      &lt;hr />
+      &lt;hr /> */}
 
-      &lt;section className="container is-fluid">
+      {/* &lt;section className="container is-fluid" style={{ marginTop: "10rem" }}>
         &lt;div className="columns is-multiline">
           &lt;div className="column is-12">
-            &lt;h1 className="title is-size-3-desktop is-size-4-touch">
+            &lt;p
+              className="title is-size-3-desktop is-size-4-touch"
+              id="first-text"
+            >
               Features Data
-            &lt;/h1>
+            &lt;/p>
           &lt;/div>
           &lt;div className="column is-12">
             &lt;h1 className="title">leadFeatureData Data Object&lt;/h1>
@@ -148,7 +152,7 @@ export default function FeaturesIndexPage({ data }) {
             &lt;pre>{JSON.stringify(allOtherFeatures, null, 2)}&lt;/pre>
           &lt;/div>
         &lt;/div>
-      &lt;/section>
+      &lt;/section> */}
     &lt;/main>
   );
 }

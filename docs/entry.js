@@ -31,14 +31,20 @@ reactComponents['DateSelectorButton'] = Component1;
 import Component2 from '../src/components/slices/HeadlineBlock.js';
 reactComponents['HeadlineBlock'] = Component2;
 
-import Component3 from '../src/utils/playAudioButton.js';
-reactComponents['playAudioButton'] = Component3;
+import Component3 from '../src/components/slices/ParallaxHeadlineBlock.js';
+reactComponents['ParallaxHeadline'] = Component3;
 
-import Component4 from '../src/components/RadioPlayer.js';
-reactComponents['RadioPlayer'] = Component4;
+import Component4 from '../src/components/slices/TextBlock.js';
+reactComponents['TextBlock'] = Component4;
 
-import Component5 from '../src/utils/makeResidentSocialLinks.js';
-reactComponents['residentSocialIcons'] = Component5;
+import Component5 from '../src/utils/playAudioButton.js';
+reactComponents['playAudioButton'] = Component5;
 
-import Component6 from '../src/components/slices/TwoImagesAndText.js';
-reactComponents['TwoImagesAndText'] = Component6;
+import Component6 from '../src/components/RadioPlayer.js';
+reactComponents['RadioPlayer'] = Component6;
+
+import Component7 from '../src/utils/makeResidentSocialLinks.js';
+reactComponents['residentSocialIcons'] = Component7;
+
+import Component8 from '../src/components/slices/TwoImagesAndText.js';
+reactComponents['TwoImagesAndText'] = Component8;

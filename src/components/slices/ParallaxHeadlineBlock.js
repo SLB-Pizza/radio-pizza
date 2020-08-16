@@ -90,7 +90,7 @@ export default function ParallaxHeadline() {
         </div>
       </section>
       <section
-        className="container is-fluid"
+        className="container"
         style={{
           marginTop: "-5.75rem",
         }}

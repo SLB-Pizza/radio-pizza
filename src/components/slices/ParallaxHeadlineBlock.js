@@ -27,12 +27,12 @@ export default function ParallaxHeadline({ cta, hook, imgObj }) {
     const bgHeight = bgIMG.clientHeight;
 
     const calculateOpacity = (scrollY, height) => {
-      const twentyFivePercentHeight = 0.25 * height;
+      const halfHeight = 0.5 * height;
 
-      if (scrollY > twentyFivePercentHeight) {
+      if (scrollY > halfHeight) {
         return 0;
       }
-      return (twentyFivePercentHeight - scrollY) / twentyFivePercentHeight;
+      return (halfHeight - scrollY) / halfHeight;
     };
 
     const onScroll = () =>

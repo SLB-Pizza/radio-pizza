@@ -54,21 +54,22 @@ export default function ParallaxHeadline({ cta, hook, imgObj }) {
           backgroundImage: `url(${imgObj.url})`,
           opacity: bgOpacity,
         }}
+      ></section>
+      <section
+        className="container headline-block"
+        style={{
+          marginTop: "-62.5vh",
+        }}
       >
-        <div className="hero-body headline-block">
-          <div className="container">
-            <div className="columns">
-              <div className="column">
-                <div className="content">
-                  <h1 className="title is-size-1-widescreen is-size-2-desktop is-size-3-tablet is-size-4-mobile has-text-centered">
-                    Donate Call To Action: Why People Shoudld
-                  </h1>
-                  <h3 className="is-size-4-desktop is-size-6-touch has-text-centered">
-                    Here I'd tell you a little teaser about what's to come
-                    below.
-                  </h3>
-                </div>
-              </div>
+        <div className="columns">
+          <div className="column">
+            <div className="content">
+              <h1 className="title is-size-1-widescreen is-size-2-desktop is-size-3-tablet is-size-4-mobile">
+                {RichText.render(cta)}
+              </h1>
+              <h3 className="is-size-4-desktop is-size-6-touch has-text-centered">
+                {RichText.render(hook)}
+              </h3>
             </div>
           </div>
         </div>

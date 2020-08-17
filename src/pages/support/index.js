@@ -44,14 +44,7 @@ export default function SupportIndexPage({ data }) {
         hook={support_cta_hook}
         imgObj={support_cta_bg_img}
       />
-      <ul>
-        <li>
-          <Link to="/features/dev-test-feature-1">Link to Test Feature 1</Link>
-        </li>
-        <li>
-          <Link to="/features/dev-test-feature-2">Link to Test Feature 2</Link>
-        </li>
-      </ul>
+
       <hr />
 
       <section className="container is-fluid" style={{ marginTop: "10rem" }}>

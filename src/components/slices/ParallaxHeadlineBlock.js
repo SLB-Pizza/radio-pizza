@@ -1,15 +1,25 @@
 import React, { useState, useEffect } from "react";
+import { RichText } from "prismic-reactjs";
 
 /**
  * @category CMS
  * @subcategory Slices
  * @component
  * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create the HeadlineBlock slice
- * @param {Object} metadata - data object from Prismic CMS that contains
  * @returns {jsx}
  */
 
-export default function ParallaxHeadline() {
+export default function ParallaxHeadline({ cta, hook, imgObj }) {
+  // const {
+  //   feature_headline_img,
+  //   feature_category,
+  //   feature_subcategory,
+  //   feature_headline,
+  //   feature_subtitle,
+  //   feature_author,
+  //   feature_author_pic,
+  // } = slice.primary;
+
   const [bgOpacity, setBGOpacity] = useState(1);
 
   useEffect(() => {
@@ -41,7 +51,7 @@ export default function ParallaxHeadline() {
         className="hero is-fullheight-with-navbar homepage-hero"
         id="parallax-headline"
         style={{
-          backgroundImage: `url(https://w.wallhaven.cc/full/48/wallhaven-48x89k.jpg)`,
+          backgroundImage: `url(${imgObj.url})`,
           opacity: bgOpacity,
         }}
       >
@@ -50,39 +60,13 @@ export default function ParallaxHeadline() {
             <div className="columns">
               <div className="column">
                 <div className="content">
-                  <p className="is-size-6-desktop is-size-7-touch has-text-centered category is-overlay">
-                    CATEGORY
-                    <span>{" ‣  subcategory"}</span>
-                  </p>
                   <h1 className="title is-size-1-widescreen is-size-2-desktop is-size-3-tablet is-size-4-mobile has-text-centered">
-                    Article Title Goes Here: It's Got Great Big Eyecatching Text
+                    Donate Call To Action: Why People Shoudld
                   </h1>
                   <h3 className="is-size-4-desktop is-size-6-touch has-text-centered">
                     Here I'd tell you a little teaser about what's to come
                     below.
                   </h3>
-                  <hr />
-                  <div className="columns is-centered is-vcentered">
-                    <div className="column is-narrow">
-                      <figure className="image is-48x48">
-                        <img
-                          className="is-rounded"
-                          src="https://w.wallhaven.cc/full/48/wallhaven-48x89k.jpg"
-                          alt="Actually a picture of a valley, not a person"
-                        />
-                      </figure>
-                    </div>
-                    <div className="column is-narrow">
-                      <p className="has-text-centered">
-                        Christian Mejia
-                        {", "}
-                        <em>Frontend Developer</em>
-                      </p>
-                    </div>
-                    <div className="column is-narrow">
-                      <p>Updated Just Now</p>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>

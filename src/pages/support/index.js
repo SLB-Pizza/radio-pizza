@@ -5,13 +5,22 @@ import { StickyFeature } from "../../components";
 import { ParallaxHeadlineBlock } from "../../components/slices";
 import PropTypes from "prop-types";
 
-export default function SupportIndexPage({ data }) {
-  // Focus the node for the prismicContent check below.
+/**
+ * @category Pages
+ * @subcategory Support
+ * @function SupportIndexPage
+ * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/features` landing page
+ * @returns {jsx}
+ */
+function SupportIndexPage({ data }) {
+  /**
+   * Focus the node for the prismicContent check below.
+   */
   const prismicContent = data.prismic.allSupports.edges;
 
   /**
    * This line is here to prevent an error from occurring when you eventually deploy the site live. There is an issue with the preview functionality that requires this check on every page.
-   * Details: https://prismic.io/docs/gatsby/rendering/retrieve-the-document-object#21_0-adding-a-validation-check
+   * @see https://prismic.io/docs/gatsby/rendering/retrieve-the-document-object#21_0-adding-a-validation-check
    */
   if (!prismicContent) return null;
 
@@ -78,6 +87,8 @@ export default function SupportIndexPage({ data }) {
     </main>
   );
 }
+
+export default SupportIndexPage;
 
 SupportIndexPage.propTypes = {
   leadFeatureData: PropTypes.exact({

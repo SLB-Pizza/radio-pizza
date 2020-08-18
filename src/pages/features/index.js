@@ -1,16 +1,20 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
 import { StickyFeature } from "../../components";
-import { ParallaxHeadlineBlock } from "../../components/slices";
 import PropTypes from "prop-types";
 
-export default function FeaturesIndexPage({ data }) {
+/**
+ * @category Pages
+ * @subcategory Features
+ * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/features` landing page
+ */
+function FeaturesIndexPage({ data }) {
   // Focus the node for the prismicContent check below.
   const prismicContent = data.prismic.allFeatures.edges;
 
   /**
    * This line is here to prevent an error from occurring when you eventually deploy the site live. There is an issue with the preview functionality that requires this check on every page.
-   * Details: https://prismic.io/docs/gatsby/rendering/retrieve-the-document-object#21_0-adding-a-validation-check
+   * @see https://prismic.io/docs/gatsby/rendering/retrieve-the-document-object#21_0-adding-a-validation-check
    */
   if (!prismicContent) return null;
 
@@ -21,7 +25,6 @@ export default function FeaturesIndexPage({ data }) {
    *
    * The remaining array of node objects can be mapped over normally using XYZ_Component.
    */
-
   const dataDocument = prismicContent;
   const leadFeatureData = dataDocument[0].node;
   const allOtherFeatures = dataDocument.slice(1);
@@ -69,6 +72,7 @@ export default function FeaturesIndexPage({ data }) {
   );
 }
 
+export default FeaturesIndexPage;
 FeaturesIndexPage.propTypes = {
   leadFeatureData: PropTypes.exact({
     _meta: PropTypes.object.isRequired,

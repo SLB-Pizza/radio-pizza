@@ -9,7 +9,7 @@ import { RichText } from "prismic-reactjs";
  * @param {Object} metadata - data object from Prismic CMS that contains
  * @returns {jsx}
  */
-export default function TextBlock({ slice }) {
+function TextBlock({ slice }) {
   const { body_text, set_first_letter } = slice.primary;
 
   if (set_first_letter) {
@@ -25,3 +25,5 @@ export default function TextBlock({ slice }) {
     </section>
   );
 }
+
+export default TextBlock;

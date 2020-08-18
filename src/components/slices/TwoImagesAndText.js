@@ -6,8 +6,7 @@ import { ContentHelper, ImageHelper } from "./index";
  * @category CMS
  * @subcategory Slices
  * @component
- * @function TwoImagesAndText
- * @param {object} { slice }
+ * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create the HeadlineBlock slice
  * @returns {jsx}
  */
 function TwoImagesAndText({ slice }) {

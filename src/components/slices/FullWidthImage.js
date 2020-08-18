@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 // const FullWidthImage = ({ slice }) => {
-export default function FullWidthImage(props) {
+function FullWidthImage(props) {
   const { type, data, bgUrl } = props;
 
   let imgStyle = null;
@@ -44,3 +44,5 @@ FullWidthImage.propTypes = {
   data: PropTypes.string.isRequired,
   bgUrl: PropTypes.string.isRequired,
 };
+
+export default FullWidthImage;

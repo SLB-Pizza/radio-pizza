@@ -5,8 +5,8 @@
   },
   "source": {
     "include": ["src", "__tests__"],
-    "includePattern": ".+\\.js(doc|x)?$",
-    "excludePattern": "(^|\\/|\\\\)_"
+    "includePattern": ".+\\.js$",
+    "excludePattern": "(node_modules/|docs)"
   },
   "plugins": [
     "plugins/markdown",
@@ -14,13 +14,15 @@
     "node_modules/better-docs/category"
   ],
   "templates": {
-    "name": "HMBK Gatsby Docs",
-    "footerText": "Developed by Christian Mejia"
+    "better-docs": {
+      "name": "HMBK Gatsby Docs"
+    }
   },
   "opts": {
     "template": "node_modules/better-docs",
     "destination": "docs",
     "recurse": true,
+    "encoding": "utf8",
     "readme": "README.md"
   }
 }

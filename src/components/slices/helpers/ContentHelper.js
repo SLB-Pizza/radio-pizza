@@ -1,12 +1,12 @@
 import React from "react";
 import { RichText } from "prismic-reactjs";
 
-export default function ContentHelper({ columnClassInfo, text }) {
-  const defaultClassName = "column is-12";
+export default function ContentHelper({ columnClassName, text }) {
+  const defaultContentClassName = "column is-12";
 
-  const contentColumnClass = columnClassInfo
-    ? columnClassInfo
-    : defaultClassName;
+  const contentColumnClass = columnClassName
+    ? columnClassName
+    : defaultContentClassName;
 
   return (
     <div className={contentColumnClass}>

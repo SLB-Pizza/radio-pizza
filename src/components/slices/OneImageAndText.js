@@ -10,17 +10,15 @@ import { ContentHelper, ImageHelper } from "./index";
  * @returns {jsx}
  */
 function OneImageAndText({ slice }) {
-  console.table("One Image", slice.primary);
-
   const { oiat_layout, oiat_text, oiat_img } = slice.primary;
 
   /**
    * Derive layout type by processing tiat_layout. Same process followed as {@link getBlockquoteStyling}
    */
-  const layoutType = oiat_layout.split(".")[0];
+  const layoutType = oiat_layout.split(":")[0];
 
-  const tiatContentClass = "column is-two-thirds";
-  const tiatImageClass = "column is-one-third";
+  const oiatContentClass = "column is-two-thirds-tablet";
+  const oiatImageClass = "column is-one-third-tablet is-full-mobile";
 
   return (
     <section className="container">
@@ -29,16 +27,24 @@ function OneImageAndText({ slice }) {
           <>
             <ContentHelper
               text={oiat_text}
-              columnClassInfo={tiatContentClass}
+              columnClassName={oiatContentClass}
             />
-            <ImageHelper url={oiat_img.url} alt={oiat_img.alt} />
+            <ImageHelper
+              url={oiat_img.url}
+              alt={oiat_img.alt}
+              columnClassName={oiatImageClass}
+            />
           </>
         ) : (
           <>
-            <ImageHelper url={oiat_img.url} alt={oiat_img.alt} />
+            <ImageHelper
+              url={oiat_img.url}
+              alt={oiat_img.alt}
+              columnClassName={oiatImageClass}
+            />
             <ContentHelper
               text={oiat_text}
-              columnClassInfo={tiatContentClass}
+              columnClassName={oiatContentClass}
             />
           </>
         )}

@@ -21,7 +21,7 @@ function TwoImagesAndText({ slice }) {
   /**
    * Derive layout type by processing tiat_layout. Same process followed as {@link getBlockquoteStyling}
    */
-  const layoutType = tiat_layout.split(".")[0];
+  const layoutType = tiat_layout.split(":")[0];
 
   const columnsClassName = tiat_is_gapless
     ? "columns is-mobile is-multiline is-gapless"
@@ -37,7 +37,7 @@ function TwoImagesAndText({ slice }) {
           <>
             <ContentHelper
               text={tiat_text}
-              columnClassInfo={tiatContentClass}
+              columnClassName={tiatContentClass}
             />
             <ImageHelper url={tiat_left_img.url} alt={tiat_left_img.alt} />
             <ImageHelper url={tiat_right_img.url} alt={tiat_right_img.alt} />
@@ -48,7 +48,7 @@ function TwoImagesAndText({ slice }) {
             <ImageHelper url={tiat_right_img.url} alt={tiat_right_img.alt} />
             <ContentHelper
               text={tiat_text}
-              columnClassInfo={tiatContentClass}
+              columnClassName={tiatContentClass}
             />
           </>
         )}

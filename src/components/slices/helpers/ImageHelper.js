@@ -1,28 +1,56 @@
 import React from "react";
 
 /**
- * Creates a Slice Component that display two images and some text. The text section can be either on the left of the right.
+ * Creates a JSX segment that CMS Slices call on to format images.
  * @category CMS
  * @subcategory Layout Helper
  * @component
- * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create the HeadlineBlock slice
+ * @param {?String} columnClassName - optional string prop dictating specific column layouts.
+ *
+ * ### CMS Slices passing this prop
+ * - {@link OneImageAndText}
+ * - {@link TwoImagesAndText}
+ *
+ * ### CMS Slices NOT passing this prop
+ * - {@link ImageRow}
+ *
+ * @param {String} url - link from Prismic CMS to the image from the media library
+ * @param {String} alt - contains image caption data that's used for accessibility purposes too; comes from Prismic CMS. Its default value should be set when the image is **first uploaded** to the CMS Media Library. A different alt value, aka image caption, can be set when the image is selected for use in an article
+ * @param {String} photoCredit - contains image credit data; comes from Prismic CMS. Should be set when the image is **first uploaded** to the CMS Media Library
  * @returns {jsx}
  */
 function ImageHelper({ columnClassName, url, alt, photoCredit }) {
   const defaultImageClass = "column is-12-mobile";
 
+  /**
+   * If a columnClassName prop was passed in, use that prop value.
+   * Else, use the defaultImageClass defined above.
+   */
   const imageColumnClass = columnClassName
     ? columnClassName
     : defaultImageClass;
 
-  // const hasPhotoCredit =
-
   return (
     <div className={imageColumnClass}>
       <figure className="image has-ratio">
-        <img src={url} alt={alt} />
-        <figcaption>Image: {alt}</figcaption>
-        <span className="is-size-7">Photo: {alt}</span>
+        {/*
+         * alt === null:
+         *   use photoCredit as img alt text, only show photoCredit caption
+         * alt !== null:
+         *   use alt as img alt text; show both alt and photocaptions
+         */}
+        {alt === null ? (
+          <>
+            <img src={url} alt={photoCredit} />
+            <figcaption className="is-size-7">Photo: {photoCredit}</figcaption>
+          </>
+        ) : (
+          <>
+            <img src={url} alt={photoCredit} />
+            <figcaption className="is-size-7">Image: {alt}</figcaption>
+            <figcaption className="is-size-7">Photo: {photoCredit}</figcaption>
+          </>
+        )}
       </figure>
     </div>
   );

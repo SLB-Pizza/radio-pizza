@@ -2,6 +2,7 @@ import React from "react";
 import {
   Blockquote,
   HeadlineBlock,
+  ImageRow,
   FullWidthImage,
   OneImageAndText,
   TwoImagesAndText,
@@ -37,8 +38,9 @@ import {
  * ```
  *
  * @function sliceZone
- * @param {Object} sliceZone
- * @param {Object} featureMetadata
+ * @param {Object} props
+ * @param {Object} props.sliceZone
+ * @param {Object} props.metadata
  * @returns {jsx} Returns components selected by sliceComponents key that have been hydrated with data to create the given page's layout.
  */
 
@@ -49,11 +51,12 @@ function SliceZone({ sliceZone, metadata }) {
    * `{prismic_slice_type: SliceComponent}`
    */
   const sliceComponents = {
-    full_width_image: FullWidthImage,
     blockquote: Blockquote,
+    full_width_image: FullWidthImage,
+    headline_block: HeadlineBlock,
+    image_row: ImageRow,
     one_image_and_text: OneImageAndText,
     two_images___text: TwoImagesAndText,
-    headline_block: HeadlineBlock,
     text: TextBlock,
   };
 

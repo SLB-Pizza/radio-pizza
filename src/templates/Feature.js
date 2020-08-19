@@ -112,6 +112,12 @@ export const query = graphql`
                 type
                 label
               }
+              ... on PRISMIC_FeatureBodyImage_row {
+                type
+                fields {
+                  row_image
+                }
+              }
             }
             body1 {
               ... on PRISMIC_FeatureBody1Deveverycontenttype {

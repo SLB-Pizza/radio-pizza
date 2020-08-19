@@ -16,7 +16,7 @@ function TextBlock({ slice }) {
   }
 
   return (
-    <section class="container">
+    <section className="container">
       <div className="columns">
         <div className="column is-full">
           <div className="content">{RichText.render(body_text)}</div>

@@ -7,11 +7,11 @@ import React from "react";
  * @component
  * @param {?String} columnClassName - optional string prop dictating specific column layouts.
  *
- * ### CMS Slices passing this prop
+ * **CMS Slices passing this prop**
  * - {@link OneImageAndText}
  * - {@link TwoImagesAndText}
  *
- * ### CMS Slices NOT passing this prop
+ * **CMS Slices NOT passing this prop**
  * - {@link ImageRow}
  *
  * @param {String} url - link from Prismic CMS to the image from the media library
@@ -37,7 +37,7 @@ function ImageHelper({ columnClassName, url, alt, photoCredit }) {
          * alt === null:
          *   use photoCredit as img alt text, only show photoCredit caption
          * alt !== null:
-         *   use alt as img alt text; show both alt and photocaptions
+         *   use alt as img alt text; show both alt and photo captions
          */}
         {alt === null ? (
           <>

@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> src/components/Hero.js</title>
+  <title> src/components/slices/ImageRow.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>src/components/Hero.js</h1>
+                    <h1>src/components/slices/ImageRow.js</h1>
                 </header>
                 
 
@@ -90,40 +90,38 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React from "react";
-import Slider from "@farbenmeer/react-spring-slider";
-import slideGenerator from "../utils/slideGenerator";
+import { ImageHelper } from "./index";
 
-function HeroContentCarousel(props) {
-  /**
-   * @param {number} timePerSlide - amount of time in ms to stay on each slide before &lt;Slider> auto moves to next slide; preset to 8000
-   * @param {object} heroBullets - style object for bullets to pass as props for &lt;Slider>
-   * @param {object} heroArrows - style object for arrows to pass as props for &lt;Slider>
-   */
-
-  const timePerSlide = 8000;
-  const heroBullets = { backgroundColor: "#000", border: "2px solid white" };
-  const heroArrows = {
-    border: "solid white",
-    borderWidth: "0 5px 5px 0",
-    color: "black",
-  };
-
+/**
+ * Creates a Slice Component that display two images and some text. The text section can be either on the left of the right.
+ * @category CMS
+ * @subcategory Slices
+ * @component
+ * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create the HeadlineBlock slice
+ * @returns {jsx}
+ */
+function ImageRow({ slice }) {
   return (
-    &lt;div className="slider-sizing">
-      &lt;Slider
-        auto={timePerSlide}
-        hasArrows
-        arrowStyle={heroArrows}
-        hasBullets
-        bulletStyle={heroBullets}
-      >
-        {slideGenerator(props.slides)}
-      &lt;/Slider>
-    &lt;/div>
+    &lt;section className="container">
+      &lt;div className="columns is-mobile is-multiline">
+        {slice.fields.map((singleImage, index) => {
+          const { alt, copyright, url } = singleImage.row_image;
+
+          return (
+            &lt;ImageHelper
+              alt={alt}
+              photoCredit={copyright}
+              url={url}
+              key={`img-#${index}`}
+            />
+          );
+        })}
+      &lt;/div>
+    &lt;/section>
   );
 }
 
-export default HeroContentCarousel;
+export default ImageRow;
 </code></pre>
         </article>
     </section>

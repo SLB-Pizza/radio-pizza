@@ -5,7 +5,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> TwoImagesAndText</title>
+  <title> ImageHelper</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -78,7 +78,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Components</p>
-                    <h1>TwoImagesAndText</h1>
+                    <h1>ImageHelper</h1>
                 </header>
                 
 
@@ -90,7 +90,7 @@
 <header>
     
         <h2>
-            &ltTwoImagesAndText  /&gt
+            &ltImageHelper  /&gt
         </h2>
         
     
@@ -110,12 +110,12 @@
 
 
     
-    <h4 class="name" id="TwoImagesAndText">
-        <a class="href-link" href="#TwoImagesAndText">#</a>
+    <h4 class="name" id="ImageHelper">
+        <a class="href-link" href="#ImageHelper">#</a>
         
         <span class="code-name">
             
-                &ltTwoImagesAndText  /&gt
+                &ltImageHelper  /&gt
             
         </span>
     </h4>
@@ -124,7 +124,7 @@
     
     
     <div class="description">
-        <p>Creates a Slice Component that display two images and some text. The text section can be either on the left of the right.</p>
+        <p>Creates a JSX segment that CMS Slices call on to format images.</p>
     </div>
     
 
@@ -151,6 +151,8 @@
             <th>Type</th>
 
             
+            <th>Attributes</th>
+            
 
             
 
@@ -164,23 +166,141 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>slice</code></td>
+      <td class="name"><code>columnClassName</code></td>
   
 
   <td class="type">
   
       
-<span class="param-type">Object</span>
+<span class="param-type">String</span>
 
 
   
   </td>
 
   
+      <td class="attributes">
+      
+
+      
+          &lt;nullable><br>
+      
+
+      
+      </td>
+  
 
   
 
-  <td class="description last"><p>data object from Prismic CMS that contains all content data needed to create the HeadlineBlock slice</p></td>
+  <td class="description last"><p>optional string prop dictating specific column layouts.</p>
+<p><strong>CMS Slices passing this prop</strong></p>
+<ul>
+<li><a href="OneImageAndText.html">OneImageAndText</a></li>
+<li><a href="TwoImagesAndText.html">TwoImagesAndText</a></li>
+</ul>
+<p><strong>CMS Slices NOT passing this prop</strong></p>
+<ul>
+<li><a href="ImageRow.html">ImageRow</a></li>
+</ul></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>url</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">String</span>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+
+      
+
+      
+      </td>
+  
+
+  
+
+  <td class="description last"><p>link from Prismic CMS to the image from the media library</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>alt</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">String</span>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+
+      
+
+      
+      </td>
+  
+
+  
+
+  <td class="description last"><p>contains image caption data that's used for accessibility purposes too; comes from Prismic CMS. Its default value should be set when the image is <strong>first uploaded</strong> to the CMS Media Library. A different alt value, aka image caption, can be set when the image is selected for use in an article</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>photoCredit</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">String</span>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+
+      
+
+      
+      </td>
+  
+
+  
+
+  <td class="description last"><p>contains image credit data; comes from Prismic CMS. Should be set when the image is <strong>first uploaded</strong> to the CMS Media Library</p></td>
 </tr>
 
 
@@ -226,9 +346,9 @@
 
     
         <p class="tag-source">
-            <a href="src_components_slices_TwoImagesAndText.js.html" class="button">View Source</a>
+            <a href="src_components_slices_helpers_ImageHelper.js.html" class="button">View Source</a>
             <span>
-                <a href="src_components_slices_TwoImagesAndText.js.html">src/components/slices/TwoImagesAndText.js</a>, <a href="src_components_slices_TwoImagesAndText.js.html#line12">line 12</a>
+                <a href="src_components_slices_helpers_ImageHelper.js.html">src/components/slices/helpers/ImageHelper.js</a>, <a href="src_components_slices_helpers_ImageHelper.js.html#line22">line 22</a>
             </span>
         </p>
     
@@ -306,8 +426,8 @@
             
                 <div class="member">
 
-<h4 class="name" id="~layoutType">
-    <a class="href-link" href="#~layoutType">#</a>
+<h4 class="name" id="~imageColumnClass">
+    <a class="href-link" href="#~imageColumnClass">#</a>
     
         
             <span class='tag'>inner</span>
@@ -316,7 +436,7 @@
         
     
     <span class="code-name">
-        layoutType
+        imageColumnClass
     </span>
     
 </h4>
@@ -325,7 +445,8 @@
 
 
 <div class="description">
-    <p>Derive layout type by processing tiat_layout. Same process followed as <a href="global.html#getBlockquoteStyling">getBlockquoteStyling</a></p>
+    <p>If a columnClassName prop was passed in, use that prop value.
+Else, use the defaultImageClass defined above.</p>
 </div>
 
 
@@ -365,9 +486,9 @@
 
     
         <p class="tag-source">
-            <a href="src_components_slices_TwoImagesAndText.js.html" class="button">View Source</a>
+            <a href="src_components_slices_helpers_ImageHelper.js.html" class="button">View Source</a>
             <span>
-                <a href="src_components_slices_TwoImagesAndText.js.html">src/components/slices/TwoImagesAndText.js</a>, <a href="src_components_slices_TwoImagesAndText.js.html#line24">line 24</a>
+                <a href="src_components_slices_helpers_ImageHelper.js.html">src/components/slices/helpers/ImageHelper.js</a>, <a href="src_components_slices_helpers_ImageHelper.js.html#line29">line 29</a>
             </span>
         </p>
     

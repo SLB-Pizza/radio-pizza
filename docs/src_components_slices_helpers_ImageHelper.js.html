@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> src/components/Hero.js</title>
+  <title> src/components/slices/helpers/ImageHelper.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>src/components/Hero.js</h1>
+                    <h1>src/components/slices/helpers/ImageHelper.js</h1>
                 </header>
                 
 
@@ -90,40 +90,64 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React from "react";
-import Slider from "@farbenmeer/react-spring-slider";
-import slideGenerator from "../utils/slideGenerator";
 
-function HeroContentCarousel(props) {
+/**
+ * Creates a JSX segment that CMS Slices call on to format images.
+ * @category CMS
+ * @subcategory Layout Helper
+ * @component
+ * @param {?String} columnClassName - optional string prop dictating specific column layouts.
+ *
+ * **CMS Slices passing this prop**
+ * - {@link OneImageAndText}
+ * - {@link TwoImagesAndText}
+ *
+ * **CMS Slices NOT passing this prop**
+ * - {@link ImageRow}
+ *
+ * @param {String} url - link from Prismic CMS to the image from the media library
+ * @param {String} alt - contains image caption data that's used for accessibility purposes too; comes from Prismic CMS. Its default value should be set when the image is **first uploaded** to the CMS Media Library. A different alt value, aka image caption, can be set when the image is selected for use in an article
+ * @param {String} photoCredit - contains image credit data; comes from Prismic CMS. Should be set when the image is **first uploaded** to the CMS Media Library
+ * @returns {jsx}
+ */
+function ImageHelper({ columnClassName, url, alt, photoCredit }) {
+  const defaultImageClass = "column is-12-mobile";
+
   /**
-   * @param {number} timePerSlide - amount of time in ms to stay on each slide before &lt;Slider> auto moves to next slide; preset to 8000
-   * @param {object} heroBullets - style object for bullets to pass as props for &lt;Slider>
-   * @param {object} heroArrows - style object for arrows to pass as props for &lt;Slider>
+   * If a columnClassName prop was passed in, use that prop value.
+   * Else, use the defaultImageClass defined above.
    */
-
-  const timePerSlide = 8000;
-  const heroBullets = { backgroundColor: "#000", border: "2px solid white" };
-  const heroArrows = {
-    border: "solid white",
-    borderWidth: "0 5px 5px 0",
-    color: "black",
-  };
+  const imageColumnClass = columnClassName
+    ? columnClassName
+    : defaultImageClass;
 
   return (
-    &lt;div className="slider-sizing">
-      &lt;Slider
-        auto={timePerSlide}
-        hasArrows
-        arrowStyle={heroArrows}
-        hasBullets
-        bulletStyle={heroBullets}
-      >
-        {slideGenerator(props.slides)}
-      &lt;/Slider>
+    &lt;div className={imageColumnClass}>
+      &lt;figure className="image has-ratio">
+        {/*
+         * alt === null:
+         *   use photoCredit as img alt text, only show photoCredit caption
+         * alt !== null:
+         *   use alt as img alt text; show both alt and photocaptions
+         */}
+        {alt === null ? (
+          &lt;>
+            &lt;img src={url} alt={photoCredit} />
+            &lt;figcaption className="is-size-7">Photo: {photoCredit}&lt;/figcaption>
+          &lt;/>
+        ) : (
+          &lt;>
+            &lt;img src={url} alt={photoCredit} />
+            &lt;figcaption className="is-size-7">Image: {alt}&lt;/figcaption>
+            &lt;figcaption className="is-size-7">Photo: {photoCredit}&lt;/figcaption>
+          &lt;/>
+        )}
+      &lt;/figure>
     &lt;/div>
   );
 }
 
-export default HeroContentCarousel;
+export default ImageHelper;
 </code></pre>
         </article>
     </section>

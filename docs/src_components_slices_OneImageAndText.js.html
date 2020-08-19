@@ -72,7 +72,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Namespaces</h3><ul><li><a href="styling.html">styling</a></li></ul><h3>Components</h3><ul><li><a href="RadioPlayer.html">RadioPlayer</a></li></ul><h3>Global</h3><ul><li><a href="global.html#dateString">dateString</a></li><li><a href="global.html#guide">guide</a></li><li><a href="global.html#imageAltText">imageAltText</a></li><li><a href="global.html#linkResolver">linkResolver</a></li><li><a href="global.html#parseViewports">parseViewports</a></li><li><a href="global.html#playerStyle">playerStyle</a></li><li><a href="global.html#processPublicationDates">processPublicationDates</a></li><li><a href="global.html#ResidentsIndexPage">ResidentsIndexPage</a></li><li><a href="global.html#sliceZone">sliceZone</a></li></ul></div><div class="category"><h2>CMS</h2><h3>Components / Slices</h3><ul><li><a href="Blockquote.html">Blockquote</a></li><li><a href="HeadlineBlock.html">HeadlineBlock</a></li><li><a href="OneImageAndText.html">OneImageAndText</a></li><li><a href="ParallaxHeadline.html">ParallaxHeadline</a></li><li><a href="TextBlock.html">TextBlock</a></li><li><a href="TwoImagesAndText.html">TwoImagesAndText</a></li></ul></div><div class="category"><h2>Pages</h2><h3>Global</h3><ul><li><a href="global.html#FeaturesIndexPage">FeaturesIndexPage</a></li><li><a href="global.html#IndexPage">IndexPage</a></li><li><a href="global.html#SupportIndexPage">SupportIndexPage</a></li></ul></div><div class="category"><h2>Site Elements</h2><h3>Components / Layout Helper</h3><ul><li><a href="DateSelectorButton.html">DateSelectorButton</a></li><li><a href="playAudioButton.html">playAudioButton</a></li><li><a href="residentSocialIcons.html">residentSocialIcons</a></li></ul><h3>Global</h3><ul><li><a href="global.html#slideGenerator">slideGenerator</a></li></ul></div><div class="category"><h2>Testing</h2><h3>Global</h3><ul><li><a href="global.html#PuppeteerTesting">PuppeteerTesting</a></li></ul></div><div class="category"><h2>Utilities</h2><h3>Global</h3><ul><li><a href="global.html#getBlockquoteStyling">getBlockquoteStyling</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Namespaces</h3><ul><li><a href="styling.html">styling</a></li></ul><h3>Components</h3><ul><li><a href="RadioPlayer.html">RadioPlayer</a></li></ul><h3>Global</h3><ul><li><a href="global.html#dateString">dateString</a></li><li><a href="global.html#guide">guide</a></li><li><a href="global.html#imageAltText">imageAltText</a></li><li><a href="global.html#linkResolver">linkResolver</a></li><li><a href="global.html#parseViewports">parseViewports</a></li><li><a href="global.html#playerStyle">playerStyle</a></li><li><a href="global.html#processPublicationDates">processPublicationDates</a></li><li><a href="global.html#ResidentsIndexPage">ResidentsIndexPage</a></li><li><a href="global.html#sliceZone">sliceZone</a></li></ul></div><div class="category"><h2>CMS</h2><h3>Components / Slices</h3><ul><li><a href="Blockquote.html">Blockquote</a></li><li><a href="HeadlineBlock.html">HeadlineBlock</a></li><li><a href="ImageRow.html">ImageRow</a></li><li><a href="OneImageAndText.html">OneImageAndText</a></li><li><a href="ParallaxHeadline.html">ParallaxHeadline</a></li><li><a href="TextBlock.html">TextBlock</a></li><li><a href="TwoImagesAndText.html">TwoImagesAndText</a></li></ul><h3>Components / Layout Helper</h3><ul><li><a href="ImageHelper.html">ImageHelper</a></li></ul></div><div class="category"><h2>Pages</h2><h3>Global</h3><ul><li><a href="global.html#FeaturesIndexPage">FeaturesIndexPage</a></li><li><a href="global.html#IndexPage">IndexPage</a></li><li><a href="global.html#SupportIndexPage">SupportIndexPage</a></li></ul></div><div class="category"><h2>Site Elements</h2><h3>Components / Layout Helper</h3><ul><li><a href="DateSelectorButton.html">DateSelectorButton</a></li><li><a href="playAudioButton.html">playAudioButton</a></li><li><a href="residentSocialIcons.html">residentSocialIcons</a></li></ul><h3>Global</h3><ul><li><a href="global.html#slideGenerator">slideGenerator</a></li></ul></div><div class="category"><h2>Testing</h2><h3>Global</h3><ul><li><a href="global.html#PuppeteerTesting">PuppeteerTesting</a></li></ul></div><div class="category"><h2>Utilities</h2><h3>Global</h3><ul><li><a href="global.html#getBlockquoteStyling">getBlockquoteStyling</a></li></ul></div>
                 
             </nav>
         </div>
@@ -101,39 +101,42 @@ import { ContentHelper, ImageHelper } from "./index";
  * @returns {jsx}
  */
 function OneImageAndText({ slice }) {
-  const {
-    tiat_layout,
-    tiat_text,
-    tiat_left_img,
-    tiat_right_img,
-  } = slice.primary;
+  const { oiat_layout, oiat_text, oiat_img } = slice.primary;
 
   /**
    * Derive layout type by processing tiat_layout. Same process followed as {@link getBlockquoteStyling}
    */
-  const layoutType = tiat_layout.split(".")[0];
+  const layoutType = oiat_layout.split(":")[0];
 
-  const columnsClassName = tiat_is_gapless
-    ? "columns is-mobile is-multiline is-gapless"
-    : "columns is-mobile is-multiline";
-
-  const tiatContentClass = "column is-half";
-  const tiatImageClass = "column is-one-quarter";
+  const oiatContentClass = "column is-two-thirds-tablet";
+  const oiatImageClass = "column is-one-third-tablet is-full-mobile";
 
   return (
     &lt;section className="container">
-      &lt;div className={columnsClassName}>
+      &lt;div className="columns is-mobile is-multiline">
         {layoutType === "Left" ? (
           &lt;>
-            &lt;ContentHelper text={tiat_text} sliceClassName={tiatContentClass} />
-            &lt;ImageHelper url={tiat_left_img.url} alt={tiat_left_img.alt} />
-            &lt;ImageHelper url={tiat_right_img.url} alt={tiat_right_img.alt} />
+            &lt;ContentHelper
+              text={oiat_text}
+              columnClassName={oiatContentClass}
+            />
+            &lt;ImageHelper
+              url={oiat_img.url}
+              alt={oiat_img.alt}
+              columnClassName={oiatImageClass}
+            />
           &lt;/>
         ) : (
           &lt;>
-            &lt;ImageHelper url={tiat_left_img.url} alt={tiat_left_img.alt} />
-            &lt;ImageHelper url={tiat_right_img.url} alt={tiat_right_img.alt} />
-            &lt;ContentHelper text={tiat_text} sliceClassName={tiatContentClass} />
+            &lt;ImageHelper
+              url={oiat_img.url}
+              alt={oiat_img.alt}
+              columnClassName={oiatImageClass}
+            />
+            &lt;ContentHelper
+              text={oiat_text}
+              columnClassName={oiatContentClass}
+            />
           &lt;/>
         )}
       &lt;/div>

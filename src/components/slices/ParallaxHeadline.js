@@ -65,10 +65,10 @@ function ParallaxHeadline({ cta, hook, imgObj }) {
           <div className="column">
             <div className="content">
               <h1 className="title is-size-1-widescreen is-size-2-desktop is-size-3-tablet is-size-4-mobile">
-                {RichText.render(cta)}
+                {RichText.asText(cta)}
               </h1>
               <h3 className="is-size-4-desktop is-size-6-touch has-text-centered">
-                {RichText.render(hook)}
+                {RichText.asText(hook)}
               </h3>
             </div>
           </div>
@@ -144,4 +144,4 @@ function ParallaxHeadline({ cta, hook, imgObj }) {
   );
 }
 
-export default ParallaxHeadlineBlock;
+export default ParallaxHeadline;

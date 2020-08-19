@@ -3,6 +3,7 @@ import {
   Blockquote,
   HeadlineBlock,
   FullWidthImage,
+  OneImageAndText,
   TwoImagesAndText,
   TextBlock,
 } from "./slices";
@@ -41,7 +42,10 @@ import {
  * @returns {jsx} Returns components selected by sliceComponents key that have been hydrated with data to create the given page's layout.
  */
 
-function SliceZone({ sliceZone, featureMetadata }) {
+function SliceZone({ sliceZone, metadata }) {
+  // console.log("sliceZone", sliceZone);
+  // console.log("metadata", metadata);
+
   /**
    * Pair the imported CMS Slice Components with their Prismic API "type" value.
    * `{prismic_slice_type: SliceComponent}`
@@ -49,6 +53,7 @@ function SliceZone({ sliceZone, featureMetadata }) {
   const sliceComponents = {
     full_width_image: FullWidthImage,
     blockquote: Blockquote,
+    one_image_and_text: OneImageAndText,
     two_images___text: TwoImagesAndText,
     headline_block: HeadlineBlock,
     text: TextBlock,
@@ -64,7 +69,7 @@ function SliceZone({ sliceZone, featureMetadata }) {
       return (
         <SliceComponent
           slice={slice}
-          metadata={featureMetadata}
+          metadata={metadata}
           key={`slice-${index}`}
         />
       );

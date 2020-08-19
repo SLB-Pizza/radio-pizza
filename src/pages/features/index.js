@@ -9,7 +9,9 @@ import PropTypes from "prop-types";
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/features` landing page
  */
 function FeaturesIndexPage({ data }) {
-  // Focus the node for the prismicContent check below.
+  /**
+   * Focus the node for the prismicContent check below.
+   */
   const prismicContent = data.prismic.allFeatures.edges;
 
   /**
@@ -32,8 +34,8 @@ function FeaturesIndexPage({ data }) {
   const { _meta, body } = leadFeatureData;
 
   // console.log("index > leadFeatureData", leadFeatureData);
-  console.log("index > leadFeatureData.body", body);
-  console.log("index > leadFeatureData._meta", _meta);
+  // console.log("index > leadFeatureData.body", body);
+  // console.log("index > leadFeatureData._meta", _meta);
 
   return (
     <main className="site-page">

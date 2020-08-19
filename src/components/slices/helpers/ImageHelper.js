@@ -1,10 +1,11 @@
 import React from "react";
 
-export default function ImageHelper(props) {
+export default function ImageHelper({ columnClass, url, alt }) {
   return (
     <div className="column is-one-quarter">
-      <figure className="image is-square">
-        <img src={props.url} alt={props.alt} />
+      <figure className="image has-ratio">
+        <img src={url} alt={alt} />
+        <figcaption>Credit: </figcaption>
       </figure>
     </div>
   );

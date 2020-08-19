@@ -1,10 +1,10 @@
 import React from "react";
-import { ParallaxHeadlineBlock } from "../../src/components/slices";
+import { ParallaxHeadline } from "../../src/components/slices";
 import "../../src/styles/index.scss";
 
 export default {
   title: "Prismic CMS Slices/Parallax Headline",
-  component: ParallaxHeadlineBlock,
+  component: ParallaxHeadline,
 };
 
 const data = {
@@ -41,7 +41,7 @@ const data = {
 
 export const baseLayout = () => (
   <main className="site-page">
-    <ParallaxHeadlineBlock
+    <ParallaxHeadline
       cta={data.support_cta}
       hook={data.support_cta_hook}
       imgObj={data.support_cta_bg_img}

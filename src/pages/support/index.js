@@ -1,8 +1,8 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
 import Highlight, { defaultProps } from "prism-react-renderer";
-import { StickyFeature } from "../../components";
-import { ParallaxHeadlineBlock } from "../../components/slices";
+import { StickyFeature, SliceZone } from "../../components";
+import { ParallaxHeadline } from "../../components/slices";
 import PropTypes from "prop-types";
 
 /**
@@ -33,27 +33,34 @@ function SupportIndexPage({ data }) {
    */
 
   const dataDocument = prismicContent;
-  const aboutPageData = dataDocument[0].node;
-  const code = JSON.stringify(aboutPageData, null, 2);
+  const supportPageData = dataDocument[0].node;
+  const supportMetadata = supportPageData._meta;
+  const supportSliceData = supportPageData.body;
+  console.log(supportSliceData);
+
+  const code = JSON.stringify(supportPageData, null, 2);
+
+  // console.log(supportPageData);
 
   const {
     _meta,
+    body,
     support_cta,
     support_cta_bg_img,
     support_cta_hook,
-  } = aboutPageData;
+  } = supportPageData;
 
-  // const { _meta, body } = aboutPageData;
+  // const { _meta, body } = supportPageData;
 
   return (
     <main className="site-page">
       {/* <StickyFeature leadFeatureData={leadFeatureData} /> */}
-      <ParallaxHeadlineBlock
+      <ParallaxHeadline
         cta={support_cta}
         hook={support_cta_hook}
         imgObj={support_cta_bg_img}
       />
-
+      <SliceZone sliceZone={supportSliceData} metadata={supportMetadata} />
       <hr />
 
       <section className="container is-fluid" style={{ marginTop: "10rem" }}>
@@ -104,10 +111,16 @@ export const query = graphql`
       allSupports {
         edges {
           node {
-            _meta {
-              uid
+            body {
+              ... on PRISMIC_SupportBodyOne_image_and_text {
+                type
+                primary {
+                  oiat_layout
+                  oiat_text
+                  oiat_img
+                }
+              }
             }
-            _linkType
             support_cta
             support_cta_bg_img
             support_cta_hook

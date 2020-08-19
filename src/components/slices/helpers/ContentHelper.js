@@ -1,20 +1,16 @@
 import React from "react";
 import { RichText } from "prismic-reactjs";
 
-export default function ContentHelper(props) {
+export default function ContentHelper({ columnClassInfo, text }) {
   const defaultClassName = "column is-12";
 
-  console.log("inside Content Helper", props);
-
-  if (props.type === "text") {
-  }
-  const contentColumnClass = props.sliceClassName
-    ? props.sliceClassName
+  const contentColumnClass = columnClassInfo
+    ? columnClassInfo
     : defaultClassName;
 
   return (
     <div className={contentColumnClass}>
-      <div className="content">{RichText.render(props.text)}</div>
+      <div className="content">{RichText.render(text)}</div>
     </div>
   );
 }

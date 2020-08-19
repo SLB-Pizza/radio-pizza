@@ -13,10 +13,7 @@ const FeatureTemplate = ({ data }) => {
 
   return (
     <main className="site-page feature">
-      <SliceZone
-        sliceZone={featureSliceData}
-        featureMetadata={featureMetadata}
-      />
+      <SliceZone sliceZone={featureSliceData} metadata={featureMetadata} />
       <hr />
       <h3 className="subtitle">
         {`"/features/${featureMetadata.uid}"`} -- featureMetadata Data Object

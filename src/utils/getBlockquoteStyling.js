@@ -7,6 +7,8 @@
  * - Dark: dark background image; white quote text
  *
  * The first word of each option matches a case in the switch statement below.
+ * @category Utilities
+ * @subcategory Slice Helpers
  * @function getBlockquoteStyling
  * @param {String} type
  * @param {Object} bgIMG
@@ -17,8 +19,7 @@
 export default function getBlockquoteStyling(type, bgIMG) {
   /**
    * Contains the data needed to style the {@link Blockquote} properly.
-   * @const {Object} styling
-   * @default
+   * @namespace {Object} styling
    * @property {?Object} styling.imgStyle - the style object to inject the url from bgIMG into the main Blockquote `<section>` element, if the type calls for it. It defaults to `null` so that no inline object is passed to the inline call in the return. Doing so sets the default to no background image; black page background, the "none" blockquote type.
    * @property {string} styling.blockClassNames - the string used as the className for the `<blockquote>` element in Blockquote.js
    * @property {string} styling.citeClassNames - the string used as the className for the `<cite>` element in Blockquote.js
@@ -31,7 +32,7 @@ export default function getBlockquoteStyling(type, bgIMG) {
   };
 
   /**
-   * @const {String} bgType - Pull the type through a .split() on the ":" character of type, grabbing the first entry of that array and transforming that string to all lowercase to match the cases in the switch statement.
+   * Pull the type through a .split() on the ":" character of type, grabbing the first entry of that array and transforming that string to all lowercase to match the cases in the switch statement.
    */
   const bgType = type.split(": ")[0].toLowerCase();
 
@@ -71,7 +72,6 @@ export default function getBlockquoteStyling(type, bgIMG) {
       /**
        * Default to white text on black, no background image
        */
-
       styling.imgStyle = null;
   }
   return styling;

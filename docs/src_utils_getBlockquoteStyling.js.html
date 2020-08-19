@@ -72,7 +72,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="RadioPlayer.html">RadioPlayer</a></li></ul><h3>Global</h3><ul><li><a href="global.html#bgType">bgType</a></li><li><a href="global.html#dateString">dateString</a></li><li><a href="global.html#getBlockquoteStyling">getBlockquoteStyling</a></li><li><a href="global.html#guide">guide</a></li><li><a href="global.html#imageAltText">imageAltText</a></li><li><a href="global.html#linkResolver">linkResolver</a></li><li><a href="global.html#pageRoute">pageRoute</a></li><li><a href="global.html#parseViewports">parseViewports</a></li><li><a href="global.html#playerStyle">playerStyle</a></li><li><a href="global.html#processPublicationDates">processPublicationDates</a></li><li><a href="global.html#ResidentsIndexPage">ResidentsIndexPage</a></li><li><a href="global.html#sliceZone">sliceZone</a></li><li><a href="global.html#styling">styling</a></li></ul></div><div class="category"><h2>CMS</h2><h3>Components / Slices</h3><ul><li><a href="Blockquote.html">Blockquote</a></li><li><a href="HeadlineBlock.html">HeadlineBlock</a></li><li><a href="ParallaxHeadline.html">ParallaxHeadline</a></li><li><a href="TextBlock.html">TextBlock</a></li><li><a href="TwoImagesAndText.html">TwoImagesAndText</a></li></ul></div><div class="category"><h2>Pages</h2><h3>Global</h3><ul><li><a href="global.html#FeaturesIndexPage">FeaturesIndexPage</a></li><li><a href="global.html#IndexPage">IndexPage</a></li><li><a href="global.html#SupportIndexPage">SupportIndexPage</a></li></ul></div><div class="category"><h2>Site Elements</h2><h3>Components / Layout Helper</h3><ul><li><a href="DateSelectorButton.html">DateSelectorButton</a></li><li><a href="playAudioButton.html">playAudioButton</a></li><li><a href="residentSocialIcons.html">residentSocialIcons</a></li></ul><h3>Global</h3><ul><li><a href="global.html#slideGenerator">slideGenerator</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Namespaces</h3><ul><li><a href="styling.html">styling</a></li></ul><h3>Components</h3><ul><li><a href="RadioPlayer.html">RadioPlayer</a></li></ul><h3>Global</h3><ul><li><a href="global.html#dateString">dateString</a></li><li><a href="global.html#guide">guide</a></li><li><a href="global.html#imageAltText">imageAltText</a></li><li><a href="global.html#linkResolver">linkResolver</a></li><li><a href="global.html#parseViewports">parseViewports</a></li><li><a href="global.html#playerStyle">playerStyle</a></li><li><a href="global.html#processPublicationDates">processPublicationDates</a></li><li><a href="global.html#ResidentsIndexPage">ResidentsIndexPage</a></li><li><a href="global.html#sliceZone">sliceZone</a></li></ul></div><div class="category"><h2>CMS</h2><h3>Components / Slices</h3><ul><li><a href="Blockquote.html">Blockquote</a></li><li><a href="HeadlineBlock.html">HeadlineBlock</a></li><li><a href="OneImageAndText.html">OneImageAndText</a></li><li><a href="ParallaxHeadline.html">ParallaxHeadline</a></li><li><a href="TextBlock.html">TextBlock</a></li><li><a href="TwoImagesAndText.html">TwoImagesAndText</a></li></ul></div><div class="category"><h2>Pages</h2><h3>Global</h3><ul><li><a href="global.html#FeaturesIndexPage">FeaturesIndexPage</a></li><li><a href="global.html#IndexPage">IndexPage</a></li><li><a href="global.html#SupportIndexPage">SupportIndexPage</a></li></ul></div><div class="category"><h2>Site Elements</h2><h3>Components / Layout Helper</h3><ul><li><a href="DateSelectorButton.html">DateSelectorButton</a></li><li><a href="playAudioButton.html">playAudioButton</a></li><li><a href="residentSocialIcons.html">residentSocialIcons</a></li></ul><h3>Global</h3><ul><li><a href="global.html#slideGenerator">slideGenerator</a></li></ul></div><div class="category"><h2>Testing</h2><h3>Global</h3><ul><li><a href="global.html#PuppeteerTesting">PuppeteerTesting</a></li></ul></div><div class="category"><h2>Utilities</h2><h3>Global</h3><ul><li><a href="global.html#getBlockquoteStyling">getBlockquoteStyling</a></li></ul></div>
                 
             </nav>
         </div>
@@ -98,6 +98,8 @@
  * - Dark: dark background image; white quote text
  *
  * The first word of each option matches a case in the switch statement below.
+ * @category Utilities
+ * @subcategory Slice Helpers
  * @function getBlockquoteStyling
  * @param {String} type
  * @param {Object} bgIMG
@@ -108,8 +110,7 @@
 export default function getBlockquoteStyling(type, bgIMG) {
   /**
    * Contains the data needed to style the {@link Blockquote} properly.
-   * @const {Object} styling
-   * @default
+   * @namespace {Object} styling
    * @property {?Object} styling.imgStyle - the style object to inject the url from bgIMG into the main Blockquote `&lt;section>` element, if the type calls for it. It defaults to `null` so that no inline object is passed to the inline call in the return. Doing so sets the default to no background image; black page background, the "none" blockquote type.
    * @property {string} styling.blockClassNames - the string used as the className for the `&lt;blockquote>` element in Blockquote.js
    * @property {string} styling.citeClassNames - the string used as the className for the `&lt;cite>` element in Blockquote.js
@@ -122,7 +123,7 @@ export default function getBlockquoteStyling(type, bgIMG) {
   };
 
   /**
-   * @const {String} bgType - Pull the type through a .split() on the ":" character of type, grabbing the first entry of that array and transforming that string to all lowercase to match the cases in the switch statement.
+   * Pull the type through a .split() on the ":" character of type, grabbing the first entry of that array and transforming that string to all lowercase to match the cases in the switch statement.
    */
   const bgType = type.split(": ")[0].toLowerCase();
 
@@ -162,7 +163,6 @@ export default function getBlockquoteStyling(type, bgIMG) {
       /**
        * Default to white text on black, no background image
        */
-
       styling.imgStyle = null;
   }
   return styling;

@@ -16,7 +16,7 @@ function SupportIndexPage({ data }) {
   /**
    * Focus the node for the prismicContent check below.
    */
-  const prismicContent = data.prismic.allSupports.edges;
+  const prismicContent = data.prismic.allSupports.edges[0];
 
   /**
    * This line is here to prevent an error from occurring when you eventually deploy the site live. There is an issue with the preview functionality that requires this check on every page.
@@ -31,63 +31,34 @@ function SupportIndexPage({ data }) {
    *
    * The remaining array of node objects can be mapped over normally using XYZ_Component.
    */
+  const supportPageData = prismicContent.node;
 
-  const dataDocument = prismicContent;
-  const supportPageData = dataDocument[0].node;
-  const supportMetadata = supportPageData._meta;
-  const supportSliceData = supportPageData.body;
-  console.log(supportSliceData);
-
-  const code = JSON.stringify(supportPageData, null, 2);
-
-  // console.log(supportPageData);
-
-  const {
-    _meta,
-    body,
-    support_cta,
-    support_cta_bg_img,
-    support_cta_hook,
-  } = supportPageData;
-
-  // const { _meta, body } = supportPageData;
+  /**
+   * Pull out parts from supportPageData to make passing data easier.
+   */
+  const supportHeader = {
+    cta: supportPageData.support_cta,
+    hook: supportPageData.support_cta_hook,
+    img: supportPageData.support_cta_bg_img,
+  };
+  const supportSlice = supportPageData.body;
 
   return (
     <main className="site-page">
       {/* <StickyFeature leadFeatureData={leadFeatureData} /> */}
       <ParallaxHeadline
-        cta={support_cta}
-        hook={support_cta_hook}
-        imgObj={support_cta_bg_img}
+        cta={supportHeader.cta}
+        hook={supportHeader.hook}
+        imgObj={supportHeader.img}
       />
-      <SliceZone sliceZone={supportSliceData} metadata={supportMetadata} />
+      <SliceZone sliceZone={supportSlice} />
       <hr />
 
-      <section className="container is-fluid" style={{ marginTop: "10rem" }}>
+      <section className="container is-fluid">
         <div className="columns is-multiline">
           <div className="column is-12">
-            <p
-              className="title is-size-3-desktop is-size-4-touch"
-              id="first-text"
-            >
-              Features Data
-            </p>
-          </div>
-          <div className="column is-12">
-            <h1 className="title">leadFeatureData Data Object</h1>
-            <Highlight {...defaultProps} code={code} language="json">
-              {({ className, style, tokens, getLineProps, getTokenProps }) => (
-                <pre className={className} style={style}>
-                  {tokens.map((line, i) => (
-                    <div {...getLineProps({ line, key: i })}>
-                      {line.map((token, key) => (
-                        <span {...getTokenProps({ token, key })} />
-                      ))}
-                    </div>
-                  ))}
-                </pre>
-              )}
-            </Highlight>
+            <h1 className="title">supportSlice</h1>
+            <pre>{JSON.stringify(supportSlice, null, 2)}</pre>
           </div>
         </div>
       </section>
@@ -111,6 +82,9 @@ export const query = graphql`
       allSupports {
         edges {
           node {
+            support_cta
+            support_cta_bg_img
+            support_cta_hook
             body {
               ... on PRISMIC_SupportBodyOne_image_and_text {
                 type
@@ -121,9 +95,6 @@ export const query = graphql`
                 }
               }
             }
-            support_cta
-            support_cta_bg_img
-            support_cta_hook
           }
         }
       }

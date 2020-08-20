@@ -1,10 +1,14 @@
 import React from "react";
 import { graphql, Link, StaticQuery } from "gatsby";
-import { RichText } from "prismic-reactjs";
 
 import { CMSSlides, HomeContentSample } from "../../components";
 
-function CMSGuide({ data }) {
+/**
+ * @category Pages
+ * @subcategory Indexes
+ * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/features` landing page
+ */
+function CMSGuideIndex({ data }) {
   const prismicContent = data.prismic.allHomepages.edges[0];
   if (!prismicContent) return null;
   const cmsGuideData = prismicContent.node;
@@ -72,4 +76,4 @@ export const query = graphql`
   }
 `;
 
-export default CMSGuide;
+export default CMSGuideIndex;

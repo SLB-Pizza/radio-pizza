@@ -5,10 +5,10 @@ import PropTypes from "prop-types";
 
 /**
  * @category Pages
- * @subcategory Features
+ * @subcategory Indexes
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/features` landing page
  */
-function FeaturesIndexPage({ data }) {
+function FeaturesIndex({ data }) {
   /**
    * Focus the node for the prismicContent check below.
    */
@@ -74,8 +74,9 @@ function FeaturesIndexPage({ data }) {
   );
 }
 
-export default FeaturesIndexPage;
-FeaturesIndexPage.propTypes = {
+export default FeaturesIndex;
+
+FeaturesIndex.propTypes = {
   leadFeatureData: PropTypes.exact({
     _meta: PropTypes.object.isRequired,
     body: PropTypes.arrayOf(PropTypes.object),

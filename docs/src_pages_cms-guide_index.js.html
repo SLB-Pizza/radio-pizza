@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> src/utils/slideGenerator.js</title>
+  <title> src/pages/cms-guide/index.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>src/utils/slideGenerator.js</h1>
+                    <h1>src/pages/cms-guide/index.js</h1>
                 </header>
                 
 
@@ -90,54 +90,84 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React from "react";
-import { navigate } from "gatsby";
-import { RichText } from "prismic-reactjs";
+import { graphql, Link, StaticQuery } from "gatsby";
+
+import { CMSSlides, HomeContentSample } from "../../components";
 
 /**
- * @category Site Elements
- * @subcategory Layout Helper
- * @function slideGenerator
- * @param {Object[]} slidesArray - An array containing data objects from the GraphQL query for the home page.
- * @property {Object} slide - data object containing the details used to build the slide
- * @property {string} slide.slide_bg_url.url - The URL from Prismic of that slide's background image. This can be a relative local path (e.g. "/static/something-local.jpg") or an external image link (e.g. "https://source.unsplash.com/1920x1080/daily?music"). Both work.
- * @property {string} slide.slide_headline - Short string announcing that slide's content
- * @property {string} slide.slide_cta - Medium string giving context to that slide's content; might be a call to action or a breadcrumb for the reader
- * @property {string} slide.slide_link.url - The link to navigate to onClick, This can either be an internal link (e.g. "/events"), or an external link (e.g. "https://www.instagram.com").
- * @returns a complete layout fragment for use in the return statement, inside the &lt;Slider> component
+ * @category Pages
+ * @subcategory Indexes
+ * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/features` landing page
  */
+function CMSGuideIndex({ data }) {
+  const prismicContent = data.prismic.allHomepages.edges[0];
+  if (!prismicContent) return null;
+  const cmsGuideData = prismicContent.node;
 
-function slideGenerator(slidesArray) {
-  return slidesArray.map((slide, idx) => (
-    &lt;section
-      key={idx}
-      className="hero is-fullheight-with-navbar homepage-hero"
-      onClick={() => {
-        navigate(`${slide.slide_link.url}`);
-      }}
-      style={{
-        backgroundImage: `url(${slide.slide_bg_url.url})`,
-      }}
-    >
-      &lt;div className="hero-body">
-        &lt;div className="container">
-          &lt;div className="columns">
-            &lt;div className="column">
-              &lt;h1 className="title is-size-3-desktop is-size-5-touch is-size-6-mobile hero-title">
-                {RichText.asText(slide.slide_headline)}
-              &lt;/h1>
-              &lt;br />
-              &lt;h2 className="subtitle is-size-5-desktop is-size-6-touch is-size-7-mobile hero-title">
-                {RichText.asText(slide.slide_cta)}
-              &lt;/h2>
+  return (
+    &lt;main className="site-page">
+      &lt;section className="container is-fluid">
+        &lt;div className="columns">
+          &lt;div className="content">
+            &lt;div className="column is-12">
+              &lt;h1 className="title">HMBK CMS Guide&lt;/h1>
+              &lt;h3 className="subtitle">Table of Contents&lt;/h3>
+              &lt;ul>
+                &lt;li>Homepage&lt;/li>
+                &lt;ul>
+                  &lt;li>Sample Slide&lt;/li>
+                &lt;/ul>
+              &lt;/ul>
+              &lt;hr />
+              &lt;h1 className="title">cmsGuideData&lt;/h1>
+              &lt;pre>{JSON.stringify(cmsGuideData, null, 2)}&lt;/pre>
+
+              {/* &lt;Link to="/cms-help/sample-feature">View Sample Feature&lt;/Link> */}
             &lt;/div>
           &lt;/div>
         &lt;/div>
-      &lt;/div>
-    &lt;/section>
-  ));
+        {/* &lt;CMSSlides slideData={slideData} />
+        &lt;HomeContentSample homeContentData={homeContentData} />
+        &lt;hr /> */}
+      &lt;/section>
+    &lt;/main>
+  );
 }
 
-export default slideGenerator;
+export const query = graphql`
+  query CMSGuideHomeQuery {
+    prismic {
+      allCms_guides {
+        edges {
+          node {
+            _meta {
+              uid
+              firstPublicationDate
+              lastPublicationDate
+              type
+            }
+            body {
+              ... on PRISMIC_Cms_guideBodyImage_row {
+                type
+                fields {
+                  row_image
+                }
+              }
+              ... on PRISMIC_Cms_guideBodyText {
+                type
+                primary {
+                  text
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export default CMSGuideIndex;
 </code></pre>
         </article>
     </section>

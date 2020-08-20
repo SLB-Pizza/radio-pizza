@@ -12,10 +12,14 @@ import dummyArtists from "../../../__tests__/dummyArtists.json";
  * TO CHANGE IN THIS FILE
  * change alphabetizedResidents map to actual artist data
  *
- * Something's up when docing this function
+ * @category Pages
+ * @subcategory Indexes
+ * @function ResidentIndex
+ * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/residents` landing page
+ * @returns {jsx}
  */
 
-function ResidentsIndexPage() {
+function ResidentsIndex() {
   const [isOpen, setIsOpen] = useState("current");
 
   function toggleColumn(e) {
@@ -94,4 +98,4 @@ function ResidentsIndexPage() {
   );
 }
 
-export default ResidentsIndexPage;
+export default ResidentsIndex;

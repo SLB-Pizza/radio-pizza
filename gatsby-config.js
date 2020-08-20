@@ -83,10 +83,9 @@ module.exports = {
             component: require.resolve("./src/templates/Feature.js"),
           },
           {
-            type: "",
-            match: "/features/:uid",
-            path: "/feature-preview",
-            component: require.resolve("./src/templates/Feature.js"),
+            type: "Cms_guide",
+            match: "/cms-guide/:uid",
+            component: require.resolve("./src/templates/CMSGuide.js"),
           },
         ],
       },

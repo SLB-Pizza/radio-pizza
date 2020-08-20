@@ -2,7 +2,15 @@ import React from "react";
 import { graphql } from "gatsby";
 import { SliceZone } from "../components";
 
-const FeatureTemplate = ({ data }) => {
+/**
+ * @category Templates
+ * @subcategory Feature
+ * @function FeatureTemplate
+ * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build features off of `/features/:uid`
+ * @returns {jsx}
+ */
+
+function FeatureTemplate({ data }) {
   const prismicContent = data.prismic.allFeatures.edges[0];
   if (!prismicContent) return null;
   const document = prismicContent.node;
@@ -31,7 +39,7 @@ const FeatureTemplate = ({ data }) => {
       ))}
     </main>
   );
-};
+}
 
 export const query = graphql`
   query FeaturesQuery($uid: String) {

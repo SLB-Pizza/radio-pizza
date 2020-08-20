@@ -47,7 +47,6 @@ import {
 function SliceZone({ sliceZone, metadata }) {
   /**
    * Pair the imported CMS Slice Components with their Prismic API "type" value.
-   * @example
    * `{prismic_slice_type: SliceComponent}`
    */
   const sliceComponents = {

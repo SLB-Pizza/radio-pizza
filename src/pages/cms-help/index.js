@@ -32,25 +32,27 @@ export default function CMSHelp({ data }) {
   };
 
   return (
-    <main className="container is-fluid site-page">
-      <div className="columns">
-        <div className="content">
-          <div className="column is-12">
-            <h1 className="title">HMBK CMS Guide</h1>
-            <h3 className="subtitle">Table of Contents</h3>
-            <ul>
-              <li>Homepage</li>
+    <main className="site-page">
+      <section className="container is-fluid">
+        <div className="columns">
+          <div className="content">
+            <div className="column is-12">
+              <h1 className="title">HMBK CMS Guide</h1>
+              <h3 className="subtitle">Table of Contents</h3>
               <ul>
-                <li>Sample Slide</li>
+                <li>Homepage</li>
+                <ul>
+                  <li>Sample Slide</li>
+                </ul>
               </ul>
-            </ul>
-            <Link to="/cms-help/sample-feature">View Sample Feature</Link>
+              {/* <Link to="/cms-help/sample-feature">View Sample Feature</Link> */}
+            </div>
           </div>
         </div>
-      </div>
-      <CMSSlides slideData={slideData} />
-      <HomeContentSample homeContentData={homeContentData} />
-      <hr />
+        {/* <CMSSlides slideData={slideData} />
+        <HomeContentSample homeContentData={homeContentData} />
+        <hr /> */}
+      </section>
     </main>
   );
 }

@@ -59,6 +59,13 @@ module.exports = {
       },
     },
     {
+      resolve: "@mkitio/gatsby-theme-password-protect",
+      options: {
+        password: "HalfmoonBK2020",
+        pagePaths: ["/cms-help"], // delete or `undefined` to disable password protection
+      },
+    },
+    {
       resolve: "gatsby-plugin-netlify-cms",
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`,
@@ -71,6 +78,12 @@ module.exports = {
         pages: [
           {
             type: "Feature",
+            match: "/features/:uid",
+            path: "/feature-preview",
+            component: require.resolve("./src/templates/Feature.js"),
+          },
+          {
+            type: "",
             match: "/features/:uid",
             path: "/feature-preview",
             component: require.resolve("./src/templates/Feature.js"),

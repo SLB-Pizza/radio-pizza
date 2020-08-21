@@ -13,7 +13,7 @@
  * @param {String} type
  * @param {Object} bgIMG
  * @property {String} bgIMG.url - the URL that would be passing into styling.imgStyle should the Blockquote be the type that has a background image
- * @returns {object}
+ * @returns {Object}
  */
 
 export default function getBlockquoteStyling(type, bgIMG) {

@@ -7,10 +7,12 @@
 
 $pink: #f600ff;
 $primary: $pink;
-
+$body-background-color: black;
 //==================================
 // text variables
 //==================================
+$body-color: $white;
+$text: $white;
 $title-color: $white;
 $subtitle-color: $white;
 $content-heading-color: $white;
@@ -78,16 +80,10 @@ $dt-spacing: 1%;
 // GLOBAL STYLES
 //==================================
 
-html,
-body {
-  background-color: black;
-  color: white;
-}
-
 //top: 8.25rem with container
 //bottom: 3.75rem with container
 .site-page {
-  padding-top: 7.625rem;
+  padding-top: 7.5rem;
   padding-bottom: 3.75rem;
   min-height: 100vh;
 }
@@ -109,17 +105,6 @@ p,
   font-weight: 400;
   font-kerning: normal;
   font-display: swap;
-}
-
-a,
-p,
-p.title,
-p.subtitle,
-ol,
-ul,
-blockquote,
-cite {
-  color: white;
 }
 
 button {
@@ -153,21 +138,8 @@ input::placeholder {
 .text-truncate {
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: pre-line;
-}
-
-// SoundCloud's version of things
-.sc-truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
   white-space: nowrap;
   word-break: normal;
-}
-
-.single-truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 //===========================================

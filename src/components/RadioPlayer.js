@@ -142,7 +142,7 @@ function RadioPlayer(props) {
           <img src={`${globalState.img}`} alt="Current mix" />
         </figure>
       </div>
-      <div className="column sc-truncate" id="now-playing">
+      <div className="column text-truncate" id="now-playing">
         <div id="now-playing-details">
           <p className="subtitle is-size-7">{globalState.resident}</p>
           <p className="title is-size-6-tablet is-size-7-mobile">

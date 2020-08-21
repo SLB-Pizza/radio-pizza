@@ -49,7 +49,7 @@ function SingleMixCard(props) {
 
         <div className="card-content">
           <div className="content-text">
-            <p className="content-details sc-truncate subtitle is-size-7">
+            <p className="content-details text-truncate subtitle is-size-7">
               {props.date} | {props.resident}
             </p>
             <NanoClamp

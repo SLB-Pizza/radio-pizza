@@ -72,7 +72,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Namespaces</h3><ul><li><a href="styling.html">styling</a></li></ul><h3>Components</h3><ul><li><a href="RadioPlayer.html">RadioPlayer</a></li></ul><h3>Global</h3><ul><li><a href="global.html#dateString">dateString</a></li><li><a href="global.html#guide">guide</a></li><li><a href="global.html#imageAltText">imageAltText</a></li><li><a href="global.html#linkResolver">linkResolver</a></li><li><a href="global.html#parseViewports">parseViewports</a></li><li><a href="global.html#playerStyle">playerStyle</a></li><li><a href="global.html#processPublicationDates">processPublicationDates</a></li><li><a href="global.html#sliceZone">sliceZone</a></li></ul></div><div class="category"><h2>CMS</h2><h3>Components / Slices</h3><ul><li><a href="Blockquote.html">Blockquote</a></li><li><a href="HeadlineBlock.html">HeadlineBlock</a></li><li><a href="ImageRow.html">ImageRow</a></li><li><a href="OneImageAndText.html">OneImageAndText</a></li><li><a href="ParallaxHeadline.html">ParallaxHeadline</a></li><li><a href="TextBlock.html">TextBlock</a></li><li><a href="TwoImagesAndText.html">TwoImagesAndText</a></li></ul><h3>Components / Layout Helper</h3><ul><li><a href="ImageHelper.html">ImageHelper</a></li></ul></div><div class="category"><h2>Pages</h2><h3>Global</h3><ul><li><a href="global.html#CMSGuideIndex">CMSGuideIndex</a></li><li><a href="global.html#FeaturesIndex">FeaturesIndex</a></li><li><a href="global.html#IndexPage">IndexPage</a></li><li><a href="global.html#ResidentIndex">ResidentIndex</a></li><li><a href="global.html#SupportIndex">SupportIndex</a></li></ul></div><div class="category"><h2>Site Elements</h2><h3>Components / Layout Helper</h3><ul><li><a href="DateSelectorButton.html">DateSelectorButton</a></li><li><a href="playAudioButton.html">playAudioButton</a></li><li><a href="residentSocialIcons.html">residentSocialIcons</a></li></ul><h3>Global</h3><ul><li><a href="global.html#slideGenerator">slideGenerator</a></li></ul></div><div class="category"><h2>Templates</h2><h3>Global</h3><ul><li><a href="global.html#CMSGuideTemplate">CMSGuideTemplate</a></li><li><a href="global.html#FeatureTemplate">FeatureTemplate</a></li></ul></div><div class="category"><h2>Testing</h2><h3>Global</h3><ul><li><a href="global.html#PuppeteerTesting">PuppeteerTesting</a></li></ul></div><div class="category"><h2>Utilities</h2><h3>Global</h3><ul><li><a href="global.html#getBlockquoteStyling">getBlockquoteStyling</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Namespaces</h3><ul><li><a href="styling.html">styling</a></li></ul><h3>Components</h3><ul><li><a href="RadioPlayer.html">RadioPlayer</a></li></ul><h3>Global</h3><ul><li><a href="global.html#dateString">dateString</a></li><li><a href="global.html#guide">guide</a></li><li><a href="global.html#imageAltText">imageAltText</a></li><li><a href="global.html#linkResolver">linkResolver</a></li><li><a href="global.html#parseViewports">parseViewports</a></li><li><a href="global.html#playerStyle">playerStyle</a></li><li><a href="global.html#processPublicationDates">processPublicationDates</a></li><li><a href="global.html#sliceZone">sliceZone</a></li></ul></div><div class="category"><h2>CMS</h2><h3>Components / Slices</h3><ul><li><a href="Blockquote.html">Blockquote</a></li><li><a href="HeadlineBlock.html">HeadlineBlock</a></li><li><a href="ImageRow.html">ImageRow</a></li><li><a href="OneImageAndText.html">OneImageAndText</a></li><li><a href="ParallaxHeadline.html">ParallaxHeadline</a></li><li><a href="TextBlock.html">TextBlock</a></li><li><a href="TwoImagesAndText.html">TwoImagesAndText</a></li></ul><h3>Components / Layout Helper</h3><ul><li><a href="ContentHelper.html">ContentHelper</a></li><li><a href="ImageHelper.html">ImageHelper</a></li></ul></div><div class="category"><h2>Pages</h2><h3>Global</h3><ul><li><a href="global.html#CMSGuideIndex">CMSGuideIndex</a></li><li><a href="global.html#FeaturesIndex">FeaturesIndex</a></li><li><a href="global.html#IndexPage">IndexPage</a></li><li><a href="global.html#ResidentIndex">ResidentIndex</a></li><li><a href="global.html#SupportPage">SupportPage</a></li></ul></div><div class="category"><h2>Site Elements</h2><h3>Components / Layout Helper</h3><ul><li><a href="DateSelectorButton.html">DateSelectorButton</a></li><li><a href="playAudioButton.html">playAudioButton</a></li><li><a href="residentSocialIcons.html">residentSocialIcons</a></li></ul><h3>Global</h3><ul><li><a href="global.html#slideGenerator">slideGenerator</a></li></ul></div><div class="category"><h2>Templates</h2><h3>Global</h3><ul><li><a href="global.html#CMSGuideTemplate">CMSGuideTemplate</a></li><li><a href="global.html#FeatureTemplate">FeatureTemplate</a></li></ul></div><div class="category"><h2>Testing</h2><h3>Global</h3><ul><li><a href="global.html#PuppeteerTesting">PuppeteerTesting</a></li></ul></div><div class="category"><h2>Utilities</h2><h3>Global</h3><ul><li><a href="global.html#getBlockquoteStyling">getBlockquoteStyling</a></li></ul></div>
                 
             </nav>
         </div>
@@ -124,13 +124,9 @@ function FeaturesIndex({ data }) {
 
   const { _meta, body } = leadFeatureData;
 
-  // console.log("index > leadFeatureData", leadFeatureData);
-  // console.log("index > leadFeatureData.body", body);
-  // console.log("index > leadFeatureData._meta", _meta);
-
   return (
     &lt;main className="site-page">
-      &lt;StickyFeature leadFeatureData={leadFeatureData} />
+      {/* &lt;StickyFeature leadFeatureData={leadFeatureData} /> */}
       &lt;ul>
         &lt;li>
           &lt;Link to="/features/dev-test-feature-1">Link to Test Feature 1&lt;/Link>
@@ -165,8 +161,6 @@ function FeaturesIndex({ data }) {
   );
 }
 
-export default FeaturesIndex;
-
 FeaturesIndex.propTypes = {
   leadFeatureData: PropTypes.exact({
     _meta: PropTypes.object.isRequired,
@@ -192,18 +186,22 @@ export const query = graphql`
               ... on PRISMIC_FeatureBodyHeadline_block {
                 type
                 primary {
-                  feature_headline_img
-                  feature_category
-                  feature_subcategory
-                  feature_headline
-                  feature_subtitle
-                  feature_author_pic
-                  feature_author {
+                  article_author_pic
+                  article_author {
                     ... on PRISMIC_Staff {
                       hmbk_staff_name
                       hmbk_staff_position
+                      _meta {
+                        type
+                        uid
+                      }
                     }
                   }
+                  article_category
+                  article_headline
+                  article_headline_img
+                  article_subcategory
+                  article_subtitle
                 }
               }
             }
@@ -213,6 +211,8 @@ export const query = graphql`
     }
   }
 `;
+
+export default FeaturesIndex;
 </code></pre>
         </article>
     </section>

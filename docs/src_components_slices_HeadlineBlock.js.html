@@ -72,7 +72,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Namespaces</h3><ul><li><a href="styling.html">styling</a></li></ul><h3>Components</h3><ul><li><a href="RadioPlayer.html">RadioPlayer</a></li></ul><h3>Global</h3><ul><li><a href="global.html#dateString">dateString</a></li><li><a href="global.html#guide">guide</a></li><li><a href="global.html#imageAltText">imageAltText</a></li><li><a href="global.html#linkResolver">linkResolver</a></li><li><a href="global.html#parseViewports">parseViewports</a></li><li><a href="global.html#playerStyle">playerStyle</a></li><li><a href="global.html#processPublicationDates">processPublicationDates</a></li><li><a href="global.html#sliceZone">sliceZone</a></li></ul></div><div class="category"><h2>CMS</h2><h3>Components / Slices</h3><ul><li><a href="Blockquote.html">Blockquote</a></li><li><a href="HeadlineBlock.html">HeadlineBlock</a></li><li><a href="ImageRow.html">ImageRow</a></li><li><a href="OneImageAndText.html">OneImageAndText</a></li><li><a href="ParallaxHeadline.html">ParallaxHeadline</a></li><li><a href="TextBlock.html">TextBlock</a></li><li><a href="TwoImagesAndText.html">TwoImagesAndText</a></li></ul><h3>Components / Layout Helper</h3><ul><li><a href="ImageHelper.html">ImageHelper</a></li></ul></div><div class="category"><h2>Pages</h2><h3>Global</h3><ul><li><a href="global.html#CMSGuideIndex">CMSGuideIndex</a></li><li><a href="global.html#FeaturesIndex">FeaturesIndex</a></li><li><a href="global.html#IndexPage">IndexPage</a></li><li><a href="global.html#ResidentIndex">ResidentIndex</a></li><li><a href="global.html#SupportIndex">SupportIndex</a></li></ul></div><div class="category"><h2>Site Elements</h2><h3>Components / Layout Helper</h3><ul><li><a href="DateSelectorButton.html">DateSelectorButton</a></li><li><a href="playAudioButton.html">playAudioButton</a></li><li><a href="residentSocialIcons.html">residentSocialIcons</a></li></ul><h3>Global</h3><ul><li><a href="global.html#slideGenerator">slideGenerator</a></li></ul></div><div class="category"><h2>Templates</h2><h3>Global</h3><ul><li><a href="global.html#CMSGuideTemplate">CMSGuideTemplate</a></li><li><a href="global.html#FeatureTemplate">FeatureTemplate</a></li></ul></div><div class="category"><h2>Testing</h2><h3>Global</h3><ul><li><a href="global.html#PuppeteerTesting">PuppeteerTesting</a></li></ul></div><div class="category"><h2>Utilities</h2><h3>Global</h3><ul><li><a href="global.html#getBlockquoteStyling">getBlockquoteStyling</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Namespaces</h3><ul><li><a href="styling.html">styling</a></li></ul><h3>Components</h3><ul><li><a href="RadioPlayer.html">RadioPlayer</a></li></ul><h3>Global</h3><ul><li><a href="global.html#dateString">dateString</a></li><li><a href="global.html#guide">guide</a></li><li><a href="global.html#imageAltText">imageAltText</a></li><li><a href="global.html#linkResolver">linkResolver</a></li><li><a href="global.html#parseViewports">parseViewports</a></li><li><a href="global.html#playerStyle">playerStyle</a></li><li><a href="global.html#processPublicationDates">processPublicationDates</a></li><li><a href="global.html#sliceZone">sliceZone</a></li></ul></div><div class="category"><h2>CMS</h2><h3>Components / Slices</h3><ul><li><a href="Blockquote.html">Blockquote</a></li><li><a href="HeadlineBlock.html">HeadlineBlock</a></li><li><a href="ImageRow.html">ImageRow</a></li><li><a href="OneImageAndText.html">OneImageAndText</a></li><li><a href="ParallaxHeadline.html">ParallaxHeadline</a></li><li><a href="TextBlock.html">TextBlock</a></li><li><a href="TwoImagesAndText.html">TwoImagesAndText</a></li></ul><h3>Components / Layout Helper</h3><ul><li><a href="ContentHelper.html">ContentHelper</a></li><li><a href="ImageHelper.html">ImageHelper</a></li></ul></div><div class="category"><h2>Pages</h2><h3>Global</h3><ul><li><a href="global.html#CMSGuideIndex">CMSGuideIndex</a></li><li><a href="global.html#FeaturesIndex">FeaturesIndex</a></li><li><a href="global.html#IndexPage">IndexPage</a></li><li><a href="global.html#ResidentIndex">ResidentIndex</a></li><li><a href="global.html#SupportPage">SupportPage</a></li></ul></div><div class="category"><h2>Site Elements</h2><h3>Components / Layout Helper</h3><ul><li><a href="DateSelectorButton.html">DateSelectorButton</a></li><li><a href="playAudioButton.html">playAudioButton</a></li><li><a href="residentSocialIcons.html">residentSocialIcons</a></li></ul><h3>Global</h3><ul><li><a href="global.html#slideGenerator">slideGenerator</a></li></ul></div><div class="category"><h2>Templates</h2><h3>Global</h3><ul><li><a href="global.html#CMSGuideTemplate">CMSGuideTemplate</a></li><li><a href="global.html#FeatureTemplate">FeatureTemplate</a></li></ul></div><div class="category"><h2>Testing</h2><h3>Global</h3><ul><li><a href="global.html#PuppeteerTesting">PuppeteerTesting</a></li></ul></div><div class="category"><h2>Utilities</h2><h3>Global</h3><ul><li><a href="global.html#getBlockquoteStyling">getBlockquoteStyling</a></li></ul></div>
                 
             </nav>
         </div>
@@ -107,20 +107,20 @@ function HeadlineBlock({ slice, metadata }) {
    * @memberof slice
    */
   const {
-    feature_headline_img,
-    feature_category,
-    feature_subcategory,
-    feature_headline,
-    feature_subtitle,
-    feature_author,
-    feature_author_pic,
+    article_headline_img,
+    article_category,
+    article_subcategory,
+    article_headline,
+    article_subtitle,
+    article_author_pic,
+    article_author,
   } = slice.primary;
 
   const { firstPublicationDate, lastPublicationDate } = metadata;
-  const { hmbk_staff_name, hmbk_staff_position } = feature_author;
+  const { hmbk_staff_name, hmbk_staff_position } = article_author;
 
   /**
-   * Send the publication date info off to {@link processPublicationDates}.
+   * Pass the metadaa to {@link processPublicationDates}.
    */
   const featureDateDetails = processPublicationDates(
     firstPublicationDate,
@@ -128,16 +128,16 @@ function HeadlineBlock({ slice, metadata }) {
   );
 
   /**
-   * Transform feature_category for layout use.
+   * Transform article_category for layout use.
    */
-  const allCapsCategory = feature_category.toUpperCase();
+  const allCapsCategory = article_category.toUpperCase();
 
   return (
-    &lt;section className="hero">
+    &lt;section className="hero" role="region" aria-labelledby="article-heading">
       &lt;div
         className="hero-body headline-block"
         style={{
-          backgroundImage: `url(${feature_headline_img.url})`,
+          backgroundImage: `url(${article_headline_img.url})`,
         }}
       >
         &lt;div className="container">
@@ -145,15 +145,18 @@ function HeadlineBlock({ slice, metadata }) {
             &lt;div className="column">
               &lt;p className="is-size-6-desktop is-size-7-touch has-text-centered category">
                 {allCapsCategory}
-                &lt;span>{" ‣ " + feature_subcategory}&lt;/span>
+                &lt;span>{" ‣ " + article_subcategory}&lt;/span>
               &lt;/p>
               &lt;div className="content">
-                &lt;h1 className="title is-size-1-widescreen is-size-2-desktop is-size-3-tablet is-size-4-mobile has-text-centered">
-                  {RichText.asText(feature_headline)}
+                &lt;h1
+                  id="article-headline"
+                  className="title is-size-1-widescreen is-size-2-desktop is-size-3-tablet is-size-4-mobile has-text-centered"
+                >
+                  {RichText.asText(article_headline)}
                 &lt;/h1>
 
-                &lt;h3 className="is-size-4-desktop is-size-6-touch has-text-centered">
-                  {RichText.asText(feature_subtitle)}
+                &lt;h3 className="subtitle is-size-4-desktop is-size-6-touch has-text-centered">
+                  {RichText.asText(article_subtitle)}
                 &lt;/h3>
                 &lt;hr />
                 &lt;div className="columns is-centered is-vcentered">
@@ -161,7 +164,7 @@ function HeadlineBlock({ slice, metadata }) {
                     &lt;figure className="image is-48x48">
                       &lt;img
                         className="is-rounded"
-                        src={feature_author_pic.url}
+                        src={article_author_pic.url}
                         alt={`${hmbk_staff_name}, ${hmbk_staff_position}`}
                       />
                     &lt;/figure>

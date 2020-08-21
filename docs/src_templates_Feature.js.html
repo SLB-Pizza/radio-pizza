@@ -72,7 +72,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Namespaces</h3><ul><li><a href="styling.html">styling</a></li></ul><h3>Components</h3><ul><li><a href="RadioPlayer.html">RadioPlayer</a></li></ul><h3>Global</h3><ul><li><a href="global.html#dateString">dateString</a></li><li><a href="global.html#guide">guide</a></li><li><a href="global.html#imageAltText">imageAltText</a></li><li><a href="global.html#linkResolver">linkResolver</a></li><li><a href="global.html#parseViewports">parseViewports</a></li><li><a href="global.html#playerStyle">playerStyle</a></li><li><a href="global.html#processPublicationDates">processPublicationDates</a></li><li><a href="global.html#sliceZone">sliceZone</a></li></ul></div><div class="category"><h2>CMS</h2><h3>Components / Slices</h3><ul><li><a href="Blockquote.html">Blockquote</a></li><li><a href="HeadlineBlock.html">HeadlineBlock</a></li><li><a href="ImageRow.html">ImageRow</a></li><li><a href="OneImageAndText.html">OneImageAndText</a></li><li><a href="ParallaxHeadline.html">ParallaxHeadline</a></li><li><a href="TextBlock.html">TextBlock</a></li><li><a href="TwoImagesAndText.html">TwoImagesAndText</a></li></ul><h3>Components / Layout Helper</h3><ul><li><a href="ImageHelper.html">ImageHelper</a></li></ul></div><div class="category"><h2>Pages</h2><h3>Global</h3><ul><li><a href="global.html#CMSGuideIndex">CMSGuideIndex</a></li><li><a href="global.html#FeaturesIndex">FeaturesIndex</a></li><li><a href="global.html#IndexPage">IndexPage</a></li><li><a href="global.html#ResidentIndex">ResidentIndex</a></li><li><a href="global.html#SupportIndex">SupportIndex</a></li></ul></div><div class="category"><h2>Site Elements</h2><h3>Components / Layout Helper</h3><ul><li><a href="DateSelectorButton.html">DateSelectorButton</a></li><li><a href="playAudioButton.html">playAudioButton</a></li><li><a href="residentSocialIcons.html">residentSocialIcons</a></li></ul><h3>Global</h3><ul><li><a href="global.html#slideGenerator">slideGenerator</a></li></ul></div><div class="category"><h2>Templates</h2><h3>Global</h3><ul><li><a href="global.html#CMSGuideTemplate">CMSGuideTemplate</a></li><li><a href="global.html#FeatureTemplate">FeatureTemplate</a></li></ul></div><div class="category"><h2>Testing</h2><h3>Global</h3><ul><li><a href="global.html#PuppeteerTesting">PuppeteerTesting</a></li></ul></div><div class="category"><h2>Utilities</h2><h3>Global</h3><ul><li><a href="global.html#getBlockquoteStyling">getBlockquoteStyling</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Namespaces</h3><ul><li><a href="styling.html">styling</a></li></ul><h3>Components</h3><ul><li><a href="RadioPlayer.html">RadioPlayer</a></li></ul><h3>Global</h3><ul><li><a href="global.html#dateString">dateString</a></li><li><a href="global.html#guide">guide</a></li><li><a href="global.html#imageAltText">imageAltText</a></li><li><a href="global.html#linkResolver">linkResolver</a></li><li><a href="global.html#parseViewports">parseViewports</a></li><li><a href="global.html#playerStyle">playerStyle</a></li><li><a href="global.html#processPublicationDates">processPublicationDates</a></li><li><a href="global.html#sliceZone">sliceZone</a></li></ul></div><div class="category"><h2>CMS</h2><h3>Components / Slices</h3><ul><li><a href="Blockquote.html">Blockquote</a></li><li><a href="HeadlineBlock.html">HeadlineBlock</a></li><li><a href="ImageRow.html">ImageRow</a></li><li><a href="OneImageAndText.html">OneImageAndText</a></li><li><a href="ParallaxHeadline.html">ParallaxHeadline</a></li><li><a href="TextBlock.html">TextBlock</a></li><li><a href="TwoImagesAndText.html">TwoImagesAndText</a></li></ul><h3>Components / Layout Helper</h3><ul><li><a href="ContentHelper.html">ContentHelper</a></li><li><a href="ImageHelper.html">ImageHelper</a></li></ul></div><div class="category"><h2>Pages</h2><h3>Global</h3><ul><li><a href="global.html#CMSGuideIndex">CMSGuideIndex</a></li><li><a href="global.html#FeaturesIndex">FeaturesIndex</a></li><li><a href="global.html#IndexPage">IndexPage</a></li><li><a href="global.html#ResidentIndex">ResidentIndex</a></li><li><a href="global.html#SupportPage">SupportPage</a></li></ul></div><div class="category"><h2>Site Elements</h2><h3>Components / Layout Helper</h3><ul><li><a href="DateSelectorButton.html">DateSelectorButton</a></li><li><a href="playAudioButton.html">playAudioButton</a></li><li><a href="residentSocialIcons.html">residentSocialIcons</a></li></ul><h3>Global</h3><ul><li><a href="global.html#slideGenerator">slideGenerator</a></li></ul></div><div class="category"><h2>Templates</h2><h3>Global</h3><ul><li><a href="global.html#CMSGuideTemplate">CMSGuideTemplate</a></li><li><a href="global.html#FeatureTemplate">FeatureTemplate</a></li></ul></div><div class="category"><h2>Testing</h2><h3>Global</h3><ul><li><a href="global.html#PuppeteerTesting">PuppeteerTesting</a></li></ul></div><div class="category"><h2>Utilities</h2><h3>Global</h3><ul><li><a href="global.html#getBlockquoteStyling">getBlockquoteStyling</a></li></ul></div>
                 
             </nav>
         </div>
@@ -104,14 +104,14 @@ import { SliceZone } from "../components";
 function FeatureTemplate({ data }) {
   const prismicContent = data.prismic.allFeatures.edges[0];
   if (!prismicContent) return null;
-  const document = prismicContent.node;
+  const featuresData = prismicContent.node;
 
   // Grab the metadata for the feature and the CMS slice data
-  const featureMetadata = document._meta;
-  const featureSliceData = document.body;
+  const featureMetadata = featuresData._meta;
+  const featureSliceData = featuresData.body;
 
   return (
-    &lt;main className="site-page feature">
+    &lt;body className="site-page">
       &lt;SliceZone sliceZone={featureSliceData} metadata={featureMetadata} />
       &lt;hr />
       &lt;h3 className="subtitle">
@@ -120,74 +120,46 @@ function FeatureTemplate({ data }) {
       &lt;pre>{JSON.stringify(featureMetadata, null, 2)}&lt;/pre>
       &lt;hr />
       &lt;h1 className="title">Data Objects passed into{" &lt;SliceZone />"}&lt;/h1>
-      {featureSliceData.map((slice, index) => (
+      {/* {featureSliceData.map((slice, index) => (
         &lt;div key={index} style={{ marginTop: "2rem" }}>
           &lt;h3 className="subtitle">
             {slice.type === undefined ? "Unused Slice" : slice.type} Data Object
           &lt;/h3>
           &lt;pre>{JSON.stringify(slice, null, 2)}&lt;/pre>
         &lt;/div>
-      ))}
-    &lt;/main>
+      ))} */}
+    &lt;/body>
   );
 }
 
 export const query = graphql`
-  query FeaturesQuery($uid: String) {
+  query FeaturesTemplateQuery($uid: String) {
     prismic {
       allFeatures(uid: $uid) {
         edges {
           node {
             _meta {
               uid
-              firstPublicationDate
               lastPublicationDate
+              firstPublicationDate
               type
-              tags
             }
             body {
               ... on PRISMIC_FeatureBodyHeadline_block {
                 type
-                label
                 primary {
-                  feature_headline_img
-                  feature_category
-                  feature_subcategory
-                  feature_headline
-                  feature_subtitle
-                  feature_author_pic
-                  feature_author {
+                  article_author_pic
+                  article_author {
                     ... on PRISMIC_Staff {
                       hmbk_staff_name
                       hmbk_staff_position
-                      _meta {
-                        uid
-                        type
-                      }
-                      _linkType
                     }
                   }
-                }
-              }
-              ... on PRISMIC_FeatureBodyBlockquote {
-                type
-                label
-                primary {
-                  blockquote_type
-                  blockquote_text
-                  blockquote_attribution
-                  blockquote_bg_img
-                }
-              }
-              ... on PRISMIC_FeatureBodyTwo_images___text {
-                type
-                label
-                primary {
-                  tiat_layout
-                  tiat_text
-                  tiat_is_gapless
-                  tiat_left_img
-                  tiat_right_img
+                  article_category
+                  article_headline
+                  article_headline_img
+                  article_subcategory
+                  article_subtitle
                 }
               }
               ... on PRISMIC_FeatureBodyText {
@@ -197,19 +169,14 @@ export const query = graphql`
                   body_text
                 }
               }
-              ... on PRISMIC_FeatureBodyBanner_with_caption {
+              ... on PRISMIC_FeatureBodyBlockquote {
                 type
-                label
                 primary {
-                  image_banner
-                  title_of_banner
-                  description
-                  button_label
+                  blockquote_type
+                  blockquote_text
+                  blockquote_attribution
+                  blockquote_bg_img
                 }
-              }
-              ... on PRISMIC_FeatureBodyAuthor_pic_and_quote {
-                type
-                label
               }
               ... on PRISMIC_FeatureBodyImage_row {
                 type
@@ -217,14 +184,22 @@ export const query = graphql`
                   row_image
                 }
               }
-            }
-            body1 {
-              ... on PRISMIC_FeatureBody1Deveverycontenttype {
+              ... on PRISMIC_FeatureBodyOne_image_and_text {
                 type
-                label
                 primary {
-                  title
-                  img
+                  oiat_layout
+                  oiat_text
+                  oiat_img
+                }
+              }
+              ... on PRISMIC_FeatureBodyTwo_images___text {
+                type
+                primary {
+                  tiat_layout
+                  tiat_text
+                  tiat_is_gapless
+                  tiat_left_img
+                  tiat_right_img
                 }
               }
             }

@@ -42,61 +42,37 @@ function FeatureTemplate({ data }) {
 }
 
 export const query = graphql`
-  query FeaturesQuery($uid: String) {
+  query FeaturesTemplateQuery($uid: String) {
     prismic {
       allFeatures(uid: $uid) {
         edges {
           node {
             _meta {
               uid
-              firstPublicationDate
               lastPublicationDate
+              firstPublicationDate
               type
-              tags
             }
             body {
               ... on PRISMIC_FeatureBodyHeadline_block {
                 type
-                label
                 primary {
-                  feature_headline_img
-                  feature_category
-                  feature_subcategory
-                  feature_headline
-                  feature_subtitle
-                  feature_author_pic
-                  feature_author {
+                  article_author_pic
+                  article_author {
                     ... on PRISMIC_Staff {
                       hmbk_staff_name
                       hmbk_staff_position
                       _meta {
-                        uid
                         type
+                        uid
                       }
-                      _linkType
                     }
                   }
-                }
-              }
-              ... on PRISMIC_FeatureBodyBlockquote {
-                type
-                label
-                primary {
-                  blockquote_type
-                  blockquote_text
-                  blockquote_attribution
-                  blockquote_bg_img
-                }
-              }
-              ... on PRISMIC_FeatureBodyTwo_images___text {
-                type
-                label
-                primary {
-                  tiat_layout
-                  tiat_text
-                  tiat_is_gapless
-                  tiat_left_img
-                  tiat_right_img
+                  article_category
+                  article_headline
+                  article_headline_img
+                  article_subcategory
+                  article_subtitle
                 }
               }
               ... on PRISMIC_FeatureBodyText {
@@ -106,19 +82,14 @@ export const query = graphql`
                   body_text
                 }
               }
-              ... on PRISMIC_FeatureBodyBanner_with_caption {
+              ... on PRISMIC_FeatureBodyBlockquote {
                 type
-                label
                 primary {
-                  image_banner
-                  title_of_banner
-                  description
-                  button_label
+                  blockquote_type
+                  blockquote_text
+                  blockquote_attribution
+                  blockquote_bg_img
                 }
-              }
-              ... on PRISMIC_FeatureBodyAuthor_pic_and_quote {
-                type
-                label
               }
               ... on PRISMIC_FeatureBodyImage_row {
                 type
@@ -126,14 +97,22 @@ export const query = graphql`
                   row_image
                 }
               }
-            }
-            body1 {
-              ... on PRISMIC_FeatureBody1Deveverycontenttype {
+              ... on PRISMIC_FeatureBodyOne_image_and_text {
                 type
-                label
                 primary {
-                  title
-                  img
+                  oiat_layout
+                  oiat_text
+                  oiat_img
+                }
+              }
+              ... on PRISMIC_FeatureBodyTwo_images___text {
+                type
+                primary {
+                  tiat_layout
+                  tiat_text
+                  tiat_is_gapless
+                  tiat_left_img
+                  tiat_right_img
                 }
               }
             }

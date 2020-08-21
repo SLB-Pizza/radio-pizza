@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 /**
  * @category Pages
  * @subcategory Indexes
- * @function SupportIndex
+ * @function SupportPage
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/features` landing page
  * @returns {jsx}
  */
@@ -66,7 +66,7 @@ function SupportPage({ data }) {
   );
 }
 
-export default SupportIndexPage;
+export default SupportPage;
 
 SupportPage.propTypes = {
   leadFeatureData: PropTypes.exact({

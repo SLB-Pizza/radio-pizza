@@ -62,7 +62,8 @@ module.exports = {
       resolve: "@mkitio/gatsby-theme-password-protect",
       options: {
         password: "HalfmoonBK2020",
-        pagePaths: ["/cms-help"], // delete or `undefined` to disable password protection
+        partialMatching: true, // /guide, /guide/any-other-routes, etc..
+        pagePaths: ["/guide"], // delete or `undefined` to disable password protection
       },
     },
     {
@@ -84,7 +85,7 @@ module.exports = {
           },
           {
             type: "Cms_guide",
-            match: "/cms-guide/:uid",
+            match: "/guide/:uid",
             component: require.resolve("./src/templates/CMSGuide.js"),
           },
         ],

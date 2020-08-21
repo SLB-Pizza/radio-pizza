@@ -45,22 +45,44 @@ export const query = graphql`
         edges {
           node {
             _meta {
+              type
               uid
               firstPublicationDate
               lastPublicationDate
-              type
             }
             body {
-              ... on PRISMIC_Cms_guideBodyImage_row {
+              ... on PRISMIC_Cms_guideBodyHeadline_block {
                 type
-                fields {
-                  row_image
+                primary {
+                  article_headline_img
+                  article_category
+                  article_subcategory
+                  article_headline
+                  article_subtitle
+                  article_author_pic
+                  article_author {
+                    ... on PRISMIC_Staff {
+                      hmbk_staff_name
+                      hmbk_staff_position
+                      _meta {
+                        type
+                        uid
+                      }
+                    }
+                  }
                 }
               }
               ... on PRISMIC_Cms_guideBodyText {
                 type
                 primary {
-                  text
+                  set_first_letter
+                  body_text
+                }
+              }
+              ... on PRISMIC_Cms_guideBodyImage_row {
+                type
+                fields {
+                  row_image
                 }
               }
             }

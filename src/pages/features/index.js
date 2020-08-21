@@ -101,18 +101,22 @@ export const query = graphql`
               ... on PRISMIC_FeatureBodyHeadline_block {
                 type
                 primary {
-                  feature_headline_img
-                  feature_category
-                  feature_subcategory
-                  feature_headline
-                  feature_subtitle
-                  feature_author_pic
-                  feature_author {
+                  article_author_pic
+                  article_author {
                     ... on PRISMIC_Staff {
                       hmbk_staff_name
                       hmbk_staff_position
+                      _meta {
+                        type
+                        uid
+                      }
                     }
                   }
+                  article_category
+                  article_headline
+                  article_headline_img
+                  article_subcategory
+                  article_subtitle
                 }
               }
             }

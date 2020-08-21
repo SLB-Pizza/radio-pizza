@@ -33,13 +33,9 @@ function FeaturesIndex({ data }) {
 
   const { _meta, body } = leadFeatureData;
 
-  // console.log("index > leadFeatureData", leadFeatureData);
-  // console.log("index > leadFeatureData.body", body);
-  // console.log("index > leadFeatureData._meta", _meta);
-
   return (
     <main className="site-page">
-      <StickyFeature leadFeatureData={leadFeatureData} />
+      {/* <StickyFeature leadFeatureData={leadFeatureData} /> */}
       <ul>
         <li>
           <Link to="/features/dev-test-feature-1">Link to Test Feature 1</Link>
@@ -73,8 +69,6 @@ function FeaturesIndex({ data }) {
     </main>
   );
 }
-
-export default FeaturesIndex;
 
 FeaturesIndex.propTypes = {
   leadFeatureData: PropTypes.exact({
@@ -126,3 +120,5 @@ export const query = graphql`
     }
   }
 `;
+
+export default FeaturesIndex;

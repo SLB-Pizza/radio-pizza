@@ -13,11 +13,11 @@ import { SliceZone } from "../components";
 function FeatureTemplate({ data }) {
   const prismicContent = data.prismic.allFeatures.edges[0];
   if (!prismicContent) return null;
-  const document = prismicContent.node;
+  const featuresData = prismicContent.node;
 
   // Grab the metadata for the feature and the CMS slice data
-  const featureMetadata = document._meta;
-  const featureSliceData = document.body;
+  const featureMetadata = featuresData._meta;
+  const featureSliceData = featuresData.body;
 
   return (
     <main className="site-page feature">
@@ -29,14 +29,14 @@ function FeatureTemplate({ data }) {
       <pre>{JSON.stringify(featureMetadata, null, 2)}</pre>
       <hr />
       <h1 className="title">Data Objects passed into{" <SliceZone />"}</h1>
-      {featureSliceData.map((slice, index) => (
+      {/* {featureSliceData.map((slice, index) => (
         <div key={index} style={{ marginTop: "2rem" }}>
           <h3 className="subtitle">
             {slice.type === undefined ? "Unused Slice" : slice.type} Data Object
           </h3>
           <pre>{JSON.stringify(slice, null, 2)}</pre>
         </div>
-      ))}
+      ))} */}
     </main>
   );
 }
@@ -62,10 +62,6 @@ export const query = graphql`
                     ... on PRISMIC_Staff {
                       hmbk_staff_name
                       hmbk_staff_position
-                      _meta {
-                        type
-                        uid
-                      }
                     }
                   }
                   article_category

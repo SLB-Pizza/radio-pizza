@@ -19,7 +19,7 @@ function CMSGuideTemplate({ data }) {
   const guideSliceData = cmsDataNode.body;
 
   return (
-    <main className="site-page feature">
+    <main className="site-page">
       <SliceZone sliceZone={guideSliceData} metadata={guideMetadata} />
       <hr />
       <section className="container is-fluid">

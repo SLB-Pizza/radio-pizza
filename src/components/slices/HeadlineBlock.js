@@ -61,7 +61,7 @@ function HeadlineBlock({ slice, metadata }) {
                   {RichText.asText(article_headline)}
                 </h1>
 
-                <h3 className="is-size-4-desktop is-size-6-touch has-text-centered">
+                <h3 className="subtitle is-size-4-desktop is-size-6-touch has-text-centered">
                   {RichText.asText(article_subtitle)}
                 </h3>
                 <hr />

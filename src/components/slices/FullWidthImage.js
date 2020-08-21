@@ -15,16 +15,16 @@ function FullWidthImage(props) {
   let heroClassName = "";
   switch (type) {
     case "short":
-      heroClassName = "hero sample-feature";
+      heroClassName = "hero";
       break;
     case "medium":
-      heroClassName = "hero is-medium sample-feature";
+      heroClassName = "hero is-medium";
       break;
     case "tall":
-      heroClassName = "hero is-large sample-feature";
+      heroClassName = "hero is-large";
       break;
     default:
-      heroClassName = "hero sample-feature";
+      heroClassName = "hero";
   }
 
   return (

@@ -36,7 +36,7 @@ function Blockquote({ slice }) {
   );
 
   return (
-    <section className="hero sample-feature" style={blockquoteStyling.imgStyle}>
+    <section className="hero" style={blockquoteStyling.imgStyle}>
       <div className="hero-body">
         <div className="container">
           <div className="content">

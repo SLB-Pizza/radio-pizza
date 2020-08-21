@@ -19,22 +19,30 @@ function CMSGuideTemplate({ data }) {
   const guideSliceData = cmsDataNode.body;
 
   return (
-    <main className="site-page">
-      <SliceZone sliceZone={guideSliceData} metadata={guideMetadata} />
-      <hr />
-      <section className="container is-fluid">
-        <div className="columns is-mobile is-multiline">
-          <div className="column is-full">
-            <h1 className="title">guideSliceData</h1>
-            <pre>{JSON.stringify(guideSliceData, null, 2)}</pre>
-          </div>
-          <div className="column is-full">
-            <h1 className="title">cmsDataNode</h1>
-            <pre>{JSON.stringify(cmsDataNode, null, 2)}</pre>
-          </div>
-        </div>
-      </section>
-    </main>
+    <body className="site-page">
+      <article>
+        {/* HeadlineBlock only here */}
+        <SliceZone sliceZone={guideSliceData} metadata={guideMetadata} />
+        <main>
+          {/*
+          SliceZone Content Sections after the HeadlineBlock
+          <SliceZone sliceZone={guideSliceData} metadata={guideMetadata} /> */}
+          <hr />
+          <section className="container is-fluid">
+            <div className="columns is-mobile is-multiline">
+              <div className="column is-full">
+                <h1 className="title">guideSliceData</h1>
+                <pre>{JSON.stringify(guideSliceData, null, 2)}</pre>
+              </div>
+              <div className="column is-full">
+                <h1 className="title">cmsDataNode</h1>
+                <pre>{JSON.stringify(cmsDataNode, null, 2)}</pre>
+              </div>
+            </div>
+          </section>
+        </main>
+      </article>
+    </body>
   );
 }
 

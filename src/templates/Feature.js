@@ -20,7 +20,7 @@ function FeatureTemplate({ data }) {
   const featureSliceData = featuresData.body;
 
   return (
-    <main className="site-page">
+    <body className="site-page">
       <SliceZone sliceZone={featureSliceData} metadata={featureMetadata} />
       <hr />
       <h3 className="subtitle">
@@ -37,7 +37,7 @@ function FeatureTemplate({ data }) {
           <pre>{JSON.stringify(slice, null, 2)}</pre>
         </div>
       ))} */}
-    </main>
+    </body>
   );
 }
 

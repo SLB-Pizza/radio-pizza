@@ -1,7 +1,7 @@
 import React from "react";
 
 /**
- * Creates a JSX segment that CMS Slices call on to format images.
+ * Creates a JSX segment that CMS Slices call on to format images. Its text counterpart is {@link ContentHelper}.
  * @category CMS
  * @subcategory Layout Helper
  * @component
@@ -47,7 +47,7 @@ function ImageHelper({ columnClassName, url, alt, photoCredit }) {
         ) : (
           <>
             <img src={url} alt={photoCredit} />
-            <figcaption className="is-size-7">Image: {alt}</figcaption>
+            <figcaption className="is-size-7">{alt}</figcaption>
             <figcaption className="is-size-7">Photo: {photoCredit}</figcaption>
           </>
         )}

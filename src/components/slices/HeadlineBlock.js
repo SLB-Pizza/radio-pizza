@@ -42,7 +42,7 @@ function HeadlineBlock({ slice, metadata }) {
   const allCapsCategory = article_category.toUpperCase();
 
   return (
-    <section className="hero">
+    <section className="hero" role="region" aria-labelledby="article-heading">
       <div
         className="hero-body headline-block"
         style={{
@@ -57,7 +57,10 @@ function HeadlineBlock({ slice, metadata }) {
                 <span>{" ‣ " + article_subcategory}</span>
               </p>
               <div className="content">
-                <h1 className="title is-size-1-widescreen is-size-2-desktop is-size-3-tablet is-size-4-mobile has-text-centered">
+                <h1
+                  id="article-headline"
+                  className="title is-size-1-widescreen is-size-2-desktop is-size-3-tablet is-size-4-mobile has-text-centered"
+                >
                   {RichText.asText(article_headline)}
                 </h1>
 

@@ -105,8 +105,11 @@ section.sample-feature {
 div.article-img-titling {
   display: flex;
   flex-direction: column;
+  .hero-body {
+    flex: 1;
+  }
   .hero-foot {
-    flex-grow: 1;
+    flex: 0;
   }
 }
 
@@ -139,10 +142,6 @@ div.article-img-titling {
 
   h3 {
     font-weight: 300;
-  }
-
-  hr {
-    margin: 2rem 35% 1rem;
   }
 
   .column.author {

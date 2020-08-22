@@ -55,7 +55,7 @@ function ArticleHeadline({ slice, metadata }) {
 
   return (
     <section role="region" aria-labelledby="article-heading">
-      <div className="hero is-fullheight">
+      <div className="hero homepage-hero article-img-titling">
         <div className="hero-head" />
         <div
           className="hero-body article-headline-img"
@@ -65,11 +65,11 @@ function ArticleHeadline({ slice, metadata }) {
           }}
         />
         {headlinePhotoDetails}
-        <div className="hero-foot">
+        <div className="hero-foot" style={{ backgroundColor: "darkBlue" }}>
           <div className="container article-info">
             <div className="columns">
               <div className="column is-full">
-                <p className="is-size-7 category">
+                <p className="category is-size-6-desktop is-size-7-touch">
                   {allCapsCategory}
                   <span>{" ‣ " + article_subcategory}</span>
                 </p>
@@ -117,9 +117,6 @@ function ArticleHeadline({ slice, metadata }) {
         </div>
       </div>
     </section>
-    // role="region"
-    // aria-labelledby="article-heading"
-    // style={{ backgroundColor: "blue" }}
   );
 }
 

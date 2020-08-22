@@ -8,15 +8,23 @@
 //   background-color: rgba($color: darkslateblue, $alpha: 0.75);
 // }
 
-body.article .container {
+article .container {
   @include touch {
     width: 87.5vw;
   }
 }
 
-main.feature section {
-  margin: 2rem auto;
+//
+section.article-img-titling + section.slice {
+  margin-top: 2rem;
 }
+
+section.slice {
+  margin-top: 1rem;
+}
+// main.feature section {
+//   margin: 2rem auto;
+// }
 
 // ================================
 // CMS Slice -- Blockquote.js
@@ -69,10 +77,6 @@ section.sample-feature {
   border-radius: 0.75rem;
   margin-bottom: 3rem;
 
-  // &:first-child {
-  //   margin-top: 1rem;
-  // }
-
   .column.is-flex-desktop {
     flex-direction: column;
     div {
@@ -100,27 +104,37 @@ section.sample-feature {
 }
 
 // ================================
-// CMS Slice -- HeadlineBlock.js
+// CMS Slice -- ArticleHeadline.js
 // ================================
-div.article-img-titling {
+section.article-img-titling {
   display: flex;
   flex-direction: column;
   .hero-body {
     flex: 1;
   }
   .hero-foot {
+    padding: 1rem 0 1rem;
     flex: 0;
+  }
+
+  img.is-rounded {
+    border: 2px solid white;
+  }
+  .title {
+    font-family: "Poppins", sans-serif;
+  }
+  .subtitle {
+    font-weight: 300;
   }
 }
 
 .article-headline-img {
-  background-size: cover;
+  background-size: contain;
   background-position: center center;
 }
 
 .category {
   font-weight: 700;
-  margin-bottom: 0.5rem;
 }
 
 .headline-block {
@@ -146,9 +160,5 @@ div.article-img-titling {
 
   .column.author {
     border: 1px dotted red;
-  }
-
-  img.is-rounded {
-    border: 2px solid white;
   }
 }

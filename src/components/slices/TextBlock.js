@@ -6,7 +6,6 @@ import { RichText } from "prismic-reactjs";
  * @subcategory Slices
  * @component
  * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create the HeadlineBlock slice
- * @param {Object} metadata - data object from Prismic CMS that contains
  * @returns {jsx}
  */
 function TextBlock({ slice }) {
@@ -16,7 +15,7 @@ function TextBlock({ slice }) {
   }
 
   return (
-    <section className="container">
+    <section className="container slice">
       <div className="columns">
         <div className="column is-full">
           <div className="content">{RichText.render(body_text)}</div>

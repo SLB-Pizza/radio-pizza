@@ -44,74 +44,74 @@ function ArticleHeadline({ slice, metadata }) {
    *    Image alt text
    */
   const headlinePhotoDetails = article_headline_img.copyright ? (
-    <figcaption id="article-headline-image" className="is-size-7 has-text-grey">
+    <figcaption id="article-headline-image">
       {`${article_headline_img.alt} — ${article_headline_img.copyright}`}
     </figcaption>
   ) : (
-    <figcaption id="article-headline-image" className="is-size-7 has-text-grey">
+    <figcaption id="article-headline-image">
       {article_headline_img.alt}
     </figcaption>
   );
 
   return (
-    <section role="region" aria-labelledby="article-heading">
-      <div className="hero homepage-hero article-img-titling">
-        <div className="hero-head" />
-        <div
-          className="hero-body article-headline-img"
-          aria-labelledby="article-headline-image"
-          style={{
-            backgroundImage: `url(${article_headline_img.url})`,
-          }}
-        />
-        {headlinePhotoDetails}
-        <div className="hero-foot" style={{ backgroundColor: "darkBlue" }}>
-          <div className="container article-info">
-            <div className="columns">
-              <div className="column is-full">
-                <p className="category is-size-6-desktop is-size-7-touch">
-                  {allCapsCategory}
-                  <span>{" ‣ " + article_subcategory}</span>
-                </p>
-                <div className="content">
-                  <h1
-                    id="article-headline"
-                    className="title is-size-1-widescreen is-size-2-desktop is-size-3-tablet is-size-4-mobile "
-                  >
-                    {RichText.asText(article_headline)}
-                  </h1>
+    <section
+      className="hero homepage-hero article-img-titling"
+      role="region"
+      aria-labelledby="article-headline"
+    >
+      <div
+        className="hero-body"
+        aria-labelledby="article-headline-image"
+        style={{
+          backgroundImage: `url(${article_headline_img.url})`,
+        }}
+      />
+      {headlinePhotoDetails}
+      <div className="hero-foot">
+        <div className="container article-info">
+          <div className="columns is-mobile is-multiline is-vcentered">
+            <div className="column is-12">
+              <p className="is-size-6-desktop is-size-7-touch">
+                {allCapsCategory}
+                <span>{" ‣ " + article_subcategory}</span>
+              </p>
+              <div className="content">
+                <h1
+                  id="article-headline"
+                  className="title is-size-1-widescreen is-size-2-desktop is-size-4-touch"
+                >
+                  {RichText.asText(article_headline)}
+                </h1>
 
-                  <h3 className="subtitle is-size-4-desktop is-size-6-touch ">
-                    {RichText.asText(article_subtitle)}
-                  </h3>
-                  <hr />
-                  <div className="columns is-vcentered">
-                    <div className="column is-narrow">
-                      <figure className="image is-32x32">
-                        <img
-                          className="is-rounded"
-                          src={article_author_pic.url}
-                          alt={`${hmbk_staff_name}, ${hmbk_staff_position}`}
-                        />
-                      </figure>
-                    </div>
-                    <div className="column is-narrow">
-                      <p className="">
-                        {hmbk_staff_name}
-                        {", "}
-                        <em>{hmbk_staff_position}</em>
-                      </p>
-                    </div>
-                    <div className="column is-narrow">
-                      {featureDateDetails.hasBeenUpdated ? (
-                        <p>Updated {featureDateDetails.pubDate}</p>
-                      ) : (
-                        <p>{featureDateDetails.pubDate}</p>
-                      )}
-                    </div>
-                  </div>
-                </div>
+                <h4 className="subtitle is-size-3-widescreen is-size-4-desktop is-size-6-touch">
+                  {RichText.asText(article_subtitle)}
+                </h4>
               </div>
+            </div>
+            <div className="column is-narrow">
+              <figure className="image is-32x32">
+                <img
+                  className="is-rounded"
+                  src={article_author_pic.url}
+                  alt={`${hmbk_staff_name}, ${hmbk_staff_position}`}
+                />
+              </figure>
+            </div>
+            <div className="column is-narrow-desktop">
+              <p className="subtitle is-size-6-desktop is-size-7-touch">
+                {`${hmbk_staff_name}, ${hmbk_staff_position}`}
+              </p>
+            </div>
+            <div className="column is-narrow-desktop">
+              {featureDateDetails.hasBeenUpdated ? (
+                <p className="subtitle is-size-6-desktop is-size-7-touch">
+                  Updated {featureDateDetails.pubDate}
+                </p>
+              ) : (
+                <p className="subtitle is-size-6-desktop is-size-7-touch">
+                  {featureDateDetails.pubDate}
+                </p>
+              )}
             </div>
           </div>
         </div>

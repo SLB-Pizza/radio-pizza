@@ -6,7 +6,7 @@ import { SliceZone } from "../components";
  * @category Templates
  * @subcategory Feature
  * @function CMSGuideTemplate
- * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build cms-help off of `/cms-guide/:uid`
+ * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build cms-help off of `/guide/:uid`
  * @returns {jsx}
  */
 function CMSGuideTemplate({ data }) {

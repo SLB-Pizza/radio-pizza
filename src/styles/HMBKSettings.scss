@@ -91,19 +91,18 @@ $dt-spacing: 1%;
 button.button,
 .title,
 .display-text,
-.navbar-item {
+.navbar-item,
+.tag {
   font-family: "Aldrich", sans-serif;
   font-kerning: normal;
   font-display: swap;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 p,
-.subtitle,
-.tag {
+.subtitle {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
-  font-kerning: normal;
   font-display: swap;
 }
 
@@ -140,6 +139,12 @@ input::placeholder {
   text-overflow: ellipsis;
   white-space: nowrap;
   word-break: normal;
+}
+
+figcaption {
+  color: $grey-dark;
+  font-size: $size-7;
+  font-style: italic;
 }
 
 //===========================================

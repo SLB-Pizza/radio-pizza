@@ -28,10 +28,10 @@
 
 .homepage-hero {
   height: calc(100vh - 10.5rem);
+  background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-size: cover;
+  background-attachment: fixed;
 }
 
 //==================================

@@ -49,9 +49,9 @@ export default function CMSHelp({ data }) {
             </div>
           </div>
         </div>
-        {/* <CMSSlides slideData={slideData} />
+        <CMSSlides slideData={slideData} />
         <HomeContentSample homeContentData={homeContentData} />
-        <hr /> */}
+        <hr />
       </section>
     </main>
   );

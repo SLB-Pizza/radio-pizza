@@ -15,28 +15,21 @@ function FeatureTemplate({ data }) {
   if (!prismicContent) return null;
   const featuresData = prismicContent.node;
 
-  // Grab the metadata for the feature and the CMS slice data
+  // Grab the metadata for the feature and CMS slice data
   const featureMetadata = featuresData._meta;
   const featureSliceData = featuresData.body;
 
   return (
-    <body className="site-page">
-      <SliceZone sliceZone={featureSliceData} metadata={featureMetadata} />
-      <hr />
-      <h3 className="subtitle">
-        {`"/features/${featureMetadata.uid}"`} -- featureMetadata Data Object
-      </h3>
-      <pre>{JSON.stringify(featureMetadata, null, 2)}</pre>
-      <hr />
-      <h1 className="title">Data Objects passed into{" <SliceZone />"}</h1>
-      {/* {featureSliceData.map((slice, index) => (
-        <div key={index} style={{ marginTop: "2rem" }}>
-          <h3 className="subtitle">
-            {slice.type === undefined ? "Unused Slice" : slice.type} Data Object
-          </h3>
-          <pre>{JSON.stringify(slice, null, 2)}</pre>
-        </div>
-      ))} */}
+    <body className="site-page article">
+      <article>
+        {/* HeadlineBlock only here */}
+        <SliceZone sliceZone={featureSliceData} metadata={featureMetadata} />
+        <main>
+          {/*
+          SliceZone Content Sections after the HeadlineBlock
+          <SliceZone sliceZone={guideSliceData} metadata={guideMetadata} /> */}
+        </main>
+      </article>
     </body>
   );
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  ArticleHeadline,
   Blockquote,
   HeadlineBlock,
   ImageRow,
@@ -52,7 +53,7 @@ function SliceZone({ sliceZone, metadata }) {
   const sliceComponents = {
     blockquote: Blockquote,
     full_width_image: FullWidthImage,
-    headline_block: HeadlineBlock,
+    headline_block: ArticleHeadline,
     image_row: ImageRow,
     one_image_and_text: OneImageAndText,
     two_images___text: TwoImagesAndText,

@@ -42,7 +42,12 @@ function HeadlineBlock({ slice, metadata }) {
   const allCapsCategory = article_category.toUpperCase();
 
   return (
-    <section className="hero" role="region" aria-labelledby="article-heading">
+    <section
+      className="hero"
+      role="region"
+      aria-labelledby="article-heading"
+      style={{ backgroundColor: "blue" }}
+    >
       <div
         className="hero-body headline-block"
         style={{

@@ -3,6 +3,7 @@
  *
  * These components are the compiled layouts for the Slice choices available to the user in the Prismic CMS Slice Zone.
  */
+export { default as ArticleHeadline } from "./ArticleHeadline";
 export { default as Blockquote } from "./Blockquote";
 export { default as FullWidthImage } from "./FullWidthImage";
 export { default as HeadlineBlock } from "./HeadlineBlock";

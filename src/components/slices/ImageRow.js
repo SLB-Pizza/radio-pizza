@@ -11,7 +11,7 @@ import { ImageHelper } from "./index";
  */
 function ImageRow({ slice }) {
   return (
-    <section className="container">
+    <section className="container slice">
       <div className="columns is-mobile is-multiline">
         {slice.fields.map((singleImage, index) => {
           const { alt, copyright, url } = singleImage.row_image;

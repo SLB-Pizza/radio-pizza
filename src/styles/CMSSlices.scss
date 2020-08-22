@@ -1,30 +1,25 @@
 // ================================
-// Used to debug
+// Universal Slice Styles
 // ================================
-// main.feature section:nth-child(n) {
-//   background-color: rgba($color: darkgreen, $alpha: 0.75);
-// }
-// main.feature section:nth-child(2n) {
-//   background-color: rgba($color: darkslateblue, $alpha: 0.75);
-// }
 
+// Pull the article container
 article .container {
   @include touch {
     width: 87.5vw;
   }
 }
 
-//
 section.article-img-titling + section.slice {
   margin-top: 2rem;
 }
 
 section.slice {
-  margin-top: 1rem;
+  margin-top: 0.75rem;
+
+  .modal-content {
+    width: 87.5vw;
+  }
 }
-// main.feature section {
-//   margin: 2rem auto;
-// }
 
 // ================================
 // CMS Slice -- Blockquote.js
@@ -128,10 +123,10 @@ section.article-img-titling {
   }
 }
 
-.article-headline-img {
-  background-size: contain;
-  background-position: center center;
-}
+// .article-headline-img {
+//   background-size: contain;
+//   background-position: center center;
+// }
 
 .category {
   font-weight: 700;

@@ -31,7 +31,7 @@ function TwoImagesAndText({ slice }) {
   const tiatImageClass = "column is-one-quarter";
 
   return (
-    <section className="container">
+    <section className="container slice">
       <div className={columnsClassName}>
         {layoutType === "Left" ? (
           <>

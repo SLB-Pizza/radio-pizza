@@ -21,7 +21,7 @@ function OneImageAndText({ slice }) {
   const oiatImageClass = "column is-one-third-tablet is-full-mobile";
 
   return (
-    <section className="container">
+    <section className="container slice">
       <div className="columns is-mobile is-multiline">
         {layoutType === "Left" ? (
           <>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 /**
  * Creates a JSX segment that CMS Slices call on to format images. Its text counterpart is {@link ContentHelper}.
@@ -20,6 +20,8 @@ import React from "react";
  * @returns {jsx}
  */
 function ImageHelper({ columnClassName, url, alt, photoCredit }) {
+  const [imgModalOpen, setImgModalOpen] = useState(false);
+
   const defaultImageClass = "column is-12-mobile";
 
   /**
@@ -32,26 +34,46 @@ function ImageHelper({ columnClassName, url, alt, photoCredit }) {
 
   return (
     <div className={imageColumnClass}>
-      <figure className="image has-ratio">
-        {/*
-         * alt === null:
-         *   use photoCredit as img alt text, only show photoCredit caption
-         * alt !== null:
-         *   use alt as img alt text; show both alt and photo captions
-         */}
-        {alt === null ? (
-          <>
-            <img src={url} alt={photoCredit} />
-            <figcaption className="is-size-7">Photo: {photoCredit}</figcaption>
-          </>
-        ) : (
-          <>
-            <img src={url} alt={photoCredit} />
-            <figcaption className="is-size-7">{alt}</figcaption>
-            <figcaption className="is-size-7">Photo: {photoCredit}</figcaption>
-          </>
-        )}
+      <figure className="image has-ratio" onClick={() => setImgModalOpen(true)}>
+        <img src={url} alt={photoCredit} />
       </figure>
+
+      {imgModalOpen ? (
+        <div className="modal is-active">
+          <div
+            className="modal-background"
+            onClick={() => setImgModalOpen(false)}
+          />
+          <div className="modal-content" style={{ width: "87.5vw" }}>
+            <figure className="image has-ratio">
+              <img src={url} alt={alt} />
+            </figure>
+            {alt === null ? (
+              <>
+                <figcaption className="is-size-7 has-text-white">
+                  Photo: {photoCredit}
+                </figcaption>
+              </>
+            ) : (
+              <>
+                <figcaption className="is-size-7 has-text-white">
+                  {alt}
+                </figcaption>
+                <figcaption className="is-size-7 has-text-white">
+                  Photo: {photoCredit}
+                </figcaption>
+              </>
+            )}
+            <button
+              className="modal-close is-large"
+              aria-label="close"
+              onClick={() => setImgModalOpen(false)}
+            />
+          </div>
+        </div>
+      ) : (
+        <div className="modal" />
+      )}
     </div>
   );
 }

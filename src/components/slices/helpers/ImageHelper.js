@@ -32,10 +32,19 @@ function ImageHelper({ columnClassName, url, alt, photoCredit }) {
     ? columnClassName
     : defaultImageClass;
 
+  /**
+   * Determine whether there's alt text to determine how ImageHelper is laid out.
+   */
+  const isThereAltText = alt ? true : false;
+
   return (
     <div className={imageColumnClass}>
       <figure className="image has-ratio" onClick={() => setImgModalOpen(true)}>
-        <img src={url} alt={photoCredit} />
+        <img
+          className="inline-image"
+          src={url}
+          alt={isThereAltText ? alt : photoCredit}
+        />
       </figure>
 
       {imgModalOpen ? (
@@ -44,16 +53,17 @@ function ImageHelper({ columnClassName, url, alt, photoCredit }) {
             className="modal-background"
             onClick={() => setImgModalOpen(false)}
           />
-          <div className="modal-content" style={{ width: "87.5vw" }}>
+          <div
+            className="modal-content"
+            aria-label={isThereAltText ? alt : photoCredit}
+          >
             <figure className="image has-ratio">
               <img src={url} alt={alt} />
             </figure>
-            {alt === null ? (
-              <>
-                <figcaption className="is-size-7 has-text-white">
-                  Photo: {photoCredit}
-                </figcaption>
-              </>
+            {isThereAltText ? (
+              <figcaption className="is-size-7 has-text-white">
+                Photo: {photoCredit}
+              </figcaption>
             ) : (
               <>
                 <figcaption className="is-size-7 has-text-white">
@@ -71,9 +81,7 @@ function ImageHelper({ columnClassName, url, alt, photoCredit }) {
             />
           </div>
         </div>
-      ) : (
-        <div className="modal" />
-      )}
+      ) : null}
     </div>
   );
 }

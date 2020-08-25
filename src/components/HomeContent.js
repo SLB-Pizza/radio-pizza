@@ -1,13 +1,12 @@
 import React from "react";
 import { HomeMixes, HomeEvents, HomeNews } from "./index";
 
-function HomeContent(props) {
-  const { homeMixesText, homeEventsText, homeFeaturesText } = props;
+function HomeContent() {
   return (
     <section className="home-content">
-      <HomeMixes homeMixesText={homeMixesText} />
-      <HomeEvents homeEventsText={homeEventsText} />
-      <HomeNews homeFeaturesText={homeFeaturesText} />
+      <HomeMixes />
+      <HomeEvents />
+      <HomeNews />
     </section>
   );
 }

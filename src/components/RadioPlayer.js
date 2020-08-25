@@ -33,6 +33,7 @@ function RadioPlayer(props) {
     muted: false,
     played: 0,
     loaded: 0,
+    isLoading: false,
     duration: 0,
     playbackRate: 1.0,
     loop: true,
@@ -122,6 +123,11 @@ function RadioPlayer(props) {
   return (
     <>
       <div className="column is-narrow">
+        {localState.isLoading ? (
+          <span className="icon is-medium">
+            <i className="is-loading" />
+          </span>
+        ) : null}
         {!globalState.playing ? (
           <FontAwesomeIcon
             icon={faPlay}

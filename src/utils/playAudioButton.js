@@ -16,7 +16,7 @@ import { GlobalDispatchContext } from "../context/GlobalContextProvider";
  * @returns {jsx} A play icon that onClick dispatches the CHANGE_URL action, playing the audio source through RadioPlayer.js
  */
 
-export default function playAudioButton(mixUrl, mixTitle, mixResident, mixImg) {
+function playAudioButton(mixUrl, mixTitle, mixResident, mixImg) {
   const dispatch = useContext(GlobalDispatchContext);
 
   return (
@@ -38,3 +38,5 @@ export default function playAudioButton(mixUrl, mixTitle, mixResident, mixImg) {
     />
   );
 }
+
+export default playAudioButton;

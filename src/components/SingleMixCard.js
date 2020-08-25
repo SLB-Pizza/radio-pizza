@@ -1,33 +1,51 @@
 import React, { useContext } from "react";
-import { GlobalDispatchContext } from "../context/GlobalContextProvider";
-import playAudioButton from "../utils/playAudioButton";
-
+import { RichText } from "prismic-reactjs";
 import NanoClamp from "nanoclamp";
+import { GlobalDispatchContext } from "../context/GlobalContextProvider";
+import { getResidentString, getResidentLinks, playAudioButton } from "../utils";
 
-function SingleMixCard(props) {
-  // console.log("inside SMC", props);
+/**
+ *
+ *
+ * @param {Object} props
+ * @property {String} props.date
+ * @property {String} props.url
+ * @property {Object[]} props.title
+ * @property {Object[]} props.residents -
+ * @property {Object} props.img
+ * @property {String[]} props.tags
+ * @property {String} props.columnLayout
+ * @returns {jsx}
+ */
+function SingleMixCard({
+  date,
+  url,
+  title,
+  residents,
+  img,
+  tags,
+  columnLayout,
+}) {
   const dispatch = useContext(GlobalDispatchContext);
 
-  /**
-   * @const {String} imageAltText - create image alt text for accessibility purposes
-   */
-  const imageAltText = `${props.title} by ${props.resident}`;
+  const mixResidents = getResidentString(residents);
 
   return (
-    <div className={props.columnLayout}>
+    <div className={columnLayout}>
       <div className="card">
         <div className="card-image">
           <a
             href="#"
             className="sr-only display-text"
+            tabIndex="0"
             onClick={() =>
               dispatch({
                 type: "CHANGE_URL",
                 payload: {
-                  url: props.url,
-                  title: props.title,
-                  resident: props.resident,
-                  img: props.img,
+                  url: url,
+                  title: title,
+                  residents: mixResidents,
+                  img: img.now_playing.url,
                 },
               })
             }
@@ -35,14 +53,9 @@ function SingleMixCard(props) {
             Play This Mix
           </a>
           <figure className="image is-1by1">
-            <img src={props.img} alt={imageAltText} />
+            <img src={img.url} alt={img.alt} />
             <div className="play-btn-diffuser is-overlay">
-              {playAudioButton(
-                props.url,
-                props.title,
-                props.resident,
-                props.img
-              )}
+              {playAudioButton(url, title, mixResidents, img.now_playing.url)}
             </div>
           </figure>
         </div>
@@ -50,19 +63,19 @@ function SingleMixCard(props) {
         <div className="card-content">
           <div className="content-text">
             <p className="content-details text-truncate subtitle is-size-7">
-              {props.date} | {props.resident}
+              {date} | {getResidentLinks(residents)}
             </p>
             <NanoClamp
               className="title is-size-6"
               is="p"
               lines={2}
-              text={props.title}
+              text={title}
             />
           </div>
           <div className="buttons are-tags">
-            {props.tags.map((tag) => (
+            {tags.map((tag, index) => (
               <button
-                key={tag}
+                key={`${title} tag #${index}`}
                 className="button is-small is-outlined is-rounded"
               >
                 {tag}
@@ -76,3 +89,18 @@ function SingleMixCard(props) {
 }
 
 export default SingleMixCard;
+
+// Mix img square sizes
+// 767  - 695
+
+// 768  - 332
+// 1023 - 459.5
+
+// 1024 - 296
+// 1215 - 360
+
+// 1216 - 262
+// 1407 - 309.6
+
+// 1408 - 310
+// 1920 - 438

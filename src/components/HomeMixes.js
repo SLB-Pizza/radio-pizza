@@ -16,7 +16,7 @@ import sampleMixes from "../../__tests__/sampleMixes.json";
  * @returns {jsx}
  */
 function HomeMixes({ headline, blurb, homeMixesData }) {
-  const twelveMixes = sampleMixes.slice(0, 12);
+  // const twelveMixes = sampleMixes.slice(0, 12);
 
   /**
    * The string passed into {@link SingleMixCard} that defines the column sizing for the mix cards in the Mixes section of the Homepage.
@@ -43,21 +43,32 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
         </div>
         <div className="column is-9">
           <div className="columns is-multiline">
-            <div className="column">
+            {/* <div className="column">
               <pre>{JSON.stringify(homeMixesData, null, 2)}</pre>
-            </div>
-            {/* {twelveMixes.map((mix) => (
-              <SingleMixCard
-                key={mix.mixTitle}
-                date={mix.mixDate}
-                url={mix.mixUrl}
-                title={mix.mixTitle}
-                residents={mix.mixResident}
-                img={mix.mixImg}
-                tags={mix.mixTags}
-                columnLayout={homeMixesLayout}
-              />
-            ))} */}
+            </div> */}
+            {homeMixesData.map((singleMix, index) => {
+              const {
+                _meta,
+                mix_date,
+                mix_image,
+                mix_link,
+                mix_title,
+                featured_residents,
+              } = singleMix.node;
+
+              return (
+                <SingleMixCard
+                  key={`mix-#${index}-${mix_title}`}
+                  date={mix_date}
+                  url={mix_link}
+                  title={mix_title}
+                  residents={featured_residents}
+                  img={mix_image}
+                  tags={_meta.tags}
+                  columnLayout={homeMixesLayout}
+                />
+              );
+            })}
           </div>
         </div>
       </div>

@@ -12,6 +12,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
 
 /**
+ * @category Site Elements
+ * @subcategory Layout Helper
  * @component
  * @param {Object} props
  * @returns {jsx}

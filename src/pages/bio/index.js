@@ -99,7 +99,7 @@ function StickyBioIndexPage() {
                 url={mix.mixUrl}
                 testSrc={mix.mixTestSrc}
                 title={mix.mixTitle}
-                resident={mix.mixResident}
+                residents={mix.mixResident}
                 img={mix.mixImg}
                 tags={mix.mixTags}
                 columnLayout={stickyBioLayout}

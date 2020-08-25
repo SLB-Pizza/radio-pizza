@@ -142,9 +142,12 @@ input::placeholder {
 }
 
 figcaption {
-  color: $grey;
-  font-size: $size-7;
-  font-style: italic;
+  font-size: $size-6;
+  &.credit {
+    font-size: $size-7;
+    color: $grey;
+    font-style: italic;
+  }
 }
 
 //===========================================

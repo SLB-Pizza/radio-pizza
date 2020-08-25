@@ -44,19 +44,18 @@ function ArticleHeadline({ slice, metadata }) {
    *    Image alt text
    */
   const headlinePhotoDetails = article_headline_img.copyright ? (
-    <figcaption id="article-headline-image">
+    <figcaption className="credit" id="article-headline-image">
       {`${article_headline_img.alt} — ${article_headline_img.copyright}`}
     </figcaption>
   ) : (
-    <figcaption id="article-headline-image">
+    <figcaption className="credit" id="article-headline-image">
       {article_headline_img.alt}
     </figcaption>
   );
 
   return (
-    <section
+    <header
       className="hero homepage-hero article-img-titling"
-      role="region"
       aria-labelledby="article-headline"
     >
       <div
@@ -89,7 +88,10 @@ function ArticleHeadline({ slice, metadata }) {
               </div>
             </div>
             <div className="column is-narrow">
-              <figure className="image is-32x32">
+              <figure
+                className="image is-32x32"
+                aria-label={`${hmbk_staff_name}, ${hmbk_staff_position}`}
+              >
                 <img
                   className="is-rounded"
                   src={article_author_pic.url}
@@ -116,7 +118,7 @@ function ArticleHeadline({ slice, metadata }) {
           </div>
         </div>
       </div>
-    </section>
+    </header>
   );
 }
 

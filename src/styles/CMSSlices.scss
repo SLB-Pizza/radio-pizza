@@ -21,7 +21,23 @@ section.slice {
   }
 
   .modal-content {
-    width: 87.5vw;
+    min-width: 95vw;
+    padding: 2rem;
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 0.75rem;
+
+    .img-area {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        object-fit: contain;
+        max-width: calc(85vw - 4rem);
+        max-height: calc(85vh - 4rem);
+      }
+    }
   }
 }
 
@@ -105,7 +121,7 @@ section.sample-feature {
 // ================================
 // CMS Slice -- ArticleHeadline.js
 // ================================
-section.article-img-titling {
+header.article-img-titling {
   display: flex;
   flex-direction: column;
   .hero-body {

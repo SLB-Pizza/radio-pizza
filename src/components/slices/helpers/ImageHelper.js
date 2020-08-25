@@ -39,7 +39,12 @@ function ImageHelper({ columnClassName, url, alt, photoCredit }) {
 
   return (
     <div className={imageColumnClass}>
-      <figure className="image has-ratio" onClick={() => setImgModalOpen(true)}>
+      <figure
+        className="image has-ratio"
+        onClick={() => setImgModalOpen(true)}
+        tabIndex="0"
+        aria-labelledby={isThereAltText ? alt : photoCredit}
+      >
         <img
           className="inline-image"
           src={url}
@@ -57,28 +62,24 @@ function ImageHelper({ columnClassName, url, alt, photoCredit }) {
             className="modal-content"
             aria-label={isThereAltText ? alt : photoCredit}
           >
-            <figure className="image has-ratio">
-              <img src={url} alt={alt} />
-            </figure>
-            {isThereAltText ? (
-              <figcaption className="is-size-7 has-text-white">
-                Photo: {photoCredit}
-              </figcaption>
-            ) : (
-              <>
-                <figcaption className="is-size-7 has-text-white">
-                  {alt}
-                </figcaption>
-                <figcaption className="is-size-7 has-text-white">
-                  Photo: {photoCredit}
-                </figcaption>
-              </>
-            )}
-            <button
-              className="modal-close is-large"
-              aria-label="close"
-              onClick={() => setImgModalOpen(false)}
-            />
+            <div className="columns">
+              <div className="column is-9 img-area">
+                <figure className="image has-ratio">
+                  <img src={url} alt={alt} />
+                </figure>
+              </div>
+
+              <div className="column is-3">
+                {isThereAltText ? <figcaption>{alt}</figcaption> : null}
+                <figcaption className="credit">{photoCredit}</figcaption>
+              </div>
+              <button
+                className="modal-close is-large"
+                tabIndex="0"
+                aria-label="close"
+                onClick={() => setImgModalOpen(false)}
+              />
+            </div>
           </div>
         </div>
       ) : null}

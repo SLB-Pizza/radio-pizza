@@ -61,7 +61,7 @@ module.exports = {
     {
       resolve: "@mkitio/gatsby-theme-password-protect",
       options: {
-        password: "HalfmoonBK2020",
+        password: "$HalfmoonBK2020",
         partialMatching: true, // /guide, /guide/any-other-routes, etc..
         pagePaths: ["/guide"], // delete or `undefined` to disable password protection
       },

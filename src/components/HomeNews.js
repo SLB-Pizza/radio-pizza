@@ -1,30 +1,40 @@
 import React from "react";
 import { Link } from "gatsby";
+import { RichText } from "prismic-reactjs";
 import { HomeSingleNews } from "./index";
 
-function HomeNews() {
+function HomeFeatures({ headline, blurb, homeFeaturesData }) {
   return (
     <div className="container is-fluid" id="home-news">
       {/* DESKTOP */}
       <div className="columns is-hidden-touch">
         <div className="column is-3">
           <div className="sticky-section-blurb">
-            <p className="display-text is-size-3">Features</p>
-            <p className="subtitle is-size-6">
-              En su cumpleaños, la decisión que tomó Nacional con sus empleados.
+            <p className="display-text is-size-3">
+              {RichText.asText(headline)}
             </p>
+            <div className="content">{RichText.render(blurb)}</div>
 
-            <Link to="/">
+            <Link to="/features">
               <button className="button is-small is-outlined is-rounded">
-                All Mixes
+                All Features
               </button>
             </Link>
           </div>
         </div>
         <div className="column is-9">
           <div className="columns is-multiline">
-            <HomeSingleNews />
-            <HomeSingleNews />
+            {homeFeaturesData.map((singleFeature, index) => {
+              const { _meta, body } = singleFeature.node;
+
+              return (
+                <HomeSingleNews
+                  key={`index-#${index}-home-feature`}
+                  metadata={_meta}
+                  body={body}
+                />
+              );
+            })}
           </div>
         </div>
       </div>
@@ -36,9 +46,9 @@ function HomeNews() {
           <p className="display-text is-size-4">Features</p>
         </div>
         <div className="column is-narrow">
-          <Link to="/">
+          <Link to="/features">
             <button className="button is-small is-outlined is-rounded">
-              All Mixes
+              All Features
             </button>
           </Link>
         </div>
@@ -49,11 +59,20 @@ function HomeNews() {
         </div>
       </div>
       <div className="columns is-mobile is-hidden-desktop mobile-single-items">
-        <HomeSingleNews />
-        <HomeSingleNews />
+        {homeFeaturesData.map((singleFeature, index) => {
+          const { _meta, body } = singleFeature.node;
+
+          return (
+            <HomeSingleNews
+              key={`index-#${index}-home-feature`}
+              metadata={_meta}
+              body={body}
+            />
+          );
+        })}
       </div>
     </div>
   );
 }
 
-export default HomeNews;
+export default HomeFeatures;

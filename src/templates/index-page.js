@@ -16,6 +16,7 @@ function IndexPageTemplate({ data }) {
   // Focus the node for the prismicContent check below.
   const homepageData = data.prismic.allHomepages.edges[0];
   const homeMixesData = data.prismic.allMixs.edges;
+  const homeFeaturesData = data.prismic.allFeatures.edges;
 
   /**
    * This line is here to prevent an error from occurring when you eventually deploy the site live. There is an issue with the preview functionality that requires this check on every page.
@@ -36,8 +37,6 @@ function IndexPageTemplate({ data }) {
     homepage_carousel,
   } = homepageData.node;
 
-  // const carouselSlidesData = homepageData.node.homepage_carousel;
-
   return (
     <div className="has-navbar-fixed-bottom site-page">
       <Hero slides={homepage_carousel} />
@@ -48,7 +47,12 @@ function IndexPageTemplate({ data }) {
           homeMixesData={homeMixesData}
         />
         <HomeEvents />
-        <HomeNews />
+        {/* <pre>{JSON.stringify(data.prismic, null, 2)}</pre> */}
+        <HomeNews
+          headline={home_features_headline}
+          blurb={home_features_blurb}
+          homeFeaturesData={homeFeaturesData}
+        />
       </section>
     </div>
   );
@@ -107,6 +111,29 @@ export const query = graphql`
             mix_image
             mix_link
             mix_title
+          }
+        }
+      }
+      allFeatures(last: 2) {
+        edges {
+          node {
+            _meta {
+              uid
+              type
+              firstPublicationDate
+              lastPublicationDate
+            }
+            body {
+              ... on PRISMIC_FeatureBodyHeadline_block {
+                type
+                primary {
+                  article_headline
+                  article_headline_img
+                  article_subcategory
+                  article_subtitle
+                }
+              }
+            }
           }
         }
       }

@@ -1,9 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import { RichText } from "prismic-reactjs";
-
 import { SingleMixCard } from "./index";
-import sampleMixes from "../../__tests__/sampleMixes.json";
 
 /**
  * Returns the Mixes content section of the Homepage, directly underneath the {@link Hero} section.

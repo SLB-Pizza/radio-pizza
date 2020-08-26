@@ -12,6 +12,8 @@ function linkResolver(document) {
   switch (document.type) {
     case "page":
       return `/${document.uid}`;
+    case "feature":
+      return `/features/${document.uid}`;
     case "resident":
       return `/residents/${document.uid}`;
     default:

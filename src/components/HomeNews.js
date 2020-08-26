@@ -22,6 +22,7 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
             </Link>
           </div>
         </div>
+
         <div className="column is-9">
           <div className="columns is-multiline">
             {homeFeaturesData.map((singleFeature, index) => {

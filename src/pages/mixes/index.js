@@ -98,7 +98,6 @@ function MixesIndex({ data }) {
       <section className="container is-fluid">
         <div className="columns is-mobile is-multiline">
           {/* All Mixs data in pulled correctly */}
-          <hr />
           {allMixesData.map((singleMix, index) => {
             const {
               _meta,
@@ -122,6 +121,8 @@ function MixesIndex({ data }) {
               />
             );
           })}
+          <hr />
+          <pre>{JSON.stringify(allMixesData, null, 2)}</pre>
         </div>
       </section>
     </main>

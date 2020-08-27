@@ -1,18 +1,6 @@
 import React from "react";
 import { HMBKDivider, SingleMixCard } from "../../components";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faTwitter,
-  faInstagram,
-  faSoundcloud,
-  faMixcloud,
-  faBandcamp,
-  faGlobe,
-  faSpotify,
-  faApple,
-} from "@fortawesome/free-brands-svg-icons";
-
 // Dummy data in __tests__ folder
 import hmbkMixesResidents from "../../../__tests__/HMBK-mixes-with-residents.json";
 
@@ -26,7 +14,10 @@ function StickyBioIndexPage() {
   return (
     <div className="container is-fluid site-page">
       <div className="columns is-multiline">
-        <div className="column is-4-desktop is-4-tablet is-12-mobile sticky-bio">
+        <div className="column is-12">
+          <pre>This page is planned for removal.</pre>
+        </div>
+        {/* <div className="column is-4-desktop is-4-tablet is-12-mobile sticky-bio">
           <div className="columns is-multiline">
             <div className="column is-12">
               <figure className="image is-1by1">
@@ -120,7 +111,7 @@ function StickyBioIndexPage() {
             })}
           </div>
           <HMBKDivider />
-        </div>
+        </div> */}
       </div>
     </div>
   );

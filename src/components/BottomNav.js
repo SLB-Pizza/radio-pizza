@@ -74,13 +74,7 @@ function BottomNav() {
             >
               Residents
             </Link>
-            <Link
-              to="/bio"
-              className="navbar-item"
-              onClick={() => toggleNavMenu()}
-            >
-              Bio
-            </Link>
+
             <Link
               to="/mixes"
               className="navbar-item"

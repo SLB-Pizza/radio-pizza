@@ -8,13 +8,8 @@
   }
 }
 
-.sticky-social-links {
-  margin-top: 1rem;
+.social-links {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-
-  span {
-    flex: 1;
-  }
+  justify-content: center;
 }

@@ -27,9 +27,6 @@ function Blockquote({ slice }) {
     blockquote_bg_img,
   } = slice.primary;
 
-  console.log("type", blockquote_type);
-  console.log("img", blockquote_bg_img);
-
   /**
    * Pass the type and the bg_type objects to {@link getBlockquoteStyling} to derive styling.
    */

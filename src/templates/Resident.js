@@ -2,19 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import { RichText } from "prismic-reactjs";
 import { HMBKDivider, SingleMixCard } from "../components";
-import { makeResidentSocialLinks } from "../utils";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faTwitter,
-  faInstagram,
-  faSoundcloud,
-  faMixcloud,
-  faBandcamp,
-  faGlobe,
-  faSpotify,
-  faApple,
-} from "@fortawesome/free-brands-svg-icons";
+import { ResidentSocialLinks } from "../utils";
 
 /**
  * @category Templates
@@ -53,14 +41,21 @@ function ResidentTemplate({ data }) {
                 {resident_name}
               </p>
               {RichText.render(resident_blurb)}
-              <div className="sticky-social-links">
-                {social_media.map((page, index) => {
-                  const { resident_social_page, resident_social_link } = page;
-
-                  // makeResidentSocialLinks(resident_social_link.url, resident_social_page)
-                })}
-              </div>
             </div>
+          </div>
+          <div className="columns is-mobile is-vcentered is-centered">
+            {social_media.map((page, index) => {
+              const { resident_social_page, resident_social_link } = page;
+              const { url, ...rest } = resident_social_link;
+
+              return (
+                <ResidentSocialLinks
+                  key={`link-${index}-${resident_social_page}`}
+                  url={url}
+                  platform={resident_social_page}
+                />
+              );
+            })}
           </div>
         </div>
         <hr className="is-hidden-desktop" />

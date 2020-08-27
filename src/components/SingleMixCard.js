@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
-import { RichText } from "prismic-reactjs";
 import NanoClamp from "nanoclamp";
 import { GlobalDispatchContext } from "../context/GlobalContextProvider";
 import { getResidentString, getResidentLinks, playAudioButton } from "../utils";
 
 /**
- *
- *
+ * @category Utilities
+ * @subcategory Layout Helper
+ * @function SingleMixCard
  * @param {Object} props
  * @property {String} props.date
  * @property {String} props.url

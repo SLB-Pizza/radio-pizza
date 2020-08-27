@@ -26,12 +26,17 @@ function ResidentTemplate({ data }) {
     featured_mixes,
   } = residentData;
 
+  const residentMixLayout =
+    "column is-12-mobile is-12-tablet is-6-desktop is-4-widescreen";
+
   return (
     <div className="container is-fluid site-page">
       <div className="columns is-multiline">
         <div className="column is-4-desktop is-4-tablet is-12-mobile sticky-bio">
           <div className="columns is-multiline">
             <div className="column is-12">
+              {/* <pre>{JSON.stringify(residentData, null, 2)}</pre> */}
+
               <figure className="image is-1by1">
                 <img src={resident_image.url} alt={resident_image.alt} />
               </figure>
@@ -40,10 +45,13 @@ function ResidentTemplate({ data }) {
               <p className="title is-size-4-desktop is-size-5-touch">
                 {resident_name}
               </p>
+              <p className="subtitle is-size-6-desktop is-size-7-touch">
+                {resident_status}
+              </p>
               {RichText.render(resident_blurb)}
             </div>
           </div>
-          <div className="columns is-mobile is-vcentered is-centered">
+          <div className="columns is-mobile is-multiline is-vcentered">
             {social_media.map((page, index) => {
               const { resident_social_page, resident_social_link } = page;
               const { url, ...rest } = resident_social_link;
@@ -62,15 +70,15 @@ function ResidentTemplate({ data }) {
 
         <div className="column is-8">
           <div className="columns is-multiline">
-            {/* {hmbkMixesResidents.map((singleMix, index) => {
+            {featured_mixes.map((mix, index) => {
               const {
                 _meta,
-                mix_date,
                 mix_image,
-                mix_link,
                 mix_title,
+                mix_link,
+                mix_date,
                 featured_residents,
-              } = singleMix.node;
+              } = mix.resident_mix;
 
               return (
                 <SingleMixCard
@@ -81,13 +89,12 @@ function ResidentTemplate({ data }) {
                   residents={featured_residents}
                   img={mix_image}
                   tags={_meta.tags}
-                  columnLayout={stickyBioLayout}
+                  columnLayout={residentMixLayout}
                 />
               );
-            })} */}
+            })}
           </div>
           <HMBKDivider />
-          <pre>{JSON.stringify(residentData, null, 2)}</pre>
         </div>
       </div>
     </div>
@@ -121,6 +128,9 @@ export const query = graphql`
             featured_mixes {
               resident_mix {
                 ... on PRISMIC_Mix {
+                  _meta {
+                    tags
+                  }
                   mix_image
                   mix_title
                   mix_link

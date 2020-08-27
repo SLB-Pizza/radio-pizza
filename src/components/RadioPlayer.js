@@ -40,8 +40,7 @@ function RadioPlayer(props) {
   });
 
   /**
-   * @const {Object} playerStyle - Eliminate width and height = 0 errors by breaking ReactPlayer
-   * out of normal document flow and throwing it above the top of the page
+   * @const {Object} playerStyle - Eliminate width and height = 0 errors by breaking ReactPlayer out of normal document flow and throwing it above the top of the page
    */
   const playerStyle = {
     position: "absolute",

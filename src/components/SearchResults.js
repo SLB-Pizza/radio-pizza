@@ -2,7 +2,7 @@ import React from "react";
 import { SingleMixCard, SingleResident, SingleEventCard } from "./index";
 
 // Dummy data in __tests__ folder
-import sampleMixes from "../../__tests__/sampleMixes.json";
+import hmbkMixesResidents from "../../__tests__/HMBK-mixes-with-residents.json";
 import dummyArtists from "../../__tests__/dummyArtists.json";
 import dummyEvents from "../../__tests__/dummyEvents.json";
 
@@ -15,19 +15,29 @@ function SearchResults(props) {
   return (
     <div className="columns is-mobile is-multiline">
       {props.isSelected === "mixes"
-        ? sampleMixes.map((mix) => (
-            <SingleMixCard
-              key={mix.mixTitle}
-              date={mix.mixDate}
-              url={mix.mixUrl}
-              testSrc={mix.mixTestSrc}
-              title={mix.mixTitle}
-              residents={mix.mixResident}
-              img={mix.mixImg}
-              tags={mix.mixTags}
-              columnLayout={mixListLayout}
-            />
-          ))
+        ? hmbkMixesResidents.map((singleMix, index) => {
+            const {
+              _meta,
+              mix_date,
+              mix_image,
+              mix_link,
+              mix_title,
+              featured_residents,
+            } = singleMix.node;
+
+            return (
+              <SingleMixCard
+                key={`mix-#${index}-${mix_title}`}
+                date={mix_date}
+                url={mix_link}
+                title={mix_title}
+                residents={featured_residents}
+                img={mix_image}
+                tags={_meta.tags}
+                columnLayout={mixListLayout}
+              />
+            );
+          })
         : null}
       {props.isSelected === "residents"
         ? dummyArtists.map((resident) => (

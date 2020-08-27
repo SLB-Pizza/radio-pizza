@@ -7,12 +7,10 @@ import { CMSSlides, HomeContentSample } from "../../components";
 export default function CMSHelp({ data }) {
   const prismicContent = data.prismic.allHomepages.edges[0];
   if (!prismicContent) return null;
-  const document = prismicContent.node;
+  const homePageData = prismicContent.node;
 
-  console.log(document);
-
-  // Grab portions of document's data and then destructure for use as props
-  const sampleSlide = document.homepage_carousel[0];
+  // Grab portions of homePageData's data and then destructure for use as props
+  const sampleSlide = homePageData.homepage_carousel[0];
   const slideData = {
     bgUrl: sampleSlide.slide_bg_url.url,
     bgAlt: sampleSlide.slide_bg_url.alt,
@@ -23,12 +21,12 @@ export default function CMSHelp({ data }) {
   };
 
   const homeContentData = {
-    mixesHeadline: document.home_mixes_headline,
-    mixesBlurb: document.home_mixes_blurb,
-    eventsHeadline: document.home_events_headline,
-    eventsBlurb: document.home_events_blurb,
-    featuresHeadline: document.home_features_headline,
-    featuresBlurb: document.home_features_blurb,
+    mixesHeadline: homePageData.home_mixes_headline,
+    mixesBlurb: homePageData.home_mixes_blurb,
+    eventsHeadline: homePageData.home_events_headline,
+    eventsBlurb: homePageData.home_events_blurb,
+    featuresHeadline: homePageData.home_features_headline,
+    featuresBlurb: homePageData.home_features_blurb,
   };
 
   return (

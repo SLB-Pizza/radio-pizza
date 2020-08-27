@@ -89,18 +89,3 @@ function SingleMixCard({
 }
 
 export default SingleMixCard;
-
-// Mix img square sizes
-// 767  - 695
-
-// 768  - 332
-// 1023 - 459.5
-
-// 1024 - 296
-// 1215 - 360
-
-// 1216 - 262
-// 1407 - 309.6
-
-// 1408 - 310
-// 1920 - 438

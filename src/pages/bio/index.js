@@ -8,6 +8,9 @@ import {
   faSoundcloud,
   faMixcloud,
   faBandcamp,
+  faGlobe,
+  faSpotify,
+  faApple,
 } from "@fortawesome/free-brands-svg-icons";
 
 // Dummy data in __tests__ folder

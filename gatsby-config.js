@@ -88,6 +88,11 @@ module.exports = {
             match: "/guide/:uid",
             component: require.resolve("./src/templates/CMSGuide.js"),
           },
+          {
+            type: "Resident",
+            match: "/residents/:uid",
+            component: require.resolve("./src/templates/Resident.js"),
+          },
         ],
       },
     },

@@ -10,11 +10,11 @@ import React from "react";
  * @param {icon} title - name of the corresponding FontAwesomeIcon
  * @returns {link} An `<a>` tag with an icon that redirects out to the appropriate platform
  */
-function residentSocialIcons(url, icon) {
+function residentSocialIcons(url, platform) {
   return (
-    <a key={icon} href={url} rel="noopener" target="_blank">
+    <a key={platform} href={url} rel="noopener" target="_blank">
       <span className="icon">
-        <FontAwesomeIcon icon={icon} size="3x" />
+        <FontAwesomeIcon icon={platform} size="lg" className="icon-color" />
       </span>
     </a>
   );

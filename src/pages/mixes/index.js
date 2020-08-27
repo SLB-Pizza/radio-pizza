@@ -165,3 +165,25 @@ export const query = graphql`
 `;
 
 export default MixesIndex;
+
+// Mix img square sizes
+// --- MOBILE ---
+// --- CMS Size: 500
+// --- min-max avg:  513.5---
+// --- mean:  495.67---
+// 767  - 695
+
+// 768  - 332
+// 1023 - 460
+
+// --- DESKTOP ---
+// --- min-max avg:  350---
+// --- mean:  329.33---
+// 1024 - 296
+// 1215 - 360
+
+// 1216 - 262
+// 1407 - 310
+
+// 1408 - 310
+// 1920 - 438

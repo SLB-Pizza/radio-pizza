@@ -43,6 +43,11 @@ function FeaturesIndex({ data }) {
         <li>
           <Link to="/features/dev-test-feature-2">Link to Test Feature 2</Link>
         </li>
+        <li>
+          <Link to="/features/dev-feature-test-for-surf">
+            Link to Sheff G: New Kid on the Block
+          </Link>
+        </li>
       </ul>
       <hr />
 

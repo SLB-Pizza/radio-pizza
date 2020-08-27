@@ -34,12 +34,7 @@ export default function getBlockquoteStyling(type, bgIMG) {
   /**
    * Pull the type through a .split() on the ":" character of type, grabbing the first entry of that array and transforming that string to all lowercase to match the cases in the switch statement.
    */
-  const bgType = type.split(": ")[0].toLowerCase();
-
-  /**
-   * Grab the url from the bgURL data object.
-   */
-  const bgURL = bgIMG.url;
+  const bgType = type.split(":")[0].toLowerCase();
 
   switch (bgType) {
     /**
@@ -53,7 +48,7 @@ export default function getBlockquoteStyling(type, bgIMG) {
      */
     case "light":
       styling.imgStyle = {
-        backgroundImage: `url(${bgURL})`,
+        backgroundImage: `url(${bgIMG.url})`,
       };
       styling.blockClassNames += " light-bg";
       styling.citeClassNames += " has-text-black";
@@ -64,7 +59,7 @@ export default function getBlockquoteStyling(type, bgIMG) {
 
     case "dark":
       styling.imgStyle = {
-        backgroundImage: `url(${bgURL})`,
+        backgroundImage: `url(${bgIMG.url})`,
       };
       styling.blockClassNames += " dark-bg";
       break;

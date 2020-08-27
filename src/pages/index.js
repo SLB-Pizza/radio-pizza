@@ -12,7 +12,7 @@ import { Hero, HomeMixes, HomeEvents, HomeNews } from "../components";
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the index route, `/`
  * @returns {jsx}
  */
-function IndexPageTemplate({ data }) {
+function IndexPage({ data }) {
   // Focus the node for the prismicContent check below.
   const homepageData = data.prismic.allHomepages.edges[0];
   const homeMixesData = data.prismic.allMixs.edges;
@@ -141,7 +141,7 @@ export const query = graphql`
   }
 `;
 
-export default IndexPageTemplate;
+export default IndexPage;
 
 // Mix img square sizes
 // --- MOBILE ---

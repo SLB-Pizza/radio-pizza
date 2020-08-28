@@ -55,7 +55,7 @@ function ArticleHeadline({ slice, metadata }) {
 
   return (
     <header
-      className="hero homepage-hero article-img-titling"
+      className="hero article-img-titling"
       aria-labelledby="article-headline"
     >
       <div

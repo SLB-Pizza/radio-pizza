@@ -93,6 +93,14 @@ export const query = graphql`
                   row_image
                 }
               }
+              ... on PRISMIC_Cms_guideBodyFull_width_image {
+                type
+                primary {
+                  full_width_image
+                  fwi_height
+                  fwi_titling
+                }
+              }
             }
           }
         }

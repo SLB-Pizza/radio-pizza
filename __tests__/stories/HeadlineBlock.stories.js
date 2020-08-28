@@ -1,72 +1,69 @@
 import React from "react";
-import { StickyFeature } from "../../src/components/";
+import { ArticleHeadline } from "../../src/components/slices";
 import "../../src/styles/index.scss";
 
 export default {
   title: "Prismic CMS Slices/Headline Block",
-  component: StickyFeature,
+  component: ArticleHeadline,
 };
 
 const metadata = {
-  uid: "dev-test-feature-1",
-  firstPublicationDate: "2020-08-02T17:45:25+0000",
-  lastPublicationDate: "2020-08-06T21:25:19+0000",
+  uid: "dev-feature-mjaAsu-uiE-OqM",
+  firstPublicationDate: "2020-07-02T10:19:47Z",
+  lastPublicationDate: "2020-02-21T04:18:19Z",
   type: "feature",
-  tags: [],
+  tags: ["amet nunc"],
 };
 
-const darkImageSlice = {
+const sliceData = {
+  type: "headline_block",
   primary: {
-    feature_headline_img: {
+    article_author_pic: {
       dimensions: {
-        width: 2880,
-        height: 1800,
+        width: 128,
+        height: 128,
       },
-      alt: "oslo escalator",
-      copyright: null,
-      url:
-        "https://images.prismic.io/hmbk-cms/450e3121-5d28-48eb-961c-937cfd5bd364_wallhaven-w8yxlr.jpg?auto=compress,format",
+      alt: "Proin interdum mauris non ligula pellentesque ultrices.",
+      copyright:
+        "Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.",
+      url: "http://dummyimage.com/128x128.jpg/dddddd/000000",
     },
-    feature_category: "music",
-    feature_subcategory: "playlists",
-    feature_headline: [
+    article_author: {
+      hmbk_staff_name: "in tempus",
+      hmbk_staff_position: "nulla",
+    },
+    article_category: "Feature",
+    article_headline: [
       {
         type: "heading1",
         text:
-          "Beyond 174: The Search for the Ultimate High Speed Workout Songs to Keep You Moving",
-        spans: [],
+          "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.",
       },
     ],
-    feature_subtitle: [
+    article_headline_img: {
+      dimensions: {
+        width: 1920,
+        height: 1080,
+      },
+      alt: "In quis justo.",
+      copyright: "Phasellus id sapien in sapien iaculis congue.",
+      url: "http://dummyimage.com/1920x1080.jpg/dddddd/000000",
+    },
+    article_subcategory: "Profile",
+    article_subtitle: [
       {
         type: "heading4",
-        text:
-          "These ten must-add songs will bring your next workout to blistering heights.",
+        text: "Nulla tempus.",
         spans: [],
       },
     ],
-    feature_author_pic: {
-      dimensions: {
-        width: 750,
-        height: 750,
-      },
-      alt: "Gabo",
-      copyright: null,
-      url:
-        "https://images.prismic.io/hmbk-cms/33e0177d-19d2-45f3-b30e-c666552c512e_gabriel-garcia-marquez-2.jpg?auto=compress,format&rect=76,0,750,750&w=750&h=750",
-    },
-    feature_author: {
-      __typename: "PRISMIC_Staff",
-      hmbk_staff_name: "Gabriel Garcia Marquez",
-      hmbk_staff_position: "Nobel Laureate",
-    },
   },
 };
 
 export const baseLayout = () => (
   <>
     <main style={{ backgroundColor: "black", minHeight: "100vh" }}>
-      <HeadlineBlock slice={darkImageSlice} metadata={metadata} />
+      <ArticleHeadline slice={sliceData} metadata={metadata} />
     </main>
   </>
 );

@@ -90,7 +90,7 @@ export const query = graphql`
               ... on PRISMIC_Cms_guideBodyImage_row {
                 type
                 fields {
-                  row_image
+                  group_img
                 }
               }
               ... on PRISMIC_Cms_guideBodyFull_width_image {

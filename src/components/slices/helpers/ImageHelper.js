@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { MakeResponsiveImages } from "../../../utils";
 /**
  * Creates a JSX segment that CMS Slices call on to format images. Its text counterpart is {@link ContentHelper}.
  * @category CMS
@@ -19,7 +19,14 @@ import React, { useState } from "react";
  * @param {String} photoCredit - contains image credit data; comes from Prismic CMS. Should be set when the image is **first uploaded** to the CMS Media Library
  * @returns {jsx}
  */
-function ImageHelper({ columnClassName, url, alt, photoCredit }) {
+function ImageHelper({
+  columnClassName,
+  url,
+  alt,
+  photoCredit,
+  responsiveData,
+  imgData,
+}) {
   const [imgModalOpen, setImgModalOpen] = useState(false);
 
   const defaultImageClass = "column is-12-mobile";
@@ -45,11 +52,16 @@ function ImageHelper({ columnClassName, url, alt, photoCredit }) {
         tabIndex="0"
         aria-labelledby={isThereAltText ? alt : photoCredit}
       >
-        <img
+        <MakeResponsiveImages
+          largestImg={imgData}
+          responsiveURLs={responsiveData}
+        />
+
+        {/* <img
           className="inline-image"
           src={url}
           alt={isThereAltText ? alt : photoCredit}
-        />
+        /> */}
       </figure>
 
       {imgModalOpen ? (
@@ -67,6 +79,7 @@ function ImageHelper({ columnClassName, url, alt, photoCredit }) {
                 <figure className="image has-ratio">
                   <img src={url} alt={alt} />
                 </figure>
+                <pre>{JSON.stringify(responsiveData, null, 2)}</pre>
               </div>
 
               <div className="column is-3">

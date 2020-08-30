@@ -12,7 +12,7 @@ export { default as processPublicationDates } from "./processPublicationDates";
 /**
  * Utility Function - Layout Helpers
  */
-export { default as MakeResponsiveImages } from "./MakeResponsiveImages";
+export { default as ResponsiveImage } from "./ResponsiveImage";
 export { default as playAudioButton } from "./playAudioButton";
 export { default as ResidentSocialLinks } from "./ResidentSocialLinks";
 export { default as slideGenerator } from "./slideGenerator";

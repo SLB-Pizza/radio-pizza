@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MakeResponsiveImages } from "../../../utils";
+import { ResponsiveImage } from "../../../utils";
 /**
  * Creates a JSX segment that CMS Slices call on to format images. Its text counterpart is {@link ContentHelper}.
  * @category CMS
@@ -14,19 +14,12 @@ import { MakeResponsiveImages } from "../../../utils";
  * **CMS Slices NOT passing this prop**
  * - {@link ImageRow}
  *
- * @param {String} url - link from Prismic CMS to the image from the media library
- * @param {String} alt - contains image caption data that's used for accessibility purposes too; comes from Prismic CMS. Its default value should be set when the image is **first uploaded** to the CMS Media Library. A different alt value, aka image caption, can be set when the image is selected for use in an article
- * @param {String} photoCredit - contains image credit data; comes from Prismic CMS. Should be set when the image is **first uploaded** to the CMS Media Library
+ * @param {String} fullSizeImg.url - link from Prismic CMS to the image from the media library
+ * @param {String} fullSizeImg.alt - contains image caption data that's used for accessibility purposes too; comes from Prismic CMS. Its default value should be set when the image is **first uploaded** to the CMS Media Library. A different fullSizeImg.alt value, aka image caption, can be set when the image is selected for use in an article
+ * @param {String} fullSizeImg.photoCredit - contains image credit data; comes from Prismic CMS. Should be set when the image is **first uploaded** to the CMS Media Library
  * @returns {jsx}
  */
-function ImageHelper({
-  columnClassName,
-  url,
-  alt,
-  photoCredit,
-  responsiveData,
-  imgData,
-}) {
+function ImageHelper({ columnClassName, responsiveData, fullSizeImg }) {
   const [imgModalOpen, setImgModalOpen] = useState(false);
 
   const defaultImageClass = "column is-12-mobile";
@@ -40,9 +33,9 @@ function ImageHelper({
     : defaultImageClass;
 
   /**
-   * Determine whether there's alt text to determine how ImageHelper is laid out.
+   * Determine whether there's fullSizeImg.alt text to determine how ImageHelper is laid out.
    */
-  const isThereAltText = alt ? true : false;
+  const isThereAltText = fullSizeImg.alt ? true : false;
 
   return (
     <div className={imageColumnClass}>
@@ -50,18 +43,14 @@ function ImageHelper({
         className="image has-ratio"
         onClick={() => setImgModalOpen(true)}
         tabIndex="0"
-        aria-labelledby={isThereAltText ? alt : photoCredit}
+        aria-labelledby={
+          isThereAltText ? fullSizeImg.alt : fullSizeImg.photoCredit
+        }
       >
-        <MakeResponsiveImages
-          largestImg={imgData}
-          responsiveURLs={responsiveData}
+        <ResponsiveImage
+          largestImg={fullSizeImg}
+          responsiveData={responsiveData}
         />
-
-        {/* <img
-          className="inline-image"
-          src={url}
-          alt={isThereAltText ? alt : photoCredit}
-        /> */}
       </figure>
 
       {imgModalOpen ? (
@@ -72,19 +61,27 @@ function ImageHelper({
           />
           <div
             className="modal-content"
-            aria-label={isThereAltText ? alt : photoCredit}
+            aria-label={
+              isThereAltText ? fullSizeImg.alt : fullSizeImg.photoCredit
+            }
           >
             <div className="columns">
-              <div className="column is-9 img-area">
+              <div className="column is-10 img-area">
                 <figure className="image has-ratio">
-                  <img src={url} alt={alt} />
+                  <ResponsiveImage
+                    largestImg={fullSizeImg}
+                    responsiveData={responsiveData}
+                  />
                 </figure>
-                <pre>{JSON.stringify(responsiveData, null, 2)}</pre>
               </div>
 
-              <div className="column is-3">
-                {isThereAltText ? <figcaption>{alt}</figcaption> : null}
-                <figcaption className="credit">{photoCredit}</figcaption>
+              <div className="column is-2">
+                {isThereAltText ? (
+                  <figcaption>{fullSizeImg.alt}</figcaption>
+                ) : null}
+                <figcaption className="credit">
+                  {fullSizeImg.photoCredit}
+                </figcaption>
               </div>
               <button
                 className="modal-close is-large"

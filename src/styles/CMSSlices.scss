@@ -16,10 +16,9 @@ header.article-img-titling + section.slice {
 section.slice {
   margin-top: 1rem;
 
-  .inline-image:hover {
-    cursor: pointer;
-  }
-
+  // ================================
+  // Layout Helper - ImageModal.js
+  // ================================
   .modal-content {
     min-width: 95vw;
     padding: 2rem;
@@ -179,5 +178,23 @@ header.article-img-titling {
 
   .column.author {
     border: 1px dotted red;
+  }
+}
+
+// ==================================
+// Layout Helper - ResponsiveImage.js
+// ==================================
+.inline-image {
+  transition: all 1s;
+  &:hover {
+    cursor: pointer;
+  }
+  &.lazyload {
+    opacity: 0;
+    transform: scale(0.75);
+  }
+  &.lazyloaded {
+    opacity: 1;
+    transform: scale(1);
   }
 }

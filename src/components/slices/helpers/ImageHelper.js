@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ResponsiveImage } from "../../../utils";
+import { ImageModal, ResponsiveImage } from "../../../utils";
 /**
  * Creates a JSX segment that CMS Slices call on to format images. Its text counterpart is {@link ContentHelper}.
  * @category CMS
@@ -32,11 +32,6 @@ function ImageHelper({ columnClassName, responsiveData, fullSizeImg }) {
     ? columnClassName
     : defaultImageClass;
 
-  /**
-   * Determine whether there's fullSizeImg.alt text to determine how ImageHelper is laid out.
-   */
-  const isThereAltText = fullSizeImg.alt ? true : false;
-
   return (
     <div className={imageColumnClass}>
       <figure
@@ -44,7 +39,7 @@ function ImageHelper({ columnClassName, responsiveData, fullSizeImg }) {
         onClick={() => setImgModalOpen(true)}
         tabIndex="0"
         aria-labelledby={
-          isThereAltText ? fullSizeImg.alt : fullSizeImg.photoCredit
+          fullSizeImg.alt ? fullSizeImg.alt : fullSizeImg.photoCredit
         }
       >
         <ResponsiveImage
@@ -54,44 +49,11 @@ function ImageHelper({ columnClassName, responsiveData, fullSizeImg }) {
       </figure>
 
       {imgModalOpen ? (
-        <div className="modal is-active">
-          <div
-            className="modal-background"
-            onClick={() => setImgModalOpen(false)}
-          />
-          <div
-            className="modal-content"
-            aria-label={
-              isThereAltText ? fullSizeImg.alt : fullSizeImg.photoCredit
-            }
-          >
-            <div className="columns">
-              <div className="column is-10 img-area">
-                <figure className="image has-ratio">
-                  <ResponsiveImage
-                    largestImg={fullSizeImg}
-                    responsiveData={responsiveData}
-                  />
-                </figure>
-              </div>
-
-              <div className="column is-2">
-                {isThereAltText ? (
-                  <figcaption>{fullSizeImg.alt}</figcaption>
-                ) : null}
-                <figcaption className="credit">
-                  {fullSizeImg.photoCredit}
-                </figcaption>
-              </div>
-              <button
-                className="modal-close is-large"
-                tabIndex="0"
-                aria-label="close"
-                onClick={() => setImgModalOpen(false)}
-              />
-            </div>
-          </div>
-        </div>
+        <ImageModal
+          fullSizeImg={fullSizeImg}
+          responsiveData={responsiveData}
+          setImgModalOpen={setImgModalOpen}
+        />
       ) : null}
     </div>
   );

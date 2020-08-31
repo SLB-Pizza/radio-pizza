@@ -9,11 +9,13 @@ import "lazysizes/plugins/attrchange/ls.attrchange";
  * @component
  * @param {String} mainUrl - the Imgix optimized Prismic image URL for the large image size; bulma "fullhd"
  * @param {Object} responsiveData - an object containing the Imgix optimized Prismic image URLs for the responsive sizes
- * @property {String} responsiveData.widescreen - URL for the bulma "widescreen" breakpoint
- * @property {String} responsiveData.desktop - URL for the bulma "desktop" breakpoint
- * @property {String} responsiveData.tablet - URL for the bulma "tablet" breakpoint
- * @property {String} responsiveData.mobile - URL for the bulma "mobile" breakpoint
- * @see https://bulma.io/documentation/overview/responsiveness/#breakpoints
+ * @property {String} responsiveData.widescreen - data object to make the image for bulma "widescreen" breakpoint
+ * @property {String} responsiveData.desktop - data object to make the image for bulma "desktop" breakpoint
+ * @property {String} responsiveData.tablet - data object to make the image for bulma "tablet" breakpoint
+ * @property {String} responsiveData.mobile - data object to make the image for bulma "mobile" breakpoint
+ * @property {String} responsiveData.lo_fi - data object to make the low quality image placeholder (LQIP)
+ * @see {@link https://bulma.io/documentation/overview/responsiveness/#breakpoints|Bulma Breakpoints}
+ * @see {@link https://afarkas.github.io/lazysizes/index.html|lazysizes & LQIP }
  * @returns {jsx}
  */
 function ResponsiveImage({ largestImg, responsiveData }) {
@@ -55,13 +57,13 @@ function ResponsiveImage({ largestImg, responsiveData }) {
           />
         );
       })}
-
       <img
-        className="lazyload inline-image"
-        data-src={largestImg.url}
-        width={largestImg.dimensions.width}
-        height={largestImg.dimensions.height}
         alt={largestImg.alt}
+        data-lowsrc={responsiveData["lo_fi"].url}
+        width={responsiveData["lo_fi"].dimensions.width}
+        height={responsiveData["lo_fi"].dimensions.height}
+        data-src={largestImg.url}
+        className="lazyload inline-image"
       />
     </picture>
   );

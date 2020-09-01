@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SingleResident } from "../../components";
+import { SelectedColumn, SingleResident } from "../../components";
 
 // Dummy data in __tests__ folder
 import dummyArtists from "../../../__tests__/dummyArtists.json";
@@ -49,25 +49,21 @@ function ResidentsIndex() {
             Halfmoon Residents
           </p>
         </div>
-        <div
-          className={
-            isOpen === "current" ? "column is-half is-active" : "column is-half"
-          }
-          id="current"
-          onClick={toggleColumn}
-        >
-          <button className="button is-fullwidth is-outlined is-rounded display-text">
+        <div className="column">
+          <button
+            className="button is-fullwidth is-outlined is-rounded display-text"
+            id="current"
+            onClick={toggleColumn}
+          >
             This Season
           </button>
         </div>
-        <div
-          className={
-            isOpen === "alumni" ? "column is-half is-active" : "column is-half"
-          }
-          id="alumni"
-          onClick={toggleColumn}
-        >
-          <button className="button is-fullwidth is-outlined is-rounded display-text">
+        <div className="column">
+          <button
+            className="button is-fullwidth is-outlined is-rounded display-text"
+            id="alumni"
+            onClick={toggleColumn}
+          >
             Our Alumni
           </button>
         </div>

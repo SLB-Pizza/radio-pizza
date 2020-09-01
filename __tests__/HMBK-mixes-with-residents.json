@@ -1,0 +1,1106 @@
+[
+  {
+    "node": {
+      "_meta": {
+        "uid": "dev-mix-yeMiF-Ux3Fg-4imc",
+        "firstPublicationDate": "2018-02-21T12:36:46Z",
+        "lastPublicationDate": "2020-01-10T02:25:17Z",
+        "type": "mix",
+        "tags": ["sed tristique", "curae mauris", "at"]
+      },
+      "mix_date": "28.01.2020",
+      "mix_image": {
+        "dimensions": {
+          "width": 1060,
+          "height": 1412
+        },
+        "alt": "Fusce consequat.",
+        "copyright": "Maecenas pulvinar lobortis est.",
+        "url": "http://dummyimage.com/1080x784.jpg/5fa2dd/ffffff",
+        "now_playing": {
+          "alt": "Sed accumsan felis.",
+          "copyright": "Proin leo odio, porttitor id, consequat in, consequat ut, nulla.",
+          "url": "http://dummyimage.com/96x96.jpg/ff4444/ffffff"
+        }
+      },
+      "mix_link": "https://soundcloud.com/monstercat/sets/infected-mushroom-more-than",
+      "mix_title": "Maecenas pulvinar lobortis est.",
+      "featured_residents": [
+        {
+          "mix_resident": {
+            "resident_name": "magna",
+            "_meta": {
+              "uid": "dev-res-gGyHQ18FZ-xRc6",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "natoque penatibus",
+            "_meta": {
+              "uid": "dev-res-pImNZoYEL-oIDz",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "ut ultrices vel",
+            "_meta": {
+              "uid": "dev-res-DN4ykD18I-f7Cy",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "risus dapibus",
+            "_meta": {
+              "uid": "dev-res-kMzGlGFHp-pm1Z",
+              "type": "resident"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "_meta": {
+        "uid": "dev-mix-Hn859-6u8Y5-sUcb",
+        "firstPublicationDate": "2019-11-06T03:09:00Z",
+        "lastPublicationDate": "2019-08-30T10:21:16Z",
+        "type": "mix",
+        "tags": ["ut dolor", "diam nam", "ridiculus"]
+      },
+      "mix_date": "24.04.2020",
+      "mix_image": {
+        "dimensions": {
+          "width": 781,
+          "height": 1138
+        },
+        "alt": "Ut tellus.",
+        "copyright": "Pellentesque eget nunc.",
+        "url": "http://dummyimage.com/629x1187.jpg/cc0000/ffffff",
+        "now_playing": {
+          "alt": "Vestibulum quam sapien, varius ut, blandit non, interdum in, ante.",
+          "copyright": "Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.",
+          "url": "http://dummyimage.com/96x96.jpg/ff4444/ffffff"
+        }
+      },
+      "mix_link": "https://soundcloud.com/fairshun/casiopea-mint-jams-1982-full-album",
+      "mix_title": "Duis ac nibh.",
+      "featured_residents": [
+        {
+          "mix_resident": {
+            "resident_name": "tortor duis mattis",
+            "_meta": {
+              "uid": "dev-res-0nr5qwa4A-SNFy",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "accumsan odio curabitur",
+            "_meta": {
+              "uid": "dev-res-E5jevv8HW-sRIt",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "eros elementum pellentesque",
+            "_meta": {
+              "uid": "dev-res-1yPghwbrm-csHF",
+              "type": "resident"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "_meta": {
+        "uid": "dev-mix-WMs1c-QbfCi-zALM",
+        "firstPublicationDate": "2017-08-04T15:54:03Z",
+        "lastPublicationDate": "2020-05-19T20:05:01Z",
+        "type": "mix",
+        "tags": ["cubilia curae", "eget elit", "odio"]
+      },
+      "mix_date": "24.09.2019",
+      "mix_image": {
+        "dimensions": {
+          "width": 1477,
+          "height": 1358
+        },
+        "alt": "Aliquam quis turpis eget elit sodales scelerisque.",
+        "copyright": "Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci.",
+        "url": "http://dummyimage.com/1215x930.jpg/ff4444/ffffff",
+        "now_playing": {
+          "alt": "Cras non velit nec nisi vulputate nonummy.",
+          "copyright": "In hac habitasse platea dictumst.",
+          "url": "http://dummyimage.com/96x96.jpg/cc0000/ffffff"
+        }
+      },
+      "mix_link": "https://soundcloud.com/thank-you-scientist/sets/terraformer-3",
+      "mix_title": "Nunc rhoncus dui vel sem.",
+      "featured_residents": [
+        {
+          "mix_resident": {
+            "resident_name": "a pede posuere",
+            "_meta": {
+              "uid": "dev-res-efKyjYJlL-Frod",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "lacinia nisi",
+            "_meta": {
+              "uid": "dev-res-xGxkueaBl-3JNf",
+              "type": "resident"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "_meta": {
+        "uid": "dev-mix-Czayl-w1cWy-4PK7",
+        "firstPublicationDate": "2019-07-04T09:15:23Z",
+        "lastPublicationDate": "2019-12-05T00:07:58Z",
+        "type": "mix",
+        "tags": ["sit", "nec nisi", "ligula"]
+      },
+      "mix_date": "09.09.2019",
+      "mix_image": {
+        "dimensions": {
+          "width": 284,
+          "height": 1057
+        },
+        "alt": null,
+        "copyright": null,
+        "url": "http://dummyimage.com/589x541.jpg/ff4444/ffffff",
+        "now_playing": {
+          "alt": "Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.",
+          "copyright": "Praesent blandit lacinia erat.",
+          "url": "http://dummyimage.com/96x96.jpg/dddddd/000000"
+        }
+      },
+      "mix_link": "https://soundcloud.com/madukdnb/liquicity-yearmix-2019-mixed-by-maduk",
+      "mix_title": "Duis bibendum.",
+      "featured_residents": [
+        {
+          "mix_resident": {
+            "resident_name": "dapibus",
+            "_meta": {
+              "uid": "dev-res-75fqOBLJO-iWTb",
+              "type": "resident"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "_meta": {
+        "uid": "dev-mix-GDlvi-QHW8R-LfJj",
+        "firstPublicationDate": "2018-04-03T10:43:24Z",
+        "lastPublicationDate": "2019-10-07T05:53:57Z",
+        "type": "mix",
+        "tags": ["in", "sed", "in lectus"]
+      },
+      "mix_date": "26.07.2020",
+      "mix_image": {
+        "dimensions": {
+          "width": 585,
+          "height": 1231
+        },
+        "alt": "Etiam faucibus cursus urna.",
+        "copyright": "Suspendisse potenti.",
+        "url": "http://dummyimage.com/845x1471.jpg/ff4444/ffffff",
+        "now_playing": {
+          "alt": "Mauris lacinia sapien quis libero.",
+          "copyright": "Phasellus in felis.",
+          "url": "http://dummyimage.com/96x96.jpg/5fa2dd/ffffff"
+        }
+      },
+      "mix_link": "https://soundcloud.com/monstercat/sets/infected-mushroom-more-than",
+      "mix_title": "Phasellus sit amet erat.",
+      "featured_residents": [
+        {
+          "mix_resident": {
+            "resident_name": "at dolor quis",
+            "_meta": {
+              "uid": "dev-res-lMLb09zCV-rfnz",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "massa id lobortis",
+            "_meta": {
+              "uid": "dev-res-41SkOkoq7-xya1",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "sed",
+            "_meta": {
+              "uid": "dev-res-tgOdSAj1t-ixLT",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "ultrices posuere cubilia",
+            "_meta": {
+              "uid": "dev-res-nhlnWI3sh-o0ST",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "turpis integer aliquet",
+            "_meta": {
+              "uid": "dev-res-9OgHOSwtq-g7a3",
+              "type": "resident"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "_meta": {
+        "uid": "dev-mix-XaDQG-TUS1i-IAWq",
+        "firstPublicationDate": "2019-02-14T09:46:22Z",
+        "lastPublicationDate": "2019-10-23T19:59:02Z",
+        "type": "mix",
+        "tags": ["in quam", "eros viverra", "mattis odio"]
+      },
+      "mix_date": "02.04.2020",
+      "mix_image": {
+        "dimensions": {
+          "width": 1393,
+          "height": 1181
+        },
+        "alt": "Nam tristique tortor eu pede.",
+        "copyright": "Aliquam quis turpis eget elit sodales scelerisque.",
+        "url": "http://dummyimage.com/751x1237.jpg/cc0000/ffffff",
+        "now_playing": {
+          "alt": "Morbi porttitor lorem id ligula.",
+          "copyright": "Vestibulum rutrum rutrum neque.",
+          "url": "http://dummyimage.com/96x96.jpg/5fa2dd/ffffff"
+        }
+      },
+      "mix_link": "",
+      "mix_title": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio.",
+      "featured_residents": [
+        {
+          "mix_resident": {
+            "resident_name": "donec dapibus",
+            "_meta": {
+              "uid": "dev-res-8biN6C8J2-dxPU",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "morbi a ipsum",
+            "_meta": {
+              "uid": "dev-res-bZhdFIFkg-25Cs",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "in felis",
+            "_meta": {
+              "uid": "dev-res-ZAZYBxBlu-Bdqd",
+              "type": "resident"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "_meta": {
+        "uid": "dev-mix-wnw0Q-nVR6U-Kmmw",
+        "firstPublicationDate": "2018-05-29T04:26:17Z",
+        "lastPublicationDate": "2020-01-19T18:17:51Z",
+        "type": "mix",
+        "tags": ["libero", "ac tellus", "magna"]
+      },
+      "mix_date": "17.07.2020",
+      "mix_image": {
+        "dimensions": {
+          "width": 1401,
+          "height": 937
+        },
+        "alt": "Pellentesque eget nunc.",
+        "copyright": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
+        "url": "http://dummyimage.com/564x1422.jpg/ff4444/ffffff",
+        "now_playing": {
+          "alt": "Fusce posuere felis sed lacus.",
+          "copyright": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi.",
+          "url": "http://dummyimage.com/96x96.jpg/dddddd/000000"
+        }
+      },
+      "mix_link": "https://soundcloud.com/madukdnb/liquicity-yearmix-2019-mixed-by-maduk",
+      "mix_title": "Cras in purus eu magna vulputate luctus.",
+      "featured_residents": [
+        {
+          "mix_resident": {
+            "resident_name": "mus vivamus vestibulum",
+            "_meta": {
+              "uid": "dev-res-rjyRvZS0h-nfZv",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "eget",
+            "_meta": {
+              "uid": "dev-res-yFTeWPWF6-Gona",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "sed",
+            "_meta": {
+              "uid": "dev-res-AuFxLxB2q-Q8Na",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "quisque",
+            "_meta": {
+              "uid": "dev-res-ltmv98Ejm-Dva7",
+              "type": "resident"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "_meta": {
+        "uid": "dev-mix-txk5q-nLuwm-0rkr",
+        "firstPublicationDate": "2017-12-13T09:39:41Z",
+        "lastPublicationDate": "2020-01-10T07:46:56Z",
+        "type": "mix",
+        "tags": ["nam nulla", "phasellus", "bibendum"]
+      },
+      "mix_date": "24.06.2020",
+      "mix_image": {
+        "dimensions": {
+          "width": 362,
+          "height": 296
+        },
+        "alt": "Praesent id massa id nisl venenatis lacinia.",
+        "copyright": "Aenean fermentum.",
+        "url": "http://dummyimage.com/1293x684.jpg/cc0000/ffffff",
+        "now_playing": {
+          "alt": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.",
+          "copyright": "Etiam pretium iaculis justo.",
+          "url": "http://dummyimage.com/96x96.jpg/5fa2dd/ffffff"
+        }
+      },
+      "mix_link": "https://www.youtube.com/watch?v=bpfK7F5O614",
+      "mix_title": "Etiam vel augue.",
+      "featured_residents": [
+        {
+          "mix_resident": {
+            "resident_name": "malesuada in imperdiet",
+            "_meta": {
+              "uid": "dev-res-uRQSDxdtf-JpGg",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "eleifend",
+            "_meta": {
+              "uid": "dev-res-7i4MDedPi-GNTO",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "quis augue",
+            "_meta": {
+              "uid": "dev-res-SdKfKYI9m-115b",
+              "type": "resident"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "_meta": {
+        "uid": "dev-mix-0PLSK-p2t7g-lfrt",
+        "firstPublicationDate": "2018-09-13T22:50:45Z",
+        "lastPublicationDate": "2019-09-29T06:53:17Z",
+        "type": "mix",
+        "tags": ["arcu", "maecenas", "ut"]
+      },
+      "mix_date": "18.12.2019",
+      "mix_image": {
+        "dimensions": {
+          "width": 1234,
+          "height": 1265
+        },
+        "alt": "Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.",
+        "copyright": "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "url": "http://dummyimage.com/1111x648.jpg/ff4444/ffffff",
+        "now_playing": {
+          "alt": "Curabitur gravida nisi at nibh.",
+          "copyright": "Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.",
+          "url": "http://dummyimage.com/96x96.jpg/5fa2dd/ffffff"
+        }
+      },
+      "mix_link": "https://www.mixcloud.com/adamkvasnica3/shibuya-jazz-classics/",
+      "mix_title": "Vestibulum quam sapien, varius ut, blandit non, interdum in, ante.",
+      "featured_residents": [
+        {
+          "mix_resident": {
+            "resident_name": "tristique in tempus",
+            "_meta": {
+              "uid": "dev-res-pVPGdS6RU-Nmeg",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "ut ultrices vel",
+            "_meta": {
+              "uid": "dev-res-r14WsvnPc-0FnQ",
+              "type": "resident"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "_meta": {
+        "uid": "dev-mix-bhEem-FCOPE-gEvQ",
+        "firstPublicationDate": "2018-01-30T18:22:48Z",
+        "lastPublicationDate": "2020-06-26T10:37:13Z",
+        "type": "mix",
+        "tags": ["molestie", "pede", "aenean auctor"]
+      },
+      "mix_date": "31.05.2020",
+      "mix_image": {
+        "dimensions": {
+          "width": 384,
+          "height": 295
+        },
+        "alt": "Pellentesque viverra pede ac diam.",
+        "copyright": "Vivamus vel nulla eget eros elementum pellentesque.",
+        "url": "http://dummyimage.com/924x1406.jpg/5fa2dd/ffffff",
+        "now_playing": {
+          "alt": "Duis ac nibh.",
+          "copyright": "Integer tincidunt ante vel ipsum.",
+          "url": "http://dummyimage.com/96x96.jpg/5fa2dd/ffffff"
+        }
+      },
+      "mix_link": "https://soundcloud.com/thank-you-scientist/sets/terraformer-3",
+      "mix_title": "Nunc rhoncus dui vel sem.",
+      "featured_residents": [
+        {
+          "mix_resident": {
+            "resident_name": "facilisi cras",
+            "_meta": {
+              "uid": "dev-res-iWmdA3WVg-6vQW",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "erat id mauris",
+            "_meta": {
+              "uid": "dev-res-HhR6yXPsg-AjB2",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "ut volutpat",
+            "_meta": {
+              "uid": "dev-res-A0IXZO3Xr-9veP",
+              "type": "resident"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "_meta": {
+        "uid": "dev-mix-89hh4-k8p0J-8VNy",
+        "firstPublicationDate": "2017-08-04T00:50:28Z",
+        "lastPublicationDate": "2019-09-04T13:34:27Z",
+        "type": "mix",
+        "tags": ["leo odio", "congue", "ut nunc"]
+      },
+      "mix_date": "16.06.2020",
+      "mix_image": {
+        "dimensions": {
+          "width": 532,
+          "height": 1379
+        },
+        "alt": "Curabitur at ipsum ac tellus semper interdum.",
+        "copyright": "Integer ac leo.",
+        "url": "http://dummyimage.com/1306x1096.jpg/dddddd/000000",
+        "now_playing": {
+          "alt": "Sed sagittis.",
+          "copyright": "Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.",
+          "url": "http://dummyimage.com/96x96.jpg/dddddd/000000"
+        }
+      },
+      "mix_link": "https://www.youtube.com/watch?v=cRmwFBK0cyk",
+      "mix_title": "Proin risus.",
+      "featured_residents": [
+        {
+          "mix_resident": {
+            "resident_name": "sapien",
+            "_meta": {
+              "uid": "dev-res-FAAcuIBPC-aITR",
+              "type": "resident"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "_meta": {
+        "uid": "dev-mix-nST6d-0XYHZ-Jf6H",
+        "firstPublicationDate": "2019-01-31T23:12:10Z",
+        "lastPublicationDate": "2020-01-10T18:50:44Z",
+        "type": "mix",
+        "tags": ["eu nibh", "orci luctus", "in"]
+      },
+      "mix_date": "25.07.2020",
+      "mix_image": {
+        "dimensions": {
+          "width": 553,
+          "height": 1476
+        },
+        "alt": "Sed accumsan felis.",
+        "copyright": "Mauris sit amet eros.",
+        "url": "http://dummyimage.com/918x673.jpg/5fa2dd/ffffff",
+        "now_playing": {
+          "alt": "Maecenas tincidunt lacus at velit.",
+          "copyright": "In hac habitasse platea dictumst.",
+          "url": "http://dummyimage.com/96x96.jpg/5fa2dd/ffffff"
+        }
+      },
+      "mix_link": "https://www.youtube.com/watch?v=VLV-vhJCMwU",
+      "mix_title": "Praesent lectus.",
+      "featured_residents": [
+        {
+          "mix_resident": {
+            "resident_name": "nulla",
+            "_meta": {
+              "uid": "dev-res-faRdxTQGZ-P8kF",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "aliquam non",
+            "_meta": {
+              "uid": "dev-res-qphYc12PX-zPiq",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "mauris",
+            "_meta": {
+              "uid": "dev-res-Kqc9xMNKA-uclt",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "fermentum donec",
+            "_meta": {
+              "uid": "dev-res-2WQPzBVMf-Q2yN",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "eu est",
+            "_meta": {
+              "uid": "dev-res-EoJs3FD9D-tnVq",
+              "type": "resident"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "_meta": {
+        "uid": "dev-mix-aG3mw-4UtYE-rCrs",
+        "firstPublicationDate": "2020-04-09T09:17:34Z",
+        "lastPublicationDate": "2020-02-02T14:25:09Z",
+        "type": "mix",
+        "tags": ["curae", "suscipit nulla", "tristique"]
+      },
+      "mix_date": "01.10.2019",
+      "mix_image": {
+        "dimensions": {
+          "width": 1427,
+          "height": 906
+        },
+        "alt": "Mauris sit amet eros.",
+        "copyright": "Nulla nisl.",
+        "url": "http://dummyimage.com/743x746.jpg/cc0000/ffffff",
+        "now_playing": {
+          "alt": "In quis justo.",
+          "copyright": "Cras non velit nec nisi vulputate nonummy.",
+          "url": "http://dummyimage.com/96x96.jpg/5fa2dd/ffffff"
+        }
+      },
+      "mix_link": "https://www.mixcloud.com/adamkvasnica3/shibuya-jazz-classics/",
+      "mix_title": "Duis mattis egestas metus.",
+      "featured_residents": [
+        {
+          "mix_resident": {
+            "resident_name": "cum sociis",
+            "_meta": {
+              "uid": "dev-res-Y9TEJiCqk-g8Gb",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "mauris enim",
+            "_meta": {
+              "uid": "dev-res-4DvSMSFL9-KF9w",
+              "type": "resident"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "_meta": {
+        "uid": "dev-mix-VNyjR-nvbQZ-a3Pr",
+        "firstPublicationDate": "2020-06-27T00:33:14Z",
+        "lastPublicationDate": "2020-08-04T15:53:35Z",
+        "type": "mix",
+        "tags": ["ac", "nec", "consequat morbi"]
+      },
+      "mix_date": "05.10.2019",
+      "mix_image": {
+        "dimensions": {
+          "width": 755,
+          "height": 824
+        },
+        "alt": "Cras pellentesque volutpat dui.",
+        "copyright": "Donec ut mauris eget massa tempor convallis.",
+        "url": "http://dummyimage.com/846x813.jpg/ff4444/ffffff",
+        "now_playing": {
+          "alt": "Nulla justo.",
+          "copyright": "Nunc nisl.",
+          "url": "http://dummyimage.com/96x96.jpg/dddddd/000000"
+        }
+      },
+      "mix_link": "https://soundcloud.com/fairshun/casiopea-mint-jams-1982-full-album",
+      "mix_title": "Mauris ullamcorper purus sit amet nulla.",
+      "featured_residents": [
+        {
+          "mix_resident": {
+            "resident_name": "duis faucibus accumsan",
+            "_meta": {
+              "uid": "dev-res-xC0CNOIK5-elVd",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "ut rhoncus aliquet",
+            "_meta": {
+              "uid": "dev-res-bckKtj97E-WjVg",
+              "type": "resident"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "_meta": {
+        "uid": "dev-mix-5OZ1n-BM0ux-5VGq",
+        "firstPublicationDate": "2019-07-06T21:18:15Z",
+        "lastPublicationDate": "2020-06-06T14:34:20Z",
+        "type": "mix",
+        "tags": ["est", "sapien", "non velit"]
+      },
+      "mix_date": "07.04.2020",
+      "mix_image": {
+        "dimensions": {
+          "width": 375,
+          "height": 699
+        },
+        "alt": "Curabitur at ipsum ac tellus semper interdum.",
+        "copyright": "Donec ut mauris eget massa tempor convallis.",
+        "url": "http://dummyimage.com/861x1057.jpg/5fa2dd/ffffff",
+        "now_playing": {
+          "alt": "Integer non velit.",
+          "copyright": "Morbi non lectus.",
+          "url": "http://dummyimage.com/96x96.jpg/cc0000/ffffff"
+        }
+      },
+      "mix_link": "https://soundcloud.com/koan-sound/sets/silk-wave",
+      "mix_title": "In hac habitasse platea dictumst.",
+      "featured_residents": [
+        {
+          "mix_resident": {
+            "resident_name": "tincidunt lacus at",
+            "_meta": {
+              "uid": "dev-res-YkxMmLGEe-lXlc",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "suspendisse potenti cras",
+            "_meta": {
+              "uid": "dev-res-ke3c5wYJP-OmOG",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "at",
+            "_meta": {
+              "uid": "dev-res-Ljw8XINzr-V63h",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "eu interdum eu",
+            "_meta": {
+              "uid": "dev-res-mNzqp1zsO-D3rM",
+              "type": "resident"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "_meta": {
+        "uid": "dev-mix-30ita-99Wfg-EF3u",
+        "firstPublicationDate": "2018-07-16T06:53:33Z",
+        "lastPublicationDate": "2020-03-22T22:41:00Z",
+        "type": "mix",
+        "tags": ["a nibh", "tortor", "potenti in"]
+      },
+      "mix_date": "30.09.2019",
+      "mix_image": {
+        "dimensions": {
+          "width": 321,
+          "height": 415
+        },
+        "alt": "Maecenas tincidunt lacus at velit.",
+        "copyright": "In hac habitasse platea dictumst.",
+        "url": "http://dummyimage.com/1209x1483.jpg/dddddd/000000",
+        "now_playing": {
+          "alt": "In hac habitasse platea dictumst.",
+          "copyright": "Morbi quis tortor id nulla ultrices aliquet.",
+          "url": "http://dummyimage.com/96x96.jpg/cc0000/ffffff"
+        }
+      },
+      "mix_link": "https://youtu.be/5qap5aO4i9A",
+      "mix_title": "Etiam pretium iaculis justo.",
+      "featured_residents": [
+        {
+          "mix_resident": {
+            "resident_name": "eros",
+            "_meta": {
+              "uid": "dev-res-fTdQm78BC-K2sl",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "iaculis justo",
+            "_meta": {
+              "uid": "dev-res-dZGWgRyqQ-7myh",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "natoque penatibus et",
+            "_meta": {
+              "uid": "dev-res-V10iemZ8e-TPcU",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "vestibulum sagittis sapien",
+            "_meta": {
+              "uid": "dev-res-3GsQTtNsl-bmDF",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "cursus urna ut",
+            "_meta": {
+              "uid": "dev-res-iOgG2Tufw-RZlA",
+              "type": "resident"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "_meta": {
+        "uid": "dev-mix-ArM8Y-SvNLz-vMSl",
+        "firstPublicationDate": "2019-05-13T02:20:53Z",
+        "lastPublicationDate": "2020-07-31T09:41:50Z",
+        "type": "mix",
+        "tags": ["venenatis", "posuere", "porta"]
+      },
+      "mix_date": "17.03.2020",
+      "mix_image": {
+        "dimensions": {
+          "width": 1206,
+          "height": 961
+        },
+        "alt": "Curabitur convallis.",
+        "copyright": "Sed ante.",
+        "url": "http://dummyimage.com/1122x1235.jpg/ff4444/ffffff",
+        "now_playing": {
+          "alt": "Quisque ut erat.",
+          "copyright": "Mauris lacinia sapien quis libero.",
+          "url": "http://dummyimage.com/96x96.jpg/5fa2dd/ffffff"
+        }
+      },
+      "mix_link": "https://youtu.be/5qap5aO4i9A",
+      "mix_title": "Maecenas tincidunt lacus at velit.",
+      "featured_residents": [
+        {
+          "mix_resident": {
+            "resident_name": "ipsum primis in",
+            "_meta": {
+              "uid": "dev-res-w2gr5eMGw-wRqZ",
+              "type": "resident"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "_meta": {
+        "uid": "dev-mix-qVeRO-JVU1z-ywLN",
+        "firstPublicationDate": "2019-11-03T02:15:30Z",
+        "lastPublicationDate": "2020-01-29T16:06:24Z",
+        "type": "mix",
+        "tags": ["quis", "aliquet", "aliquet"]
+      },
+      "mix_date": "16.11.2019",
+      "mix_image": {
+        "dimensions": {
+          "width": 1392,
+          "height": 1462
+        },
+        "alt": null,
+        "copyright": null,
+        "url": "http://dummyimage.com/742x1366.jpg/ff4444/ffffff",
+        "now_playing": {
+          "alt": "Donec semper sapien a libero.",
+          "copyright": "Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.",
+          "url": "http://dummyimage.com/96x96.jpg/dddddd/000000"
+        }
+      },
+      "mix_link": "https://soundcloud.com/sleepmakeswaves/sets/sleepmakeswaves-on-audiotree",
+      "mix_title": "Aenean sit amet justo.",
+      "featured_residents": [
+        {
+          "mix_resident": {
+            "resident_name": "integer",
+            "_meta": {
+              "uid": "dev-res-ZxkUXRmV9-NgI1",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "vivamus",
+            "_meta": {
+              "uid": "dev-res-WSJ9jP6qL-JPGa",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "in",
+            "_meta": {
+              "uid": "dev-res-xaSXpYDCC-mr1v",
+              "type": "resident"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "_meta": {
+        "uid": "dev-mix-IMI60-d9FFV-yJer",
+        "firstPublicationDate": "2018-04-30T21:24:56Z",
+        "lastPublicationDate": "2020-08-16T19:53:17Z",
+        "type": "mix",
+        "tags": ["cursus", "at", "porttitor lorem"]
+      },
+      "mix_date": "26.10.2019",
+      "mix_image": {
+        "dimensions": {
+          "width": 1112,
+          "height": 1054
+        },
+        "alt": "Proin at turpis a pede posuere nonummy.",
+        "copyright": "Donec vitae nisi.",
+        "url": "http://dummyimage.com/761x1176.jpg/5fa2dd/ffffff",
+        "now_playing": {
+          "alt": "Curabitur at ipsum ac tellus semper interdum.",
+          "copyright": "In hac habitasse platea dictumst.",
+          "url": "http://dummyimage.com/96x96.jpg/cc0000/ffffff"
+        }
+      },
+      "mix_link": "https://youtu.be/5qap5aO4i9A",
+      "mix_title": "Mauris sit amet eros.",
+      "featured_residents": [
+        {
+          "mix_resident": {
+            "resident_name": "velit vivamus",
+            "_meta": {
+              "uid": "dev-res-sWCoYNhBE-gb0H",
+              "type": "resident"
+            }
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "fermentum donec",
+            "_meta": {
+              "uid": "dev-res-KAShm9GHo-0XyN",
+              "type": "resident"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "_meta": {
+        "uid": "dev-mix-EgftH-MgPj1-GaEQ",
+        "firstPublicationDate": "2020-01-15T07:57:10Z",
+        "lastPublicationDate": "2020-03-09T03:12:53Z",
+        "type": "mix",
+        "tags": ["augue vel", "tempor", "ipsum"]
+      },
+      "mix_date": "10.10.2019",
+      "mix_image": {
+        "dimensions": {
+          "width": 1425,
+          "height": 843
+        },
+        "alt": "Praesent id massa id nisl venenatis lacinia.",
+        "copyright": "Nulla mollis molestie lorem.",
+        "url": "http://dummyimage.com/1210x1411.jpg/5fa2dd/ffffff",
+        "now_playing": {
+          "alt": "Maecenas pulvinar lobortis est.",
+          "copyright": "Nunc rhoncus dui vel sem.",
+          "url": "http://dummyimage.com/96x96.jpg/dddddd/000000"
+        }
+      },
+      "mix_link": "",
+      "mix_title": "Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.",
+      "featured_residents": [
+        {
+          "mix_resident": {
+            "resident_name": "ac enim",
+            "_meta": {
+              "uid": "dev-res-YB3Roak9l-7U1p",
+              "type": "resident"
+            }
+          }
+        }
+      ]
+    }
+  }
+]

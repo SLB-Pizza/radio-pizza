@@ -1,17 +1,8 @@
 import React from "react";
 import { HMBKDivider, SingleMixCard } from "../../components";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faTwitter,
-  faInstagram,
-  faSoundcloud,
-  faMixcloud,
-  faBandcamp,
-} from "@fortawesome/free-brands-svg-icons";
-
 // Dummy data in __tests__ folder
-import sampleMixes from "../../../__tests__/sampleMixes.json";
+import hmbkMixesResidents from "../../../__tests__/HMBK-mixes-with-residents.json";
 
 function StickyBioIndexPage() {
   /**
@@ -23,7 +14,10 @@ function StickyBioIndexPage() {
   return (
     <div className="container is-fluid site-page">
       <div className="columns is-multiline">
-        <div className="column is-4-desktop is-4-tablet is-12-mobile sticky-bio">
+        <div className="column is-12">
+          <pre>This page is planned for removal.</pre>
+        </div>
+        {/* <div className="column is-4-desktop is-4-tablet is-12-mobile sticky-bio">
           <div className="columns is-multiline">
             <div className="column is-12">
               <figure className="image is-1by1">
@@ -92,22 +86,32 @@ function StickyBioIndexPage() {
 
         <div className="column is-8">
           <div className="columns is-multiline">
-            {sampleMixes.map((mix) => (
-              <SingleMixCard
-                key={mix.mixTitle}
-                date={mix.mixDate}
-                url={mix.mixUrl}
-                testSrc={mix.mixTestSrc}
-                title={mix.mixTitle}
-                resident={mix.mixResident}
-                img={mix.mixImg}
-                tags={mix.mixTags}
-                columnLayout={stickyBioLayout}
-              />
-            ))}
+            {hmbkMixesResidents.map((singleMix, index) => {
+              const {
+                _meta,
+                mix_date,
+                mix_image,
+                mix_link,
+                mix_title,
+                featured_residents,
+              } = singleMix.node;
+
+              return (
+                <SingleMixCard
+                  key={`mix-#${index}-${mix_title}`}
+                  date={mix_date}
+                  url={mix_link}
+                  title={mix_title}
+                  residents={featured_residents}
+                  img={mix_image}
+                  tags={_meta.tags}
+                  columnLayout={stickyBioLayout}
+                />
+              );
+            })}
           </div>
           <HMBKDivider />
-        </div>
+        </div> */}
       </div>
     </div>
   );

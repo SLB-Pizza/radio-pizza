@@ -3,10 +3,14 @@ import React, { useState } from "react";
 // TODO: REFACTOR THIS SO THAT THIS IS NOT REPEATING CODE
 
 /**
- * @function DateSelectorButton - function that creates styled buttons with toggling functionality built in
+ * Function that creates styled buttons with toggling functionality built in
+ * @category Site Elements
+ * @subcategory Layout Helper
+ * @component
+ * @function DateSelectorButton
  * @param {string[]} props.buttonTxtArr - array of strings to use as the text displayed in the button
  * @param {string[]} props.buttonIdArr - array of strings to use as the unique id of the button; used in the passed down toggleColumn function
- * @returns {jsx} A <div className="columns"> with column-width buttons that
+ * @returns {jsx} A `<div className="columns">` with column-width buttons to switch between dates on `/schedule`
  */
 
 // const

@@ -5,18 +5,24 @@
   },
   "source": {
     "include": ["src", "__tests__"],
-    "includePattern": ".+\\.js(doc|x)?$",
-    "excludePattern": "(^|\\/|\\\\)_"
+    "includePattern": ".+\\.js$",
+    "excludePattern": "(node_modules/|docs)"
   },
-  "plugins": ["plugins/markdown", "better-docs/component"],
+  "plugins": [
+    "plugins/markdown",
+    "node_modules/better-docs/component",
+    "node_modules/better-docs/category"
+  ],
   "templates": {
     "better-docs": {
-      "name": "HMBK Gatsby Guide"
+      "name": "HMBK Gatsby Docs"
     }
   },
   "opts": {
+    "template": "node_modules/better-docs",
     "destination": "docs",
     "recurse": true,
+    "encoding": "utf8",
     "readme": "README.md"
   }
 }

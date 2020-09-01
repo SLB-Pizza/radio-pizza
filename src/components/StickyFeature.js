@@ -6,7 +6,7 @@ export default function StickyFeature({ leadFeatureData }) {
    * leadFeatureData is an object with "_meta" and "body" keys available
    */
 
-  console.log("StickyFeature > {leadFeatureData}", leadFeatureData);
+  // console.log("StickyFeature > {leadFeatureData}", leadFeatureData);
   const {
     feature_headline_img,
     feature_category,

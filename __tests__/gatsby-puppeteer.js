@@ -7,16 +7,15 @@ const { URL } = require("url");
 const deviceList = puppeteer.devices;
 
 /**
- * Primary script variables
+ * Primary script variables, script testing variables, situational variables
+ * @category Testing
+ * @subcategory Puppeteer
+ * @function PuppeteerTesting
  * @param {string} pageRoute - the /route to capture
  * @param {string} pageVersion - version of page captured; change each revision
  * @param {string} pageURL - pulls in route and passes result to puppeteer
- *
- * Script testing variables
  * @param {boolean} takeShot - set to false when testing the script
  * @param {boolean} fullPageCapture - set true if page is taller than window height
- *
- * Situational variables
  * @param {boolean} promptUserQuestions - gates CLI questionnaire to gather info
  * @param {boolean} clickItem - gates click script section
  * @param {string} clickTarget- the element to be clicked e.g. "div #expand-button"

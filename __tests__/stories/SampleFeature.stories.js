@@ -8,7 +8,7 @@ import {
 import "../../src/styles/index.scss";
 
 export default {
-  title: "Prismic CMS Slices/Sample Layouts",
+  title: "HalfmoonBK/Sample Layouts",
 };
 
 const metadata = {

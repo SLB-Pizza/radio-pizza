@@ -2,8 +2,11 @@ import React from "react";
 import { ContentHelper, ImageHelper } from "./index";
 
 /**
- * @function TwoImagesAndText
- * @param {object} { slice }
+ * Creates a Slice Component that display two images and some text. The text section can be either on the left of the right.
+ * @category CMS
+ * @subcategory Slices
+ * @component
+ * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create the HeadlineBlock slice
  * @returns {jsx}
  */
 function TwoImagesAndText({ slice }) {
@@ -15,7 +18,10 @@ function TwoImagesAndText({ slice }) {
     tiat_right_img,
   } = slice.primary;
 
-  const layoutType = tiat_layout.split(".")[0];
+  /**
+   * Derive layout type by processing tiat_layout. Same process followed as {@link getBlockquoteStyling}
+   */
+  const layoutType = tiat_layout.split(":")[0];
 
   const columnsClassName = tiat_is_gapless
     ? "columns is-mobile is-multiline is-gapless"
@@ -25,11 +31,14 @@ function TwoImagesAndText({ slice }) {
   const tiatImageClass = "column is-one-quarter";
 
   return (
-    <section className="container">
+    <section className="container slice">
       <div className={columnsClassName}>
         {layoutType === "Left" ? (
           <>
-            <ContentHelper text={tiat_text} sliceClassName={tiatContentClass} />
+            <ContentHelper
+              text={tiat_text}
+              columnClassName={tiatContentClass}
+            />
             <ImageHelper url={tiat_left_img.url} alt={tiat_left_img.alt} />
             <ImageHelper url={tiat_right_img.url} alt={tiat_right_img.alt} />
           </>
@@ -37,7 +46,10 @@ function TwoImagesAndText({ slice }) {
           <>
             <ImageHelper url={tiat_left_img.url} alt={tiat_left_img.alt} />
             <ImageHelper url={tiat_right_img.url} alt={tiat_right_img.alt} />
-            <ContentHelper text={tiat_text} sliceClassName={tiatContentClass} />
+            <ContentHelper
+              text={tiat_text}
+              columnClassName={tiatContentClass}
+            />
           </>
         )}
       </div>

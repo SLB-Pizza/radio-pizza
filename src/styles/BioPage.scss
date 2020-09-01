@@ -4,17 +4,11 @@
     position: -webkit-sticky;
     top: 7.5rem;
     overflow-y: auto;
-    max-height: calc(100vh - 10.5rem);
+    max-height: calc(100vh - 9.875rem);
   }
 }
 
-.sticky-social-links {
-  margin-top: 1rem;
+.social-links {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-
-  span {
-    flex: 1;
-  }
+  justify-content: center;
 }

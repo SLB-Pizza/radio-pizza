@@ -33,8 +33,8 @@ export default function processPublicationDates(firstPubDate, lastPubDate) {
    * If the feature has NOT been update, format pubDate to show just the date of publication e.g. August 2, 2020
    */
   dateDetails.pubDate = updated
-    ? dayjs(lastPubDate).format("MMMM D, YYYY – HH:mm")
-    : dayjs(firstPubDate).format("MMMM D, YYYY");
+    ? dayjs(lastPubDate).format("MM.DD.YYYY – HH:mm")
+    : dayjs(firstPubDate).format("MM.DD.YYYY");
 
   return dateDetails;
 }

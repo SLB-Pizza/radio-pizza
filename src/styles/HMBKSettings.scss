@@ -7,10 +7,12 @@
 
 $pink: #f600ff;
 $primary: $pink;
-
+$body-background-color: black;
 //==================================
 // text variables
 //==================================
+$body-color: $white;
+$text: $white;
 $title-color: $white;
 $subtitle-color: $white;
 $content-heading-color: $white;
@@ -78,16 +80,16 @@ $dt-spacing: 1%;
 // GLOBAL STYLES
 //==================================
 
-html,
-body {
-  background-color: black;
-  color: white;
-}
-
 //top: 8.25rem with container
 //bottom: 3.75rem with container
 .site-page {
-  padding-top: 7.625rem;
+  padding-top: 7.5rem;
+  padding-bottom: 3.75rem;
+  min-height: 100vh;
+}
+
+.feature-page {
+  padding-top: 8rem;
   padding-bottom: 3.75rem;
   min-height: 100vh;
 }
@@ -95,31 +97,19 @@ body {
 button.button,
 .title,
 .display-text,
-.navbar-item {
+.navbar-item,
+.tag {
   font-family: "Aldrich", sans-serif;
   font-kerning: normal;
   font-display: swap;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 p,
-.subtitle,
-.tag {
-  font-family: "Oxygen";
-  font-weight: 400;
-  font-kerning: normal;
+.subtitle {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
   font-display: swap;
-}
-
-a,
-p,
-p.title,
-p.subtitle,
-ol,
-ul,
-blockquote,
-cite {
-  color: white;
 }
 
 button {
@@ -153,21 +143,17 @@ input::placeholder {
 .text-truncate {
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: pre-line;
-}
-
-// SoundCloud's version of things
-.sc-truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
   white-space: nowrap;
   word-break: normal;
 }
 
-.single-truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+figcaption {
+  font-size: $size-6;
+  &.credit {
+    font-size: $size-7;
+    color: $grey;
+    font-style: italic;
+  }
 }
 
 //===========================================

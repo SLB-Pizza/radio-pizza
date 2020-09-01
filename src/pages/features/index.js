@@ -1,15 +1,22 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link, graphql } from "gatsby";
 import { StickyFeature } from "../../components";
 import PropTypes from "prop-types";
 
-export default function FeaturesIndexPage({ data }) {
-  // Focus the node for the prismicContent check below.
+/**
+ * @category Pages
+ * @subcategory Indexes
+ * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/features` landing page
+ */
+function FeaturesIndex({ data }) {
+  /**
+   * Focus the node for the prismicContent check below.
+   */
   const prismicContent = data.prismic.allFeatures.edges;
 
   /**
    * This line is here to prevent an error from occurring when you eventually deploy the site live. There is an issue with the preview functionality that requires this check on every page.
-   * Details: https://prismic.io/docs/gatsby/rendering/retrieve-the-document-object#21_0-adding-a-validation-check
+   * @see https://prismic.io/docs/gatsby/rendering/retrieve-the-document-object#21_0-adding-a-validation-check
    */
   if (!prismicContent) return null;
 
@@ -20,21 +27,15 @@ export default function FeaturesIndexPage({ data }) {
    *
    * The remaining array of node objects can be mapped over normally using XYZ_Component.
    */
-
   const dataDocument = prismicContent;
-  const leadFeature = prismicContent.shift();
-  const leadFeatureData = leadFeature.node;
-  const allOtherFeatures = prismicContent;
+  const leadFeatureData = dataDocument[0].node;
+  const allOtherFeatures = dataDocument.slice(1);
 
   const { _meta, body } = leadFeatureData;
 
-  // console.log("index > leadFeatureData", leadFeatureData);
-  console.log("index > leadFeatureData.body", body);
-  console.log("index > leadFeatureData._meta", _meta);
-
   return (
-    <main className="site-page all-features">
-      <StickyFeature leadFeatureData={leadFeatureData} />
+    <main className="site-page">
+      {/* <StickyFeature leadFeatureData={leadFeatureData} /> */}
       <ul>
         <li>
           <Link to="/features/dev-test-feature-1">Link to Test Feature 1</Link>
@@ -42,15 +43,23 @@ export default function FeaturesIndexPage({ data }) {
         <li>
           <Link to="/features/dev-test-feature-2">Link to Test Feature 2</Link>
         </li>
+        <li>
+          <Link to="/features/dev-feature-test-for-surf">
+            Link to Sheff G: New Kid on the Block
+          </Link>
+        </li>
       </ul>
       <hr />
 
-      <section className="container is-fluid">
+      <section className="container is-fluid" style={{ marginTop: "10rem" }}>
         <div className="columns is-multiline">
           <div className="column is-12">
-            <h1 className="title is-size-3-desktop is-size-4-touch">
+            <p
+              className="title is-size-3-desktop is-size-4-touch"
+              id="first-text"
+            >
               Features Data
-            </h1>
+            </p>
           </div>
           <div className="column is-12">
             <h1 className="title">leadFeatureData Data Object</h1>
@@ -66,7 +75,7 @@ export default function FeaturesIndexPage({ data }) {
   );
 }
 
-FeaturesIndexPage.propTypes = {
+FeaturesIndex.propTypes = {
   leadFeatureData: PropTypes.exact({
     _meta: PropTypes.object.isRequired,
     body: PropTypes.arrayOf(PropTypes.object),
@@ -91,18 +100,22 @@ export const query = graphql`
               ... on PRISMIC_FeatureBodyHeadline_block {
                 type
                 primary {
-                  feature_headline_img
-                  feature_category
-                  feature_subcategory
-                  feature_headline
-                  feature_subtitle
-                  feature_author_pic
-                  feature_author {
+                  article_author_pic
+                  article_author {
                     ... on PRISMIC_Staff {
                       hmbk_staff_name
                       hmbk_staff_position
+                      _meta {
+                        type
+                        uid
+                      }
                     }
                   }
+                  article_category
+                  article_headline
+                  article_headline_img
+                  article_subcategory
+                  article_subtitle
                 }
               }
             }
@@ -112,3 +125,5 @@ export const query = graphql`
     }
   }
 `;
+
+export default FeaturesIndex;

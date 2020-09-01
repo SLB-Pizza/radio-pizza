@@ -11,6 +11,13 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
 
+/**
+ * @category Site Elements
+ * @subcategory Layout Helper
+ * @component
+ * @param {Object} props
+ * @returns {jsx}
+ */
 function RadioPlayer(props) {
   const dispatch = useContext(GlobalDispatchContext);
   const globalState = useContext(GlobalStateContext);
@@ -26,14 +33,14 @@ function RadioPlayer(props) {
     muted: false,
     played: 0,
     loaded: 0,
+    isLoading: false,
     duration: 0,
     playbackRate: 1.0,
     loop: true,
   });
 
   /**
-   * Eliminate width and height = 0 errors by breaking ReactPlayer
-   * out of normal document flow and throwing it above the top of the page
+   * @const {Object} playerStyle - Eliminate width and height = 0 errors by breaking ReactPlayer out of normal document flow and throwing it above the top of the page
    */
   const playerStyle = {
     position: "absolute",
@@ -115,6 +122,11 @@ function RadioPlayer(props) {
   return (
     <>
       <div className="column is-narrow">
+        {localState.isLoading ? (
+          <span className="icon is-medium">
+            <i className="is-loading" />
+          </span>
+        ) : null}
         {!globalState.playing ? (
           <FontAwesomeIcon
             icon={faPlay}
@@ -137,7 +149,7 @@ function RadioPlayer(props) {
           <img src={`${globalState.img}`} alt="Current mix" />
         </figure>
       </div>
-      <div className="column sc-truncate" id="now-playing">
+      <div className="column text-truncate" id="now-playing">
         <div id="now-playing-details">
           <p className="subtitle is-size-7">{globalState.resident}</p>
           <p className="title is-size-6-tablet is-size-7-mobile">

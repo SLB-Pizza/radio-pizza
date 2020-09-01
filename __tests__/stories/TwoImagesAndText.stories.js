@@ -7,7 +7,29 @@ export default {
   component: TwoImagesAndText,
 };
 
-const threeEvenColumns = {
+const leftSideImages = {
+  primary: {
+    tiat_layout: "Right: Image-Image-Text",
+    tiat_is_gapless: false,
+    tiat_text: [
+      {
+        type: "paragraph",
+        text:
+          "Reading has been the fuel of my motivation: it has changed the direction in which I have traveled, and it has enhanced my creative imagination more than any other activity I have ever pursued.",
+        spans: [],
+      },
+    ],
+    tiat_left_img: {
+      url: "https://w.wallhaven.cc/full/4o/wallhaven-4ozkll.jpg",
+      alt: "A tree-lined valley",
+    },
+    tiat_right_img: {
+      url: "https://w.wallhaven.cc/full/43/wallhaven-43dx59.jpg",
+      alt: "A tree covered road in late autumn",
+    },
+  },
+};
+const rightSideImages = {
   primary: {
     tiat_layout: "Left: Text-Image-Image",
     tiat_is_gapless: false,
@@ -30,6 +52,9 @@ const threeEvenColumns = {
   },
 };
 
-export const ContentRight_ThreeEvenColumns = () => (
-  <TwoImagesAndText slice={threeEvenColumns} />
+export const ImagesLeft_TextRight = () => (
+  <TwoImagesAndText slice={leftSideImages} />
+);
+export const TextLeft_ImagesRight = () => (
+  <TwoImagesAndText slice={rightSideImages} />
 );

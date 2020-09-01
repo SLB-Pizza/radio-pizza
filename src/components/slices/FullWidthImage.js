@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 // const FullWidthImage = ({ slice }) => {
-export default function FullWidthImage(props) {
+function FullWidthImage(props) {
   const { type, data, bgUrl } = props;
 
   let imgStyle = null;
@@ -15,16 +15,16 @@ export default function FullWidthImage(props) {
   let heroClassName = "";
   switch (type) {
     case "short":
-      heroClassName = "hero sample-feature";
+      heroClassName = "hero";
       break;
     case "medium":
-      heroClassName = "hero is-medium sample-feature";
+      heroClassName = "hero is-medium";
       break;
     case "tall":
-      heroClassName = "hero is-large sample-feature";
+      heroClassName = "hero is-large";
       break;
     default:
-      heroClassName = "hero sample-feature";
+      heroClassName = "hero";
   }
 
   return (
@@ -44,3 +44,5 @@ FullWidthImage.propTypes = {
   data: PropTypes.string.isRequired,
   bgUrl: PropTypes.string.isRequired,
 };
+
+export default FullWidthImage;

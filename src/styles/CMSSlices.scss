@@ -1,15 +1,44 @@
 // ================================
-// Used to debug
+// Universal Slice Styles
 // ================================
-// main.feature section:nth-child(n) {
-//   background-color: rgba($color: darkgreen, $alpha: 0.75);
-// }
-// main.feature section:nth-child(2n) {
-//   background-color: rgba($color: darkslateblue, $alpha: 0.75);
-// }
 
-main.feature section {
-  margin: 2rem auto;
+// Pull the article container
+article .container {
+  @include touch {
+    width: 87.5vw;
+  }
+}
+
+section.article-img-titling + section.slice {
+  margin-top: 2rem;
+}
+
+section.slice {
+  margin-top: 0.75rem;
+
+  .inline-image:hover {
+    cursor: pointer;
+  }
+
+  .modal-content {
+    min-width: 95vw;
+    padding: 2rem;
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 0.75rem;
+
+    .img-area {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        object-fit: contain;
+        max-width: calc(85vw - 4rem);
+        max-height: calc(85vh - 4rem);
+      }
+    }
+  }
 }
 
 // ================================
@@ -63,10 +92,6 @@ section.sample-feature {
   border-radius: 0.75rem;
   margin-bottom: 3rem;
 
-  // &:first-child {
-  //   margin-top: 1rem;
-  // }
-
   .column.is-flex-desktop {
     flex-direction: column;
     div {
@@ -94,20 +119,50 @@ section.sample-feature {
 }
 
 // ================================
-// CMS Slice -- HeadlineBlock.js
+// CMS Slice -- ArticleHeadline.js
 // ================================
+header.article-img-titling {
+  display: flex;
+  flex-direction: column;
+  .hero-body {
+    flex: 1;
+  }
+  .hero-foot {
+    padding: 1rem 0 1rem;
+    flex: 0;
+  }
+
+  img.is-rounded {
+    border: 2px solid white;
+  }
+  .title {
+    font-family: "Poppins", sans-serif;
+  }
+  .subtitle {
+    font-weight: 300;
+  }
+}
+
+// .article-headline-img {
+//   background-size: contain;
+//   background-position: center center;
+// }
+
+.category {
+  font-weight: 700;
+}
 
 .headline-block {
   height: 25rem;
   background-size: cover;
   background-position: center center;
-  margin-bottom: 15rem;
   .container > .columns {
     padding: 1rem;
     margin-top: 10rem;
     background-color: rgba($color: black, $alpha: 0.85);
     border: 2px solid white;
     border-radius: 0.75rem;
+    margin-bottom: auto;
   }
 
   .category {
@@ -118,15 +173,7 @@ section.sample-feature {
     font-weight: 300;
   }
 
-  hr {
-    margin: 2rem 35% 1rem;
-  }
-
   .column.author {
     border: 1px dotted red;
-  }
-
-  img.is-rounded {
-    border: 2px solid white;
   }
 }

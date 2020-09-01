@@ -1,17 +1,49 @@
 import React, { useState, useEffect } from "react";
-import { DateSelectorButton, ScheduleShowEntry } from "../../components";
+import { graphql } from "gatsby";
 import dayjs from "dayjs";
-
+const isBetween = require("dayjs/plugin/isBetween");
 const utc = require("dayjs/plugin/utc");
+dayjs.extend(isBetween);
 dayjs.extend(utc);
 
-function ScheduleIndexPage() {
+import { DateSelectorButton, ScheduleShowEntry } from "../../components";
+import scheduleDummyData from "../../../__tests__/HMBK-schedule-page-query-test.json";
+
+/**
+ * @category Pages
+ * @subcategory Indexes
+ * @function ScheduleIndexPage
+ * @param {object} data - the data object coming from Prismic CMS that contains all data needed to display all mixes on `/schedule`
+ * @returns {jsx}
+ */
+function ScheduleIndexPage({ data }) {
+  const prismicContent = data.prismic.allSchedules.edges;
+  if (!prismicContent) return null;
+
+  /**
+   * Grab and manip the nodes array of mixs
+   */
+  const allSchedulesData = prismicContent;
+
   const [isSelected, setIsSelected] = "";
   const [wholeWeek, setWholeWeek] = [];
   const [wholeWeekIds, setWholeWeekIds] = [];
   const [todayDate, setTodayDate] = useState(
     dayjs(new Date().toLocaleString("en-US", { timeZone: "America/New_York" }))
   );
+
+  const getSevenDays = (arr) => {
+    const firstDay = dayjs().format("YYYY-MM-DD");
+    const lastDay = dayjs(firstDay)
+      .add(6, "day")
+      .format("YYYY-MM-DD");
+
+    const sevenDaysArray = arr.filter(({ node }) =>
+      dayjs(node.schedule_date).isBetween(firstDay, lastDay, "day", [])
+    );
+
+    return sevenDaysArray;
+  };
 
   const addDays = (day) => {
     let daysArr = [];
@@ -21,48 +53,7 @@ function ScheduleIndexPage() {
       daysArr.push(day.add(i, "d").format("ddd, MMM D"));
       idsArr.push(day.add(i, "d").format("ddd"));
     }
-
-    // console.log("days", daysArr);
-    // console.log("ids", idsArr);
-
-    // setWholeWeek(daysArr);
-    // setWholeWeekIds(idsArr);
   };
-
-  const fakeShowEntryData = [
-    {
-      startTime: "12:00",
-      endTime: "14:00",
-      hostInfo: ["Nhato"],
-    },
-    {
-      startTime: "12:00",
-      endTime: "14:00",
-      hostInfo: ["Getty", "KO3 & Relect"],
-    },
-    {
-      startTime: "12:00",
-      endTime: "14:00",
-      showName: "PLANET /// SHAPER -- 3 Man Crew",
-      hostInfo: ["JAKAZiD", "Tanuki", "Hommarju"],
-    },
-    {
-      startTime: "12:00",
-      endTime: "14:00",
-      hostInfo: ["DJ Shimamura"],
-    },
-    {
-      startTime: "12:00",
-      endTime: "14:00",
-      hostInfo: ["Seventhrun", "DJ Noriken"],
-    },
-    {
-      startTime: "12:00",
-      endTime: "14:00",
-      showName: "The Edge of The Drum & Bass Universe",
-      hostInfo: ["Netsky", "Matrix & Futurebound"],
-    },
-  ];
 
   function toggleColumn(e) {
     if (isSelected !== e.currentTarget.id) {
@@ -85,6 +76,8 @@ function ScheduleIndexPage() {
     };
   });
 
+  let collectedDates = [];
+
   return (
     <div className="container is-fluid site-page">
       <div className="columns is-mobile is-multiline">
@@ -103,8 +96,11 @@ function ScheduleIndexPage() {
           <p className="title is-size-4-desktop is-size-5-mobile has-text-centered">
             {todayDate.format("dddd, MMMM D")}
           </p>
+          <pre>{JSON.stringify(getSevenDays(scheduleDummyData), null, 2)}</pre>
+          {/* <pre>{JSON.stringify(allSchedulesData, null, 2)}</pre> */}
         </div>
-        {fakeShowEntryData.map((show) => (
+
+        {/* {fakeShowEntryData.map((show) => (
           <div key={show.hostInfo} className="column is-12 single-show-entry">
             <div className="columns is-mobile is-vcentered">
               <div className="column is-4">
@@ -131,10 +127,40 @@ function ScheduleIndexPage() {
               )}
             </div>
           </div>
-        ))}
+        ))} */}
       </div>
     </div>
   );
 }
 
 export default ScheduleIndexPage;
+
+export const query = graphql`
+  query SchedulePageQuery {
+    prismic {
+      allSchedules(sortBy: schedule_date_ASC) {
+        edges {
+          node {
+            schedule_date
+            schedule_entries {
+              start_time
+              end_time
+              scheduled_show {
+                ... on PRISMIC_Mix {
+                  mix_title
+                  featured_residents {
+                    mix_resident {
+                      ... on PRISMIC_Resident {
+                        resident_name
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;

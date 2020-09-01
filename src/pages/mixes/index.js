@@ -7,12 +7,11 @@ import { SliceZone, SingleMixCard } from "../../components/";
 /**
  * @category Pages
  * @subcategory Indexes
- * @function MixesIndex
+ * @function MixesIndexPage
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to display all mixes on `/mixes`
  * @returns {jsx}
  */
-
-function MixesIndex({ data }) {
+function MixesIndexPage({ data }) {
   /**
    * **NB:** allMixs is NOT a typo.
    */
@@ -164,7 +163,7 @@ export const query = graphql`
   }
 `;
 
-export default MixesIndex;
+export default MixesIndexPage;
 
 // Mix img square sizes
 // --- MOBILE ---

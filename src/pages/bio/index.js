@@ -15,7 +15,10 @@ function StickyBioIndexPage() {
     <div className="container is-fluid site-page">
       <div className="columns is-multiline">
         <div className="column is-12">
-          <pre>This page is planned for removal.</pre>
+          <pre>This route, /bio, is planned for removal.</pre>
+          <pre>
+            Its replacement will be a /residents/`resident-name-here` route.
+          </pre>
         </div>
         {/* <div className="column is-4-desktop is-4-tablet is-12-mobile sticky-bio">
           <div className="columns is-multiline">

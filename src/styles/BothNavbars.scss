@@ -34,27 +34,6 @@
 .radio-bar {
   flex: 8;
   min-height: 4rem;
-  // padding-top: 0.5rem;
-  // margin-bottom: 0;
-  // background-color: rgba($color: darkslateblue, $alpha: 0.75);
-
-  // Old Show Flex Layout
-  // #radioShowDetails {
-  //   display: flex;
-  //   flex-direction: column;
-
-  //   #radioShowTime {
-  //     flex: 1;
-  //     display: flex;
-  //     flex-direction: row;
-  //     align-items: center;
-  //     white-space: nowrap;
-  //   }
-  //   #radioShowName {
-  //     flex: 1;
-  //     white-space: nowrap;
-  //   }
-  // }
 
   #now-playing {
     display: flex;
@@ -165,151 +144,34 @@
 //==================================
 // <ScheduleBar />
 //==================================
-.schedule-bar {
+.schedule-bar.container {
   flex: 7;
   color: white;
   border-bottom: 0.125rem solid white;
   min-height: 3.5rem;
   padding-top: 0.25rem;
   transition: 1s ease-in-out;
+  // background-color: darkmagenta;
 
-  // &.is-live {
-  //   border-bottom: 0.125rem solid $primary;
-  //   animation: border-pulse 1s infinite, border-size-bounce 0.75s infinite;
-  //   -webkit-animation: border-pulse 1s infinite,
-  //     border-size-bounce 0.5s infinite;
-  // }
   &.is-open {
     height: auto;
   }
-  .columns {
-    // background-color: rgba($color: orange, $alpha: 0.5);
-    min-height: 4rem;
+  .columns:first-of-type {
+    margin: 0;
+    height: 100%;
   }
+}
+.columns.dropdown {
+  margin-top: 0.125rem;
+  min-height: 3.5rem;
+  background-color: rgba($color: black, $alpha: 0.85);
+  border: 2px solid white;
+  border-bottom-left-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
 }
 
 .upcoming {
   white-space: nowrap;
-}
-//==================================
-// <ScheduleModal /> -- obsoleted by new dropdown
-//==================================
-// #scroll-instructions {
-//   background-color: black;
-//   p {
-//     font-variant: small-caps;
-//   }
-// }
-
-// .modal-card {
-//   margin: 1.5rem 0 4rem;
-//   width: 90vw;
-//   max-height: calc(100vh - 7rem);
-//   background-color: darken($color: $primary, $amount: 40);
-//   border: 0.125rem solid white;
-
-//   header {
-//     padding: 0;
-//     margin: 0;
-//   }
-
-//   .modal-card-head {
-//     padding: 0;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: space-between;
-
-//     .schedule-header {
-//       background-color: black;
-//       width: 100%;
-//       padding: 0.25rem 0.25rem 0;
-//     }
-//   }
-
-//   section {
-//     margin: 0;
-//     padding: 0;
-//   }
-// }
-
-//==================================
-// <ScheduleDatePicker />
-//==================================
-.date-picker {
-  overflow-x: auto;
-}
-
-.day-of-week {
-  padding: 0.5rem;
-  background-color: darken($color: $primary, $amount: 20);
-
-  border-left: 0.125rem solid darken($color: $primary, $amount: 25);
-  border-right: 0.125rem solid darken($color: $primary, $amount: 25);
-
-  @include desktop {
-    &:first-child {
-      border-left: 0.25rem solid $primary;
-    }
-    &:last-child {
-      border-right: 0.25rem solid $primary;
-    }
-  }
-
-  &:hover {
-    background-color: darken($color: $primary, $amount: 30);
-  }
-  &.is-active {
-    background-color: $primary;
-    border-bottom: 0.25rem solid $primary;
-    border-left: 0.25rem solid transparent;
-    border-right: 0.25rem solid transparent;
-  }
-}
-//==================================
-// <ScheduleShowEntry />
-//==================================
-.show-entries {
-  background-color: rgba($color: black, $alpha: 0.9);
-  border-left: 0.125rem solid white;
-  border-right: 0.125rem solid white;
-  border-bottom: 0.125rem solid white;
-  border-bottom-left-radius: 0.75rem;
-  border-bottom-right-radius: 0.75rem;
-  overflow-y: auto;
-  max-height: calc(100vh - 15rem);
-
-  // // Make list of show entries a scrollable list of dynamic height if window height < 720px
-  // @include short-screen {
-  //   max-height: calc(100vh - 10.5rem - 15rem);
-  //   overflow-y: auto;
-  // }
-
-  .column {
-    &.today-date {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      padding: auto 12px;
-      border-bottom: 0.125rem solid white;
-    }
-
-    &.single-show-entry {
-      transition: 0.25s ease-in-out;
-
-      &:not(:last-child) {
-        border-bottom: 0.125rem solid white;
-      }
-
-      &:hover {
-        background-color: darken($color: $primary, $amount: 30);
-        &:last-child {
-          border-bottom-left-radius: 0.75rem;
-          border-bottom-right-radius: 0.75rem;
-        }
-      }
-    }
-  }
 }
 
 //==================================

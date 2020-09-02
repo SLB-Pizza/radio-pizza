@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
+import { DateSelectorButton, SingleScheduleEntryRow } from "../../components";
 import dayjs from "dayjs";
 import isBetween from "dayjs/plugin/isBetween";
 import utc from "dayjs/plugin/utc";
+dayjs.extend(isBetween);
+dayjs.extend(utc);
 
-import {
-  DateSelectorButton,
-  SingleScheduleEntryRow,
-  ScheduleShowEntry,
-  SelectedColumn,
-} from "../../components";
 import scheduleDummyData from "../../../__tests__/HMBK-schedule-page-query-test.json";
-import { result } from "lodash";
 
 /**
  * @category Pages
@@ -21,8 +17,6 @@ import { result } from "lodash";
  * @returns {jsx}
  */
 function ScheduleIndexPage({ data }) {
-  dayjs.extend(isBetween);
-  dayjs.extend(utc);
   const prismicContent = data.prismic.allSchedules.edges;
   if (!prismicContent) return null;
 
@@ -59,7 +53,6 @@ function ScheduleIndexPage({ data }) {
 
   useEffect(() => {
     const date = setInterval(() => {
-      // Set today's date
       setTodayDate(todayDate.add(5, "s"));
     }, 5000);
 
@@ -101,20 +94,22 @@ function ScheduleIndexPage({ data }) {
                 {/* <pre>{JSON.stringify(node, null, 2)}</pre> */}
               </div>
 
-              {schedule_entries.map((entry, index) => {
-                const { start_time, end_time, scheduled_show } = entry;
-                const formattedStart = formatScheduleTime(start_time);
-                const formattedEnd = formatScheduleTime(end_time);
+              <div className="column is-12">
+                {schedule_entries.map((entry, index) => {
+                  const { start_time, end_time, scheduled_show } = entry;
+                  const formattedStart = formatScheduleTime(start_time);
+                  const formattedEnd = formatScheduleTime(end_time);
 
-                return (
-                  <SingleScheduleEntryRow
-                    key={`show-entry-#${index}-${start_time}`}
-                    start={formattedStart}
-                    end={formattedEnd}
-                    show={scheduled_show}
-                  />
-                );
-              })}
+                  return (
+                    <SingleScheduleEntryRow
+                      key={`show-entry-#${index}-${start_time}`}
+                      start={formattedStart}
+                      end={formattedEnd}
+                      show={scheduled_show}
+                    />
+                  );
+                })}
+              </div>
             </div>
           );
         } else {
@@ -156,54 +151,3 @@ export const query = graphql`
     }
   }
 `;
-
-//   <div className="columns is-multiline is-vcentered is-mobile schedule-page-entries">
-//     <div className="column is-12 today-date">
-//       <p className="title is-size-4-desktop is-size-5-mobile has-text-centered">
-//         {dayjs(node.schedule_date).format("dddd, MMMM D")}
-//       </p>
-//       <pre>
-//         {JSON.stringify(getSevenDays(scheduleDummyData), null, 2)}
-//       </pre>
-//       {/* <pre>{JSON.stringify(allSchedulesData, null, 2)}</pre> */}
-//     </div>
-
-//     {sevenDaysData.map(({ node }, index) => (
-//       <div
-//         key={`show-#${index}-`}
-//         className="column is-12 single-show-entry"
-//       >
-//         <div className="columns is-mobile is-vcentered">
-//           <div className="column is-4">
-//             <p className="title is-size-6-tablet is-size-7-mobile has-text-centered">
-//               {/* {show.startTime} – {show.endTime} */}
-//             </p>
-//           </div>
-
-//           {node.hasOwnProperty("showName") ? (
-//             <div className="column is-8">
-//               <p className="title is-size-6-tablet is-size-7-mobile has-text-centered">
-//                 {/* {show.showName} */}
-//               </p>
-//               <p className="subtitle is-size-7 has-text-centered">
-//                 {/* {show.hostInfo.join(", ")} */}
-//               </p>
-//             </div>
-//           ) : (
-//             <div className="column is-8">
-//               <p className="subtitle is-size-6-tablet is-size-7-mobile has-text-centered">
-//                 {/* {show.hostInfo.join(", ")} */}
-//               </p>
-//             </div>
-//           )}
-//         </div>
-//       </div>
-//     ))}
-//   </div>
-
-// <SelectedColumn
-//   key={`#{index}-schedule-for-${node.schedule_date}`}
-//   columnId="schedule_date"
-//   layoutData={node}
-//   isSelected={isActive}
-// />;

@@ -6,6 +6,7 @@ import utc from "dayjs/plugin/utc";
 
 import {
   DateSelectorButton,
+  SingleScheduleEntryRow,
   ScheduleShowEntry,
   SelectedColumn,
 } from "../../components";
@@ -50,16 +51,6 @@ function ScheduleIndexPage({ data }) {
 
   const formatScheduleTime = (time) => dayjs(time).format("HH:MM");
 
-  const addDays = (day) => {
-    let daysArr = [];
-    let idsArr = [];
-
-    for (let i = 0; i <= 6; i++) {
-      daysArr.push(day.add(i, "d").format("ddd, MMM D"));
-      idsArr.push(day.add(i, "d").format("ddd"));
-    }
-  };
-
   function toggleColumn(e) {
     if (isActive !== e.currentTarget.id) {
       setIsActive(e.currentTarget.id);
@@ -70,10 +61,6 @@ function ScheduleIndexPage({ data }) {
     const date = setInterval(() => {
       // Set today's date
       setTodayDate(todayDate.add(5, "s"));
-
-      // Pass today's date into addDays and receive two arrays of day and id strings
-
-      addDays(todayDate);
     }, 5000);
 
     return () => {
@@ -96,7 +83,9 @@ function ScheduleIndexPage({ data }) {
       <DateSelectorButton date={todayDate} toggleColumn={toggleColumn} />
 
       {sevenDaysData.map(({ node }, index) => {
-        const dateID = dayjs(node.schedule_date).format("MM.DD");
+        const { schedule_date, schedule_entries } = node;
+
+        const dateID = dayjs(schedule_date).format("MM.DD");
 
         if (isActive === dateID) {
           return (
@@ -108,43 +97,24 @@ function ScheduleIndexPage({ data }) {
                 <p className="title is-size-4-desktop is-size-5-mobile has-text-centered">
                   {dayjs(node.schedule_date).format("dddd, MMMM D")}
                 </p>
-                <pre>
-                  {JSON.stringify(getSevenDays(scheduleDummyData), null, 2)}
-                </pre>
-                {/* <pre>{JSON.stringify(allSchedulesData, null, 2)}</pre> */}
+                {/* <pre>{JSON.stringify(getSevenDays(node), null, 2)} </pre>*/}
+                {/* <pre>{JSON.stringify(node, null, 2)}</pre> */}
               </div>
 
-              {sevenDaysData.map(({ node }, index) => (
-                <div
-                  key={`show-#${index}-`}
-                  className="column is-12 single-show-entry"
-                >
-                  <div className="columns is-mobile is-vcentered">
-                    <div className="column is-4">
-                      <p className="title is-size-6-tablet is-size-7-mobile has-text-centered">
-                        {/* {show.startTime} – {show.endTime} */}
-                      </p>
-                    </div>
+              {schedule_entries.map((entry, index) => {
+                const { start_time, end_time, scheduled_show } = entry;
+                const formattedStart = formatScheduleTime(start_time);
+                const formattedEnd = formatScheduleTime(end_time);
 
-                    {node.hasOwnProperty("showName") ? (
-                      <div className="column is-8">
-                        <p className="title is-size-6-tablet is-size-7-mobile has-text-centered">
-                          {/* {show.showName} */}
-                        </p>
-                        <p className="subtitle is-size-7 has-text-centered">
-                          {/* {show.hostInfo.join(", ")} */}
-                        </p>
-                      </div>
-                    ) : (
-                      <div className="column is-8">
-                        <p className="subtitle is-size-6-tablet is-size-7-mobile has-text-centered">
-                          {/* {show.hostInfo.join(", ")} */}
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              ))}
+                return (
+                  <SingleScheduleEntryRow
+                    key={`show-entry-#${index}-${start_time}`}
+                    start={formattedStart}
+                    end={formattedEnd}
+                    show={scheduled_show}
+                  />
+                );
+              })}
             </div>
           );
         } else {

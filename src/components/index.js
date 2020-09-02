@@ -14,7 +14,6 @@ export { default as HomeSingleNews } from "./HomeSingleNews";
 export { default as OutsideClick } from "./OutsideClick";
 export { default as RadioBar } from "./RadioBar";
 export { default as RadioPlayer } from "./RadioPlayer";
-export { default as SelectedColumn } from "./SelectedColumn";
 export { default as SearchColumns } from "./SearchColumns";
 export { default as StickyFeature } from "./StickyFeature";
 export { default as SearchDropdown } from "./SearchDropdown";

@@ -15,18 +15,18 @@ function ImageRow({ slice }) {
       <div className="columns is-mobile is-multiline">
         {slice.fields.map((singleImage, index) => {
           const fullSizeImg = {
-            alt: singleImage.group_img.alt,
-            photoCredit: singleImage.group_img.copyright,
-            url: singleImage.group_img.url,
-            dimensions: singleImage.group_img.dimensions,
+            alt: singleImage.row_image.alt,
+            photoCredit: singleImage.row_image.copyright,
+            url: singleImage.row_image.url,
+            dimensions: singleImage.row_image.dimensions,
           };
 
           const responsiveSizes = {
-            widescreen: singleImage.group_img.widescreen,
-            desktop: singleImage.group_img.desktop,
-            tablet: singleImage.group_img.tablet,
-            mobile: singleImage.group_img.mobile,
-            lo_fi: singleImage.group_img.lo_fi_placeholder,
+            widescreen: singleImage.row_image.widescreen,
+            desktop: singleImage.row_image.desktop,
+            tablet: singleImage.row_image.tablet,
+            mobile: singleImage.row_image.mobile,
+            lo_fi: singleImage.row_image.lo_fi_placeholder,
           };
 
           return (

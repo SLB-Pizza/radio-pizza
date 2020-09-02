@@ -22,7 +22,6 @@ export { default as SearchResults } from "./SearchResults";
 export { default as DateSelectorButton } from "./DateSelectorButton";
 export { default as ScheduleBar } from "./ScheduleBar";
 export { default as ScheduleDropdown } from "./ScheduleDropdown";
-export { default as ScheduleShowEntry } from "./ScheduleShowEntry";
 export { default as SingleScheduleEntryRow } from "./SingleScheduleEntryRow";
 export { default as SliceZone } from "./SliceZone";
 export { default as SingleEventCard } from "./SingleEventCard";

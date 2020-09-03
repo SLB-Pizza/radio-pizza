@@ -19,7 +19,7 @@ function DateSelectorButton({ date, toggleColumn }) {
   const daysToAdd = [0, 1, 2, 3, 4, 5, 6];
 
   return (
-    <div className="columns is-vcentered is-mobile mobile-date-selector">
+    <div className="columns is-vcentered is-mobile date-selector">
       {daysToAdd.map((number, index) => (
         <div
           key={`date-#${index}-${date.add(number, "day").format("MM.DD")}`}

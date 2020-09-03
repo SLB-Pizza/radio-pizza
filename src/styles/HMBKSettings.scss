@@ -104,17 +104,6 @@ p,
 
 button {
   transition: 0.25s ease-in-out;
-  &.date-selector {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 3.5rem;
-    span {
-      flex: 1;
-      padding: 0;
-      margin: 0;
-    }
-  }
 }
 
 .icon-color {
@@ -123,11 +112,6 @@ button {
   &:hover {
     color: $primary;
   }
-}
-
-input::placeholder {
-  /* Most modern browsers support this now. */
-  color: white;
 }
 
 .text-truncate {

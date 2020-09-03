@@ -1,13 +1,16 @@
-.mobile-date-selector {
-  overflow-x: auto;
-}
-
 .schedule-page-entries {
   margin-top: 1rem;
   margin-bottom: 3rem;
   border: 0.125rem solid white;
   border-radius: 0.75rem;
 }
+
+.date-selector {
+  @include mobile {
+    overflow-x: auto;
+  }
+}
+
 .single-show-entry {
   border-top: 0.125rem solid white;
   min-height: 5rem;

@@ -1,15 +1,60 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "gatsby";
-import { SingleScheduleEntryRow } from "../components";
+import {
+  ApolloClient,
+  InMemoryCache,
+  makeVar,
+  gql,
+  useQuery,
+} from "@apollo/client";
+import { PrismicLink } from "apollo-link-prismic";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 dayjs.extend(utc);
 
+import { SingleScheduleEntryRow } from "../components";
 import dummySchedule from "../../__tests__/HMBK-schedule-page-query-test.json";
 
 // See ScheduleShowEntry for details on these
 function ScheduleDropdown({ setOpen, open, toggleSchedule }) {
   const [todayDate, setTodayDate] = useState(dayjs());
+
+  const client = new ApolloClient({
+    link: PrismicLink({
+      uri: "https://hmbk-cms.prismic.io/graphql",
+    }),
+    cache: new InMemoryCache(),
+  });
+
+  const TODAYS_SCHEDULE = gql`
+    query AllSchedulesData {
+      allSchedules(sortBy: schedule_date_ASC) {
+        edges {
+          node {
+            schedule_date
+            schedule_entries {
+              start_time
+              end_time
+              scheduled_show {
+                _linkType
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  useEffect(() => {
+    client
+      .query({
+        query: TODAYS_SCHEDULE,
+      })
+      .then((result) => console.log("edges", result.data.allSchedules.edges))
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
   useEffect(() => {
     const date = setInterval(() => {

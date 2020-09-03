@@ -1,17 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import dayjs from "dayjs";
 import { Link } from "gatsby";
 import Ticker from "react-ticker";
-
+import { formatDateTime } from "../utils";
 import { RadioPlayer } from "./index";
 import {
   GlobalDispatchContext,
   GlobalStateContext,
 } from "../context/GlobalContextProvider";
-
+import dayjs from "dayjs";
 const utc = require("dayjs/plugin/utc");
 dayjs.extend(utc);
+
 // import PageVisibility from "react-page-visibility";
 
 function RadioBar() {
@@ -109,9 +109,11 @@ function RadioBar() {
         <RadioPlayer status={radioData.status} />
 
         <div className="column is-narrow is-hidden-mobile">
-          <p className="display-text is-size-6">{laTime.format("HH:mm")} LA</p>
           <p className="display-text is-size-6">
-            {nycTime.format("HH:mm")} NYC
+            {formatDateTime(laTime, "hour-minute")} LA
+          </p>
+          <p className="display-text is-size-6">
+            {formatDateTime(nycTime, "hour-minute")} NYC
           </p>
         </div>
       </div>

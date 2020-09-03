@@ -1,3 +1,4 @@
+import { formatDateTime } from "../utils";
 import dayjs from "dayjs";
 const utc = require("dayjs/plugin/utc");
 dayjs.extend(utc);
@@ -33,8 +34,8 @@ export default function processPublicationDates(firstPubDate, lastPubDate) {
    * If the feature has NOT been update, format pubDate to show just the date of publication e.g. August 2, 2020
    */
   dateDetails.pubDate = updated
-    ? dayjs(lastPubDate).format("MM.DD.YYYY – HH:mm")
-    : dayjs(firstPubDate).format("MM.DD.YYYY");
+    ? formatDateTime(lastPubDate, "updated-publication")
+    : formatDateTime(firstPubDate, "first-publication");
 
   return dateDetails;
 }

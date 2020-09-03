@@ -8,6 +8,7 @@ export { default as getResidentLinks } from "./getResidentLinks";
 export { default as getResidentString } from "./getResidentString";
 export { default as linkResolver } from "./linkResolver";
 export { default as processPublicationDates } from "./processPublicationDates";
+export { default as formatDateTime } from "./formatDateTime";
 
 /**
  * Utility Function - Layout Helpers

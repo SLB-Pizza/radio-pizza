@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
 import { DateSelectorButton, SingleScheduleEntryRow } from "../../components";
+import { formatDateTime } from "../../utils";
 import dayjs from "dayjs";
 import isBetween from "dayjs/plugin/isBetween";
 import utc from "dayjs/plugin/utc";
@@ -13,7 +14,7 @@ import scheduleDummyData from "../../../__tests__/HMBK-schedule-page-query-test.
  * @category Pages
  * @subcategory Indexes
  * @function ScheduleIndexPage
- * @param {object} data - the data object coming from Prismic CMS that contains all data needed to display all mixes on `/schedule`
+ * @param {Object} data - the data object coming from Prismic CMS that contains all data needed to display all mixes on `/schedule`
  * @returns {jsx}
  */
 function ScheduleIndexPage({ data }) {
@@ -28,22 +29,20 @@ function ScheduleIndexPage({ data }) {
   const [todayDate, setTodayDate] = useState(
     dayjs(new Date().toLocaleString("en-US", { timeZone: "America/New_York" }))
   );
-  const [isActive, setIsActive] = useState(dayjs(todayDate).format("MM.DD"));
+  const [isActive, setIsActive] = useState(
+    formatDateTime(todayDate, "month-day")
+  );
 
   const getSevenDays = (arr) => {
-    const firstDay = dayjs().format("YYYY-MM-DD");
-    const lastDay = dayjs(firstDay)
-      .add(6, "day")
-      .format("YYYY-MM-DD");
+    const today = dayjs(todayDate);
+    const sixDaysFromToday = today.add(6, "day");
 
     const sevenDaysArray = arr.filter(({ node }) =>
-      dayjs(node.schedule_date).isBetween(firstDay, lastDay, "day", [])
+      dayjs(node.schedule_date).isBetween(today, sixDaysFromToday, "day", [])
     );
 
     return sevenDaysArray;
   };
-
-  const formatScheduleTime = (time) => dayjs(time).format("HH:MM");
 
   function toggleColumn(e) {
     if (isActive !== e.currentTarget.id) {
@@ -51,15 +50,19 @@ function ScheduleIndexPage({ data }) {
     }
   }
 
+  /**
+   * Update today's date every fifteen seconds.
+   * @function
+   */
   useEffect(() => {
     const date = setInterval(() => {
-      setTodayDate(todayDate.add(5, "s"));
-    }, 5000);
+      setTodayDate(todayDate.add(15, "s"));
+    }, 15000);
 
     return () => {
       clearInterval(date);
     };
-  }, []);
+  }, [todayDate]);
 
   const sevenDaysData = getSevenDays(scheduleDummyData);
   return (
@@ -78,7 +81,11 @@ function ScheduleIndexPage({ data }) {
       {sevenDaysData.map(({ node }, index) => {
         const { schedule_date, schedule_entries } = node;
 
-        const dateID = dayjs(schedule_date).format("MM.DD");
+        const dateID = formatDateTime(schedule_date, "month-day");
+        const scheduleDateHeading = formatDateTime(
+          schedule_date,
+          "schedule-date-heading"
+        );
 
         if (isActive === dateID) {
           return (
@@ -88,7 +95,7 @@ function ScheduleIndexPage({ data }) {
             >
               <div className="column is-12 today-date">
                 <p className="title is-size-4-desktop is-size-5-mobile has-text-centered">
-                  {dayjs(node.schedule_date).format("dddd, MMMM D")}
+                  {scheduleDateHeading}
                 </p>
                 {/* <pre>{JSON.stringify(getSevenDays(node), null, 2)} </pre>*/}
                 {/* <pre>{JSON.stringify(node, null, 2)}</pre> */}
@@ -97,8 +104,11 @@ function ScheduleIndexPage({ data }) {
               <div className="column is-12">
                 {schedule_entries.map((entry, index) => {
                   const { start_time, end_time, scheduled_show } = entry;
-                  const formattedStart = formatScheduleTime(start_time);
-                  const formattedEnd = formatScheduleTime(end_time);
+                  const formattedStart = formatDateTime(
+                    start_time,
+                    "hour-minute"
+                  );
+                  const formattedEnd = formatDateTime(end_time, "hour-minute");
 
                   return (
                     <SingleScheduleEntryRow

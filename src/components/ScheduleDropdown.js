@@ -7,6 +7,7 @@ import {
   gql,
   useQuery,
 } from "@apollo/client";
+import { formatDateTime } from "../utils";
 import { PrismicLink } from "apollo-link-prismic";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
@@ -66,6 +67,8 @@ function ScheduleDropdown({ setOpen, open, toggleSchedule }) {
     };
   });
 
+  const todaysDate = formatDateTime(todayDate, "schedule-date-heading");
+
   return (
     <div className="columns is-multiline is-vcentered is-mobile dropdown">
       {/*
@@ -74,9 +77,7 @@ function ScheduleDropdown({ setOpen, open, toggleSchedule }) {
       - Doesn't show on /schedule
       */}
       <div className="column">
-        <p className="display-text is-size-6 has-text-centered">
-          {todayDate.format("dddd, MMMM D")}
-        </p>
+        <p className="display-text is-size-6 has-text-centered">{todaysDate}</p>
       </div>
 
       <div className="column is-narrow">

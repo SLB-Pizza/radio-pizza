@@ -94,6 +94,7 @@ function ScheduleBar() {
                         size="1x"
                         className="live-light"
                       />
+                      Listening
                     </span>
                   </>
                 ) : (

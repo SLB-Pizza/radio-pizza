@@ -79,17 +79,8 @@ $dt-spacing: 1%;
 //==================================
 // GLOBAL STYLES
 //==================================
-
-//top: 8.25rem with container
-//bottom: 3.75rem with container
 .site-page {
-  padding-top: 7.5rem;
-  padding-bottom: 3.75rem;
-  min-height: 100vh;
-}
-
-.feature-page {
-  padding-top: 8rem;
+  padding-top: 6.625rem;
   padding-bottom: 3.75rem;
   min-height: 100vh;
 }
@@ -99,8 +90,7 @@ button.button,
 .display-text,
 .navbar-item,
 .tag {
-  font-family: "Aldrich", sans-serif;
-  font-kerning: normal;
+  font-family: "Poppins", sans-serif;
   font-display: swap;
   font-weight: 700;
 }
@@ -369,31 +359,3 @@ figcaption {
     align-content: flex-end;
   }
 }
-
-// .columns.mobile-home-content {
-//   // background-color: darkslategray;
-//   .column:not(:last-child) {
-//     border: 1px dashed darksalmon;
-//     // max-height: 3.5rem;
-//     p.subtitle {
-//       padding-top: 0;
-//     }
-//   }
-// }
-
-// .btn-tags figure {
-//   background-color: $dt-base;
-//   img {
-//     filter: grayscale(100%) contrast(1) blur(0px);
-//     mix-blend-mode: $dt-bg-blend;
-//     opacity: $dt-opacity;
-//     object-fit: cover;
-//   }
-
-//   &::before {
-//     background-color: $dt-foreground;
-//     content: "";
-//     mix-blend-mode: $dt-fg-blend;
-//     z-index: 1000;
-//   }
-// }

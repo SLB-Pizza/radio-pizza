@@ -1,6 +1,6 @@
-import React, { useState, useContext, useEffect, useRef } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "gatsby";
-
+import { makeVar, gql, useQuery } from "@apollo/client";
 import {
   faSearch,
   faComments,
@@ -24,6 +24,45 @@ function ScheduleBar() {
 
   const [open, setOpen] = useState(false);
   const [pageIsVisible, setPageIsVisible] = useState(true);
+
+  const TODAYS_SCHEDULE = gql`
+    query AllSchedulesData {
+      allSchedules(sortBy: schedule_date_ASC) {
+        edges {
+          node {
+            schedule_date
+            schedule_entries {
+              start_time
+              end_time
+              scheduled_show {
+                _linkType
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const { loading, error, data } = useQuery(TODAYS_SCHEDULE);
+
+  if (loading) {
+    return "Querying data...";
+  }
+  if (error) {
+    return `Error ${error.message}`;
+  }
+
+  // useEffect(() => {
+  //   client
+  //     .query({
+  //       query: TODAYS_SCHEDULE,
+  //     })
+  //     .then((result) => console.log("edges", result.data.allSchedules.edges))
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // }, []);
 
   const toggleSchedule = async () => {
     await dispatch({ type: "TOGGLE_SCHEDULE" });

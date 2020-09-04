@@ -1,9 +1,29 @@
-import React, { useContext } from "react";
-import { RadioBar, ScheduleBar } from "./index";
+import React, { useState, useEffect, useContext } from "react";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
+dayjs.extend(utc);
+dayjs.extend(timezone);
+
 import { GlobalStateContext } from "../context/GlobalContextProvider";
+import { RadioBar, ScheduleBar } from "./index";
 
 function TopNav() {
   const globalState = useContext(GlobalStateContext);
+
+  const [nycTime, setNYCTime] = useState(dayjs().tz("America/New_York"));
+  const [laTime, setLATime] = useState(dayjs().tz("America/Los_Angeles"));
+
+  useEffect(() => {
+    const clock = setInterval(() => {
+      setNYCTime(nycTime.add(1, "s"));
+      setLATime(laTime.add(1, "s"));
+    }, 1000);
+
+    return () => {
+      clearInterval(clock);
+    };
+  });
 
   return (
     <div
@@ -13,7 +33,7 @@ function TopNav() {
           : "radio-and-schedule-bar"
       }
     >
-      <RadioBar />
+      <RadioBar nycTime={nycTime} laTime={laTime} />
       <ScheduleBar />
     </div>
   );

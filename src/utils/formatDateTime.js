@@ -19,7 +19,7 @@ const formatDateTime = (time, format, number) => {
     case "month-day":
       return dayjs(time).format("MM.DD");
     case "hour-minute":
-      return dayjs(time).format("HH:mm");
+      return dayjs(time).format("HH:mm:ss");
     case "year-month-day":
       return dayjs(time).format("YYYY.MM.DD");
     case "add-days":

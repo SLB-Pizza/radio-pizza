@@ -20,43 +20,6 @@ import dummySchedule from "../../__tests__/HMBK-schedule-page-query-test.json";
 function ScheduleDropdown({ setOpen, open, toggleSchedule }) {
   const [todayDate, setTodayDate] = useState(dayjs());
 
-  const client = new ApolloClient({
-    link: PrismicLink({
-      uri: "https://hmbk-cms.prismic.io/graphql",
-    }),
-    cache: new InMemoryCache(),
-  });
-
-  const TODAYS_SCHEDULE = gql`
-    query AllSchedulesData {
-      allSchedules(sortBy: schedule_date_ASC) {
-        edges {
-          node {
-            schedule_date
-            schedule_entries {
-              start_time
-              end_time
-              scheduled_show {
-                _linkType
-              }
-            }
-          }
-        }
-      }
-    }
-  `;
-
-  useEffect(() => {
-    client
-      .query({
-        query: TODAYS_SCHEDULE,
-      })
-      .then((result) => console.log("edges", result.data.allSchedules.edges))
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
-
   useEffect(() => {
     const date = setInterval(() => {
       setTodayDate(todayDate.add(1, "s"));
@@ -71,11 +34,6 @@ function ScheduleDropdown({ setOpen, open, toggleSchedule }) {
 
   return (
     <div className="columns is-multiline is-vcentered is-mobile dropdown">
-      {/*
-      ScheduleDropdown sets and passes this as a prop down
-      - Since this is reused on the site, toggle placement of linkeE
-      - Doesn't show on /schedule
-      */}
       <div className="column">
         <p className="display-text is-size-6 has-text-centered">{todaysDate}</p>
       </div>

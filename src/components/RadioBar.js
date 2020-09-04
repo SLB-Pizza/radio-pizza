@@ -14,33 +14,12 @@ dayjs.extend(utc);
 
 // import PageVisibility from "react-page-visibility";
 
-function RadioBar() {
+function RadioBar({ nycTime, laTime }) {
   const dispatch = useContext(GlobalDispatchContext);
   const globalState = useContext(GlobalStateContext);
 
   const [radioData, setRadioData] = useState({});
   const [pageIsVisible, setPageIsVisible] = useState(true);
-  const [localTime, setLocalTime] = useState(dayjs());
-  const [nycTime, setNycTime] = useState(
-    dayjs(new Date().toLocaleString("en-US", { timeZone: "America/New_York" }))
-  );
-  const [laTime, setLaTime] = useState(
-    dayjs(
-      new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles" })
-    )
-  );
-
-  useEffect(() => {
-    const clock = setInterval(() => {
-      setLocalTime(localTime.add(1, "s"));
-      setNycTime(nycTime.add(1, "s"));
-      setLaTime(laTime.add(1, "s"));
-    }, 1000);
-
-    return () => {
-      clearInterval(clock);
-    };
-  });
 
   // const handleVisibilityChange = (isVisible) => {
   //   setPageIsVisible(isVisible);

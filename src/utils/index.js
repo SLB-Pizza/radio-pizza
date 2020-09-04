@@ -17,4 +17,4 @@ export { default as ImageModal } from "./ImageModal";
 export { default as ResponsiveImage } from "./ResponsiveImage";
 export { default as playAudioButton } from "./playAudioButton";
 export { default as ResidentSocialLinks } from "./ResidentSocialLinks";
-export { default as slideGenerator } from "./slideGenerator";
+export { default as SlideGenerator } from "./SlideGenerator";

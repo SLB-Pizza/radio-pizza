@@ -1,13 +1,13 @@
 import React from "react";
 import Slider from "@farbenmeer/react-spring-slider";
-import slideGenerator from "../utils/slideGenerator";
+import SlideGenerator from "../utils/SlideGenerator";
 
 /**
  * @category Site Elements
  * @subcategory Layout Section
  * @function HeroCarousel
  * @param {Object[]} slides - An array containing data objects from the HomePage query to process and display as slides
- * @returns {jsx} the complete Slider element with slides created by {@link slideGenerator}
+ * @returns {jsx} the complete Slider element with slides created by {@link SlideGenerator}
  */
 function HeroCarousel({ slides }) {
   /**
@@ -39,7 +39,19 @@ function HeroCarousel({ slides }) {
         hasBullets
         bulletStyle={heroBullets}
       >
-        {slideGenerator(slides)}
+        {slides.map((slide, index) => {
+          const { slide_link, slide_bg, slide_headline, slide_cta } = slide;
+
+          return (
+            <SlideGenerator
+              key={`hero-slide-#${index}`}
+              background={slide_bg}
+              headline={slide_headline}
+              link={slide_link}
+              cta={slide_cta}
+            />
+          );
+        })}
       </Slider>
     </div>
   );

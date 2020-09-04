@@ -71,7 +71,7 @@ export const query = graphql`
             home_events_headline
             home_events_blurb
             homepage_carousel {
-              slide_bg_url
+              slide_bg
               slide_cta
               slide_headline
               slide_link {

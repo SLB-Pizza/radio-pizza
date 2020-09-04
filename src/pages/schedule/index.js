@@ -149,6 +149,10 @@ export const query = graphql`
                     mix_resident {
                       ... on PRISMIC_Resident {
                         resident_name
+                        _meta {
+                          uid
+                          type
+                        }
                       }
                     }
                   }

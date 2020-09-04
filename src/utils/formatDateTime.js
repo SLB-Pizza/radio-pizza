@@ -19,7 +19,9 @@ const formatDateTime = (time, format, number) => {
     case "month-day":
       return dayjs(time).format("MM.DD");
     case "hour-minute":
-      return dayjs(time).format("HH:mm:ss");
+      return dayjs(time).format("HH:mm");
+    case "prismic-date-query":
+      return dayjs(time).format("YYYY-MM-DD");
     case "year-month-day":
       return dayjs(time).format("YYYY.MM.DD");
     case "add-days":

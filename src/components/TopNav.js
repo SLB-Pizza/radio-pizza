@@ -34,7 +34,7 @@ function TopNav() {
       }
     >
       <RadioBar nycTime={nycTime} laTime={laTime} />
-      <ScheduleBar />
+      <ScheduleBar timeNow={nycTime} />
     </div>
   );
 }

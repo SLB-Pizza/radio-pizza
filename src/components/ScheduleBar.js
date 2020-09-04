@@ -17,25 +17,45 @@ import {
   GlobalStateContext,
 } from "../context/GlobalContextProvider";
 import { ScheduleDropdown, OutsideClick } from "./index";
+import { formatDateTime } from "../utils";
 
-function ScheduleBar() {
+function ScheduleBar({ timeNow }) {
   const dispatch = useContext(GlobalDispatchContext);
   const globalState = useContext(GlobalStateContext);
 
   const [open, setOpen] = useState(false);
   const [pageIsVisible, setPageIsVisible] = useState(true);
 
+  const today = formatDateTime(timeNow, "prismic-date-query");
+
+  /**
+   * Query for Prismic
+   */
   const TODAYS_SCHEDULE = gql`
-    query AllSchedulesData {
-      allSchedules(sortBy: schedule_date_ASC) {
+    query TodaysSchedule($date: Date!) {
+      allSchedules(where: { schedule_date_after: $date }) {
         edges {
           node {
             schedule_date
             schedule_entries {
-              start_time
               end_time
+              start_time
               scheduled_show {
-                _linkType
+                ... on Mix {
+                  mix_image
+                  mix_title
+                  featured_residents {
+                    mix_resident {
+                      ... on Resident {
+                        resident_name
+                        _meta {
+                          uid
+                          type
+                        }
+                      }
+                    }
+                  }
+                }
               }
             }
           }
@@ -44,7 +64,13 @@ function ScheduleBar() {
     }
   `;
 
-  const { loading, error, data } = useQuery(TODAYS_SCHEDULE);
+  const { loading, error, data, refetch, networkStatus } = useQuery(
+    TODAYS_SCHEDULE,
+    {
+      variables: { date: today },
+      notifyOnNetworkStatusChange: true,
+    }
+  );
 
   if (loading) {
     return "Querying data...";
@@ -52,17 +78,6 @@ function ScheduleBar() {
   if (error) {
     return `Error ${error.message}`;
   }
-
-  // useEffect(() => {
-  //   client
-  //     .query({
-  //       query: TODAYS_SCHEDULE,
-  //     })
-  //     .then((result) => console.log("edges", result.data.allSchedules.edges))
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // }, []);
 
   const toggleSchedule = async () => {
     await dispatch({ type: "TOGGLE_SCHEDULE" });
@@ -157,7 +172,8 @@ function ScheduleBar() {
           </div>
           <div className="column upcoming is-hidden-mobile">
             <p className="display-text is-size-6-desktop is-size-7-touch">
-              globalState.live: {showLiveStatus()}{" "}
+              Data Length:{" "}
+              {data && JSON.stringify(data.allSchedules.edges.length)}
             </p>
           </div>
           <div className="column upcoming is-hidden-tablet">
@@ -260,7 +276,8 @@ function ScheduleBar() {
         </div>
         <div className="column upcoming is-hidden-mobile">
           <p className="display-text is-size-6-desktop is-size-7-touch">
-            globalState.live: {showLiveStatus()}
+            Number of Show Objects:{" "}
+            {data && JSON.stringify(data.allSchedules.edges.length)}
           </p>
         </div>
         <div className="column upcoming is-hidden-tablet">

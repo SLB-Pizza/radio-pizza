@@ -1,5 +1,5 @@
 /**
- * Returns a `/path/to/page` for use by gatsby's `Link` or `navigate` (see {@link slideGenerator}) based on the incoming link type.
+ * Returns a `/path/to/page` for use by gatsby's `Link` or `navigate` (see {@link SlideGenerator}) based on the incoming link type.
  * @category Utilities
  * @subcategory Data Processing
  * @function linkResolver

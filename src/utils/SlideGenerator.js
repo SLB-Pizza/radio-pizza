@@ -5,8 +5,7 @@ import { RichText } from "prismic-reactjs";
 /**
  * @category Site Elements
  * @subcategory Layout Helper
- * @component
-
+ * @function
  * @param {Object} background - Object containing the image's URL and alt data
  * @param {String} background.url - The URL from Prismic of that slide's background image. This can be a relative local path (e.g. "/static/something-local.jpg") or an external image link (e.g. "https://source.unsplash.com/1920x1080/daily?music"). Both work.
  * @param {String} headline - Short string announcing that slide's content

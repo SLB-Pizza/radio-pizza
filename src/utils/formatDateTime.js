@@ -11,7 +11,7 @@ dayjs.extend(utc);
  * @param {String} format - dictates how to format the incoming time
  * @param {?Number} number - optional number to use when adding to the time param
  * @returns {String}
- * @see {@link https://day.js.org/docs/en/display/format | dayjs docs - format}
+ * @see {@link https://day.js.org/docs/en/display/format|dayjs docs - format}
  */
 
 const formatDateTime = (time, format, number) => {

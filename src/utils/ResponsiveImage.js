@@ -1,10 +1,10 @@
 import React from "react";
 import lazySizes from "lazysizes";
 import "lazysizes/plugins/attrchange/ls.attrchange";
-// import "lazysizes/plugins/blur-up/ls.blur-up";
+import "lazysizes/plugins/blur-up/ls.blur-up";
 
 /**
- * Creates a JSX `picture` element with responsive sources that {@link ImageHelper} calls upon.
+ * Creates a JSX `<picture>` element with responsive sources that {@link ImageHelper} calls upon.
  * @category CMS
  * @subcategory Layout Helper
  * @component
@@ -16,8 +16,8 @@ import "lazysizes/plugins/attrchange/ls.attrchange";
  * @property {String} responsiveData.mobile - data object to make the image for bulma "mobile" breakpoint
  * @property {String} responsiveData.lo_fi - data object to make the low quality image placeholder (LQIP)
  * @see {@link https://bulma.io/documentation/overview/responsiveness/#breakpoints|Bulma Breakpoints}
- * @see {@link https://afarkas.github.io/lazysizes/index.html|lazySizes & LQIP }
- * @see {@link https://github.com/aFarkas/lazysizes/tree/gh-pages/plugins/parent-fit|lazySizes parent fit extension }
+ * @see {@link https://afarkas.github.io/lazysizes/index.html|lazySizes & LQIP}
+ * @see {@link https://github.com/aFarkas/lazysizes/tree/gh-pages/plugins/parent-fit|lazySizes parent fit extension}
  * @returns {jsx}
  */
 function ResponsiveImage({ largestImg, responsiveData }) {

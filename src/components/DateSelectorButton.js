@@ -5,7 +5,7 @@ import { formatDateTime } from "../utils";
  * Function that creates styled date selector buttons using today's date and /schedule's toggleColumn function
  * @category Site Elements
  * @subcategory Layout Helper
- * @component
+ * @function
  * @function DateSelectorButton
  * @param {Object} props - from {@link ScheduleIndexPage}
  * @prop {String} date - today's date as dayjs object

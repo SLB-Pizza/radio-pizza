@@ -5,7 +5,7 @@ import { ResponsiveImage } from "./index";
  * Creates an Image Modal; called by {@link ImageHelper}.
  * @category CMS
  * @subcategory Layout Helper
- * @component
+ * @function
  * @param {?String} columnClassName - optional string prop dictating specific column layouts.
  *
  * **CMS Slices passing this prop**

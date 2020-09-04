@@ -4,7 +4,7 @@ import { getResidentLinks } from "../utils";
 /**
  * @category Site Elements
  * @subcategory Layout Helper
- * @component
+ * @function
  * @param {Object} props
  * @returns {jsx}
  */

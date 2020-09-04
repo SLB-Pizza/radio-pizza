@@ -19,7 +19,6 @@
 export default function getBlockquoteStyling(type, bgIMG) {
   /**
    * Contains the data needed to style the {@link Blockquote} properly.
-   * @namespace {Object} styling
    * @property {?Object} styling.imgStyle - the style object to inject the url from bgIMG into the main Blockquote `<section>` element, if the type calls for it. It defaults to `null` so that no inline object is passed to the inline call in the return. Doing so sets the default to no background image; black page background, the "none" blockquote type.
    * @property {string} styling.blockClassNames - the string used as the className for the `<blockquote>` element in Blockquote.js
    * @property {string} styling.citeClassNames - the string used as the className for the `<cite>` element in Blockquote.js

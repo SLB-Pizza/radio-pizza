@@ -7,7 +7,7 @@ import { GlobalDispatchContext } from "../context/GlobalContextProvider";
  * Creates a clickable play button that sends the selected mix to {@link RadioPlayer}
  * @category Site Elements
  * @subcategory Layout Helper
- * @component
+ * @function
  * @function playAudioButton
  * @param {string} mixUrl - URL of the mix to play
  * @param {string} mixTitle - title of the mix to play; shown in TopNav

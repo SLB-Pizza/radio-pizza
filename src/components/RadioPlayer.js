@@ -14,7 +14,7 @@ import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
 /**
  * @category Site Elements
  * @subcategory Layout Helper
- * @component
+ * @function
  * @param {Object} props
  * @returns {jsx}
  */

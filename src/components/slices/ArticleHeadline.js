@@ -1,13 +1,12 @@
 import React from "react";
 import { RichText } from "prismic-reactjs";
-import processPublicationDates from "../../utils/processPublicationDates";
+import { processPublicationDates } from "../../utils";
 
 /**
  * @category CMS
  * @subcategory Slices
- * @component
  * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create the HeadlineBlock slice
- * @param {Object} metadata - data object from Prismic CMS that contains
+ * @param {Object} metadata - data object from Prismic CMS that contains the date publication for the HeadlineBlock slice
  * @returns {jsx}
  */
 function ArticleHeadline({ slice, metadata }) {

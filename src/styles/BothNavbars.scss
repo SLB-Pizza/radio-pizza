@@ -149,25 +149,24 @@
   color: white;
   border-bottom: 0.125rem solid white;
   height: 2.5rem;
-  padding-top: 0.25rem;
   transition: 1s ease;
-
   &.is-open {
-    height: auto;
+    // 2.5rem height + .125rem bottom border
+    max-height: 2.625rem;
   }
 
   .up-next {
-    margin: -0.25rem 0 0;
+    margin: 0;
     height: 2.5rem;
   }
-}
-.columns.dropdown {
-  margin-top: 0;
-  min-height: 3.5rem;
-  background-color: rgba($color: black, $alpha: 0.85);
-  border: 2px solid white;
-  border-bottom-left-radius: 0.75rem;
-  border-bottom-right-radius: 0.75rem;
+  .columns.dropdown {
+    margin-top: 0;
+    min-height: 3.5rem;
+    background-color: rgba($color: black, $alpha: 0.75);
+    border: 2px solid white;
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+  }
 }
 
 .upcoming {

@@ -418,7 +418,7 @@ const dateString = () => {
           )
         );
         await page.screenshot({
-          path: `__tests__/screenshots/${pageName} ${pageVersion} | ${device.name} | ${time}.jpeg`,
+          path: `__test__/screenshots/${pageName} ${pageVersion} | ${device.name} | ${time}.jpeg`,
           fullPage: fullPageCapture,
           type: "jpeg",
           quality: 75,

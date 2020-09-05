@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { SelectedColumn, SingleResident } from "../../components";
 
-// Dummy data in __tests__ folder
-import dummyArtists from "../../../__tests__/dummyArtists.json";
+// Dummy data in __test__ folder
+import dummyArtists from "../../../__test__/dummyArtists.json";
 
 /**
  * TO REMOVE IN THIS FILE FOR SHIPMENT

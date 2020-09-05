@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faTag } from "@fortawesome/free-solid-svg-icons";
 import { SingleMixCard } from "../../components";
 
-// Dummy data in __tests__ folder
-import hmbkMixesResidents from "../../../__tests__/HMBK-mixes-with-residents.json";
+// Dummy data in __test__ folder
+import hmbkMixesResidents from "../../../__test__/HMBK-mixes-with-residents.json";
 
 const dummyOptions = [
   "Argentina",

@@ -2,7 +2,7 @@ import React from "react";
 
 import { SingleEventCard } from "../../components";
 
-import dummyEvents from "../../../__tests__/dummyEvents.json";
+import dummyEvents from "../../../__test__/dummyEvents.json";
 function EventsIndexPage() {
   const eventPageLayout =
     "column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen";

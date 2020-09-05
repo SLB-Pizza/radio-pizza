@@ -1,8 +1,8 @@
 import React from "react";
 import { HMBKDivider, SingleMixCard } from "../../components";
 
-// Dummy data in __tests__ folder
-import hmbkMixesResidents from "../../../__tests__/HMBK-mixes-with-residents.json";
+// Dummy data in __test__ folder
+import hmbkMixesResidents from "../../../__test__/HMBK-mixes-with-residents.json";
 
 function StickyBioIndexPage() {
   /**

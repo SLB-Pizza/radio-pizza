@@ -161,7 +161,10 @@
   }
   .columns.dropdown {
     margin-top: 0;
+    padding-bottom: 2rem;
     min-height: 3.5rem;
+    max-height: calc(100vh - 15rem);
+    overflow-y: scroll;
     background-color: rgba($color: black, $alpha: 0.75);
     border: 2px solid white;
     border-bottom-left-radius: 0.75rem;

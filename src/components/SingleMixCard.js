@@ -25,10 +25,11 @@ function SingleMixCard({
   img,
   tags,
   columnLayout,
+  path,
 }) {
   const dispatch = useContext(GlobalDispatchContext);
 
-  const mixResidents = getResidentString(residents);
+  const mixResidentsString = getResidentString(residents);
 
   return (
     <div className={columnLayout}>
@@ -44,7 +45,7 @@ function SingleMixCard({
                 payload: {
                   url: url,
                   title: title,
-                  residents: mixResidents,
+                  residents: mixResidentsString,
                   img: img.now_playing.url,
                 },
               })
@@ -55,32 +56,60 @@ function SingleMixCard({
           <figure className="image is-1by1">
             <img src={img.url} alt={img.alt} />
             <div className="play-btn-diffuser is-overlay">
-              {playAudioButton(url, title, mixResidents, img.now_playing.url)}
+              {playAudioButton(
+                url,
+                title,
+                mixResidentsString,
+                img.now_playing.url
+              )}
             </div>
           </figure>
         </div>
 
         <div className="card-content">
-          <div className="content-text">
-            <p className="content-details text-truncate subtitle is-size-7">
-              {date} | {getResidentLinks(residents)}
-            </p>
-            <NanoClamp
-              className="title is-size-6"
-              is="p"
-              lines={2}
-              text={title}
-            />
-          </div>
+          {/**
+           * title !== null : format title under list of residents
+           * title === null : formart list of residents as title
+           */
+          title !== null ? (
+            <div className="content-text">
+              <p className="is-size-7">{date}</p>
+              <NanoClamp
+                className="content-details subtitle is-size-7"
+                is="p"
+                lines={2}
+                text={getResidentLinks(residents, path)}
+              />
+              <NanoClamp
+                className="title is-size-6"
+                is="p"
+                lines={2}
+                text={title}
+              />
+            </div>
+          ) : (
+            <div className="content-text">
+              <p className="is-size-7">{date}</p>
+              <NanoClamp
+                className="title is-size-6"
+                is="p"
+                lines={2}
+                text={getResidentLinks(residents, path)}
+              />
+            </div>
+          )}
           <div className="buttons are-tags">
-            {tags.map((tag, index) => (
-              <button
-                key={`${title} tag #${index}`}
-                className="button is-small is-outlined is-rounded"
-              >
-                {tag}
-              </button>
-            ))}
+            {tags.map((tag, index) => {
+              const lowercaseTag = tag.toLowerCase();
+              return (
+                <button
+                  key={`${title} tag #${index}`}
+                  className="button is-small is-outlined is-rounded"
+                >
+                  {lowercaseTag}
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>

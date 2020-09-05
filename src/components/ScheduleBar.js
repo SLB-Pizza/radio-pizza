@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "gatsby";
 import { makeVar, gql, useQuery } from "@apollo/client";
 import {
@@ -17,7 +17,8 @@ import {
   GlobalStateContext,
 } from "../context/GlobalContextProvider";
 import { ScheduleDropdown, OutsideClick } from "./index";
-import { formatDateTime } from "../utils";
+import { formatDateTime, formatNextShow } from "../utils";
+import UpcomingShow from "./UpcomingShow";
 
 function ScheduleBar({ timeNow }) {
   const dispatch = useContext(GlobalDispatchContext);
@@ -26,14 +27,23 @@ function ScheduleBar({ timeNow }) {
   const [open, setOpen] = useState(false);
   const [pageIsVisible, setPageIsVisible] = useState(true);
 
-  const today = formatDateTime(timeNow, "prismic-date-query");
+  /**
+   * Format timeNow for use in schedule_date_before and schedule_date_after below. Neither date is inclusive so we need to pass in yesterday as the filter date.
+   */
+  let yesterday = formatDateTime(timeNow, "prismic-date-query", -1);
 
   /**
-   * Query for Prismic
+   * Query for Prismic in the GraphQL syntax, not the Gatsby syntax!
+   * Retrieves the first available date with scheduled show entries
+   * @see {@link https://prismic.io/docs/graphql/query-the-api/query-by-date| Prismic - GraphQL Query by Date}
    */
-  const TODAYS_SCHEDULE = gql`
-    query TodaysSchedule($date: Date!) {
-      allSchedules(where: { schedule_date_after: $date }) {
+  const GET_NEXT_SHOW = gql`
+    query getNextShow($yesterday: Date!) {
+      allSchedules(
+        where: { schedule_date_after: $yesterday }
+        sortBy: schedule_date_ASC
+        first: 1
+      ) {
         edges {
           node {
             schedule_date
@@ -64,20 +74,21 @@ function ScheduleBar({ timeNow }) {
     }
   `;
 
-  const { loading, error, data, refetch, networkStatus } = useQuery(
-    TODAYS_SCHEDULE,
-    {
-      variables: { date: today },
-      notifyOnNetworkStatusChange: true,
-    }
-  );
+  /**
+   * Run the query on load and poll every 120 seconds; 2 minutes.
+   */
+  const { loading, error, data } = useQuery(GET_NEXT_SHOW, {
+    variables: { yesterday },
+    pollInterval: 120000,
+  });
 
-  if (loading) {
-    return "Querying data...";
-  }
   if (error) {
     return `Error ${error.message}`;
   }
+
+  // if (data) {
+  //   let nextShowData = data.allSchedules.edges[0].node;
+  // }
 
   const toggleSchedule = async () => {
     await dispatch({ type: "TOGGLE_SCHEDULE" });
@@ -171,10 +182,7 @@ function ScheduleBar({ timeNow }) {
             )}
           </div>
           <div className="column upcoming is-hidden-mobile">
-            <p className="display-text is-size-6-desktop is-size-7-touch">
-              Data Length:{" "}
-              {data && JSON.stringify(data.allSchedules.edges.length)}
-            </p>
+            {!loading && data ? <UpcomingShow showData={data} /> : null}
           </div>
           <div className="column upcoming is-hidden-tablet">
             <PageVisibility onChange={handleVisibilityChange}>
@@ -216,11 +224,14 @@ function ScheduleBar({ timeNow }) {
             </a>
           </div>
         </div>
-        <ScheduleDropdown
-          open={open}
-          setOpen={setOpen}
-          toggleSchedule={toggleSchedule}
-        />
+        {data && (
+          <ScheduleDropdown
+            data={data}
+            open={open}
+            setOpen={setOpen}
+            toggleSchedule={toggleSchedule}
+          />
+        )}
       </div>
     </OutsideClick>
   ) : (
@@ -275,10 +286,7 @@ function ScheduleBar({ timeNow }) {
           )}
         </div>
         <div className="column upcoming is-hidden-mobile">
-          <p className="display-text is-size-6-desktop is-size-7-touch">
-            Number of Show Objects:{" "}
-            {data && JSON.stringify(data.allSchedules.edges.length)}
-          </p>
+          {!loading && data ? <UpcomingShow showData={data} /> : null}
         </div>
         <div className="column upcoming is-hidden-tablet">
           <PageVisibility onChange={handleVisibilityChange}>

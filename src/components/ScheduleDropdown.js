@@ -14,10 +14,10 @@ import utc from "dayjs/plugin/utc";
 dayjs.extend(utc);
 
 import { SingleScheduleEntryRow } from "../components";
-import dummySchedule from "../../__tests__/HMBK-schedule-page-query-test.json";
+import dummySchedule from "../../__test__/HMBK-schedule-page-query-test.json";
 
 // See ScheduleShowEntry for details on these
-function ScheduleDropdown({ setOpen, open, toggleSchedule }) {
+function ScheduleDropdown({ setOpen, open, toggleSchedule, data }) {
   const [todayDate, setTodayDate] = useState(dayjs());
 
   useEffect(() => {
@@ -50,6 +50,10 @@ function ScheduleDropdown({ setOpen, open, toggleSchedule }) {
             Full Schedule
           </button>
         </Link>
+      </div>
+
+      <div className="column is-12">
+        <pre>{JSON.stringify(data.allSchedules.edges[0].node, null, 2)}</pre>
       </div>
       {/* {fakeShowEntryData.map((show) => (
         <div key={show.hostInfo} className="column is-12 single-show-entry">

@@ -11,21 +11,26 @@ dayjs.extend(utc);
  * @param {String} format - dictates how to format the incoming time
  * @param {?Number} number - optional number to use when adding to the time param
  * @returns {String}
+ * @see {@link https://day.js.org/docs/en/manipulate/add|dayjs docs - add}
  * @see {@link https://day.js.org/docs/en/display/format|dayjs docs - format}
  */
 
 const formatDateTime = (time, format, number) => {
   switch (format) {
+    case "add-days":
+      return time.add(number, "day").format("MM.DD");
+    case "prismic-date-query":
+      return dayjs(time)
+        .add(number, "day")
+        .format("YYYY-MM-DD");
+    case "full-month-day":
+      return dayjs(time).format("MMM DD");
     case "month-day":
       return dayjs(time).format("MM.DD");
     case "hour-minute":
       return dayjs(time).format("HH:mm");
-    case "prismic-date-query":
-      return dayjs(time).format("YYYY-MM-DD");
     case "year-month-day":
       return dayjs(time).format("YYYY.MM.DD");
-    case "add-days":
-      return time.add(number, "day").format("MM.DD");
     case "schedule-date-heading":
       return dayjs(time).format("dddd, MMMM D");
     case "updated-publication":

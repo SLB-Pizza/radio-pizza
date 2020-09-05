@@ -8,7 +8,7 @@ import utc from "dayjs/plugin/utc";
 dayjs.extend(isBetween);
 dayjs.extend(utc);
 
-import scheduleDummyData from "../../../__tests__/HMBK-schedule-page-query-test.json";
+import scheduleDummyData from "../../../__test__/HMBK-schedule-page-query-test.json";
 
 /**
  * @category Pages
@@ -32,6 +32,71 @@ function ScheduleIndexPage({ data }) {
   const [isActive, setIsActive] = useState(
     formatDateTime(todayDate, "month-day")
   );
+
+  /**
+   * Format timeNow for use in schedule_date_before and schedule_date_after below. Neither date is inclusive so
+   * @param yesterday - day before today
+   * @param weekAndADay - eight days after today
+   */
+  // const yesterday = formatDateTime(timeNow, "prismic-date-query", -1);
+  // const weekAndADay = formatDateTime(timeNow, "prismic-date-query", 7);
+  /**
+   * Query for Prismic in the GraphQL syntax, not the Gatsby syntax!
+   * @see {@link https://prismic.io/docs/graphql/query-the-api/query-by-date| Prismic - GraphQL Query by Date}
+   */
+  // const TODAYS_SCHEDULE = gql`
+  //   query TodaysSchedule($yesterday: Date!, $weekAndADay: Date!) {
+  //     allSchedules(
+  //       where: {
+  //         schedule_date_after: $yesterday
+  //         schedule_date_before: $weekAndADay
+  //       }
+  //       sortBy: schedule_date_ASC
+  //     ) {
+  //       edges {
+  //         node {
+  //           schedule_date
+  //           schedule_entries {
+  //             end_time
+  //             start_time
+  //             scheduled_show {
+  //               ... on Mix {
+  //                 mix_image
+  //                 mix_title
+  //                 featured_residents {
+  //                   mix_resident {
+  //                     ... on Resident {
+  //                       resident_name
+  //                       _meta {
+  //                         uid
+  //                         type
+  //                       }
+  //                     }
+  //                   }
+  //                 }
+  //               }
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // `;
+
+  // const { loading, error, data, refetch, networkStatus } = useQuery(
+  //   TODAYS_SCHEDULE,
+  //   {
+  //     variables: { yesterday, weekAndADay },
+  //     notifyOnNetworkStatusChange: true,
+  //   }
+  // );
+
+  // if (loading) {
+  //   return "Querying data...";
+  // }
+  // if (error) {
+  //   return `Error ${error.message}`;
+  // }
 
   const getSevenDays = (arr) => {
     const today = dayjs(todayDate);

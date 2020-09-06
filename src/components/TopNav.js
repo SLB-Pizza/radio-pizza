@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { PrismicLink } from "apollo-link-prismic";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
@@ -25,17 +27,38 @@ function TopNav() {
     };
   });
 
+  /**
+   * Create the Apollo Client and give it our Prismic CMS graphql endpoint
+   * @name ApolloPrismicClient
+   * @see {@link https://www.apollographql.com/docs/react/get-started/#create-a-client|Create a Client}
+   */
+  const client = new ApolloClient({
+    link: PrismicLink({
+      uri: "https://hmbk-cms.prismic.io/graphql",
+    }),
+    cache: new InMemoryCache(),
+  });
+
+  /**
+   * Wrapping the root client with `<ApolloProvider>` allows us to access {@link ApolloPrismicClient} from anywhere in our app. The `<ApolloProvider>` is similar to React's `Context.Provider`.
+   *
+   * @see {@link https://www.apollographql.com/docs/react/get-started/#connect-your-client-to-react|Connect the Client to the Project}
+   * @see {@link https://reactjs.org/docs/context.html#contextprovider|React's Context Provider}
+   */
+
   return (
-    <div
-      className={
-        globalState.live
-          ? "radio-and-schedule-bar is-live"
-          : "radio-and-schedule-bar"
-      }
-    >
-      <RadioBar nycTime={nycTime} laTime={laTime} />
-      <ScheduleBar timeNow={nycTime} />
-    </div>
+    <ApolloProvider client={client}>
+      <div
+        className={
+          globalState.live
+            ? "radio-and-schedule-bar is-live"
+            : "radio-and-schedule-bar"
+        }
+      >
+        <RadioBar nycTime={nycTime} laTime={laTime} />
+        <ScheduleBar timeNow={nycTime} />
+      </div>
+    </ApolloProvider>
   );
 }
 

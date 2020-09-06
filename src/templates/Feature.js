@@ -78,28 +78,28 @@ export const query = graphql`
                   blockquote_bg_img
                 }
               }
-              ... on PRISMIC_FeatureBodyImage_row {
+              ... on PRISMIC_FeatureBodyImage_group {
                 type
                 fields {
-                  row_image
+                  group_img
                 }
               }
-              ... on PRISMIC_FeatureBodyOne_image_and_text {
+              ... on PRISMIC_FeatureBodyOne_image_and_text1 {
                 type
                 primary {
+                  oiat_img
                   oiat_layout
                   oiat_text
-                  oiat_img
                 }
               }
-              ... on PRISMIC_FeatureBodyTwo_images___text {
+              ... on PRISMIC_FeatureBodyTwo_images_and_text {
                 type
                 primary {
-                  tiat_layout
-                  tiat_text
                   tiat_is_gapless
+                  tiat_layout
                   tiat_left_img
                   tiat_right_img
+                  tiat_text
                 }
               }
             }

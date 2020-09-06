@@ -1,7 +1,7 @@
 import React from "react";
 import lazySizes from "lazysizes";
 import "lazysizes/plugins/attrchange/ls.attrchange";
-import "lazysizes/plugins/blur-up/ls.blur-up";
+// import "lazysizes/plugins/blur-up/ls.blur-up";
 
 /**
  * Creates a JSX `<picture>` element with responsive sources that {@link ImageHelper} calls upon.

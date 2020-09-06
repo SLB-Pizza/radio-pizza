@@ -14,7 +14,6 @@ function ImageRow({ slice }) {
     <section className="container slice">
       <div className="columns is-mobile is-multiline">
         {slice.fields.map((singleImage, index) => {
-          console.log("SI", singleImage);
           const fullSizeImg = {
             alt: singleImage.group_img.alt,
             photoCredit: singleImage.group_img.copyright,

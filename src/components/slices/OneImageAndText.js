@@ -12,6 +12,8 @@ import { ContentHelper, ImageHelper } from "./index";
 function OneImageAndText({ slice }) {
   const { oiat_layout, oiat_text, oiat_img } = slice.primary;
 
+  console.log("oiat img", oiat_img);
+
   /**
    * Derive layout type by processing tiat_layout. Same process followed as {@link getBlockquoteStyling}
    */
@@ -19,6 +21,21 @@ function OneImageAndText({ slice }) {
 
   const oiatContentClass = "column is-two-thirds-tablet";
   const oiatImageClass = "column is-one-third-tablet is-full-mobile";
+
+  const fullSizeImg = {
+    alt: oiat_img.alt,
+    photoCredit: oiat_img.copyright,
+    url: oiat_img.url,
+    dimensions: oiat_img.dimensions,
+  };
+
+  const responsiveSizes = {
+    widescreen: oiat_img.widescreen,
+    desktop: oiat_img.desktop,
+    tablet: oiat_img.tablet,
+    mobile: oiat_img.mobile,
+    lo_fi: oiat_img.lo_fi_placeholder,
+  };
 
   return (
     <section className="container slice">
@@ -30,16 +47,18 @@ function OneImageAndText({ slice }) {
               columnClassName={oiatContentClass}
             />
             <ImageHelper
+              fullSizeImg={fullSizeImg}
+              responsiveData={responsiveSizes}
               url={oiat_img.url}
-              alt={oiat_img.alt}
               columnClassName={oiatImageClass}
             />
           </>
         ) : (
           <>
             <ImageHelper
+              fullSizeImg={fullSizeImg}
+              responsiveData={responsiveSizes}
               url={oiat_img.url}
-              alt={oiat_img.alt}
               columnClassName={oiatImageClass}
             />
             <ContentHelper

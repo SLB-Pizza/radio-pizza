@@ -55,12 +55,13 @@ function SliceZone({ sliceZone, metadata }) {
     full_width_image: FullWidthImage,
     headline_block: ArticleHeadline,
     image_row: ImageRow,
-    one_image_and_text: OneImageAndText,
-    two_images___text: TwoImagesAndText,
+    one_image_and_text1: OneImageAndText,
+    two_images_and_text: TwoImagesAndText,
     text: TextBlock,
   };
 
   const sliceZoneContent = sliceZone.map((slice, index) => {
+    console.log("slice.type:", slice.type);
     /**
      * Grab the CMS Slice by using slice.type as the key for sliceComponents
      */

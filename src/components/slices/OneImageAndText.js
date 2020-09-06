@@ -12,8 +12,6 @@ import { ContentHelper, ImageHelper } from "./index";
 function OneImageAndText({ slice }) {
   const { oiat_layout, oiat_text, oiat_img } = slice.primary;
 
-  console.log("oiat img", oiat_img);
-
   /**
    * Derive layout type by processing tiat_layout. Same process followed as {@link getBlockquoteStyling}
    */

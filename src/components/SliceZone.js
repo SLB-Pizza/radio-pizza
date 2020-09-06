@@ -61,7 +61,6 @@ function SliceZone({ sliceZone, metadata }) {
   };
 
   const sliceZoneContent = sliceZone.map((slice, index) => {
-    console.log("slice.type:", slice.type);
     /**
      * Grab the CMS Slice by using slice.type as the key for sliceComponents
      */

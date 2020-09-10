@@ -28,9 +28,8 @@ function SingleMixCard({
   columnLayout,
   path,
 }) {
-  const mixResidentsString = getResidentString(residents);
-
   const dispatch = useContext(GlobalDispatchContext);
+  const mixResidentsString = getResidentString(residents);
 
   const loadShow = async () => {
     await dispatch({ type: "SHOW_LOADING" });

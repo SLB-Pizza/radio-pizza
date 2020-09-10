@@ -33,14 +33,13 @@ function RadioPlayer(props) {
     muted: false,
     played: 0,
     loaded: 0,
-    isLoading: false,
     duration: 0,
     playbackRate: 1.0,
     loop: true,
   });
 
   /**
-   * @const {Object} playerStyle - Eliminate width and height = 0 errors by breaking ReactPlayer out of normal document flow and throwing it above the top of the page
+   * Eliminate width and height = 0 errors by breaking ReactPlayer out of normal document flow and throwing it above the top of the page
    */
   const playerStyle = {
     position: "absolute",
@@ -57,7 +56,7 @@ function RadioPlayer(props) {
   };
 
   const handlePlayPause = async () => {
-    setLocalState({ ...localState, playing: !localState.playing });
+    // setLocalState({ ...localState, playing: !localState.playing });
     await dispatch({ type: "TOGGLE_PLAYING" });
   };
   const handlePlay = () => {
@@ -90,10 +89,6 @@ function RadioPlayer(props) {
     });
   };
 
-  const handleToggleMuted = async () => {
-    await dispatch({ type: "TOGGLE_MUTE" });
-  };
-
   const renderLoadButton = (url, label) => {
     return <button onClick={() => this.load(url)}>{label}</button>;
   };
@@ -116,17 +111,17 @@ function RadioPlayer(props) {
   //   );
   // };
 
-  //prettier-ignore
   const player = useRef(ReactPlayer);
 
   return (
     <>
-      <div className="column is-narrow">
-        {localState.isLoading ? (
-          <span className="icon is-medium">
-            <i className="is-loading" />
-          </span>
-        ) : null}
+      <div
+        className={
+          globalState.isLoading
+            ? "column is-narrow loading"
+            : "column is-narrow"
+        }
+      >
         {!globalState.playing ? (
           <FontAwesomeIcon
             icon={faPlay}
@@ -144,18 +139,33 @@ function RadioPlayer(props) {
         )}
       </div>
 
-      <div className="column is-narrow">
+      <div
+        className={
+          globalState.isLoading
+            ? "column is-narrow loading"
+            : "column is-narrow"
+        }
+      >
         <figure className="image is-48x48">
-          <img src={`${globalState.img}`} alt="Current mix" />
+          <img src={`${globalState.img}`} alt="" />
         </figure>
       </div>
+
       <div className="column text-truncate" id="now-playing">
-        <div id="now-playing-details">
-          <p className="subtitle is-size-7">{globalState.resident}</p>
-          <p className="title is-size-6-tablet is-size-7-mobile">
-            {globalState.title}
-          </p>
-        </div>
+        {globalState.title === null ? (
+          <div id="now-playing-details">
+            <p className="title is-size-6-tablet is-size-7-mobile">
+              {globalState.resident}
+            </p>
+          </div>
+        ) : (
+          <div id="now-playing-details">
+            <p className="subtitle is-size-7">{globalState.resident}</p>
+            <p className="title is-size-6-tablet is-size-7-mobile">
+              {globalState.title}
+            </p>
+          </div>
+        )}
       </div>
 
       {/* <div className="column">

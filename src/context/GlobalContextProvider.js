@@ -4,17 +4,17 @@ export const GlobalStateContext = React.createContext();
 export const GlobalDispatchContext = React.createContext();
 
 const initialState = {
-  url:
-    "https://soundcloud.com/soundcloud-scenes/sets/currents-next-gen-chillwave",
-  title: "Next Gen ChillWave",
-  resident: "Currents",
-  img: "../img/test/next-gen-chillwave.jpg",
+  url: null,
+  title: null,
+  resident: null,
+  img: null,
   playing: false,
   controls: false,
   light: false,
   volume: 0.65,
   muted: false,
   played: 0,
+  isLoading: false,
   loaded: 0,
   duration: 0,
   playbackRate: 1.0,
@@ -33,14 +33,46 @@ function reducer(state, action) {
         playing: !state.playing,
       };
     }
-    // If a new audio source is selected while playing is NOT playing, set to play
-    case "CHANGE_URL": {
+    /**
+     * If a new audio source is selected while playing is NOT playing, set to play
+     */
+    case "SET_INITIAL_MIX": {
+      console.log("Setting initial mix");
+
       return {
         ...state,
+        isLoading: true,
+        playing: false,
         url: action.payload.url,
         title: action.payload.title,
         resident: action.payload.resident,
+        img: action.payload.img,
+      };
+    }
+    case "SHOW_LOADING": {
+      console.log("About to load show details");
+
+      return {
+        ...state,
+        isLoading: true,
+        playing: false,
+        url: null,
+        title: null,
+        resident: null,
+        img: null,
+      };
+    }
+
+    case "CHANGE_URL": {
+      console.log("Show loaded and playing");
+
+      return {
+        ...state,
+        isLoading: false,
         playing: true,
+        url: action.payload.url,
+        title: action.payload.title,
+        resident: action.payload.resident,
         img: action.payload.img,
       };
     }
@@ -61,12 +93,6 @@ function reducer(state, action) {
       return { ...state, scheduleOpen: !state.scheduleOpen };
     }
 
-    case "TOGGLE_MUTE": {
-      return {
-        ...state,
-        muted: !state.muted,
-      };
-    }
     case "TOGGLE_LIVE_TEST": {
       return {
         ...state,

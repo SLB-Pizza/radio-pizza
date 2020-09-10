@@ -23,7 +23,7 @@ function ScheduleDropdown({ setOpen, open, toggleSchedule, data }) {
   useEffect(() => {
     const date = setInterval(() => {
       setTodayDate(todayDate.add(1, "s"));
-    }, 1000);
+    }, 5000);
 
     return () => {
       clearInterval(date);

@@ -1,13 +1,13 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Link } from "gatsby";
-import { makeVar, gql, useQuery } from "@apollo/client";
+import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
+import { PrismicLink } from "apollo-link-prismic";
 import {
   faSearch,
   faComments,
   faCalendarAlt,
   faBroadcastTower,
   faHeadphones,
-  faQuestionCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Ticker from "react-ticker";
@@ -16,9 +16,13 @@ import {
   GlobalDispatchContext,
   GlobalStateContext,
 } from "../context/GlobalContextProvider";
-import { ScheduleDropdown, OutsideClick } from "./index";
-import { formatDateTime, formatNextShow } from "../utils";
-import UpcomingShow from "./UpcomingShow";
+import { ScheduleDropdown, OutsideClick, UpcomingShow } from "./index";
+import { formatDateTime } from "../utils";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 function ScheduleBar({ timeNow }) {
   const dispatch = useContext(GlobalDispatchContext);
@@ -26,15 +30,37 @@ function ScheduleBar({ timeNow }) {
 
   const [open, setOpen] = useState(false);
   const [pageIsVisible, setPageIsVisible] = useState(true);
+  const [currentTime, setCurrentTime] = useState(
+    dayjs().tz("America/New_York")
+  );
+
+  useEffect(() => {
+    const schedTime = setInterval(() => {
+      setCurrentTime(dayjs(currentTime).add(3, "s"));
+      // console.log("time", formatDateTime(currentTime, "hour-minute"));
+      // console.log("timeNow", formatDateTime(timeNow, "hour-minute"));
+    }, 3000);
+
+    return () => {
+      clearInterval(schedTime);
+    };
+  }, []);
+
+  const client = new ApolloClient({
+    link: PrismicLink({
+      uri: "https://hmbk-cms.prismic.io/graphql",
+    }),
+    cache: new InMemoryCache(),
+  });
 
   /**
    * Format timeNow for use in schedule_date_before and schedule_date_after below. Neither date is inclusive so we need to pass in yesterday as the filter date.
    */
-  let yesterday = formatDateTime(timeNow, "prismic-date-query", -1);
+  let yesterday = formatDateTime(currentTime, "prismic-date-query", -1);
 
   /**
    * Query for Prismic in the GraphQL syntax, not the Gatsby syntax!
-   * Retrieves the first available date with scheduled show entries
+   * Retrieves the first available date after yesterday with scheduled show entries
    * @see {@link https://prismic.io/docs/graphql/query-the-api/query-by-date| Prismic - GraphQL Query by Date}
    */
   const GET_NEXT_SHOW = gql`
@@ -74,32 +100,48 @@ function ScheduleBar({ timeNow }) {
     }
   `;
 
+  // useEffect(() => {
+  //   client
+  //     .query({
+  //       query: GET_NEXT_SHOW,
+  //     })
+  //     .then((result) => console.log(data))
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // }, []);
+
   /**
    * Run the query on load and poll every 120 seconds; 2 minutes.
    */
-  const { loading, error, data } = useQuery(GET_NEXT_SHOW, {
-    variables: { yesterday },
-    pollInterval: 120000,
-  });
+  // const { loading, error, data } = useQuery(GET_NEXT_SHOW, {
+  //   variables: { yesterday },
+  // });
 
-  if (error) {
-    return `Error ${error.message}`;
-  }
-
-  // if (data) {
-  //   let nextShowData = data.allSchedules.edges[0].node;
+  // if (error) {
+  //   return `Error ${error.message}`;
   // }
 
-  const toggleSchedule = async () => {
-    await dispatch({ type: "TOGGLE_SCHEDULE" });
+  const handleVisibilityChange = (isVisible) => {
+    setPageIsVisible(isVisible);
+  };
+
+  const handlePlayLive = async () => {
+    await dispatch({
+      type: "CHANGE_URL",
+      payload: {
+        url: "https://streamer.radio.co/sa3c47c55b/listen",
+        title: "Halfmoon Radio",
+      },
+    });
   };
 
   const closeSchedule = async () => {
     await dispatch({ type: "CLOSE_SCHEDULE" });
   };
 
-  const handleVisibilityChange = (isVisible) => {
-    setPageIsVisible(isVisible);
+  const toggleSchedule = async () => {
+    await dispatch({ type: "TOGGLE_SCHEDULE" });
   };
 
   // TEST ONLY -- just for live toggle
@@ -107,7 +149,7 @@ function ScheduleBar({ timeNow }) {
     await dispatch({ type: "TOGGLE_LIVE_TEST" });
   };
 
-  const showLiveStatus = () => (globalState.live ? "true" : "false");
+  // const showLiveStatus = () => (globalState.live ? "true" : "false");
   // END TEST CODE
 
   const nextShowTicker = (date, showName) => {
@@ -182,7 +224,7 @@ function ScheduleBar({ timeNow }) {
             )}
           </div>
           <div className="column upcoming is-hidden-mobile">
-            {!loading && data ? <UpcomingShow showData={data} /> : null}
+            {/* {data && <UpcomingShow showData={data} />} */}
           </div>
           <div className="column upcoming is-hidden-tablet">
             <PageVisibility onChange={handleVisibilityChange}>
@@ -224,14 +266,14 @@ function ScheduleBar({ timeNow }) {
             </a>
           </div>
         </div>
-        {data && (
+        {/* {data && (
           <ScheduleDropdown
-            data={data}
+            showData={data}
             open={open}
             setOpen={setOpen}
             toggleSchedule={toggleSchedule}
           />
-        )}
+        )} */}
       </div>
     </OutsideClick>
   ) : (
@@ -286,7 +328,7 @@ function ScheduleBar({ timeNow }) {
           )}
         </div>
         <div className="column upcoming is-hidden-mobile">
-          {!loading && data ? <UpcomingShow showData={data} /> : null}
+          {/* {data && <UpcomingShow showData={data} />} */}
         </div>
         <div className="column upcoming is-hidden-tablet">
           <PageVisibility onChange={handleVisibilityChange}>

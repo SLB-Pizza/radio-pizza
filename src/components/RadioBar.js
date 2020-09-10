@@ -2,7 +2,9 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "gatsby";
 import Ticker from "react-ticker";
-import { formatDateTime } from "../utils";
+import { ApolloClient, gql, InMemoryCache } from "@apollo/client";
+import { PrismicLink } from "apollo-link-prismic";
+import { formatDateTime, getResidentString } from "../utils";
 import { RadioPlayer } from "./index";
 import {
   GlobalDispatchContext,
@@ -25,15 +27,15 @@ function RadioBar({ nycTime, laTime }) {
   //   setPageIsVisible(isVisible);
   // };
 
-  const handlePlayLive = async () => {
-    await dispatch({
-      type: "CHANGE_URL",
-      payload: {
-        url: "https://streamer.radio.co/sa3c47c55b/listen",
-        title: "Halfmoon Radio",
-      },
-    });
-  };
+  // const handlePlayLive = async () => {
+  //   await dispatch({
+  //     type: "CHANGE_URL",
+  //     payload: {
+  //       url: "https://streamer.radio.co/sa3c47c55b/listen",
+  //       title: "Halfmoon Radio",
+  //     },
+  //   });
+  // };
 
   // const liveText = "Pendulum: Hold Your Colour 15th Anniversary Live Set";
   // const renderLiveTicker = (text) => {
@@ -51,12 +53,91 @@ function RadioBar({ nycTime, laTime }) {
   //   );
   // };
 
+  /**
+   * Create the Apollo Client and give it our Prismic CMS graphql endpoint
+   * @name ApolloPrismicClient
+   * @see {@link https://www.apollographql.com/docs/react/get-started/#create-a-client|Create a Client}
+   */
+  const client = new ApolloClient({
+    link: PrismicLink({
+      uri: "https://hmbk-cms.prismic.io/graphql",
+    }),
+    cache: new InMemoryCache(),
+  });
+
+  const INITIAL_MIX = gql`
+    query DefaultMix {
+      allTopnavs {
+        edges {
+          node {
+            default_mix {
+              ... on Mix {
+                mix_image
+                mix_link
+                mix_title
+                featured_residents {
+                  mix_resident {
+                    ... on Resident {
+                      resident_image
+                      resident_name
+                      _meta {
+                        uid
+                        type
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const setInitialMix = async (url, title, residentsArr, imgURL) => {
+    const mixResidentsString = getResidentString(residentsArr);
+
+    return await dispatch({
+      type: "SET_INITIAL_MIX",
+      payload: {
+        url: url,
+        title: title,
+        resident: mixResidentsString,
+        img: imgURL,
+      },
+    });
+  };
+
+  /**
+   * @function
+   */
+  useEffect(() => {
+    client
+      .query({
+        query: INITIAL_MIX,
+      })
+      .then((result) => result.data.allTopnavs.edges[0].node.default_mix)
+      .then(({ featured_residents, mix_image, mix_link, mix_title }) =>
+        setInitialMix(
+          mix_link,
+          mix_title,
+          featured_residents,
+          mix_image.now_playing.url
+        )
+      )
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
   useEffect(() => {
     async function getRadioData() {
       const result = await axios(
         "https://public.radio.co/stations/sa3c47c55b/status"
       );
-      setRadioData(result.data);
+      // console.log("radio data ->", result.data.status);
+      setRadioData(result.data.status);
     }
     getRadioData();
   }, []);
@@ -85,7 +166,11 @@ function RadioBar({ nycTime, laTime }) {
           </Link>
         </div>
 
-        <RadioPlayer status={radioData.status} />
+        {globalState.url === null ? (
+          <div className="column " />
+        ) : (
+          <RadioPlayer status={radioData.status} />
+        )}
 
         <div className="column is-narrow is-hidden-mobile">
           <p className="display-text is-size-6">

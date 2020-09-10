@@ -49,14 +49,13 @@ function RadioPlayer(props) {
     margin: "-1px",
   };
 
-  const [pageIsVisible, setPageIsVisible] = useState(true);
+  // const [pageIsVisible, setPageIsVisible] = useState(true);
 
-  const handleVisibilityChange = (isVisible) => {
-    setPageIsVisible(isVisible);
-  };
+  // const handleVisibilityChange = (isVisible) => {
+  //   setPageIsVisible(isVisible);
+  // };
 
   const handlePlayPause = async () => {
-    // setLocalState({ ...localState, playing: !localState.playing });
     await dispatch({ type: "TOGGLE_PLAYING" });
   };
   const handlePlay = () => {
@@ -68,8 +67,7 @@ function RadioPlayer(props) {
   };
 
   const handleMixReady = async () => {
-    await setLocalState({ ...localState, loading: true });
-    console.log(`READY: ${globalState.title}`);
+    await dispatch({ type: "MIX_LOADED" });
   };
 
   // const handleVolumeChange = (e) => {
@@ -79,23 +77,23 @@ function RadioPlayer(props) {
   //   setLocalState({ volume: value });
   // };
 
-  const load = async (url) => {
-    await setLocalState({
-      ...localState,
-      url: url,
-      played: 0,
-      loaded: 0,
-      pip: false,
-    });
-  };
+  // const load = async (url) => {
+  //   await setLocalState({
+  //     ...localState,
+  //     url: url,
+  //     played: 0,
+  //     loaded: 0,
+  //     pip: false,
+  //   });
+  // };
 
-  const renderLoadButton = (url, label) => {
-    return <button onClick={() => this.load(url)}>{label}</button>;
-  };
+  // const renderLoadButton = (url, label) => {
+  //   return <button onClick={() => this.load(url)}>{label}</button>;
+  // };
 
-  const handleDuration = (duration) => {
-    setLocalState({ duration: duration });
-  };
+  // const handleDuration = (duration) => {
+  //   setLocalState({ duration: duration });
+  // };
 
   // const renderNowPlaying = (resident, title) => {
   //   return (
@@ -118,8 +116,8 @@ function RadioPlayer(props) {
       <div
         className={
           globalState.isLoading
-            ? "column is-narrow loading"
-            : "column is-narrow"
+            ? "column is-narrow mix-data"
+            : "column is-narrow mix-data is-loaded"
         }
       >
         {!globalState.playing ? (
@@ -142,8 +140,8 @@ function RadioPlayer(props) {
       <div
         className={
           globalState.isLoading
-            ? "column is-narrow loading"
-            : "column is-narrow"
+            ? "column is-narrow mix-data"
+            : "column is-narrow mix-data is-loaded"
         }
       >
         <figure className="image is-48x48">
@@ -151,7 +149,14 @@ function RadioPlayer(props) {
         </figure>
       </div>
 
-      <div className="column text-truncate" id="now-playing">
+      <div
+        className={
+          globalState.isLoading
+            ? "column text-truncate mix-data"
+            : "column text-truncate mix-data is-loaded"
+        }
+        id="now-playing"
+      >
         {globalState.title === null ? (
           <div id="now-playing-details">
             <p className="title is-size-6-tablet is-size-7-mobile">
@@ -215,8 +220,8 @@ function RadioPlayer(props) {
         volume={localState.volume}
         playing={globalState.playing}
         loop={globalState.loop}
-        muted={globalState.muted}
-        onDuration={handleDuration}
+        // muted={globalState.muted}
+        // onDuration={handleDuration}
         onPlay={handlePlay}
         onPause={handlePause}
         onError={(e) => console.log("ReactPlayer has an issue ↴\n", e)}

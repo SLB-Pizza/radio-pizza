@@ -9,11 +9,11 @@ import { GlobalDispatchContext } from "../context/GlobalContextProvider";
  * @subcategory Layout Helper
  * @function
  * @function PlayAudioButton
- * @param {string} mixUrl - URL of the mix to play
- * @param {string} mixTitle - title of the mix to play; shown in TopNav
- * @param {string} mixResident - resident that made the mix; shown in TopNav
- * @param {string} mixImg - the mix's image; shown in TopNav
- * @returns {jsx} A play icon that onClick dispatches the CHANGE_URL action, playing the audio source through RadioPlayer.js
+ * @param {string} url - URL of the mix to play
+ * @param {string} title - title of the mix to play; shown in {@link RadioPlayer}
+ * @param {string} resident - residents that made the mix; shown in {@link RadioPlayer}
+ * @param {string} img - the mix's image; shown in {@link RadioPlayer}
+ * @returns {jsx} A play icon that onClick dispatches the SHOW_LOADING and CHANGE_URL actions, playing the audio source through RadioPlayer.js
  */
 
 function PlayAudioButton({ url, title, resident, img }) {
@@ -26,17 +26,15 @@ function PlayAudioButton({ url, title, resident, img }) {
       className="play-icon"
       onClick={() => {
         dispatch({ type: "SHOW_LOADING" });
-        setTimeout(() => {
-          dispatch({
-            type: "CHANGE_URL",
-            payload: {
-              url,
-              title,
-              resident,
-              img,
-            },
-          });
-        }, 2000);
+        dispatch({
+          type: "CHANGE_URL",
+          payload: {
+            url,
+            title,
+            resident,
+            img,
+          },
+        });
       }}
     />
   );

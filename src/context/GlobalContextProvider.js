@@ -37,21 +37,24 @@ function reducer(state, action) {
      * If a new audio source is selected while playing is NOT playing, set to play
      */
     case "SET_INITIAL_MIX": {
-      console.log("Setting initial mix");
-
       return {
         ...state,
         isLoading: true,
-        playing: false,
         url: action.payload.url,
         title: action.payload.title,
         resident: action.payload.resident,
         img: action.payload.img,
       };
     }
-    case "SHOW_LOADING": {
-      console.log("About to load show details");
 
+    case "MIX_LOADED": {
+      return {
+        ...state,
+        isLoading: false,
+      };
+    }
+
+    case "SHOW_LOADING": {
       return {
         ...state,
         isLoading: true,
@@ -64,8 +67,6 @@ function reducer(state, action) {
     }
 
     case "CHANGE_URL": {
-      console.log("Show loaded and playing");
-
       return {
         ...state,
         isLoading: false,

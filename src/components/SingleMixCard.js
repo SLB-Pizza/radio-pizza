@@ -8,14 +8,14 @@ import { getResidentString, getResidentLinks, PlayAudioButton } from "../utils";
  * @subcategory Layout Helper
  * @function SingleMixCard
  * @param {Object} props
- * @property {String} props.date
- * @property {String} props.url
- * @property {Object[]} props.title
- * @property {Object[]} props.residents -
- * @property {Object} props.img
- * @property {String[]} props.tags
- * @property {String} props.columnLayout
- * @property {String} props.path
+ * @property {String} props.date - archived mix's date
+ * @property {String} props.url - url of the archived mix to play
+ * @property {?String} props.title - Mix titles are optional, string of residents will be used to label mix if not present
+ * @property {Object[]} props.residents - Array of data objects containing the mix's resident data
+ * @property {Object} props.img - object containing the different sizes of a mix's image
+ * @property {String[]} props.tags - the mix's tags
+ * @property {String} props.columnLayout - string detailing the column layout across different responsive breakpoints @see {@link https://bulma.io/documentation/columns/sizes/|bulma.io column sizing}
+ * @property {?String} props.path - optional string passed down only by {@link ResidentTemplate} for use with {@link linkResolver}
  * @returns {jsx}
  */
 function SingleMixCard({

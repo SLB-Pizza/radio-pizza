@@ -167,7 +167,7 @@ function RadioBar({ nycTime, laTime }) {
         </div>
 
         {globalState.url === null ? (
-          <div className="column " />
+          <div className="column mix-data" />
         ) : (
           <RadioPlayer status={radioData.status} />
         )}

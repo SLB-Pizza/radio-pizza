@@ -16,9 +16,9 @@ function TopNav() {
 
   useEffect(() => {
     const clock = setInterval(() => {
-      setNYCTime(nycTime.add(10, "s"));
-      setLATime(laTime.add(10, "s"));
-    }, 10000);
+      setNYCTime(nycTime.add(1, "s"));
+      setLATime(laTime.add(1, "s"));
+    }, 1000);
 
     return () => {
       clearInterval(clock);

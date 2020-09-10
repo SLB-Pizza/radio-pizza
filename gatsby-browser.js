@@ -1,11 +1,29 @@
 import React from "react";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { PrismicLink } from "apollo-link-prismic";
 import GlobalContextProvider from "./src/context/GlobalContextProvider";
 import Layout from "./src/components/Layout";
 import { registerLinkResolver } from "gatsby-source-prismic-graphql";
 import linkResolver from "./src/utils/linkResolver";
 
+/**
+ * Create the Apollo Client and give it our Prismic CMS graphql endpoint
+ * @name ApolloPrismicClient
+ * @see {@link https://www.apollographql.com/docs/react/get-started/#create-a-client|Create a Client}
+ */
+const client = new ApolloClient({
+  link: PrismicLink({
+    uri: "https://hmbk-cms.prismic.io/graphql",
+  }),
+  cache: new InMemoryCache(),
+});
+
 export const wrapRootElement = ({ element }) => {
-  return <GlobalContextProvider>{element}</GlobalContextProvider>;
+  return (
+    <ApolloProvider client={client}>
+      <GlobalContextProvider>{element}</GlobalContextProvider>
+    </ApolloProvider>
+  );
 };
 
 /**

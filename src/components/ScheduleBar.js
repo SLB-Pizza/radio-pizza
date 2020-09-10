@@ -36,22 +36,22 @@ function ScheduleBar({ timeNow }) {
 
   useEffect(() => {
     const schedTime = setInterval(() => {
-      setCurrentTime(dayjs(currentTime).add(3, "s"));
+      setCurrentTime(dayjs(currentTime).add(1, "s"));
       // console.log("time", formatDateTime(currentTime, "hour-minute"));
       // console.log("timeNow", formatDateTime(timeNow, "hour-minute"));
-    }, 3000);
+    }, 1000);
 
     return () => {
       clearInterval(schedTime);
     };
   }, []);
 
-  const client = new ApolloClient({
-    link: PrismicLink({
-      uri: "https://hmbk-cms.prismic.io/graphql",
-    }),
-    cache: new InMemoryCache(),
-  });
+  // const client = new ApolloClient({
+  //   link: PrismicLink({
+  //     uri: "https://hmbk-cms.prismic.io/graphql",
+  //   }),
+  //   cache: new InMemoryCache(),
+  // });
 
   /**
    * Format timeNow for use in schedule_date_before and schedule_date_after below. Neither date is inclusive so we need to pass in yesterday as the filter date.

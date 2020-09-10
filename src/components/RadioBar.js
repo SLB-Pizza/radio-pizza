@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "gatsby";
 import Ticker from "react-ticker";
-import { ApolloClient, gql, InMemoryCache } from "@apollo/client";
-import { PrismicLink } from "apollo-link-prismic";
+import { gql, useQuery } from "@apollo/client";
+// import { PrismicLink } from "apollo-link-prismic";
 import { formatDateTime, getResidentString } from "../utils";
 import { RadioPlayer } from "./index";
 import {
@@ -53,18 +53,6 @@ function RadioBar({ nycTime, laTime }) {
   //   );
   // };
 
-  /**
-   * Create the Apollo Client and give it our Prismic CMS graphql endpoint
-   * @name ApolloPrismicClient
-   * @see {@link https://www.apollographql.com/docs/react/get-started/#create-a-client|Create a Client}
-   */
-  const client = new ApolloClient({
-    link: PrismicLink({
-      uri: "https://hmbk-cms.prismic.io/graphql",
-    }),
-    cache: new InMemoryCache(),
-  });
-
   const INITIAL_MIX = gql`
     query DefaultMix {
       allTopnavs {
@@ -95,41 +83,44 @@ function RadioBar({ nycTime, laTime }) {
     }
   `;
 
-  const setInitialMix = async (url, title, residentsArr, imgURL) => {
-    const mixResidentsString = getResidentString(residentsArr);
-
-    return await dispatch({
-      type: "SET_INITIAL_MIX",
-      payload: {
-        url: url,
-        title: title,
-        resident: mixResidentsString,
-        img: imgURL,
-      },
-    });
-  };
+  const { loading, error, data } = useQuery(INITIAL_MIX);
 
   /**
+   * Query the HMBK Prismic CMS to get the data for the initial mix data.
+   * Grab the mix data object from the query result.
+   * Destructure the mix data object and dispatch the mix data to appear in {@link RadioPlayer}
    * @function
    */
   useEffect(() => {
-    client
-      .query({
-        query: INITIAL_MIX,
-      })
-      .then((result) => result.data.allTopnavs.edges[0].node.default_mix)
-      .then(({ featured_residents, mix_image, mix_link, mix_title }) =>
-        setInitialMix(
-          mix_link,
-          mix_title,
-          featured_residents,
-          mix_image.now_playing.url
-        )
-      )
-      .catch((error) => {
-        console.error(error);
+    if (loading) {
+      console.log("Data request in progress");
+    }
+    if (error) {
+      console.log(`Error: ${error.message}`);
+    }
+    if (data) {
+      const mixDataObject = data.allTopnavs.edges[0].node.default_mix;
+      console.log("mixDataObject", mixDataObject);
+      const {
+        featured_residents,
+        mix_image,
+        mix_link,
+        mix_title,
+      } = mixDataObject;
+
+      const mixResidentsString = getResidentString(featured_residents);
+      console.log("initial mix data configure; ready to ship off");
+      return dispatch({
+        type: "SET_INITIAL_MIX",
+        payload: {
+          url: mix_link,
+          title: mix_title,
+          resident: mixResidentsString,
+          img: mix_image.now_playing.url,
+        },
       });
-  }, []);
+    }
+  }, [data, loading, error]);
 
   useEffect(() => {
     async function getRadioData() {

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import NanoClamp from "nanoclamp";
 import { GlobalDispatchContext } from "../context/GlobalContextProvider";
-import { getResidentString, getResidentLinks, playAudioButton } from "../utils";
+import { getResidentString, getResidentLinks, PlayAudioButton } from "../utils";
 
 /**
  * @category Utilities
@@ -15,6 +15,7 @@ import { getResidentString, getResidentLinks, playAudioButton } from "../utils";
  * @property {Object} props.img
  * @property {String[]} props.tags
  * @property {String} props.columnLayout
+ * @property {String} props.path
  * @returns {jsx}
  */
 function SingleMixCard({
@@ -27,9 +28,25 @@ function SingleMixCard({
   columnLayout,
   path,
 }) {
+  const mixResidentsString = getResidentString(residents);
+
   const dispatch = useContext(GlobalDispatchContext);
 
-  const mixResidentsString = getResidentString(residents);
+  const loadShow = async () => {
+    await dispatch({ type: "SHOW_LOADING" });
+  };
+
+  const changeUrl = async () => {
+    await dispatch({
+      type: "CHANGE_URL",
+      payload: {
+        url: url,
+        title: title,
+        residents: mixResidentsString,
+        img: img.now_playing.url,
+      },
+    });
+  };
 
   return (
     <div className={columnLayout}>
@@ -39,29 +56,22 @@ function SingleMixCard({
             href="#"
             className="sr-only display-text"
             tabIndex="0"
-            onClick={() =>
-              dispatch({
-                type: "CHANGE_URL",
-                payload: {
-                  url: url,
-                  title: title,
-                  residents: mixResidentsString,
-                  img: img.now_playing.url,
-                },
-              })
-            }
+            onClick={() => {
+              loadShow();
+              changeUrl();
+            }}
           >
             Play This Mix
           </a>
           <figure className="image is-1by1">
             <img src={img.url} alt={img.alt} />
             <div className="play-btn-diffuser is-overlay">
-              {playAudioButton(
-                url,
-                title,
-                mixResidentsString,
-                img.now_playing.url
-              )}
+              <PlayAudioButton
+                url={url}
+                title={title}
+                resident={mixResidentsString}
+                img={img.now_playing.url}
+              />
             </div>
           </figure>
         </div>

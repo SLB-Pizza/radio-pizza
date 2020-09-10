@@ -8,7 +8,7 @@ import { GlobalDispatchContext } from "../context/GlobalContextProvider";
  * @category Site Elements
  * @subcategory Layout Helper
  * @function
- * @function playAudioButton
+ * @function PlayAudioButton
  * @param {string} mixUrl - URL of the mix to play
  * @param {string} mixTitle - title of the mix to play; shown in TopNav
  * @param {string} mixResident - resident that made the mix; shown in TopNav
@@ -16,7 +16,7 @@ import { GlobalDispatchContext } from "../context/GlobalContextProvider";
  * @returns {jsx} A play icon that onClick dispatches the CHANGE_URL action, playing the audio source through RadioPlayer.js
  */
 
-function playAudioButton(mixUrl, mixTitle, mixResident, mixImg) {
+function PlayAudioButton({ url, title, resident, img }) {
   const dispatch = useContext(GlobalDispatchContext);
 
   return (
@@ -24,19 +24,22 @@ function playAudioButton(mixUrl, mixTitle, mixResident, mixImg) {
       icon={faPlay}
       size="5x"
       className="play-icon"
-      onClick={() =>
-        dispatch({
-          type: "CHANGE_URL",
-          payload: {
-            url: mixUrl,
-            title: mixTitle,
-            resident: mixResident,
-            img: mixImg,
-          },
-        })
-      }
+      onClick={() => {
+        dispatch({ type: "SHOW_LOADING" });
+        setTimeout(() => {
+          dispatch({
+            type: "CHANGE_URL",
+            payload: {
+              url,
+              title,
+              resident,
+              img,
+            },
+          });
+        }, 2000);
+      }}
     />
   );
 }
 
-export default playAudioButton;
+export default PlayAudioButton;

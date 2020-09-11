@@ -106,11 +106,16 @@ function ArticleHeadline({ slice, metadata }) {
             <div className="column is-narrow-desktop">
               {featureDateDetails.hasBeenUpdated ? (
                 <p className="subtitle is-size-6-desktop is-size-7-touch">
-                  Updated {featureDateDetails.pubDate}
+                  Updated{" "}
+                  <time dateTime={lastPublicationDate}>
+                    {featureDateDetails.pubDate}
+                  </time>
                 </p>
               ) : (
                 <p className="subtitle is-size-6-desktop is-size-7-touch">
-                  {featureDateDetails.pubDate}
+                  <time dateTime={firstPublicationDate}>
+                    {featureDateDetails.pubDate}
+                  </time>
                 </p>
               )}
             </div>

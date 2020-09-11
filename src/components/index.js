@@ -11,6 +11,7 @@ export { default as HomeEvents } from "./HomeEvents";
 export { default as HomeSingleEvent } from "./HomeSingleEvent";
 export { default as HomeNews } from "./HomeNews";
 export { default as HomeSingleNews } from "./HomeSingleNews";
+export { default as LandingPageElement } from "./LandingPageElement";
 export { default as OutsideClick } from "./OutsideClick";
 export { default as RadioBar } from "./RadioBar";
 export { default as RadioPlayer } from "./RadioPlayer";

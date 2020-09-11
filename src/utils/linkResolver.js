@@ -10,10 +10,12 @@
  */
 function linkResolver(link) {
   switch (link.type) {
-    case "page":
-      return `/${link.uid}`;
+    case "cms_guide":
+      return `/guide/${link.uid}`;
     case "feature":
       return `/features/${link.uid}`;
+    case "page":
+      return `/${link.uid}`;
     case "resident":
       return `/residents/${link.uid}`;
     default:

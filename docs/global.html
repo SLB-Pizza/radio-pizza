@@ -7613,7 +7613,7 @@ change alphabetizedResidents map to actual artist data</p>
         <p>Receives params as props from a template file. Processes the sliceZone object to match slice types, the keys in sliceComponents, to their corresponding component values.</p>
 <p><strong>Why is sliceZoneContent is returned in a fragment and not wrapped in an element?</strong></p>
 <p>The template that has the query for the data to pass as props into SliceZone returns a structure as follows:</p>
-<pre class="prettyprint source lang-html"><code>&lt;main className=&quot;site-page&quot;>
+<pre class="prettyprint source lang-html"><code>&lt;main className=&quot;full-height-page&quot;>
    &lt;SliceZone
         sliceZone={featureSliceData}
         featureMetadata={featureMetadata}
@@ -7623,7 +7623,7 @@ change alphabetizedResidents map to actual artist data</p>
 <p>Each CMS Slice returned by SliceZone is wrapped in a <code>&lt;section&gt;</code> element, so if we did, there would be unnecessary elements between <code>&lt;main&gt;</code> and the
 <code>&lt;section&gt;</code></p>
 <p>e.g.</p>
-<pre class="prettyprint source lang-html"><code>&lt;main className=&quot;site-page&quot;>
+<pre class="prettyprint source lang-html"><code>&lt;main className=&quot;full-height-page&quot;>
    &lt;div>
      &lt;section>{slice layout here}&lt;/section>
    &lt;/div>

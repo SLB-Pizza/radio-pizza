@@ -2,7 +2,7 @@ import React from "react";
 
 function AboutIndexPage() {
   return (
-    <div className="container is-fluid site-page">
+    <div className="container is-fluid full-height-page">
       <div className="columns is-mobile">
         <div className="column">
           <div className="content">

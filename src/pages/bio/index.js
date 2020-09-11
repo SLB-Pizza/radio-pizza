@@ -12,7 +12,7 @@ function StickyBioIndexPage() {
     "column is-12-mobile is-12-tablet is-6-desktop is-4-widescreen";
 
   return (
-    <div className="container is-fluid site-page">
+    <div className="container is-fluid full-height-page">
       <div className="columns is-multiline">
         <div className="column is-12">
           <pre>This route, /bio, is planned for removal.</pre>

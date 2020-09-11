@@ -53,9 +53,8 @@ $button-active-border-color: darken($primary, 15);
 // $dropdown-item-active-background-color: white;
 
 //==================================
-// Duotone variables
+// Duotone variables - SingleMixCard
 //==================================
-
 $dt-base: #f600ff;
 $dt-bg-blend: multiply;
 $dt-blur: 0px;
@@ -79,9 +78,15 @@ $dt-spacing: 1%;
 //==================================
 // GLOBAL STYLES
 //==================================
-.site-page {
+.full-height-page {
   padding-top: 6.625rem;
   padding-bottom: 3.75rem;
+  min-height: 100vh;
+}
+
+.black-bg-page {
+  padding-top: 7rem;
+  padding-bottom: 5rem;
   min-height: 100vh;
 }
 
@@ -174,6 +179,7 @@ figcaption {
   img {
     border-top-left-radius: 0.75rem;
     border-top-right-radius: 0.75rem;
+    object-fit: cover;
   }
 
   .play-btn-diffuser {
@@ -192,9 +198,14 @@ figcaption {
     border-bottom-right-radius: 0.75rem;
     transition: 0.125s ease;
 
+    .event-text {
+      min-height: 8rem;
+    }
+
     .content-text {
       padding-bottom: 0.25rem;
-      min-height: 3.75rem; //FHD
+      min-height: 4.5rem;
+      // min-height: 3.75rem; //FHD
 
       // Comment in place only for this commit; no other changes made.
 
@@ -307,39 +318,4 @@ figcaption {
   // @include fullhd {
   //   min-height: 4rem;
   // }
-}
-
-//===========================================
-// Test SASS - REMOVE LATER
-//===========================================
-
-.columns.test .column:first-child {
-  background-color: darkgoldenrod;
-  border: 1px dashed white;
-}
-.columns.test .column:not(:first-child) {
-  border: 1px dashed white;
-}
-
-.columns.btn-tags .column {
-  display: flex;
-  flex-direction: column;
-  background-color: lightgreen;
-  border: 3px dashed lightpink;
-  min-height: 20rem;
-
-  h2 {
-    flex: 1;
-    background-color: darkturquoise;
-  }
-  .buttons.are-small {
-    background-color: goldenrod;
-    flex: 1;
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    align-content: flex-end;
-  }
 }

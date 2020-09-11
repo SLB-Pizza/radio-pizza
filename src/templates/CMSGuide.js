@@ -19,7 +19,7 @@ function CMSGuideTemplate({ data }) {
   const guideSliceData = cmsDataNode.body;
 
   return (
-    <body className="site-page">
+    <body className="full-height-page">
       <article>
         {/* HeadlineBlock only here */}
         <SliceZone sliceZone={guideSliceData} metadata={guideMetadata} />

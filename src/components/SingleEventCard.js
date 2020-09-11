@@ -8,7 +8,7 @@ function SingleEventCard(props) {
     <div className={props.eventColumnLayout}>
       <div className="card">
         <div className="card-image">
-          <figure className="image is-16by9">
+          <figure className="image is-1by1">
             <img src={props.img} alt={imageAltText} />
           </figure>
         </div>
@@ -17,14 +17,18 @@ function SingleEventCard(props) {
             <p className="content-date text-truncate subtitle is-size-7">
               {props.date} | {props.location}
             </p>
-            <p className="title is-size-6-touch is-size-6-desktop is-size-5-widescreen">
-              {props.eventName}
-            </p>
+
             <NanoClamp
-              className="is-size-6"
+              className="title is-size-6-touch is-size-6-desktop is-size-5-widescreen"
               is="p"
               lines={2}
-              ellipsis={"...read more >"}
+              text={props.eventName}
+            />
+            <NanoClamp
+              className="is-size-7"
+              is="p"
+              lines={3}
+              ellipsis={"..."}
               text={props.blurb}
             />
           </div>

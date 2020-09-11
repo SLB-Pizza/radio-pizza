@@ -131,7 +131,7 @@ function ScheduleIndexPage({ data }) {
 
   const sevenDaysData = getSevenDays(scheduleDummyData);
   return (
-    <div className="container is-fluid site-page">
+    <main className="container is-fluid black-bg-page">
       <div className="columns is-mobile is-multiline">
         <div className="column">
           <p className="title is-size-2-desktop is-size-3-touch">Schedule</p>
@@ -191,7 +191,7 @@ function ScheduleIndexPage({ data }) {
           return null;
         }
       })}
-    </div>
+    </main>
   );
 }
 

@@ -42,7 +42,7 @@ function ResidentsIndex() {
   });
 
   return (
-    <div className="container is-fluid site-page">
+    <div className="container is-fluid full-height-page">
       <div className="columns is-mobile is-multiline">
         <div className="column is-full">
           <p className="title is-size-1-desktop is-size-2-tablet is-size-3-mobile headline">

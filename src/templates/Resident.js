@@ -31,7 +31,7 @@ function ResidentTemplate({ data, path }) {
     "column is-12-mobile is-12-tablet is-6-desktop is-4-widescreen";
 
   return (
-    <div className="container is-fluid site-page">
+    <div className="container is-fluid full-height-page">
       <div className="columns is-multiline">
         <div className="column is-4-desktop is-4-tablet is-12-mobile sticky-bio">
           <div className="columns is-multiline">

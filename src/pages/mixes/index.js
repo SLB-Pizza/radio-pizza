@@ -43,7 +43,7 @@ function MixesIndexPage({ data }) {
   ];
 
   return (
-    <main className="site-page">
+    <main className="full-height-page">
       {/* FIRST SECTION - Header Section */}
       <header className="container is-fluid">
         <div className="columns is-mobile is-multiline">

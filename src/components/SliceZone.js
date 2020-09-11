@@ -18,7 +18,7 @@ import {
  * The template that has the query for the data to pass as props into SliceZone returns a structure as follows:
  *
  * ```html
- * <main className="site-page">
+ * <main className="full-height-page">
  *    <SliceZone
         sliceZone={featureSliceData}
         featureMetadata={featureMetadata}
@@ -31,7 +31,7 @@ import {
  *
  * e.g.
  * ```html
- * <main className="site-page">
+ * <main className="full-height-page">
  *    <div>
  *      <section>{slice layout here}</section>
  *    </div>

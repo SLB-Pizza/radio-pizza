@@ -14,7 +14,7 @@ function CMSGuideIndex({ data }) {
   const cmsGuideData = prismicContent.node;
 
   return (
-    <main className="site-page">
+    <main className="full-height-page">
       <section className="container is-fluid">
         <div className="columns">
           <div className="column is-12">

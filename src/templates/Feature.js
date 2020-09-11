@@ -20,7 +20,7 @@ function FeatureTemplate({ data }) {
   const featureSliceData = featuresData.body;
 
   return (
-    <main className="site-page">
+    <main className="full-height-page">
       <article>
         {/* HeadlineBlock only here */}
         <SliceZone sliceZone={featureSliceData} metadata={featureMetadata} />

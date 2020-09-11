@@ -40,7 +40,7 @@ const data = {
 };
 
 export const baseLayout = () => (
-  <main className="site-page">
+  <main className="full-height-page">
     <ParallaxHeadline
       cta={data.support_cta}
       hook={data.support_cta_hook}

@@ -34,7 +34,7 @@ function FeaturesIndex({ data }) {
   const { _meta, body } = leadFeatureData;
 
   return (
-    <main className="site-page">
+    <main className="full-height-page">
       {/* <StickyFeature leadFeatureData={leadFeatureData} /> */}
       <ul>
         <li>

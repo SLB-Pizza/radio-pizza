@@ -199,7 +199,16 @@ figcaption {
     transition: 0.125s ease;
 
     .event-text {
+      display: flex;
+      flex-direction: column;
       min-height: 8rem;
+
+      .event-details {
+        flex: 1;
+      }
+      .event-blurb {
+        flex: 0;
+      }
     }
 
     .content-text {

@@ -14,13 +14,13 @@ function SingleScheduleEntryRow({ start, end, show }) {
   return (
     <div className="columns is-mobile is-vcentered single-show-entry">
       <div className="column is-4">
-        <p className="is-size-6-tablet is-size-7-mobile has-text-centered">
+        <p className="title is-size-6-tablet is-size-7-mobile has-text-centered">
           {start} – {end}
         </p>
       </div>
       {mix_title !== null ? (
         <div className="column is-8">
-          <p className="is-size-6-tablet is-size-7-mobile has-text-centered">
+          <p className="title is-size-6-tablet is-size-7-mobile has-text-centered">
             {mix_title}
           </p>
           <p className="subtitle is-size-7 has-text-centered">
@@ -29,7 +29,7 @@ function SingleScheduleEntryRow({ start, end, show }) {
         </div>
       ) : (
         <div className="column is-8">
-          <p className="is-size-6-tablet is-size-7-mobile has-text-centered">
+          <p className="title is-size-6-tablet is-size-7-mobile has-text-centered">
             {getResidentLinks(featured_residents)}
           </p>
         </div>

@@ -28,6 +28,17 @@
   }
 }
 
+.column.mix-data,
+.column.next-show {
+  opacity: 0;
+  white-space: nowrap;
+
+  transition: 0.5s ease;
+  &.is-loaded {
+    opacity: 1;
+  }
+}
+
 //==================================
 // <RadioBar />
 //==================================
@@ -69,14 +80,6 @@
     max-height: 4rem;
     // border: 2px solid red;
     // background-color: rgba($color: orange, $alpha: 0.5);
-  }
-
-  .column.mix-data {
-    opacity: 0;
-    transition: 0.5s ease;
-    &.is-loaded {
-      opacity: 1;
-    }
   }
 }
 
@@ -169,19 +172,14 @@
   }
   .columns.dropdown {
     margin-top: 0;
-    padding-bottom: 2rem;
     min-height: 3.5rem;
     max-height: calc(100vh - 15rem);
     overflow-y: scroll;
-    background-color: rgba($color: black, $alpha: 0.75);
+    background-color: rgba($color: black, $alpha: 0.9);
     border: 2px solid white;
     border-bottom-left-radius: 0.75rem;
     border-bottom-right-radius: 0.75rem;
   }
-}
-
-.upcoming {
-  white-space: nowrap;
 }
 
 //==================================

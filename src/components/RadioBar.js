@@ -93,14 +93,13 @@ function RadioBar({ nycTime, laTime }) {
    */
   useEffect(() => {
     if (loading) {
-      console.log("Data request in progress");
+      console.log("Initial Mix request in progress");
     }
     if (error) {
-      console.log(`Error: ${error.message}`);
+      console.log(`initialMix Error: ${error.message}`);
     }
     if (data) {
       const mixDataObject = data.allTopnavs.edges[0].node.default_mix;
-      console.log("mixDataObject", mixDataObject);
       const {
         featured_residents,
         mix_image,
@@ -109,7 +108,6 @@ function RadioBar({ nycTime, laTime }) {
       } = mixDataObject;
 
       const mixResidentsString = getResidentString(featured_residents);
-      console.log("initial mix data configure; ready to ship off");
       return dispatch({
         type: "SET_INITIAL_MIX",
         payload: {

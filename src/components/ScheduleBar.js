@@ -1,7 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Link } from "gatsby";
-import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
-import { PrismicLink } from "apollo-link-prismic";
+import { gql, useQuery } from "@apollo/client";
 import {
   faSearch,
   faComments,
@@ -30,28 +29,20 @@ function ScheduleBar({ timeNow }) {
 
   const [open, setOpen] = useState(false);
   const [pageIsVisible, setPageIsVisible] = useState(true);
+  const [todaysSchedule, setTodaysSchedule] = useState(null);
   const [currentTime, setCurrentTime] = useState(
     dayjs().tz("America/New_York")
   );
 
   useEffect(() => {
     const schedTime = setInterval(() => {
-      setCurrentTime(dayjs(currentTime).add(1, "s"));
-      // console.log("time", formatDateTime(currentTime, "hour-minute"));
-      // console.log("timeNow", formatDateTime(timeNow, "hour-minute"));
+      setCurrentTime(currentTime.add(1, "s"));
     }, 1000);
 
     return () => {
       clearInterval(schedTime);
     };
   }, []);
-
-  // const client = new ApolloClient({
-  //   link: PrismicLink({
-  //     uri: "https://hmbk-cms.prismic.io/graphql",
-  //   }),
-  //   cache: new InMemoryCache(),
-  // });
 
   /**
    * Format timeNow for use in schedule_date_before and schedule_date_after below. Neither date is inclusive so we need to pass in yesterday as the filter date.
@@ -100,27 +91,41 @@ function ScheduleBar({ timeNow }) {
     }
   `;
 
-  // useEffect(() => {
-  //   client
-  //     .query({
-  //       query: GET_NEXT_SHOW,
-  //     })
-  //     .then((result) => console.log(data))
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // }, []);
-
   /**
    * Run the query on load and poll every 120 seconds; 2 minutes.
    */
-  // const { loading, error, data } = useQuery(GET_NEXT_SHOW, {
-  //   variables: { yesterday },
-  // });
+  const { loading, error, data } = useQuery(GET_NEXT_SHOW, {
+    variables: { yesterday },
+    pollInterval: 5000,
+  });
 
-  // if (error) {
-  //   return `Error ${error.message}`;
-  // }
+  /**
+   * Query the HMBK Prismic CMS to get the data for the next scheduled show's data.
+   * Grab the schedule data object from the query result.
+   * Destructure the mix data object and dispatch the mix data to appear in {@link UpcomingShow}
+   * @function
+   */
+  useEffect(() => {
+    const getNextShowData = () => {
+      if (loading) {
+        console.log(
+          `Get next show request sent at ${formatDateTime(
+            currentTime,
+            "hour-minute"
+          )}`
+        );
+      }
+      if (error) {
+        console.log(`todaysSchedule ErroTodaysScheduleor.message}`);
+      }
+      if (data) {
+        const todayScheduleData = data.allSchedules.edges[0].node;
+        setTodaysSchedule(todayScheduleData);
+      }
+    };
+
+    return getNextShowData();
+  }, [data, loading, error]);
 
   const handleVisibilityChange = (isVisible) => {
     setPageIsVisible(isVisible);
@@ -223,9 +228,13 @@ function ScheduleBar({ timeNow }) {
               </p>
             )}
           </div>
-          <div className="column upcoming is-hidden-mobile">
-            {/* {data && <UpcomingShow showData={data} />} */}
-          </div>
+
+          {!todaysSchedule ? (
+            <div className="column next-show" />
+          ) : (
+            <UpcomingShow showData={todaysSchedule} />
+          )}
+
           <div className="column upcoming is-hidden-tablet">
             <PageVisibility onChange={handleVisibilityChange}>
               {pageIsVisible &&
@@ -266,14 +275,15 @@ function ScheduleBar({ timeNow }) {
             </a>
           </div>
         </div>
-        {/* {data && (
+        {todaysSchedule && (
           <ScheduleDropdown
-            showData={data}
+            showData={todaysSchedule}
+            timeNow={timeNow}
             open={open}
             setOpen={setOpen}
             toggleSchedule={toggleSchedule}
           />
-        )} */}
+        )}
       </div>
     </OutsideClick>
   ) : (
@@ -327,14 +337,16 @@ function ScheduleBar({ timeNow }) {
             </p>
           )}
         </div>
-        <div className="column upcoming is-hidden-mobile">
-          {/* {data && <UpcomingShow showData={data} />} */}
-        </div>
+        {!todaysSchedule ? (
+          <div className="column next-show" />
+        ) : (
+          <UpcomingShow showData={todaysSchedule} />
+        )}
         <div className="column upcoming is-hidden-tablet">
-          <PageVisibility onChange={handleVisibilityChange}>
+          {/* <PageVisibility onChange={handleVisibilityChange}>
             {pageIsVisible &&
-              nextShowTicker("MON 4.21", "An HMBK Moment In Time")}
-          </PageVisibility>
+              todaysScheduleTickeTodaysSchedule.21", "An HMBK Moment In Time")}
+          </PageVisibility> */}
         </div>
         <div className="column is-narrow">
           <FontAwesomeIcon

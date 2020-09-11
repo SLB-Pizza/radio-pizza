@@ -37,7 +37,6 @@ function reducer(state, action) {
      * If a new audio source is selected while playing is NOT playing, set to play
      */
     case "SET_INITIAL_MIX": {
-      console.log("payload:", action.payload);
       return {
         ...state,
         isLoading: true,

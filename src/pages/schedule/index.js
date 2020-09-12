@@ -162,29 +162,40 @@ function ScheduleIndexPage({ data }) {
                 <p className="title is-size-4-desktop is-size-5-mobile has-text-centered">
                   {scheduleDateHeading}
                 </p>
-                {/* <pre>{JSON.stringify(getSevenDays(node), null, 2)} </pre>*/}
-                {/* <pre>{JSON.stringify(node, null, 2)}</pre> */}
               </div>
 
-              <div className="column is-12">
-                {schedule_entries.map((entry, index) => {
-                  const { start_time, end_time, scheduled_show } = entry;
-                  const formattedStart = formatDateTime(
-                    start_time,
-                    "hour-minute"
-                  );
-                  const formattedEnd = formatDateTime(end_time, "hour-minute");
+              {schedule_entries !== null ? (
+                <div className="column is-12">
+                  {schedule_entries.map((entry, index) => {
+                    const { start_time, end_time, scheduled_show } = entry;
+                    const formattedStart = formatDateTime(
+                      start_time,
+                      "hour-minute"
+                    );
+                    const formattedEnd = formatDateTime(
+                      end_time,
+                      "hour-minute"
+                    );
 
-                  return (
-                    <SingleScheduleEntryRow
-                      key={`show-entry-#${index}-${start_time}`}
-                      start={formattedStart}
-                      end={formattedEnd}
-                      show={scheduled_show}
-                    />
-                  );
-                })}
-              </div>
+                    return (
+                      <SingleScheduleEntryRow
+                        key={`show-entry-#${index}-${start_time}`}
+                        start={formattedStart}
+                        end={formattedEnd}
+                        show={scheduled_show}
+                      />
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="column is-12">
+                  <div className="content">
+                    <p className="subtitle is-size-5-desktop is-size-6-touch has-text-centered">
+                      No shows scheduled!
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
           );
         } else {

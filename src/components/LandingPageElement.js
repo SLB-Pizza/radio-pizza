@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "gatsby";
 import { RichText } from "prismic-reactjs";
+import NanoClamp from "nanoclamp";
+
 import {
   linkResolver,
   processPublicationDates,
   ResponsiveImage,
 } from "../utils";
+
 /**
  * @category Utilities
  * @subcategory Layout Helper
@@ -61,28 +64,33 @@ function LandingPageElement({ pageElement, layout, imageAspectRatio }) {
               />
             </figure>
           </div>
+
           <div className="card-content">
-            <div className="content">
-              <h5 className="subtitle is-size-7 text-truncate has-text-grey-lighter">
-                {pageElementDateDetails.hasBeenUpdated ? (
-                  <time dateTime={lastPublicationDate}>
-                    {`${article_subcategory} | Updated ${pageElementDateDetails.pubDate}`}
-                  </time>
-                ) : (
-                  <time dateTime={firstPublicationDate}>
-                    {`${article_subcategory} | ${pageElementDateDetails.pubDate}`}
-                  </time>
-                )}
-              </h5>
-              <h1
-                id="article-headline"
-                className="title is-size-4-desktop is-size-5-touch"
-              >
-                {RichText.asText(article_headline)}
-              </h1>
-              <p className="has-text-white is-size-6-desktop is-size-7-touch">
-                {RichText.asText(article_subtitle)}
-              </p>
+            <div className="main-text">
+              <div className="details">
+                <p className="subtitle is-size-7 text-truncate has-text-grey-lighter">
+                  {pageElementDateDetails.hasBeenUpdated ? (
+                    <time dateTime={lastPublicationDate}>
+                      {`${article_subcategory} | Updated ${pageElementDateDetails.pubDate}`}
+                    </time>
+                  ) : (
+                    <time dateTime={firstPublicationDate}>
+                      {`${article_subcategory} | ${pageElementDateDetails.pubDate}`}
+                    </time>
+                  )}
+                </p>
+                <NanoClamp
+                  className="title is-size-4-desktop is-size-5-touch"
+                  id="article-headline"
+                  is="h1"
+                  text={RichText.asText(article_headline)}
+                />
+              </div>
+              <NanoClamp
+                className="blurb has-text-white is-size-6-desktop is-size-7-touch"
+                is="p"
+                text={RichText.asText(article_subtitle)}
+              />
             </div>
           </div>
         </div>

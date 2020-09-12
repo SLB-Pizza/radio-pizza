@@ -1,9 +1,6 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import { LandingPageElement } from "../../components";
-import { linkResolver } from "../../utils";
-
-import { CMSSlides, HomeContentSample } from "../../components";
 
 /**
  * @category Pages

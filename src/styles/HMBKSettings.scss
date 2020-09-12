@@ -198,15 +198,15 @@ figcaption {
     border-bottom-right-radius: 0.75rem;
     transition: 0.125s ease;
 
-    .event-text {
+    .main-text {
       display: flex;
       flex-direction: column;
       min-height: 8rem;
 
-      .event-details {
+      .details {
         flex: 1;
       }
-      .event-blurb {
+      .blurb {
         flex: 0;
       }
     }

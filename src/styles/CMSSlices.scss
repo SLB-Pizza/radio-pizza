@@ -127,7 +127,7 @@ header.article-img-titling {
   min-height: calc(100vh - 10.5rem);
   .hero-body {
     background-size: cover;
-    background-position: top;
+    background-position: center center;
     background-attachment: fixed;
     flex: 1;
   }
@@ -146,11 +146,6 @@ header.article-img-titling {
     font-weight: 300;
   }
 }
-
-// .article-headline-img {
-//   background-size: contain;
-//   background-position: center center;
-// }
 
 .category {
   font-weight: 700;

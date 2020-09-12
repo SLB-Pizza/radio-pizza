@@ -13,21 +13,21 @@ function SingleEventCard(props) {
           </figure>
         </div>
         <div className="card-content">
-          <div className="event-text">
-            <div className="event-details">
+          <div className="main-text">
+            <div className="details">
               <p className="text-truncate subtitle is-size-7">
                 {props.date} | {props.location}
               </p>
 
               <NanoClamp
-                className="event-title title is-size-6-touch is-size-6-desktop is-size-5-widescreen"
+                className="title is-size-6-touch is-size-6-desktop is-size-5-widescreen"
                 is="p"
                 lines={2}
                 text={props.eventName}
               />
             </div>
             <NanoClamp
-              className="event-blurb is-size-7 has-text-white"
+              className="blurb is-size-7 has-text-white"
               is="p"
               lines={3}
               ellipsis={"..."}

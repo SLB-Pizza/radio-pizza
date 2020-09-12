@@ -81,7 +81,7 @@ export const query = graphql`
               ... on PRISMIC_FeatureBodyImage_group {
                 type
                 fields {
-                  group_img
+                  single_img
                 }
               }
               ... on PRISMIC_FeatureBodyOne_image_and_text1 {
@@ -100,6 +100,15 @@ export const query = graphql`
                   tiat_left_img
                   tiat_right_img
                   tiat_text
+                }
+              }
+              ... on PRISMIC_FeatureBodyFull_width_image {
+                type
+                label
+                primary {
+                  full_width_image
+                  fwi_height
+                  fwi_titling
                 }
               }
             }

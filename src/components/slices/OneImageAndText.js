@@ -20,21 +20,6 @@ function OneImageAndText({ slice }) {
   const oiatContentClass = "column is-two-thirds-tablet";
   const oiatImageClass = "column is-one-third-tablet is-full-mobile";
 
-  const fullSizeImg = {
-    alt: oiat_img.alt,
-    photoCredit: oiat_img.copyright,
-    url: oiat_img.url,
-    dimensions: oiat_img.dimensions,
-  };
-
-  const responsiveSizes = {
-    widescreen: oiat_img.widescreen,
-    desktop: oiat_img.desktop,
-    tablet: oiat_img.tablet,
-    mobile: oiat_img.mobile,
-    lo_fi: oiat_img.lo_fi_placeholder,
-  };
-
   return (
     <section className="container slice">
       <div className="columns is-mobile is-multiline">
@@ -45,18 +30,14 @@ function OneImageAndText({ slice }) {
               columnClassName={oiatContentClass}
             />
             <ImageHelper
-              fullSizeImg={fullSizeImg}
-              responsiveData={responsiveSizes}
-              url={oiat_img.url}
+              imageData={oiat_img}
               columnClassName={oiatImageClass}
             />
           </>
         ) : (
           <>
             <ImageHelper
-              fullSizeImg={fullSizeImg}
-              responsiveData={responsiveSizes}
-              url={oiat_img.url}
+              imageData={oiat_img}
               columnClassName={oiatImageClass}
             />
             <ContentHelper

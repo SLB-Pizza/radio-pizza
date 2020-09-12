@@ -13,7 +13,7 @@ import {
  * @param {Object} props
  * @returns {jsx}
  */
-function LandingPageElement({ pageElement, layout }) {
+function LandingPageElement({ pageElement, layout, imageAspectRatio }) {
   const { _meta, body } = pageElement.node;
 
   const { type, uid, firstPublicationDate, lastPublicationDate } = _meta;
@@ -27,9 +27,11 @@ function LandingPageElement({ pageElement, layout }) {
   );
 
   const {
+    article_headline_img,
     article_headline,
     article_subtitle,
-    article_headline_img,
+    article_category,
+    article_subcategory,
   } = body[0].primary;
 
   const fullSizeImg = {
@@ -52,7 +54,7 @@ function LandingPageElement({ pageElement, layout }) {
       <Link to={linkResolver(linkTo)}>
         <div className="card">
           <div className="card-image">
-            <figure className="image is-3by1">
+            <figure className={imageAspectRatio}>
               <ResponsiveImage
                 largestImg={fullSizeImg}
                 responsiveData={responsiveSizes}
@@ -61,28 +63,26 @@ function LandingPageElement({ pageElement, layout }) {
           </div>
           <div className="card-content">
             <div className="content">
+              <h5 className="subtitle is-size-7 text-truncate has-text-grey-lighter">
+                {pageElementDateDetails.hasBeenUpdated ? (
+                  <time dateTime={lastPublicationDate}>
+                    {`${article_subcategory} | Updated ${pageElementDateDetails.pubDate}`}
+                  </time>
+                ) : (
+                  <time dateTime={firstPublicationDate}>
+                    {`${article_subcategory} | ${pageElementDateDetails.pubDate}`}
+                  </time>
+                )}
+              </h5>
               <h1
                 id="article-headline"
-                className="title is-size-3-widescreen is-size-4-desktop is-size-5-touch"
+                className="title is-size-4-desktop is-size-5-touch"
               >
                 {RichText.asText(article_headline)}
               </h1>
-              <h2 className="subtitle is-size-5-widescreen is-size-6-desktop is-size-7-touch">
+              <p className="has-text-white is-size-6-desktop is-size-7-touch">
                 {RichText.asText(article_subtitle)}
-              </h2>
-              {pageElementDateDetails.hasBeenUpdated ? (
-                <p className="subtitle is-size-6-desktop is-size-7-touch">
-                  <time dateTime={lastPublicationDate}>
-                    <em>Updated {pageElementDateDetails.pubDate}</em>
-                  </time>
-                </p>
-              ) : (
-                <p className="subtitle is-size-6-desktop is-size-7-touch">
-                  <time dateTime={firstPublicationDate}>
-                    <em>{pageElementDateDetails.pubDate}</em>
-                  </time>
-                </p>
-              )}
+              </p>
             </div>
           </div>
         </div>

@@ -13,11 +13,11 @@ function ImageRow({ slice }) {
   return (
     <section className="container slice">
       <div className="columns is-mobile is-multiline">
-        {slice.fields.map(({ group_img }, index) => {
+        {slice.fields.map(({ single_img }, index) => {
           return (
             <ImageHelper
-              key={`img-#${index}-${group_img.alt}`}
-              imageData={group_img}
+              key={`img-#${index}-${single_img.alt}`}
+              imageData={single_img}
             />
           );
         })}

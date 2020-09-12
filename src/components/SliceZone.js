@@ -54,7 +54,7 @@ function SliceZone({ sliceZone, metadata }) {
     blockquote: Blockquote,
     full_width_image: FullWidthImage,
     headline_block: ArticleHeadline,
-    image_row: ImageRow,
+    row_of_images: ImageRow,
     one_image_and_text1: OneImageAndText,
     two_images_and_text: TwoImagesAndText,
     text: TextBlock,

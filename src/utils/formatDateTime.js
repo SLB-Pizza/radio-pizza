@@ -14,7 +14,6 @@ dayjs.extend(utc);
  * @see {@link https://day.js.org/docs/en/manipulate/add|dayjs docs - add}
  * @see {@link https://day.js.org/docs/en/display/format|dayjs docs - format}
  */
-
 const formatDateTime = (time, format, number) => {
   switch (format) {
     case "add-days":

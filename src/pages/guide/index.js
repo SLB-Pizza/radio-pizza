@@ -16,6 +16,7 @@ function CMSGuideIndex({ data }) {
   const cmsGuideData = prismicContent;
 
   const cmsCardColumnLayout = "column is-12 landing-page-element";
+  const cmsImageAspectRatio = "image is-3by1";
 
   return (
     <main className="container is-fluid black-bg-page">
@@ -32,15 +33,14 @@ function CMSGuideIndex({ data }) {
           </div>
         </div>
 
-        {cmsGuideData.map((guide, index) => {
-          return (
-            <LandingPageElement
-              key={`CMS-Guide-${index}`}
-              pageElement={guide}
-              layout={cmsCardColumnLayout}
-            />
-          );
-        })}
+        {cmsGuideData.map((guide, index) => (
+          <LandingPageElement
+            key={`CMS-Guide-#${index + 1}`}
+            pageElement={guide}
+            layout={cmsCardColumnLayout}
+            imageAspectRatio={cmsImageAspectRatio}
+          />
+        ))}
       </div>
     </main>
   );
@@ -58,13 +58,15 @@ export const query = graphql`
               lastPublicationDate
               type
             }
+            cms_guide_category
             body {
               ... on PRISMIC_Cms_guideBodyHeadline_block {
                 type
                 primary {
                   article_headline
-                  article_subtitle
                   article_headline_img
+                  article_subcategory
+                  article_subtitle
                 }
               }
             }

@@ -13,7 +13,8 @@ header.article-img-titling + section.slice {
   margin-top: 2rem;
 }
 
-section.slice {
+section.slice,
+article.landing-page-element {
   margin-top: 1rem;
 
   // ================================
@@ -182,7 +183,7 @@ header.article-img-titling {
 }
 
 // ==================================
-// Layout Helper - ResponsiveImage.js
+// Layout Helper - ResponsiveImage
 // ==================================
 .inline-image {
   transition: all 1s;

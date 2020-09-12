@@ -13,28 +13,11 @@ function ImageRow({ slice }) {
   return (
     <section className="container slice">
       <div className="columns is-mobile is-multiline">
-        {slice.fields.map((singleImage, index) => {
-          const fullSizeImg = {
-            alt: singleImage.group_img.alt,
-            photoCredit: singleImage.group_img.copyright,
-            url: singleImage.group_img.url,
-            dimensions: singleImage.group_img.dimensions,
-          };
-
-          const responsiveSizes = {
-            widescreen: singleImage.group_img.widescreen,
-            desktop: singleImage.group_img.desktop,
-            tablet: singleImage.group_img.tablet,
-            mobile: singleImage.group_img.mobile,
-            lo_fi: singleImage.group_img.lo_fi_placeholder,
-          };
-
+        {slice.fields.map(({ group_img }, index) => {
           return (
             <ImageHelper
-              key={`img-#${index}-${fullSizeImg.alt}`}
-              fullSizeImg={fullSizeImg}
-              responsiveData={responsiveSizes}
-              url={fullSizeImg.url}
+              key={`img-#${index}-${group_img.alt}`}
+              imageData={group_img}
             />
           );
         })}

@@ -18,7 +18,7 @@ import { ImageModal, ResponsiveImage } from "../../../utils";
  * @param {String} fullSizeImg.photoCredit - contains image credit data; comes from Prismic CMS. Should be set when the image is **first uploaded** to the CMS Media Library
  * @returns {jsx}
  */
-function ImageHelper({ columnClassName, responsiveData, fullSizeImg }) {
+function ImageHelper({ columnClassName, imageData }) {
   const [imgModalOpen, setImgModalOpen] = useState(false);
 
   const defaultImageClass = "column is-12-mobile";
@@ -30,6 +30,21 @@ function ImageHelper({ columnClassName, responsiveData, fullSizeImg }) {
   const imageColumnClass = columnClassName
     ? columnClassName
     : defaultImageClass;
+
+  const fullSizeImg = {
+    alt: imageData.alt,
+    photoCredit: imageData.copyright,
+    url: imageData.url,
+    dimensions: imageData.dimensions,
+  };
+
+  const responsiveSizes = {
+    widescreen: imageData.widescreen,
+    desktop: imageData.desktop,
+    tablet: imageData.tablet,
+    mobile: imageData.mobile,
+    lo_fi: imageData.lo_fi_placeholder,
+  };
 
   return (
     <div className={imageColumnClass}>
@@ -43,14 +58,14 @@ function ImageHelper({ columnClassName, responsiveData, fullSizeImg }) {
       >
         <ResponsiveImage
           largestImg={fullSizeImg}
-          responsiveData={responsiveData}
+          responsiveData={responsiveSizes}
         />
       </figure>
 
       {imgModalOpen ? (
         <ImageModal
           fullSizeImg={fullSizeImg}
-          responsiveData={responsiveData}
+          responsiveData={responsiveSizes}
           setImgModalOpen={setImgModalOpen}
         />
       ) : null}

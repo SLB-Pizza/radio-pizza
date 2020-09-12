@@ -11,20 +11,17 @@ import {
  * @subcategory Layout Helper
  * @function LandingPageElement
  * @param {Object} props
-
  * @returns {jsx}
  */
-function LandingPageElement({ singleGuide }) {
-  const { _meta, body } = singleGuide.node;
+function LandingPageElement({ pageElement, layout }) {
+  const { _meta, body } = pageElement.node;
 
   const { type, uid, firstPublicationDate, lastPublicationDate } = _meta;
-
   const linkTo = {
     type,
     uid,
   };
-
-  const cmsGuideDateDetails = processPublicationDates(
+  const pageElementDateDetails = processPublicationDates(
     firstPublicationDate,
     lastPublicationDate
   );
@@ -35,44 +32,62 @@ function LandingPageElement({ singleGuide }) {
     article_headline_img,
   } = body[0].primary;
 
+  const fullSizeImg = {
+    alt: article_headline_img.alt,
+    photoCredit: article_headline_img.copyright,
+    url: article_headline_img.url,
+    dimensions: article_headline_img.dimensions,
+  };
+
+  const responsiveSizes = {
+    widescreen: article_headline_img.widescreen,
+    desktop: article_headline_img.desktop,
+    tablet: article_headline_img.tablet,
+    mobile: article_headline_img.mobile,
+    lo_fi: article_headline_img.lo_fi_placeholder,
+  };
+
   return (
-    <Link to={linkResolver(linkTo)}>
-      <div className="columns is-multiline is-mobile">
-        <div className="column is-12">
-          <div className="card">
-            <div className="card-image">
-              <figure className="image is-3by1">
-                {/* <img src={img.url} alt={img.alt} /> */}
-              </figure>
-            </div>
-            <div className="card-content">
+    <article className={layout}>
+      <Link to={linkResolver(linkTo)}>
+        <div className="card">
+          <div className="card-image">
+            <figure className="image is-3by1">
+              <ResponsiveImage
+                largestImg={fullSizeImg}
+                responsiveData={responsiveSizes}
+              />
+            </figure>
+          </div>
+          <div className="card-content">
+            <div className="content">
               <h1
                 id="article-headline"
                 className="title is-size-3-widescreen is-size-4-desktop is-size-5-touch"
               >
                 {RichText.asText(article_headline)}
               </h1>
-              <h4 className="subtitle is-size-5-widescreen is-size-6-desktop is-size-7-touch">
+              <h2 className="subtitle is-size-5-widescreen is-size-6-desktop is-size-7-touch">
                 {RichText.asText(article_subtitle)}
-              </h4>
-              {cmsGuideDateDetails.hasBeenUpdated ? (
+              </h2>
+              {pageElementDateDetails.hasBeenUpdated ? (
                 <p className="subtitle is-size-6-desktop is-size-7-touch">
                   <time dateTime={lastPublicationDate}>
-                    Updated {cmsGuideDateDetails.pubDate}
+                    <em>Updated {pageElementDateDetails.pubDate}</em>
                   </time>
                 </p>
               ) : (
                 <p className="subtitle is-size-6-desktop is-size-7-touch">
                   <time dateTime={firstPublicationDate}>
-                    {cmsGuideDateDetails.pubDate}
+                    <em>{pageElementDateDetails.pubDate}</em>
                   </time>
                 </p>
               )}
             </div>
           </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </article>
   );
 }
 

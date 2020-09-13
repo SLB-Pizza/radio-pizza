@@ -10,6 +10,7 @@ import linkResolver from "./src/utils/linkResolver";
  * Create the Apollo Client and give it our Prismic CMS graphql endpoint
  * @name ApolloPrismicClient
  * @see {@link https://www.apollographql.com/docs/react/get-started/#create-a-client|Create a Client}
+ * @see {@link https://github.com/gatsbyjs/gatsby/issues/11225#issuecomment-457211628|Wrapping root element in gatsby-browser AND gatsby-ssr}
  */
 const client = new ApolloClient({
   link: PrismicLink({
@@ -18,6 +19,9 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+/**
+ * @see {@link https://github.com/gatsbyjs/gatsby/issues/11225#issuecomment-457211628|Wrapping root element in gatsby-browser AND gatsby-ssr}
+ */
 export const wrapRootElement = ({ element }) => {
   return (
     <ApolloProvider client={client}>

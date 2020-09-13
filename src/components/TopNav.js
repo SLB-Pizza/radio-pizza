@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
+import { GlobalStateContext } from "../context/GlobalContextProvider";
+import { RadioBar, ScheduleBar } from "./index";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
-import { GlobalStateContext } from "../context/GlobalContextProvider";
-import { RadioBar, ScheduleBar } from "./index";
-
+/**
+ * @function TopNav
+ */
 function TopNav() {
   const globalState = useContext(GlobalStateContext);
 
@@ -25,6 +27,12 @@ function TopNav() {
     };
   });
 
+  /**
+   * This globalState null return prevents ERROR #95313.
+   * @see {@link BottomNav|Related globalState situation in BottomNav}
+   * @see {@link https://github.com/gatsbyjs/gatsby/issues/24264#issuecomment-631995753|Re: ERROR #95313 - To stop the error immediately, add a null check for the object}
+   */
+  if (!globalState) return null;
   return (
     <div
       className={

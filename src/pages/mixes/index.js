@@ -43,7 +43,7 @@ function MixesIndexPage({ data }) {
   ];
 
   return (
-    <main className="full-height-page">
+    <main className="black-bg-page">
       {/* FIRST SECTION - Header Section */}
       <header className="container is-fluid">
         <div className="columns is-mobile is-multiline">
@@ -121,7 +121,7 @@ function MixesIndexPage({ data }) {
             );
           })}
           <hr />
-          <pre>{JSON.stringify(allMixesData, null, 2)}</pre>
+          {/* <pre>{JSON.stringify(allMixesData, null, 2)}</pre> */}
         </div>
       </section>
     </main>

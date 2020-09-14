@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../components/Layout";
 
 const NotFoundPage = () => (
-  <section className="full-height-page">
+  <main className="black-bg-page">
     <div className="container is-fluid">
       <div className="columns is-mobile">
         <div className="column is-12 content">
@@ -11,7 +11,7 @@ const NotFoundPage = () => (
         </div>
       </div>
     </div>
-  </section>
+  </main>
 );
 
 export default NotFoundPage;

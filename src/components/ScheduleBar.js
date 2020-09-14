@@ -29,7 +29,7 @@ function ScheduleBar({ timeNow }) {
 
   const [open, setOpen] = useState(false);
   const [pageIsVisible, setPageIsVisible] = useState(true);
-  const [todaysSchedule, setTodaysSchedule] = useState(null);
+  const [todaysSchedule, setTodaysSchedule] = useState([]);
   const [currentTime, setCurrentTime] = useState(
     dayjs().tz("America/New_York")
   );
@@ -116,11 +116,13 @@ function ScheduleBar({ timeNow }) {
         );
       }
       if (error) {
-        console.log(`todaysSchedule ErroTodaysScheduleor.message}`);
+        console.log(`Error: ${error.message}`);
       }
       if (data) {
-        const todayScheduleData = data.allSchedules.edges[0].node;
+        console.log("data received", data);
+        const todayScheduleData = data.allSchedules.edges;
         setTodaysSchedule(todayScheduleData);
+        // console.log(todaysSchedule);
       }
     };
 
@@ -173,7 +175,11 @@ function ScheduleBar({ timeNow }) {
   /**
    * Schedule Bar LAYOUT
    * OPEN : CLOSED
+   * This globalState null return prevents ERROR #95313.
+   * @see {@link BottomNav|Related globalState situation in BottomNav}
+   * @see {@link https://github.com/gatsbyjs/gatsby/issues/24264#issuecomment-631995753|Re: ERROR #95313 - To stop the error immediately, add a null check for the object}
    */
+  if (!globalState) return null;
   return globalState.scheduleOpen ? (
     <OutsideClick id={"schedule-bar"} onClick={() => closeSchedule()}>
       <div
@@ -229,7 +235,7 @@ function ScheduleBar({ timeNow }) {
             )}
           </div>
 
-          {!todaysSchedule ? (
+          {todaysSchedule ? (
             <div className="column next-show" />
           ) : (
             <UpcomingShow showData={todaysSchedule} />

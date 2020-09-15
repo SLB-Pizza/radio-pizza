@@ -4,19 +4,18 @@ import { getResidentLinks, formatDateTime } from "../utils";
 /**
  * @function UpcomingShow
  * @param {?Object[]} { showData }
- * @returns
+ * @returns {jsx}
  */
 function UpcomingShow({ showData }) {
   const { schedule_date, schedule_entries } = showData;
 
   /**
-   *
+   * No schedule_entries or schedule_date data available to process.
    */
   if (schedule_entries === undefined) {
     return (
       <div className="column next-show is-loaded is-hidden-mobile">
         <p className="subtitle is-size-6-desktop is-size-7-touch">
-          {/* No schedule_entries or schedule_date data available to process. */}
           Taking a short break! No upcoming shows planned.
         </p>
       </div>

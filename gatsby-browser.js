@@ -24,9 +24,9 @@ const client = new ApolloClient({
  */
 export const wrapRootElement = ({ element }) => {
   return (
-    <ApolloProvider client={client}>
-      <GlobalContextProvider>{element}</GlobalContextProvider>
-    </ApolloProvider>
+    <GlobalContextProvider>
+      <ApolloProvider client={client}>{element}</ApolloProvider>
+    </GlobalContextProvider>
   );
 };
 

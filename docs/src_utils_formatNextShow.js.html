@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> src/components/SingleMixCard.js</title>
+  <title> src/utils/formatNextShow.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>src/components/SingleMixCard.js</h1>
+                    <h1>src/utils/formatNextShow.js</h1>
                 </header>
                 
 
@@ -89,135 +89,30 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React, { useContext } from "react";
-import NanoClamp from "nanoclamp";
-import { GlobalDispatchContext } from "../context/GlobalContextProvider";
-import { getResidentString, getResidentLinks, PlayAudioButton } from "../utils";
+            <pre class="prettyprint source linenums"><code>import { formatDateTime } from "../utils";
 
 /**
+ * Four scenarios:
+ * - Next show is NOT today - get and show next show details
+ * - Next show IS today; timeNow is before day's programming has begun; show first schedule entry
+ * - Next show IS today; timeNow is between start and end of today's programming
+ * - Next show IS today; timeNow is after end of today's programming
+ * arr.filter based on isBetween start inclusivity, end exclusivity
+ *
+ * Determines what to display in {@link ScheduleBar} .up-next center column
  * @category Utilities
- * @subcategory Layout Helper
- * @function SingleMixCard
- * @param {Object} props
- * @property {String} props.date - archived mix's date
- * @property {String} props.url - url of the archived mix to play
- * @property {?String} props.title - Mix titles are optional, string of residents will be used to label mix if not present
- * @property {Object[]} props.residents - Array of data objects containing the mix's resident data
- * @property {Object} props.img - object containing the different sizes of a mix's image
- * @property {String[]} props.tags - the mix's tags
- * @property {String} props.columnLayout - string detailing the column layout across different responsive breakpoints @see {@link https://bulma.io/documentation/columns/sizes/|bulma.io column sizing}
- * @property {?String} props.path - optional string passed down only by {@link ResidentTemplate} for use with {@link linkResolver}
- * @returns {jsx}
+ * @subcategory Data Processing
+ * @function formatNextShow
+ * @param {Object} nextShowData - the schedule data object
  */
-function SingleMixCard({
-  date,
-  url,
-  title,
-  residents,
-  img,
-  tags,
-  columnLayout,
-  path,
-}) {
-  const dispatch = useContext(GlobalDispatchContext);
-  const mixResidentsString = getResidentString(residents);
+function formatNextShow(nextShowData, currentTime) {
+  let formattedNextShowDate = nextShowData.schedule_date;
+  let todayFormatted = formatDateTime(currentTime, "prismic-date-query", 0);
 
-  const loadShow = async () => {
-    await dispatch({ type: "SHOW_LOADING" });
-  };
-
-  const changeUrl = async () => {
-    await dispatch({
-      type: "CHANGE_URL",
-      payload: {
-        url: url,
-        title: title,
-        residents: mixResidentsString,
-        img: img.now_playing.url,
-      },
-    });
-  };
-
-  return (
-    &lt;div className={columnLayout}>
-      &lt;div className="card">
-        &lt;div className="card-image">
-          &lt;a
-            href="#"
-            className="sr-only display-text"
-            tabIndex="0"
-            onClick={() => {
-              loadShow();
-              changeUrl();
-            }}
-          >
-            Play This Mix
-          &lt;/a>
-          &lt;figure className="image is-1by1">
-            &lt;img src={img.url} alt={img.alt} />
-            &lt;div className="play-btn-diffuser is-overlay">
-              &lt;PlayAudioButton
-                url={url}
-                title={title}
-                resident={mixResidentsString}
-                img={img.now_playing.url}
-              />
-            &lt;/div>
-          &lt;/figure>
-        &lt;/div>
-
-        &lt;div className="card-content">
-          {/**
-           * title !== null : format title under list of residents
-           * title === null : formart list of residents as title
-           */
-          title !== null ? (
-            &lt;div className="content-text">
-              &lt;p className="is-size-7">{date}&lt;/p>
-              &lt;NanoClamp
-                className="content-details subtitle is-size-7"
-                is="p"
-                lines={2}
-                text={getResidentLinks(residents, path)}
-              />
-              &lt;NanoClamp
-                className="title is-size-6"
-                is="p"
-                lines={2}
-                text={title}
-              />
-            &lt;/div>
-          ) : (
-            &lt;div className="content-text">
-              &lt;p className="is-size-7">{date}&lt;/p>
-              &lt;NanoClamp
-                className="title is-size-6"
-                is="p"
-                lines={2}
-                text={getResidentLinks(residents, path)}
-              />
-            &lt;/div>
-          )}
-          &lt;div className="buttons are-tags">
-            {tags.map((tag, index) => {
-              const lowercaseTag = tag.toLowerCase();
-              return (
-                &lt;button
-                  key={`${title} tag #${index}`}
-                  className="button is-small is-outlined is-rounded"
-                >
-                  {lowercaseTag}
-                &lt;/button>
-              );
-            })}
-          &lt;/div>
-        &lt;/div>
-      &lt;/div>
-    &lt;/div>
-  );
+  return formattedNextShowDate === todayFormatted;
 }
 
-export default SingleMixCard;
+export default formatNextShow;
 </code></pre>
         </article>
     </section>

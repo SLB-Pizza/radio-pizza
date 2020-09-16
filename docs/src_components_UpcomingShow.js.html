@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> src/components/SingleMixCard.js</title>
+  <title> src/components/UpcomingShow.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>src/components/SingleMixCard.js</h1>
+                    <h1>src/components/UpcomingShow.js</h1>
                 </header>
                 
 
@@ -89,135 +89,61 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React, { useContext } from "react";
-import NanoClamp from "nanoclamp";
-import { GlobalDispatchContext } from "../context/GlobalContextProvider";
-import { getResidentString, getResidentLinks, PlayAudioButton } from "../utils";
+            <pre class="prettyprint source linenums"><code>import React from "react";
+import { getResidentLinks, formatDateTime } from "../utils";
 
 /**
- * @category Utilities
- * @subcategory Layout Helper
- * @function SingleMixCard
- * @param {Object} props
- * @property {String} props.date - archived mix's date
- * @property {String} props.url - url of the archived mix to play
- * @property {?String} props.title - Mix titles are optional, string of residents will be used to label mix if not present
- * @property {Object[]} props.residents - Array of data objects containing the mix's resident data
- * @property {Object} props.img - object containing the different sizes of a mix's image
- * @property {String[]} props.tags - the mix's tags
- * @property {String} props.columnLayout - string detailing the column layout across different responsive breakpoints @see {@link https://bulma.io/documentation/columns/sizes/|bulma.io column sizing}
- * @property {?String} props.path - optional string passed down only by {@link ResidentTemplate} for use with {@link linkResolver}
+ * @function UpcomingShow
+ * @param {?Object[]} { showData }
  * @returns {jsx}
  */
-function SingleMixCard({
-  date,
-  url,
-  title,
-  residents,
-  img,
-  tags,
-  columnLayout,
-  path,
-}) {
-  const dispatch = useContext(GlobalDispatchContext);
-  const mixResidentsString = getResidentString(residents);
+function UpcomingShow({ showData }) {
+  const { schedule_date, schedule_entries } = showData;
 
-  const loadShow = async () => {
-    await dispatch({ type: "SHOW_LOADING" });
-  };
-
-  const changeUrl = async () => {
-    await dispatch({
-      type: "CHANGE_URL",
-      payload: {
-        url: url,
-        title: title,
-        residents: mixResidentsString,
-        img: img.now_playing.url,
-      },
-    });
-  };
-
-  return (
-    &lt;div className={columnLayout}>
-      &lt;div className="card">
-        &lt;div className="card-image">
-          &lt;a
-            href="#"
-            className="sr-only display-text"
-            tabIndex="0"
-            onClick={() => {
-              loadShow();
-              changeUrl();
-            }}
-          >
-            Play This Mix
-          &lt;/a>
-          &lt;figure className="image is-1by1">
-            &lt;img src={img.url} alt={img.alt} />
-            &lt;div className="play-btn-diffuser is-overlay">
-              &lt;PlayAudioButton
-                url={url}
-                title={title}
-                resident={mixResidentsString}
-                img={img.now_playing.url}
-              />
-            &lt;/div>
-          &lt;/figure>
-        &lt;/div>
-
-        &lt;div className="card-content">
-          {/**
-           * title !== null : format title under list of residents
-           * title === null : formart list of residents as title
-           */
-          title !== null ? (
-            &lt;div className="content-text">
-              &lt;p className="is-size-7">{date}&lt;/p>
-              &lt;NanoClamp
-                className="content-details subtitle is-size-7"
-                is="p"
-                lines={2}
-                text={getResidentLinks(residents, path)}
-              />
-              &lt;NanoClamp
-                className="title is-size-6"
-                is="p"
-                lines={2}
-                text={title}
-              />
-            &lt;/div>
-          ) : (
-            &lt;div className="content-text">
-              &lt;p className="is-size-7">{date}&lt;/p>
-              &lt;NanoClamp
-                className="title is-size-6"
-                is="p"
-                lines={2}
-                text={getResidentLinks(residents, path)}
-              />
-            &lt;/div>
-          )}
-          &lt;div className="buttons are-tags">
-            {tags.map((tag, index) => {
-              const lowercaseTag = tag.toLowerCase();
-              return (
-                &lt;button
-                  key={`${title} tag #${index}`}
-                  className="button is-small is-outlined is-rounded"
-                >
-                  {lowercaseTag}
-                &lt;/button>
-              );
-            })}
-          &lt;/div>
-        &lt;/div>
+  /**
+   * No schedule_entries or schedule_date data available to process.
+   */
+  if (schedule_entries === undefined) {
+    return (
+      &lt;div className="column next-show is-loaded is-hidden-mobile">
+        &lt;p className="subtitle is-size-6-desktop is-size-7-touch">
+          Taking a short break! No upcoming shows planned.
+        &lt;/p>
       &lt;/div>
-    &lt;/div>
-  );
+    );
+  }
+
+  const { start_time, scheduled_show } = schedule_entries[0];
+  const { mix_title, featured_residents } = scheduled_show;
+
+  const showDate = formatDateTime(schedule_date, "full-month-day");
+  const showStart = formatDateTime(start_time, "hour-minute");
+  const showName = mix_title;
+
+  if (!!showName) {
+    return (
+      &lt;div className="column next-show is-loaded is-hidden-mobile">
+        &lt;p className="subtitle is-size-6-desktop is-size-7-touch">
+          {`${showDate} @ ${showStart}: ${showName} - ${getResidentLinks(
+            featured_residents
+          )}`}
+        &lt;/p>
+      &lt;/div>
+    );
+  } else {
+    return (
+      &lt;div className="column next-show is-loaded is-hidden-mobile">
+        &lt;p className="subtitle is-size-6-desktop is-size-7-touch">
+          {`${showDate} at ${showStart}: ${getResidentLinks(
+            featured_residents
+          )}`}
+        &lt;/p>
+      &lt;/div>
+    );
+  }
 }
 
-export default SingleMixCard;
+export default UpcomingShow;
 </code></pre>
         </article>
     </section>

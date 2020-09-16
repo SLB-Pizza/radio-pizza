@@ -8,7 +8,7 @@ import { formatDateTime } from "../utils";
  * @function
  * @function DateSelectorButton
  * @param {Object} props - from {@link ScheduleIndexPage}
- * @prop {String} date - today's date as dayjs object
+ * @prop {Object} date - today's date as dayjs object
  * @prop {Function} toggleColumn - is attached to the buttons to change which day's schedule is displayed
  * @returns {jsx} A `<div className="columns">` with column-width buttons to switch between dates on `/schedule`
  */

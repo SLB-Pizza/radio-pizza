@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> src/components/SingleMixCard.js</title>
+  <title> src/components/BottomNav.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>src/components/SingleMixCard.js</h1>
+                    <h1>src/components/BottomNav.js</h1>
                 </header>
                 
 
@@ -90,134 +90,229 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React, { useContext } from "react";
-import NanoClamp from "nanoclamp";
-import { GlobalDispatchContext } from "../context/GlobalContextProvider";
-import { getResidentString, getResidentLinks, PlayAudioButton } from "../utils";
+import { Link } from "gatsby";
+import {
+  faMixcloud,
+  faTwitter,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  GlobalDispatchContext,
+  GlobalStateContext,
+} from "../context/GlobalContextProvider";
+import { OutsideClick } from "./index";
 
 /**
- * @category Utilities
- * @subcategory Layout Helper
- * @function SingleMixCard
- * @param {Object} props
- * @property {String} props.date - archived mix's date
- * @property {String} props.url - url of the archived mix to play
- * @property {?String} props.title - Mix titles are optional, string of residents will be used to label mix if not present
- * @property {Object[]} props.residents - Array of data objects containing the mix's resident data
- * @property {Object} props.img - object containing the different sizes of a mix's image
- * @property {String[]} props.tags - the mix's tags
- * @property {String} props.columnLayout - string detailing the column layout across different responsive breakpoints @see {@link https://bulma.io/documentation/columns/sizes/|bulma.io column sizing}
- * @property {?String} props.path - optional string passed down only by {@link ResidentTemplate} for use with {@link linkResolver}
- * @returns {jsx}
+ * @function BottomNav
  */
-function SingleMixCard({
-  date,
-  url,
-  title,
-  residents,
-  img,
-  tags,
-  columnLayout,
-  path,
-}) {
+function BottomNav() {
+  // const [menuOpen, setMenuOpen] = useState(false);
+
   const dispatch = useContext(GlobalDispatchContext);
-  const mixResidentsString = getResidentString(residents);
+  const globalState = useContext(GlobalStateContext);
 
-  const loadShow = async () => {
-    await dispatch({ type: "SHOW_LOADING" });
+  const closeNavMenu = async () => {
+    await dispatch({ type: "CLOSE_NAVMENU" });
   };
 
-  const changeUrl = async () => {
-    await dispatch({
-      type: "CHANGE_URL",
-      payload: {
-        url: url,
-        title: title,
-        residents: mixResidentsString,
-        img: img.now_playing.url,
-      },
-    });
+  const toggleNavMenu = async () => {
+    await dispatch({ type: "TOGGLE_NAVMENU" });
   };
 
+  /**
+   * This globalState null return prevents ERROR #95313.
+   * @see {@link TopNav|Related globalState situation in TopNav}
+   * @see {@link https://github.com/gatsbyjs/gatsby/issues/24264#issuecomment-631995753|Re: ERROR #95313 - To stop the error immediately, add a null check for the object}
+   */
+  if (!globalState) return null;
   return (
-    &lt;div className={columnLayout}>
-      &lt;div className="card">
-        &lt;div className="card-image">
-          &lt;a
-            href="#"
-            className="sr-only display-text"
-            tabIndex="0"
-            onClick={() => {
-              loadShow();
-              changeUrl();
-            }}
+    &lt;nav
+      className="navbar is-fixed-bottom"
+      role="navigation"
+      aria-label="navigation bar"
+      id="navigation"
+    >
+      &lt;OutsideClick id={"navigation"} onClick={() => closeNavMenu()}>
+        &lt;div className="navbar-brand">
+          &lt;Link
+            to="/"
+            className="navbar-item display-text"
+            onClick={() => toggleNavMenu()}
           >
-            Play This Mix
-          &lt;/a>
-          &lt;figure className="image is-1by1">
-            &lt;img src={img.url} alt={img.alt} />
-            &lt;div className="play-btn-diffuser is-overlay">
-              &lt;PlayAudioButton
-                url={url}
-                title={title}
-                resident={mixResidentsString}
-                img={img.now_playing.url}
-              />
-            &lt;/div>
-          &lt;/figure>
-        &lt;/div>
+            Ears to the concrete.
+          &lt;/Link>
 
-        &lt;div className="card-content">
-          {/**
-           * title !== null : format title under list of residents
-           * title === null : formart list of residents as title
-           */
-          title !== null ? (
-            &lt;div className="content-text">
-              &lt;p className="is-size-7">{date}&lt;/p>
-              &lt;NanoClamp
-                className="content-details subtitle is-size-7"
-                is="p"
-                lines={2}
-                text={getResidentLinks(residents, path)}
-              />
-              &lt;NanoClamp
-                className="title is-size-6"
-                is="p"
-                lines={2}
-                text={title}
-              />
+          &lt;span
+            className={
+              globalState.navMenuOpen
+                ? "navbar-burger is-active"
+                : "navbar-burger"
+            }
+            role="button"
+            aria-label="navigation menu"
+            aria-expanded={globalState.navMenuOpen ? "true" : "false"}
+            data-target="nav-menu"
+            onClick={() => toggleNavMenu()}
+          >
+            &lt;span aria-hidden="true">&lt;/span>
+            &lt;span aria-hidden="true">&lt;/span>
+            &lt;span aria-hidden="true">&lt;/span>
+          &lt;/span>
+        &lt;/div>
+        &lt;div
+          className={
+            globalState.navMenuOpen ? "navbar-menu is-active" : "navbar-menu"
+          }
+          id="nav-menu"
+        >
+          &lt;div className="navbar-start">
+            &lt;Link
+              to="/residents"
+              className="navbar-item"
+              onClick={() => toggleNavMenu()}
+            >
+              Residents
+            &lt;/Link>
+
+            &lt;Link
+              to="/mixes"
+              className="navbar-item"
+              onClick={() => toggleNavMenu()}
+            >
+              Mixes
+            &lt;/Link>
+            &lt;Link
+              to="/events"
+              className="navbar-item"
+              onClick={() => toggleNavMenu()}
+            >
+              Events
+            &lt;/Link>
+            &lt;Link
+              to="/features"
+              className="navbar-item"
+              onClick={() => toggleNavMenu()}
+            >
+              Features
+            &lt;/Link>
+            &lt;Link
+              to="/about"
+              className="navbar-item"
+              onClick={() => toggleNavMenu()}
+            >
+              About
+            &lt;/Link>
+
+            {/*
+          &lt;div className="navbar-item has-dropdown has-dropdown-up is-hoverable">
+            &lt;a className="navbar-link">Content&lt;/a>
+            &lt;div className="navbar-dropdown">
+              &lt;a className="navbar-item" onClick={() => toggleNavMenu()}>
+                Recent Mixes
+              &lt;/a>
+              &lt;a
+                href="#"
+                className="navbar-item"
+                onClick={() => toggleNavMenu()}
+              >
+                Live Events
+              &lt;/a>
+              &lt;a
+                href="#"
+                className="navbar-item"
+                onClick={() => toggleNavMenu()}
+              >
+                Features
+              &lt;/a>
             &lt;/div>
-          ) : (
-            &lt;div className="content-text">
-              &lt;p className="is-size-7">{date}&lt;/p>
-              &lt;NanoClamp
-                className="title is-size-6"
-                is="p"
-                lines={2}
-                text={getResidentLinks(residents, path)}
-              />
-            &lt;/div>
-          )}
-          &lt;div className="buttons are-tags">
-            {tags.map((tag, index) => {
-              const lowercaseTag = tag.toLowerCase();
-              return (
-                &lt;button
-                  key={`${title} tag #${index}`}
-                  className="button is-small is-outlined is-rounded"
-                >
-                  {lowercaseTag}
-                &lt;/button>
-              );
-            })}
+          &lt;/div>
+          */}
+          &lt;/div>
+          &lt;div className="navbar-end is-hidden-touch">
+            &lt;a
+              href="https://www.mixcloud.com/HalfMoonbk/"
+              className="navbar-item"
+              onClick={() => toggleNavMenu()}
+              aria-label="Halfmoon on Mixcloud"
+              target="_blank"
+              rel="noopener"
+            >
+              &lt;span className="icon is-medium" aria-hidden="true">
+                &lt;FontAwesomeIcon icon={faMixcloud} size="lg" />
+              &lt;/span>
+            &lt;/a>
+            &lt;a
+              href="https://www.instagram.com/halfmoonbk/"
+              className="navbar-item"
+              onClick={() => toggleNavMenu()}
+              aria-label="Halfmoon on Instagram"
+              target="_blank"
+              rel="noopener"
+            >
+              &lt;span className="icon is-medium" aria-hidden="true">
+                &lt;FontAwesomeIcon icon={faInstagram} size="lg" />
+              &lt;/span>
+            &lt;/a>
+            &lt;a
+              href="https://twitter.com/halfmoonbk"
+              className="navbar-item"
+              onClick={() => toggleNavMenu()}
+              aria-label="Halfmoon on Twitter"
+              target="_blank"
+              rel="noopener"
+            >
+              &lt;span className="icon is-medium" aria-hidden="true">
+                &lt;FontAwesomeIcon icon={faTwitter} size="lg" />
+              &lt;/span>
+            &lt;/a>
+          &lt;/div>
+          &lt;hr className="navbar-divider">&lt;/hr>
+          &lt;div className="navbar-end is-hidden-desktop">
+            &lt;a
+              href="https://www.mixcloud.com/HalfMoonbk/"
+              className="navbar-item"
+              onClick={() => toggleNavMenu()}
+              aria-label="Halfmoon on Mixcloud"
+              target="_blank"
+              rel="noopener"
+            >
+              &lt;span className="icon is-medium" aria-hidden="true">
+                &lt;FontAwesomeIcon icon={faMixcloud} size="lg" />
+              &lt;/span>
+            &lt;/a>
+            &lt;a
+              href="https://www.instagram.com/halfmoonbk/"
+              className="navbar-item"
+              onClick={() => toggleNavMenu()}
+              aria-label="Halfmoon on Instagram"
+              target="_blank"
+              rel="noopener"
+            >
+              &lt;span className="icon is-medium" aria-hidden="true">
+                &lt;FontAwesomeIcon icon={faInstagram} size="lg" />
+              &lt;/span>
+            &lt;/a>
+            &lt;a
+              href="https://twitter.com/halfmoonbk"
+              className="navbar-item"
+              onClick={() => toggleNavMenu()}
+              aria-label="Halfmoon on Twitter"
+              target="_blank"
+              rel="noopener"
+            >
+              &lt;span className="icon is-medium" aria-hidden="true">
+                &lt;FontAwesomeIcon icon={faTwitter} size="lg" />
+              &lt;/span>
+            &lt;/a>
           &lt;/div>
         &lt;/div>
-      &lt;/div>
-    &lt;/div>
+      &lt;/OutsideClick>
+    &lt;/nav>
   );
 }
 
-export default SingleMixCard;
+export default BottomNav;
 </code></pre>
         </article>
     </section>

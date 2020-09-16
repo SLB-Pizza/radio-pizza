@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> src/components/SingleMixCard.js</title>
+  <title> src/components/LandingPageElement.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>src/components/SingleMixCard.js</h1>
+                    <h1>src/components/LandingPageElement.js</h1>
                 </header>
                 
 
@@ -89,135 +89,108 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React, { useContext } from "react";
+            <pre class="prettyprint source linenums"><code>import React from "react";
+import { Link } from "gatsby";
+import { RichText } from "prismic-reactjs";
 import NanoClamp from "nanoclamp";
-import { GlobalDispatchContext } from "../context/GlobalContextProvider";
-import { getResidentString, getResidentLinks, PlayAudioButton } from "../utils";
+
+import {
+  linkResolver,
+  processPublicationDates,
+  ResponsiveImage,
+} from "../utils";
 
 /**
  * @category Utilities
  * @subcategory Layout Helper
- * @function SingleMixCard
+ * @function LandingPageElement
  * @param {Object} props
- * @property {String} props.date - archived mix's date
- * @property {String} props.url - url of the archived mix to play
- * @property {?String} props.title - Mix titles are optional, string of residents will be used to label mix if not present
- * @property {Object[]} props.residents - Array of data objects containing the mix's resident data
- * @property {Object} props.img - object containing the different sizes of a mix's image
- * @property {String[]} props.tags - the mix's tags
- * @property {String} props.columnLayout - string detailing the column layout across different responsive breakpoints @see {@link https://bulma.io/documentation/columns/sizes/|bulma.io column sizing}
- * @property {?String} props.path - optional string passed down only by {@link ResidentTemplate} for use with {@link linkResolver}
  * @returns {jsx}
  */
-function SingleMixCard({
-  date,
-  url,
-  title,
-  residents,
-  img,
-  tags,
-  columnLayout,
-  path,
-}) {
-  const dispatch = useContext(GlobalDispatchContext);
-  const mixResidentsString = getResidentString(residents);
+function LandingPageElement({ pageElement, layout, imageAspectRatio }) {
+  const { _meta, body } = pageElement.node;
 
-  const loadShow = async () => {
-    await dispatch({ type: "SHOW_LOADING" });
+  const { type, uid, firstPublicationDate, lastPublicationDate } = _meta;
+  const linkTo = {
+    type,
+    uid,
+  };
+  const pageElementDateDetails = processPublicationDates(
+    firstPublicationDate,
+    lastPublicationDate
+  );
+
+  const {
+    article_headline_img,
+    article_headline,
+    article_subtitle,
+    article_category,
+    article_subcategory,
+  } = body[0].primary;
+
+  const fullSizeImg = {
+    alt: article_headline_img.alt,
+    photoCredit: article_headline_img.copyright,
+    url: article_headline_img.url,
+    dimensions: article_headline_img.dimensions,
   };
 
-  const changeUrl = async () => {
-    await dispatch({
-      type: "CHANGE_URL",
-      payload: {
-        url: url,
-        title: title,
-        residents: mixResidentsString,
-        img: img.now_playing.url,
-      },
-    });
+  const responsiveSizes = {
+    widescreen: article_headline_img.widescreen,
+    desktop: article_headline_img.desktop,
+    tablet: article_headline_img.tablet,
+    mobile: article_headline_img.mobile,
+    lo_fi: article_headline_img.lo_fi_placeholder,
   };
 
   return (
-    &lt;div className={columnLayout}>
-      &lt;div className="card">
-        &lt;div className="card-image">
-          &lt;a
-            href="#"
-            className="sr-only display-text"
-            tabIndex="0"
-            onClick={() => {
-              loadShow();
-              changeUrl();
-            }}
-          >
-            Play This Mix
-          &lt;/a>
-          &lt;figure className="image is-1by1">
-            &lt;img src={img.url} alt={img.alt} />
-            &lt;div className="play-btn-diffuser is-overlay">
-              &lt;PlayAudioButton
-                url={url}
-                title={title}
-                resident={mixResidentsString}
-                img={img.now_playing.url}
+    &lt;article className={layout}>
+      &lt;Link to={linkResolver(linkTo)}>
+        &lt;div className="card">
+          &lt;div className="card-image">
+            &lt;figure className={imageAspectRatio}>
+              &lt;ResponsiveImage
+                largestImg={fullSizeImg}
+                responsiveData={responsiveSizes}
               />
-            &lt;/div>
-          &lt;/figure>
-        &lt;/div>
+            &lt;/figure>
+          &lt;/div>
 
-        &lt;div className="card-content">
-          {/**
-           * title !== null : format title under list of residents
-           * title === null : formart list of residents as title
-           */
-          title !== null ? (
-            &lt;div className="content-text">
-              &lt;p className="is-size-7">{date}&lt;/p>
+          &lt;div className="card-content">
+            &lt;div className="main-text">
+              &lt;div className="details">
+                &lt;p className="subtitle is-size-7 text-truncate has-text-grey-lighter">
+                  {pageElementDateDetails.hasBeenUpdated ? (
+                    &lt;time dateTime={lastPublicationDate}>
+                      {`${article_subcategory} | Updated ${pageElementDateDetails.pubDate}`}
+                    &lt;/time>
+                  ) : (
+                    &lt;time dateTime={firstPublicationDate}>
+                      {`${article_subcategory} | ${pageElementDateDetails.pubDate}`}
+                    &lt;/time>
+                  )}
+                &lt;/p>
+                &lt;NanoClamp
+                  className="title is-size-4-desktop is-size-5-touch"
+                  id="article-headline"
+                  is="h1"
+                  text={RichText.asText(article_headline)}
+                />
+              &lt;/div>
               &lt;NanoClamp
-                className="content-details subtitle is-size-7"
+                className="blurb has-text-white is-size-6-desktop is-size-7-touch"
                 is="p"
-                lines={2}
-                text={getResidentLinks(residents, path)}
-              />
-              &lt;NanoClamp
-                className="title is-size-6"
-                is="p"
-                lines={2}
-                text={title}
-              />
-            &lt;/div>
-          ) : (
-            &lt;div className="content-text">
-              &lt;p className="is-size-7">{date}&lt;/p>
-              &lt;NanoClamp
-                className="title is-size-6"
-                is="p"
-                lines={2}
-                text={getResidentLinks(residents, path)}
+                text={RichText.asText(article_subtitle)}
               />
             &lt;/div>
-          )}
-          &lt;div className="buttons are-tags">
-            {tags.map((tag, index) => {
-              const lowercaseTag = tag.toLowerCase();
-              return (
-                &lt;button
-                  key={`${title} tag #${index}`}
-                  className="button is-small is-outlined is-rounded"
-                >
-                  {lowercaseTag}
-                &lt;/button>
-              );
-            })}
           &lt;/div>
         &lt;/div>
-      &lt;/div>
-    &lt;/div>
+      &lt;/Link>
+    &lt;/article>
   );
 }
 
-export default SingleMixCard;
+export default LandingPageElement;
 </code></pre>
         </article>
     </section>

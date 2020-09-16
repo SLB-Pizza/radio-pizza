@@ -5,6 +5,7 @@ import { processPublicationDates } from "../../utils";
 /**
  * @category CMS
  * @subcategory Slices
+ * @function ArticleHeadline
  * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create the HeadlineBlock slice
  * @param {Object} metadata - data object from Prismic CMS that contains the date publication for the HeadlineBlock slice
  * @returns {jsx}

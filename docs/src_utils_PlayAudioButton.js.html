@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> src/components/SingleMixCard.js</title>
+  <title> src/utils/PlayAudioButton.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>src/components/SingleMixCard.js</h1>
+                    <h1>src/utils/PlayAudioButton.js</h1>
                 </header>
                 
 
@@ -90,134 +90,48 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React, { useContext } from "react";
-import NanoClamp from "nanoclamp";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { GlobalDispatchContext } from "../context/GlobalContextProvider";
-import { getResidentString, getResidentLinks, PlayAudioButton } from "../utils";
 
 /**
- * @category Utilities
+ * Creates a clickable play button that sends the selected mix to {@link RadioPlayer}
+ * @category Site Elements
  * @subcategory Layout Helper
- * @function SingleMixCard
- * @param {Object} props
- * @property {String} props.date - archived mix's date
- * @property {String} props.url - url of the archived mix to play
- * @property {?String} props.title - Mix titles are optional, string of residents will be used to label mix if not present
- * @property {Object[]} props.residents - Array of data objects containing the mix's resident data
- * @property {Object} props.img - object containing the different sizes of a mix's image
- * @property {String[]} props.tags - the mix's tags
- * @property {String} props.columnLayout - string detailing the column layout across different responsive breakpoints @see {@link https://bulma.io/documentation/columns/sizes/|bulma.io column sizing}
- * @property {?String} props.path - optional string passed down only by {@link ResidentTemplate} for use with {@link linkResolver}
- * @returns {jsx}
+ * @function
+ * @function PlayAudioButton
+ * @param {string} url - URL of the mix to play
+ * @param {string} title - title of the mix to play; shown in {@link RadioPlayer}
+ * @param {string} resident - residents that made the mix; shown in {@link RadioPlayer}
+ * @param {string} img - the mix's image; shown in {@link RadioPlayer}
+ * @returns {jsx} A play icon that onClick dispatches the SHOW_LOADING and CHANGE_URL actions, playing the audio source through RadioPlayer.js
  */
-function SingleMixCard({
-  date,
-  url,
-  title,
-  residents,
-  img,
-  tags,
-  columnLayout,
-  path,
-}) {
+
+function PlayAudioButton({ url, title, resident, img }) {
   const dispatch = useContext(GlobalDispatchContext);
-  const mixResidentsString = getResidentString(residents);
-
-  const loadShow = async () => {
-    await dispatch({ type: "SHOW_LOADING" });
-  };
-
-  const changeUrl = async () => {
-    await dispatch({
-      type: "CHANGE_URL",
-      payload: {
-        url: url,
-        title: title,
-        residents: mixResidentsString,
-        img: img.now_playing.url,
-      },
-    });
-  };
 
   return (
-    &lt;div className={columnLayout}>
-      &lt;div className="card">
-        &lt;div className="card-image">
-          &lt;a
-            href="#"
-            className="sr-only display-text"
-            tabIndex="0"
-            onClick={() => {
-              loadShow();
-              changeUrl();
-            }}
-          >
-            Play This Mix
-          &lt;/a>
-          &lt;figure className="image is-1by1">
-            &lt;img src={img.url} alt={img.alt} />
-            &lt;div className="play-btn-diffuser is-overlay">
-              &lt;PlayAudioButton
-                url={url}
-                title={title}
-                resident={mixResidentsString}
-                img={img.now_playing.url}
-              />
-            &lt;/div>
-          &lt;/figure>
-        &lt;/div>
-
-        &lt;div className="card-content">
-          {/**
-           * title !== null : format title under list of residents
-           * title === null : formart list of residents as title
-           */
-          title !== null ? (
-            &lt;div className="content-text">
-              &lt;p className="is-size-7">{date}&lt;/p>
-              &lt;NanoClamp
-                className="content-details subtitle is-size-7"
-                is="p"
-                lines={2}
-                text={getResidentLinks(residents, path)}
-              />
-              &lt;NanoClamp
-                className="title is-size-6"
-                is="p"
-                lines={2}
-                text={title}
-              />
-            &lt;/div>
-          ) : (
-            &lt;div className="content-text">
-              &lt;p className="is-size-7">{date}&lt;/p>
-              &lt;NanoClamp
-                className="title is-size-6"
-                is="p"
-                lines={2}
-                text={getResidentLinks(residents, path)}
-              />
-            &lt;/div>
-          )}
-          &lt;div className="buttons are-tags">
-            {tags.map((tag, index) => {
-              const lowercaseTag = tag.toLowerCase();
-              return (
-                &lt;button
-                  key={`${title} tag #${index}`}
-                  className="button is-small is-outlined is-rounded"
-                >
-                  {lowercaseTag}
-                &lt;/button>
-              );
-            })}
-          &lt;/div>
-        &lt;/div>
-      &lt;/div>
-    &lt;/div>
+    &lt;FontAwesomeIcon
+      icon={faPlay}
+      size="5x"
+      className="play-icon"
+      onClick={() => {
+        dispatch({ type: "SHOW_LOADING" });
+        dispatch({
+          type: "CHANGE_URL",
+          payload: {
+            url,
+            title,
+            resident,
+            img,
+          },
+        });
+      }}
+    />
   );
 }
 
-export default SingleMixCard;
+export default PlayAudioButton;
 </code></pre>
         </article>
     </section>

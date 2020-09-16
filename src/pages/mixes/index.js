@@ -15,15 +15,14 @@ function MixesIndexPage({ data }) {
   /**
    * **NB:** allMixs is NOT a typo.
    */
-  const prismicContent = data.prismic.allMixs.edges;
+  const prismicContent = data.prismic;
   if (!prismicContent) return null;
 
   /**
    * Grab and manip the nodes array of mixs
    */
-  const allMixesData = prismicContent;
-
-  // const { _meta, body } = leadFeatureData;
+  const allMixesData = prismicContent.allMixs.edges;
+  const allEndlessData = prismicContent.allEndless_mixs.edges;
 
   const mixListLayout =
     "column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen";
@@ -121,7 +120,7 @@ function MixesIndexPage({ data }) {
             );
           })}
           <hr />
-          {/* <pre>{JSON.stringify(allMixesData, null, 2)}</pre> */}
+          <pre>{JSON.stringify(allEndlessData, null, 2)}</pre>
         </div>
       </section>
     </main>
@@ -152,6 +151,30 @@ export const query = graphql`
                   _meta {
                     uid
                     type
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      allEndless_mixs {
+        edges {
+          node {
+            endless_mix_title
+            endless_mix_blurb
+            endless_mix_playlist {
+              mix {
+                ... on PRISMIC_Mix {
+                  mix_title
+                  mix_link
+                  mix_image
+                  featured_residents {
+                    mix_resident {
+                      ... on PRISMIC_Resident {
+                        resident_name
+                      }
+                    }
                   }
                 }
               }

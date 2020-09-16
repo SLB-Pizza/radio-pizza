@@ -1,0 +1,363 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> src/pages/schedule/index.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">HMBK Gatsby Docs</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    API Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Global</h3><ul><li><a href="global.html#BottomNav">BottomNav</a></li><li><a href="global.html#dateString">dateString</a></li><li><a href="global.html#guide">guide</a></li><li><a href="global.html#parseViewports">parseViewports</a></li><li><a href="global.html#processPublicationDates">processPublicationDates</a></li><li><a href="global.html#sliceZone">sliceZone</a></li><li><a href="global.html#TopNav">TopNav</a></li><li><a href="global.html#UpcomingShow">UpcomingShow</a></li></ul></div><div class="category"><h2>CMS</h2><h3>Components / Layout Helper</h3><ul><li><a href="ResponsiveImage.html">ResponsiveImage</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ArticleHeadline">ArticleHeadline</a></li><li><a href="global.html#Blockquote">Blockquote</a></li><li><a href="global.html#ContentHelper">ContentHelper</a></li><li><a href="global.html#FullWidthImage">FullWidthImage</a></li><li><a href="global.html#HeadlineBlock">HeadlineBlock</a></li><li><a href="global.html#ImageHelper">ImageHelper</a></li><li><a href="global.html#ImageModal">ImageModal</a></li><li><a href="global.html#ImageRow">ImageRow</a></li><li><a href="global.html#OneImageAndText">OneImageAndText</a></li><li><a href="global.html#ParallaxHeadline">ParallaxHeadline</a></li><li><a href="global.html#TextBlock">TextBlock</a></li><li><a href="global.html#TwoImagesAndText">TwoImagesAndText</a></li></ul></div><div class="category"><h2>Pages</h2><h3>Global</h3><ul><li><a href="global.html#CMSGuideIndex">CMSGuideIndex</a></li><li><a href="global.html#FeaturesIndex">FeaturesIndex</a></li><li><a href="global.html#IndexPage">IndexPage</a></li><li><a href="global.html#MixesIndexPage">MixesIndexPage</a></li><li><a href="global.html#ResidentIndex">ResidentIndex</a></li><li><a href="global.html#ScheduleIndexPage">ScheduleIndexPage</a></li><li><a href="global.html#SupportPage">SupportPage</a></li></ul></div><div class="category"><h2>Site Elements</h2><h3>Global</h3><ul><li><a href="global.html#DateSelectorButton">DateSelectorButton</a></li><li><a href="global.html#HeroCarousel">HeroCarousel</a></li><li><a href="global.html#HomeMixes">HomeMixes</a></li><li><a href="global.html#PlayAudioButton">PlayAudioButton</a></li><li><a href="global.html#RadioPlayer">RadioPlayer</a></li><li><a href="global.html#ResidentSocialLinks">ResidentSocialLinks</a></li><li><a href="global.html#SingleScheduleEntryRow">SingleScheduleEntryRow</a></li><li><a href="global.html#SlideGenerator">SlideGenerator</a></li></ul></div><div class="category"><h2>Templates</h2><h3>Global</h3><ul><li><a href="global.html#CMSGuideTemplate">CMSGuideTemplate</a></li><li><a href="global.html#FeatureTemplate">FeatureTemplate</a></li><li><a href="global.html#ResidentTemplate">ResidentTemplate</a></li></ul></div><div class="category"><h2>Testing</h2><h3>Global</h3><ul><li><a href="global.html#PuppeteerTesting">PuppeteerTesting</a></li></ul></div><div class="category"><h2>Utilities</h2><h3>Global</h3><ul><li><a href="global.html#formatDateTime">formatDateTime</a></li><li><a href="global.html#formatNextShow">formatNextShow</a></li><li><a href="global.html#getBlockquoteStyling">getBlockquoteStyling</a></li><li><a href="global.html#getResidentLinks">getResidentLinks</a></li><li><a href="global.html#getResidentString">getResidentString</a></li><li><a href="global.html#LandingPageElement">LandingPageElement</a></li><li><a href="global.html#linkResolver">linkResolver</a></li><li><a href="global.html#SingleMixCard">SingleMixCard</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>src/pages/schedule/index.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from "react";
+import { graphql } from "gatsby";
+import { DateSelectorButton, SingleScheduleEntryRow } from "../../components";
+import { formatDateTime } from "../../utils";
+import dayjs from "dayjs";
+import isBetween from "dayjs/plugin/isBetween";
+import utc from "dayjs/plugin/utc";
+dayjs.extend(isBetween);
+dayjs.extend(utc);
+
+import scheduleDummyData from "../../../__test__/HMBK-schedule-page-query-test.json";
+
+/**
+ * @category Pages
+ * @subcategory Indexes
+ * @function ScheduleIndexPage
+ * @param {Object} data - the data object coming from Prismic CMS that contains all data needed to display all mixes on `/schedule`
+ * @returns {jsx}
+ */
+function ScheduleIndexPage({ data }) {
+  const prismicContent = data.prismic.allSchedules.edges;
+  if (!prismicContent) return null;
+
+  /**
+   * Grab and manip the nodes array of mixs
+   */
+  const allSchedulesData = prismicContent;
+
+  const [todayDate, setTodayDate] = useState(
+    dayjs(new Date().toLocaleString("en-US", { timeZone: "America/New_York" }))
+  );
+  const [isActive, setIsActive] = useState(
+    formatDateTime(todayDate, "month-day")
+  );
+
+  /**
+   * Format timeNow for use in schedule_date_before and schedule_date_after below. Neither date is inclusive so
+   * @param yesterday - day before today
+   * @param weekAndADay - eight days after today
+   */
+  // const yesterday = formatDateTime(timeNow, "prismic-date-query", -1);
+  // const weekAndADay = formatDateTime(timeNow, "prismic-date-query", 7);
+  /**
+   * Query for Prismic in the GraphQL syntax, not the Gatsby syntax!
+   * @see {@link https://prismic.io/docs/graphql/query-the-api/query-by-date| Prismic - GraphQL Query by Date}
+   */
+  // const TODAYS_SCHEDULE = gql`
+  //   query TodaysSchedule($yesterday: Date!, $weekAndADay: Date!) {
+  //     allSchedules(
+  //       where: {
+  //         schedule_date_after: $yesterday
+  //         schedule_date_before: $weekAndADay
+  //       }
+  //       sortBy: schedule_date_ASC
+  //     ) {
+  //       edges {
+  //         node {
+  //           schedule_date
+  //           schedule_entries {
+  //             end_time
+  //             start_time
+  //             scheduled_show {
+  //               ... on Mix {
+  //                 mix_image
+  //                 mix_title
+  //                 featured_residents {
+  //                   mix_resident {
+  //                     ... on Resident {
+  //                       resident_name
+  //                       _meta {
+  //                         uid
+  //                         type
+  //                       }
+  //                     }
+  //                   }
+  //                 }
+  //               }
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // `;
+
+  // const { loading, error, data, refetch, networkStatus } = useQuery(
+  //   TODAYS_SCHEDULE,
+  //   {
+  //     variables: { yesterday, weekAndADay },
+  //     notifyOnNetworkStatusChange: true,
+  //   }
+  // );
+
+  // if (loading) {
+  //   return "Querying data...";
+  // }
+  // if (error) {
+  //   return `Error ${error.message}`;
+  // }
+
+  const getSevenDays = (arr) => {
+    const today = dayjs(todayDate);
+    const sixDaysFromToday = today.add(6, "day");
+
+    const sevenDaysArray = arr.filter(({ node }) =>
+      dayjs(node.schedule_date).isBetween(today, sixDaysFromToday, "day", [])
+    );
+
+    return sevenDaysArray;
+  };
+
+  function toggleColumn(e) {
+    if (isActive !== e.currentTarget.id) {
+      setIsActive(e.currentTarget.id);
+    }
+  }
+
+  /**
+   * Update today's date every fifteen seconds.
+   * @function
+   */
+  useEffect(() => {
+    const date = setInterval(() => {
+      setTodayDate(todayDate.add(15, "s"));
+    }, 15000);
+
+    return () => {
+      clearInterval(date);
+    };
+  }, [todayDate]);
+
+  const sevenDaysData = getSevenDays(scheduleDummyData);
+  return (
+    &lt;main className="container is-fluid black-bg-page">
+      &lt;div className="columns is-mobile is-multiline">
+        &lt;div className="column">
+          &lt;p className="title is-size-2-desktop is-size-3-touch">Schedule&lt;/p>
+          &lt;p className="subtitle is-size-5-desktop is-size-6-touch">
+            All times are NYC.
+          &lt;/p>
+        &lt;/div>
+      &lt;/div>
+
+      &lt;DateSelectorButton date={todayDate} toggleColumn={toggleColumn} />
+
+      {sevenDaysData.map(({ node }, index) => {
+        const { schedule_date, schedule_entries } = node;
+
+        const dateID = formatDateTime(schedule_date, "month-day");
+        const scheduleDateHeading = formatDateTime(
+          schedule_date,
+          "schedule-date-heading"
+        );
+
+        if (isActive === dateID) {
+          return (
+            &lt;div
+              key={`date-#${index}-${dateID}`}
+              className="columns is-multiline is-vcentered is-mobile schedule-page-entries"
+            >
+              &lt;div className="column is-12 today-date">
+                &lt;p className="title is-size-4-desktop is-size-5-mobile has-text-centered">
+                  {scheduleDateHeading}
+                &lt;/p>
+              &lt;/div>
+
+              {schedule_entries !== null ? (
+                &lt;div className="column is-12">
+                  {schedule_entries.map((entry, index) => {
+                    const { start_time, end_time, scheduled_show } = entry;
+                    const formattedStart = formatDateTime(
+                      start_time,
+                      "hour-minute"
+                    );
+                    const formattedEnd = formatDateTime(
+                      end_time,
+                      "hour-minute"
+                    );
+
+                    return (
+                      &lt;SingleScheduleEntryRow
+                        key={`show-entry-#${index}-${start_time}`}
+                        start={formattedStart}
+                        end={formattedEnd}
+                        show={scheduled_show}
+                      />
+                    );
+                  })}
+                &lt;/div>
+              ) : (
+                &lt;div className="column is-12">
+                  &lt;div className="content">
+                    &lt;p className="subtitle is-size-5-desktop is-size-6-touch has-text-centered">
+                      No shows scheduled!
+                    &lt;/p>
+                  &lt;/div>
+                &lt;/div>
+              )}
+            &lt;/div>
+          );
+        } else {
+          return null;
+        }
+      })}
+    &lt;/main>
+  );
+}
+
+export default ScheduleIndexPage;
+
+export const query = graphql`
+  query SchedulePageQuery {
+    prismic {
+      allSchedules(sortBy: schedule_date_ASC) {
+        edges {
+          node {
+            schedule_date
+            schedule_entries {
+              start_time
+              end_time
+              scheduled_show {
+                ... on PRISMIC_Mix {
+                  mix_title
+                  featured_residents {
+                    mix_resident {
+                      ... on PRISMIC_Resident {
+                        resident_name
+                        _meta {
+                          uid
+                          type
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+</body>
+</html>

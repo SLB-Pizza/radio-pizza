@@ -1,92 +1,137 @@
 import React, { useState, useEffect } from "react";
-import { DateSelectorButton, ScheduleShowEntry } from "../../components";
+import { graphql } from "gatsby";
+import { DateSelectorButton, SingleScheduleEntryRow } from "../../components";
+import { formatDateTime } from "../../utils";
 import dayjs from "dayjs";
-
-const utc = require("dayjs/plugin/utc");
+import isBetween from "dayjs/plugin/isBetween";
+import utc from "dayjs/plugin/utc";
+dayjs.extend(isBetween);
 dayjs.extend(utc);
 
-function ScheduleIndexPage() {
-  const [isSelected, setIsSelected] = "";
-  const [wholeWeek, setWholeWeek] = [];
-  const [wholeWeekIds, setWholeWeekIds] = [];
+import scheduleDummyData from "../../../__test__/HMBK-schedule-page-query-test.json";
+
+/**
+ * @category Pages
+ * @subcategory Indexes
+ * @function ScheduleIndexPage
+ * @param {Object} data - the data object coming from Prismic CMS that contains all data needed to display all mixes on `/schedule`
+ * @returns {jsx}
+ */
+function ScheduleIndexPage({ data }) {
+  const prismicContent = data.prismic.allSchedules.edges;
+  if (!prismicContent) return null;
+
+  /**
+   * Grab and manip the nodes array of mixs
+   */
+  const allSchedulesData = prismicContent;
+
   const [todayDate, setTodayDate] = useState(
     dayjs(new Date().toLocaleString("en-US", { timeZone: "America/New_York" }))
   );
+  const [isActive, setIsActive] = useState(
+    formatDateTime(todayDate, "month-day")
+  );
 
-  const addDays = (day) => {
-    let daysArr = [];
-    let idsArr = [];
+  /**
+   * Format timeNow for use in schedule_date_before and schedule_date_after below. Neither date is inclusive so
+   * @param yesterday - day before today
+   * @param weekAndADay - eight days after today
+   */
+  // const yesterday = formatDateTime(timeNow, "prismic-date-query", -1);
+  // const weekAndADay = formatDateTime(timeNow, "prismic-date-query", 7);
+  /**
+   * Query for Prismic in the GraphQL syntax, not the Gatsby syntax!
+   * @see {@link https://prismic.io/docs/graphql/query-the-api/query-by-date| Prismic - GraphQL Query by Date}
+   */
+  // const TODAYS_SCHEDULE = gql`
+  //   query TodaysSchedule($yesterday: Date!, $weekAndADay: Date!) {
+  //     allSchedules(
+  //       where: {
+  //         schedule_date_after: $yesterday
+  //         schedule_date_before: $weekAndADay
+  //       }
+  //       sortBy: schedule_date_ASC
+  //     ) {
+  //       edges {
+  //         node {
+  //           schedule_date
+  //           schedule_entries {
+  //             end_time
+  //             start_time
+  //             scheduled_show {
+  //               ... on Mix {
+  //                 mix_image
+  //                 mix_title
+  //                 featured_residents {
+  //                   mix_resident {
+  //                     ... on Resident {
+  //                       resident_name
+  //                       _meta {
+  //                         uid
+  //                         type
+  //                       }
+  //                     }
+  //                   }
+  //                 }
+  //               }
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // `;
 
-    for (let i = 0; i <= 6; i++) {
-      daysArr.push(day.add(i, "d").format("ddd, MMM D"));
-      idsArr.push(day.add(i, "d").format("ddd"));
-    }
+  // const { loading, error, data, refetch, networkStatus } = useQuery(
+  //   TODAYS_SCHEDULE,
+  //   {
+  //     variables: { yesterday, weekAndADay },
+  //     notifyOnNetworkStatusChange: true,
+  //   }
+  // );
 
-    // console.log("days", daysArr);
-    // console.log("ids", idsArr);
+  // if (loading) {
+  //   return "Querying data...";
+  // }
+  // if (error) {
+  //   return `Error ${error.message}`;
+  // }
 
-    // setWholeWeek(daysArr);
-    // setWholeWeekIds(idsArr);
+  const getSevenDays = (arr) => {
+    const today = dayjs(todayDate);
+    const sixDaysFromToday = today.add(6, "day");
+
+    const sevenDaysArray = arr.filter(({ node }) =>
+      dayjs(node.schedule_date).isBetween(today, sixDaysFromToday, "day", [])
+    );
+
+    return sevenDaysArray;
   };
 
-  const fakeShowEntryData = [
-    {
-      startTime: "12:00",
-      endTime: "14:00",
-      hostInfo: ["Nhato"],
-    },
-    {
-      startTime: "12:00",
-      endTime: "14:00",
-      hostInfo: ["Getty", "KO3 & Relect"],
-    },
-    {
-      startTime: "12:00",
-      endTime: "14:00",
-      showName: "PLANET /// SHAPER -- 3 Man Crew",
-      hostInfo: ["JAKAZiD", "Tanuki", "Hommarju"],
-    },
-    {
-      startTime: "12:00",
-      endTime: "14:00",
-      hostInfo: ["DJ Shimamura"],
-    },
-    {
-      startTime: "12:00",
-      endTime: "14:00",
-      hostInfo: ["Seventhrun", "DJ Noriken"],
-    },
-    {
-      startTime: "12:00",
-      endTime: "14:00",
-      showName: "The Edge of The Drum & Bass Universe",
-      hostInfo: ["Netsky", "Matrix & Futurebound"],
-    },
-  ];
-
   function toggleColumn(e) {
-    if (isSelected !== e.currentTarget.id) {
-      setIsSelected(e.currentTarget.id);
+    if (isActive !== e.currentTarget.id) {
+      setIsActive(e.currentTarget.id);
     }
   }
 
+  /**
+   * Update today's date every fifteen seconds.
+   * @function
+   */
   useEffect(() => {
     const date = setInterval(() => {
-      // Set today's date
-      setTodayDate(todayDate.add(5, "s"));
-
-      // Pass today's date into addDays and receive two arrays of day and id strings
-
-      addDays(todayDate);
-    }, 5000);
+      setTodayDate(todayDate.add(15, "s"));
+    }, 15000);
 
     return () => {
       clearInterval(date);
     };
-  });
+  }, [todayDate]);
 
+  const sevenDaysData = getSevenDays(scheduleDummyData);
   return (
-    <div className="container is-fluid site-page">
+    <main className="container is-fluid black-bg-page">
       <div className="columns is-mobile is-multiline">
         <div className="column">
           <p className="title is-size-2-desktop is-size-3-touch">Schedule</p>
@@ -96,45 +141,103 @@ function ScheduleIndexPage() {
         </div>
       </div>
 
-      <DateSelectorButton date={todayDate} />
+      <DateSelectorButton date={todayDate} toggleColumn={toggleColumn} />
 
-      <div className="columns is-multiline is-vcentered is-mobile schedule-page-entries">
-        <div className="column is-12 today-date">
-          <p className="title is-size-4-desktop is-size-5-mobile has-text-centered">
-            {todayDate.format("dddd, MMMM D")}
-          </p>
-        </div>
-        {fakeShowEntryData.map((show) => (
-          <div key={show.hostInfo} className="column is-12 single-show-entry">
-            <div className="columns is-mobile is-vcentered">
-              <div className="column is-4">
-                <p className="title is-size-6-tablet is-size-7-mobile has-text-centered">
-                  {show.startTime} – {show.endTime}
+      {sevenDaysData.map(({ node }, index) => {
+        const { schedule_date, schedule_entries } = node;
+
+        const dateID = formatDateTime(schedule_date, "month-day");
+        const scheduleDateHeading = formatDateTime(
+          schedule_date,
+          "schedule-date-heading"
+        );
+
+        if (isActive === dateID) {
+          return (
+            <div
+              key={`date-#${index}-${dateID}`}
+              className="columns is-multiline is-vcentered is-mobile schedule-page-entries"
+            >
+              <div className="column is-12 today-date">
+                <p className="title is-size-4-desktop is-size-5-mobile has-text-centered">
+                  {scheduleDateHeading}
                 </p>
               </div>
 
-              {show.hasOwnProperty("showName") ? (
-                <div className="column is-8">
-                  <p className="title is-size-6-tablet is-size-7-mobile has-text-centered">
-                    {show.showName}
-                  </p>
-                  <p className="subtitle is-size-7 has-text-centered">
-                    {show.hostInfo.join(", ")}
-                  </p>
+              {schedule_entries !== null ? (
+                <div className="column is-12">
+                  {schedule_entries.map((entry, index) => {
+                    const { start_time, end_time, scheduled_show } = entry;
+                    const formattedStart = formatDateTime(
+                      start_time,
+                      "hour-minute"
+                    );
+                    const formattedEnd = formatDateTime(
+                      end_time,
+                      "hour-minute"
+                    );
+
+                    return (
+                      <SingleScheduleEntryRow
+                        key={`show-entry-#${index}-${start_time}`}
+                        start={formattedStart}
+                        end={formattedEnd}
+                        show={scheduled_show}
+                      />
+                    );
+                  })}
                 </div>
               ) : (
-                <div className="column is-8">
-                  <p className="subtitle is-size-6-tablet is-size-7-mobile has-text-centered">
-                    {show.hostInfo.join(", ")}
-                  </p>
+                <div className="column is-12">
+                  <div className="content">
+                    <p className="subtitle is-size-5-desktop is-size-6-touch has-text-centered">
+                      No shows scheduled!
+                    </p>
+                  </div>
                 </div>
               )}
             </div>
-          </div>
-        ))}
-      </div>
-    </div>
+          );
+        } else {
+          return null;
+        }
+      })}
+    </main>
   );
 }
 
 export default ScheduleIndexPage;
+
+export const query = graphql`
+  query SchedulePageQuery {
+    prismic {
+      allSchedules(sortBy: schedule_date_ASC) {
+        edges {
+          node {
+            schedule_date
+            schedule_entries {
+              start_time
+              end_time
+              scheduled_show {
+                ... on PRISMIC_Mix {
+                  mix_title
+                  featured_residents {
+                    mix_resident {
+                      ... on PRISMIC_Resident {
+                        resident_name
+                        _meta {
+                          uid
+                          type
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;

@@ -1,13 +1,13 @@
 import React from "react";
 import { RichText } from "prismic-reactjs";
-import processPublicationDates from "../../utils/processPublicationDates";
+import { processPublicationDates } from "../../utils";
 
 /**
  * @category CMS
  * @subcategory Slices
- * @component
+ * @function ArticleHeadline
  * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create the HeadlineBlock slice
- * @param {Object} metadata - data object from Prismic CMS that contains
+ * @param {Object} metadata - data object from Prismic CMS that contains the date publication for the HeadlineBlock slice
  * @returns {jsx}
  */
 function ArticleHeadline({ slice, metadata }) {
@@ -55,7 +55,7 @@ function ArticleHeadline({ slice, metadata }) {
 
   return (
     <header
-      className="hero homepage-hero article-img-titling"
+      className="hero article-img-titling"
       aria-labelledby="article-headline"
     >
       <div
@@ -107,11 +107,16 @@ function ArticleHeadline({ slice, metadata }) {
             <div className="column is-narrow-desktop">
               {featureDateDetails.hasBeenUpdated ? (
                 <p className="subtitle is-size-6-desktop is-size-7-touch">
-                  Updated {featureDateDetails.pubDate}
+                  Updated{" "}
+                  <time dateTime={lastPublicationDate}>
+                    {featureDateDetails.pubDate}
+                  </time>
                 </p>
               ) : (
                 <p className="subtitle is-size-6-desktop is-size-7-touch">
-                  {featureDateDetails.pubDate}
+                  <time dateTime={firstPublicationDate}>
+                    {featureDateDetails.pubDate}
+                  </time>
                 </p>
               )}
             </div>

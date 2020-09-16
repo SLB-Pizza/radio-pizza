@@ -1,7 +1,6 @@
 import React from "react";
-import { graphql, Link, StaticQuery } from "gatsby";
-
-import { CMSSlides, HomeContentSample } from "../../components";
+import { graphql } from "gatsby";
+import { LandingPageElement } from "../../components";
 
 /**
  * @category Pages
@@ -9,39 +8,37 @@ import { CMSSlides, HomeContentSample } from "../../components";
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/guide` landing page
  */
 function CMSGuideIndex({ data }) {
-  const prismicContent = data.prismic.allCms_guides.edges[0];
+  const prismicContent = data.prismic.allCms_guides.edges;
   if (!prismicContent) return null;
-  const cmsGuideData = prismicContent.node;
+  const cmsGuideData = prismicContent;
+
+  const cmsCardColumnLayout = "column is-12 landing-page-element";
+  const cmsImageAspectRatio = "image is-3by1";
 
   return (
-    <main className="site-page">
-      <section className="container is-fluid">
-        <div className="columns">
-          <div className="column is-12">
-            <div className="content">
-              <h1 className="title">HMBK CMS Guide</h1>
-              <h3 className="subtitle">Table of Contents</h3>
-              <ul>
-                <li>Homepage</li>
-                <ul>
-                  <li>Sample Slide</li>
-                </ul>
-              </ul>
-              <hr />
-              <h1 className="title">cmsGuideData</h1>
-              <pre>{JSON.stringify(cmsGuideData, null, 2)}</pre>
-              <Link to="/guide/image-group-examples">
-                Link to image-group-examples
-              </Link>
-
-              {/* <Link to="/cms-help/sample-feature">View Sample Feature</Link> */}
-            </div>
+    <main className="container is-fluid black-bg-page">
+      <div className="columns is-multiline is-mobile">
+        <div className="column is-12">
+          <div className="content">
+            <h1 className="title is-size-2-widescreen is-size-3-desktop is-size-4-touch">
+              HMBK Reference Guides
+            </h1>
+            <h4 className="subtitle is-size-6-touch">
+              Your reference for Prismic CMS, image guidelines, editorial
+              standards and more.
+            </h4>
           </div>
         </div>
-        {/* <CMSSlides slideData={slideData} />
-        <HomeContentSample homeContentData={homeContentData} />
-        <hr /> */}
-      </section>
+
+        {cmsGuideData.map((guide, index) => (
+          <LandingPageElement
+            key={`CMS-Guide-#${index + 1}`}
+            pageElement={guide}
+            layout={cmsCardColumnLayout}
+            imageAspectRatio={cmsImageAspectRatio}
+          />
+        ))}
+      </div>
     </main>
   );
 }
@@ -57,6 +54,18 @@ export const query = graphql`
               firstPublicationDate
               lastPublicationDate
               type
+            }
+            cms_guide_category
+            body {
+              ... on PRISMIC_Cms_guideBodyHeadline_block {
+                type
+                primary {
+                  article_headline
+                  article_headline_img
+                  article_subcategory
+                  article_subtitle
+                }
+              }
             }
           }
         }

@@ -1,31 +1,43 @@
 import React from "react";
 import NanoClamp from "nanoclamp";
 
-function SingleEventCard(props) {
-  const imageAltText = `image - ${props.eventName} in ${props.location}`;
-
+function SingleEventCard({
+  eventColumnLayout,
+  img,
+  imageAltText,
+  date,
+  location,
+  eventName,
+  blurb,
+}) {
   return (
-    <div className={props.eventColumnLayout}>
+    <div className={eventColumnLayout}>
       <div className="card">
         <div className="card-image">
-          <figure className="image is-16by9">
-            <img src={props.img} alt={imageAltText} />
+          <figure className="image is-1by1">
+            <img src={img} alt={imageAltText} />
           </figure>
         </div>
         <div className="card-content">
-          <div className="event-text">
-            <p className="content-date text-truncate subtitle is-size-7">
-              {props.date} | {props.location}
-            </p>
-            <p className="title is-size-6-touch is-size-6-desktop is-size-5-widescreen">
-              {props.eventName}
-            </p>
+          <div className="main-text">
+            <div className="details">
+              <p className="text-truncate subtitle is-size-7">
+                {date} | {location}
+              </p>
+
+              <NanoClamp
+                className="title is-size-6-touch is-size-6-desktop is-size-5-widescreen"
+                is="p"
+                lines={2}
+                text={eventName}
+              />
+            </div>
             <NanoClamp
-              className="is-size-6"
+              className="blurb is-size-7 has-text-white"
               is="p"
-              lines={2}
-              ellipsis={"...read more >"}
-              text={props.blurb}
+              lines={3}
+              ellipsis={"..."}
+              text={blurb}
             />
           </div>
         </div>

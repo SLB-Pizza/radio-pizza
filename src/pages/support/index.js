@@ -44,7 +44,7 @@ function SupportPage({ data }) {
   const supportSlice = supportPageData.body;
 
   return (
-    <main className="site-page">
+    <main className="full-height-page">
       {/* <StickyFeature leadFeatureData={leadFeatureData} /> */}
       <ParallaxHeadline
         cta={supportHeader.cta}

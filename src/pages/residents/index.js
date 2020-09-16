@@ -1,8 +1,13 @@
 import React, { useState } from "react";
-import { SingleResident } from "../../components";
+import {
+  SelectedColumn,
+  SingleResident,
+  LandingPageElement,
+  SingleEventCard,
+} from "../../components";
 
-// Dummy data in __tests__ folder
-import dummyArtists from "../../../__tests__/dummyArtists.json";
+// Dummy data in __test__ folder
+import dummyArtists from "../../../__test__/dummyArtists.json";
 
 /**
  * TO REMOVE IN THIS FILE FOR SHIPMENT
@@ -19,8 +24,31 @@ import dummyArtists from "../../../__tests__/dummyArtists.json";
  * @returns {jsx}
  */
 
-function ResidentsIndex() {
-  const [isOpen, setIsOpen] = useState("current");
+function ResidentsIndex({ data }) {
+  const [isOpen, setIsOpen] = useState("residents");
+  // const [currentResidents, setResidents] = useState([]);
+  // const [guests, setGuests] = useState([]);
+  // const [alumni, setAlumni] = useState([]);
+
+  const prismicContent = data.prismic.allResidents.edges;
+  if (!prismicContent) return null;
+  const allResidentsData = prismicContent;
+
+  let residents = [];
+  let guests = [];
+  let alumni = [];
+
+  allResidentsData.forEach(({ node }) => {
+    if (node.resident_status === "Resident") {
+      residents.push(node);
+    }
+    if (node.resident_status === "Guest") {
+      guests.push(node);
+    }
+    if (node.resident_status === "Alumnus") {
+      alumni.push(node);
+    }
+  });
 
   function toggleColumn(e) {
     if (isOpen !== e.currentTarget.id) {
@@ -28,74 +56,103 @@ function ResidentsIndex() {
     }
   }
 
-  const alphabetizedResidents = dummyArtists.sort((a, b) => {
-    let nameA = a.name.toUpperCase(); // make both uppercase so...
-    let nameB = b.name.toUpperCase(); // ...it ignore capitals in sorting
+  // const alphabetizedResidents = dummyArtists.sort((a, b) => {
+  //   let nameA = a.name.toUpperCase(); // make both uppercase so...
+  //   let nameB = b.name.toUpperCase(); // ...it ignore capitals in sorting
 
-    if (nameA < nameB) {
-      return -1; //nameA comes first
-    }
-    if (nameA > nameB) {
-      return 1; // nameB comes first
-    }
-    return 0; // names are the same
-  });
+  //   if (nameA < nameB) {
+  //     return -1; //nameA comes first
+  //   }
+  //   if (nameA > nameB) {
+  //     return 1; // nameB comes first
+  //   }
+  //   return 0; // names are the same
+  // });
 
   return (
-    <div className="container is-fluid site-page">
+    <div className="container is-fluid black-bg-page">
       <div className="columns is-mobile is-multiline">
         <div className="column is-full">
           <p className="title is-size-1-desktop is-size-2-tablet is-size-3-mobile headline">
             Halfmoon Residents
           </p>
         </div>
-        <div
-          className={
-            isOpen === "current" ? "column is-half is-active" : "column is-half"
-          }
-          id="current"
-          onClick={toggleColumn}
-        >
-          <button className="button is-fullwidth is-outlined is-rounded display-text">
-            This Season
+        <div className="column">
+          <button
+            className="button is-fullwidth is-outlined is-rounded display-text"
+            id="residents"
+            onClick={toggleColumn}
+          >
+            Residents
           </button>
         </div>
-        <div
-          className={
-            isOpen === "alumni" ? "column is-half is-active" : "column is-half"
-          }
-          id="alumni"
-          onClick={toggleColumn}
-        >
-          <button className="button is-fullwidth is-outlined is-rounded display-text">
-            Our Alumni
+        <div className="column">
+          <button
+            className="button is-fullwidth is-outlined is-rounded display-text"
+            id="guests"
+            onClick={toggleColumn}
+          >
+            Guests
+          </button>
+        </div>
+        <div className="column">
+          <button
+            className="button is-fullwidth is-outlined is-rounded display-text"
+            id="alumni"
+            onClick={toggleColumn}
+          >
+            Alumni
           </button>
         </div>
       </div>
-      {isOpen === "current" ? (
+      {isOpen === "residents" ? (
         <div className="columns is-mobile is-multiline">
-          {alphabetizedResidents.map((resident) => (
-            <SingleResident
-              key={resident.name}
-              name={`${resident.name} | current`}
-              img={"https://source.unsplash.com/1280x1280/daily?cyberpunk"}
-            />
-          ))}
+          {residents.map((resident, index) => {
+            return (
+              <SingleResident key={`Event-${index}`} resident={resident} />
+            );
+          })}
+          <pre>{JSON.stringify(residents, null, 2)}</pre>
+        </div>
+      ) : null}
+      {isOpen === "guests" ? (
+        <div className="columns is-mobile is-multiline">
+          {guests.map((guest, index) => {
+            return <SingleResident key={`Event-${index}`} resident={guest} />;
+          })}
+          <pre>{JSON.stringify(guests, null, 2)}</pre>
         </div>
       ) : null}
       {isOpen === "alumni" ? (
         <div className="columns is-mobile is-multiline">
-          {alphabetizedResidents.map((resident) => (
-            <SingleResident
-              key={resident.name}
-              name={`${resident.name} | alumnus`}
-              img={"https://source.unsplash.com/1280x1280/daily?robot"}
-            />
-          ))}
+          {alumni.map((alumnus, index) => {
+            return <SingleResident key={`Event-${index}`} resident={alumnus} />;
+          })}
+          <pre>{JSON.stringify(alumni, null, 2)}</pre>
         </div>
       ) : null}
     </div>
   );
 }
+
+export const query = graphql`
+  query ResidentIndexPage {
+    prismic {
+      allResidents(sortBy: resident_status_ASC) {
+        edges {
+          node {
+            _meta {
+              uid
+              type
+            }
+            resident_name
+            resident_image
+            resident_status
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default ResidentsIndex;

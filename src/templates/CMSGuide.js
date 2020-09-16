@@ -19,7 +19,7 @@ function CMSGuideTemplate({ data }) {
   const guideSliceData = cmsDataNode.body;
 
   return (
-    <body className="site-page">
+    <body className="full-height-page">
       <article>
         {/* HeadlineBlock only here */}
         <SliceZone sliceZone={guideSliceData} metadata={guideMetadata} />
@@ -72,10 +72,6 @@ export const query = graphql`
                     ... on PRISMIC_Staff {
                       hmbk_staff_name
                       hmbk_staff_position
-                      _meta {
-                        type
-                        uid
-                      }
                     }
                   }
                 }
@@ -87,10 +83,47 @@ export const query = graphql`
                   body_text
                 }
               }
-              ... on PRISMIC_Cms_guideBodyImage_row {
+              ... on PRISMIC_Cms_guideBodyFull_width_image {
+                type
+                primary {
+                  full_width_image
+                  fwi_height
+                  fwi_titling
+                }
+              }
+              ... on PRISMIC_Cms_guideBodyBlockquote {
+                type
+                primary {
+                  blockquote_attribution
+                  blockquote_bg_img
+                  blockquote_text
+                  blockquote_type
+                }
+              }
+              ... on PRISMIC_Cms_guideBodyTwo_images___text {
+                type
+                label
+                primary {
+                  tiat_text
+                  tiat_right_img
+                  tiat_left_img
+                  tiat_layout
+                  tiat_is_gapless
+                }
+              }
+              ... on PRISMIC_Cms_guideBodyOne_image_and_text {
+                type
+                label
+                primary {
+                  oiat_img
+                  oiat_layout
+                  oiat_text
+                }
+              }
+              ... on PRISMIC_Cms_guideBodyRow_of_images {
                 type
                 fields {
-                  row_image
+                  single_img
                 }
               }
             }

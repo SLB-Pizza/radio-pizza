@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faTag } from "@fortawesome/free-solid-svg-icons";
 import { SingleMixCard } from "../../components";
 
-// Dummy data in __tests__ folder
-import hmbkMixesResidents from "../../../__tests__/HMBK-mixes-with-residents.json";
+// Dummy data in __test__ folder
+import hmbkMixesResidents from "../../../__test__/HMBK-mixes-with-residents.json";
 
 const dummyOptions = [
   "Argentina",
@@ -31,7 +31,7 @@ function MixesIndexPage() {
     "column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen";
 
   return (
-    <div className="container is-fluid site-page">
+    <div className="container is-fluid full-height-page">
       <div className="columns is-mobile is-multiline">
         <div className="column is-12">
           <pre>This page needs to be removed.</pre>

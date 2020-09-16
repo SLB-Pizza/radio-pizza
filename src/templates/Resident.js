@@ -8,10 +8,11 @@ import { ResidentSocialLinks } from "../utils";
  * @category Templates
  * @subcategory Resident
  * @function ResidentTemplate
- * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build cms-help off of `/residents/:uid`
+ * @param {object} data - Prismic CMS data object containing all data needed to build `/residents/:uid`
+ * @param {object} path - the :uid of `/residents/:uid`; passed to {@link SingleMixCard} so that it can be used by {@link getResidentLink} to compare to the `featured_residents` _meta data
  * @returns {jsx}
  */
-function ResidentTemplate({ data }) {
+function ResidentTemplate({ data, path }) {
   const prismicContent = data.prismic.allResidents.edges[0];
   if (!prismicContent) return null;
   const residentData = prismicContent.node;
@@ -30,7 +31,7 @@ function ResidentTemplate({ data }) {
     "column is-12-mobile is-12-tablet is-6-desktop is-4-widescreen";
 
   return (
-    <div className="container is-fluid site-page">
+    <div className="container is-fluid full-height-page">
       <div className="columns is-multiline">
         <div className="column is-4-desktop is-4-tablet is-12-mobile sticky-bio">
           <div className="columns is-multiline">
@@ -54,7 +55,7 @@ function ResidentTemplate({ data }) {
           <div className="columns is-mobile is-multiline is-vcentered">
             {social_media.map((page, index) => {
               const { resident_social_page, resident_social_link } = page;
-              const { url, ...rest } = resident_social_link;
+              const { url } = resident_social_link;
 
               return (
                 <ResidentSocialLinks
@@ -89,6 +90,7 @@ function ResidentTemplate({ data }) {
                   residents={featured_residents}
                   img={mix_image}
                   tags={_meta.tags}
+                  path={path}
                   columnLayout={residentMixLayout}
                 />
               );

@@ -5,7 +5,7 @@ import { RichText } from "prismic-reactjs";
  * Creates a JSX segment that CMS Slices call on to format text content. Its image counterpart is {@link ImageHelper}.
  * @category CMS
  * @subcategory Layout Helper
- * @component
+ * @function
  * @param {?String} columnClassName - optional string prop dictating specific column layouts.
  *
  * **CMS Slices passing this prop**

@@ -1,60 +1,41 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import dayjs from "dayjs";
 import { Link } from "gatsby";
 import Ticker from "react-ticker";
-
+import { gql, useQuery } from "@apollo/client";
+// import { PrismicLink } from "apollo-link-prismic";
+import { formatDateTime, getResidentString } from "../utils";
 import { RadioPlayer } from "./index";
 import {
   GlobalDispatchContext,
   GlobalStateContext,
 } from "../context/GlobalContextProvider";
-
+import dayjs from "dayjs";
 const utc = require("dayjs/plugin/utc");
 dayjs.extend(utc);
+
 // import PageVisibility from "react-page-visibility";
 
-function RadioBar() {
+function RadioBar({ nycTime, laTime }) {
   const dispatch = useContext(GlobalDispatchContext);
   const globalState = useContext(GlobalStateContext);
 
   const [radioData, setRadioData] = useState({});
   const [pageIsVisible, setPageIsVisible] = useState(true);
-  const [localTime, setLocalTime] = useState(dayjs());
-  const [nycTime, setNycTime] = useState(
-    dayjs(new Date().toLocaleString("en-US", { timeZone: "America/New_York" }))
-  );
-  const [laTime, setLaTime] = useState(
-    dayjs(
-      new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles" })
-    )
-  );
-
-  useEffect(() => {
-    const clock = setInterval(() => {
-      setLocalTime(localTime.add(1, "s"));
-      setNycTime(nycTime.add(1, "s"));
-      setLaTime(laTime.add(1, "s"));
-    }, 1000);
-
-    return () => {
-      clearInterval(clock);
-    };
-  });
 
   // const handleVisibilityChange = (isVisible) => {
   //   setPageIsVisible(isVisible);
   // };
 
-  const handlePlayLive = async () => {
-    await dispatch({
-      type: "CHANGE_URL",
-      payload: {
-        url: "https://streamer.radio.co/sa3c47c55b/listen",
-        title: "Halfmoon Radio",
-      },
-    });
-  };
+  // const handlePlayLive = async () => {
+  //   await dispatch({
+  //     type: "CHANGE_URL",
+  //     payload: {
+  //       url: "https://streamer.radio.co/sa3c47c55b/listen",
+  //       title: "Halfmoon Radio",
+  //     },
+  //   });
+  // };
 
   // const liveText = "Pendulum: Hold Your Colour 15th Anniversary Live Set";
   // const renderLiveTicker = (text) => {
@@ -72,12 +53,80 @@ function RadioBar() {
   //   );
   // };
 
+  const INITIAL_MIX = gql`
+    query DefaultMix {
+      allTopnavs {
+        edges {
+          node {
+            default_mix {
+              ... on Mix {
+                mix_image
+                mix_link
+                mix_title
+                featured_residents {
+                  mix_resident {
+                    ... on Resident {
+                      resident_image
+                      resident_name
+                      _meta {
+                        uid
+                        type
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const { loading, error, data } = useQuery(INITIAL_MIX);
+
+  /**
+   * Query the HMBK Prismic CMS to get the data for the initial mix data.
+   * Grab the mix data object from the query result.
+   * Destructure the mix data object and dispatch the mix data to appear in {@link RadioPlayer}
+   * @function
+   */
+  useEffect(() => {
+    if (loading) {
+      console.log("Initial Mix request in progress");
+    }
+    if (error) {
+      console.log(`initialMix Error: ${error.message}`);
+    }
+    if (data) {
+      const mixDataObject = data.allTopnavs.edges[0].node.default_mix;
+      const {
+        featured_residents,
+        mix_image,
+        mix_link,
+        mix_title,
+      } = mixDataObject;
+
+      const mixResidentsString = getResidentString(featured_residents);
+      return dispatch({
+        type: "SET_INITIAL_MIX",
+        payload: {
+          url: mix_link,
+          title: mix_title,
+          resident: mixResidentsString,
+          img: mix_image.now_playing.url,
+        },
+      });
+    }
+  }, [data, loading, error]);
+
   useEffect(() => {
     async function getRadioData() {
       const result = await axios(
         "https://public.radio.co/stations/sa3c47c55b/status"
       );
-      setRadioData(result.data);
+      // console.log("radio data ->", result.data.status);
+      setRadioData(result.data.status);
     }
     getRadioData();
   }, []);
@@ -106,12 +155,18 @@ function RadioBar() {
           </Link>
         </div>
 
-        <RadioPlayer status={radioData.status} />
+        {globalState.url === null ? (
+          <div className="column mix-data" />
+        ) : (
+          <RadioPlayer status={radioData.status} />
+        )}
 
         <div className="column is-narrow is-hidden-mobile">
-          <p className="display-text is-size-6">{laTime.format("HH:mm")} LA</p>
           <p className="display-text is-size-6">
-            {nycTime.format("HH:mm")} NYC
+            {formatDateTime(laTime, "hour-minute")} LA
+          </p>
+          <p className="display-text is-size-6">
+            {formatDateTime(nycTime, "hour-minute")} NYC
           </p>
         </div>
       </div>

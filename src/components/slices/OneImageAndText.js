@@ -5,7 +5,7 @@ import { ContentHelper, ImageHelper } from "./index";
  * Creates a Slice Component that display two images and some text. The text section can be either on the left of the right.
  * @category CMS
  * @subcategory Slices
- * @component
+ * @function
  * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create the HeadlineBlock slice
  * @returns {jsx}
  */
@@ -30,16 +30,14 @@ function OneImageAndText({ slice }) {
               columnClassName={oiatContentClass}
             />
             <ImageHelper
-              url={oiat_img.url}
-              alt={oiat_img.alt}
+              imageData={oiat_img}
               columnClassName={oiatImageClass}
             />
           </>
         ) : (
           <>
             <ImageHelper
-              url={oiat_img.url}
-              alt={oiat_img.alt}
+              imageData={oiat_img}
               columnClassName={oiatImageClass}
             />
             <ContentHelper

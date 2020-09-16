@@ -1,13 +1,12 @@
-import React, { useState, useContext, useEffect, useRef } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "gatsby";
-
+import { gql, useQuery } from "@apollo/client";
 import {
   faSearch,
   faComments,
   faCalendarAlt,
   faBroadcastTower,
   faHeadphones,
-  faQuestionCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Ticker from "react-ticker";
@@ -16,25 +15,140 @@ import {
   GlobalDispatchContext,
   GlobalStateContext,
 } from "../context/GlobalContextProvider";
-import { ScheduleDropdown, OutsideClick } from "./index";
+import { ScheduleDropdown, OutsideClick, UpcomingShow } from "./index";
+import { formatDateTime } from "../utils";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
-function ScheduleBar() {
+function ScheduleBar({ timeNow }) {
   const dispatch = useContext(GlobalDispatchContext);
   const globalState = useContext(GlobalStateContext);
 
   const [open, setOpen] = useState(false);
   const [pageIsVisible, setPageIsVisible] = useState(true);
+  const [todaysSchedule, setTodaysSchedule] = useState([]);
+  const [currentTime, setCurrentTime] = useState(
+    dayjs().tz("America/New_York")
+  );
 
-  const toggleSchedule = async () => {
-    await dispatch({ type: "TOGGLE_SCHEDULE" });
+  useEffect(() => {
+    const schedTime = setInterval(() => {
+      setCurrentTime(currentTime.add(1, "s"));
+    }, 1000);
+
+    return () => {
+      clearInterval(schedTime);
+    };
+  }, []);
+
+  /**
+   * Format timeNow for use in schedule_date_before and schedule_date_after below. Neither date is inclusive so we need to pass in yesterday as the filter date.
+   */
+  let yesterday = formatDateTime(currentTime, "prismic-date-query", -1);
+
+  /**
+   * Query for Prismic in the GraphQL syntax, not the Gatsby syntax!
+   * Retrieves the first available date after yesterday with scheduled show entries
+   * @see {@link https://prismic.io/docs/graphql/query-the-api/query-by-date| Prismic - GraphQL Query by Date}
+   */
+  const GET_NEXT_SHOW = gql`
+    query getNextShow($yesterday: Date!) {
+      allSchedules(
+        where: { schedule_date_after: $yesterday }
+        sortBy: schedule_date_ASC
+        first: 1
+      ) {
+        edges {
+          node {
+            schedule_date
+            schedule_entries {
+              end_time
+              start_time
+              scheduled_show {
+                ... on Mix {
+                  mix_image
+                  mix_title
+                  featured_residents {
+                    mix_resident {
+                      ... on Resident {
+                        resident_name
+                        _meta {
+                          uid
+                          type
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  /**
+   * Run the query on load and poll every 120 seconds; 2 minutes.
+   */
+  const { loading, error, data } = useQuery(GET_NEXT_SHOW, {
+    variables: { yesterday },
+    pollInterval: 5000,
+  });
+
+  /**
+   * Query the HMBK Prismic CMS to get the data for the next scheduled show's data.
+   * Grab the schedule data object from the query result.
+   * Destructure the mix data object and dispatch the mix data to appear in {@link UpcomingShow}
+   * @function
+   */
+  useEffect(() => {
+    const getNextShowData = () => {
+      if (loading) {
+        console.log(
+          `Get next show request sent at ${formatDateTime(
+            currentTime,
+            "hour-minute"
+          )}`
+        );
+      }
+      if (error) {
+        console.log(`Error: ${error.message}`);
+      }
+      if (data) {
+        console.log("data received", data);
+        const todayScheduleData = data.allSchedules.edges;
+        setTodaysSchedule(todayScheduleData);
+        // console.log(todaysSchedule);
+      }
+    };
+
+    return getNextShowData();
+  }, [data, loading, error]);
+
+  const handleVisibilityChange = (isVisible) => {
+    setPageIsVisible(isVisible);
+  };
+
+  const handlePlayLive = async () => {
+    await dispatch({
+      type: "CHANGE_URL",
+      payload: {
+        url: "https://streamer.radio.co/sa3c47c55b/listen",
+        title: "Halfmoon Radio",
+      },
+    });
   };
 
   const closeSchedule = async () => {
     await dispatch({ type: "CLOSE_SCHEDULE" });
   };
 
-  const handleVisibilityChange = (isVisible) => {
-    setPageIsVisible(isVisible);
+  const toggleSchedule = async () => {
+    await dispatch({ type: "TOGGLE_SCHEDULE" });
   };
 
   // TEST ONLY -- just for live toggle
@@ -42,7 +156,7 @@ function ScheduleBar() {
     await dispatch({ type: "TOGGLE_LIVE_TEST" });
   };
 
-  const showLiveStatus = () => (globalState.live ? "true" : "false");
+  // const showLiveStatus = () => (globalState.live ? "true" : "false");
   // END TEST CODE
 
   const nextShowTicker = (date, showName) => {
@@ -61,7 +175,11 @@ function ScheduleBar() {
   /**
    * Schedule Bar LAYOUT
    * OPEN : CLOSED
+   * This globalState null return prevents ERROR #95313.
+   * @see {@link BottomNav|Related globalState situation in BottomNav}
+   * @see {@link https://github.com/gatsbyjs/gatsby/issues/24264#issuecomment-631995753|Re: ERROR #95313 - To stop the error immediately, add a null check for the object}
    */
+  if (!globalState) return null;
   return globalState.scheduleOpen ? (
     <OutsideClick id={"schedule-bar"} onClick={() => closeSchedule()}>
       <div
@@ -94,6 +212,7 @@ function ScheduleBar() {
                         size="1x"
                         className="live-light"
                       />
+                      Listening
                     </span>
                   </>
                 ) : (
@@ -115,11 +234,13 @@ function ScheduleBar() {
               </p>
             )}
           </div>
-          <div className="column upcoming is-hidden-mobile">
-            <p className="display-text is-size-6-desktop is-size-7-touch">
-              globalState.live: {showLiveStatus()}{" "}
-            </p>
-          </div>
+
+          {todaysSchedule ? (
+            <div className="column next-show" />
+          ) : (
+            <UpcomingShow showData={todaysSchedule} />
+          )}
+
           <div className="column upcoming is-hidden-tablet">
             <PageVisibility onChange={handleVisibilityChange}>
               {pageIsVisible &&
@@ -160,11 +281,15 @@ function ScheduleBar() {
             </a>
           </div>
         </div>
-        <ScheduleDropdown
-          open={open}
-          setOpen={setOpen}
-          toggleSchedule={toggleSchedule}
-        />
+        {todaysSchedule && (
+          <ScheduleDropdown
+            showData={todaysSchedule}
+            timeNow={timeNow}
+            open={open}
+            setOpen={setOpen}
+            toggleSchedule={toggleSchedule}
+          />
+        )}
       </div>
     </OutsideClick>
   ) : (
@@ -218,16 +343,16 @@ function ScheduleBar() {
             </p>
           )}
         </div>
-        <div className="column upcoming is-hidden-mobile">
-          <p className="display-text is-size-6-desktop is-size-7-touch">
-            globalState.live: {showLiveStatus()}
-          </p>
-        </div>
+        {!todaysSchedule ? (
+          <div className="column next-show" />
+        ) : (
+          <UpcomingShow showData={todaysSchedule} />
+        )}
         <div className="column upcoming is-hidden-tablet">
-          <PageVisibility onChange={handleVisibilityChange}>
+          {/* <PageVisibility onChange={handleVisibilityChange}>
             {pageIsVisible &&
-              nextShowTicker("MON 4.21", "An HMBK Moment In Time")}
-          </PageVisibility>
+              todaysScheduleTickeTodaysSchedule.21", "An HMBK Moment In Time")}
+          </PageVisibility> */}
         </div>
         <div className="column is-narrow">
           <FontAwesomeIcon
@@ -261,17 +386,6 @@ function ScheduleBar() {
               className="icon-color"
             />
           </a>
-        </div>
-
-        <div className="column is-narrow">
-          <Link to="/cms-help">
-            <FontAwesomeIcon
-              onClick={() => closeSchedule()}
-              icon={faQuestionCircle}
-              size="1x"
-              className="icon-color"
-            />
-          </Link>
         </div>
       </div>
     </div>

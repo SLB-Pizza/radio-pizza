@@ -9,17 +9,17 @@ article .container {
   }
 }
 
-section.article-img-titling + section.slice {
+header.article-img-titling + section.slice {
   margin-top: 2rem;
 }
 
-section.slice {
-  margin-top: 0.75rem;
+section.slice,
+article.landing-page-element {
+  margin-top: 1rem;
 
-  .inline-image:hover {
-    cursor: pointer;
-  }
-
+  // ================================
+  // Layout Helper - ImageModal.js
+  // ================================
   .modal-content {
     min-width: 95vw;
     padding: 2rem;
@@ -124,7 +124,11 @@ section.sample-feature {
 header.article-img-titling {
   display: flex;
   flex-direction: column;
+  min-height: calc(100vh - 10.5rem);
   .hero-body {
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
     flex: 1;
   }
   .hero-foot {
@@ -142,11 +146,6 @@ header.article-img-titling {
     font-weight: 300;
   }
 }
-
-// .article-headline-img {
-//   background-size: contain;
-//   background-position: center center;
-// }
 
 .category {
   font-weight: 700;
@@ -175,5 +174,23 @@ header.article-img-titling {
 
   .column.author {
     border: 1px dotted red;
+  }
+}
+
+// ==================================
+// Layout Helper - ResponsiveImage
+// ==================================
+.inline-image {
+  transition: all 1s;
+  &:hover {
+    cursor: pointer;
+  }
+  &.lazyload {
+    opacity: 0;
+    transform: scale(0.75);
+  }
+  &.lazyloaded {
+    opacity: 1;
+    transform: scale(1);
   }
 }

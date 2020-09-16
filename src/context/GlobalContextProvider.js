@@ -4,17 +4,17 @@ export const GlobalStateContext = React.createContext();
 export const GlobalDispatchContext = React.createContext();
 
 const initialState = {
-  url:
-    "https://soundcloud.com/soundcloud-scenes/sets/currents-next-gen-chillwave",
-  title: "Next Gen ChillWave",
-  resident: "Currents",
-  img: "../img/test/next-gen-chillwave.jpg",
+  url: null,
+  title: null,
+  resident: null,
+  img: null,
   playing: false,
   controls: false,
   light: false,
   volume: 0.65,
   muted: false,
   played: 0,
+  isLoading: false,
   loaded: 0,
   duration: 0,
   playbackRate: 1.0,
@@ -33,14 +33,47 @@ function reducer(state, action) {
         playing: !state.playing,
       };
     }
-    // If a new audio source is selected while playing is NOT playing, set to play
-    case "CHANGE_URL": {
+    /**
+     * If a new audio source is selected while playing is NOT playing, set to play
+     */
+    case "SET_INITIAL_MIX": {
       return {
         ...state,
+        isLoading: true,
         url: action.payload.url,
         title: action.payload.title,
         resident: action.payload.resident,
+        img: action.payload.img,
+      };
+    }
+
+    case "MIX_LOADED": {
+      return {
+        ...state,
+        isLoading: false,
+      };
+    }
+
+    case "SHOW_LOADING": {
+      return {
+        ...state,
+        isLoading: true,
+        playing: false,
+        url: null,
+        title: null,
+        resident: null,
+        img: null,
+      };
+    }
+
+    case "CHANGE_URL": {
+      return {
+        ...state,
+        isLoading: false,
         playing: true,
+        url: action.payload.url,
+        title: action.payload.title,
+        resident: action.payload.resident,
         img: action.payload.img,
       };
     }
@@ -61,12 +94,6 @@ function reducer(state, action) {
       return { ...state, scheduleOpen: !state.scheduleOpen };
     }
 
-    case "TOGGLE_MUTE": {
-      return {
-        ...state,
-        muted: !state.muted,
-      };
-    }
     case "TOGGLE_LIVE_TEST": {
       return {
         ...state,

@@ -20,17 +20,15 @@ function FeatureTemplate({ data }) {
   const featureSliceData = featuresData.body;
 
   return (
-    <body className="site-page article">
+    <main className="full-height-page">
       <article>
         {/* HeadlineBlock only here */}
         <SliceZone sliceZone={featureSliceData} metadata={featureMetadata} />
-        <main>
-          {/*
+        {/*
           SliceZone Content Sections after the HeadlineBlock
           <SliceZone sliceZone={guideSliceData} metadata={guideMetadata} /> */}
-        </main>
       </article>
-    </body>
+    </main>
   );
 }
 
@@ -80,28 +78,37 @@ export const query = graphql`
                   blockquote_bg_img
                 }
               }
-              ... on PRISMIC_FeatureBodyImage_row {
+              ... on PRISMIC_FeatureBodyImage_group {
                 type
                 fields {
-                  row_image
+                  single_img
                 }
               }
-              ... on PRISMIC_FeatureBodyOne_image_and_text {
+              ... on PRISMIC_FeatureBodyOne_image_and_text1 {
                 type
                 primary {
+                  oiat_img
                   oiat_layout
                   oiat_text
-                  oiat_img
                 }
               }
-              ... on PRISMIC_FeatureBodyTwo_images___text {
+              ... on PRISMIC_FeatureBodyTwo_images_and_text {
                 type
                 primary {
-                  tiat_layout
-                  tiat_text
                   tiat_is_gapless
+                  tiat_layout
                   tiat_left_img
                   tiat_right_img
+                  tiat_text
+                }
+              }
+              ... on PRISMIC_FeatureBodyFull_width_image {
+                type
+                label
+                primary {
+                  full_width_image
+                  fwi_height
+                  fwi_titling
                 }
               }
             }

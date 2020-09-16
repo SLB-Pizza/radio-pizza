@@ -38,7 +38,7 @@ function IndexPage({ data }) {
   } = homepageData.node;
 
   return (
-    <div className="has-navbar-fixed-bottom site-page">
+    <div className="has-navbar-fixed-bottom full-height-page">
       <Hero slides={homepage_carousel} />
       <section className="home-content">
         <HomeMixes
@@ -71,7 +71,7 @@ export const query = graphql`
             home_events_headline
             home_events_blurb
             homepage_carousel {
-              slide_bg_url
+              slide_bg
               slide_cta
               slide_headline
               slide_link {

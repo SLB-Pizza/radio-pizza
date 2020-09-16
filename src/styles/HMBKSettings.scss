@@ -53,9 +53,8 @@ $button-active-border-color: darken($primary, 15);
 // $dropdown-item-active-background-color: white;
 
 //==================================
-// Duotone variables
+// Duotone variables - SingleMixCard
 //==================================
-
 $dt-base: #f600ff;
 $dt-bg-blend: multiply;
 $dt-blur: 0px;
@@ -79,18 +78,15 @@ $dt-spacing: 1%;
 //==================================
 // GLOBAL STYLES
 //==================================
-
-//top: 8.25rem with container
-//bottom: 3.75rem with container
-.site-page {
-  padding-top: 7.5rem;
+.full-height-page {
+  padding-top: 6.625rem;
   padding-bottom: 3.75rem;
   min-height: 100vh;
 }
 
-.feature-page {
-  padding-top: 8rem;
-  padding-bottom: 3.75rem;
+.black-bg-page {
+  padding-top: 7rem;
+  padding-bottom: 5rem;
   min-height: 100vh;
 }
 
@@ -99,8 +95,7 @@ button.button,
 .display-text,
 .navbar-item,
 .tag {
-  font-family: "Aldrich", sans-serif;
-  font-kerning: normal;
+  font-family: "Poppins", sans-serif;
   font-display: swap;
   font-weight: 700;
 }
@@ -114,17 +109,6 @@ p,
 
 button {
   transition: 0.25s ease-in-out;
-  &.date-selector {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 3.5rem;
-    span {
-      flex: 1;
-      padding: 0;
-      margin: 0;
-    }
-  }
 }
 
 .icon-color {
@@ -133,11 +117,6 @@ button {
   &:hover {
     color: $primary;
   }
-}
-
-input::placeholder {
-  /* Most modern browsers support this now. */
-  color: white;
 }
 
 .text-truncate {
@@ -200,6 +179,7 @@ figcaption {
   img {
     border-top-left-radius: 0.75rem;
     border-top-right-radius: 0.75rem;
+    object-fit: cover;
   }
 
   .play-btn-diffuser {
@@ -218,9 +198,23 @@ figcaption {
     border-bottom-right-radius: 0.75rem;
     transition: 0.125s ease;
 
+    .main-text {
+      display: flex;
+      flex-direction: column;
+      min-height: 8rem;
+
+      .details {
+        flex: 1;
+      }
+      .blurb {
+        flex: 0;
+      }
+    }
+
     .content-text {
       padding-bottom: 0.25rem;
-      min-height: 3.75rem; //FHD
+      min-height: 4.5rem;
+      // min-height: 3.75rem; //FHD
 
       // Comment in place only for this commit; no other changes made.
 
@@ -334,66 +328,3 @@ figcaption {
   //   min-height: 4rem;
   // }
 }
-
-//===========================================
-// Test SASS - REMOVE LATER
-//===========================================
-
-.columns.test .column:first-child {
-  background-color: darkgoldenrod;
-  border: 1px dashed white;
-}
-.columns.test .column:not(:first-child) {
-  border: 1px dashed white;
-}
-
-.columns.btn-tags .column {
-  display: flex;
-  flex-direction: column;
-  background-color: lightgreen;
-  border: 3px dashed lightpink;
-  min-height: 20rem;
-
-  h2 {
-    flex: 1;
-    background-color: darkturquoise;
-  }
-  .buttons.are-small {
-    background-color: goldenrod;
-    flex: 1;
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    align-content: flex-end;
-  }
-}
-
-// .columns.mobile-home-content {
-//   // background-color: darkslategray;
-//   .column:not(:last-child) {
-//     border: 1px dashed darksalmon;
-//     // max-height: 3.5rem;
-//     p.subtitle {
-//       padding-top: 0;
-//     }
-//   }
-// }
-
-// .btn-tags figure {
-//   background-color: $dt-base;
-//   img {
-//     filter: grayscale(100%) contrast(1) blur(0px);
-//     mix-blend-mode: $dt-bg-blend;
-//     opacity: $dt-opacity;
-//     object-fit: cover;
-//   }
-
-//   &::before {
-//     background-color: $dt-foreground;
-//     content: "";
-//     mix-blend-mode: $dt-fg-blend;
-//     z-index: 1000;
-//   }
-// }

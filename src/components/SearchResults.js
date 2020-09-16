@@ -1,10 +1,10 @@
 import React from "react";
 import { SingleMixCard, SingleResident, SingleEventCard } from "./index";
 
-// Dummy data in __tests__ folder
-import hmbkMixesResidents from "../../__tests__/HMBK-mixes-with-residents.json";
-import dummyArtists from "../../__tests__/dummyArtists.json";
-import dummyEvents from "../../__tests__/dummyEvents.json";
+// Dummy data in __test__ folder
+import hmbkMixesResidents from "../../__test__/HMBK-mixes-with-residents.json";
+import dummyArtists from "../../__test__/dummyArtists.json";
+import dummyEvents from "../../__test__/dummyEvents.json";
 
 const mixListLayout =
   "column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen";

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
-import { StickyFeature } from "../../components";
+import { LandingPageElement, StickyFeature } from "../../components";
 import PropTypes from "prop-types";
 
 /**
@@ -27,50 +27,57 @@ function FeaturesIndex({ data }) {
    *
    * The remaining array of node objects can be mapped over normally using XYZ_Component.
    */
-  const dataDocument = prismicContent;
-  const leadFeatureData = dataDocument[0].node;
-  const allOtherFeatures = dataDocument.slice(1);
+  const allFeaturesData = prismicContent;
 
-  const { _meta, body } = leadFeatureData;
+  const leadFeatureData = allFeaturesData[0];
+  const lfLayout = "column is-12 landing-page-element";
+  const lfImageAspectRatio = "image is-2by1";
+
+  const allOtherFeatures = allFeaturesData.slice(1);
+  const aofLayout = "column is-6 landing-page-element";
+  const aofImageAspectRatio = "image is-16by9";
 
   return (
-    <main className="site-page">
-      {/* <StickyFeature leadFeatureData={leadFeatureData} /> */}
-      <ul>
-        <li>
-          <Link to="/features/dev-test-feature-1">Link to Test Feature 1</Link>
-        </li>
-        <li>
-          <Link to="/features/dev-test-feature-2">Link to Test Feature 2</Link>
-        </li>
-        <li>
-          <Link to="/features/dev-feature-test-for-surf">
-            Link to Sheff G: New Kid on the Block
-          </Link>
-        </li>
-      </ul>
-      <hr />
-
-      <section className="container is-fluid" style={{ marginTop: "10rem" }}>
-        <div className="columns is-multiline">
-          <div className="column is-12">
-            <p
-              className="title is-size-3-desktop is-size-4-touch"
-              id="first-text"
-            >
-              Features Data
-            </p>
-          </div>
-          <div className="column is-12">
-            <h1 className="title">leadFeatureData Data Object</h1>
-            <pre>{JSON.stringify(leadFeatureData, null, 2)}</pre>
-          </div>
-          <div className="column is-12">
-            <h1 className="title">allOtherFeatures Data Object</h1>
-            <pre>{JSON.stringify(allOtherFeatures, null, 2)}</pre>
+    <main className="container is-fluid black-bg-page">
+      <div className="columns is-multiline is-mobile">
+        <div className="column is-12">
+          <div className="content">
+            <h1 className="title is-size-2-widescreen is-size-3-desktop is-size-4-touch">
+              Features
+            </h1>
+            <h4 className="subtitle is-size-6-touch">
+              Your reference for Prismic CMS, image guidelines, editorial
+              standards and more.
+            </h4>
           </div>
         </div>
-      </section>
+
+        {/* Lead Feature */}
+        <LandingPageElement
+          pageElement={leadFeatureData}
+          layout={lfLayout}
+          imageAspectRatio={lfImageAspectRatio}
+        />
+
+        {/* All other Features */}
+        {allOtherFeatures.map((singleFeature, index) => (
+          <LandingPageElement
+            key={`Feature-#${index + 1}`}
+            pageElement={singleFeature}
+            layout={aofLayout}
+            imageAspectRatio={aofImageAspectRatio}
+          />
+        ))}
+
+        {/* <div className="column is-12">
+          <h1 className="title">leadFeatureData Data Object</h1>
+          <pre>{JSON.stringify(leadFeatureData, null, 2)}</pre>
+        </div>
+        <div className="column is-12">
+          <h1 className="title">allOtherFeatures Data Object</h1>
+          <pre>{JSON.stringify(allOtherFeatures, null, 2)}</pre>
+        </div> */}
+      </div>
     </main>
   );
 }
@@ -100,18 +107,6 @@ export const query = graphql`
               ... on PRISMIC_FeatureBodyHeadline_block {
                 type
                 primary {
-                  article_author_pic
-                  article_author {
-                    ... on PRISMIC_Staff {
-                      hmbk_staff_name
-                      hmbk_staff_position
-                      _meta {
-                        type
-                        uid
-                      }
-                    }
-                  }
-                  article_category
                   article_headline
                   article_headline_img
                   article_subcategory

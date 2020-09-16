@@ -18,7 +18,7 @@ import {
  * The template that has the query for the data to pass as props into SliceZone returns a structure as follows:
  *
  * ```html
- * <main className="site-page">
+ * <main className="full-height-page">
  *    <SliceZone
         sliceZone={featureSliceData}
         featureMetadata={featureMetadata}
@@ -31,7 +31,7 @@ import {
  *
  * e.g.
  * ```html
- * <main className="site-page">
+ * <main className="full-height-page">
  *    <div>
  *      <section>{slice layout here}</section>
  *    </div>
@@ -54,9 +54,9 @@ function SliceZone({ sliceZone, metadata }) {
     blockquote: Blockquote,
     full_width_image: FullWidthImage,
     headline_block: ArticleHeadline,
-    image_row: ImageRow,
-    one_image_and_text: OneImageAndText,
-    two_images___text: TwoImagesAndText,
+    row_of_images: ImageRow,
+    one_image_and_text1: OneImageAndText,
+    two_images_and_text: TwoImagesAndText,
     text: TextBlock,
   };
 

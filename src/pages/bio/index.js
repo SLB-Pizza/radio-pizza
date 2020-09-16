@@ -1,8 +1,8 @@
 import React from "react";
 import { HMBKDivider, SingleMixCard } from "../../components";
 
-// Dummy data in __tests__ folder
-import hmbkMixesResidents from "../../../__tests__/HMBK-mixes-with-residents.json";
+// Dummy data in __test__ folder
+import hmbkMixesResidents from "../../../__test__/HMBK-mixes-with-residents.json";
 
 function StickyBioIndexPage() {
   /**
@@ -12,10 +12,13 @@ function StickyBioIndexPage() {
     "column is-12-mobile is-12-tablet is-6-desktop is-4-widescreen";
 
   return (
-    <div className="container is-fluid site-page">
+    <div className="container is-fluid full-height-page">
       <div className="columns is-multiline">
         <div className="column is-12">
-          <pre>This page is planned for removal.</pre>
+          <pre>This route, /bio, is planned for removal.</pre>
+          <pre>
+            Its replacement will be a /residents/`resident-name-here` route.
+          </pre>
         </div>
         {/* <div className="column is-4-desktop is-4-tablet is-12-mobile sticky-bio">
           <div className="columns is-multiline">

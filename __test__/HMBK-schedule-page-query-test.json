@@ -1,0 +1,5322 @@
+[
+  {
+    "node": {
+      "schedule_date": "2020-09-01",
+      "schedule_entries": null
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-09-02",
+      "schedule_entries": [
+        {
+          "start_time": "2020-09-19T20:25:19Z",
+          "end_time": "2020-08-07T08:31:59Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "justo etiam",
+                  "_meta": {
+                    "uid": "dev-res-DkFaWW-144",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "vel nisl",
+                  "_meta": {
+                    "uid": "dev-res-bQhzkh-091",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "quis odio",
+                  "_meta": {
+                    "uid": "dev-res-yfma7o-699",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-05T06:44:38Z",
+          "end_time": "2020-08-21T20:55:25Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "vel",
+                  "_meta": {
+                    "uid": "dev-res-SYgNIN-846",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "nam",
+                  "_meta": {
+                    "uid": "dev-res-ozSiWr-454",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "morbi",
+                  "_meta": {
+                    "uid": "dev-res-TztheQ-670",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-25T14:38:22Z",
+          "end_time": "2020-08-18T07:34:49Z",
+          "scheduled_show": {
+            "mix_title": "suspendisse ornare consequat",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "non lectus aliquam",
+                  "_meta": {
+                    "uid": "dev-res-Wmq9NI-290",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "volutpat",
+                  "_meta": {
+                    "uid": "dev-res-H6EtcM-964",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-17T14:08:38Z",
+          "end_time": "2020-09-13T03:48:52Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "amet eros",
+                  "_meta": {
+                    "uid": "dev-res-esRcdC-860",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "ligula in",
+                  "_meta": {
+                    "uid": "dev-res-jhhSW3-082",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "eu magna vulputate",
+                  "_meta": {
+                    "uid": "dev-res-7DBcpS-670",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-05T12:34:26Z",
+          "end_time": "2020-08-13T08:50:22Z",
+          "scheduled_show": {
+            "mix_title": "proin interdum mauris",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "potenti nullam porttitor",
+                  "_meta": {
+                    "uid": "dev-res-Q04HfD-927",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "id massa id",
+                  "_meta": {
+                    "uid": "dev-res-2KncG6-671",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "cum",
+                  "_meta": {
+                    "uid": "dev-res-ve3TEA-489",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-09-03",
+      "schedule_entries": null
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-09-04",
+      "schedule_entries": [
+        {
+          "start_time": "2020-09-02T21:18:58Z",
+          "end_time": "2020-09-08T04:26:43Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "primis in",
+                  "_meta": {
+                    "uid": "dev-res-S0UR6N-204",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "gravida sem praesent",
+                  "_meta": {
+                    "uid": "dev-res-P3SGf3-296",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-10T06:30:56Z",
+          "end_time": "2020-08-09T13:25:20Z",
+          "scheduled_show": {
+            "mix_title": "ipsum primis in faucibus",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "augue a",
+                  "_meta": {
+                    "uid": "dev-res-VqYvfW-493",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-16T00:04:44Z",
+          "end_time": "2020-09-25T11:14:36Z",
+          "scheduled_show": {
+            "mix_title": "in",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "eu magna vulputate",
+                  "_meta": {
+                    "uid": "dev-res-CpVwRi-592",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-02T05:02:47Z",
+          "end_time": "2020-09-11T02:00:43Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "ultrices mattis",
+                  "_meta": {
+                    "uid": "dev-res-EspPev-641",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "pretium",
+                  "_meta": {
+                    "uid": "dev-res-HuayLj-248",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-20T16:24:04Z",
+          "end_time": "2020-09-12T17:57:51Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "cursus",
+                  "_meta": {
+                    "uid": "dev-res-ORG9L9-454",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "risus semper",
+                  "_meta": {
+                    "uid": "dev-res-wbDsdM-765",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-09-05",
+      "schedule_entries": null
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-09-06",
+      "schedule_entries": null
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-09-07",
+      "schedule_entries": [
+        {
+          "start_time": "2020-08-10T10:23:34Z",
+          "end_time": "2020-08-26T23:35:30Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "vulputate",
+                  "_meta": {
+                    "uid": "dev-res-Efrcan-148",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-22T22:43:12Z",
+          "end_time": "2020-09-21T05:02:14Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "ultrices",
+                  "_meta": {
+                    "uid": "dev-res-Bj5cxr-770",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-16T18:07:46Z",
+          "end_time": "2020-08-26T02:32:00Z",
+          "scheduled_show": {
+            "mix_title": "eu sapien cursus",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "volutpat erat quisque",
+                  "_meta": {
+                    "uid": "dev-res-HBYHg2-860",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "maecenas ut massa",
+                  "_meta": {
+                    "uid": "dev-res-YQx0Nn-051",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "in",
+                  "_meta": {
+                    "uid": "dev-res-RzHbeF-643",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-23T18:34:57Z",
+          "end_time": "2020-08-22T08:13:53Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "amet sapien",
+                  "_meta": {
+                    "uid": "dev-res-Y7ZGUI-547",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "magna bibendum imperdiet",
+                  "_meta": {
+                    "uid": "dev-res-gku8bl-982",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "ultricies eu nibh",
+                  "_meta": {
+                    "uid": "dev-res-pcGTAy-395",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-24T01:09:27Z",
+          "end_time": "2020-09-16T13:26:35Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "lobortis",
+                  "_meta": {
+                    "uid": "dev-res-qKpVBl-273",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "nec molestie sed",
+                  "_meta": {
+                    "uid": "dev-res-1XkRWR-812",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "nulla mollis",
+                  "_meta": {
+                    "uid": "dev-res-4gZNox-231",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-09-08",
+      "schedule_entries": null
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-09-09",
+      "schedule_entries": null
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-09-10",
+      "schedule_entries": [
+        {
+          "start_time": "2020-08-24T16:39:07Z",
+          "end_time": "2020-08-07T22:57:45Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "rutrum ac",
+                  "_meta": {
+                    "uid": "dev-res-x5qNFh-301",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-09T17:35:31Z",
+          "end_time": "2020-09-17T08:20:09Z",
+          "scheduled_show": {
+            "mix_title": "molestie sed",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "libero",
+                  "_meta": {
+                    "uid": "dev-res-ga9n5g-821",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-03T11:54:00Z",
+          "end_time": "2020-09-05T15:05:28Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "erat",
+                  "_meta": {
+                    "uid": "dev-res-kAYHAb-362",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-22T12:19:53Z",
+          "end_time": "2020-09-10T01:55:28Z",
+          "scheduled_show": {
+            "mix_title": "aenean auctor",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "commodo vulputate justo",
+                  "_meta": {
+                    "uid": "dev-res-Wfiy0V-079",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-05T09:30:22Z",
+          "end_time": "2020-08-01T01:31:11Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "morbi vel",
+                  "_meta": {
+                    "uid": "dev-res-bezWQ9-942",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "a ipsum integer",
+                  "_meta": {
+                    "uid": "dev-res-LiFNn6-238",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "volutpat",
+                  "_meta": {
+                    "uid": "dev-res-x5QQ2s-734",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-04T16:01:45Z",
+          "end_time": "2020-08-26T14:50:08Z",
+          "scheduled_show": {
+            "mix_title": "integer",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "erat fermentum",
+                  "_meta": {
+                    "uid": "dev-res-CRRIns-592",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "massa",
+                  "_meta": {
+                    "uid": "dev-res-KXQWtd-161",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "curabitur",
+                  "_meta": {
+                    "uid": "dev-res-19zRDZ-495",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-09-11",
+      "schedule_entries": [
+        {
+          "start_time": "2020-08-06T18:33:48Z",
+          "end_time": "2020-08-03T06:52:40Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "leo pellentesque ultrices",
+                  "_meta": {
+                    "uid": "dev-res-qeoWko-045",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "at ipsum ac",
+                  "_meta": {
+                    "uid": "dev-res-wezbf8-208",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-06T19:03:57Z",
+          "end_time": "2020-08-23T15:37:20Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "dictumst maecenas",
+                  "_meta": {
+                    "uid": "dev-res-NyQ8ls-686",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "libero rutrum ac",
+                  "_meta": {
+                    "uid": "dev-res-n0NiLl-688",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "adipiscing elit proin",
+                  "_meta": {
+                    "uid": "dev-res-NnLWXY-376",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-06T05:45:53Z",
+          "end_time": "2020-09-11T13:18:41Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "tempus",
+                  "_meta": {
+                    "uid": "dev-res-va4QVD-052",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "imperdiet sapien",
+                  "_meta": {
+                    "uid": "dev-res-1nLd5m-461",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "nibh quisque id",
+                  "_meta": {
+                    "uid": "dev-res-yOMfcW-599",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-09-12",
+      "schedule_entries": null
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-09-13",
+      "schedule_entries": [
+        {
+          "start_time": "2020-08-02T20:31:34Z",
+          "end_time": "2020-09-04T12:42:46Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "blandit",
+                  "_meta": {
+                    "uid": "dev-res-KRHUHP-015",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "ultrices posuere",
+                  "_meta": {
+                    "uid": "dev-res-xXkfL9-288",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "lacinia erat",
+                  "_meta": {
+                    "uid": "dev-res-0OaBL7-348",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-14T14:36:43Z",
+          "end_time": "2020-09-22T19:11:24Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "id",
+                  "_meta": {
+                    "uid": "dev-res-dZAiB7-856",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "posuere cubilia",
+                  "_meta": {
+                    "uid": "dev-res-XuGRTu-273",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-04T12:08:19Z",
+          "end_time": "2020-08-26T14:18:24Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "amet eleifend",
+                  "_meta": {
+                    "uid": "dev-res-6AJrla-202",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-08T12:10:01Z",
+          "end_time": "2020-08-16T22:43:48Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "lobortis est",
+                  "_meta": {
+                    "uid": "dev-res-GI00Wb-220",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "lectus",
+                  "_meta": {
+                    "uid": "dev-res-F40oVQ-011",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-01T15:22:35Z",
+          "end_time": "2020-09-25T22:01:43Z",
+          "scheduled_show": {
+            "mix_title": "duis bibendum morbi",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "vestibulum ac",
+                  "_meta": {
+                    "uid": "dev-res-NlawId-272",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-17T03:29:34Z",
+          "end_time": "2020-09-29T23:10:40Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "nulla sed vel",
+                  "_meta": {
+                    "uid": "dev-res-IYVVJ5-768",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "eget orci",
+                  "_meta": {
+                    "uid": "dev-res-Uc8sId-077",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-17T08:46:49Z",
+          "end_time": "2020-08-01T09:05:01Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "ac consequat metus",
+                  "_meta": {
+                    "uid": "dev-res-jE5xQL-030",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-09-14",
+      "schedule_entries": [
+        {
+          "start_time": "2020-08-29T08:07:38Z",
+          "end_time": "2020-08-15T00:02:11Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "justo",
+                  "_meta": {
+                    "uid": "dev-res-KOqQbG-091",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "amet consectetuer",
+                  "_meta": {
+                    "uid": "dev-res-52Szvt-335",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-24T02:35:14Z",
+          "end_time": "2020-08-24T19:01:25Z",
+          "scheduled_show": {
+            "mix_title": "consequat lectus in",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "eget nunc",
+                  "_meta": {
+                    "uid": "dev-res-uPzYnH-277",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-29T18:21:06Z",
+          "end_time": "2020-09-22T06:19:06Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "cras non velit",
+                  "_meta": {
+                    "uid": "dev-res-iLbwQY-105",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-24T14:01:18Z",
+          "end_time": "2020-09-09T01:38:12Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "mi",
+                  "_meta": {
+                    "uid": "dev-res-DBnJnF-843",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "quam nec",
+                  "_meta": {
+                    "uid": "dev-res-k4Kzz7-002",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-15T18:44:23Z",
+          "end_time": "2020-09-13T07:13:31Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "felis donec semper",
+                  "_meta": {
+                    "uid": "dev-res-4ZAzag-389",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "mi",
+                  "_meta": {
+                    "uid": "dev-res-Krj3VS-484",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "congue elementum in",
+                  "_meta": {
+                    "uid": "dev-res-V5O8ji-229",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-05T23:06:53Z",
+          "end_time": "2020-09-25T03:42:21Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "vestibulum aliquet ultrices",
+                  "_meta": {
+                    "uid": "dev-res-Zf7LKc-125",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "duis aliquam convallis",
+                  "_meta": {
+                    "uid": "dev-res-ujRZAL-356",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "aliquam quis",
+                  "_meta": {
+                    "uid": "dev-res-3avBRR-940",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-09-15",
+      "schedule_entries": null
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-09-16",
+      "schedule_entries": null
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-09-17",
+      "schedule_entries": [
+        {
+          "start_time": "2020-09-13T16:55:47Z",
+          "end_time": "2020-08-04T09:20:41Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "suspendisse potenti",
+                  "_meta": {
+                    "uid": "dev-res-8XWWIH-607",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "habitasse platea",
+                  "_meta": {
+                    "uid": "dev-res-ldJhCB-733",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "in imperdiet",
+                  "_meta": {
+                    "uid": "dev-res-FWeAro-463",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-23T21:57:07Z",
+          "end_time": "2020-09-16T07:33:27Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "lectus",
+                  "_meta": {
+                    "uid": "dev-res-bSQI1M-672",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "sed lacus",
+                  "_meta": {
+                    "uid": "dev-res-PYljQQ-152",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "hendrerit at",
+                  "_meta": {
+                    "uid": "dev-res-mwiPuZ-857",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-14T09:19:52Z",
+          "end_time": "2020-08-14T13:06:14Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "elementum in",
+                  "_meta": {
+                    "uid": "dev-res-xmujMg-311",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "lectus vestibulum quam",
+                  "_meta": {
+                    "uid": "dev-res-igVtmW-720",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-09-18",
+      "schedule_entries": [
+        {
+          "start_time": "2020-08-08T02:07:21Z",
+          "end_time": "2020-09-06T01:45:25Z",
+          "scheduled_show": {
+            "mix_title": "diam in magna bibendum",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "sit",
+                  "_meta": {
+                    "uid": "dev-res-B1jbqw-674",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-10T23:45:18Z",
+          "end_time": "2020-08-21T02:38:27Z",
+          "scheduled_show": {
+            "mix_title": "viverra diam vitae quam",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "luctus et ultrices",
+                  "_meta": {
+                    "uid": "dev-res-w3nCHo-278",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-23T12:57:35Z",
+          "end_time": "2020-09-20T02:14:58Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "justo morbi ut",
+                  "_meta": {
+                    "uid": "dev-res-gt8LAS-885",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "scelerisque mauris",
+                  "_meta": {
+                    "uid": "dev-res-R7wzLc-387",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "ac nibh",
+                  "_meta": {
+                    "uid": "dev-res-eqjp6X-599",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-09-19",
+      "schedule_entries": null
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-09-20",
+      "schedule_entries": [
+        {
+          "start_time": "2020-08-07T02:40:32Z",
+          "end_time": "2020-08-27T19:04:26Z",
+          "scheduled_show": {
+            "mix_title": "cursus id turpis",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "id",
+                  "_meta": {
+                    "uid": "dev-res-aa89tK-473",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "eleifend pede",
+                  "_meta": {
+                    "uid": "dev-res-EELWv0-105",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "duis ac",
+                  "_meta": {
+                    "uid": "dev-res-yCpHBE-742",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-21T15:05:11Z",
+          "end_time": "2020-08-03T08:22:03Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "sapien",
+                  "_meta": {
+                    "uid": "dev-res-HCTguo-548",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "non velit donec",
+                  "_meta": {
+                    "uid": "dev-res-xeGoop-834",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "sed magna at",
+                  "_meta": {
+                    "uid": "dev-res-Tzn9rP-637",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-04T12:30:54Z",
+          "end_time": "2020-08-31T04:52:11Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "elementum nullam varius",
+                  "_meta": {
+                    "uid": "dev-res-YGB2EU-968",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "a feugiat",
+                  "_meta": {
+                    "uid": "dev-res-ZoFREH-312",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "in tempor turpis",
+                  "_meta": {
+                    "uid": "dev-res-XZHHQo-345",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-23T23:28:02Z",
+          "end_time": "2020-08-31T15:57:10Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "pede libero quis",
+                  "_meta": {
+                    "uid": "dev-res-e4WEIr-936",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-09-21",
+      "schedule_entries": [
+        {
+          "start_time": "2020-09-19T07:02:00Z",
+          "end_time": "2020-08-09T19:02:22Z",
+          "scheduled_show": {
+            "mix_title": "ut",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "porttitor id consequat",
+                  "_meta": {
+                    "uid": "dev-res-jNg734-057",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-08T18:47:52Z",
+          "end_time": "2020-09-03T07:27:16Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "condimentum curabitur in",
+                  "_meta": {
+                    "uid": "dev-res-yD3xb0-680",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "in",
+                  "_meta": {
+                    "uid": "dev-res-oVujRt-950",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-23T00:02:09Z",
+          "end_time": "2020-09-19T11:38:00Z",
+          "scheduled_show": {
+            "mix_title": "aliquet massa id",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "luctus tincidunt nulla",
+                  "_meta": {
+                    "uid": "dev-res-1uepVz-502",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-27T16:29:12Z",
+          "end_time": "2020-09-22T14:48:25Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "in hac habitasse",
+                  "_meta": {
+                    "uid": "dev-res-hdBJek-962",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-06T14:56:51Z",
+          "end_time": "2020-09-03T05:29:30Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "nulla nunc purus",
+                  "_meta": {
+                    "uid": "dev-res-B2XZ3E-643",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-10T00:59:15Z",
+          "end_time": "2020-08-08T06:03:53Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "nisi nam",
+                  "_meta": {
+                    "uid": "dev-res-sC3s9T-654",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-24T21:27:18Z",
+          "end_time": "2020-08-06T18:48:59Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "tristique in tempus",
+                  "_meta": {
+                    "uid": "dev-res-sWGIH1-704",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-27T12:29:22Z",
+          "end_time": "2020-09-08T03:38:03Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "nulla",
+                  "_meta": {
+                    "uid": "dev-res-Vup5za-239",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "maecenas",
+                  "_meta": {
+                    "uid": "dev-res-z5df2Q-373",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "ut",
+                  "_meta": {
+                    "uid": "dev-res-Uo33io-166",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-09-22",
+      "schedule_entries": null
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-09-23",
+      "schedule_entries": null
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-09-24",
+      "schedule_entries": [
+        {
+          "start_time": "2020-08-09T09:15:14Z",
+          "end_time": "2020-08-21T21:58:28Z",
+          "scheduled_show": {
+            "mix_title": "sed",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "vestibulum vestibulum ante",
+                  "_meta": {
+                    "uid": "dev-res-DQCyci-181",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "diam cras pellentesque",
+                  "_meta": {
+                    "uid": "dev-res-eViWkP-278",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-07T12:16:03Z",
+          "end_time": "2020-08-11T02:27:39Z",
+          "scheduled_show": {
+            "mix_title": "lobortis vel dapibus",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "et eros vestibulum",
+                  "_meta": {
+                    "uid": "dev-res-VDkaFa-518",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "in",
+                  "_meta": {
+                    "uid": "dev-res-SG548Q-107",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-12T13:33:35Z",
+          "end_time": "2020-08-04T09:15:03Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "risus",
+                  "_meta": {
+                    "uid": "dev-res-2Kk2xK-911",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "et commodo",
+                  "_meta": {
+                    "uid": "dev-res-LTOhPe-897",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-25T01:53:27Z",
+          "end_time": "2020-08-17T12:33:11Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "nam ultrices libero",
+                  "_meta": {
+                    "uid": "dev-res-XmnpBB-500",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "congue eget",
+                  "_meta": {
+                    "uid": "dev-res-L2eh43-681",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "luctus rutrum nulla",
+                  "_meta": {
+                    "uid": "dev-res-QJKDOP-609",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-15T06:35:40Z",
+          "end_time": "2020-08-20T00:52:26Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "nunc nisl",
+                  "_meta": {
+                    "uid": "dev-res-VLl2cO-530",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "nisl",
+                  "_meta": {
+                    "uid": "dev-res-oCd6i7-700",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "turpis adipiscing lorem",
+                  "_meta": {
+                    "uid": "dev-res-KqKBvv-185",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-01T17:47:54Z",
+          "end_time": "2020-08-23T14:46:09Z",
+          "scheduled_show": {
+            "mix_title": "ut dolor morbi vel",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "diam vitae",
+                  "_meta": {
+                    "uid": "dev-res-EpanCz-536",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "augue aliquam erat",
+                  "_meta": {
+                    "uid": "dev-res-d7mGyC-351",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-28T05:00:10Z",
+          "end_time": "2020-09-23T18:59:28Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "phasellus",
+                  "_meta": {
+                    "uid": "dev-res-g0qxVv-853",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "ipsum dolor",
+                  "_meta": {
+                    "uid": "dev-res-YhnA2a-175",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-25T11:01:56Z",
+          "end_time": "2020-09-02T12:52:06Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "erat",
+                  "_meta": {
+                    "uid": "dev-res-DcJtfk-372",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-09-25",
+      "schedule_entries": [
+        {
+          "start_time": "2020-09-01T21:01:51Z",
+          "end_time": "2020-08-29T18:05:06Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "ultrices",
+                  "_meta": {
+                    "uid": "dev-res-noCv3P-836",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "eu pede",
+                  "_meta": {
+                    "uid": "dev-res-ghOCjX-439",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "amet",
+                  "_meta": {
+                    "uid": "dev-res-ZjsCTK-356",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-05T00:51:55Z",
+          "end_time": "2020-09-26T10:26:01Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "venenatis turpis",
+                  "_meta": {
+                    "uid": "dev-res-JcbedI-681",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "nisi volutpat",
+                  "_meta": {
+                    "uid": "dev-res-M1UDNO-327",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "a feugiat et",
+                  "_meta": {
+                    "uid": "dev-res-rkmEfP-078",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-30T10:07:30Z",
+          "end_time": "2020-09-04T01:24:49Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "potenti in",
+                  "_meta": {
+                    "uid": "dev-res-dVVzc8-026",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "curae mauris",
+                  "_meta": {
+                    "uid": "dev-res-WW87cg-930",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "turpis a",
+                  "_meta": {
+                    "uid": "dev-res-zblial-951",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-27T12:36:13Z",
+          "end_time": "2020-09-12T18:57:05Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "nec nisi volutpat",
+                  "_meta": {
+                    "uid": "dev-res-pPfgkJ-534",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "interdum",
+                  "_meta": {
+                    "uid": "dev-res-ZEEzeQ-556",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-12T14:57:45Z",
+          "end_time": "2020-09-17T04:32:39Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "mattis pulvinar",
+                  "_meta": {
+                    "uid": "dev-res-DcLdRr-903",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "vivamus",
+                  "_meta": {
+                    "uid": "dev-res-ODbzmC-451",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "a",
+                  "_meta": {
+                    "uid": "dev-res-dSLiXu-247",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-24T15:59:31Z",
+          "end_time": "2020-09-24T09:54:26Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "ut massa",
+                  "_meta": {
+                    "uid": "dev-res-jFLdib-476",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "volutpat",
+                  "_meta": {
+                    "uid": "dev-res-BB1SEf-194",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-08T10:28:47Z",
+          "end_time": "2020-08-28T03:08:50Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "pellentesque",
+                  "_meta": {
+                    "uid": "dev-res-anydjd-646",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-09-26",
+      "schedule_entries": null
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-09-27",
+      "schedule_entries": [
+        {
+          "start_time": "2020-09-01T10:46:16Z",
+          "end_time": "2020-09-05T12:01:19Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "eget tempus vel",
+                  "_meta": {
+                    "uid": "dev-res-Ph9e6R-156",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "vel",
+                  "_meta": {
+                    "uid": "dev-res-BlbDNf-142",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-24T07:47:25Z",
+          "end_time": "2020-09-25T04:33:55Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "donec ut mauris",
+                  "_meta": {
+                    "uid": "dev-res-jxQy5F-569",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "pretium quis",
+                  "_meta": {
+                    "uid": "dev-res-RGErDW-016",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "suscipit",
+                  "_meta": {
+                    "uid": "dev-res-0QljKT-809",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-20T02:32:12Z",
+          "end_time": "2020-08-26T02:22:34Z",
+          "scheduled_show": {
+            "mix_title": "dui",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "platea dictumst morbi",
+                  "_meta": {
+                    "uid": "dev-res-ieqWo1-514",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "est quam",
+                  "_meta": {
+                    "uid": "dev-res-RM2xR6-083",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "quis libero",
+                  "_meta": {
+                    "uid": "dev-res-rnCBKO-039",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-20T18:50:05Z",
+          "end_time": "2020-09-21T13:00:11Z",
+          "scheduled_show": {
+            "mix_title": "orci",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "non ligula pellentesque",
+                  "_meta": {
+                    "uid": "dev-res-bBNPxJ-738",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-14T03:18:51Z",
+          "end_time": "2020-08-29T10:59:12Z",
+          "scheduled_show": {
+            "mix_title": "curae duis faucibus",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "sed lacus morbi",
+                  "_meta": {
+                    "uid": "dev-res-3LTGOT-601",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-27T21:39:48Z",
+          "end_time": "2020-09-17T15:15:19Z",
+          "scheduled_show": {
+            "mix_title": "sapien varius ut blandit",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "non",
+                  "_meta": {
+                    "uid": "dev-res-l1JVrf-505",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-09-28",
+      "schedule_entries": [
+        {
+          "start_time": "2020-08-26T09:36:10Z",
+          "end_time": "2020-09-09T15:09:58Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "metus",
+                  "_meta": {
+                    "uid": "dev-res-IhKEBt-028",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "libero convallis eget",
+                  "_meta": {
+                    "uid": "dev-res-uCIr93-659",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-03T17:50:56Z",
+          "end_time": "2020-09-29T11:05:54Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "semper",
+                  "_meta": {
+                    "uid": "dev-res-DVtwVw-315",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "egestas",
+                  "_meta": {
+                    "uid": "dev-res-RrkOjR-494",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "vulputate ut ultrices",
+                  "_meta": {
+                    "uid": "dev-res-rfP8QN-145",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-05T10:01:11Z",
+          "end_time": "2020-09-08T09:22:34Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "aenean fermentum",
+                  "_meta": {
+                    "uid": "dev-res-cHKJGO-807",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-22T01:19:41Z",
+          "end_time": "2020-09-25T15:37:37Z",
+          "scheduled_show": {
+            "mix_title": "vel",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "quisque arcu libero",
+                  "_meta": {
+                    "uid": "dev-res-1WsXzb-494",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "lectus aliquam sit",
+                  "_meta": {
+                    "uid": "dev-res-gIKiiJ-850",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-09-29",
+      "schedule_entries": null
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-09-30",
+      "schedule_entries": null
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-01",
+      "schedule_entries": [
+        {
+          "start_time": "2020-09-14T16:26:32Z",
+          "end_time": "2020-09-27T01:07:06Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "sit amet nulla",
+                  "_meta": {
+                    "uid": "dev-res-H8SRWY-723",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "etiam faucibus",
+                  "_meta": {
+                    "uid": "dev-res-7AdZfV-678",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-18T03:35:09Z",
+          "end_time": "2020-08-14T00:23:16Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "mauris ullamcorper purus",
+                  "_meta": {
+                    "uid": "dev-res-20pyHm-495",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-20T12:27:27Z",
+          "end_time": "2020-09-12T14:32:14Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "lectus in",
+                  "_meta": {
+                    "uid": "dev-res-fGYnU3-966",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "quis justo maecenas",
+                  "_meta": {
+                    "uid": "dev-res-mWqg0c-058",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-03T20:57:32Z",
+          "end_time": "2020-09-02T04:12:13Z",
+          "scheduled_show": {
+            "mix_title": "nullam sit amet",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "ligula pellentesque",
+                  "_meta": {
+                    "uid": "dev-res-5eP57G-763",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "morbi vel",
+                  "_meta": {
+                    "uid": "dev-res-QPJkuL-635",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-27T00:09:03Z",
+          "end_time": "2020-08-21T01:29:24Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "vestibulum vestibulum",
+                  "_meta": {
+                    "uid": "dev-res-pf2LvZ-816",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "nullam molestie",
+                  "_meta": {
+                    "uid": "dev-res-sP8nP7-705",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-02T02:05:09Z",
+          "end_time": "2020-09-04T21:58:34Z",
+          "scheduled_show": {
+            "mix_title": "congue elementum in hac",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "ligula pellentesque ultrices",
+                  "_meta": {
+                    "uid": "dev-res-ron3xR-989",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-02",
+      "schedule_entries": null
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-03",
+      "schedule_entries": [
+        {
+          "start_time": "2020-09-07T15:31:22Z",
+          "end_time": "2020-09-29T20:46:46Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "maecenas",
+                  "_meta": {
+                    "uid": "dev-res-yiXcb3-450",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-18T19:47:24Z",
+          "end_time": "2020-09-10T17:32:39Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "vestibulum",
+                  "_meta": {
+                    "uid": "dev-res-ul8R0I-674",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-07T01:01:50Z",
+          "end_time": "2020-09-08T21:26:43Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "augue aliquam erat",
+                  "_meta": {
+                    "uid": "dev-res-juJrTE-938",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-04",
+      "schedule_entries": null
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-05",
+      "schedule_entries": null
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-06",
+      "schedule_entries": null
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-07",
+      "schedule_entries": null
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-08",
+      "schedule_entries": [
+        {
+          "start_time": "2020-08-05T17:08:57Z",
+          "end_time": "2020-09-08T05:12:53Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "in",
+                  "_meta": {
+                    "uid": "dev-res-iImiTb-348",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "diam",
+                  "_meta": {
+                    "uid": "dev-res-fvh7Iz-435",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "mauris",
+                  "_meta": {
+                    "uid": "dev-res-LUbZDa-429",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-24T17:46:07Z",
+          "end_time": "2020-08-23T02:07:35Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "eu",
+                  "_meta": {
+                    "uid": "dev-res-O32uEN-336",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "erat nulla",
+                  "_meta": {
+                    "uid": "dev-res-BeKcuQ-563",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "enim sit",
+                  "_meta": {
+                    "uid": "dev-res-JQKdzY-970",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-24T23:22:02Z",
+          "end_time": "2020-09-19T21:48:13Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "in",
+                  "_meta": {
+                    "uid": "dev-res-MVuVCf-101",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "et commodo vulputate",
+                  "_meta": {
+                    "uid": "dev-res-cvwk7j-100",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-29T11:42:35Z",
+          "end_time": "2020-09-06T17:17:38Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "suspendisse",
+                  "_meta": {
+                    "uid": "dev-res-YT17m4-146",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "lacinia",
+                  "_meta": {
+                    "uid": "dev-res-NaDepl-143",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "eros",
+                  "_meta": {
+                    "uid": "dev-res-94WgEi-304",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-01T13:42:28Z",
+          "end_time": "2020-08-16T12:42:29Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "in lacus",
+                  "_meta": {
+                    "uid": "dev-res-t3Dybo-695",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-15T02:15:20Z",
+          "end_time": "2020-08-26T08:04:32Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "arcu libero rutrum",
+                  "_meta": {
+                    "uid": "dev-res-M4PjXT-440",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "convallis",
+                  "_meta": {
+                    "uid": "dev-res-rRSVFM-893",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "ultrices",
+                  "_meta": {
+                    "uid": "dev-res-OncgXQ-210",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-03T09:42:58Z",
+          "end_time": "2020-09-15T10:03:55Z",
+          "scheduled_show": {
+            "mix_title": "amet",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "neque duis",
+                  "_meta": {
+                    "uid": "dev-res-w7U828-773",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "justo",
+                  "_meta": {
+                    "uid": "dev-res-SAAL5L-283",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-12T02:44:59Z",
+          "end_time": "2020-09-18T04:02:04Z",
+          "scheduled_show": {
+            "mix_title": "nisl nunc",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "cras non",
+                  "_meta": {
+                    "uid": "dev-res-J0y12T-689",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-09",
+      "schedule_entries": null
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-10",
+      "schedule_entries": [
+        {
+          "start_time": "2020-09-10T10:23:29Z",
+          "end_time": "2020-09-11T18:35:35Z",
+          "scheduled_show": {
+            "mix_title": "sapien",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "at turpis donec",
+                  "_meta": {
+                    "uid": "dev-res-yflcSw-017",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "erat volutpat in",
+                  "_meta": {
+                    "uid": "dev-res-QUuk01-408",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-08T15:03:00Z",
+          "end_time": "2020-09-25T06:11:36Z",
+          "scheduled_show": {
+            "mix_title": "et tempus semper est",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "tincidunt ante vel",
+                  "_meta": {
+                    "uid": "dev-res-bud3hK-640",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "integer a",
+                  "_meta": {
+                    "uid": "dev-res-3mMB5T-990",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-03T12:12:01Z",
+          "end_time": "2020-09-25T08:19:52Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "donec",
+                  "_meta": {
+                    "uid": "dev-res-8vCUNK-620",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "cubilia",
+                  "_meta": {
+                    "uid": "dev-res-wtqaCa-256",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-11",
+      "schedule_entries": [
+        {
+          "start_time": "2020-09-01T22:01:25Z",
+          "end_time": "2020-09-09T22:12:19Z",
+          "scheduled_show": {
+            "mix_title": "vivamus metus arcu",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "porta volutpat",
+                  "_meta": {
+                    "uid": "dev-res-CQGJR0-056",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-06T22:05:47Z",
+          "end_time": "2020-08-30T21:17:26Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "phasellus id sapien",
+                  "_meta": {
+                    "uid": "dev-res-c6h1QG-624",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "vestibulum",
+                  "_meta": {
+                    "uid": "dev-res-FXC9US-851",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-11T01:15:02Z",
+          "end_time": "2020-09-03T11:15:46Z",
+          "scheduled_show": {
+            "mix_title": "id",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "amet",
+                  "_meta": {
+                    "uid": "dev-res-qZ9SzR-421",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "dis parturient montes",
+                  "_meta": {
+                    "uid": "dev-res-OJ92Hk-648",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "sem",
+                  "_meta": {
+                    "uid": "dev-res-taKU34-071",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-22T15:13:51Z",
+          "end_time": "2020-09-14T23:05:31Z",
+          "scheduled_show": {
+            "mix_title": "pretium iaculis justo",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "volutpat eleifend donec",
+                  "_meta": {
+                    "uid": "dev-res-RS3Y5w-584",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "et",
+                  "_meta": {
+                    "uid": "dev-res-Nr3NeP-128",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "primis in",
+                  "_meta": {
+                    "uid": "dev-res-4dZROk-869",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-29T14:51:09Z",
+          "end_time": "2020-09-23T07:08:43Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "sed augue aliquam",
+                  "_meta": {
+                    "uid": "dev-res-RUP21z-994",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-07T03:39:18Z",
+          "end_time": "2020-09-06T02:07:42Z",
+          "scheduled_show": {
+            "mix_title": "magna at",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "augue",
+                  "_meta": {
+                    "uid": "dev-res-6wLZRa-168",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "at vulputate vitae",
+                  "_meta": {
+                    "uid": "dev-res-GhsQGg-753",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "eleifend pede libero",
+                  "_meta": {
+                    "uid": "dev-res-wuTxW5-126",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-02T07:01:44Z",
+          "end_time": "2020-08-13T10:00:10Z",
+          "scheduled_show": {
+            "mix_title": "erat nulla tempus",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "in congue",
+                  "_meta": {
+                    "uid": "dev-res-SrzqBs-060",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-12",
+      "schedule_entries": null
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-13",
+      "schedule_entries": [
+        {
+          "start_time": "2020-08-20T22:39:25Z",
+          "end_time": "2020-09-24T22:11:01Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "in libero",
+                  "_meta": {
+                    "uid": "dev-res-trm416-504",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-14T10:57:28Z",
+          "end_time": "2020-08-02T12:02:44Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "diam",
+                  "_meta": {
+                    "uid": "dev-res-tYQq6i-519",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "rhoncus",
+                  "_meta": {
+                    "uid": "dev-res-8rJVNT-731",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-27T15:31:43Z",
+          "end_time": "2020-09-28T11:30:12Z",
+          "scheduled_show": {
+            "mix_title": "nec euismod scelerisque quam",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "in consequat ut",
+                  "_meta": {
+                    "uid": "dev-res-wY5kXl-503",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "risus",
+                  "_meta": {
+                    "uid": "dev-res-qdyTin-413",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-07T09:26:37Z",
+          "end_time": "2020-09-24T22:01:25Z",
+          "scheduled_show": {
+            "mix_title": "est phasellus",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "vulputate",
+                  "_meta": {
+                    "uid": "dev-res-cs9EmX-221",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "augue",
+                  "_meta": {
+                    "uid": "dev-res-FbUK7Y-877",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "at turpis a",
+                  "_meta": {
+                    "uid": "dev-res-TvcwOG-819",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-02T19:09:35Z",
+          "end_time": "2020-08-27T12:43:07Z",
+          "scheduled_show": {
+            "mix_title": "pulvinar sed nisl nunc",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "risus auctor sed",
+                  "_meta": {
+                    "uid": "dev-res-Rj1fQH-699",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "erat",
+                  "_meta": {
+                    "uid": "dev-res-bovYmI-763",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-21T03:38:59Z",
+          "end_time": "2020-08-05T14:02:30Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "sed tincidunt",
+                  "_meta": {
+                    "uid": "dev-res-emkcxI-182",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "volutpat convallis",
+                  "_meta": {
+                    "uid": "dev-res-G3yKpY-128",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "in",
+                  "_meta": {
+                    "uid": "dev-res-qI2u6d-754",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-22T04:43:55Z",
+          "end_time": "2020-09-26T00:03:19Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "amet",
+                  "_meta": {
+                    "uid": "dev-res-5iec5L-165",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "porta volutpat",
+                  "_meta": {
+                    "uid": "dev-res-TqFr3a-654",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "mauris morbi non",
+                  "_meta": {
+                    "uid": "dev-res-HN3bhT-525",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-14",
+      "schedule_entries": [
+        {
+          "start_time": "2020-08-21T20:11:52Z",
+          "end_time": "2020-09-27T23:06:46Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "est",
+                  "_meta": {
+                    "uid": "dev-res-ZxJQR9-472",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-12T22:04:14Z",
+          "end_time": "2020-08-07T06:54:54Z",
+          "scheduled_show": {
+            "mix_title": "consequat nulla nisl",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "molestie nibh",
+                  "_meta": {
+                    "uid": "dev-res-HmigFm-176",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "sit amet lobortis",
+                  "_meta": {
+                    "uid": "dev-res-sxWQBH-486",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-25T23:33:34Z",
+          "end_time": "2020-08-06T07:39:39Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "molestie hendrerit at",
+                  "_meta": {
+                    "uid": "dev-res-hhTudQ-623",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "sed",
+                  "_meta": {
+                    "uid": "dev-res-VGa1Bv-411",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-30T14:11:05Z",
+          "end_time": "2020-09-29T07:29:02Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "quis",
+                  "_meta": {
+                    "uid": "dev-res-54Fb8C-577",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "ac",
+                  "_meta": {
+                    "uid": "dev-res-rGDUQJ-622",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "cubilia curae",
+                  "_meta": {
+                    "uid": "dev-res-DYMJaj-337",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-28T03:11:27Z",
+          "end_time": "2020-08-22T09:06:31Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "orci",
+                  "_meta": {
+                    "uid": "dev-res-BUvrEJ-149",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "aliquam erat",
+                  "_meta": {
+                    "uid": "dev-res-31SxPm-621",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "vitae consectetuer eget",
+                  "_meta": {
+                    "uid": "dev-res-TsjdtZ-042",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-22T08:28:29Z",
+          "end_time": "2020-08-27T02:08:32Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "morbi",
+                  "_meta": {
+                    "uid": "dev-res-2F7dnS-317",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-20T12:30:48Z",
+          "end_time": "2020-08-18T22:34:46Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "eu",
+                  "_meta": {
+                    "uid": "dev-res-ZxiROL-688",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "nulla",
+                  "_meta": {
+                    "uid": "dev-res-3JBCpk-886",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "aliquam",
+                  "_meta": {
+                    "uid": "dev-res-p3EPdN-399",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-15",
+      "schedule_entries": [
+        {
+          "start_time": "2020-09-26T05:39:33Z",
+          "end_time": "2020-08-06T19:36:49Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "odio",
+                  "_meta": {
+                    "uid": "dev-res-a56gYP-751",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "risus",
+                  "_meta": {
+                    "uid": "dev-res-pjKCCj-414",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-05T00:09:31Z",
+          "end_time": "2020-08-14T20:29:55Z",
+          "scheduled_show": {
+            "mix_title": "tristique",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "nascetur ridiculus",
+                  "_meta": {
+                    "uid": "dev-res-w2OZeL-921",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "eget",
+                  "_meta": {
+                    "uid": "dev-res-51gmMr-044",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "consequat in consequat",
+                  "_meta": {
+                    "uid": "dev-res-P5sW8m-855",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-21T03:25:26Z",
+          "end_time": "2020-09-16T12:57:49Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "non",
+                  "_meta": {
+                    "uid": "dev-res-Udw7Lu-855",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "erat tortor",
+                  "_meta": {
+                    "uid": "dev-res-NN4vPC-394",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "sem fusce consequat",
+                  "_meta": {
+                    "uid": "dev-res-HuGft4-368",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-23T23:31:24Z",
+          "end_time": "2020-08-02T00:22:22Z",
+          "scheduled_show": {
+            "mix_title": "posuere nonummy integer non",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "cras",
+                  "_meta": {
+                    "uid": "dev-res-nUN8nV-566",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "ut",
+                  "_meta": {
+                    "uid": "dev-res-3AEA39-554",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "egestas",
+                  "_meta": {
+                    "uid": "dev-res-1AwCjK-606",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-25T09:53:55Z",
+          "end_time": "2020-08-22T04:07:50Z",
+          "scheduled_show": {
+            "mix_title": "turpis eget",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "nulla",
+                  "_meta": {
+                    "uid": "dev-res-kDiWSo-656",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-04T07:26:45Z",
+          "end_time": "2020-09-23T06:37:28Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "sed",
+                  "_meta": {
+                    "uid": "dev-res-xRftNY-032",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "magnis",
+                  "_meta": {
+                    "uid": "dev-res-5Q8oaV-798",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-09T23:50:49Z",
+          "end_time": "2020-09-29T00:37:04Z",
+          "scheduled_show": {
+            "mix_title": "bibendum morbi non quam",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "vestibulum",
+                  "_meta": {
+                    "uid": "dev-res-sfWY5w-850",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "vivamus tortor",
+                  "_meta": {
+                    "uid": "dev-res-kTUNe1-682",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "volutpat erat",
+                  "_meta": {
+                    "uid": "dev-res-o7Uv0H-023",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-16",
+      "schedule_entries": [
+        {
+          "start_time": "2020-09-10T03:13:35Z",
+          "end_time": "2020-08-05T01:59:36Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "vestibulum",
+                  "_meta": {
+                    "uid": "dev-res-ZeO14u-121",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "metus sapien ut",
+                  "_meta": {
+                    "uid": "dev-res-rLWSl0-471",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "erat",
+                  "_meta": {
+                    "uid": "dev-res-rHUBwp-833",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-22T13:50:58Z",
+          "end_time": "2020-08-10T23:14:28Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "adipiscing elit",
+                  "_meta": {
+                    "uid": "dev-res-Dd11Z8-695",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "et ultrices posuere",
+                  "_meta": {
+                    "uid": "dev-res-IU2DdY-171",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "laoreet ut",
+                  "_meta": {
+                    "uid": "dev-res-dXBIn7-124",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-17T12:11:39Z",
+          "end_time": "2020-08-05T08:05:45Z",
+          "scheduled_show": {
+            "mix_title": "tortor risus dapibus augue",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "nullam sit",
+                  "_meta": {
+                    "uid": "dev-res-IfOxIj-043",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "eu mi",
+                  "_meta": {
+                    "uid": "dev-res-MYrlqW-533",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-07T07:44:39Z",
+          "end_time": "2020-09-04T21:02:02Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "molestie nibh",
+                  "_meta": {
+                    "uid": "dev-res-Ezfigl-021",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-17T02:40:08Z",
+          "end_time": "2020-08-23T22:32:13Z",
+          "scheduled_show": {
+            "mix_title": "fermentum",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "ut mauris",
+                  "_meta": {
+                    "uid": "dev-res-NTZvnG-050",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "auctor",
+                  "_meta": {
+                    "uid": "dev-res-7v6dDV-856",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-22T17:47:27Z",
+          "end_time": "2020-08-26T22:38:48Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "augue vestibulum ante",
+                  "_meta": {
+                    "uid": "dev-res-bTdMZn-463",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "lorem vitae",
+                  "_meta": {
+                    "uid": "dev-res-1hRfTk-082",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-08T15:06:25Z",
+          "end_time": "2020-09-24T07:36:19Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "odio cras",
+                  "_meta": {
+                    "uid": "dev-res-LP9nLK-455",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-27T09:49:01Z",
+          "end_time": "2020-09-08T01:37:43Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "augue vestibulum rutrum",
+                  "_meta": {
+                    "uid": "dev-res-7vBEKX-121",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "varius integer ac",
+                  "_meta": {
+                    "uid": "dev-res-U3JZvp-787",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "maecenas rhoncus",
+                  "_meta": {
+                    "uid": "dev-res-0Na7eR-963",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-17",
+      "schedule_entries": null
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-18",
+      "schedule_entries": [
+        {
+          "start_time": "2020-09-11T16:24:07Z",
+          "end_time": "2020-08-26T03:56:47Z",
+          "scheduled_show": {
+            "mix_title": "nullam",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "cubilia curae donec",
+                  "_meta": {
+                    "uid": "dev-res-OQU5uX-866",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "natoque",
+                  "_meta": {
+                    "uid": "dev-res-V0dxRc-407",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-02T14:34:11Z",
+          "end_time": "2020-09-15T08:36:29Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "nulla sed",
+                  "_meta": {
+                    "uid": "dev-res-Cc5dzc-051",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "in",
+                  "_meta": {
+                    "uid": "dev-res-P0KjxW-083",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-06T14:26:04Z",
+          "end_time": "2020-08-01T17:16:10Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "libero ut",
+                  "_meta": {
+                    "uid": "dev-res-a97XRR-639",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-07T07:48:12Z",
+          "end_time": "2020-09-08T04:19:41Z",
+          "scheduled_show": {
+            "mix_title": "adipiscing elit",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "amet erat nulla",
+                  "_meta": {
+                    "uid": "dev-res-MurFVI-583",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "semper",
+                  "_meta": {
+                    "uid": "dev-res-LFlGLA-238",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-19",
+      "schedule_entries": null
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-20",
+      "schedule_entries": null
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-21",
+      "schedule_entries": [
+        {
+          "start_time": "2020-08-04T01:39:49Z",
+          "end_time": "2020-08-14T10:26:29Z",
+          "scheduled_show": {
+            "mix_title": "faucibus",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "vitae",
+                  "_meta": {
+                    "uid": "dev-res-hEaQPw-192",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "in",
+                  "_meta": {
+                    "uid": "dev-res-Y4bQh9-468",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "platea dictumst maecenas",
+                  "_meta": {
+                    "uid": "dev-res-tbLPKv-152",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-11T01:55:37Z",
+          "end_time": "2020-09-28T01:22:58Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "lectus vestibulum",
+                  "_meta": {
+                    "uid": "dev-res-at4mOM-318",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "amet eros",
+                  "_meta": {
+                    "uid": "dev-res-dm9lDr-630",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "ac lobortis",
+                  "_meta": {
+                    "uid": "dev-res-1ahO0T-245",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-19T04:08:45Z",
+          "end_time": "2020-08-09T13:27:09Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "id",
+                  "_meta": {
+                    "uid": "dev-res-cx9YGG-756",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "commodo vulputate",
+                  "_meta": {
+                    "uid": "dev-res-NfgkYN-264",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-29T23:14:48Z",
+          "end_time": "2020-09-14T04:31:29Z",
+          "scheduled_show": {
+            "mix_title": "tortor sollicitudin",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "gravida nisi at",
+                  "_meta": {
+                    "uid": "dev-res-JM85aq-346",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "odio donec vitae",
+                  "_meta": {
+                    "uid": "dev-res-TNsh0W-599",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "platea dictumst",
+                  "_meta": {
+                    "uid": "dev-res-dKbUz1-771",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-18T17:33:37Z",
+          "end_time": "2020-09-06T06:23:32Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "duis mattis",
+                  "_meta": {
+                    "uid": "dev-res-XOCoDD-457",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-20T04:48:17Z",
+          "end_time": "2020-09-19T03:57:33Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "suspendisse potenti cras",
+                  "_meta": {
+                    "uid": "dev-res-KzabGp-778",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "libero nullam sit",
+                  "_meta": {
+                    "uid": "dev-res-OFbM6s-956",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-05T20:21:15Z",
+          "end_time": "2020-09-15T03:05:53Z",
+          "scheduled_show": {
+            "mix_title": "a",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "volutpat sapien arcu",
+                  "_meta": {
+                    "uid": "dev-res-5RfJrr-219",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-22",
+      "schedule_entries": null
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-23",
+      "schedule_entries": [
+        {
+          "start_time": "2020-08-10T01:31:27Z",
+          "end_time": "2020-08-18T22:40:26Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "diam cras",
+                  "_meta": {
+                    "uid": "dev-res-theicK-504",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "at nunc",
+                  "_meta": {
+                    "uid": "dev-res-UV75ve-672",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "dignissim vestibulum vestibulum",
+                  "_meta": {
+                    "uid": "dev-res-xCD47p-287",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-20T15:07:00Z",
+          "end_time": "2020-08-04T15:18:22Z",
+          "scheduled_show": {
+            "mix_title": "ornare imperdiet sapien urna",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "curae duis faucibus",
+                  "_meta": {
+                    "uid": "dev-res-fzktoc-579",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "accumsan tellus",
+                  "_meta": {
+                    "uid": "dev-res-BqcZLq-823",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-21T07:44:24Z",
+          "end_time": "2020-08-11T12:58:32Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "libero ut massa",
+                  "_meta": {
+                    "uid": "dev-res-IyQN3k-692",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "aliquam",
+                  "_meta": {
+                    "uid": "dev-res-GnK0pm-622",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-29T21:26:12Z",
+          "end_time": "2020-09-21T12:45:27Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "aliquet pulvinar sed",
+                  "_meta": {
+                    "uid": "dev-res-8c1Bmk-305",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-13T00:23:44Z",
+          "end_time": "2020-09-06T05:09:20Z",
+          "scheduled_show": {
+            "mix_title": "mauris",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "vulputate",
+                  "_meta": {
+                    "uid": "dev-res-0abASt-476",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-25T15:56:30Z",
+          "end_time": "2020-09-11T04:28:12Z",
+          "scheduled_show": {
+            "mix_title": "magna bibendum imperdiet nullam",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "ac",
+                  "_meta": {
+                    "uid": "dev-res-3FJRqv-847",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "congue",
+                  "_meta": {
+                    "uid": "dev-res-CKBJmx-626",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "curae nulla dapibus",
+                  "_meta": {
+                    "uid": "dev-res-HbAqv3-498",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-04T12:39:08Z",
+          "end_time": "2020-09-27T13:19:16Z",
+          "scheduled_show": {
+            "mix_title": "pellentesque quisque porta",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "rhoncus",
+                  "_meta": {
+                    "uid": "dev-res-MG6fM4-311",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "volutpat quam pede",
+                  "_meta": {
+                    "uid": "dev-res-WTE3So-383",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-24T05:51:39Z",
+          "end_time": "2020-08-17T14:13:43Z",
+          "scheduled_show": {
+            "mix_title": "lobortis est phasellus",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "sollicitudin ut suscipit",
+                  "_meta": {
+                    "uid": "dev-res-FlJeae-537",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "libero quis orci",
+                  "_meta": {
+                    "uid": "dev-res-PinYix-009",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "pretium iaculis",
+                  "_meta": {
+                    "uid": "dev-res-xXTgvU-727",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-24",
+      "schedule_entries": [
+        {
+          "start_time": "2020-09-10T06:49:43Z",
+          "end_time": "2020-08-16T13:40:23Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "risus",
+                  "_meta": {
+                    "uid": "dev-res-SDCfOV-918",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-30T20:07:35Z",
+          "end_time": "2020-09-08T13:36:39Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "auctor gravida",
+                  "_meta": {
+                    "uid": "dev-res-48870O-269",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "in ante",
+                  "_meta": {
+                    "uid": "dev-res-Ns55lX-397",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "rutrum",
+                  "_meta": {
+                    "uid": "dev-res-9uFcLa-527",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-14T01:12:59Z",
+          "end_time": "2020-08-19T00:53:57Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "quam pede lobortis",
+                  "_meta": {
+                    "uid": "dev-res-3dWyDf-733",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-11T07:43:35Z",
+          "end_time": "2020-09-20T10:42:30Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "volutpat eleifend",
+                  "_meta": {
+                    "uid": "dev-res-idCgkn-875",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-04T20:46:38Z",
+          "end_time": "2020-08-04T23:34:59Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "eget rutrum",
+                  "_meta": {
+                    "uid": "dev-res-yeXfWh-704",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "vitae",
+                  "_meta": {
+                    "uid": "dev-res-1y32kw-580",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-31T04:44:08Z",
+          "end_time": "2020-09-10T17:16:25Z",
+          "scheduled_show": {
+            "mix_title": "vel dapibus at",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "nisl nunc",
+                  "_meta": {
+                    "uid": "dev-res-Vqoply-599",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "amet",
+                  "_meta": {
+                    "uid": "dev-res-ob2SFN-615",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "erat quisque erat",
+                  "_meta": {
+                    "uid": "dev-res-05VsCW-439",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-25",
+      "schedule_entries": null
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-26",
+      "schedule_entries": null
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-27",
+      "schedule_entries": [
+        {
+          "start_time": "2020-08-02T21:28:21Z",
+          "end_time": "2020-09-18T21:04:27Z",
+          "scheduled_show": {
+            "mix_title": "vulputate justo",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "lacinia erat",
+                  "_meta": {
+                    "uid": "dev-res-EMJHZ4-649",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-05T06:57:58Z",
+          "end_time": "2020-09-02T09:04:17Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "penatibus et magnis",
+                  "_meta": {
+                    "uid": "dev-res-VRBGuA-285",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "platea dictumst maecenas",
+                  "_meta": {
+                    "uid": "dev-res-6FovLt-717",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-26T04:36:36Z",
+          "end_time": "2020-09-07T17:55:18Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "orci nullam",
+                  "_meta": {
+                    "uid": "dev-res-O3unS1-518",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-11T08:55:54Z",
+          "end_time": "2020-08-27T20:49:53Z",
+          "scheduled_show": {
+            "mix_title": "ipsum ac",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "lacus",
+                  "_meta": {
+                    "uid": "dev-res-ern9Zh-446",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "in blandit",
+                  "_meta": {
+                    "uid": "dev-res-VVbkWw-636",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-03T12:13:37Z",
+          "end_time": "2020-08-07T11:26:53Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "scelerisque",
+                  "_meta": {
+                    "uid": "dev-res-Q5AqlP-970",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "leo pellentesque",
+                  "_meta": {
+                    "uid": "dev-res-5diTCd-873",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "erat curabitur",
+                  "_meta": {
+                    "uid": "dev-res-fYTZQB-831",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-28",
+      "schedule_entries": [
+        {
+          "start_time": "2020-08-03T02:42:29Z",
+          "end_time": "2020-09-23T06:40:59Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "et",
+                  "_meta": {
+                    "uid": "dev-res-ioLpjD-517",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-01T23:54:55Z",
+          "end_time": "2020-08-06T03:42:12Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "neque aenean",
+                  "_meta": {
+                    "uid": "dev-res-dZCt7K-229",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "nulla pede",
+                  "_meta": {
+                    "uid": "dev-res-WtPB0t-250",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "cursus urna ut",
+                  "_meta": {
+                    "uid": "dev-res-0PYfiV-949",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-26T17:53:46Z",
+          "end_time": "2020-08-21T15:54:25Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "vestibulum aliquet",
+                  "_meta": {
+                    "uid": "dev-res-szMU1G-812",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "ipsum primis",
+                  "_meta": {
+                    "uid": "dev-res-0BCbN1-142",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-10T18:22:59Z",
+          "end_time": "2020-09-26T19:39:04Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "in",
+                  "_meta": {
+                    "uid": "dev-res-grI16I-193",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "in porttitor",
+                  "_meta": {
+                    "uid": "dev-res-WENBGs-924",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "purus",
+                  "_meta": {
+                    "uid": "dev-res-joahrU-867",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-10T18:31:56Z",
+          "end_time": "2020-09-25T20:10:40Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "natoque penatibus",
+                  "_meta": {
+                    "uid": "dev-res-te2D2a-143",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "nullam sit amet",
+                  "_meta": {
+                    "uid": "dev-res-b9iY39-781",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "orci luctus",
+                  "_meta": {
+                    "uid": "dev-res-EjtF19-472",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-24T01:46:13Z",
+          "end_time": "2020-09-28T21:25:56Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "duis faucibus accumsan",
+                  "_meta": {
+                    "uid": "dev-res-1qLo30-794",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-03T01:13:01Z",
+          "end_time": "2020-08-19T03:05:45Z",
+          "scheduled_show": {
+            "mix_title": "elit proin risus praesent",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "tristique",
+                  "_meta": {
+                    "uid": "dev-res-SFWYUQ-035",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "aliquet",
+                  "_meta": {
+                    "uid": "dev-res-eC1p2N-718",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "pede lobortis",
+                  "_meta": {
+                    "uid": "dev-res-u8DasY-695",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-18T20:16:20Z",
+          "end_time": "2020-08-24T05:09:50Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "ut blandit",
+                  "_meta": {
+                    "uid": "dev-res-61b12Z-980",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "donec",
+                  "_meta": {
+                    "uid": "dev-res-F1X6dd-467",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-29",
+      "schedule_entries": null
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-30",
+      "schedule_entries": null
+    }
+  },
+  {
+    "node": {
+      "schedule_date": "2020-10-31",
+      "schedule_entries": [
+        {
+          "start_time": "2020-08-17T07:42:36Z",
+          "end_time": "2020-09-28T09:46:25Z",
+          "scheduled_show": {
+            "mix_title": "cursus",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "justo",
+                  "_meta": {
+                    "uid": "dev-res-TFYToe-271",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "sollicitudin vitae",
+                  "_meta": {
+                    "uid": "dev-res-WIELAL-479",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-14T01:16:32Z",
+          "end_time": "2020-08-21T13:50:18Z",
+          "scheduled_show": {
+            "mix_title": "lacinia aenean sit amet",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "id ligula",
+                  "_meta": {
+                    "uid": "dev-res-EJWALW-720",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-14T09:12:40Z",
+          "end_time": "2020-08-30T05:06:22Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "in faucibus orci",
+                  "_meta": {
+                    "uid": "dev-res-AMpLMG-954",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-30T18:58:23Z",
+          "end_time": "2020-09-12T06:42:23Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "vel nisl",
+                  "_meta": {
+                    "uid": "dev-res-XCN4gc-124",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-26T02:47:07Z",
+          "end_time": "2020-08-30T17:27:02Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "orci",
+                  "_meta": {
+                    "uid": "dev-res-SSZ20c-788",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "vitae ipsum",
+                  "_meta": {
+                    "uid": "dev-res-4DOduh-635",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "vestibulum",
+                  "_meta": {
+                    "uid": "dev-res-1SJHUX-825",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-08-12T10:18:16Z",
+          "end_time": "2020-08-31T13:14:31Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "ut",
+                  "_meta": {
+                    "uid": "dev-res-mY39du-454",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "start_time": "2020-09-17T10:29:25Z",
+          "end_time": "2020-08-06T14:25:23Z",
+          "scheduled_show": {
+            "mix_title": null,
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "resident_name": "diam neque vestibulum",
+                  "_meta": {
+                    "uid": "dev-res-OhMH9J-369",
+                    "type": "resident"
+                  }
+                }
+              },
+              {
+                "mix_resident": {
+                  "resident_name": "ipsum primis in",
+                  "_meta": {
+                    "uid": "dev-res-m85zlr-917",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+]

@@ -15,10 +15,9 @@ import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
  * @category Site Elements
  * @subcategory Layout Helper
  * @function
- * @param {Object} props
  * @returns {jsx}
  */
-function RadioPlayer(props) {
+function RadioPlayer() {
   const dispatch = useContext(GlobalDispatchContext);
   const globalState = useContext(GlobalStateContext);
 

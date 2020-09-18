@@ -1,17 +1,8 @@
 import React, { useState } from "react";
-import {
-  SelectedColumn,
-  SingleResident,
-  LandingPageElement,
-  SingleEventCard,
-} from "../../components";
 
-// Dummy data in __test__ folder
-import dummyArtists from "../../../__test__/dummyArtists.json";
-
+import { SingleResident } from "../../components";
 /**
  * TO REMOVE IN THIS FILE FOR SHIPMENT
- * dummyArtists
  * alphabetizedResidents helper function (do it in gql query)
  *
  * TO CHANGE IN THIS FILE
@@ -26,9 +17,6 @@ import dummyArtists from "../../../__test__/dummyArtists.json";
 
 function ResidentsIndex({ data }) {
   const [isOpen, setIsOpen] = useState("residents");
-  // const [currentResidents, setResidents] = useState([]);
-  // const [guests, setGuests] = useState([]);
-  // const [alumni, setAlumni] = useState([]);
 
   const prismicContent = data.prismic.allResidents.edges;
   if (!prismicContent) return null;

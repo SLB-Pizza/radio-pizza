@@ -164,10 +164,10 @@ function RadioPlayer() {
           </div>
         ) : (
           <div id="now-playing-details">
-            <p className="subtitle is-size-7">{globalState.resident}</p>
             <p className="title is-size-6-tablet is-size-7-mobile">
               {globalState.title}
             </p>
+            <p className="subtitle is-size-7">{globalState.resident}</p>
           </div>
         )}
       </div>

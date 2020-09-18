@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import NanoClamp from "nanoclamp";
-import { GlobalDispatchContext } from "../context/GlobalContextProvider";
+import { MixPlayOverlay } from "./index";
 import { getResidentString, getResidentLinks, PlayAudioButton } from "../utils";
 
 /**
@@ -28,29 +28,19 @@ function SingleMixCard({
   columnLayout,
   path,
 }) {
-  const dispatch = useContext(GlobalDispatchContext);
   const mixResidentsString = getResidentString(residents);
-
-  const loadShow = async () => {
-    await dispatch({ type: "SHOW_LOADING" });
-  };
-
-  const changeUrl = async () => {
-    await dispatch({
-      type: "CHANGE_URL",
-      payload: {
-        url: url,
-        title: title,
-        residents: mixResidentsString,
-        img: img.now_playing.url,
-      },
-    });
-  };
 
   return (
     <div className={columnLayout}>
       <div className="card">
-        <div className="card-image">
+        <MixPlayOverlay
+          url={url}
+          title={title}
+          residents={mixResidentsString}
+          img={img}
+          wrapperClassName="card-image"
+        />
+        {/* <div className="card-image">
           <a
             href="#"
             className="sr-only display-text"
@@ -73,7 +63,7 @@ function SingleMixCard({
               />
             </div>
           </figure>
-        </div>
+        </div> */}
 
         <div className="card-content">
           {/**

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { graphql } from "gatsby";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faTag } from "@fortawesome/free-solid-svg-icons";
-import { SliceZone, SingleMixCard } from "../../components/";
+import { SingleMixCard, MixPlayOverlay } from "../../components/";
+import { getResidentString, getResidentLinks } from "../../utils";
 
 /**
  * @category Pages
@@ -43,13 +45,67 @@ function MixesIndexPage({ data }) {
 
   return (
     <main className="black-bg-page">
+      <section className="container is-fluid">
+        <div className="columns is-mobile">
+          <div className="column is-12 content">
+            <h1 className="title">Endless Mixes</h1>
+          </div>
+        </div>
+      </section>
+      <section className="container is-fluid">
+        {/* All Mixs data in pulled correctly */}
+        {allEndlessData.map((endlessMix, index) => {
+          const {
+            endless_mix_title,
+            endless_mix_blurb,
+            endless_mix_img,
+            endless_mix_playlist,
+          } = endlessMix.node;
+
+          const mixCount =
+            endless_mix_playlist.length === 1
+              ? `${endless_mix_playlist.length} mix`
+              : `${endless_mix_playlist.length} mixes`;
+
+          let mixLinks = [];
+          let residentSet = {};
+
+          endless_mix_playlist.map(({ endless_mix_entry }) => {
+            const { mix_link, featured_residents } = endless_mix_entry;
+
+            mixLinks.push(mix_link);
+          });
+
+          return (
+            <div
+              key={`Endless-mix-${index}`}
+              className="columns is-mobile"
+              style={{ border: "2px solid white", padding: "1rem" }}
+            >
+              <div className="column is-9 content">
+                <h3 className="title">{endless_mix_title}</h3>
+                <p className="subtitle is-size-7">{mixCount}</p>
+                <p className="is-size-5">{endless_mix_blurb}</p>
+              </div>
+              <MixPlayOverlay
+                wrapperClassName="column is-3"
+                img={endless_mix_img}
+                title={endless_mix_title}
+              />
+            </div>
+          );
+        })}
+        <hr />
+        <pre>{JSON.stringify(allEndlessData, null, 2)}</pre>
+      </section>
+
       {/* FIRST SECTION - Header Section */}
       <header className="container is-fluid">
         <div className="columns is-mobile is-multiline">
-          <div className="column is-full">
-            <p className="title is-size-3-desktop is-size-4-touch">
+          <div className="column is-12 content">
+            <h3 className="title is-size-3-desktop is-size-4-touch">
               Recent Mixes
-            </p>
+            </h3>
             <p className="subtitle is-size-5-desktop is-size-6-touch">
               These dummy mixes are the same as the ones on the home page. You
               can hover/touch and play them the same way. Try it!
@@ -120,7 +176,7 @@ function MixesIndexPage({ data }) {
             );
           })}
           <hr />
-          <pre>{JSON.stringify(allEndlessData, null, 2)}</pre>
+          <pre>{JSON.stringify(allMixesData, null, 2)}</pre>
         </div>
       </section>
     </main>
@@ -163,16 +219,19 @@ export const query = graphql`
           node {
             endless_mix_title
             endless_mix_blurb
+            endless_mix_img
             endless_mix_playlist {
-              mix {
+              endless_mix_entry {
                 ... on PRISMIC_Mix {
-                  mix_title
                   mix_link
-                  mix_image
                   featured_residents {
                     mix_resident {
                       ... on PRISMIC_Resident {
                         resident_name
+                        _meta {
+                          uid
+                          type
+                        }
                       }
                     }
                   }

@@ -12,23 +12,24 @@ import { linkResolver } from "../utils";
  * @returns {jsx}
  */
 function getResidentLinks(residentsArr, currentPath) {
-  return residentsArr.map((resident, index) => {
-    const { _meta, resident_name } = resident.mix_resident;
+  return residentsArr.map(({ mix_resident }, index) => {
+    const { _meta, resident_name } = mix_resident;
 
     const linkTo = linkResolver(_meta);
     const linkLabel = resident_name;
 
     if (currentPath === linkTo) {
-      if (index !== residentsArr.length - 1 || index !== 0) {
-        return `${linkLabel}, `;
+      if (index !== residentsArr.length - 1) {
+        return (
+          <span key={`res-link-${index}-${linkLabel}`}>{`${linkLabel}, `}</span>
+        );
       } else {
-        return linkLabel;
+        return <span key={`res-link-${index}-${linkLabel}`}>{linkLabel}</span>;
       }
     } else if (index !== residentsArr.length - 1) {
       return (
         <Link to={linkTo} key={`res-link-${index}-${linkLabel}`}>
-          {linkLabel}
-          {", "}
+          {`${linkLabel}, `}
         </Link>
       );
     } else {

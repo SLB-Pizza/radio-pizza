@@ -14,6 +14,8 @@ function linkResolver(link) {
       return `/guide/${link.uid}`;
     case "feature":
       return `/features/${link.uid}`;
+    case "mix":
+      return `/mixes/${link.uid}`;
     case "page":
       return `/${link.uid}`;
     case "resident":

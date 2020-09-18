@@ -60,7 +60,7 @@ module.exports = {
     {
       resolve: "gatsby-source-prismic-graphql",
       options: {
-        repositoryName: "hmbk-cms",
+        repositoryName: "hmbk-cms", //https://hmbk-cms.prismic.io/
         pages: [
           {
             type: "Feature",
@@ -77,6 +77,11 @@ module.exports = {
             type: "Resident",
             match: "/residents/:uid",
             component: require.resolve("./src/templates/Resident.js"),
+          },
+          {
+            type: "Mix",
+            match: "/mixes/:uid",
+            component: require.resolve("./src/templates/Mix.js"),
           },
         ],
       },

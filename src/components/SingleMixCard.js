@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "gatsby";
 import NanoClamp from "nanoclamp";
 import { MixPlayOverlay } from "./index";
-import { getResidentString, getResidentLinks, PlayAudioButton } from "../utils";
+import { getResidentString, formatDateTime, linkResolver } from "../utils";
 
 /**
  * @category Utilities
@@ -18,91 +19,79 @@ import { getResidentString, getResidentLinks, PlayAudioButton } from "../utils";
  * @property {?String} props.path - optional string passed down only by {@link ResidentTemplate} for use with {@link linkResolver}
  * @returns {jsx}
  */
-function SingleMixCard({
-  date,
-  url,
-  title,
-  residents,
-  img,
-  tags,
-  columnLayout,
-  path,
-}) {
-  const mixResidentsString = getResidentString(residents);
+function SingleMixCard({ mixData, columnLayout, path }) {
+  const {
+    _meta,
+    mix_date,
+    mix_image,
+    mix_link,
+    mix_title,
+    featured_residents,
+  } = mixData;
+
+  const { uid, type, tags } = _meta;
+
+  const linkTo = {
+    type,
+    uid,
+  };
+
+  const mixResidentsString = getResidentString(featured_residents);
 
   return (
     <div className={columnLayout}>
       <div className="card">
         <MixPlayOverlay
-          url={url}
-          title={title}
+          url={mix_link}
+          title={mix_title}
           residents={mixResidentsString}
-          img={img}
+          img={mix_image}
           wrapperClassName="card-image"
         />
-        {/* <div className="card-image">
-          <a
-            href="#"
-            className="sr-only display-text"
-            tabIndex="0"
-            onClick={() => {
-              loadShow();
-              changeUrl();
-            }}
-          >
-            Play This Mix
-          </a>
-          <figure className="image is-1by1">
-            <img src={img.url} alt={img.alt} />
-            <div className="play-btn-diffuser is-overlay">
-              <PlayAudioButton
-                url={url}
-                title={title}
-                resident={mixResidentsString}
-                img={img.now_playing.url}
-              />
-            </div>
-          </figure>
-        </div> */}
 
         <div className="card-content">
           {/**
-           * title !== null : format title under list of residents
-           * title === null : formart list of residents as title
+           * mix_title !== null : format mix_title under list of residents
+           * mix_title === null : formart list of residents as mix_title
            */
-          title !== null ? (
+          mix_title !== null ? (
             <div className="content-text">
-              <p className="is-size-7">{date}</p>
-              <NanoClamp
-                className="content-details subtitle is-size-7"
-                is="p"
-                lines={2}
-                text={getResidentLinks(residents, path)}
-              />
-              <NanoClamp
-                className="title is-size-6"
-                is="p"
-                lines={2}
-                text={title}
-              />
+              <Link to={linkResolver(linkTo)}>
+                <p className="subtitle is-size-7">{mix_date}</p>
+                <NanoClamp
+                  className="subtitle is-size-7 has-text-grey-lighter"
+                  is="p"
+                  lines={2}
+                  text={getResidentString(featured_residents, path)}
+                />
+                <NanoClamp
+                  className="title is-size-6"
+                  is="p"
+                  lines={2}
+                  text={mix_title}
+                />
+              </Link>
             </div>
           ) : (
             <div className="content-text">
-              <p className="is-size-7">{date}</p>
-              <NanoClamp
-                className="title is-size-6"
-                is="p"
-                lines={2}
-                text={getResidentLinks(residents, path)}
-              />
+              <Link to={linkResolver(linkTo)}>
+                <p className="subtitle is-size-7">{mix_date}</p>
+                <NanoClamp
+                  className="title is-size-6"
+                  is="p"
+                  lines={2}
+                  text={getResidentString(featured_residents, path)}
+                />
+              </Link>
             </div>
           )}
           <div className="buttons are-tags">
             {tags.map((tag, index) => {
               const lowercaseTag = tag.toLowerCase();
+
               return (
                 <button
-                  key={`${title} tag #${index}`}
+                  key={`${mix_title} tag #${index}`}
                   className="button is-small is-outlined is-rounded"
                 >
                   {lowercaseTag}

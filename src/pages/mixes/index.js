@@ -4,7 +4,6 @@ import { graphql } from "gatsby";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faTag } from "@fortawesome/free-solid-svg-icons";
 import { SingleMixCard, MixPlayOverlay } from "../../components/";
-import { getResidentString, getResidentLinks } from "../../utils";
 
 /**
  * @category Pages
@@ -152,25 +151,11 @@ function MixesIndexPage({ data }) {
       <section className="container is-fluid">
         <div className="columns is-mobile is-multiline">
           {/* All Mixs data in pulled correctly */}
-          {allMixesData.map((singleMix, index) => {
-            const {
-              _meta,
-              mix_date,
-              mix_image,
-              mix_link,
-              mix_title,
-              featured_residents,
-            } = singleMix.node;
-
+          {allMixesData.map(({ node }, index) => {
             return (
               <SingleMixCard
-                key={`mix-#${index}-${mix_title}`}
-                date={mix_date}
-                url={mix_link}
-                title={mix_title}
-                residents={featured_residents}
-                img={mix_image}
-                tags={_meta.tags}
+                key={`mixes-page-#${index}`}
+                mixData={node}
                 columnLayout={mixListLayout}
               />
             );

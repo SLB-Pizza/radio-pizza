@@ -7,19 +7,13 @@
  * @returns {string}
  */
 function getResidentString(residentsArr) {
-  let residentString = "";
+  let residents = [];
 
-  for (let i = 0; i < residentsArr.length; i++) {
-    const residentName = residentsArr[i].mix_resident.resident_name;
+  residentsArr.forEach(({ mix_resident }) => {
+    residents.push(mix_resident.resident_name);
+  });
 
-    if (i === 0) {
-      residentString += residentName;
-    } else {
-      residentString += `, ${residentName}`;
-    }
-  }
-
-  return residentString;
+  return residents.join(", ");
 }
 
 export default getResidentString;

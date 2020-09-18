@@ -20,6 +20,7 @@ function SlideGenerator({ background, headline, link, cta }) {
       className="hero is-fullheight-with-navbar homepage-hero"
       style={{
         backgroundImage: `url(${background.url})`,
+        pointerEvents: 'none',
       }}
     >
       <div
@@ -32,11 +33,11 @@ function SlideGenerator({ background, headline, link, cta }) {
         <div className="container">
           <div className="columns">
             <div className="column">
-              <h1 className="title is-size-1-desktop is-size-3-touch is-size-5-mobile hero-title">
+              <h1 className="title is-size-1-desktop is-size-3-touch is-size-5-mobile hero-title" style={{ pointerEvents: 'auto' }}>
                 {RichText.asText(headline)}
               </h1>
               <br />
-              <h2 className="subtitle is-size-5-desktop is-size-5-touch is-size-7-mobile hero-title cta">
+              <h2 className="subtitle is-size-5-desktop is-size-5-touch is-size-7-mobile hero-title cta" style={{ pointerEvents: 'auto' }}>
                 {RichText.asText(cta)}
               </h2>
             </div>

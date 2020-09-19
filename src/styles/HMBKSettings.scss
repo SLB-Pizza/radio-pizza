@@ -189,9 +189,11 @@ figcaption {
     padding: 0.75rem;
     border-bottom-left-radius: 0.75rem;
     border-bottom-right-radius: 0.75rem;
-    // transition: 0.5s ease;
 
-    .main-text {
+    //==========================
+    // SingleEventCard.js
+    //==========================
+    .event-card-sizing {
       display: flex;
       flex-direction: column;
       min-height: 8rem;
@@ -204,29 +206,36 @@ figcaption {
       }
     }
 
-    .content-text {
-      padding-bottom: 0.25rem;
-      min-height: 4.5rem;
-      // min-height: 3.75rem; //FHD
+    //==========================
+    // SingleMixCard.js
+    //==========================
+    .mix-card-sizing {
+      display: flex;
+      flex-direction: column;
+      @include tablet {
+        min-height: 12rem;
+      }
 
-      // Comment in place only for this commit; no other changes made.
+      .mix-text {
+        flex: 1;
+      }
+      .buttons.are-tags {
+        flex: 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        padding-top: 1rem;
 
-      // background-color: green;
-      // @include mobile {
-      //   height: auto;
-      // }
-      // @include tablet-only {
-      //   min-height: 5.5rem;
-      // }
-      // @include desktop-only {
-      //   min-height: 6rem;
-      // }
-      // @include widescreen-only {
-      //   min-height: 6.5rem;
-      // }
-      // @include fullhd {
-      //   min-height: 5.5rem;
-      // }
+        .button {
+          @include touch {
+            font-size: 0.65rem;
+          }
+          &:hover {
+            font-style: italic;
+          }
+        }
+      }
     }
   }
 
@@ -245,7 +254,6 @@ figcaption {
 
   &:hover {
     border: 2px solid $primary;
-    cursor: pointer;
 
     figure {
       border-top-left-radius: 0.6rem;
@@ -253,7 +261,7 @@ figcaption {
       background-color: $dt-base;
 
       img {
-        filter: grayscale(100%) contrast(1) blur(0px);
+        filter: grayscale(100%) contrast(1) blur(3px);
         mix-blend-mode: $dt-bg-blend;
         opacity: $dt-opacity;
         object-fit: cover;
@@ -270,6 +278,7 @@ figcaption {
     .play-btn-diffuser {
       border-top-left-radius: 0.6rem;
       border-top-right-radius: 0.6rem;
+      cursor: pointer;
     }
 
     .card-content {
@@ -283,41 +292,19 @@ figcaption {
 
       .play-icon {
         color: white;
-        transition: 0.25 ease;
+        transition: 0.125s ease;
 
         // Button gets lost in color
         &:hover {
-          filter: drop-shadow(0.75rem 0.75rem 0.5rem black);
+          filter: drop-shadow(0.75rem 0.75rem 0.75rem black);
+          transform: scale(1.1);
         }
         &:active {
-          color: darken($color: $primary, $amount: 30);
+          color: $primary;
+          filter: drop-shadow(0.5rem 0.5rem 0.75rem black);
+          transform: scale(1.05);
         }
       }
     }
   }
-}
-
-.buttons.are-tags {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap-reverse;
-  align-items: flex-end;
-  align-content: flex-start;
-  min-height: 7rem;
-  padding-top: 0.5rem;
-
-  // background-color: orange;
-
-  // // OLD TAGS CONTAINER SIZINGS
-  // @include mobile {
-  // }
-  // @include from($tablet) {
-  //   min-height: 4rem;
-  // }
-  // @include widescreen-only {
-  //   min-height: 5rem;
-  // }
-  // @include fullhd {
-  //   min-height: 4rem;
-  // }
 }

@@ -19,7 +19,7 @@ function SingleEventCard({
           </figure>
         </div>
         <div className="card-content">
-          <div className="main-text">
+          <div className="event-card-sizing">
             <div className="details">
               <p className="text-truncate subtitle is-size-7">
                 {date} | {location}

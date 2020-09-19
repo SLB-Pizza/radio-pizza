@@ -50,54 +50,56 @@ function SingleMixCard({ mixData, columnLayout, path }) {
         />
 
         <div className="card-content">
-          {/**
-           * mix_title !== null : format mix_title under list of residents
-           * mix_title === null : formart list of residents as mix_title
-           */
-          mix_title !== null ? (
-            <div className="content-text">
-              <Link to={linkResolver(linkTo)}>
-                <p className="subtitle is-size-7">{mix_date}</p>
-                <NanoClamp
-                  className="subtitle is-size-7 has-text-grey-lighter"
-                  is="p"
-                  lines={2}
-                  text={getResidentString(featured_residents, path)}
-                />
-                <NanoClamp
-                  className="title is-size-6"
-                  is="p"
-                  lines={2}
-                  text={mix_title}
-                />
-              </Link>
-            </div>
-          ) : (
-            <div className="content-text">
-              <Link to={linkResolver(linkTo)}>
-                <p className="subtitle is-size-7">{mix_date}</p>
-                <NanoClamp
-                  className="title is-size-6"
-                  is="p"
-                  lines={2}
-                  text={getResidentString(featured_residents, path)}
-                />
-              </Link>
-            </div>
-          )}
-          <div className="buttons are-tags">
-            {tags.map((tag, index) => {
-              const lowercaseTag = tag.toLowerCase();
+          <div className="mix-card-sizing">
+            {/**
+             * mix_title !== null : format mix_title under list of residents
+             * mix_title === null : formart list of residents as mix_title
+             */
+            mix_title !== null ? (
+              <div className="mix-text">
+                <Link to={linkResolver(linkTo)}>
+                  <p className="is-size-7">{mix_date}</p>
+                  <NanoClamp
+                    className="subtitle is-size-7 has-text-grey-lighter"
+                    is="p"
+                    lines={2}
+                    text={getResidentString(featured_residents, path)}
+                  />
+                  <NanoClamp
+                    className="title is-size-6"
+                    is="p"
+                    lines={2}
+                    text={mix_title}
+                  />
+                </Link>
+              </div>
+            ) : (
+              <div className="mix-text">
+                <Link to={linkResolver(linkTo)}>
+                  <p className="subtitle is-size-7">{mix_date}</p>
+                  <NanoClamp
+                    className="title is-size-6"
+                    is="p"
+                    lines={2}
+                    text={getResidentString(featured_residents, path)}
+                  />
+                </Link>
+              </div>
+            )}
+            <div className="buttons are-tags">
+              {tags.map((tag, index) => {
+                const lowercaseTag = tag.toLowerCase();
 
-              return (
-                <button
-                  key={`${mix_title} tag #${index}`}
-                  className="button is-small is-outlined is-rounded"
-                >
-                  {lowercaseTag}
-                </button>
-              );
-            })}
+                return (
+                  <button
+                    key={`${mix_title} tag #${index}`}
+                    className="button is-small is-outlined is-rounded"
+                  >
+                    {lowercaseTag}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

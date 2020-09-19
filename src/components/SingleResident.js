@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import { linkResolver, ResponsiveImage } from "../utils";
 
 function SingleResident({ resident }) {
-  const { _meta, resident_name, resident_image, resident_status } = resident;
+  const { _meta, resident_name, resident_image } = resident;
 
   return (
     <div className="column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen resident-box">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { graphql } from "gatsby";
 import { RichText } from "prismic-reactjs";
 import { HMBKDivider, SingleMixCard } from "../components";
@@ -12,7 +12,9 @@ import { ResidentSocialLinks } from "../utils";
  * @param {object} path - the :uid of `/residents/:uid`; passed to {@link SingleMixCard} so that it can be used by {@link getResidentLink} to compare to the `featured_residents` _meta data
  * @returns {jsx}
  */
-function ResidentTemplate({ data, path }) {
+function ResidentTemplate({ data }) {
+  const [isOpen, setIsOpen] = useState("mixes");
+
   const prismicContent = data.prismic.allResidents.edges[0];
   if (!prismicContent) return null;
   const residentData = prismicContent.node;
@@ -28,6 +30,12 @@ function ResidentTemplate({ data, path }) {
 
   const residentMixLayout =
     "column is-12-mobile is-12-tablet is-6-desktop is-4-widescreen";
+
+  function toggleColumn(event) {
+    if (isOpen !== event.currentTarget.id) {
+      setIsOpen(event.currentTarget.id);
+    }
+  }
 
   return (
     <div className="container is-fluid full-height-page">
@@ -130,6 +138,36 @@ export const query = graphql`
                         }
                       }
                     }
+                  }
+                }
+              }
+            }
+            article_features {
+              resident_feature {
+                ... on PRISMIC_Feature {
+                  body {
+                    ... on PRISMIC_FeatureBodyHeadline_block {
+                      primary {
+                        article_headline_img
+                        article_headline
+                        article_subtitle
+                      }
+                    }
+                  }
+                  _meta {
+                    uid
+                    type
+                    lastPublicationDate
+                  }
+                }
+              }
+            }
+            event_appearances {
+              resident_event {
+                ... on PRISMIC_Event {
+                  _meta {
+                    uid
+                    type
                   }
                 }
               }

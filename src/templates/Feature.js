@@ -48,6 +48,11 @@ export const query = graphql`
               ... on PRISMIC_FeatureBodyHeadline_block {
                 type
                 primary {
+                  article_headline
+                  article_headline_img
+                  article_category
+                  article_subcategory
+                  article_subtitle
                   article_author_pic
                   article_author {
                     ... on PRISMIC_Staff {
@@ -55,11 +60,6 @@ export const query = graphql`
                       hmbk_staff_position
                     }
                   }
-                  article_category
-                  article_headline
-                  article_headline_img
-                  article_subcategory
-                  article_subtitle
                 }
               }
               ... on PRISMIC_FeatureBodyText {

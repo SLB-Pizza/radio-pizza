@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-
 import { SingleResident } from "../../components";
+
 /**
  * TO REMOVE IN THIS FILE FOR SHIPMENT
  * alphabetizedResidents helper function (do it in gql query)
@@ -16,12 +16,13 @@ import { SingleResident } from "../../components";
  */
 
 function ResidentsIndex({ data }) {
-  const [isOpen, setIsOpen] = useState("residents");
+  const [isOpen, setIsOpen] = useState("Residents");
 
   const prismicContent = data.prismic.allResidents.edges;
   if (!prismicContent) return null;
   const allResidentsData = prismicContent;
 
+  const residentTypes = ["Residents", "Guests", "Alumni"];
   let residents = [];
   let guests = [];
   let alumni = [];
@@ -38,9 +39,9 @@ function ResidentsIndex({ data }) {
     }
   });
 
-  function toggleColumn(e) {
-    if (isOpen !== e.currentTarget.id) {
-      setIsOpen(e.currentTarget.id);
+  function toggleColumn(event) {
+    if (isOpen !== event.currentTarget.id) {
+      setIsOpen(event.currentTarget.id);
     }
   }
 
@@ -60,40 +61,28 @@ function ResidentsIndex({ data }) {
   return (
     <div className="container is-fluid black-bg-page">
       <div className="columns is-mobile is-multiline">
-        <div className="column is-full">
-          <p className="title is-size-1-desktop is-size-2-tablet is-size-3-mobile headline">
+        <div className="column is-full content">
+          <h1 className="title is-size-1-desktop is-size-2-tablet is-size-3-mobile">
             Halfmoon Residents
-          </p>
+          </h1>
         </div>
-        <div className="column">
-          <button
-            className="button is-fullwidth is-outlined is-rounded display-text"
-            id="residents"
-            onClick={toggleColumn}
-          >
-            Residents
-          </button>
-        </div>
-        <div className="column">
-          <button
-            className="button is-fullwidth is-outlined is-rounded display-text"
-            id="guests"
-            onClick={toggleColumn}
-          >
-            Guests
-          </button>
-        </div>
-        <div className="column">
-          <button
-            className="button is-fullwidth is-outlined is-rounded display-text"
-            id="alumni"
-            onClick={toggleColumn}
-          >
-            Alumni
-          </button>
-        </div>
+
+        {/* COLUMN SELECTOR BUTTONS */}
+        {residentTypes.map((type, index) => (
+          <div className="column" key={`column-${index}-${type}`}>
+            <button
+              className="button is-fullwidth is-outlined is-rounded display-text"
+              id={type}
+              onClick={toggleColumn}
+            >
+              {type}
+            </button>
+          </div>
+        ))}
       </div>
-      {isOpen === "residents" ? (
+
+      {/* CURRENT HMBK RESIDENTS */}
+      {isOpen === "Residents" ? (
         <div className="columns is-mobile is-multiline">
           {residents.map((resident, index) => {
             return (
@@ -103,7 +92,9 @@ function ResidentsIndex({ data }) {
           <pre>{JSON.stringify(residents, null, 2)}</pre>
         </div>
       ) : null}
-      {isOpen === "guests" ? (
+
+      {/* HMBK GUESTS */}
+      {isOpen === "Guests" ? (
         <div className="columns is-mobile is-multiline">
           {guests.map((guest, index) => {
             return <SingleResident key={`Event-${index}`} resident={guest} />;
@@ -111,7 +102,9 @@ function ResidentsIndex({ data }) {
           <pre>{JSON.stringify(guests, null, 2)}</pre>
         </div>
       ) : null}
-      {isOpen === "alumni" ? (
+
+      {/* HMBK ALUMNI */}
+      {isOpen === "Alumni" ? (
         <div className="columns is-mobile is-multiline">
           {alumni.map((alumnus, index) => {
             return <SingleResident key={`Event-${index}`} resident={alumnus} />;

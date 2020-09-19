@@ -10,7 +10,7 @@ import { GlobalDispatchContext } from "../context/GlobalContextProvider";
  * @function MixPlayOverlay
  * @param {String} url - URL of the mix to play
  * @param {String} title - title of the mix to play; shown in {@link RadioPlayer}
- * @param {String} resident - residents that made the mix; shown in {@link RadioPlayer}
+ * @param {String} resident - resident(s) that made the mix; shown in {@link RadioPlayer}, preprocessed by {@link getResidentString}
  * @param {String} img - the mix's image; shown in {@link RadioPlayer}
  * @returns {jsx} A play icon that onClick dispatches the SHOW_LOADING and CHANGE_URL actions, playing the audio source through RadioPlayer.js
  */

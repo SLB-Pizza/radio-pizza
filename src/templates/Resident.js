@@ -18,7 +18,6 @@ function ResidentTemplate({ data, path }) {
   const residentData = prismicContent.node;
 
   const {
-    _meta,
     resident_image,
     resident_name,
     resident_status,
@@ -55,12 +54,11 @@ function ResidentTemplate({ data, path }) {
           <div className="columns is-mobile is-multiline is-vcentered">
             {social_media.map((page, index) => {
               const { resident_social_page, resident_social_link } = page;
-              const { url } = resident_social_link;
 
               return (
                 <ResidentSocialLinks
-                  key={`link-${index}-${resident_social_page}`}
-                  url={url}
+                  key={`social-link-${index}-${resident_social_page}`}
+                  url={resident_social_link.url}
                   platform={resident_social_page}
                 />
               );
@@ -69,32 +67,19 @@ function ResidentTemplate({ data, path }) {
         </div>
         <hr className="is-hidden-desktop" />
 
+        {/* RESIDENT MIX, EVENT, FEATURE SECTION */}
         <div className="column is-8">
           <div className="columns is-multiline">
-            {featured_mixes.map((mix, index) => {
-              const {
-                _meta,
-                mix_image,
-                mix_title,
-                mix_link,
-                mix_date,
-                featured_residents,
-              } = mix.resident_mix;
-
+            {featured_mixes.map(({ resident_mix }, index) => {
               return (
                 <SingleMixCard
-                  key={`mix-#${index}-${mix_title}`}
-                  date={mix_date}
-                  url={mix_link}
-                  title={mix_title}
-                  residents={featured_residents}
-                  img={mix_image}
-                  tags={_meta.tags}
-                  path={path}
+                  key={`resident-mix-#${index}`}
+                  mixData={resident_mix}
                   columnLayout={residentMixLayout}
                 />
               );
             })}
+            <pre>{JSON.stringify(featured_mixes, null, 2)}</pre>
           </div>
           <HMBKDivider />
         </div>
@@ -109,10 +94,6 @@ export const query = graphql`
       allResidents(uid: $uid) {
         edges {
           node {
-            _meta {
-              uid
-              type
-            }
             resident_image
             resident_name
             resident_status
@@ -132,6 +113,8 @@ export const query = graphql`
                 ... on PRISMIC_Mix {
                   _meta {
                     tags
+                    uid
+                    type
                   }
                   mix_image
                   mix_title

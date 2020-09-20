@@ -37,12 +37,9 @@ function SearchResults(props) {
       {props.isSelected === "events"
         ? dummyEvents.map((event) => (
             <SingleEventCard
+              key={`search-result-event-${index}`}
+              eventData={event}
               eventColumnLayout={eventsResultLayout}
-              eventName={event.eventName}
-              date={event.date}
-              location={event.location}
-              img={event.img}
-              blurb={event.blurb}
             />
           ))
         : null}

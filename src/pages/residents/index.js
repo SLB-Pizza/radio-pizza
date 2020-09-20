@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { graphql } from "gatsby";
 import { SingleResident } from "../../components";
 
 /**
@@ -62,9 +63,7 @@ function ResidentsIndex({ data }) {
     <div className="container is-fluid black-bg-page">
       <div className="columns is-mobile is-multiline">
         <div className="column is-full content">
-          <h1 className="title is-size-1-desktop is-size-2-tablet is-size-3-mobile">
-            Halfmoon Residents
-          </h1>
+          <h1 className="title">Halfmoon Residents</h1>
         </div>
 
         {/* COLUMN SELECTOR BUTTONS */}

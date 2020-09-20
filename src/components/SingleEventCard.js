@@ -1,21 +1,15 @@
 import React from "react";
 import NanoClamp from "nanoclamp";
 
-function SingleEventCard({
-  eventColumnLayout,
-  img,
-  imageAltText,
-  date,
-  location,
-  eventName,
-  blurb,
-}) {
+function SingleEventCard({ eventColumnLayout, eventData }) {
+  const { img, alt, date, location, eventName, blurb } = eventData;
+
   return (
     <div className={eventColumnLayout}>
       <div className="card">
         <div className="card-image">
           <figure className="image is-1by1">
-            <img src={img} alt={imageAltText} />
+            <img src={img} alt={alt} />
           </figure>
         </div>
         <div className="card-content">

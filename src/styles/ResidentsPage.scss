@@ -3,3 +3,26 @@
 .resident-box .card-content {
   min-height: 6rem;
 }
+//=================================
+// /templates/Resident.js
+//=================================
+.sticky-bio,
+.resident-content {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.sticky-bio {
+  @include tablet {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 6.625rem;
+    overflow-y: auto;
+    max-height: calc(100vh - 9.75rem);
+  }
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+}

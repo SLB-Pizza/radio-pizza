@@ -70,7 +70,7 @@ function MixTemplate({ data }) {
 export const query = graphql`
   query MixTemplatePage($uid: String) {
     prismic {
-      allMixs(uid: $uid, sortBy: meta_firstPublicationDate_DESC) {
+      allMixs(uid: $uid) {
         edges {
           node {
             _meta {
@@ -88,25 +88,16 @@ export const query = graphql`
                   resident_image
                   resident_name
                   resident_status
-                  event_appearances {
-                    resident_event {
-                      ... on PRISMIC_Event {
-                        _meta {
-                          uid
-                          type
-                        }
-                      }
-                    }
-                  }
-                  article_features {
-                    resident_feature {
-                      ... on PRISMIC_Feature {
-                        _meta {
-                          uid
-                          type
-                        }
-                      }
-                    }
+                }
+              }
+            }
+            related_events {
+              mix_event {
+                ... on PRISMIC_Event {
+                  _linkType
+                  _meta {
+                    type
+                    uid
                   }
                 }
               }

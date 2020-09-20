@@ -15,15 +15,11 @@ function EventsIndexPage() {
             Halfmoon Events
           </p>
         </div>
-        {dummyEvents.map((event) => (
+        {dummyEvents.map((event, index) => (
           <SingleEventCard
-            key={event.eventName}
+            key={`halfmoon-event-${index}`}
+            eventData={event}
             eventColumnLayout={eventPageLayout}
-            eventName={event.eventName}
-            date={event.date}
-            location={event.location}
-            img={event.img}
-            blurb={event.blurb}
           />
         ))}
       </div>

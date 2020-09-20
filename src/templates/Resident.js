@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { graphql } from "gatsby";
-import { RichText } from "prismic-reactjs";
-import { HMBKDivider, SingleMixCard } from "../components";
-import { ResidentSocialLinks } from "../utils";
+import { HMBKDivider, LandingPageElement, SingleMixCard } from "../components";
+import { ResidentBio } from "../components";
 
 /**
  * @category Templates
@@ -13,23 +12,22 @@ import { ResidentSocialLinks } from "../utils";
  * @returns {jsx}
  */
 function ResidentTemplate({ data }) {
-  const [isOpen, setIsOpen] = useState("mixes");
+  const [isOpen, setIsOpen] = useState("Mixes");
 
   const prismicContent = data.prismic.allResidents.edges[0];
   if (!prismicContent) return null;
   const residentData = prismicContent.node;
 
   const {
-    resident_image,
-    resident_name,
-    resident_status,
-    resident_blurb,
-    social_media,
-    featured_mixes,
+    resident_mixes,
+    resident_features,
+    resident_events,
+    ...rest
   } = residentData;
 
-  const residentMixLayout =
-    "column is-12-mobile is-12-tablet is-6-desktop is-4-widescreen";
+  const residentCardLayout = "column is-12-touch is-6-desktop is-4-widescreen";
+
+  const residentColumns = ["Mixes", "Events", "Features"];
 
   function toggleColumn(event) {
     if (isOpen !== event.currentTarget.id) {
@@ -40,56 +38,71 @@ function ResidentTemplate({ data }) {
   return (
     <div className="container is-fluid full-height-page">
       <div className="columns is-multiline">
-        <div className="column is-4-desktop is-4-tablet is-12-mobile sticky-bio">
-          <div className="columns is-multiline">
-            <div className="column is-12">
-              {/* <pre>{JSON.stringify(residentData, null, 2)}</pre> */}
+        <ResidentBio residentData={rest} />
 
-              <figure className="image is-1by1">
-                <img src={resident_image.url} alt={resident_image.alt} />
-              </figure>
-            </div>
-            <div className="column is-12 content">
-              <p className="title is-size-4-desktop is-size-5-touch">
-                {resident_name}
-              </p>
-              <p className="subtitle is-size-6-desktop is-size-7-touch">
-                {resident_status}
-              </p>
-              {RichText.render(resident_blurb)}
-            </div>
-          </div>
-          <div className="columns is-mobile is-multiline is-vcentered">
-            {social_media.map((page, index) => {
-              const { resident_social_page, resident_social_link } = page;
-
-              return (
-                <ResidentSocialLinks
-                  key={`social-link-${index}-${resident_social_page}`}
-                  url={resident_social_link.url}
-                  platform={resident_social_page}
-                />
-              );
-            })}
-          </div>
-        </div>
         <hr className="is-hidden-desktop" />
 
         {/* RESIDENT MIX, EVENT, FEATURE SECTION */}
-        <div className="column is-8">
-          <div className="columns is-multiline">
-            {featured_mixes.map(({ resident_mix }, index) => {
-              return (
+        <div className="column is-9 resident-content">
+          <div className="columns is-mobile">
+            {/* COLUMN SELECTOR BUTTONS */}
+            {residentColumns.map((type, index) => (
+              <div className="column" key={`column-${index}-${type}`}>
+                <button
+                  className="button is-fullwidth is-outlined is-rounded display-text"
+                  id={type}
+                  onClick={toggleColumn}
+                >
+                  {type}
+                </button>
+              </div>
+            ))}
+          </div>
+
+          {/* RESIDENT MIXES */}
+          {isOpen === "Mixes" ? (
+            <div className="columns is-mobile is-multiline">
+              {resident_mixes.map(({ resident_mix }, index) => (
                 <SingleMixCard
                   key={`resident-mix-#${index}`}
                   mixData={resident_mix}
-                  columnLayout={residentMixLayout}
+                  columnLayout={residentCardLayout}
                 />
-              );
-            })}
-            <pre>{JSON.stringify(featured_mixes, null, 2)}</pre>
-          </div>
-          <HMBKDivider />
+              ))}
+              <pre>{JSON.stringify(resident_mixes, null, 2)}</pre>
+            </div>
+          ) : null}
+
+          {/* RESIDENT EVENTS */}
+          {isOpen === "Events" ? (
+            <div className="columns is-mobile is-multiline">
+              {/* {resident_events.map(({ event }, index) => (
+                <SingleEventCard
+                  key={`resident-event-#${index}`}
+                  eventData={event}
+                  columnLayout={residentCardLayout}
+                />
+              ))} */}
+              <pre>{JSON.stringify(resident_events, null, 2)}</pre>
+            </div>
+          ) : null}
+
+          {/* RESIDENT Features */}
+          {isOpen === "Features" ? (
+            <div className="columns is-mobile is-multiline">
+              {/* {resident_features.map((feature, index) => (
+                <LandingPageElement
+                  key={`resident-feature-#${index}`}
+                  pageElement={feature}
+                  imageAspectRatio="image is-16by9"
+                  columnLayout="column is-6 landing-page-element"
+                />
+              ))} */}
+              <pre>{JSON.stringify(resident_features, null, 2)}</pre>
+            </div>
+          ) : null}
+
+          {/* <pre>{JSON.stringify(residentData, null, 2)}</pre> */}
         </div>
       </div>
     </div>
@@ -116,7 +129,7 @@ export const query = graphql`
                 }
               }
             }
-            featured_mixes {
+            resident_mixes {
               resident_mix {
                 ... on PRISMIC_Mix {
                   _meta {
@@ -142,7 +155,7 @@ export const query = graphql`
                 }
               }
             }
-            article_features {
+            resident_features {
               resident_feature {
                 ... on PRISMIC_Feature {
                   body {
@@ -151,6 +164,7 @@ export const query = graphql`
                         article_headline_img
                         article_headline
                         article_subtitle
+                        article_subcategory
                       }
                     }
                   }
@@ -162,7 +176,7 @@ export const query = graphql`
                 }
               }
             }
-            event_appearances {
+            resident_events {
               resident_event {
                 ... on PRISMIC_Event {
                   _meta {

@@ -33,7 +33,6 @@ function LandingPageElement({ pageElement, layout, imageAspectRatio }) {
     article_headline_img,
     article_headline,
     article_subtitle,
-    article_category,
     article_subcategory,
   } = body[0].primary;
 

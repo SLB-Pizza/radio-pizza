@@ -4,83 +4,95 @@
     "date": "05.10.20",
     "location": "Miami, Florida",
     "img": "../img/test/RollingLoud.jpg",
-    "blurb": "In only a few short years Rolling Loud shot up to become the undisputed king of all hip hop festival series."
+    "blurb": "In only a few short years Rolling Loud shot up to become the undisputed king of all hip hop festival series.",
+    "alt": "event alt text"
   },
   {
     "eventName": "Stagecoach Festival",
     "date": "04.24.20",
     "location": "Indio, California",
     "img": "../img/test/stagecoach.jpg",
-    "blurb": "Stagecoach is the Coachella of country music in every way."
+    "blurb": "Stagecoach is the Coachella of country music in every way.",
+    "alt": "event alt text"
   },
   {
     "eventName": "Desert Daze Festival",
     "date": "10.30.20",
     "location": "Moreno Beach, California",
     "img": "../img/test/desertDaze.jpg",
-    "blurb": "Desert Daze's palm tree lined, beach-fronted location on Lake Perris."
+    "blurb": "Desert Daze's palm tree lined, beach-fronted location on Lake Perris.",
+    "alt": "event alt text"
   },
   {
     "eventName": "Hot 97 Summer Jam",
     "date": "06.15.20",
     "location": "East Rutherford, NJ",
     "img": "../img/test/Hot97SJam.jpg",
-    "blurb": "No festival has been more integral to the development of hip hop than Hot 97 Summer Jam."
+    "blurb": "No festival has been more integral to the development of hip hop than Hot 97 Summer Jam.",
+    "alt": "event alt text"
   },
   {
     "eventName": "Firefly Music Festival",
     "date": "06.18.20",
     "location": "Dover, Delaware",
     "img": "../img/test/FireflyMusic.jpg",
-    "blurb": "An American multi-genre behemoth, Firefly is the east coast's biggest camping festival."
+    "blurb": "An American multi-genre behemoth, Firefly is the east coast's biggest camping festival.",
+    "alt": "event alt text"
   },
   {
     "eventName": "AFROPUNK FEST",
     "date": "08.15.20",
     "location": "Brooklyn, New York",
     "img": "../img/test/AFROPUNK.jpg",
-    "blurb": "Starting out as a DIY movement in the US, as a response to feeling like an outsider and desiring a sense of belonging, AFROPUNK is now one of the world's most famous cultural movements."
+    "blurb": "Starting out as a DIY movement in the US, as a response to feeling like an outsider and desiring a sense of belonging, AFROPUNK is now one of the world's most famous cultural movements.",
+    "alt": "event alt text"
   },
   {
     "eventName": "III Points",
     "date": "05.01.20",
     "location": "Miami, Florida",
     "img": "../img/test/iiiPoints.jpg",
-    "blurb": "One of the country's leading boutique festivals, III Points has been raising the bar in terms of giving creativity a platform since 2013."
+    "blurb": "One of the country's leading boutique festivals, III Points has been raising the bar in terms of giving creativity a platform since 2013.",
+    "alt": "event alt text"
   },
   {
     "eventName": "Governors Ball Music Festival",
     "date": "05.31.20",
     "location": "Randall's Island, New York",
     "img": "../img/test/GovBall.jpg",
-    "blurb": "Another event which proves the music loving potential of Randall's Island Park is Governors Ball, an exciting and infectious mix of rock, hip-hop, electronic, pop and folk."
+    "blurb": "Another event which proves the music loving potential of Randall's Island Park is Governors Ball, an exciting and infectious mix of rock, hip-hop, electronic, pop and folk.",
+    "alt": "event alt text"
   },
   {
     "eventName": "Electric Daisy Carnival Las Vegas",
     "date": "05.17.20",
     "location": "Las Vegas, Nevada",
     "img": "../img/test/EDCLasVegas.jpg",
-    "blurb": "Aside from its two popular US events, this fairytale carnival experience has also visited Puerto Rico, Mexico and the UK."
+    "blurb": "Aside from its two popular US events, this fairytale carnival experience has also visited Puerto Rico, Mexico and the UK.",
+    "alt": "event alt text"
   },
   {
     "eventName": "Pitchfork Music Festival",
     "date": "07.19.20",
     "location": "Union Park, Chicago",
     "img": "../img/test/Pitchfork.jpg",
-    "blurb": "Organised by independently focused music source Pitchfork Media, this three day event is a music genre melting pot of rock, hip-hop, electronic, jazz, punk and any other genre."
+    "blurb": "Organised by independently focused music source Pitchfork Media, this three day event is a music genre melting pot of rock, hip-hop, electronic, jazz, punk and any other genre.",
+    "alt": "event alt text"
   },
   {
     "eventName": "South By South West",
     "date": "03.27.20",
     "location": "Austin, Texas",
     "img": "../img/test/SXSW.jpg",
-    "blurb": "Regarded as the ultimate trend-setter and launcher of careers, SXSW is an annual showcase of music, film and interactive highlights enjoyed through performances, showcases, talks, screenings and more."
+    "blurb": "Regarded as the ultimate trend-setter and launcher of careers, SXSW is an annual showcase of music, film and interactive highlights enjoyed through performances, showcases, talks, screenings and more.",
+    "alt": "event alt text"
   },
   {
     "eventName": "Lollapalooza",
     "date": "08.02.20",
     "location": "Grant Park, Chicago",
     "img": "../img/test/Lollapalooza.jpg",
-    "blurb": "A wonderful gathering of music, dance, comedy and craft booths, Lollapalooza is another multi-genre delight which also provides a platform for political and non-profit artists and groups. "
+    "blurb": "A wonderful gathering of music, dance, comedy and craft booths, Lollapalooza is another multi-genre delight which also provides a platform for political and non-profit artists and groups.",
+    "alt": "event alt text"
   }
 ]

@@ -53,23 +53,34 @@ function ScheduleDropdown({
           </button>
         </Link>
       </div>
+            
+      {/* 
+      schedule_entries !== undefined : display today's schedule
+      schedule_entries === undefined : show  */}
+      {schedule_entries !== undefined ? (
+        <div className="column is-12">
+          {schedule_entries.map((entry, index) => {
+            const { start_time, end_time, scheduled_show } = entry;
+            const formattedStart = formatDateTime(start_time, "hour-minute");
+            const formattedEnd = formatDateTime(end_time, "hour-minute");
 
-      <div className="column is-12">
-        {schedule_entries.map((entry, index) => {
-          const { start_time, end_time, scheduled_show } = entry;
-          const formattedStart = formatDateTime(start_time, "hour-minute");
-          const formattedEnd = formatDateTime(end_time, "hour-minute");
-
-          return (
-            <SingleScheduleEntryRow
-              key={`show-entry-#${index}-${start_time}`}
-              start={formattedStart}
-              end={formattedEnd}
-              show={scheduled_show}
-            />
-          );
-        })}
-      </div>
+            return (
+              <SingleScheduleEntryRow
+                key={`show-entry-#${index}-${start_time}`}
+                start={formattedStart}
+                end={formattedEnd}
+                show={scheduled_show}
+              />
+            );
+          })}
+        </div>
+      ) : (
+        <div className="column is-12 content">
+          <p className="subtitle has-text-centered">
+            No programming planned for today.
+          </p>
+        </div>
+      )}
       {/* {fakeShowEntryData.map((show) => (
         <div key={show.hostInfo} className="column is-12 single-show-entry">
           <div className="columns is-mobile is-vcentered">

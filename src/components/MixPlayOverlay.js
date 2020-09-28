@@ -12,6 +12,7 @@ import { GlobalDispatchContext } from "../context/GlobalContextProvider";
  * @param {String} title - title of the mix to play; shown in {@link RadioPlayer}
  * @param {String} resident - resident(s) that made the mix; shown in {@link RadioPlayer}, preprocessed by {@link getResidentString}
  * @param {String} img - the mix's image; shown in {@link RadioPlayer}
+ * @param {?String} wrapperClassName - optional string detailing the overlay wrapper's class
  * @returns {jsx} A play icon that onClick dispatches the SHOW_LOADING and CHANGE_URL actions, playing the audio source through RadioPlayer.js
  */
 
@@ -33,25 +34,27 @@ function MixPlayOverlay({ url, title, residents, img, wrapperClassName }) {
 
   return (
     <div className={wrapperClassName}>
-      <a
-        href="#"
-        className="sr-only display-text"
-        tabIndex="0"
-        onClick={() => changeUrl()}
-      >
-        Play This Mix
-      </a>
-      <figure className="image is-1by1">
-        <img src={img.url} alt={img.alt} />
-        <div className="play-btn-diffuser is-overlay">
-          <FontAwesomeIcon
-            icon={faPlay}
-            size="5x"
-            className="play-icon"
-            onClick={() => changeUrl()}
-          />
-        </div>
-      </figure>
+      <div className="card-image">
+        <a
+          href="#"
+          className="sr-only display-text"
+          tabIndex="0"
+          onClick={() => changeUrl()}
+        >
+          Play This Mix
+        </a>
+        <figure className="image is-1by1">
+          <img src={img.url} alt={img.alt} />
+          <div className="play-btn-diffuser is-overlay">
+            <FontAwesomeIcon
+              icon={faPlay}
+              size="5x"
+              className="play-icon"
+              onClick={() => changeUrl()}
+            />
+          </div>
+        </figure>
+      </div>
     </div>
   );
 }

@@ -3,6 +3,8 @@ import { Link, graphql } from "gatsby";
 import { MixPlayOverlay } from "../components";
 import { RichText } from "prismic-reactjs";
 import { linkResolver, getResidentString } from "../utils";
+import Nanoclamp from "nanoclamp";
+import NanoClamp from "nanoclamp";
 
 /**
  * @category Templates
@@ -33,30 +35,37 @@ function MixTemplate({ data }) {
       <article className="container">
         <div className="columns is-mobile">
           {mix_title !== null ? (
-            <div className="column content">
-              <h1 className="title">{mix_title}</h1>
-              <h3 className="subtitle">{mixResidentString}</h3>
-              <p>{mix_date}</p>
+            <div className="column is-9 content">
+              <NanoClamp is="h1" className="title" lines={2} text={mix_title} />
+              <NanoClamp
+                is="p"
+                className="subtitle"
+                lines={1}
+                text={mixResidentString}
+              />
+              <p className="is-size-7">{mix_date}</p>
             </div>
           ) : (
-            <div className="column content">
+            <div className="column is-9 content">
               <h1 className="title">{mixResidentString}</h1>
               <p className="subtitle">{mix_date}</p>
             </div>
           )}
           <MixPlayOverlay
-            wrapperClassName="column is-narrow"
+            wrapperClassName="column is-3"
             url={mix_link}
             title={mix_title}
             residents={mixResidentString}
             img={mix_image}
           />
         </div>
+
         <div className="columns is-mobile">
           <div className="column is-12 content">
             <h3 className="title">Mix Blurb here</h3>
           </div>
         </div>
+
         <div className="columns is-mobile">
           <div className="column is-12 content">
             <pre>{JSON.stringify(mixData, null, 2)}</pre>

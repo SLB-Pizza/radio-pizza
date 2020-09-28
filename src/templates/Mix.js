@@ -1,9 +1,8 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
-import { MixPlayOverlay } from "../components";
+import { MixPlayOverlay, TagButtons } from "../components";
 import { RichText } from "prismic-reactjs";
 import { linkResolver, getResidentString } from "../utils";
-import Nanoclamp from "nanoclamp";
 import NanoClamp from "nanoclamp";
 
 /**
@@ -25,6 +24,7 @@ function MixTemplate({ data }) {
     mix_image,
     mix_link,
     mix_title,
+    mix_blurb,
     featured_residents,
   } = mixData;
 
@@ -34,35 +34,52 @@ function MixTemplate({ data }) {
     <main className="black-bg-page">
       <article className="container">
         <div className="columns is-mobile">
-          {mix_title !== null ? (
-            <div className="column is-9 content">
-              <NanoClamp is="h1" className="title" lines={2} text={mix_title} />
-              <NanoClamp
-                is="p"
-                className="subtitle"
-                lines={1}
-                text={mixResidentString}
-              />
-              <p className="is-size-7">{mix_date}</p>
-            </div>
-          ) : (
-            <div className="column is-9 content">
-              <h1 className="title">{mixResidentString}</h1>
-              <p className="subtitle">{mix_date}</p>
-            </div>
-          )}
-          <MixPlayOverlay
-            wrapperClassName="column is-3"
-            url={mix_link}
-            title={mix_title}
-            residents={mixResidentString}
-            img={mix_image}
-          />
+          <div className="column is-9">
+            {mix_title !== null ? (
+              <div className="content">
+                <NanoClamp
+                  is="h1"
+                  className="title"
+                  lines={2}
+                  text={mix_title}
+                />
+                <NanoClamp
+                  is="p"
+                  className="subtitle"
+                  lines={1}
+                  text={mixResidentString}
+                />
+                <p className="is-size-7">{mix_date}</p>
+              </div>
+            ) : (
+              <div className="content">
+                <h1 className="title">{mixResidentString}</h1>
+                <p className="subtitle">{mix_date}</p>
+              </div>
+            )}
+            <TagButtons tagsArray={_meta.tags} />
+          </div>
+
+          <div className="column is-3">
+            <MixPlayOverlay
+              wrapperClassName="card"
+              url={mix_link}
+              title={mix_title}
+              residents={mixResidentString}
+              img={mix_image}
+            />
+          </div>
         </div>
 
         <div className="columns is-mobile">
           <div className="column is-12 content">
-            <h3 className="title">Mix Blurb here</h3>
+            <RichText render={mix_blurb} linkResolver={linkResolver} />
+          </div>
+        </div>
+
+        <div className="columns is-mobile">
+          <div className="column is-12 content">
+            <RichText render={mix_blurb} linkResolver={linkResolver} />
           </div>
         </div>
 
@@ -91,6 +108,7 @@ export const query = graphql`
             mix_image
             mix_link
             mix_title
+            mix_blurb
             featured_residents {
               mix_resident {
                 ... on PRISMIC_Resident {

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import NanoClamp from "nanoclamp";
-import { MixPlayOverlay } from "./index";
+import { MixPlayOverlay, TagButtons } from "./index";
 import { getResidentString, formatDateTime, linkResolver } from "../utils";
 
 /**
@@ -86,20 +86,7 @@ function SingleMixCard({ mixData, columnLayout, path }) {
                 </Link>
               </div>
             )}
-            <div className="buttons are-tags">
-              {tags.map((tag, index) => {
-                const lowercaseTag = tag.toLowerCase();
-
-                return (
-                  <button
-                    key={`${mix_title} tag #${index}`}
-                    className="button is-small is-outlined is-rounded"
-                  >
-                    {lowercaseTag}
-                  </button>
-                );
-              })}
-            </div>
+            <TagButtons tagsArray={tags} />
           </div>
         </div>
       </div>

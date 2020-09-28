@@ -26,7 +26,7 @@ function SingleResident({ resident }) {
             </figure>
           </div>
           <div className="card-content">
-            <p className="title has-text-centered is-size-6-mobile is-size-5-tablet is-size-4-fullhd">
+            <p className="title has-text-centered is-size-6-mobile is-size-5-tablet">
               {resident_name}
             </p>
           </div>

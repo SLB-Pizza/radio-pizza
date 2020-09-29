@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
+import Nanoclamp from "nanoclamp";
 import { linkResolver, ResponsiveImage } from "../utils";
 
 /**
@@ -26,9 +27,12 @@ function SingleResident({ resident }) {
             </figure>
           </div>
           <div className="card-content">
-            <p className="title has-text-centered is-size-6-mobile is-size-5-tablet">
-              {resident_name}
-            </p>
+            <Nanoclamp
+              is="p"
+              className="title has-text-centered is-size-6-mobile is-size-5-tablet"
+              lines={2}
+              text={resident_name}
+            />
           </div>
         </div>
       </Link>

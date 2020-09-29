@@ -1,6 +1,8 @@
 import React from "react";
 import { RichText } from "prismic-reactjs";
+import Nanoclamp from "nanoclamp";
 import { ResidentSocialLinks } from "../utils";
+import NanoClamp from "nanoclamp";
 
 /**
  * @category Layout Helper
@@ -27,9 +29,12 @@ function ResidentBio({ residentData }) {
           </figure>
         </div>
         <div className="column is-12 content">
-          <p className="title is-size-4-desktop is-size-5-touch">
-            {resident_name}
-          </p>
+          <NanoClamp
+            className="title is-size-4-desktop is-size-5-touch"
+            is="p"
+            lines={2}
+            text={resident_name}
+          />
           <p className="subtitle is-size-6-desktop is-size-7-touch">
             {resident_status}
           </p>

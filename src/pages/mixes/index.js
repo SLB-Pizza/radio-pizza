@@ -86,11 +86,13 @@ function MixesIndexPage({ data }) {
                 <p className="subtitle is-size-7">{mixCount}</p>
                 <p className="is-size-5">{endless_mix_blurb}</p>
               </div>
-              <MixPlayOverlay
-                wrapperClassName="column is-3"
-                img={endless_mix_img}
-                title={endless_mix_title}
-              />
+              <div className="column is-3">
+                <MixPlayOverlay
+                  wrapperClassName="card"
+                  img={endless_mix_img}
+                  title={endless_mix_title}
+                />
+              </div>
             </div>
           );
         })}

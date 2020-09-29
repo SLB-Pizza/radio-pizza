@@ -30,5 +30,6 @@ export { default as SingleEventCard } from "./SingleEventCard";
 export { default as SingleMixCard } from "./SingleMixCard";
 export { default as SingleResident } from "./SingleResident";
 export { default as StickyBioBlurb } from "./StickyBioBlurb";
+export { default as TagButtons } from "./TagButtons";
 export { default as TopNav } from "./TopNav";
 export { default as UpcomingShow } from "./UpcomingShow";

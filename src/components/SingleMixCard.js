@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import NanoClamp from "nanoclamp";
-import { MixPlayOverlay } from "./index";
+import { MixPlayOverlay, TagButtons } from "./index";
 import { getResidentString, formatDateTime, linkResolver } from "../utils";
 
 /**
@@ -36,6 +36,8 @@ function SingleMixCard({ mixData, columnLayout, path }) {
     uid,
   };
 
+  const mixDate = formatDateTime(mix_date, "year-month-day");
+
   const mixResidentsString = getResidentString(featured_residents);
 
   return (
@@ -58,12 +60,14 @@ function SingleMixCard({ mixData, columnLayout, path }) {
             mix_title !== null ? (
               <div className="mix-text">
                 <Link to={linkResolver(linkTo)}>
-                  <p className="is-size-7">{mix_date}</p>
                   <NanoClamp
                     className="subtitle is-size-7 has-text-grey-lighter"
                     is="p"
                     lines={2}
-                    text={getResidentString(featured_residents, path)}
+                    text={`${mixDate} | ${getResidentString(
+                      featured_residents,
+                      path
+                    )}`}
                   />
                   <NanoClamp
                     className="title is-size-6"
@@ -86,20 +90,7 @@ function SingleMixCard({ mixData, columnLayout, path }) {
                 </Link>
               </div>
             )}
-            <div className="buttons are-tags">
-              {tags.map((tag, index) => {
-                const lowercaseTag = tag.toLowerCase();
-
-                return (
-                  <button
-                    key={`${mix_title} tag #${index}`}
-                    className="button is-small is-outlined is-rounded"
-                  >
-                    {lowercaseTag}
-                  </button>
-                );
-              })}
-            </div>
+            <TagButtons tagsArray={tags} />
           </div>
         </div>
       </div>

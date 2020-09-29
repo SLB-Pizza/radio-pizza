@@ -64,6 +64,13 @@ $dt-opacity: 1;
 $dt-spacing: 1%;
 
 //==================================
+// Content Cards - All Cards
+//==================================
+$card-content-background-color: black;
+$card-content-padding: 0.75rem;
+$card-radius: 0.75rem;
+
+//==================================
 // FONTS
 //==================================
 // @font-face {
@@ -78,12 +85,14 @@ $dt-spacing: 1%;
 //==================================
 // GLOBAL STYLES
 //==================================
+// To edges of available space between navbars
 .full-height-page {
   padding-top: 6.625rem;
   padding-bottom: 3.75rem;
   min-height: 100vh;
 }
 
+// Provides spacing of content away from top and bottom navs
 .black-bg-page {
   padding-top: 7rem;
   padding-bottom: 5rem;
@@ -109,6 +118,24 @@ p,
 
 button {
   transition: 0.25s ease-in-out;
+}
+
+.buttons.are-tags {
+  flex: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  padding-top: 1rem;
+
+  .button {
+    @include touch {
+      font-size: 0.65rem;
+    }
+    &:hover {
+      font-style: italic;
+    }
+  }
 }
 
 .icon-color {
@@ -166,92 +193,72 @@ figcaption {
 // Push the tagline after the title of a card down
 // Give the date of content items some space
 //================================================
+figure,
+img,
+.play-btn-diffuser {
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+  transition: 0.5s ease;
+}
+
+img {
+  object-fit: cover;
+}
+
+// Prevents clipping of background color through the curved card border
+.card-content {
+  border-bottom-left-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+}
+
+//==========================
+// SingleEventCard.js
+//==========================
+.event-card-sizing {
+  display: flex;
+  flex-direction: column;
+  min-height: 8rem;
+
+  .details {
+    flex: 1;
+  }
+  .blurb {
+    flex: 0;
+  }
+}
+
+//==========================
+// SingleMixCard.js
+//==========================
+.mix-card-sizing {
+  display: flex;
+  flex-direction: column;
+  @include tablet {
+    min-height: 12rem;
+  }
+
+  .mix-text {
+    flex: 1;
+  }
+}
+
+.play-btn-diffuser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: ease-in-out 0.5s;
+
+  .play-icon {
+    color: transparent;
+    border: 2px solid transparent;
+    transition: ease-in-out 0.5s;
+  }
+}
 .card {
   border: 2px solid white;
   border-radius: 0.75rem;
   margin: 0 0.125rem;
   transition: 0.5s ease;
-
-  figure,
-  img,
-  .play-btn-diffuser {
-    border-top-left-radius: 0.75rem;
-    border-top-right-radius: 0.75rem;
-    transition: 0.5s ease;
-  }
-
-  img {
-    object-fit: cover;
-  }
-
-  .card-content {
-    background-color: black;
-    padding: 0.75rem;
-    border-bottom-left-radius: 0.75rem;
-    border-bottom-right-radius: 0.75rem;
-
-    //==========================
-    // SingleEventCard.js
-    //==========================
-    .event-card-sizing {
-      display: flex;
-      flex-direction: column;
-      min-height: 8rem;
-
-      .details {
-        flex: 1;
-      }
-      .blurb {
-        flex: 0;
-      }
-    }
-
-    //==========================
-    // SingleMixCard.js
-    //==========================
-    .mix-card-sizing {
-      display: flex;
-      flex-direction: column;
-      @include tablet {
-        min-height: 12rem;
-      }
-
-      .mix-text {
-        flex: 1;
-      }
-      .buttons.are-tags {
-        flex: 0;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: flex-end;
-        padding-top: 1rem;
-
-        .button {
-          @include touch {
-            font-size: 0.65rem;
-          }
-          &:hover {
-            font-style: italic;
-          }
-        }
-      }
-    }
-  }
-
-  .play-btn-diffuser {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: ease-in-out 0.25s;
-
-    .play-icon {
-      color: transparent;
-      border: 2px solid transparent;
-      transition: ease-in-out 0.25s;
-    }
-  }
-
   &:hover {
     border: 2px solid $primary;
 

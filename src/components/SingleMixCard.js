@@ -36,6 +36,8 @@ function SingleMixCard({ mixData, columnLayout, path }) {
     uid,
   };
 
+  const mixDate = formatDateTime(mix_date, "year-month-day");
+
   const mixResidentsString = getResidentString(featured_residents);
 
   return (
@@ -58,12 +60,14 @@ function SingleMixCard({ mixData, columnLayout, path }) {
             mix_title !== null ? (
               <div className="mix-text">
                 <Link to={linkResolver(linkTo)}>
-                  <p className="is-size-7">{mix_date}</p>
                   <NanoClamp
                     className="subtitle is-size-7 has-text-grey-lighter"
                     is="p"
                     lines={2}
-                    text={getResidentString(featured_residents, path)}
+                    text={`${mixDate} | ${getResidentString(
+                      featured_residents,
+                      path
+                    )}`}
                   />
                   <NanoClamp
                     className="title is-size-6"

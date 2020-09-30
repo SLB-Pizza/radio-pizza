@@ -42,17 +42,15 @@ function ResidentBio({ residentData }) {
         </div>
       </div>
       <div className="columns is-mobile is-multiline is-vcentered">
-        {social_media.map((page, index) => {
-          const { resident_social_page, resident_social_link } = page;
-
-          return (
+        {social_media.map(
+          ({ resident_social_page, resident_social_link }, index) => (
             <ResidentSocialLinks
               key={`social-link-${index}-${resident_social_page}`}
               url={resident_social_link.url}
               platform={resident_social_page}
             />
-          );
-        })}
+          )
+        )}
       </div>
     </div>
   );

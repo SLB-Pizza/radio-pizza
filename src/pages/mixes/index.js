@@ -3,7 +3,11 @@ import { graphql } from "gatsby";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faTag } from "@fortawesome/free-solid-svg-icons";
-import { SingleMixCard, MixPlayOverlay } from "../../components/";
+import {
+  CuratedCollections,
+  SingleMixCard,
+  MixPlayOverlay,
+} from "../../components/";
 
 /**
  * @category Pages
@@ -23,7 +27,7 @@ function MixesIndexPage({ data }) {
    * Grab and manip the nodes array of mixs
    */
   const allMixesData = prismicContent.allMixs.edges;
-  const allEndlessData = prismicContent.allEndless_mixs.edges;
+  const allCuratedData = prismicContent.allEndless_mixs.edges;
 
   const mixListLayout =
     "column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen";
@@ -44,61 +48,7 @@ function MixesIndexPage({ data }) {
 
   return (
     <main className="black-bg-page">
-      <section className="container is-fluid">
-        <div className="columns is-mobile">
-          <div className="column is-12 content">
-            <h1 className="title">Endless Mixes</h1>
-          </div>
-        </div>
-      </section>
-      <section className="container is-fluid">
-        {/* All Mixs data in pulled correctly */}
-        {allEndlessData.map((endlessMix, index) => {
-          const {
-            endless_mix_title,
-            endless_mix_blurb,
-            endless_mix_img,
-            endless_mix_playlist,
-          } = endlessMix.node;
-
-          const mixCount =
-            endless_mix_playlist.length === 1
-              ? `${endless_mix_playlist.length} mix`
-              : `${endless_mix_playlist.length} mixes`;
-
-          let mixLinks = [];
-          let residentSet = {};
-
-          endless_mix_playlist.map(({ endless_mix_entry }) => {
-            const { mix_link, featured_residents } = endless_mix_entry;
-
-            mixLinks.push(mix_link);
-          });
-
-          return (
-            <div
-              key={`Endless-mix-${index}`}
-              className="columns is-mobile"
-              style={{ border: "2px solid white", padding: "1rem" }}
-            >
-              <div className="column is-9 content">
-                <h3 className="title">{endless_mix_title}</h3>
-                <p className="subtitle is-size-7">{mixCount}</p>
-                <p className="is-size-5">{endless_mix_blurb}</p>
-              </div>
-              <div className="column is-3">
-                <MixPlayOverlay
-                  wrapperClassName="card"
-                  img={endless_mix_img}
-                  title={endless_mix_title}
-                />
-              </div>
-            </div>
-          );
-        })}
-        <hr />
-        <pre>{JSON.stringify(allEndlessData, null, 2)}</pre>
-      </section>
+      <CuratedCollections curatedMixes={allCuratedData} />
 
       {/* FIRST SECTION - Header Section */}
       <header className="container is-fluid">
@@ -210,6 +160,9 @@ export const query = graphql`
             endless_mix_playlist {
               endless_mix_entry {
                 ... on PRISMIC_Mix {
+                  _meta {
+                    tags
+                  }
                   mix_link
                   featured_residents {
                     mix_resident {

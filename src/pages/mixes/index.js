@@ -157,6 +157,7 @@ export const query = graphql`
             endless_mix_title
             endless_mix_blurb
             endless_mix_img
+            shuffle_mix_order
             endless_mix_playlist {
               endless_mix_entry {
                 ... on PRISMIC_Mix {

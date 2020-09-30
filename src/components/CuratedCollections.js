@@ -1,13 +1,12 @@
 import React from "react";
-import { MixPlayOverlay } from "../components";
+import { MixPlayOverlay, TagButtons } from "../components";
 import { getResidentString } from "../utils";
-import TagButtons from "./TagButtons";
 
 function CuratedCollections({ curatedMixes }) {
-  let mixCount = "1 mix";
   let mixLinks = [];
   let mixResidents = new Set();
   let mixTags = new Set();
+  let mixCount = "";
 
   return (
     <section className="container is-fluid">
@@ -20,12 +19,12 @@ function CuratedCollections({ curatedMixes }) {
         </div>
       </div>
 
-      {/* All Mixs data in pulled correctly */}
       {curatedMixes.map((endlessMix, index) => {
         const {
           endless_mix_title,
           endless_mix_blurb,
           endless_mix_img,
+          shuffle_mix_order,
           endless_mix_playlist,
         } = endlessMix.node;
 
@@ -37,15 +36,24 @@ function CuratedCollections({ curatedMixes }) {
         endless_mix_playlist.map(({ endless_mix_entry }) => {
           const { _meta, mix_link, featured_residents } = endless_mix_entry;
 
+          /**
+           * Push mix link string to mixLinks array to pass to {@link RadioPlayer}
+           */
           mixLinks.push(mix_link);
 
+          /**
+           * Add each resident on the current endless_mix_entry to the mixResidents set
+           */
           featured_residents.map(({ mix_resident }) => {
             mixResidents.add(mix_resident.resident_name);
             // console.log("mixResidents current size", mixResidents.size);
           });
 
+          /**
+           * Normalize tags by making them lowercase and adding them the mixTags set.
+           */
           _meta.tags.map((tag) => {
-            mixTags.add(tag);
+            mixTags.add(tag.toLowerCase());
           });
         });
 
@@ -57,7 +65,7 @@ function CuratedCollections({ curatedMixes }) {
             <div className="column is-9">
               <div className="content">
                 <h3 className="title">{endless_mix_title}</h3>
-                <p className="subtitle is-size-6">{mixCount}</p>
+                <p className="subtitle is-size-6"></p>
                 <p className="subtitle is-size-7">{mixCount}</p>
                 <p className="is-size-5">{endless_mix_blurb}</p>
               </div>
@@ -74,6 +82,7 @@ function CuratedCollections({ curatedMixes }) {
                 wrapperClassName="card"
                 img={endless_mix_img}
                 title={endless_mix_title}
+                url={mixLinks}
               />
             </div>
           </div>

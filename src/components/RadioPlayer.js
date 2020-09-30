@@ -219,16 +219,16 @@ function RadioPlayer() {
         volume={localState.volume}
         playing={globalState.playing}
         loop={globalState.loop}
-        // muted={globalState.muted}
-        // onDuration={handleDuration}
         onPlay={handlePlay}
         onPause={handlePause}
-        onError={(e) => console.log("ReactPlayer has an issue ↴\n", e)}
+        onError={(error) => console.log("ReactPlayer has an issue ↴\n", error)}
         onReady={handleMixReady}
         onStart={() => console.log(`PLAYING: ${globalState.title}`)}
+        onBuffer={() => console.log("onBuffer")}
+        // muted={globalState.muted}
+        // onDuration={handleDuration}
         // onEnablePIP={this.handleEnablePIP}
         // onDisablePIP={this.handleDisablePIP}
-        onBuffer={() => console.log("onBuffer")}
         // onSeek={e => console.log('onSeek', e)}
         // onEnded={this.handleEnded}
         // onProgress={this.handleProgress}

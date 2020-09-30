@@ -108,18 +108,18 @@ function ScheduleBar({ timeNow }) {
   useEffect(() => {
     const getNextShowData = () => {
       if (loading) {
-        console.log(
-          `Get next show request sent at ${formatDateTime(
-            currentTime,
-            "hour-minute"
-          )}`
-        );
+        // console.log(
+        //   `Get next show request sent at ${formatDateTime(
+        //     currentTime,
+        //     "hour-minute"
+        //   )}`
+        // );
       }
       if (error) {
         console.log(`Error: ${error.message}`);
       }
       if (data) {
-        console.log("data received", data);
+        // console.log("data received", data);
         const todayScheduleData = data.allSchedules.edges;
         setTodaysSchedule(todayScheduleData);
         // console.log(todaysSchedule);
@@ -180,6 +180,7 @@ function ScheduleBar({ timeNow }) {
    * @see {@link https://github.com/gatsbyjs/gatsby/issues/24264#issuecomment-631995753|Re: ERROR #95313 - To stop the error immediately, add a null check for the object}
    */
   if (!globalState) return null;
+
   return globalState.scheduleOpen ? (
     <OutsideClick id={"schedule-bar"} onClick={() => closeSchedule()}>
       <div

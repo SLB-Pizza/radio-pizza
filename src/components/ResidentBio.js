@@ -1,6 +1,5 @@
 import React from "react";
 import { RichText } from "prismic-reactjs";
-import Nanoclamp from "nanoclamp";
 import { ResidentSocialLinks } from "../utils";
 import NanoClamp from "nanoclamp";
 
@@ -21,7 +20,7 @@ function ResidentBio({ residentData }) {
   } = residentData;
 
   return (
-    <div className="column is-3-tablet is-12-mobile sticky-bio">
+    <div className="column is-3-desktop is-4-tablet is-12-mobile sticky-bio">
       <div className="columns is-multiline">
         <div className="column is-12">
           <figure className="image is-1by1">

@@ -6,7 +6,7 @@ import { Link } from "gatsby";
 
 // -- Function to add unique key to props
 const propsWithUniqueKey = function(props, key) {
-  console.log(key);
+  // console.log(key);
   return Object.assign(props || {}, { key });
 };
 
@@ -16,7 +16,6 @@ const propsWithUniqueKey = function(props, key) {
  * Customize the HTML output of a Rich Text Field by incorporating an HTML Serializer into your project. This allows you to do things like adding custom classes to certain elements or modifying the way an element will be displayed.
  * @see {@link https://prismic.io/docs/gatsby/misc-topics/html-serializer|HTML Serializer with Gatsby}
  */
-// -- HTML Serializer
 const htmlSerializer = function(type, element, content, children, key) {
   var props = {};
 
@@ -69,58 +68,71 @@ const htmlSerializer = function(type, element, content, children, key) {
         children
       );
 
-    case Elements.paragraph: // Paragraph
-      return React.createElement("p", propsWithUniqueKey(props, key), children);
+    // case Elements.paragraph: // Paragraph
+    //   return React.createElement("p", propsWithUniqueKey(props, key), children);
 
-    case Elements.preformatted: // Preformatted
-      return React.createElement(
-        "pre",
-        propsWithUniqueKey(props, key),
-        children
-      );
+    // case Elements.preformatted: // Preformatted
+    //   return React.createElement(
+    //     "pre",
+    //     propsWithUniqueKey(props, key),
+    //     children
+    //   );
 
-    case Elements.strong: // Strong
-      return React.createElement(
-        "strong",
-        propsWithUniqueKey(props, key),
-        children
-      );
+    // case Elements.strong: // Strong
+    //   return React.createElement(
+    //     "strong",
+    //     propsWithUniqueKey(props, key),
+    //     children
+    //   );
 
-    case Elements.em: // Emphasis
-      return React.createElement(
-        "em",
-        propsWithUniqueKey(props, key),
-        children
-      );
+    // case Elements.em: // Emphasis
+    //   return React.createElement(
+    //     "em",
+    //     propsWithUniqueKey(props, key),
+    //     children
+    //   );
 
-    case Elements.listItem: // Unordered List Item
-      return React.createElement(
-        "li",
-        propsWithUniqueKey(props, key),
-        children
-      );
+    // case Elements.listItem: // Unordered List Item
+    //   return React.createElement(
+    //     "li",
+    //     propsWithUniqueKey(props, key),
+    //     children
+    //   );
 
-    case Elements.oListItem: // Ordered List Item
-      return React.createElement(
-        "li",
-        propsWithUniqueKey(props, key),
-        children
-      );
+    // case Elements.oListItem: // Ordered List Item
+    //   return React.createElement(
+    //     "li",
+    //     propsWithUniqueKey(props, key),
+    //     children
+    //   );
 
-    case Elements.list: // Unordered List
-      return React.createElement(
-        "ul",
-        propsWithUniqueKey(props, key),
-        children
-      );
+    // case Elements.list: // Unordered List
+    //   return React.createElement(
+    //     "ul",
+    //     propsWithUniqueKey(props, key),
+    //     children
+    //   );
 
-    case Elements.oList: // Ordered List
-      return React.createElement(
-        "ol",
-        propsWithUniqueKey(props, key),
-        children
-      );
+    // case Elements.oList: // Ordered List
+    //   return React.createElement(
+    //     "ol",
+    //     propsWithUniqueKey(props, key),
+    //     children
+    //   );
 
+    /**
+     * For inline images, pull the image right and wrap it according to bulma CSS conventions. Make sure the whole thing is wrapped in a React fragment so we don't add `<div>` to
+     *
+     * Result:
+     * ```
+     * <>
+     *  <figure>
+     *    <img className="has-ratio" />
+     *  </figure>
+     *  <div className="is-clearfix" />
+     * <>
+     * ```
+     */
     case Elements.image: // Image
       const linkUrl = element.linkTo
         ? element.linkTo.url || linkResolver(element.linkTo)
@@ -133,13 +145,12 @@ const htmlSerializer = function(type, element, content, children, key) {
       const img = React.createElement("img", {
         src: element.url,
         alt: element.alt || "",
+        width: "300px",
+        className: "has-ratio",
       });
-      return React.createElement(
-        "p",
-        propsWithUniqueKey(
-          { className: [element.label || "", "block-img"].join(" ") },
-          key
-        ),
+      const wrappedImg = React.createElement(
+        "figure",
+        propsWithUniqueKey({ className: "is-pulled-right is-clearfix" }, key),
         linkUrl
           ? React.createElement(
               "a",
@@ -148,24 +159,58 @@ const htmlSerializer = function(type, element, content, children, key) {
             )
           : img
       );
+      return <React.Fragment>{wrappedImg}</React.Fragment>;
 
+    // <figure className="image has-ratio"
+
+    // case Elements.embed: // Embed
+    //   props = Object.assign(
+    //     {
+    //       "data-oembed": element.oembed.embed_url,
+    //       "data-oembed-type": element.oembed.type,
+    //       "data-oembed-provider": element.oembed.provider_name,
+    //       className: "image has-ratio embed",
+    //       dangerouslySetInnerHTML: {
+    //         __html: element.oembed.html,
+    //       },
+    //     },
+    //     element.label ? { className: element.label } : {}
+    //   );
+
+    //   // const embedHtml = React.createElement("div", {
+    //   //   className: "has-ratio",
+    //   // });
+
+    //   // return React.createElement(
+    //   //   "div",
+    //   //   { className: "columns is-mobile is-centered" },
+    //   //   React.createElement(
+    //   //     "div",
+    //   //     { className: "column is-12" },
+    //   //     React.createElement("div", propsWithUniqueKey(props, key), null)
+    //   //   )
+    //   // );
+
+    // return React.createElement(
+    //   "figure",
+    //   propsWithUniqueKey(props, key),
+    //   null
+    // );
+
+    // DEFAULT EMBED
     case Elements.embed: // Embed
       props = Object.assign(
         {
           "data-oembed": element.oembed.embed_url,
           "data-oembed-type": element.oembed.type,
           "data-oembed-provider": element.oembed.provider_name,
+          className: "has-ratio embed",
+          dangerouslySetInnerHTML: { __html: element.oembed.html },
         },
         element.label ? { className: element.label } : {}
       );
-      const embedHtml = React.createElement("div", {
-        dangerouslySetInnerHTML: { __html: element.oembed.html },
-      });
-      return React.createElement(
-        "div",
-        propsWithUniqueKey(props, key),
-        embedHtml
-      );
+
+      return React.createElement("div", propsWithUniqueKey(props, key), null);
 
     case Elements.hyperlink: // Hyperlinks
       let result = "";
@@ -224,8 +269,8 @@ const htmlSerializer = function(type, element, content, children, key) {
         return null;
       }
 
+    // Always include a default that returns null
     default:
-      // Always include a default that returns null
       return null;
   }
 };

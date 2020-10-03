@@ -315,3 +315,21 @@ img {
     }
   }
 }
+
+.embed {
+  margin-bottom: 1.25rem;
+
+  iframe {
+    border: 2px solid white;
+    border-radius: 0.75rem;
+    transition: 0.5s ease;
+
+    @include touch {
+      width: fit-content;
+      height: fit-content;
+      &:hover {
+        border: 2px solid $primary;
+      }
+    }
+  }
+}

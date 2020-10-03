@@ -126,8 +126,9 @@ const htmlSerializer = function(type, element, content, children, key) {
      * Result:
      * ```
      * <>
-     *  <figure>
+     *  <figure className="is-pulled-right is-clearfix">
      *    <img className="has-ratio" />
+     *    <figcaption>{available img details}</figcaption>
      *  </figure>
      *  <div className="is-clearfix" />
      * <>
@@ -145,9 +146,17 @@ const htmlSerializer = function(type, element, content, children, key) {
       const img = React.createElement("img", {
         src: element.url,
         alt: element.alt || "",
-        width: "300px",
+        width: "300",
         className: "has-ratio",
       });
+      console.log(element);
+      const imgDetails = element.copyright ? (
+        <figcaption className="credit">
+          {`${element.alt} - ${element.copyright}`}
+        </figcaption>
+      ) : (
+        <figcaption className="credit">{element.alt}</figcaption>
+      );
       const wrappedImg = React.createElement(
         "figure",
         propsWithUniqueKey({ className: "is-pulled-right is-clearfix" }, key),
@@ -155,47 +164,13 @@ const htmlSerializer = function(type, element, content, children, key) {
           ? React.createElement(
               "a",
               Object.assign({ href: linkUrl }, linkTarget, linkRel),
-              img
+              img,
+              imgDetails
             )
-          : img
+          : img,
+        imgDetails
       );
-      return <React.Fragment>{wrappedImg}</React.Fragment>;
-
-    // <figure className="image has-ratio"
-
-    // case Elements.embed: // Embed
-    //   props = Object.assign(
-    //     {
-    //       "data-oembed": element.oembed.embed_url,
-    //       "data-oembed-type": element.oembed.type,
-    //       "data-oembed-provider": element.oembed.provider_name,
-    //       className: "image has-ratio embed",
-    //       dangerouslySetInnerHTML: {
-    //         __html: element.oembed.html,
-    //       },
-    //     },
-    //     element.label ? { className: element.label } : {}
-    //   );
-
-    //   // const embedHtml = React.createElement("div", {
-    //   //   className: "has-ratio",
-    //   // });
-
-    //   // return React.createElement(
-    //   //   "div",
-    //   //   { className: "columns is-mobile is-centered" },
-    //   //   React.createElement(
-    //   //     "div",
-    //   //     { className: "column is-12" },
-    //   //     React.createElement("div", propsWithUniqueKey(props, key), null)
-    //   //   )
-    //   // );
-
-    // return React.createElement(
-    //   "figure",
-    //   propsWithUniqueKey(props, key),
-    //   null
-    // );
+      return <React.Fragment key={key}>{wrappedImg}</React.Fragment>;
 
     // DEFAULT EMBED
     case Elements.embed: // Embed

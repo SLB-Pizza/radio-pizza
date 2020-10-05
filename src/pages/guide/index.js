@@ -46,7 +46,7 @@ function CMSGuideIndex({ data }) {
 export const query = graphql`
   query CMSGuideIndexQuery {
     prismic {
-      allCms_guides {
+      allCms_guides(sortBy: meta_firstPublicationDate_DESC) {
         edges {
           node {
             _meta {

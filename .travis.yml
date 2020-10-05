@@ -15,3 +15,5 @@ deploy:
   skip-cleanup: true
   on:
     branch: deploy
+notifications:
+  slack: superluigibrospizza:Y1lW96ZU0ir2XFBSnfrBTvXU

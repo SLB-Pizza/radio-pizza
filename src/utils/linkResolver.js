@@ -12,6 +12,8 @@ function linkResolver(link) {
   switch (link.type) {
     case "cms_guide":
       return `/guide/${link.uid}`;
+    case "event":
+      return `/events/${link.uid}`;
     case "feature":
       return `/features/${link.uid}`;
     case "mix":

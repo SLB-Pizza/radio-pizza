@@ -109,6 +109,11 @@ button.button,
   font-weight: 700;
 }
 
+button.active {
+  color: white;
+  border-color: $primary;
+}
+
 p,
 .subtitle {
   font-family: "Poppins", sans-serif;

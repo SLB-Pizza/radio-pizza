@@ -13,6 +13,7 @@ deploy:
   provider: script
   edge: true
   skip-cleanup: true
+  script: bash travis-deploy-netlify.sh
   on:
     branch: deploy
 notifications:

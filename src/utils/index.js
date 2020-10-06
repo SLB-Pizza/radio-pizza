@@ -8,6 +8,7 @@ export { default as formatNextShow } from "./formatNextShow";
 export { default as getBlockquoteStyling } from "./getBlockquoteStyling";
 export { default as getResidentLinks } from "./getResidentLinks";
 export { default as getResidentString } from "./getResidentString";
+export { default as htmlSerializer } from "./htmlSerializer";
 export { default as linkResolver } from "./linkResolver";
 export { default as processPublicationDates } from "./processPublicationDates";
 

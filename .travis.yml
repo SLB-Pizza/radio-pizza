@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+  - "stable"
+cache:
+  directories:
+    - node_modules
+before_script:
+  - "npm i -g gatsby"
+  - "npm i"
+script:
+  - "npm run test"
+deploy:
+  provider: script
+  edge: true
+  skip-cleanup: true
+  on:
+    branch: deploy
+notifications:
+  slack: superluigibrospizza:Y1lW96ZU0ir2XFBSnfrBTvXU

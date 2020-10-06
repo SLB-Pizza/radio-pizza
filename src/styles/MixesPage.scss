@@ -1,0 +1,12 @@
+.curated-mix {
+  margin-top: 2rem;
+  border: 2px solid white;
+  border-radius: 0.75rem;
+  padding: 1rem;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+}

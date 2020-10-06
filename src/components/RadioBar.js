@@ -93,7 +93,7 @@ function RadioBar({ nycTime, laTime }) {
    */
   useEffect(() => {
     if (loading) {
-      console.log("Initial Mix request in progress");
+      // console.log("Initial Mix request in progress");
     }
     if (error) {
       console.log(`initialMix Error: ${error.message}`);

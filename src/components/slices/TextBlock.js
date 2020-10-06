@@ -1,5 +1,6 @@
 import React from "react";
 import { RichText } from "prismic-reactjs";
+import { htmlSerializer, linkResolver } from "../../utils";
 
 /**
  * @category CMS
@@ -18,7 +19,13 @@ function TextBlock({ slice }) {
     <section className="container slice">
       <div className="columns">
         <div className="column is-full">
-          <div className="content">{RichText.render(body_text)}</div>
+          <div className="content">
+            <RichText
+              render={body_text}
+              htmlSerializer={htmlSerializer}
+              linkResolver={linkResolver}
+            />
+          </div>
         </div>
       </div>
     </section>

@@ -109,6 +109,11 @@ button.button,
   font-weight: 700;
 }
 
+button.active {
+  color: white;
+  border-color: $primary;
+}
+
 p,
 .subtitle {
   font-family: "Poppins", sans-serif;
@@ -311,6 +316,25 @@ img {
           filter: drop-shadow(0.5rem 0.5rem 0.75rem black);
           transform: scale(1.05);
         }
+      }
+    }
+  }
+}
+
+// Article embeds
+.embed {
+  margin-bottom: 1.25rem;
+
+  iframe {
+    border: 2px solid white;
+    border-radius: 0.75rem;
+    transition: 0.5s ease;
+
+    @include touch {
+      width: fit-content;
+      height: fit-content;
+      &:hover {
+        border: 2px solid $primary;
       }
     }
   }

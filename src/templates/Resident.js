@@ -43,13 +43,13 @@ function ResidentTemplate({ data }) {
         <hr className="is-hidden-desktop" />
 
         {/* RESIDENT MIX, EVENT, FEATURE SECTION */}
-        <div className="column is-9 resident-content">
+        <div className="column is-8-tablet is-9-desktop resident-content">
           <div className="columns is-mobile">
             {/* COLUMN SELECTOR BUTTONS */}
             {residentColumns.map((type, index) => (
               <div className="column" key={`column-${index}-${type}`}>
                 <button
-                  className="button is-fullwidth is-outlined is-rounded display-text"
+                  className={isOpen === type ? "button active is-fullwidth is-outlined is-rounded display-text" : "button is-fullwidth is-outlined is-rounded display-text"}
                   id={type}
                   onClick={toggleColumn}
                 >

@@ -1,6 +1,5 @@
 import React from "react";
 import { RichText } from "prismic-reactjs";
-import Nanoclamp from "nanoclamp";
 import { ResidentSocialLinks } from "../utils";
 import NanoClamp from "nanoclamp";
 
@@ -21,7 +20,7 @@ function ResidentBio({ residentData }) {
   } = residentData;
 
   return (
-    <div className="column is-3-tablet is-12-mobile sticky-bio">
+    <div className="column is-3-desktop is-4-tablet is-12-mobile sticky-bio">
       <div className="columns is-multiline">
         <div className="column is-12">
           <figure className="image is-1by1">
@@ -42,17 +41,15 @@ function ResidentBio({ residentData }) {
         </div>
       </div>
       <div className="columns is-mobile is-multiline is-vcentered">
-        {social_media.map((page, index) => {
-          const { resident_social_page, resident_social_link } = page;
-
-          return (
+        {social_media.map(
+          ({ resident_social_page, resident_social_link }, index) => (
             <ResidentSocialLinks
               key={`social-link-${index}-${resident_social_page}`}
               url={resident_social_link.url}
               platform={resident_social_page}
             />
-          );
-        })}
+          )
+        )}
       </div>
     </div>
   );

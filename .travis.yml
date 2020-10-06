@@ -1,20 +1,29 @@
 language: node_js
+
 node_js:
   - "stable"
+
 cache:
   directories:
     - node_modules
+
 before_script:
   - "npm i -g gatsby"
   - "npm i"
+
+# Run mocha tests
 script:
   - "npm run test"
+
+# https://docs.travis-ci.com/user/deployment-v2/providers/netlify/
 deploy:
-  provider: script
-  edge: true
-  skip-cleanup: true
-  script: bash travis-deploy-netlify.sh
+  provider: netlify
+  edge: true    # opt in to dpl v2
+  NETLIFY_AUTH_TOKEN=<auth>
+  NETLIFY_SITE_ID=<site>
+  cleanup: true
   on:
     branch: deploy
+
 notifications:
   slack: superluigibrospizza:Y1lW96ZU0ir2XFBSnfrBTvXU

@@ -49,7 +49,7 @@ function ResidentTemplate({ data }) {
             {residentColumns.map((type, index) => (
               <div className="column" key={`column-${index}-${type}`}>
                 <button
-                  className="button is-fullwidth is-outlined is-rounded display-text"
+                  className={isOpen === type ? "button active is-fullwidth is-outlined is-rounded display-text" : "button is-fullwidth is-outlined is-rounded display-text"}
                   id={type}
                   onClick={toggleColumn}
                 >

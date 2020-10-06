@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
 import { SingleResident } from "../../components";
 
@@ -16,7 +16,7 @@ import { SingleResident } from "../../components";
  * @returns {jsx}
  */
 
-function ResidentsIndex({ data }) {
+function ResidentsIndex({ location, data }) {
   const [isOpen, setIsOpen] = useState("Residents");
 
   const prismicContent = data.prismic.allResidents.edges;
@@ -27,6 +27,7 @@ function ResidentsIndex({ data }) {
   let residents = [];
   let guests = [];
   let alumni = [];
+
 
   allResidentsData.forEach(({ node }) => {
     if (node.resident_status === "Resident") {
@@ -70,7 +71,7 @@ function ResidentsIndex({ data }) {
         {residentTypes.map((type, index) => (
           <div className="column" key={`column-${index}-${type}`}>
             <button
-              className="button is-fullwidth is-outlined is-rounded display-text"
+              className={isOpen === type ? "button active is-fullwidth is-outlined is-rounded display-text" : "button is-fullwidth is-outlined is-rounded display-text"}
               id={type}
               onClick={toggleColumn}
             >

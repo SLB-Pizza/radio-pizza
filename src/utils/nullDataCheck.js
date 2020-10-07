@@ -9,8 +9,6 @@
  *    }
  *  ]
  * ```
- *
- *
  * Used by:
  * - {@link ResidentTemplate}
  * @category Utilities
@@ -19,16 +17,13 @@
  * @returns {Boolean}
  */
 export default function nullDataCheck(dataArray) {
-  if (Array.isArray(dataArray) && dataArray.length !== 0) {
+  if (Array.isArray(dataArray) && dataArray.length === 1) {
     /**
      * Grab the first object in the dataArray to test
      */
     const testObject = dataArray[0];
 
-    return (
-      Object.values(testObject).length === 1 &&
-      Object.values(testObject)[0] === null
-    );
+    return Object.values(testObject)[0] === null;
   }
   return false;
 }

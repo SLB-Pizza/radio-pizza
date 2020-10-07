@@ -48,7 +48,7 @@ describe("nullDataCheck", () => {
 
   describe("should return true", () => {
     it("when passed an array containing only one object that has a key with a value of null", () => {
-      expect(nullDataCheck([{ resident_event: null }])).to.be.true;
+      expect(nullDataCheck([{ key_title: null }])).to.be.true;
     });
   });
 });

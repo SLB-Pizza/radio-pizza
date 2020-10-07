@@ -35,7 +35,7 @@ function ResidentTemplate({ data }) {
   } = residentData;
 
   const residentCardLayout = "column is-12-touch is-6-desktop is-4-widescreen";
-  const residentColumns = ["Mixes", "Events", "Features"];
+  let residentColumns = ["Mixes", "Events", "Features"];
 
   function toggleColumn(event) {
     if (isOpen !== event.currentTarget.id) {
@@ -47,10 +47,15 @@ function ResidentTemplate({ data }) {
     const dataCheck = () => {
       if (data) {
         setData(true);
-      }
-
-      if (data) {
-        setData(true);
+        if (nullDataCheck(resident_mixes)) {
+          setMixesData(true);
+        }
+        if (nullDataCheck(resident_events)) {
+          setEventsData(true);
+        }
+        if (nullDataCheck(resident_features)) {
+          setFeaturesData(true);
+        }
       }
     };
 

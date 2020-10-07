@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
-import { HMBKDivider, LandingPageElement, SingleMixCard } from "../components";
-import { ResidentBio } from "../components";
+import {
+  HMBKDivider,
+  LandingPageElement,
+  ResidentBio,
+  SingleMixCard,
+} from "../components";
+import { nullDataCheck } from "../utils";
 
 /**
  * @category Templates
@@ -13,6 +18,10 @@ import { ResidentBio } from "../components";
  */
 function ResidentTemplate({ data }) {
   const [isOpen, setIsOpen] = useState("Mixes");
+  const [hasData, setData] = useState(false);
+  const [hasMixes, setMixesData] = useState(false);
+  const [hasEvents, setEventsData] = useState(false);
+  const [hasFeatures, setFeaturesData] = useState(false);
 
   const prismicContent = data.prismic.allResidents.edges[0];
   if (!prismicContent) return null;
@@ -26,7 +35,6 @@ function ResidentTemplate({ data }) {
   } = residentData;
 
   const residentCardLayout = "column is-12-touch is-6-desktop is-4-widescreen";
-
   const residentColumns = ["Mixes", "Events", "Features"];
 
   function toggleColumn(event) {
@@ -34,6 +42,20 @@ function ResidentTemplate({ data }) {
       setIsOpen(event.currentTarget.id);
     }
   }
+
+  useEffect(() => {
+    const dataCheck = () => {
+      if (data) {
+        setData(true);
+      }
+
+      if (data) {
+        setData(true);
+      }
+    };
+
+    return dataCheck();
+  }, [data, resident_mixes, resident_events, resident_features]);
 
   return (
     <div className="container is-fluid full-height-page">
@@ -49,7 +71,11 @@ function ResidentTemplate({ data }) {
             {residentColumns.map((type, index) => (
               <div className="column" key={`column-${index}-${type}`}>
                 <button
-                  className={isOpen === type ? "button active is-fullwidth is-outlined is-rounded display-text" : "button is-fullwidth is-outlined is-rounded display-text"}
+                  className={
+                    isOpen === type
+                      ? "button active is-fullwidth is-outlined is-rounded display-text"
+                      : "button is-fullwidth is-outlined is-rounded display-text"
+                  }
                   id={type}
                   onClick={toggleColumn}
                 >
@@ -61,7 +87,10 @@ function ResidentTemplate({ data }) {
 
           {/* RESIDENT MIXES */}
           {isOpen === "Mixes" ? (
-            <div className="columns is-mobile is-multiline">
+            <div
+              className="columns is-mobile is-multiline"
+              style={{ backgroundColor: "rebeccapurple" }}
+            >
               {resident_mixes.map(({ resident_mix }, index) => (
                 <SingleMixCard
                   key={`resident-mix-#${index}`}
@@ -75,7 +104,10 @@ function ResidentTemplate({ data }) {
 
           {/* RESIDENT EVENTS */}
           {isOpen === "Events" ? (
-            <div className="columns is-mobile is-multiline">
+            <div
+              className="columns is-mobile is-multiline"
+              style={{ backgroundColor: "rebeccapurple" }}
+            >
               {/* {resident_events.map(({ event }, index) => (
                 <SingleEventCard
                   key={`resident-event-#${index}`}
@@ -89,7 +121,10 @@ function ResidentTemplate({ data }) {
 
           {/* RESIDENT Features */}
           {isOpen === "Features" ? (
-            <div className="columns is-mobile is-multiline">
+            <div
+              className="columns is-mobile is-multiline"
+              style={{ backgroundColor: "rebeccapurple" }}
+            >
               {/* {resident_features.map((feature, index) => (
                 <LandingPageElement
                   key={`resident-feature-#${index}`}

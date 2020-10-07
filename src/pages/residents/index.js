@@ -16,18 +16,16 @@ import { SingleResident } from "../../components";
  * @returns {jsx}
  */
 
-function ResidentsIndex({ location, data }) {
+function ResidentsIndex({ data }) {
   const [isOpen, setIsOpen] = useState("Residents");
 
   const prismicContent = data.prismic.allResidents.edges;
   if (!prismicContent) return null;
   const allResidentsData = prismicContent;
 
-  const residentTypes = ["Residents", "Guests", "Alumni"];
   let residents = [];
   let guests = [];
   let alumni = [];
-
 
   allResidentsData.forEach(({ node }) => {
     if (node.resident_status === "Resident") {
@@ -68,10 +66,14 @@ function ResidentsIndex({ location, data }) {
         </div>
 
         {/* COLUMN SELECTOR BUTTONS */}
-        {residentTypes.map((type, index) => (
+        {["Residents", "Guests", "Alumni"].map((type, index) => (
           <div className="column" key={`column-${index}-${type}`}>
             <button
-              className={isOpen === type ? "button active is-fullwidth is-outlined is-rounded display-text" : "button is-fullwidth is-outlined is-rounded display-text"}
+              className={
+                isOpen === type
+                  ? "button active is-fullwidth is-outlined is-rounded display-text"
+                  : "button is-fullwidth is-outlined is-rounded display-text"
+              }
               id={type}
               onClick={toggleColumn}
             >

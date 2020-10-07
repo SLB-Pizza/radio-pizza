@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> src/pages/support/index.js</title>
+  <title> src/components/SingleResident.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>src/pages/support/index.js</h1>
+                    <h1>src/components/SingleResident.js</h1>
                 </header>
                 
 
@@ -90,108 +90,47 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React from "react";
-import { Link, graphql } from "gatsby";
-import Highlight, { defaultProps } from "prism-react-renderer";
-import { StickyFeature, SliceZone } from "../../components";
-import { ParallaxHeadline } from "../../components/slices";
-import PropTypes from "prop-types";
+import { Link } from "gatsby";
+import Nanoclamp from "nanoclamp";
+import { linkResolver, ResponsiveImage } from "../utils";
 
 /**
- * @category Pages
- * @subcategory Indexes
- * @function SupportPage
- * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/features` landing page
+ * @category Layout Helper
+ * @subcategory Resident
+ * @function SingleResident
+ * @param {Object} resident - Prismic CMS data object containing all data needed to build resident cards that link out to a `/residents/:uid`
+ * @property {Object} _meta - contains the uid and type for use with {@link linkResolver}
+ * @property {String} resident_name - the resident's name
+ * @property {Object} resident_image - contains the resident image's dimensions object, alt text string, copyright string, and url string
+ * @property {String} resident_status - details the resident's status as being of the three: ["Resident", "Guest", "Alumnus"]
  * @returns {jsx}
  */
-function SupportPage({ data }) {
-  /**
-   * Focus the node for the prismicContent check below.
-   */
-  const prismicContent = data.prismic.allSupports.edges[0];
-
-  /**
-   * This line is here to prevent an error from occurring when you eventually deploy the site live. There is an issue with the preview functionality that requires this check on every page.
-   * @see https://prismic.io/docs/gatsby/rendering/retrieve-the-document-object#21_0-adding-a-validation-check
-   */
-  if (!prismicContent) return null;
-
-  /**
-   * Grab the first node object from the prismicContent array of nodes to pass as leadfeatureData prop to StickyFeature.
-   *
-   * The data from the 'FeaturesIndexPage' query comes pre-sorted to show the most recent published feature, NOT the most recently updated.
-   *
-   * The remaining array of node objects can be mapped over normally using XYZ_Component.
-   */
-  const supportPageData = prismicContent.node;
-
-  /**
-   * Pull out parts from supportPageData to make passing data easier.
-   */
-  const supportHeader = {
-    cta: supportPageData.support_cta,
-    hook: supportPageData.support_cta_hook,
-    img: supportPageData.support_cta_bg_img,
-  };
-  const supportSlice = supportPageData.body;
+function SingleResident({ resident }) {
+  const { _meta, resident_name, resident_image } = resident;
 
   return (
-    &lt;main className="full-height-page">
-      {/* &lt;StickyFeature leadFeatureData={leadFeatureData} /> */}
-      &lt;ParallaxHeadline
-        cta={supportHeader.cta}
-        hook={supportHeader.hook}
-        imgObj={supportHeader.img}
-      />
-      &lt;SliceZone sliceZone={supportSlice} />
-      &lt;hr />
-
-      &lt;section className="container is-fluid">
-        &lt;div className="columns is-multiline">
-          &lt;div className="column is-12">
-            &lt;h1 className="title">supportSlice&lt;/h1>
-            &lt;pre>{JSON.stringify(supportSlice, null, 2)}&lt;/pre>
+    &lt;div className="column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen resident-box">
+      &lt;Link to={linkResolver(_meta)}>
+        &lt;div className="card">
+          &lt;div className="card-image">
+            &lt;figure className="image is-1by1">
+              &lt;img src={resident_image.url} alt={resident_image.alt} />
+            &lt;/figure>
+          &lt;/div>
+          &lt;div className="card-content">
+            &lt;Nanoclamp
+              is="p"
+              className="title has-text-centered is-size-6-mobile is-size-5-tablet"
+              lines={2}
+              text={resident_name}
+            />
           &lt;/div>
         &lt;/div>
-      &lt;/section>
-    &lt;/main>
+      &lt;/Link>
+    &lt;/div>
   );
 }
-
-export default SupportPage;
-
-SupportPage.propTypes = {
-  leadFeatureData: PropTypes.exact({
-    _meta: PropTypes.object.isRequired,
-    body: PropTypes.arrayOf(PropTypes.object),
-  }),
-  allOtherFeatures: PropTypes.arrayOf(PropTypes.object),
-};
-
-export const query = graphql`
-  query SupportPage {
-    prismic {
-      allSupports {
-        edges {
-          node {
-            support_cta
-            support_cta_bg_img
-            support_cta_hook
-            body {
-              ... on PRISMIC_SupportBodyOne_image_and_text {
-                type
-                primary {
-                  oiat_layout
-                  oiat_text
-                  oiat_img
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
+export default SingleResident;
 </code></pre>
         </article>
     </section>

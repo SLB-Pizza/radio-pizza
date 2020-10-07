@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> src/pages/support/index.js</title>
+  <title> src/templates/Mix.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>src/pages/support/index.js</h1>
+                    <h1>src/templates/Mix.js</h1>
                 </header>
                 
 
@@ -91,98 +91,178 @@
         <article>
             <pre class="prettyprint source linenums"><code>import React from "react";
 import { Link, graphql } from "gatsby";
-import Highlight, { defaultProps } from "prism-react-renderer";
-import { StickyFeature, SliceZone } from "../../components";
-import { ParallaxHeadline } from "../../components/slices";
-import PropTypes from "prop-types";
+import { MixPlayOverlay, TagButtons, SingleResident } from "../components";
+import { RichText } from "prismic-reactjs";
+import { linkResolver, getResidentString } from "../utils";
+import NanoClamp from "nanoclamp";
 
 /**
- * @category Pages
- * @subcategory Indexes
- * @function SupportPage
- * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/features` landing page
+ * @category Templates
+ * @subcategory Mix
+ * @function MixTemplate
+ * @param {object} data - Prismic CMS data object containing all data needed to build `/mixes/:uid`
  * @returns {jsx}
  */
-function SupportPage({ data }) {
-  /**
-   * Focus the node for the prismicContent check below.
-   */
-  const prismicContent = data.prismic.allSupports.edges[0];
 
-  /**
-   * This line is here to prevent an error from occurring when you eventually deploy the site live. There is an issue with the preview functionality that requires this check on every page.
-   * @see https://prismic.io/docs/gatsby/rendering/retrieve-the-document-object#21_0-adding-a-validation-check
-   */
+function MixTemplate({ data }) {
+  const prismicContent = data.prismic.allMixs.edges[0];
   if (!prismicContent) return null;
+  const mixData = prismicContent.node;
 
-  /**
-   * Grab the first node object from the prismicContent array of nodes to pass as leadfeatureData prop to StickyFeature.
-   *
-   * The data from the 'FeaturesIndexPage' query comes pre-sorted to show the most recent published feature, NOT the most recently updated.
-   *
-   * The remaining array of node objects can be mapped over normally using XYZ_Component.
-   */
-  const supportPageData = prismicContent.node;
+  const {
+    _meta,
+    mix_date,
+    mix_image,
+    mix_link,
+    mix_title,
+    mix_blurb,
+    featured_residents,
+    related_events,
+  } = mixData;
 
-  /**
-   * Pull out parts from supportPageData to make passing data easier.
-   */
-  const supportHeader = {
-    cta: supportPageData.support_cta,
-    hook: supportPageData.support_cta_hook,
-    img: supportPageData.support_cta_bg_img,
-  };
-  const supportSlice = supportPageData.body;
+  const mixResidentString = getResidentString(featured_residents);
 
   return (
-    &lt;main className="full-height-page">
-      {/* &lt;StickyFeature leadFeatureData={leadFeatureData} /> */}
-      &lt;ParallaxHeadline
-        cta={supportHeader.cta}
-        hook={supportHeader.hook}
-        imgObj={supportHeader.img}
-      />
-      &lt;SliceZone sliceZone={supportSlice} />
-      &lt;hr />
+    &lt;main className="black-bg-page">
+      &lt;article className="container">
+        &lt;div className="columns is-mobile has-background-grey">
+          &lt;div className="column is-9">
+            {mix_title !== null ? (
+              &lt;div className="content">
+                &lt;NanoClamp
+                  is="h1"
+                  className="title"
+                  lines={2}
+                  text={mix_title}
+                />
+                &lt;NanoClamp
+                  is="p"
+                  className="subtitle"
+                  lines={1}
+                  text={mixResidentString}
+                />
+                &lt;p className="is-size-7">{mix_date}&lt;/p>
+              &lt;/div>
+            ) : (
+              &lt;div className="content">
+                &lt;h1 className="title">{mixResidentString}&lt;/h1>
+                &lt;p className="subtitle">{mix_date}&lt;/p>
+              &lt;/div>
+            )}
+            &lt;TagButtons tagsArray={_meta.tags} />
+          &lt;/div>
 
-      &lt;section className="container is-fluid">
-        &lt;div className="columns is-multiline">
-          &lt;div className="column is-12">
-            &lt;h1 className="title">supportSlice&lt;/h1>
-            &lt;pre>{JSON.stringify(supportSlice, null, 2)}&lt;/pre>
+          &lt;div className="column is-3">
+            &lt;MixPlayOverlay
+              wrapperClassName="card"
+              url={mix_link}
+              title={mix_title}
+              residents={mixResidentString}
+              img={mix_image}
+            />
           &lt;/div>
         &lt;/div>
-      &lt;/section>
+
+        &lt;div className="columns is-mobile">
+          &lt;div className="column is-12 content">
+            &lt;RichText render={mix_blurb} linkResolver={linkResolver} />
+          &lt;/div>
+        &lt;/div>
+
+        &lt;div className="columns is-mobile is-multiline">
+          &lt;div className="column is-12">
+            &lt;div className="content">
+              &lt;h2 className="title">Featured Residents&lt;/h2>
+            &lt;/div>
+          &lt;/div>
+          {featured_residents.map(({ mix_resident }, index) => (
+            &lt;SingleResident
+              key={`mix-resident-${index}`}
+              resident={mix_resident}
+            />
+          ))}
+        &lt;/div>
+
+        {related_events !== null ? (
+          &lt;div className="columns is-mobile is-multiline">
+            &lt;div className="column is-12">
+              &lt;div className="content">
+                &lt;h2 className="title">Related Events&lt;/h2>
+                &lt;p>There are events that need to be mapped.&lt;/p>
+              &lt;/div>
+            &lt;/div>
+
+            {/* {featured_residents.map(({ mix_resident }, index) => (
+              &lt;SingleResident
+                key={`mix-resident-${index}`}
+                resident={mix_resident}
+              />
+            ))} */}
+          &lt;/div>
+        ) : (
+          &lt;div className="columns is-mobile is-multiline">
+            &lt;div className="column is-12">
+              &lt;div className="content">
+                &lt;h2 className="title">Related Events&lt;/h2>
+                &lt;p>No Events Found&lt;/p>
+              &lt;/div>
+            &lt;/div>
+            {/* {featured_residents.map(({ mix_resident }, index) => (
+              &lt;SingleResident
+                key={`mix-resident-${index}`}
+                resident={mix_resident}
+              />
+            ))} */}
+          &lt;/div>
+        )}
+
+        &lt;div className="columns is-mobile">
+          &lt;div className="column is-12 content">
+            &lt;h3 className="title">mixData object&lt;/h3>
+            &lt;pre>{JSON.stringify(mixData, null, 2)}&lt;/pre>
+          &lt;/div>
+        &lt;/div>
+      &lt;/article>
     &lt;/main>
   );
 }
 
-export default SupportPage;
-
-SupportPage.propTypes = {
-  leadFeatureData: PropTypes.exact({
-    _meta: PropTypes.object.isRequired,
-    body: PropTypes.arrayOf(PropTypes.object),
-  }),
-  allOtherFeatures: PropTypes.arrayOf(PropTypes.object),
-};
-
 export const query = graphql`
-  query SupportPage {
+  query MixTemplatePage($uid: String) {
     prismic {
-      allSupports {
+      allMixs(uid: $uid) {
         edges {
           node {
-            support_cta
-            support_cta_bg_img
-            support_cta_hook
-            body {
-              ... on PRISMIC_SupportBodyOne_image_and_text {
-                type
-                primary {
-                  oiat_layout
-                  oiat_text
-                  oiat_img
+            _meta {
+              uid
+              type
+              tags
+            }
+            mix_date
+            mix_image
+            mix_link
+            mix_title
+            mix_blurb
+            featured_residents {
+              mix_resident {
+                ... on PRISMIC_Resident {
+                  _meta {
+                    uid
+                    type
+                  }
+                  resident_image
+                  resident_name
+                }
+              }
+            }
+            related_events {
+              mix_event {
+                ... on PRISMIC_Event {
+                  _linkType
+                  _meta {
+                    type
+                    uid
+                  }
                 }
               }
             }
@@ -192,6 +272,8 @@ export const query = graphql`
     }
   }
 `;
+
+export default MixTemplate;
 </code></pre>
         </article>
     </section>

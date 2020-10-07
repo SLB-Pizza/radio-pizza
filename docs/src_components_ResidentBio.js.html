@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> src/pages/support/index.js</title>
+  <title> src/components/ResidentBio.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>src/pages/support/index.js</h1>
+                    <h1>src/components/ResidentBio.js</h1>
                 </header>
                 
 
@@ -90,108 +90,63 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React from "react";
-import { Link, graphql } from "gatsby";
-import Highlight, { defaultProps } from "prism-react-renderer";
-import { StickyFeature, SliceZone } from "../../components";
-import { ParallaxHeadline } from "../../components/slices";
-import PropTypes from "prop-types";
+import { RichText } from "prismic-reactjs";
+import { ResidentSocialLinks } from "../utils";
+import NanoClamp from "nanoclamp";
 
 /**
- * @category Pages
- * @subcategory Indexes
- * @function SupportPage
- * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/features` landing page
+ * @category Layout Helper
+ * @function ResidentBio
+ * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/residents` landing page
  * @returns {jsx}
  */
-function SupportPage({ data }) {
-  /**
-   * Focus the node for the prismicContent check below.
-   */
-  const prismicContent = data.prismic.allSupports.edges[0];
 
-  /**
-   * This line is here to prevent an error from occurring when you eventually deploy the site live. There is an issue with the preview functionality that requires this check on every page.
-   * @see https://prismic.io/docs/gatsby/rendering/retrieve-the-document-object#21_0-adding-a-validation-check
-   */
-  if (!prismicContent) return null;
-
-  /**
-   * Grab the first node object from the prismicContent array of nodes to pass as leadfeatureData prop to StickyFeature.
-   *
-   * The data from the 'FeaturesIndexPage' query comes pre-sorted to show the most recent published feature, NOT the most recently updated.
-   *
-   * The remaining array of node objects can be mapped over normally using XYZ_Component.
-   */
-  const supportPageData = prismicContent.node;
-
-  /**
-   * Pull out parts from supportPageData to make passing data easier.
-   */
-  const supportHeader = {
-    cta: supportPageData.support_cta,
-    hook: supportPageData.support_cta_hook,
-    img: supportPageData.support_cta_bg_img,
-  };
-  const supportSlice = supportPageData.body;
+function ResidentBio({ residentData }) {
+  const {
+    resident_image,
+    resident_name,
+    resident_status,
+    resident_blurb,
+    social_media,
+  } = residentData;
 
   return (
-    &lt;main className="full-height-page">
-      {/* &lt;StickyFeature leadFeatureData={leadFeatureData} /> */}
-      &lt;ParallaxHeadline
-        cta={supportHeader.cta}
-        hook={supportHeader.hook}
-        imgObj={supportHeader.img}
-      />
-      &lt;SliceZone sliceZone={supportSlice} />
-      &lt;hr />
-
-      &lt;section className="container is-fluid">
-        &lt;div className="columns is-multiline">
-          &lt;div className="column is-12">
-            &lt;h1 className="title">supportSlice&lt;/h1>
-            &lt;pre>{JSON.stringify(supportSlice, null, 2)}&lt;/pre>
-          &lt;/div>
+    &lt;div className="column is-3-desktop is-4-tablet is-12-mobile sticky-bio">
+      &lt;div className="columns is-multiline">
+        &lt;div className="column is-12">
+          &lt;figure className="image is-1by1">
+            &lt;img src={resident_image.url} alt={resident_image.alt} />
+          &lt;/figure>
         &lt;/div>
-      &lt;/section>
-    &lt;/main>
+        &lt;div className="column is-12 content">
+          &lt;NanoClamp
+            className="title is-size-4-desktop is-size-5-touch"
+            is="p"
+            lines={2}
+            text={resident_name}
+          />
+          &lt;p className="subtitle is-size-6-desktop is-size-7-touch">
+            {resident_status}
+          &lt;/p>
+          {RichText.render(resident_blurb)}
+        &lt;/div>
+      &lt;/div>
+      &lt;div className="columns is-mobile is-multiline is-vcentered">
+        {social_media.map(
+          ({ resident_social_page, resident_social_link }, index) => (
+            &lt;ResidentSocialLinks
+              key={`social-link-${index}-${resident_social_page}`}
+              url={resident_social_link.url}
+              platform={resident_social_page}
+            />
+          )
+        )}
+      &lt;/div>
+    &lt;/div>
   );
 }
 
-export default SupportPage;
-
-SupportPage.propTypes = {
-  leadFeatureData: PropTypes.exact({
-    _meta: PropTypes.object.isRequired,
-    body: PropTypes.arrayOf(PropTypes.object),
-  }),
-  allOtherFeatures: PropTypes.arrayOf(PropTypes.object),
-};
-
-export const query = graphql`
-  query SupportPage {
-    prismic {
-      allSupports {
-        edges {
-          node {
-            support_cta
-            support_cta_bg_img
-            support_cta_hook
-            body {
-              ... on PRISMIC_SupportBodyOne_image_and_text {
-                type
-                primary {
-                  oiat_layout
-                  oiat_text
-                  oiat_img
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
+export default ResidentBio;
 </code></pre>
         </article>
     </section>

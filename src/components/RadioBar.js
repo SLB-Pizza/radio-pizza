@@ -120,16 +120,17 @@ function RadioBar({ nycTime, laTime }) {
     }
   }, [data, loading, error]);
 
-  useEffect(() => {
-    async function getRadioData() {
-      const result = await axios(
-        "https://public.radio.co/stations/sa3c47c55b/status"
-      );
-      // console.log("radio data ->", result.data.status);
-      setRadioData(result.data.status);
-    }
-    getRadioData();
-  }, []);
+  // Currently offline! Not gonna work until HMBK pays for it
+  // useEffect(() => {
+  //   async function getRadioData() {
+  //     const result = await axios(
+  //       "https://public.radio.co/stations/sa3c47c55b/"
+  //     );
+  //     // console.log("radio data ->", result.data.status);
+  //     setRadioData(result.data.status);
+  //   }
+  //   return getRadioData();
+  // }, []);
 
   return (
     <div className="container is-fluid radio-bar">

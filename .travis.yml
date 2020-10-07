@@ -19,8 +19,8 @@ script:
 deploy:
   provider: netlify
   edge: true # opt in to dpl v2
-  auth: NETLIFY_AUTH_TOKEN=<auth>
-  site: NETLIFY_SITE_ID=<site>
+  auth: NETLIFY_AUTH_TOKEN
+  site: NETLIFY_SITE_ID
   cleanup: true
   on:
     branch: deploy

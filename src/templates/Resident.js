@@ -18,7 +18,6 @@ import { nullDataCheck } from "../utils";
  */
 function ResidentTemplate({ data }) {
   const [isOpen, setIsOpen] = useState("Mixes");
-  const [hasData, setData] = useState(false);
   const [hasMixes, setMixesData] = useState(false);
   const [hasEvents, setEventsData] = useState(false);
   const [hasFeatures, setFeaturesData] = useState(false);
@@ -34,8 +33,7 @@ function ResidentTemplate({ data }) {
     ...rest
   } = residentData;
 
-  const residentCardLayout = "column is-12-touch is-6-desktop is-4-widescreen";
-  let residentColumns = ["Mixes", "Events", "Features"];
+  const residentCardLayout = "column is-12-mobile is-6-tablet is-4-widescreen";
 
   function toggleColumn(event) {
     if (isOpen !== event.currentTarget.id) {
@@ -43,17 +41,19 @@ function ResidentTemplate({ data }) {
     }
   }
 
+  /**
+   * When Gatsby receives the Prismic data, perform a {@link nullDataCheck} on the Resident's data object to determine which selection columns should be displayed to avoid having empty categories displayed.
+   */
   useEffect(() => {
     const dataCheck = () => {
       if (data) {
-        setData(true);
-        if (nullDataCheck(resident_mixes)) {
+        if (!nullDataCheck(resident_mixes)) {
           setMixesData(true);
         }
-        if (nullDataCheck(resident_events)) {
+        if (!nullDataCheck(resident_events)) {
           setEventsData(true);
         }
-        if (nullDataCheck(resident_features)) {
+        if (!nullDataCheck(resident_features)) {
           setFeaturesData(true);
         }
       }
@@ -71,23 +71,55 @@ function ResidentTemplate({ data }) {
 
         {/* RESIDENT MIX, EVENT, FEATURE SECTION */}
         <div className="column is-8-tablet is-9-desktop resident-content">
-          <div className="columns is-mobile">
+          <div className="columns is-mobile selector">
             {/* COLUMN SELECTOR BUTTONS */}
-            {residentColumns.map((type, index) => (
-              <div className="column" key={`column-${index}-${type}`}>
+            {hasMixes ? (
+              <div className="column">
                 <button
                   className={
-                    isOpen === type
+                    isOpen === "Mixes"
                       ? "button active is-fullwidth is-outlined is-rounded display-text"
                       : "button is-fullwidth is-outlined is-rounded display-text"
                   }
-                  id={type}
+                  id="Mixes"
                   onClick={toggleColumn}
                 >
-                  {type}
+                  Mixes
                 </button>
               </div>
-            ))}
+            ) : null}
+
+            {hasEvents ? (
+              <div className="column">
+                <button
+                  className={
+                    isOpen === "Events"
+                      ? "button active is-fullwidth is-outlined is-rounded display-text"
+                      : "button is-fullwidth is-outlined is-rounded display-text"
+                  }
+                  id="Events"
+                  onClick={toggleColumn}
+                >
+                  Events
+                </button>
+              </div>
+            ) : null}
+
+            {hasFeatures ? (
+              <div className="column">
+                <button
+                  className={
+                    isOpen === "Features"
+                      ? "button active is-fullwidth is-outlined is-rounded display-text"
+                      : "button is-fullwidth is-outlined is-rounded display-text"
+                  }
+                  id="Features"
+                  onClick={toggleColumn}
+                >
+                  Features
+                </button>
+              </div>
+            ) : null}
           </div>
 
           {/* RESIDENT MIXES */}

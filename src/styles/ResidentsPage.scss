@@ -26,3 +26,14 @@
   display: flex;
   justify-content: center;
 }
+
+.selector {
+  @include tablet {
+    margin-top: -1.25rem;
+    background-color: black;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 6.625rem;
+    z-index: 99;
+  }
+}

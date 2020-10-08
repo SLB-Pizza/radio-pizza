@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { RichText } from "prismic-reactjs";
 import { ResidentSocialLinks } from "../utils";
@@ -41,7 +42,8 @@ function ResidentBio({ residentData }) {
         </div>
       </div>
       <div className="columns is-mobile is-multiline is-vcentered">
-        {social_media.map(
+        {/* <pre>{JSON.stringify(social_media, null, 2)}</pre> */}
+        {/* {social_media.map(
           ({ resident_social_page, resident_social_link }, index) => (
             <ResidentSocialLinks
               key={`social-link-${index}-${resident_social_page}`}
@@ -49,10 +51,25 @@ function ResidentBio({ residentData }) {
               platform={resident_social_page}
             />
           )
-        )}
+        )} */}
       </div>
     </div>
   );
 }
 
 export default ResidentBio;
+
+ResidentBio.propTypes = {
+  residentData: PropTypes.shape({
+    resident_image: PropTypes.shape({
+      dimensions: PropTypes.shape({
+        width: PropTypes.string,
+        height: PropTypes.string,
+      }),
+    }).isRequired,
+    resident_name: PropTypes.string,
+    resident_status: PropTypes.string,
+    resident_blurb: PropTypes.arrayOf(PropTypes.object),
+    social_media: PropTypes.arrayOf(PropTypes.object),
+  }),
+};

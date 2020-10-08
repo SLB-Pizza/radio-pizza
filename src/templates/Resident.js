@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
 import {
@@ -66,15 +67,15 @@ function ResidentTemplate({ data }) {
     <div className="container is-fluid full-height-page">
       <div className="columns is-multiline">
         <ResidentBio residentData={rest} />
-
+        -
         <hr className="is-hidden-desktop" />
-
         {/* RESIDENT MIX, EVENT, FEATURE SECTION */}
         <div className="column is-8-tablet is-9-desktop resident-content">
           <div className="columns is-mobile selector">
             {/* COLUMN SELECTOR BUTTONS */}
             {hasMixes ? (
               <div className="column">
+                {/* TABLET */}
                 <button
                   className={
                     isOpen === "Mixes"
@@ -180,6 +181,16 @@ function ResidentTemplate({ data }) {
     </div>
   );
 }
+
+ResidentTemplate.propTypes = {
+  data: PropTypes.shape({
+    prismic: PropTypes.shape({
+      allResidents: PropTypes.shape({
+        edges: PropTypes.array,
+      }),
+    }),
+  }),
+};
 
 export const query = graphql`
   query ResidentTemplateQuery($uid: String) {

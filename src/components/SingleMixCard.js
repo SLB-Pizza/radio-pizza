@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { Link } from "gatsby";
 import NanoClamp from "nanoclamp";
@@ -37,7 +38,6 @@ function SingleMixCard({ mixData, columnLayout, path }) {
   };
 
   const mixDate = formatDateTime(mix_date, "year-month-day");
-
   const mixResidentsString = getResidentString(featured_residents);
 
   return (
@@ -97,5 +97,39 @@ function SingleMixCard({ mixData, columnLayout, path }) {
     </div>
   );
 }
+
+SingleMixCard.propTypes = {
+  columnLayout: PropTypes.string.isRequired,
+  mixData: PropTypes.shape({
+    _meta: PropTypes.shape({
+      tags: PropTypes.arrayOf(PropTypes.string),
+      uid: PropTypes.string.isRequired,
+      type: PropTypes.oneOf([
+        "cms_guide",
+        "event",
+        "feature",
+        "mix",
+        "page",
+        "resident",
+      ]),
+    }),
+    mix_date: PropTypes.string.isRequired,
+    mix_title: PropTypes.string.isRequired,
+    mix_link: PropTypes.string.isRequired,
+    mix_image: PropTypes.shape({
+      dimensions: PropTypes.shape({
+        width: PropTypes.string.isRequired,
+        height: PropTypes.string.isRequired,
+      }),
+      alt: PropTypes.string,
+      copyright: PropTypes.string,
+      url: PropTypes.string.isRequired,
+      medium: PropTypes.object,
+      now_playing: PropTypes.object,
+      featured_residents: PropTypes.arrayOf(PropTypes.object),
+    }),
+  }).isRequired,
+  path: PropTypes.string,
+};
 
 export default SingleMixCard;

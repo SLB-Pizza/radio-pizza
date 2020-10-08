@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React, { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
@@ -60,3 +61,16 @@ function MixPlayOverlay({ url, title, residents, img, wrapperClassName }) {
 }
 
 export default MixPlayOverlay;
+MixPlayOverlay.propTypes = {
+  img: PropTypes.shape({
+    alt: PropTypes.string,
+    now_playing: PropTypes.shape({
+      url: PropTypes.string,
+    }),
+    url: PropTypes.string,
+  }),
+  residents: PropTypes.string,
+  title: PropTypes.string,
+  url: PropTypes.string,
+  wrapperClassName: PropTypes.string,
+};

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -29,7 +30,7 @@ function ResidentSocialLinks({ url, platform }) {
 
   switch (platform) {
     case "Personal Site":
-      break;
+      break; // Use the globe
     case "Spotify":
       icon = faSpotify;
       break;
@@ -65,5 +66,10 @@ function ResidentSocialLinks({ url, platform }) {
     </div>
   );
 }
+
+ResidentSocialLinks.propTypes = {
+  platform: PropTypes.string,
+  url: PropTypes.string,
+};
 
 export default ResidentSocialLinks;

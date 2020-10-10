@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> src/components/SliceZone.js</title>
+  <title> src/components/TagButtons.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>src/components/SliceZone.js</h1>
+                    <h1>src/components/TagButtons.js</h1>
                 </header>
                 
 
@@ -89,90 +89,44 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React from "react";
-import {
-  ArticleHeadline,
-  Blockquote,
-  HeadlineBlock,
-  ImageRow,
-  FullWidthImage,
-  OneImageAndText,
-  TwoImagesAndText,
-  TextBlock,
-} from "./slices";
+            <pre class="prettyprint source linenums"><code>import PropTypes from "prop-types";
+import React from "react";
 
 /**
- * Receives params as props from a template file. Processes the sliceZone object to match slice types, the keys in sliceComponents, to their corresponding component values.
+ * Makes tag buttons.
  *
- * **Why is sliceZoneContent is returned in a fragment and not wrapped in an element?**
+ * Used in:
+ * - {@link SingleMixCard}
  *
- * The template that has the query for the data to pass as props into SliceZone returns a structure as follows:
- *
- * ```html
- * &lt;main className="full-height-page">
- *    &lt;SliceZone
-        sliceZone={featureSliceData}
-        featureMetadata={featureMetadata}
-      />
- * &lt;/main>
- * ```
- *
- * Each CMS Slice returned by SliceZone is wrapped in a `&lt;section>` element, so if we did, there would be unnecessary elements between `&lt;main>` and the
- * `&lt;section>`
- *
- * e.g.
- * ```html
- * &lt;main className="full-height-page">
- *    &lt;div>
- *      &lt;section>{slice layout here}&lt;/section>
- *    &lt;/div>
- * &lt;/main>
- * ```
- *
- * @function sliceZone
- * @param {Object} props
- * @param {Object} props.sliceZone
- * @param {Object} props.metadata
- * @returns {jsx} Returns components selected by sliceComponents key that have been hydrated with data to create the given page's layout.
+ * @category Layout Helper
+ * @function TagButtons
+ * @param {String[]} tagsArray - array of strings that are used to make the individual tag buttons
+ * @returns {jsx} a button with the tag as the label
  */
+function TagButtons({ tagsArray }) {
+  return (
+    &lt;div className="buttons are-tags">
+      {tagsArray.map((tag, index) => {
+        const lowercaseTag = tag.toLowerCase();
 
-function SliceZone({ sliceZone, metadata }) {
-  /**
-   * Pair the imported CMS Slice Components with their Prismic API "type" value.
-   * `{prismic_slice_type: SliceComponent}`
-   */
-  const sliceComponents = {
-    blockquote: Blockquote,
-    full_width_image: FullWidthImage,
-    headline_block: ArticleHeadline,
-    row_of_images: ImageRow,
-    one_image_and_text1: OneImageAndText,
-    two_images_and_text: TwoImagesAndText,
-    text: TextBlock,
-  };
-
-  const sliceZoneContent = sliceZone.map((slice, index) => {
-    /**
-     * Grab the CMS Slice by using slice.type as the key for sliceComponents
-     */
-    const SliceComponent = sliceComponents[slice.type];
-
-    if (SliceComponent) {
-      return (
-        &lt;SliceComponent
-          slice={slice}
-          metadata={metadata}
-          key={`slice-${index}`}
-        />
-      );
-    }
-    return null;
-  });
-
-  return &lt;>{sliceZoneContent}&lt;/>;
+        return (
+          &lt;button
+            key={`button-tag-#${index}`}
+            className="button is-small is-outlined is-rounded"
+          >
+            {lowercaseTag}
+          &lt;/button>
+        );
+      })}
+    &lt;/div>
+  );
 }
 
-export default SliceZone;
+export default TagButtons;
+
+TagButtons.propTypes = {
+  tagsArray: PropTypes.arrayOf(PropTypes.string),
+};
 </code></pre>
         </article>
     </section>

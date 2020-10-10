@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> src/components/SliceZone.js</title>
+  <title> src/utils/mappableDataCheck.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>src/components/SliceZone.js</h1>
+                    <h1>src/utils/mappableDataCheck.js</h1>
                 </header>
                 
 
@@ -89,90 +89,115 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React from "react";
-import {
-  ArticleHeadline,
-  Blockquote,
-  HeadlineBlock,
-  ImageRow,
-  FullWidthImage,
-  OneImageAndText,
-  TwoImagesAndText,
-  TextBlock,
-} from "./slices";
-
-/**
- * Receives params as props from a template file. Processes the sliceZone object to match slice types, the keys in sliceComponents, to their corresponding component values.
+            <pre class="prettyprint source linenums"><code>/**
+ * Function that checks a Prismic data subarray's objects to see if any have key-value pairs that are null. Reason is to avoid Layout Helper component mapping errors because the array of elements had a top-level null value.
  *
- * **Why is sliceZoneContent is returned in a fragment and not wrapped in an element?**
+ * **Use Case -- Filtering out data subobjects from null key-value pairs to make them mappable**
  *
- * The template that has the query for the data to pass as props into SliceZone returns a structure as follows:
+ * In the {@link ResidentTemplate}, the template receives Prismic data and is eventually deconstructed for use through its layout components:
  *
- * ```html
- * &lt;main className="full-height-page">
- *    &lt;SliceZone
-        sliceZone={featureSliceData}
-        featureMetadata={featureMetadata}
-      />
- * &lt;/main>
+ * ```js
+ * const {
+ *   resident_mixes,
+ *   resident_features,
+ *   resident_events,
+ *   ...rest
+ * } = residentData;
+ * ```
+ * `resident_mixes`, `resident_features`, and `resident_events` are data subarrays that any mix, feature, or event data objects the Resident has associated with them. Not all residents will associated features or events (they might not have a mix, but that'd likely be down to human error in the CMS).
+ *
+ * **Example Prismic data subarrays**
+ *
+ * Prismic data `resident_events` subarray to immediately reject:
+ * ```
+ *  resident_events = [ { "resident_event": null } ]
+ *
+ * - Contains no valid resident_event objects; cannot map over this
  * ```
  *
- * Each CMS Slice returned by SliceZone is wrapped in a `&lt;section>` element, so if we did, there would be unnecessary elements between `&lt;main>` and the
- * `&lt;section>`
+ * Prismic data `resident_events` subarray containing both valid and invalid `resident_mix` data objects. The invalid object must be filtered out and the subarray returned to the Layout Helper component on {@link ResidentTemplate}
+ * ```
+ * [
+ *   {
+ *     resident_mix: {        // &lt;-- valid resident_mix object; can be passed as props to Component
+ *       _meta: {},
+ *       mix_image: {},
+ *       mix_title: "string of title of mix here",
+ *       mix_link: "string of mix URL here",
+ *       mix_date: "string of mix date here",
+ *       featured_residents: [{}],
+ *     },
+ *   },
+ *   { resident_mix: null },  // &lt;-- filter this out to make array mappable for component
+ * ];
  *
- * e.g.
- * ```html
- * &lt;main className="full-height-page">
- *    &lt;div>
- *      &lt;section>{slice layout here}&lt;/section>
- *    &lt;/div>
- * &lt;/main>
+ * - Contains at least one valid data object
  * ```
  *
- * @function sliceZone
- * @param {Object} props
- * @param {Object} props.sliceZone
- * @param {Object} props.metadata
- * @returns {jsx} Returns components selected by sliceComponents key that have been hydrated with data to create the given page's layout.
+ * **Difference between empty arrays and null-value blank objects**
+ *
+ * ```json
+ * let sampleResidentData = {
+ *   resident_image: {
+ *     dimensions: {
+ *       width: 770,
+ *       height: 770,
+ *     },
+ *     alt: "Thank You Scientist",
+ *     copyright: null,
+ *     url:
+ *       "https://images.prismic.io/hmbk-cms/* 5004e5ad-418c-4046-b95f-2d978d251115_thank-you-scientist.webp?* auto=compress,format",
+ *   },
+ *   resident_name: "DJ ABC",
+ *   resident_status: "Resident",
+ *   resident_blurb: [
+ *     {
+ *       type: "paragraph",
+ *       text: "",
+ *       spans: [],
+ *     },
+ *   ],
+ *   social_media: [], // &lt;-- no entries, no blanks in CMS group field
+ *   resident_mixes: [], // &lt;-- no entries, no blanks in CMS group field
+ *   resident_features: [
+ *     {
+ *       resident_feature: null, // &lt;-- 1 entry, left blank, added to that CMS group field
+ *     },
+ *   ],
+ *   resident_events: [
+ *     {
+ *       resident_event: null, // &lt;-- 1 entry, left blank, added to that CMS group field
+ *     },
+ *   ],
+ * };
+ * ```
+ * Used by:
+ * - {@link ResidentTemplate}
+ * @category Utilities
+ * @function mappableDataCheck
+ * @param {Array} dataArray
+ * @returns {Boolean|Array}
  */
-
-function SliceZone({ sliceZone, metadata }) {
-  /**
-   * Pair the imported CMS Slice Components with their Prismic API "type" value.
-   * `{prismic_slice_type: SliceComponent}`
-   */
-  const sliceComponents = {
-    blockquote: Blockquote,
-    full_width_image: FullWidthImage,
-    headline_block: ArticleHeadline,
-    row_of_images: ImageRow,
-    one_image_and_text1: OneImageAndText,
-    two_images_and_text: TwoImagesAndText,
-    text: TextBlock,
-  };
-
-  const sliceZoneContent = sliceZone.map((slice, index) => {
-    /**
-     * Grab the CMS Slice by using slice.type as the key for sliceComponents
-     */
-    const SliceComponent = sliceComponents[slice.type];
-
-    if (SliceComponent) {
-      return (
-        &lt;SliceComponent
-          slice={slice}
-          metadata={metadata}
-          key={`slice-${index}`}
-        />
-      );
-    }
-    return null;
-  });
-
-  return &lt;>{sliceZoneContent}&lt;/>;
+export default function mappableDataCheck(dataArray) {
+  // Immediately reject dataArray if it's not an array OR empty
+  if (Array.isArray(dataArray) &amp;&amp; dataArray.length !== 0) {
+    // It's an array with at least one entry
+    // Begin checks on entry key-value pairs
+    let filteredArr = dataArray.filter((singleDataObject) => {
+      // Each data object should contain only one key-value pair
+      if (Object.entries(singleDataObject).length !== 1) {
+        return false;
+      }
+      // The value inside the singleDataObject is not null
+      if (Object.values(singleDataObject)[0] === null) {
+        return false;
+      }
+      return true;
+    });
+    return filteredArr;
+  }
+  return -1;
 }
-
-export default SliceZone;
 </code></pre>
         </article>
     </section>

@@ -7,7 +7,7 @@ import {
   ResidentBio,
   SingleMixCard,
 } from "../components";
-import { nullDataCheck } from "../utils";
+import { mappableDataCheck } from "../utils";
 
 /**
  * @category Templates
@@ -19,9 +19,9 @@ import { nullDataCheck } from "../utils";
  */
 function ResidentTemplate({ data }) {
   const [isOpen, setIsOpen] = useState("Mixes");
-  const [hasMixes, setMixesData] = useState(false);
-  const [hasEvents, setEventsData] = useState(false);
-  const [hasFeatures, setFeaturesData] = useState(false);
+  const [hasMixes, setMixesData] = useState(true);
+  const [hasEvents, setEventsData] = useState(true);
+  const [hasFeatures, setFeaturesData] = useState(true);
 
   const prismicContent = data.prismic.allResidents.edges[0];
   if (!prismicContent) return null;
@@ -43,31 +43,33 @@ function ResidentTemplate({ data }) {
   }
 
   /**
-   * When Gatsby receives the Prismic data, perform a {@link nullDataCheck} on the Resident's data object to determine which selection columns should be displayed to avoid having empty categories displayed.
+   * When Gatsby receives the Prismic data, perform a {@link mappableDataCheck} on the Resident's data object to determine which selection columns should be displayed to avoid having empty categories displayed.
    */
-  useEffect(() => {
-    const dataCheck = () => {
-      if (data) {
-        if (!nullDataCheck(resident_mixes)) {
-          setMixesData(true);
-        }
-        if (!nullDataCheck(resident_events)) {
-          setEventsData(true);
-        }
-        if (!nullDataCheck(resident_features)) {
-          setFeaturesData(true);
-        }
-      }
-    };
+  // useEffect(() => {
+  //   const dataCheck = () => {
+  //     if (data) {
+  // mappableDataCheck(resident_mixes);
+  // mappableDataCheck(resident_events);
+  // mappableDataCheck(resident_features);
+  //       if (!mappableDataCheck(resident_mixes)) {
+  //         setMixesData(true);
+  //       }
+  //       if (!mappableDataCheck(resident_events)) {
+  //         setEventsData(true);
+  //       }
+  //       if (!mappableDataCheck(resident_features)) {
+  //         setFeaturesData(true);
+  //       }
+  //     }
+  //   };
 
-    return dataCheck();
-  }, [data, resident_mixes, resident_events, resident_features]);
+  //   return dataCheck();
+  // }, [data, resident_mixes, resident_events, resident_features]);
 
   return (
     <div className="container is-fluid full-height-page">
       <div className="columns is-multiline">
-        <ResidentBio residentData={rest} />
-        -
+        <ResidentBio residentBioData={rest} />
         <hr className="is-hidden-desktop" />
         {/* RESIDENT MIX, EVENT, FEATURE SECTION */}
         <div className="column is-8-tablet is-9-desktop resident-content">
@@ -136,7 +138,9 @@ function ResidentTemplate({ data }) {
                   columnLayout={residentCardLayout}
                 />
               ))}
-              <pre>{JSON.stringify(resident_mixes, null, 2)}</pre>
+              {/* <pre>
+                Resident Mixes {JSON.stringify(resident_mixes, null, 2)}
+              </pre> */}
             </div>
           ) : null}
 
@@ -175,7 +179,7 @@ function ResidentTemplate({ data }) {
             </div>
           ) : null}
 
-          {/* <pre>{JSON.stringify(residentData, null, 2)}</pre> */}
+          <pre>All Resident Data {JSON.stringify(residentData, null, 2)}</pre>
         </div>
       </div>
     </div>

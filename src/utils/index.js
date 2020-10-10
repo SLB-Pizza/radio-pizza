@@ -1,4 +1,12 @@
 /**
+ * Special Prismic Utility Functions
+ *
+ * Functions that tie deeply into the HMBK's Prismic Integration
+ */
+export { default as htmlSerializer } from "./htmlSerializer";
+export { default as linkResolver } from "./linkResolver";
+
+/**
  * Utility Functions - Data Processing
  *
  * These utility functions are called throughout this projects to help with data processing.
@@ -8,9 +16,7 @@ export { default as formatNextShow } from "./formatNextShow";
 export { default as getBlockquoteStyling } from "./getBlockquoteStyling";
 export { default as getResidentLinks } from "./getResidentLinks";
 export { default as getResidentString } from "./getResidentString";
-export { default as htmlSerializer } from "./htmlSerializer";
-export { default as linkResolver } from "./linkResolver";
-export { default as nullDataCheck } from "./nullDataCheck";
+export { default as mappableDataCheck } from "./mappableDataCheck";
 export { default as processPublicationDates } from "./processPublicationDates";
 
 /**

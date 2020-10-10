@@ -11,14 +11,14 @@ import NanoClamp from "nanoclamp";
  * @returns {jsx}
  */
 
-function ResidentBio({ residentData }) {
+function ResidentBio({ residentBioData }) {
   const {
     resident_image,
     resident_name,
     resident_status,
     resident_blurb,
     social_media,
-  } = residentData;
+  } = residentBioData;
 
   return (
     <div className="column is-3-desktop is-4-tablet is-12-mobile sticky-bio">

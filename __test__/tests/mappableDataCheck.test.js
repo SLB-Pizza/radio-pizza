@@ -3,37 +3,42 @@ import { mappableDataCheck } from "../../src/utils";
 
 describe("mappableDataCheck", () => {
   // Immediate rejection
-  describe("returns -1", () => {
+  describe("returns 0", () => {
     it("when passed nothing", () => {
-      expect(mappableDataCheck()).to.equal(-1);
-    });
-
-    it("when passed an empty array ", () => {
-      expect(mappableDataCheck([])).to.equal(-1);
+      expect(mappableDataCheck()).to.equal(0);
     });
 
     it("when passed an empty object", () => {
-      expect(mappableDataCheck({})).to.equal(-1);
+      expect(mappableDataCheck({})).to.equal(0);
     });
-  });
 
-  // Is an array, but wrong contents
-  describe("returns an empty array when all entries are invalid", () => {
+    it("when passed an empty string", () => {
+      expect(mappableDataCheck("")).to.equal(0);
+    });
+
+    it("when passed a number", () => {
+      expect(mappableDataCheck(42)).to.equal(0);
+    });
+    it("when passed an empty array ", () => {
+      expect(mappableDataCheck([])).to.equal(0);
+    });
+
+    // Is an array, but with invalid entries
     it("when passed an array with a nested array within", () => {
-      expect(mappableDataCheck([[]])).to.eql([]);
+      expect(mappableDataCheck([[]])).to.equal(0);
     });
 
     it("when passed an array containing one empty object", () => {
-      expect(mappableDataCheck([{}])).to.eql([]);
+      expect(mappableDataCheck([{}])).to.equal(0);
     });
 
     it("when passed an array with multiple empty objects", () => {
-      expect(mappableDataCheck([{}, {}, {}])).to.eql([]);
+      expect(mappableDataCheck([{}, {}, {}])).to.equal(0);
     });
 
     it("when passed an array with an object containing a null key-value pair", () => {
       let nullKeyValue = [{ sample_field: null }];
-      expect(mappableDataCheck(nullKeyValue)).to.eql([]);
+      expect(mappableDataCheck(nullKeyValue)).to.equal(0);
     });
 
     it("when passed an array with one object containing multiple key-value pairs", () => {
@@ -45,7 +50,7 @@ describe("mappableDataCheck", () => {
         },
       ];
 
-      expect(mappableDataCheck(hasObjectWithMultipleKeys)).to.eql([]);
+      expect(mappableDataCheck(hasObjectWithMultipleKeys)).to.equal(0);
     });
 
     it("when passed an array with multiple objects, each containing a null key-value pair", () => {
@@ -56,7 +61,7 @@ describe("mappableDataCheck", () => {
         { sample_field: null },
         { sample_field: null },
       ];
-      expect(mappableDataCheck(allNullKeyValues)).to.eql([]);
+      expect(mappableDataCheck(allNullKeyValues)).to.equal(0);
     });
   });
 

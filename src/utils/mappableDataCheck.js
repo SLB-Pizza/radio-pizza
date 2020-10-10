@@ -92,6 +92,7 @@ export default function mappableDataCheck(dataArray) {
   if (Array.isArray(dataArray) && dataArray.length !== 0) {
     // It's an array with at least one entry
     // Begin checks on entry key-value pairs
+
     let filteredArr = dataArray.filter((singleDataObject) => {
       // Each data object should contain only one key-value pair
       if (Object.entries(singleDataObject).length !== 1) {
@@ -103,7 +104,13 @@ export default function mappableDataCheck(dataArray) {
       }
       return true;
     });
+
+    // If no array entries made it through the filter, return 0
+    if (filteredArr.length === 0) {
+      return 0;
+    }
+    // The filteredArr has at least one entry
     return filteredArr;
   }
-  return -1;
+  return 0;
 }

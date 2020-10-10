@@ -2,13 +2,14 @@ import PropTypes from "prop-types";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faTwitter,
-  faInstagram,
-  faSoundcloud,
-  faMixcloud,
-  faBandcamp,
-  faSpotify,
   faApple,
+  faBandcamp,
+  faFacebookSquare,
+  faInstagram,
+  faMixcloud,
+  faSoundcloud,
+  faSpotify,
+  faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 
@@ -31,26 +32,29 @@ function ResidentSocialLinks({ url, platform }) {
   switch (platform) {
     case "Personal Site":
       break; // Use the globe
-    case "Spotify":
-      icon = faSpotify;
-      break;
     case "Apple Music":
       icon = faApple;
-      break;
-    case "Twitter":
-      icon = faTwitter;
-      break;
-    case "Instagram":
-      icon = faInstagram;
-      break;
-    case "Soundcloud":
-      icon = faSoundcloud;
       break;
     case "Bandcamp":
       icon = faBandcamp;
       break;
+    case "Facebook":
+      icon = faFacebookSquare;
+      break;
+    case "Instagram":
+      icon = faInstagram;
+      break;
     case "Mixcloud":
       icon = faMixcloud;
+      break;
+    case "Soundcloud":
+      icon = faSoundcloud;
+      break;
+    case "Spotify":
+      icon = faSpotify;
+      break;
+    case "Twitter":
+      icon = faTwitter;
       break;
     default:
       return icon;

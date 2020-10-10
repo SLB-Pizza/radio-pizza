@@ -43,7 +43,7 @@ function ResidentBio({ residentBioData }) {
       </div>
       <div className="columns is-mobile is-multiline is-vcentered">
         {/* <pre>{JSON.stringify(social_media, null, 2)}</pre> */}
-        {/* {social_media.map(
+        {social_media.map(
           ({ resident_social_page, resident_social_link }, index) => (
             <ResidentSocialLinks
               key={`social-link-${index}-${resident_social_page}`}
@@ -51,7 +51,7 @@ function ResidentBio({ residentBioData }) {
               platform={resident_social_page}
             />
           )
-        )} */}
+        )}
       </div>
     </div>
   );

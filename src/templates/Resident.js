@@ -19,9 +19,9 @@ import { mappableDataCheck } from "../utils";
  */
 function ResidentTemplate({ data }) {
   const [isOpen, setIsOpen] = useState("Mixes");
-  const [hasMixes, setMixesData] = useState(true);
-  const [hasEvents, setEventsData] = useState(true);
-  const [hasFeatures, setFeaturesData] = useState(true);
+  const [hasMixes, setMixesData] = useState(false);
+  const [hasEvents, setEventsData] = useState(false);
+  const [hasFeatures, setFeaturesData] = useState(false);
 
   const prismicContent = data.prismic.allResidents.edges[0];
   if (!prismicContent) return null;
@@ -45,26 +45,23 @@ function ResidentTemplate({ data }) {
   /**
    * When Gatsby receives the Prismic data, perform a {@link mappableDataCheck} on the Resident's data object to determine which selection columns should be displayed to avoid having empty categories displayed.
    */
-  // useEffect(() => {
-  //   const dataCheck = () => {
-  //     if (data) {
-  // mappableDataCheck(resident_mixes);
-  // mappableDataCheck(resident_events);
-  // mappableDataCheck(resident_features);
-  //       if (!mappableDataCheck(resident_mixes)) {
-  //         setMixesData(true);
-  //       }
-  //       if (!mappableDataCheck(resident_events)) {
-  //         setEventsData(true);
-  //       }
-  //       if (!mappableDataCheck(resident_features)) {
-  //         setFeaturesData(true);
-  //       }
-  //     }
-  //   };
+  useEffect(() => {
+    const dataCheck = () => {
+      if (data) {
+        if (mappableDataCheck(resident_mixes)) {
+          setMixesData(true);
+        }
+        if (mappableDataCheck(resident_events)) {
+          setEventsData(true);
+        }
+        if (mappableDataCheck(resident_features)) {
+          setFeaturesData(true);
+        }
+      }
+    };
 
-  //   return dataCheck();
-  // }, [data, resident_mixes, resident_events, resident_features]);
+    return dataCheck();
+  }, [data, resident_mixes, resident_events, resident_features]);
 
   return (
     <div className="container is-fluid full-height-page">
@@ -127,10 +124,7 @@ function ResidentTemplate({ data }) {
 
           {/* RESIDENT MIXES */}
           {isOpen === "Mixes" ? (
-            <div
-              className="columns is-mobile is-multiline"
-              style={{ backgroundColor: "rebeccapurple" }}
-            >
+            <div className="columns is-mobile is-multiline">
               {resident_mixes.map(({ resident_mix }, index) => (
                 <SingleMixCard
                   key={`resident-mix-#${index}`}
@@ -146,10 +140,7 @@ function ResidentTemplate({ data }) {
 
           {/* RESIDENT EVENTS */}
           {isOpen === "Events" ? (
-            <div
-              className="columns is-mobile is-multiline"
-              style={{ backgroundColor: "rebeccapurple" }}
-            >
+            <div className="columns is-mobile is-multiline">
               {/* {resident_events.map(({ event }, index) => (
                 <SingleEventCard
                   key={`resident-event-#${index}`}
@@ -163,10 +154,7 @@ function ResidentTemplate({ data }) {
 
           {/* RESIDENT Features */}
           {isOpen === "Features" ? (
-            <div
-              className="columns is-mobile is-multiline"
-              style={{ backgroundColor: "rebeccapurple" }}
-            >
+            <div className="columns is-mobile is-multiline">
               {/* {resident_features.map((feature, index) => (
                 <LandingPageElement
                   key={`resident-feature-#${index}`}

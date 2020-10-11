@@ -19,7 +19,21 @@ describe("mappableDataCheck", () => {
     it("when passed a number", () => {
       expect(mappableDataCheck(42)).to.equal(0);
     });
-    it("when passed an empty array ", () => {
+
+    it("when passed undefined", () => {
+      expect(mappableDataCheck(undefined)).to.equal(0);
+    });
+
+    it("when passed null", () => {
+      expect(mappableDataCheck(null)).to.equal(0);
+    });
+    it("when passed false", () => {
+      expect(mappableDataCheck(false)).to.equal(0);
+    });
+  });
+
+  describe("returns 0 when passed an array with no valid entries", () => {
+    it("when passed an empty array", () => {
       expect(mappableDataCheck([])).to.equal(0);
     });
 
@@ -201,51 +215,106 @@ describe("mappableDataCheck", () => {
         },
       ]);
     });
+  });
+  describe("returns a correctly filtered array of mappable data", () => {
+    const testCaseMaker = () => {
+      let testCases = [];
 
-    it("when passed an array with multiple objects containing a null key-value pair", () => {
-      let validEntriesTotal = Math.ceil(Math.random() * 10);
-      let invalidEntriesTotal = Math.ceil(Math.random() * 10);
+      for (let i = 1; i <= 100; i++) {
+        let validEntriesTotal = Math.ceil(Math.random() * 500) + i + 99;
+        let invalidEntriesTotal = i;
+        let testArrayLength = validEntriesTotal + invalidEntriesTotal;
+        let validEntry = {
+          not_null: {
+            sub_key: "value",
+          },
+        };
 
-      let nullEntry = { is_null: null };
-      let validEntry = {
-        not_null: {
-          sub_key: "value",
-        },
-      };
+        // Array of all the bad entry test cases used so far
+        let badEntries = [
+          {},
+          "",
+          42,
+          undefined,
+          null,
+          false,
+          [],
+          [[]],
+          [{}],
+          [{}, {}, {}],
+          [{ sample_field: null }],
+          [
+            {
+              type: "paragraph",
+              text: "",
+              spans: [],
+            },
+          ],
+          [
+            { sample_field: null },
+            { sample_field: null },
+            { sample_field: null },
+            { sample_field: null },
+            { sample_field: null },
+          ],
+        ];
 
-      const arrayMaker = () => {
-        let validCount = 0;
-        let invalidCount = 0;
-        let mixedArray = [];
+        const arrayMaker = () => {
+          let validCount = 0;
+          let invalidCount = 0;
+          let mixedArray = [];
 
-        while (mixedArray.length !== validEntriesTotal + invalidEntriesTotal) {
-          if (validCount === validEntriesTotal) {
-            mixedArray.push(nullEntry);
-            invalidCount++;
-          } else if (invalidCount === invalidEntriesTotal) {
-            mixedArray.push(validEntry);
-            validCount++;
-          } else {
-            let validOrInvalid = Math.ceil(Math.random() * 2);
+          while (mixedArray.length !== testArrayLength) {
+            let badIndex = i % badEntries.length;
 
-            if (validOrInvalid === 1) {
-              mixedArray.push(nullEntry);
+            if (validCount === validEntriesTotal) {
+              // Randomly select and add an invalid entry
+              mixedArray.push(badEntries[badIndex]);
               invalidCount++;
-            } else {
+            } else if (invalidCount === invalidEntriesTotal) {
+              // Add a valid entry
               mixedArray.push(validEntry);
               validCount++;
+            } else {
+              // Flip a numeric coin
+              let validOrInvalid = Math.ceil(Math.random() * 2);
+
+              // if 1, add invalid; if 2, add valid
+              if (validOrInvalid === 1) {
+                mixedArray.push(badEntries[badIndex]);
+                invalidCount++;
+              } else {
+                mixedArray.push(validEntry);
+                validCount++;
+              }
             }
           }
-        }
-        return mixedArray;
-      };
+          return mixedArray;
+        };
 
-      let testArray = arrayMaker();
+        let testArray = arrayMaker();
+        // Create an array with validEntries # of empty slots and fill each slot with valid entry
+        let arrayMatch = Array(validEntriesTotal).fill(validEntry);
+        // Create 100 test cases to examine
+        testCases.push({
+          array: testArray,
+          allValid: arrayMatch,
+          invalid: invalidEntriesTotal,
+        });
+      }
 
-      // Create an array with validEntries # empty slots and fill each slot with valid entry
-      let arrayMatch = Array(validEntriesTotal).fill(validEntry);
+      return testCases;
+      // return testCases.sort((a, b) => a.array.length - b.array.length);
+    };
 
-      expect(mappableDataCheck(testArray)).to.eql(arrayMatch);
+    let hundredTestCases = testCaseMaker();
+
+    hundredTestCases.forEach((test) => {
+      it(`${test.array.length} entries; ${test.invalid} invalid ${
+        test.invalid === 1 ? "entry removed" : "entries removed"
+      }`, () => {
+        expect(mappableDataCheck(test.array)).to.eql(test.allValid);
+      });
     });
   });
 });

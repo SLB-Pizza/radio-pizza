@@ -12,11 +12,16 @@ before_script:
 script:
   - "npm run test"
 # https://docs.travis-ci.com/user/deployment-v2/providers/netlify/
+
+env:
+  - NETLIFY_SITE_ID=<site>
+  - NETLIFY_AUTH_TOKEN=<auth>
+
 deploy:
   provider: netlify
   edge: true # opt in to dpl v2
-  NETLIFY_AUTH_TOKEN=<auth>
-  NETLIFY_SITE_ID=<site>
+  site: <site>
+  auth: <auth>
   cleanup: true
   message: "Deploy triggered by Travis CI"
   on:

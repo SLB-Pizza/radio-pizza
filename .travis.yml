@@ -14,8 +14,7 @@ script:
 # https://docs.travis-ci.com/user/deployment-v2/providers/netlify/
 
 env:
-  - NETLIFY_SITE_ID=<site>
-  - NETLIFY_AUTH_TOKEN=<auth>
+  - NETLIFY_SITE_ID=<site> NETLIFY_AUTH_TOKEN=<auth>
 
 deploy:
   provider: netlify

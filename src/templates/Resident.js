@@ -59,7 +59,6 @@ function ResidentTemplate({ data }) {
         }
       }
     };
-
     return dataCheck();
   }, [data, resident_mixes, resident_events, resident_features]);
 

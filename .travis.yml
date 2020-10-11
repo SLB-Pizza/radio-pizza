@@ -2,33 +2,24 @@ language: node_js
 
 node_js:
   - "stable"
-
 cache:
   directories:
     - node_modules
-
 before_script:
   - "npm i -g gatsby"
   - "npm i"
-
 # Run mocha tests
 script:
   - "npm run test"
-
-env:
-  NETLIFY_AUTH_TOKEN: NETLIFY_AUTH_TOKEN
-  NETLIFY_SITE_ID: NETLIFY_SITE_ID
-
-
 # https://docs.travis-ci.com/user/deployment-v2/providers/netlify/
 deploy:
   provider: netlify
   edge: true # opt in to dpl v2
-  auth: NETLIFY_AUTH_TOKEN
-  site: NETLIFY_SITE_ID
+  NETLIFY_AUTH_TOKEN=<auth>
+  NETLIFY_SITE_ID=<site>
   cleanup: true
+  message: "Deploy triggered by Travis CI"
   on:
     branch: deploy
-
 notifications:
   slack: superluigibrospizza:Y1lW96ZU0ir2XFBSnfrBTvXU

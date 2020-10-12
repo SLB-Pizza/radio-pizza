@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { RichText } from "prismic-reactjs";
-import { ResidentSocialLinks } from "../utils";
+import { ResidentSocialLinks, mappableDataCheck } from "../utils";
 import NanoClamp from "nanoclamp";
+import { use } from "chai";
 
 /**
  * @category Layout Helper
@@ -12,6 +13,9 @@ import NanoClamp from "nanoclamp";
  */
 
 function ResidentBio({ residentBioData }) {
+  const [hasBlurb, setBlurbData] = useState(false);
+  const [hasSocialMedia, setMediaData] = useState(false);
+
   const {
     resident_image,
     resident_name,
@@ -19,6 +23,19 @@ function ResidentBio({ residentBioData }) {
     resident_blurb,
     social_media,
   } = residentBioData;
+
+  useEffect(() => {
+    const bioDataCheck = () => {
+      if (residentBioData) {
+        if (mappableDataCheck(resident_blurb)) {
+          setBlurbData(true);
+        }
+        if (mappableDataCheck(social_media)) {
+          setMediaData(true);
+        }
+      }
+    };
+  });
 
   return (
     <div className="column is-3-desktop is-4-tablet is-12-mobile sticky-bio">
@@ -38,20 +55,24 @@ function ResidentBio({ residentBioData }) {
           <p className="subtitle is-size-6-desktop is-size-7-touch">
             {resident_status}
           </p>
+          {/* <pre>{JSON.stringify(resident_blurb, null, 2)}</pre> */}
           {RichText.render(resident_blurb)}
         </div>
       </div>
       <div className="columns is-mobile is-multiline is-vcentered">
-        {/* <pre>{JSON.stringify(social_media, null, 2)}</pre> */}
-        {social_media.map(
-          ({ resident_social_page, resident_social_link }, index) => (
+        {/* {social_media
+          .filter((social_page) =>
+            Object.values(social_page).some(
+              (social_page_value) => social_page_value === null
+            )
+          )
+          .map(({ resident_social_page, resident_social_link }, index) => (
             <ResidentSocialLinks
               key={`social-link-${index}-${resident_social_page}`}
               url={resident_social_link.url}
               platform={resident_social_page}
             />
-          )
-        )}
+          ))} */}
       </div>
     </div>
   );

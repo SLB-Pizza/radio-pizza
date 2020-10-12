@@ -4,6 +4,7 @@ import { RichText } from "prismic-reactjs";
 import { ResidentSocialLinks, mappableDataCheck } from "../utils";
 import NanoClamp from "nanoclamp";
 import { use } from "chai";
+import { stringify } from "uuid";
 
 /**
  * @category Layout Helper
@@ -60,23 +61,26 @@ function ResidentBio({ residentBioData }) {
         </div>
       </div>
       <div className="columns is-mobile is-multiline is-vcentered">
-        {/* {social_media
-          .filter((social_page) =>
-            Object.values(social_page).some(
-              (social_page_value) => social_page_value === null
-            )
-          )
-          .map(({ resident_social_page, resident_social_link }, index) => (
-            <ResidentSocialLinks
-              key={`social-link-${index}-${resident_social_page}`}
-              url={resident_social_link.url}
-              platform={resident_social_page}
-            />
-          ))} */}
+        <pre>
+          {JSON.stringify(
+            social_media.filter((social_page) =>
+              Object.values(social_page).some((entry) => entry === null)
+            ),
+            null,
+            2
+          )}
+        </pre>
       </div>
     </div>
   );
 }
+// .map(({ resident_social_page, resident_social_link }, index) => (
+//   <ResidentSocialLinks
+//     key={`social-link-${index}-${resident_social_page}`}
+//     url={resident_social_link.url}
+//     platform={resident_social_page}
+//   />
+// ))
 
 export default ResidentBio;
 

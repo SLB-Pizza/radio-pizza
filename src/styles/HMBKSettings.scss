@@ -134,8 +134,9 @@ button {
   padding-top: 1rem;
 
   .button {
-    @include touch {
-      font-size: 0.65rem;
+    @include until-widescreen {
+      font-size: 0.625rem;
+
     }
     &:hover {
       font-style: italic;
@@ -198,17 +199,7 @@ figcaption {
 // Push the tagline after the title of a card down
 // Give the date of content items some space
 //================================================
-figure,
-img,
-.play-btn-diffuser {
-  border-top-left-radius: 0.75rem;
-  border-top-right-radius: 0.75rem;
-  transition: 0.5s ease;
-}
 
-img {
-  object-fit: cover;
-}
 
 // Prevents clipping of background color through the curved card border
 .card-content {
@@ -238,6 +229,9 @@ img {
 .mix-card-sizing {
   display: flex;
   flex-direction: column;
+  @include mobile {
+    min-height: 11.5rem;
+  }
   @include tablet {
     min-height: 12rem;
   }
@@ -259,11 +253,25 @@ img {
     transition: ease-in-out 0.5s;
   }
 }
+
 .card {
   border: 2px solid white;
   border-radius: 0.75rem;
   margin: 0 0.125rem;
   transition: 0.5s ease;
+
+  figure,
+  img,
+  .play-btn-diffuser {
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+    transition: 0.5s ease;
+  }
+
+  img {
+    object-fit: cover;
+  }
+
   &:hover {
     border: 2px solid $primary;
 

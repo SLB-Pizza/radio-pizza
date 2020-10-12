@@ -1,12 +1,8 @@
 import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
-import {
-  HMBKDivider,
-  LandingPageElement,
-  ResidentBio,
-  SingleMixCard,
-} from "../components";
+import NanoClamp from "nanoclamp";
+import { ResidentBio, SingleMixCard } from "../components";
 import { mappableDataCheck } from "../utils";
 
 /**
@@ -66,11 +62,10 @@ function ResidentTemplate({ data }) {
     <div className="container is-fluid full-height-page">
       <div className="columns is-multiline">
         <ResidentBio residentBioData={rest} />
-        <hr className="is-hidden-desktop" />
         {/* RESIDENT MIX, EVENT, FEATURE SECTION */}
         <div className="column is-8-tablet is-9-desktop resident-content">
-          <div className="columns is-mobile selector">
-            {/* COLUMN SELECTOR BUTTONS */}
+          {/* TABLET, DESKTOP CONTENT SELECTOR BUTTONS */}
+          <div className="columns is-mobile selector is-hidden-mobile">
             {hasMixes ? (
               <div className="column">
                 {/* TABLET */}
@@ -111,6 +106,66 @@ function ResidentTemplate({ data }) {
                     isOpen === "Features"
                       ? "button active is-fullwidth is-outlined is-rounded display-text"
                       : "button is-fullwidth is-outlined is-rounded display-text"
+                  }
+                  id="Features"
+                  onClick={toggleColumn}
+                >
+                  Features
+                </button>
+              </div>
+            ) : null}
+          </div>
+
+          {/* MOBILE CONTENT SELECTOR BUTTONS */}
+          <div className="columns is-mobile is-multiline selector is-hidden-tablet">
+            <div className="column is-12">
+              <NanoClamp
+                className="title is-size-5"
+                is="p"
+                lines={2}
+                text={rest.resident_name}
+              />
+            </div>
+            {hasMixes ? (
+              <div className="column">
+                {/* TABLET */}
+                <button
+                  className={
+                    isOpen === "Mixes"
+                      ? "button is-small active is-fullwidth is-outlined is-rounded display-text"
+                      : "button is-small is-fullwidth is-outlined is-rounded display-text"
+                  }
+                  id="Mixes"
+                  onClick={toggleColumn}
+                >
+                  Mixes
+                </button>
+              </div>
+            ) : null}
+
+            {hasEvents ? (
+              <div className="column">
+                <button
+                  className={
+                    isOpen === "Events"
+                      ? "button is-small active is-fullwidth is-outlined is-rounded display-text"
+                      : "button is-small is-fullwidth is-outlined is-rounded display-text"
+                  }
+                  id="Events"
+                  onClick={toggleColumn}
+                >
+                  Events
+                </button>
+              </div>
+            ) : null}
+
+            {hasFeatures ? (
+              <div className="column">
+                <button
+                  className={
+                    isOpen === "Features"
+                      ? "button is-small active is-fullwidth is-outlined is-rounded display-text"
+                      : "button is-small is-fullwidth is-outlined is-rounded display-text"
                   }
                   id="Features"
                   onClick={toggleColumn}

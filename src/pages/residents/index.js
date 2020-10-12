@@ -61,7 +61,7 @@ function ResidentsIndex({ data }) {
   return (
     <div className="container is-fluid black-bg-page">
       <div className="columns is-mobile is-multiline">
-        <div className="column is-full content">
+        <div className="column is-full">
           <h1 className="title">Halfmoon Residents</h1>
         </div>
 
@@ -139,3 +139,25 @@ export const query = graphql`
 `;
 
 export default ResidentsIndex;
+
+// Resident Square Image sizes
+// --- MOBILE ---
+// --- CMS Size: 500
+// --- min-max avg:  513.5---
+// --- mean:  495.67---
+// 767  - 695
+
+// 768  - 218
+// 1023 - 307
+
+// --- DESKTOP ---
+// --- min-max avg:  350---
+// --- mean:  329.33---
+// 1024 - 222
+// 1215 - 269
+
+// 1216 - 270
+// 1407 - 318
+
+// 1408 - 318
+// 1920 - 446

@@ -29,7 +29,7 @@ function SingleResident({ resident }) {
           <div className="card-content">
             <Nanoclamp
               is="p"
-              className="title has-text-centered is-size-6-mobile is-size-5-tablet"
+              className="title has-text-centered is-size-6"
               lines={2}
               text={resident_name}
             />

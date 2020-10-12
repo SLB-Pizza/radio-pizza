@@ -69,7 +69,6 @@ function ResidentBio({ residentBioData }) {
           {RichText.render(resident_blurb)}
         </div>
       </div>
-
       {hasSocialMedia ? (
         <div className="columns is-mobile is-multiline is-vcentered">
           {social_media.map(

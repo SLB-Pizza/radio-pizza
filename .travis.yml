@@ -25,5 +25,6 @@ deploy:
   message: "Deploy triggered by Travis CI"
   on:
     branch: deploy
+
 notifications:
   slack: superluigibrospizza:Y1lW96ZU0ir2XFBSnfrBTvXU

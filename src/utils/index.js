@@ -24,6 +24,5 @@ export { default as processPublicationDates } from "./processPublicationDates";
  */
 export { default as ImageModal } from "./ImageModal";
 export { default as ResponsiveImage } from "./ResponsiveImage";
-export { default as PlayAudioButton } from "./PlayAudioButton";
 export { default as ResidentSocialLinks } from "./ResidentSocialLinks";
 export { default as SlideGenerator } from "./SlideGenerator";

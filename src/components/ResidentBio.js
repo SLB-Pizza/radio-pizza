@@ -3,21 +3,18 @@ import React, { useState, useEffect } from "react";
 import { RichText } from "prismic-reactjs";
 import { ResidentSocialLinks, mappableDataCheck } from "../utils";
 import NanoClamp from "nanoclamp";
-import { use } from "chai";
-import { stringify } from "uuid";
 
 /**
  * @category Layout Helper
  * @function ResidentBio
- * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/residents` landing page
+ * @param {object} residentBioData - the data object coming from Prismic CMS that contains all data needed to build the bio section of the individual `/residents/:uid`  page
  * @returns {jsx}
  */
 
 function ResidentBio({ residentBioData }) {
-  const [hasBlurb, setBlurbData] = useState(false);
   const [hasSocialMedia, setMediaData] = useState(false);
 
-  const {
+  let {
     resident_image,
     resident_name,
     resident_status,
@@ -25,18 +22,30 @@ function ResidentBio({ residentBioData }) {
     social_media,
   } = residentBioData;
 
+  /**
+   * Once residentBioData is receiveed, check mappable data subarrays with {@link mappableDataCheck}.
+   *
+   * TL;DR
+   * If the data subarray has no valid entries
+   * --> returns 0
+   * If the data subarray has valid entries
+   * --> returns a filtered array of only the valid entries
+   */
   useEffect(() => {
     const bioDataCheck = () => {
       if (residentBioData) {
-        if (mappableDataCheck(resident_blurb)) {
-          setBlurbData(true);
-        }
-        if (mappableDataCheck(social_media)) {
+        const socialMediaCheck = mappableDataCheck(social_media, 2);
+
+        if (socialMediaCheck) {
+          // Assign social_media value of socialMediaCheck array
+          // Make hasMedia true
+          social_media = socialMediaCheck;
           setMediaData(true);
         }
       }
     };
-  });
+    return bioDataCheck();
+  }, [residentBioData, social_media]);
 
   return (
     <div className="column is-3-desktop is-4-tablet is-12-mobile sticky-bio">
@@ -60,27 +69,23 @@ function ResidentBio({ residentBioData }) {
           {RichText.render(resident_blurb)}
         </div>
       </div>
-      <div className="columns is-mobile is-multiline is-vcentered">
-        <pre>
-          {JSON.stringify(
-            social_media.filter((social_page) =>
-              Object.values(social_page).some((entry) => entry === null)
-            ),
-            null,
-            2
+
+      {hasSocialMedia ? (
+        <div className="columns is-mobile is-multiline is-vcentered">
+          {social_media.map(
+            ({ resident_social_page, resident_social_link }, index) => (
+              <ResidentSocialLinks
+                key={`social-link-${index}-${resident_social_page}`}
+                url={resident_social_link.url}
+                platform={resident_social_page}
+              />
+            )
           )}
-        </pre>
-      </div>
+        </div>
+      ) : null}
     </div>
   );
 }
-// .map(({ resident_social_page, resident_social_link }, index) => (
-//   <ResidentSocialLinks
-//     key={`social-link-${index}-${resident_social_page}`}
-//     url={resident_social_link.url}
-//     platform={resident_social_page}
-//   />
-// ))
 
 export default ResidentBio;
 

@@ -84,10 +84,11 @@
  * - {@link ResidentTemplate}
  * @category Utilities
  * @function mappableDataCheck
- * @param {Array} dataArray
+ * @param {Array} dataArray - a Prismic data subarray that will be checking to ensure proper Layout Component mapping
+ * @param {?Number} objectKeyCount - the number of key-value pairs the mappable object entry has; when present, overrides default of 1 key-value pair per object
  * @returns {Boolean|Array}
  */
-export default function mappableDataCheck(dataArray) {
+export default function mappableDataCheck(dataArray, objectKeyCount) {
   // Immediately reject dataArray if it's not an array OR empty
   if (Array.isArray(dataArray) && dataArray.length !== 0) {
     // It's an array with at least one entry
@@ -104,14 +105,27 @@ export default function mappableDataCheck(dataArray) {
         return false;
       }
 
-      // Each data object should contain only one key-value pair
-      if (Object.entries(arrayEntry).length !== 1) {
-        return false;
-      }
+      //
+      if (objectKeyCount) {
+        // Each data object should contain objectKeyCount # of key-value pairs
+        if (Object.keys(arrayEntry).length !== objectKeyCount) {
+          return false;
+        }
 
-      // The value inside the arrayEntry object is not null
-      if (Object.values(arrayEntry)[0] === null) {
-        return false;
+        // Each value in the data object should not be null
+        if (!Object.values(arrayEntry).every((entry) => entry !== null)) {
+          return false;
+        }
+      } else {
+        // Each data object should contain only one key-value pair
+        if (Object.keys(arrayEntry).length !== 1) {
+          return false;
+        }
+
+        // The value inside the arrayEntry object is not null
+        if (Object.values(arrayEntry)[0] === null) {
+          return false;
+        }
       }
       return true;
     });

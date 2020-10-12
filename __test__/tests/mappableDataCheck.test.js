@@ -317,4 +317,53 @@ describe("mappableDataCheck", () => {
       });
     });
   });
+
+  describe("when objectKeyCount is defined", () => {
+    describe("returns 0 when", () => {
+      it("arrayEntry doesn't have objectKeyCount # of keys", () => {
+        let oneObjectOneKey = [{ only_key: [1, 2, 3, 4, 5] }];
+
+        expect(mappableDataCheck(oneObjectOneKey, 2)).to.equal(0);
+      });
+
+      it("arrayEntry has objectKeyCount # of keys but all values are null", () => {
+        let oneObjectTwoKeyAllNullValues = [
+          { first_null: null, second_null: null },
+        ];
+
+        expect(mappableDataCheck(oneObjectTwoKeyAllNullValues, 2)).to.equal(0);
+      });
+
+      it("arrayEntry has objectKeyCount # of keys but all values are not null", () => {
+        let oneObjectTwoKeyOneNullValue = [
+          { first_key: [1, 2, 3, 4, 5], second_key: null },
+        ];
+
+        expect(mappableDataCheck(oneObjectTwoKeyOneNullValue, 2)).to.equal(0);
+      });
+    });
+
+    describe("returns an array only containing objects with valid key counts and no null values", () => {
+      it("when passed an array where only one entry is correctly setup", () => {
+        const oneCorrectEntry = [
+          { only_one_key: "we need two keys" },
+          { this_object_has: "two keys", this_object_is: "correctly setup" },
+          {
+            wrong: [1, 2, 3],
+            also_wrong: 4,
+            still_wrong: {
+              key_count: 3,
+            },
+          },
+        ];
+
+        const correctReturnArray = [
+          { this_object_has: "two keys", this_object_is: "correctly setup" },
+        ];
+        expect(mappableDataCheck(oneCorrectEntry, 2)).to.eql(
+          correctReturnArray
+        );
+      });
+    });
+  });
 });

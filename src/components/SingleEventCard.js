@@ -32,12 +32,16 @@ function SingleEventCard({ eventColumnLayout, eventData }) {
           <div className="card-content">
             <div className="event-card-sizing">
               <div className="details">
-                <p className="text-truncate subtitle is-size-7">
-                  {end_date === null
-                    ? `${start} | ${event_location}`
-                    : `${start} – ${end} | ${event_location}`}
-                </p>
-
+                <NanoClamp
+                  className="subtitle is-size-7 has-text-light-grey"
+                  is="p"
+                  lines={2}
+                  text={
+                    end_date === null
+                      ? `${start} | ${event_location}`
+                      : `${start} – ${end} | ${event_location}`
+                  }
+                />
                 <NanoClamp
                   className="title is-size-6-touch is-size-6-desktop is-size-5-widescreen"
                   is="p"

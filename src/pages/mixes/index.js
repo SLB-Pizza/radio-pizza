@@ -27,7 +27,6 @@ function MixesIndexPage({ data }) {
    * Grab and manip the nodes array of mixs
    */
   const allMixesData = prismicContent.allMixs.edges;
-  const allCuratedData = prismicContent.allEndless_mixs.edges;
 
   const mixListLayout =
     "column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen";
@@ -48,8 +47,6 @@ function MixesIndexPage({ data }) {
 
   return (
     <main className="black-bg-page">
-      <CuratedCollections curatedMixes={allCuratedData} />
-
       {/* FIRST SECTION - Header Section */}
       <header className="container is-fluid">
         <div className="columns is-mobile is-multiline">
@@ -144,37 +141,6 @@ export const query = graphql`
                   _meta {
                     uid
                     type
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-      allEndless_mixs {
-        edges {
-          node {
-            endless_mix_title
-            endless_mix_blurb
-            endless_mix_img
-            shuffle_mix_order
-            endless_mix_playlist {
-              endless_mix_entry {
-                ... on PRISMIC_Mix {
-                  _meta {
-                    tags
-                  }
-                  mix_link
-                  featured_residents {
-                    mix_resident {
-                      ... on PRISMIC_Resident {
-                        resident_name
-                        _meta {
-                          uid
-                          type
-                        }
-                      }
-                    }
                   }
                 }
               }

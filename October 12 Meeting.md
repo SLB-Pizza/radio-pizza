@@ -65,3 +65,18 @@
 - Put up WIP layout
 
 ### About Page
+
+- Set up AboutPage CMS Custom Type
+- Update layout to accept CMS data
+- Pull in and map CMS data
+
+### TopNav
+
+- When radio account is reactivated, test function that checks radio.co status
+- Livestreaming: set up section in CMS where current resident and mix title can be edited
+
+### Bottom Nav
+
+- Change "Mixes" link to a dropdown called "Music"
+  - Add "Mixes" link here
+  - Add "Collections" link here

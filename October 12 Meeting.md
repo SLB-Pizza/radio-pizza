@@ -74,9 +74,12 @@
 
 - When radio account is reactivated, test function that checks radio.co status
 - Livestreaming: set up section in CMS where current resident and mix title can be edited
+- Address isLive TopNav vs notLive TopNav
 
 ### Bottom Nav
 
 - Change "Mixes" link to a dropdown called "Music"
   - Add "Mixes" link here
   - Add "Collections" link here
+
+

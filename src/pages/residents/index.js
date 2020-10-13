@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
 import { SingleResident } from "../../components";
+import { use } from "chai";
 
 /**
  * TO REMOVE IN THIS FILE FOR SHIPMENT
@@ -66,7 +67,7 @@ function ResidentsIndex({ data }) {
         </div>
 
         {/* COLUMN SELECTOR BUTTONS */}
-        {["Residents", "Guests", "Alumni"].map((type, index) => (
+        {["Residents", "Alumni", "Guests"].map((type, index) => (
           <div className="column" key={`column-${index}-${type}`}>
             <button
               className={
@@ -95,16 +96,6 @@ function ResidentsIndex({ data }) {
         </div>
       ) : null}
 
-      {/* HMBK GUESTS */}
-      {isOpen === "Guests" ? (
-        <div className="columns is-mobile is-multiline">
-          {guests.map((guest, index) => {
-            return <SingleResident key={`Event-${index}`} resident={guest} />;
-          })}
-          <pre>{JSON.stringify(guests, null, 2)}</pre>
-        </div>
-      ) : null}
-
       {/* HMBK ALUMNI */}
       {isOpen === "Alumni" ? (
         <div className="columns is-mobile is-multiline">
@@ -114,6 +105,16 @@ function ResidentsIndex({ data }) {
           <pre>{JSON.stringify(alumni, null, 2)}</pre>
         </div>
       ) : null}
+
+      {/* HMBK GUESTS */}
+      {isOpen === "Guests" ? (
+        <div className="columns is-mobile is-multiline">
+          {guests.map((guest, index) => {
+            return <SingleResident key={`Event-${index}`} resident={guest} />;
+          })}
+          <pre>{JSON.stringify(guests, null, 2)}</pre>
+        </div>
+      ) : null}
     </div>
   );
 }
@@ -121,7 +122,7 @@ function ResidentsIndex({ data }) {
 export const query = graphql`
   query ResidentIndexPage {
     prismic {
-      allResidents(sortBy: resident_status_ASC) {
+      allResidents(sortBy: resident_name_ASC) {
         edges {
           node {
             _meta {

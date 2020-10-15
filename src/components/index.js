@@ -5,6 +5,7 @@ export { default as HomeContentSample } from "./cms-help/HomeContentSample";
 export { default as BottomNav } from "./BottomNav";
 export { default as CuratedCollections } from "./CuratedCollections";
 export { default as DateSelectorButton } from "./DateSelectorButton";
+export { default as EventCountdown } from "./EventCountdown";
 export { default as Hero } from "./Hero";
 export { default as HMBKDivider } from "./HMBKDivider";
 export { default as HomeContent } from "./HomeContent";

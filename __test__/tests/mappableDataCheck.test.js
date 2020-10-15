@@ -304,7 +304,6 @@ describe("mappableDataCheck", () => {
       }
 
       return testCases;
-      // return testCases.sort((a, b) => a.array.length - b.array.length);
     };
 
     let hundredTestCases = testCaseMaker();

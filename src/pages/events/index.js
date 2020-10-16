@@ -1,8 +1,10 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { Link, graphql } from "gatsby";
 import { SingleEventCard } from "../../components";
 import dummyEvents from "../../../__test__/dummyEvents.json";
 
+import { RichText } from "prismic-reactjs";
+import { linkResolver } from "../../utils";
 /**
  * @category Pages
  * @subcategory Indexes
@@ -26,44 +28,47 @@ function EventsIndex({ data }) {
             Halfmoon Events
           </p>
         </div>
-        {allEventsData.map(({ node }, index) => (
+        {/* {allEventsData.map(({ node }, index) => (
           <SingleEventCard
             key={`halfmoon-event-${index}`}
             eventData={node}
             eventColumnLayout={eventPageLayout}
           />
-        ))}
-        {allEventsData.map(({ node }, index) => (
-          <pre key={index}>node {JSON.stringify(node, null, 2)}</pre>
-          // <SingleEventCard
-          //   key={`halfmoon-event-${index}`}
-          //   eventData={event}
-          //   eventColumnLayout={eventPageLayout}
-          // />
-        ))}
+        ))} */}
+        {/* {allEventsData.map(({ node }, index) => (
+          ))} */}
       </div>
     </div>
   );
 }
 
+// <Link to={linkResolver(node._meta)}>
+//   {RichText.asText(node.event_name)}
+// </Link>
+// <pre key={index}>node {JSON.stringify(node, null, 2)}</pre>
+// <SingleEventCard
+//   key={`halfmoon-event-${index}`}
+//   eventData={event}
+//   eventColumnLayout={eventPageLayout}
+// />
 export default EventsIndex;
 
 export const query = graphql`
   query EventsIndexQuery {
     prismic {
-      allEvents(sortBy: start_date_DESC) {
+      allEvents(sortBy: meta_firstPublicationDate_DESC) {
         edges {
           node {
             _meta {
               uid
               type
             }
-            end_date
-            start_date
             event_blurb
-            event_location
-            event_name
             main_event_image
+            event_name
+            event_location
+            event_end
+            event_start
           }
         }
       }

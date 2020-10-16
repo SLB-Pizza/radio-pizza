@@ -83,6 +83,11 @@ module.exports = {
             match: "/mixes/:uid",
             component: require.resolve("./src/templates/Mix.js"),
           },
+          {
+            type: "Event",
+            match: "/events/:uid",
+            component: require.resolve("./src/templates/Event.js"),
+          },
         ],
       },
     },

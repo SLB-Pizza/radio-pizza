@@ -9,18 +9,20 @@ header.event-header {
   }
 }
 
-.timer-container {
+.event-timer {
   padding-bottom: .75rem;
   position: sticky;
   position: -webkit-sticky;
   top: 6.625rem;
-  z-index: 3;
+  z-index:3;
+
 }
 
-.event-timer-component {
+.timer-component {
   background-color: rebeccapurple;
-  .event-time-caption {
-    font-weight: 300;
-    letter-spacing: .125rem;
-  }
+}
+
+.timer-caption {
+  font-weight: 300;
+  letter-spacing: .125rem;
 }

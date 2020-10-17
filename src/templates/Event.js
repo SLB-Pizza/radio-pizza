@@ -17,8 +17,8 @@ function EventTemplate({ data }) {
 
   const {
     _meta,
-    start_date,
-    end_date,
+    event_start,
+    event_end,
     event_blurb,
     main_event_image,
     event_name,
@@ -36,20 +36,16 @@ function EventTemplate({ data }) {
             }}
           />
         </header>
+
         <EventCountdown
-          startDate={start_date}
-          endDate={end_date}
+          startDate={event_start}
+          endDate={event_end}
           eventName={event_name}
         />
         <section className="section container">
           <div className="columns is-mobile">
             <div className="column is-12">
               <div className="content">
-                <RichText
-                  render={event_name}
-                  linkResolver={linkResolver}
-                  htmlSerializer={htmlSerializer}
-                />
                 <RichText
                   render={event_blurb}
                   linkResolver={linkResolver}

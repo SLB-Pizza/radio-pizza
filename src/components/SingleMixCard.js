@@ -80,7 +80,7 @@ function SingleMixCard({ mixData, columnLayout, path }) {
             ) : (
               <div className="mix-text">
                 <Link to={linkResolver(linkTo)}>
-                  <p className="subtitle is-size-7">{mix_date}</p>
+                  <p className="subtitle is-size-7">{mixDate}</p>
                   <NanoClamp
                     className="title is-size-6"
                     is="p"
@@ -114,12 +114,12 @@ SingleMixCard.propTypes = {
       ]),
     }),
     mix_date: PropTypes.string.isRequired,
-    mix_title: PropTypes.string.isRequired,
+    mix_title: PropTypes.string,
     mix_link: PropTypes.string.isRequired,
     mix_image: PropTypes.shape({
       dimensions: PropTypes.shape({
-        width: PropTypes.string.isRequired,
-        height: PropTypes.string.isRequired,
+        width: PropTypes.number.isRequired,
+        height: PropTypes.number.isRequired,
       }),
       alt: PropTypes.string,
       copyright: PropTypes.string,

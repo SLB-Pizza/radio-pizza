@@ -23,6 +23,7 @@ const initialState = {
   playingRadio: false,
   scheduleOpen: false,
   navMenuOpen: false,
+  currentClockTime: "",
 };
 
 function reducer(state, action) {
@@ -33,9 +34,15 @@ function reducer(state, action) {
         playing: !state.playing,
       };
     }
-    /**
-     * If a new audio source is selected while playing is NOT playing, set to play
-     */
+
+    case "SET_CLOCK_TIME": {
+      console.log("time", action.payload.clockTime);
+      return {
+        ...state,
+        currentClockTime: action.payload.clockTime,
+      };
+    }
+    // If a new audio source is selected while playing is NOT playing, set to play
     case "SET_INITIAL_MIX": {
       return {
         ...state,

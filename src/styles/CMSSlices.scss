@@ -9,7 +9,7 @@ article .container {
   }
 }
 
-header.article-img-titling + section.slice {
+header.article-header + section.slice {
   margin-top: 2rem;
 }
 
@@ -121,7 +121,7 @@ section.sample-feature {
 // ================================
 // CMS Slice -- ArticleHeadline.js
 // ================================
-header.article-img-titling {
+header.article-header {
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 10.5rem);

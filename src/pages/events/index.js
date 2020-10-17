@@ -2,9 +2,9 @@ import React from "react";
 import { Link, graphql } from "gatsby";
 import { RichText } from "prismic-reactjs";
 import { SingleEventCard } from "../../components";
-import dummyEvents from "../../../__test__/dummyEvents.json";
-
 import { linkResolver } from "../../utils";
+
+import dummyEvents from "../../../__test__/dummyEvents.json";
 /**
  * @category Pages
  * @subcategory Indexes

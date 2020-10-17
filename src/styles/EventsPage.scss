@@ -1,12 +1,9 @@
-header.event-header {
-  // height: calc(100vh - 20.375rem);
-  height: calc(100vh - 21.125rem);
 
-  .hero-body {
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-  }
+.hero-body {
+  min-height: calc(100vh - 20.125rem);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
 }
 
 .event-title {
@@ -14,15 +11,11 @@ header.event-header {
 }
 
 .event-timer {
+  min-height: 10.375rem;
   position: sticky;
   position: -webkit-sticky;
   top: 6.625rem;
-  z-index:3;
-
-}
-
-.timer-component {
-  background-color: rebeccapurple;
+  z-index: 3;
 }
 
 .timer-caption {

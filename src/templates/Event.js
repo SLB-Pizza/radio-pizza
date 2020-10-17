@@ -11,8 +11,6 @@ import { htmlSerializer, linkResolver } from "../utils";
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/features` landing page
  */
 function EventTemplate({ data }) {
-  const [eventDateTime, setDateTime] = useState("");
-
   const prismicContent = data.prismic.allEvents.edges[0];
   if (!prismicContent) return null;
   const eventData = prismicContent.node;
@@ -27,8 +25,6 @@ function EventTemplate({ data }) {
     event_location,
   } = eventData;
 
-  // const
-
   return (
     <main className="full-height-page">
       <article>
@@ -40,7 +36,11 @@ function EventTemplate({ data }) {
             }}
           />
         </header>
-        <EventCountdown />
+        <EventCountdown
+          startDate={start_date}
+          endDate={end_date}
+          eventName={event_name}
+        />
         <section className="section container">
           <div className="columns is-mobile">
             <div className="column is-12">

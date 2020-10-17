@@ -1,6 +1,6 @@
 header.event-header {
-  // min-height: calc(100vh - 9.75rem);
-  min-height: calc(100vh - 20.375rem);
+  // height: calc(100vh - 20.375rem);
+  height: calc(100vh - 21.125rem);
 
   .hero-body {
     background-size: cover;
@@ -9,8 +9,11 @@ header.event-header {
   }
 }
 
+.event-title {
+  margin: 0 auto 0;
+}
+
 .event-timer {
-  padding-bottom: .75rem;
   position: sticky;
   position: -webkit-sticky;
   top: 6.625rem;

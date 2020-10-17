@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
+import { RichText } from "prismic-reactjs";
 import { SingleEventCard } from "../../components";
 import dummyEvents from "../../../__test__/dummyEvents.json";
 
-import { RichText } from "prismic-reactjs";
 import { linkResolver } from "../../utils";
 /**
  * @category Pages
@@ -35,16 +35,16 @@ function EventsIndex({ data }) {
             eventColumnLayout={eventPageLayout}
           />
         ))} */}
-        {/* {allEventsData.map(({ node }, index) => (
-          ))} */}
+        {allEventsData.map(({ node }, index) => (
+          <Link to={linkResolver(node._meta)}>
+            {RichText.asText(node.event_name)}
+          </Link>
+        ))}
       </div>
     </div>
   );
 }
 
-// <Link to={linkResolver(node._meta)}>
-//   {RichText.asText(node.event_name)}
-// </Link>
 // <pre key={index}>node {JSON.stringify(node, null, 2)}</pre>
 // <SingleEventCard
 //   key={`halfmoon-event-${index}`}

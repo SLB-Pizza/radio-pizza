@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
-import { GlobalStateContext } from "../context/GlobalContextProvider";
+import {
+  GlobalStateContext,
+  GlobalDispatchContext,
+} from "../context/GlobalContextProvider";
 import { RadioBar, ScheduleBar } from "./index";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
@@ -12,6 +15,7 @@ dayjs.extend(timezone);
  */
 function TopNav() {
   const globalState = useContext(GlobalStateContext);
+  const dispatch = useContext(GlobalDispatchContext);
 
   const [nycTime, setNYCTime] = useState(dayjs().tz("America/New_York"));
   const [laTime, setLATime] = useState(dayjs().tz("America/Los_Angeles"));

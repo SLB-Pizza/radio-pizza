@@ -5,7 +5,6 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
 import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
-import { has } from "lodash";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -23,6 +22,10 @@ function EventCountdown({ startDate, endDate, eventName }) {
     dayjs().tz("America/New_York")
   );
   const [beforeEvent, setBeforeEvent] = useState(null);
+  const [dayCount, setDayCount] = useState(null);
+  const [hourCount, setHourCount] = useState(null);
+  const [minuteCount, setMinuteCount] = useState(null);
+  const [secondCount, setSecondCount] = useState(null);
   const [eventHeight, setEventHeight] = useState(1);
   const [timerHeight, setTimerHeight] = useState(1);
   const [hasScrolledDown, setHasScrolledDown] = useState(false);
@@ -31,13 +34,14 @@ function EventCountdown({ startDate, endDate, eventName }) {
     const countdownClock = setInterval(() => {
       setCurrentTime(currentTime.add(1, "s"));
 
-      // Set
-      if (currentTime) {
-        setBeforeEvent(true);
-      }
       // Check if currentTime is before or same as startDate
       if (currentTime.isSameOrBefore(dayjs(startDate))) {
         setBeforeEvent(true);
+        let startDayJS = dayjs(startDate);
+        setDayCount(dayjs(startDayJS).diff(currentTime, "day"));
+        setHourCount(dayjs(startDayJS).diff(currentTime, "hour"));
+        setMinuteCount(dayjs(startDayJS).diff(currentTime, "minute"));
+        setSecondCount(dayjs(startDayJS).diff(currentTime, "second"));
       }
     }, 1000);
 
@@ -104,7 +108,7 @@ function EventCountdown({ startDate, endDate, eventName }) {
                   : "title time-amount is-size-2 has-text-centered"
               }
             >
-              145
+              {dayCount}
             </p>
             <p
               className={
@@ -124,7 +128,7 @@ function EventCountdown({ startDate, endDate, eventName }) {
                   : "title time-amount is-size-2 has-text-centered"
               }
             >
-              145
+              {hourCount}
             </p>
             <p
               className={
@@ -144,7 +148,7 @@ function EventCountdown({ startDate, endDate, eventName }) {
                   : "title time-amount is-size-2 has-text-centered"
               }
             >
-              145
+              {minuteCount}
             </p>
             <p
               className={
@@ -164,7 +168,7 @@ function EventCountdown({ startDate, endDate, eventName }) {
                   : "title time-amount is-size-2 has-text-centered"
               }
             >
-              145
+              {secondCount}
             </p>
             <p
               className={

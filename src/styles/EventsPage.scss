@@ -1,6 +1,5 @@
-
 .hero-body {
-  min-height: calc(100vh - 20.125rem);
+  min-height: calc(100vh - 19.375rem);
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
@@ -11,11 +10,15 @@
 }
 
 .event-timer {
-  min-height: 10.375rem;
+  min-height: 9rem;
   position: sticky;
   position: -webkit-sticky;
   top: 6.625rem;
   z-index: 3;
+}
+
+.event-title p, .time-amount, .timer-caption, .event-timer {
+  transition: .25s ease;
 }
 
 .timer-caption {

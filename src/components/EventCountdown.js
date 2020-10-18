@@ -5,6 +5,7 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
 import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
+import { has } from "lodash";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -21,14 +22,19 @@ function EventCountdown({ startDate, endDate, eventName }) {
   const [currentTime, setCurrentTime] = useState(
     dayjs().tz("America/New_York")
   );
-  const [beforeEvent, setBeforeEvent] = useState(false);
+  const [beforeEvent, setBeforeEvent] = useState(null);
   const [eventHeight, setEventHeight] = useState(1);
   const [timerHeight, setTimerHeight] = useState(1);
+  const [hasScrolledDown, setHasScrolledDown] = useState(false);
 
   useEffect(() => {
     const countdownClock = setInterval(() => {
       setCurrentTime(currentTime.add(1, "s"));
 
+      // Set
+      if (currentTime) {
+        setBeforeEvent(true);
+      }
       // Check if currentTime is before or same as startDate
       if (currentTime.isSameOrBefore(dayjs(startDate))) {
         setBeforeEvent(true);
@@ -55,14 +61,16 @@ function EventCountdown({ startDate, endDate, eventName }) {
       let bottomNav = document.querySelector(".navbar.is-fixed-bottom");
       let bottomNavHeight = bottomNav.offsetHeight;
 
+      // If we've scrolled down enough for the event timer to become sticky...
       if (
         e.target.documentElement.scrollTop >=
         eventHeight + timerHeight - topNavHeight - bottomNavHeight
       ) {
-        console.log(
-          "Scrolled more than the height of both combined",
-          e.target.documentElement.scrollTop
-        );
+        //...make hasScrolled true to activate the style changes...
+        setHasScrolledDown(true);
+      } else {
+        //...else set to false to deactivate the style changes...
+        setHasScrolledDown(false);
       }
     };
 
@@ -71,35 +79,104 @@ function EventCountdown({ startDate, endDate, eventName }) {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [eventHeight, timerHeight]);
+  }, [eventHeight, timerHeight, hasScrolledDown]);
 
   const formattedStartDate = formatDateTime(startDate, "first-publication");
   return (
-    <div className="container has-background-dark event-timer">
+    <div
+      className="container has-background-dark event-timer"
+      style={hasScrolledDown ? { minHeight: "auto" } : null}
+    >
       <div className="columns is-mobile is-vcentered event-title">
-        <div className="column is-12 content">
-          <RichText render={eventName} htmlSerializer={htmlSerializer} />
+        <div className="column is-12">
+          <p className={hasScrolledDown ? "title is-size-4" : "title"}>
+            {RichText.asText(eventName)}
+          </p>
         </div>
       </div>
       {beforeEvent ? (
         <div className="columns is-mobile is-vcentered">
-          <div className="column is-2">
-            <p className="title is-size-3 event-time has-text-centered">145</p>
-            <p className="subtitle timer-caption has-text-centered">DAYS</p>
+          <div className="column is-2 has-background-info">
+            <p
+              className={
+                hasScrolledDown
+                  ? "title time-amount is-size-4 has-text-centered"
+                  : "title time-amount is-size-2 has-text-centered"
+              }
+            >
+              145
+            </p>
+            <p
+              className={
+                hasScrolledDown
+                  ? "subtitle is-size-6 timer-caption has-text-centered"
+                  : "subtitle timer-caption has-text-centered"
+              }
+            >
+              DAYS
+            </p>
           </div>
-          <div className="column is-2">
-            <p className="title is-size-3 event-time has-text-centered">145</p>
-            <p className="subtitle timer-caption has-text-centered">HOURS</p>
+          <div className="column is-2 has-background-info">
+            <p
+              className={
+                hasScrolledDown
+                  ? "title time-amount is-size-4 has-text-centered"
+                  : "title time-amount is-size-2 has-text-centered"
+              }
+            >
+              145
+            </p>
+            <p
+              className={
+                hasScrolledDown
+                  ? "subtitle is-size-6 timer-caption has-text-centered"
+                  : "subtitle timer-caption has-text-centered"
+              }
+            >
+              HOURS
+            </p>
           </div>
-          <div className="column is-2">
-            <p className="title is-size-3 event-time has-text-centered">145</p>
-            <p className="subtitle timer-caption has-text-centered">MINUTES</p>
+          <div className="column is-2 has-background-info">
+            <p
+              className={
+                hasScrolledDown
+                  ? "title time-amount is-size-4 has-text-centered"
+                  : "title time-amount is-size-2 has-text-centered"
+              }
+            >
+              145
+            </p>
+            <p
+              className={
+                hasScrolledDown
+                  ? "subtitle is-size-6 timer-caption has-text-centered"
+                  : "subtitle timer-caption has-text-centered"
+              }
+            >
+              MINUTES
+            </p>
           </div>
-          <div className="column is-2">
-            <p className="title is-size-3 event-time has-text-centered">145</p>
-            <p className="subtitle timer-caption has-text-centered">SECONDS</p>
+          <div className="column is-2 has-background-info">
+            <p
+              className={
+                hasScrolledDown
+                  ? "title time-amount is-size-4 has-text-centered"
+                  : "title time-amount is-size-2 has-text-centered"
+              }
+            >
+              145
+            </p>
+            <p
+              className={
+                hasScrolledDown
+                  ? "subtitle is-size-6 timer-caption has-text-centered"
+                  : "subtitle timer-caption has-text-centered"
+              }
+            >
+              SECONDS
+            </p>
           </div>
-          <div className="column is-4">
+          <div className="column is-4 has-background-info">
             <button className="button is-medium is-fullwidth is-outlined is-rounded display-text">
               RSVP
             </button>
@@ -108,7 +185,15 @@ function EventCountdown({ startDate, endDate, eventName }) {
       ) : (
         <div className="columns is-mobile is-vcentered">
           <div className="column is-12 content">
-            <p className="subtitle event-time">{formattedStartDate}</p>
+            <p
+              className={
+                hasScrolledDown
+                  ? "subtitle is-size-6 event-time"
+                  : "subtitle event-time"
+              }
+            >
+              {formattedStartDate}
+            </p>
           </div>
         </div>
       )}

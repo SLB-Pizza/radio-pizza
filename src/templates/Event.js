@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { graphql } from "gatsby";
 import { RichText } from "prismic-reactjs";
-import { EventCountdown, EventMap } from "../components";
+import { EventCountdown } from "../components";
 import { htmlSerializer, linkResolver } from "../utils";
 
 /**
@@ -23,6 +23,7 @@ function EventTemplate({ data }) {
     main_event_image,
     event_name,
     event_location,
+    event_location_link,
   } = eventData;
 
   return (
@@ -56,12 +57,15 @@ function EventTemplate({ data }) {
           </div>
         </section>
 
-        <EventMap eventLocation={event_location} />
-
         <section
           className="container"
           style={{ backgroundColor: "darkorange" }}
         >
+          {event_location_link && (
+            <a href={event_location_link.url} target="_blank">
+              {event_location}
+            </a>
+          )}
           <pre>{JSON.stringify(eventData, null, 2)}</pre>
         </section>
         <section
@@ -92,9 +96,15 @@ export const query = graphql`
             event_blurb
             main_event_image
             event_name
-            event_location
             event_end
             event_start
+            event_location
+            event_location_link {
+              ... on PRISMIC__ExternalLink {
+                target
+                url
+              }
+            }
           }
         }
       }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { graphql } from "gatsby";
 import { RichText } from "prismic-reactjs";
-import { EventCountdown } from "../components";
+import { EventCountdown, EventMap } from "../components";
 import { htmlSerializer, linkResolver } from "../utils";
 
 /**
@@ -56,9 +56,11 @@ function EventTemplate({ data }) {
           </div>
         </section>
         <section
-          className="container"
-          style={{ backgroundColor: "darkgreen", height: "15rem" }}
-        ></section>
+          className="hero is-large"
+          style={{ width: "100%", height: "25rem" }}
+        >
+          <EventMap eventLocation={event_location} />
+        </section>
         <section
           className="container"
           style={{ backgroundColor: "darkorange" }}

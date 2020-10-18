@@ -55,12 +55,9 @@ function EventTemplate({ data }) {
             </div>
           </div>
         </section>
-        <section
-          className="hero is-large"
-          style={{ width: "100%", height: "25rem" }}
-        >
-          <EventMap eventLocation={event_location} />
-        </section>
+
+        <EventMap eventLocation={event_location} />
+
         <section
           className="container"
           style={{ backgroundColor: "darkorange" }}

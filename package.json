@@ -51,6 +51,7 @@
     "react-dom": "^16.8.4",
     "react-helmet": "^5.2.0",
     "react-hot-loader": "^4.12.19",
+    "react-map-gl": "^5.2.9",
     "react-page-visibility": "^5.1.0",
     "react-player": "^2.6.2",
     "react-redux": "^7.1.3",

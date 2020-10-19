@@ -9,7 +9,7 @@
   margin: 0 auto 0;
 }
 
-.event-timer {
+.event-header {
   background-color: black;
   min-height: 9rem;
   position: sticky;
@@ -18,7 +18,7 @@
   z-index: 3;
 }
 
-.event-title p, .time-amount, .timer-caption, .event-timer {
+.event-title p, .time-amount, .timer-caption, .event-header {
   transition: .25s ease;
 }
 

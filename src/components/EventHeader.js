@@ -31,8 +31,8 @@ function EventHeader({ startDate, endDate, eventName, location }) {
   const [timerHeight, setTimerHeight] = useState(1);
   const [headerIsSticky, setHeaderIsSticky] = useState(false);
 
-  const startDateText = formatDateTime(startDate, "long-form-date-time");
-  const endDateText = formatDateTime(endDate, "long-form-date-time");
+  const startDateText = formatDateTime(startDate, "long-form-date");
+  const endDateText = formatDateTime(endDate, "long-form-date");
 
   useEffect(() => {
     const countdownClock = setInterval(() => {
@@ -67,11 +67,11 @@ function EventHeader({ startDate, endDate, eventName, location }) {
     const handleScroll = (e) => {
       // Set base values for the heights of the image and timer component
       if (timerHeight === 1 && eventHeight === 1) {
-        let eventHeader = document.querySelector("header.event-header");
-        let eventTimer = document.querySelector(".event-timer");
+        let eventImage = document.querySelector("header.event-image");
+        let eventHeader = document.querySelector(".event-header");
 
-        setEventHeight(eventHeader.clientHeight);
-        setTimerHeight(eventTimer.clientHeight);
+        setEventHeight(eventImage.clientHeight);
+        setTimerHeight(eventHeader.clientHeight);
       }
       let topNav = document.querySelector(".radio-and-schedule-bar");
       let topNavHeight = topNav.offsetHeight;
@@ -100,7 +100,7 @@ function EventHeader({ startDate, endDate, eventName, location }) {
 
   return (
     <div
-      className="container event-timer"
+      className="container event-header"
       style={headerIsSticky ? { minHeight: "auto" } : null}
     >
       <div className="columns is-mobile is-vcentered event-title">
@@ -136,22 +136,7 @@ function EventHeader({ startDate, endDate, eventName, location }) {
           minutes={minuteCount}
           seconds={secondCount}
         />
-      ) : (
-        <div className="columns is-mobile is-vcentered">
-          <div className="column is-12 content">
-            <p
-              className={
-                headerIsSticky
-                  ? "subtitle is-size-6 event-time"
-                  : "subtitle event-time"
-              }
-            >
-              {startDateText}
-              {startDateText}
-            </p>
-          </div>
-        </div>
-      )}
+      ) : null}
     </div>
   );
 }

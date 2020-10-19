@@ -29,7 +29,7 @@ function EventTemplate({ data }) {
   return (
     <main className="full-height-page">
       <article>
-        <header className="hero event-header">
+        <header className="hero event-image">
           <div
             className="hero-body"
             style={{

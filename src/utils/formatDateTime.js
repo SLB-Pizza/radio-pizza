@@ -32,9 +32,9 @@ const formatDateTime = (time, format, number) => {
       return dayjs(time).format("YYYY.MM.DD");
     case "schedule-date-heading":
       return dayjs(time).format("dddd, MMMM D");
-    case "updated-publication":
+    case "long-form-date-time":
       return dayjs(time).format("MMMM D, YYYY – HH:mm");
-    case "first-publication":
+    case "long-form-date":
       return dayjs(time).format("MMMM D, YYYY");
     default:
       return dayjs(time);

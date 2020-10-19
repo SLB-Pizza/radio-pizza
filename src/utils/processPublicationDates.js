@@ -34,8 +34,8 @@ export default function processPublicationDates(firstPubDate, lastPubDate) {
    * If the feature has NOT been update, format pubDate to show just the date of publication e.g. August 2, 2020
    */
   dateDetails.pubDate = updated
-    ? formatDateTime(lastPubDate, "updated-publication")
-    : formatDateTime(firstPubDate, "first-publication");
+    ? formatDateTime(lastPubDate, "long-form-date-time")
+    : formatDateTime(firstPubDate, "long-form-date");
 
   return dateDetails;
 }

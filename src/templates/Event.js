@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { graphql } from "gatsby";
 import { RichText } from "prismic-reactjs";
-import { EventCountdown } from "../components";
+import { EventHeader } from "../components";
 import { htmlSerializer, linkResolver } from "../utils";
 
 /**
@@ -38,9 +38,10 @@ function EventTemplate({ data }) {
           />
         </header>
 
-        <EventCountdown
+        <EventHeader
           startDate={event_start}
           endDate={event_end}
+          location={event_location}
           eventName={event_name}
         />
         <section className="section container">

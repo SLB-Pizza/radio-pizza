@@ -62,6 +62,7 @@ function EventTemplate({ data }) {
           className="container"
           style={{ backgroundColor: "darkorange" }}
         >
+          <div className="columns is-mobile"></div>
           {event_location_link && (
             <a href={event_location_link.url} target="_blank">
               {event_location}
@@ -101,6 +102,13 @@ export const query = graphql`
             event_start
             event_location
             event_location_link {
+              ... on PRISMIC__ExternalLink {
+                target
+                url
+              }
+            }
+            event_button_text
+            event_button_link {
               ... on PRISMIC__ExternalLink {
                 target
                 url

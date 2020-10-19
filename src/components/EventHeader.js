@@ -31,6 +31,9 @@ function EventHeader({ startDate, endDate, eventName, location }) {
   const [timerHeight, setTimerHeight] = useState(1);
   const [headerIsSticky, setHeaderIsSticky] = useState(false);
 
+  const startDateText = formatDateTime(startDate, "long-form-date-time");
+  const endDateText = formatDateTime(endDate, "long-form-date-time");
+
   useEffect(() => {
     const countdownClock = setInterval(() => {
       setCurrentTime(currentTime.add(1, "s"));
@@ -95,23 +98,34 @@ function EventHeader({ startDate, endDate, eventName, location }) {
     };
   }, [eventHeight, timerHeight, headerIsSticky]);
 
-  const startDateText = formatDateTime(startDate, "long-form-date-time");
-  const endDateText = formatDateTime(endDate, "long-form-date-time");
   return (
     <div
-      className="container event-timer has-background-info"
+      className="container event-timer"
       style={headerIsSticky ? { minHeight: "auto" } : null}
     >
       <div className="columns is-mobile is-vcentered event-title">
-        <div className="column is-12 content">
-          <p className={headerIsSticky ? "title is-size-4" : "title"}>
-            {RichText.asText(eventName)}
-          </p>
-          <p className={headerIsSticky ? "subtitle is-size-6" : "subtitle"}>
-            {endDate
-              ? `${startDateText} to ${endDateText} | ${location}`
-              : `${startDateText} | ${endDateText}`}
-          </p>
+        <div className="column is-9">
+          <div className="content">
+            <p className={headerIsSticky ? "title is-size-4" : "title"}>
+              {RichText.asText(eventName)}
+            </p>
+            <p className={headerIsSticky ? "subtitle is-size-6" : "subtitle"}>
+              {endDate
+                ? `${startDateText} to ${endDateText} | ${location}`
+                : `${startDateText} | ${endDateText}`}
+            </p>
+          </div>
+        </div>
+        <div className="column is-3">
+          <button
+            className={
+              headerIsSticky
+                ? "button is-fullwidth is-outlined is-rounded display-text"
+                : "button is-medium is-fullwidth is-outlined is-rounded display-text"
+            }
+          >
+            RSVP
+          </button>
         </div>
       </div>
       {beforeEvent ? (

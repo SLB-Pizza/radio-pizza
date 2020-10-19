@@ -3,7 +3,7 @@ import React from "react";
 function EventCountdown({ sticky, days, hours, minutes, seconds }) {
   return (
     <div className="columns is-mobile is-vcentered">
-      <div className="column is-2">
+      <div className="column">
         <p
           className={
             sticky
@@ -23,7 +23,7 @@ function EventCountdown({ sticky, days, hours, minutes, seconds }) {
           DAYS
         </p>
       </div>
-      <div className="column is-2">
+      <div className="column">
         <p
           className={
             sticky
@@ -43,7 +43,7 @@ function EventCountdown({ sticky, days, hours, minutes, seconds }) {
           HOURS
         </p>
       </div>
-      <div className="column is-2">
+      <div className="column">
         <p
           className={
             sticky
@@ -63,7 +63,7 @@ function EventCountdown({ sticky, days, hours, minutes, seconds }) {
           MINUTES
         </p>
       </div>
-      <div className="column is-2">
+      <div className="column">
         <p
           className={
             sticky
@@ -82,17 +82,6 @@ function EventCountdown({ sticky, days, hours, minutes, seconds }) {
         >
           SECONDS
         </p>
-      </div>
-      <div className="column is-4">
-        <button
-          className={
-            sticky
-              ? "button is-fullwidth is-outlined is-rounded display-text"
-              : "button is-medium is-fullwidth is-outlined is-rounded display-text"
-          }
-        >
-          RSVP
-        </button>
       </div>
     </div>
   );

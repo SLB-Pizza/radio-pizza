@@ -37,11 +37,20 @@ function EventCountdown({ startDate, endDate, eventName }) {
       // Check if currentTime is before or same as startDate
       if (currentTime.isSameOrBefore(dayjs(startDate))) {
         setBeforeEvent(true);
+
         let startDayJS = dayjs(startDate);
-        setDayCount(dayjs(startDayJS).diff(currentTime, "day"));
-        setHourCount(dayjs(startDayJS).diff(currentTime, "hour"));
-        setMinuteCount(dayjs(startDayJS).diff(currentTime, "minute"));
-        setSecondCount(dayjs(startDayJS).diff(currentTime, "second"));
+        let days = dayjs(startDayJS).diff(currentTime, "day");
+        // 24 hours in a day
+        let hours = dayjs(startDayJS).diff(currentTime, "hour") % 24;
+        // 60 minutes in a hour
+        let minutes = dayjs(startDayJS).diff(currentTime, "minute") % 60;
+        // 60 seconds in a minute
+        let seconds = dayjs(startDayJS).diff(currentTime, "second") % 60;
+
+        setDayCount(days);
+        setHourCount(hours);
+        setMinuteCount(minutes);
+        setSecondCount(seconds);
       }
     }, 1000);
 
@@ -88,7 +97,7 @@ function EventCountdown({ startDate, endDate, eventName }) {
   const formattedStartDate = formatDateTime(startDate, "first-publication");
   return (
     <div
-      className="container has-background-dark event-timer"
+      className="container event-timer"
       style={hasScrolledDown ? { minHeight: "auto" } : null}
     >
       <div className="columns is-mobile is-vcentered event-title">
@@ -100,7 +109,7 @@ function EventCountdown({ startDate, endDate, eventName }) {
       </div>
       {beforeEvent ? (
         <div className="columns is-mobile is-vcentered">
-          <div className="column is-2 has-background-info">
+          <div className="column is-2">
             <p
               className={
                 hasScrolledDown
@@ -120,7 +129,7 @@ function EventCountdown({ startDate, endDate, eventName }) {
               DAYS
             </p>
           </div>
-          <div className="column is-2 has-background-info">
+          <div className="column is-2">
             <p
               className={
                 hasScrolledDown
@@ -140,7 +149,7 @@ function EventCountdown({ startDate, endDate, eventName }) {
               HOURS
             </p>
           </div>
-          <div className="column is-2 has-background-info">
+          <div className="column is-2">
             <p
               className={
                 hasScrolledDown
@@ -160,7 +169,7 @@ function EventCountdown({ startDate, endDate, eventName }) {
               MINUTES
             </p>
           </div>
-          <div className="column is-2 has-background-info">
+          <div className="column is-2">
             <p
               className={
                 hasScrolledDown
@@ -180,7 +189,7 @@ function EventCountdown({ startDate, endDate, eventName }) {
               SECONDS
             </p>
           </div>
-          <div className="column is-4 has-background-info">
+          <div className="column is-4">
             <button className="button is-medium is-fullwidth is-outlined is-rounded display-text">
               RSVP
             </button>

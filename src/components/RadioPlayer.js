@@ -77,9 +77,13 @@ function RadioPlayer() {
     if(globalState.playlist.length){
       // if list_curr_index from global state is less the current playlist's number of tracks, then dispatch func which increments it by one and plays next 
       if(globalState.playlist.length -1 > globalState.list_curr_index) {
+
         await dispatch({ type: "PLAYLIST_PLAY_NEXT" });
+
       } else {
+
         await dispatch({ type: "PLAYLIST_LOOP" });
+
       }
     }
 

@@ -6,19 +6,18 @@ import { formatDateTime, linkResolver } from "../utils";
 import { faOm } from "@fortawesome/free-solid-svg-icons";
 
 function SingleEventCard({ eventColumnLayout, eventData }) {
-  // const { img, alt, date, location, eventName, blurb } = eventData;
   const {
     _meta,
     main_event_image,
     event_name,
     event_location,
     event_blurb,
-    end_date,
-    start_date,
+    event_start,
+    event_end,
   } = eventData;
 
-  const start = formatDateTime(start_date, "year-month-day");
-  const end = formatDateTime(end_date, "year-month-day");
+  const start = formatDateTime(event_start, "year-month-day");
+  const end = formatDateTime(event_end, "year-month-day");
 
   return (
     <div className={eventColumnLayout}>
@@ -37,25 +36,29 @@ function SingleEventCard({ eventColumnLayout, eventData }) {
                   is="p"
                   lines={2}
                   text={
-                    end_date === null
+                    event_end === null
                       ? `${start} | ${event_location}`
                       : `${start} – ${end} | ${event_location}`
                   }
                 />
-                <NanoClamp
-                  className="title is-size-6-touch is-size-6-desktop is-size-5-widescreen"
-                  is="p"
-                  lines={2}
-                  text={event_name}
-                />
+                {event_name && (
+                  <NanoClamp
+                    className="title is-size-6-touch is-size-6-desktop is-size-5-widescreen"
+                    is="p"
+                    lines={2}
+                    text={RichText.asText(event_name)}
+                  />
+                )}
               </div>
-              <NanoClamp
-                className="blurb is-size-7 has-text-white"
-                is="p"
-                lines={3}
-                ellipsis={"..."}
-                text={event_blurb}
-              />
+              {event_blurb && (
+                <NanoClamp
+                  className="blurb is-size-7 has-text-white"
+                  is="p"
+                  lines={3}
+                  ellipsis={"..."}
+                  text={RichText.asText(event_blurb)}
+                />
+              )}
             </div>
           </div>
         </div>

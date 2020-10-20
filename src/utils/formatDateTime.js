@@ -18,6 +18,9 @@ const formatDateTime = (time, format, number) => {
   switch (format) {
     case "add-days":
       return time.add(number, "day").format("MM.DD");
+    case "UTC-to-EST":
+      // event_start and event_end come in as UTC time, so subtract 4 hours
+      return time.subtract(4, "hours");
     case "prismic-date-query":
       return dayjs(time)
         .add(number, "day")
@@ -33,7 +36,7 @@ const formatDateTime = (time, format, number) => {
     case "schedule-date-heading":
       return dayjs(time).format("dddd, MMMM D");
     case "long-form-date-time":
-      return dayjs(time).format("MMMM D, YYYY – HH:mm");
+      return dayjs(time).format("MMMM D, YYYY - HH:mm");
     case "long-form-date":
       return dayjs(time).format("MMMM D, YYYY");
     default:

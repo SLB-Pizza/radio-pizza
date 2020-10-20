@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { graphql } from "gatsby";
 import { RichText } from "prismic-reactjs";
 import { EventHeader } from "../components";
-import { htmlSerializer, linkResolver } from "../utils";
+import { formatDateTime, htmlSerializer, linkResolver } from "../utils";
+
+import dayjs from "dayjs";
 
 /**
  * @category Templates
@@ -16,7 +18,6 @@ function EventTemplate({ data }) {
   const eventData = prismicContent.node;
 
   const {
-    _meta,
     event_start,
     event_end,
     event_blurb,
@@ -25,6 +26,10 @@ function EventTemplate({ data }) {
     event_location,
     event_location_link,
   } = eventData;
+
+  const startTimeEST = formatDateTime(dayjs(event_start), "UTC-to-EST");
+  const endTimeEST =
+    event_end !== null ? formatDateTime(dayjs(event_end), "UTC-to-EST") : null;
 
   return (
     <main className="full-height-page">
@@ -39,8 +44,8 @@ function EventTemplate({ data }) {
         </header>
 
         <EventHeader
-          startDate={event_start}
-          endDate={event_end}
+          startDate={startTimeEST}
+          endDate={endTimeEST}
           location={event_location}
           eventName={event_name}
         />
@@ -58,12 +63,9 @@ function EventTemplate({ data }) {
           </div>
         </section>
 
-        <section
-          className="container"
-          style={{ backgroundColor: "darkorange" }}
-        >
+        <section className="container">
           <div className="columns is-mobile"></div>
-          {event_location_link && (
+          {event_location_link.url && (
             <a href={event_location_link.url} target="_blank">
               {event_location}
             </a>
@@ -91,10 +93,6 @@ export const query = graphql`
       allEvents(uid: $uid) {
         edges {
           node {
-            _meta {
-              uid
-              type
-            }
             event_blurb
             main_event_image
             event_name

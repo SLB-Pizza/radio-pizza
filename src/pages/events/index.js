@@ -28,17 +28,15 @@ function EventsIndex({ data }) {
             Halfmoon Events
           </p>
         </div>
-        {/* {allEventsData.map(({ node }, index) => (
+        {allEventsData.map(({ node }, index) => (
           <SingleEventCard
             key={`halfmoon-event-${index}`}
             eventData={node}
             eventColumnLayout={eventPageLayout}
           />
-        ))} */}
+        ))}
         {allEventsData.map(({ node }, index) => (
-          <Link to={linkResolver(node._meta)}>
-            {RichText.asText(node.event_name)}
-          </Link>
+          <pre>node {JSON.stringify(node, null, 2)}</pre>
         ))}
       </div>
     </div>
@@ -56,7 +54,7 @@ export default EventsIndex;
 export const query = graphql`
   query EventsIndexQuery {
     prismic {
-      allEvents(sortBy: meta_firstPublicationDate_DESC) {
+      allEvents(sortBy: event_start_DESC) {
         edges {
           node {
             _meta {
@@ -66,9 +64,9 @@ export const query = graphql`
             event_blurb
             main_event_image
             event_name
-            event_location
             event_end
             event_start
+            event_location
           }
         }
       }

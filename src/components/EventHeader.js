@@ -31,8 +31,9 @@ function EventHeader({ startDate, endDate, eventName, location }) {
   const [timerHeight, setTimerHeight] = useState(1);
   const [headerIsSticky, setHeaderIsSticky] = useState(false);
 
-  const startDateText = formatDateTime(startDate, "long-form-date");
-  const endDateText = formatDateTime(endDate, "long-form-date");
+  const startDateText = formatDateTime(startDate, "long-form-date-time");
+  const endDateText =
+    endDate !== null ? formatDateTime(endDate, "long-form-date") : null;
 
   useEffect(() => {
     const countdownClock = setInterval(() => {
@@ -107,12 +108,13 @@ function EventHeader({ startDate, endDate, eventName, location }) {
         <div className="column is-9">
           <div className="content">
             <p className={headerIsSticky ? "title is-size-4" : "title"}>
-              {RichText.asText(eventName)}
+              {/* {RichText.asText(eventName)} */}
+              {formatDateTime(currentTime, "long-form-date-time")}
             </p>
             <p className={headerIsSticky ? "subtitle is-size-6" : "subtitle"}>
               {endDate
                 ? `${startDateText} to ${endDateText} | ${location}`
-                : `${startDateText} | ${endDateText}`}
+                : `${startDateText} | ${location}`}
             </p>
           </div>
         </div>

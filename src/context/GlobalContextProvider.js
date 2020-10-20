@@ -171,19 +171,6 @@ function reducer(state, action) {
       }
     }
 
-    // this case should be hit by dispatch called by onEnded() in radio player callback when last index item in playlist hit AND we want playlist to stop and NOT loop
-    case  "PLAYLIST_END": {
-      return {
-        ...state,
-        isLoading: false,
-        playing: false,
-        // url: state.playlist[state.list_curr_index].url,
-        // title: state.playlist[state.list_curr_index].title,
-        // resident: state.playlist[state.list_curr_index].resident,
-        // img: state.playlist[state.list_curr_index].img,
-      }
-    }
-
     default:
       throw new Error("Bad Action Type");
   }

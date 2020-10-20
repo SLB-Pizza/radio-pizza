@@ -52,10 +52,13 @@ function EventHeader({
 
         let startDayJS = dayjs(startDate);
         let days = dayjs(startDayJS).diff(currentTime, "day");
+
         // 24 hours in a day
         let hours = dayjs(startDayJS).diff(currentTime, "hour") % 24;
+
         // 60 minutes in a hour
         let minutes = dayjs(startDayJS).diff(currentTime, "minute") % 60;
+
         // 60 seconds in a minute
         let seconds = dayjs(startDayJS).diff(currentTime, "second") % 60;
 
@@ -78,12 +81,22 @@ function EventHeader({
         let eventImage = document.querySelector("header.event-image");
         let eventHeader = document.querySelector(".event-header");
 
+        /**
+         * Using clientHeight here because neither eventImage nor eventHeader has a border to count.
+         * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/Element/clientHeight|Element.clientHeight - MDN}
+         */
         setEventHeight(eventImage.clientHeight);
         setTimerHeight(eventHeader.clientHeight);
       }
+
       let topNav = document.querySelector(".radio-and-schedule-bar");
-      let topNavHeight = topNav.offsetHeight;
       let bottomNav = document.querySelector(".navbar.is-fixed-bottom");
+
+      /**
+       * Using offsetHeight here because both topNav and bottomNav have borders to account for.
+       * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetHeight|HTMLElement.offsetHeight - MDN}
+       */
+      let topNavHeight = topNav.offsetHeight;
       let bottomNavHeight = bottomNav.offsetHeight;
 
       // If we've scrolled down enough for the event timer to become sticky...
@@ -113,9 +126,7 @@ function EventHeader({
     >
       <div className="columns is-mobile is-vcentered event-title">
         <div
-          className={
-            headerButtonLink.url !== null ? "column is-9" : "column is-12"
-          }
+          className={headerButtonLink !== null ? "column is-9" : "column is-12"}
         >
           <div className="content">
             <p className={headerIsSticky ? "title is-size-4" : "title"}>
@@ -128,7 +139,7 @@ function EventHeader({
             </p>
           </div>
         </div>
-        {headerButtonLink.url !== null ? (
+        {beforeEvent && headerButtonLink !== null ? (
           <div className="column is-3">
             <a href={headerButtonLink.url} target="_blank">
               <button

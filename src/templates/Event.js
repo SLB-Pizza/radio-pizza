@@ -25,8 +25,8 @@ function EventTemplate({ data }) {
     event_name,
     event_location,
     event_location_link,
-    event_button_text,
-    event_button_link,
+    event_header_button_text,
+    event_header_button_link,
   } = eventData;
 
   const startTimeEST = formatDateTime(dayjs(event_start), "UTC-to-EST");
@@ -50,8 +50,8 @@ function EventTemplate({ data }) {
           endDate={endTimeEST}
           location={event_location}
           eventName={event_name}
-          headerButtonText={event_button_text}
-          headerButtonLink={event_button_link}
+          headerButtonText={event_header_button_text}
+          headerButtonLink={event_header_button_link}
         />
         <section className="section container">
           <div className="columns is-mobile">
@@ -94,7 +94,7 @@ export default EventTemplate;
 export const query = graphql`
   query EventTemplateQuery($uid: String) {
     prismic {
-      allEvents(uid: $uid) {
+      allEvents(uid: $uid, sortBy: event_start_DESC) {
         edges {
           node {
             event_blurb
@@ -109,10 +109,11 @@ export const query = graphql`
                 url
               }
             }
-            event_button_text
-            event_button_link {
+            event_header_button_text
+            event_header_button_link {
               ... on PRISMIC__ExternalLink {
                 target
+                _linkType
                 url
               }
             }

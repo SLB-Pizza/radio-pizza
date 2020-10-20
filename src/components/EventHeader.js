@@ -18,7 +18,14 @@ dayjs.extend(isSameOrBefore);
  * @param {*} { startDate, endDate, eventName }
  * @returns {jsx} a bar that appears after the event's image that sticks to the top on scroll
  */
-function EventHeader({ startDate, endDate, eventName, location }) {
+function EventHeader({
+  startDate,
+  endDate,
+  eventName,
+  location,
+  headerButtonText,
+  headerButtonLink,
+}) {
   const [currentTime, setCurrentTime] = useState(
     dayjs().tz("America/New_York")
   );
@@ -105,11 +112,14 @@ function EventHeader({ startDate, endDate, eventName, location }) {
       style={headerIsSticky ? { minHeight: "auto" } : null}
     >
       <div className="columns is-mobile is-vcentered event-title">
-        <div className="column is-9">
+        <div
+          className={
+            headerButtonLink.url !== null ? "column is-9" : "column is-12"
+          }
+        >
           <div className="content">
             <p className={headerIsSticky ? "title is-size-4" : "title"}>
-              {/* {RichText.asText(eventName)} */}
-              {formatDateTime(currentTime, "long-form-date-time")}
+              {RichText.asText(eventName)}
             </p>
             <p className={headerIsSticky ? "subtitle is-size-6" : "subtitle"}>
               {endDate
@@ -118,17 +128,21 @@ function EventHeader({ startDate, endDate, eventName, location }) {
             </p>
           </div>
         </div>
-        <div className="column is-3">
-          <button
-            className={
-              headerIsSticky
-                ? "button is-fullwidth is-outlined is-rounded display-text"
-                : "button is-medium is-fullwidth is-outlined is-rounded display-text"
-            }
-          >
-            RSVP
-          </button>
-        </div>
+        {headerButtonLink.url !== null ? (
+          <div className="column is-3">
+            <a href={headerButtonLink.url} target="_blank">
+              <button
+                className={
+                  headerIsSticky
+                    ? "button is-fullwidth is-outlined is-rounded display-text"
+                    : "button is-medium is-fullwidth is-outlined is-rounded display-text"
+                }
+              >
+                {headerButtonText}
+              </button>
+            </a>
+          </div>
+        ) : null}
       </div>
       {beforeEvent ? (
         <EventCountdown

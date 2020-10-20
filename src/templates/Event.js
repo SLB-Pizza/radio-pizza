@@ -25,6 +25,8 @@ function EventTemplate({ data }) {
     event_name,
     event_location,
     event_location_link,
+    event_button_text,
+    event_button_link,
   } = eventData;
 
   const startTimeEST = formatDateTime(dayjs(event_start), "UTC-to-EST");
@@ -48,6 +50,8 @@ function EventTemplate({ data }) {
           endDate={endTimeEST}
           location={event_location}
           eventName={event_name}
+          headerButtonText={event_button_text}
+          headerButtonLink={event_button_link}
         />
         <section className="section container">
           <div className="columns is-mobile">

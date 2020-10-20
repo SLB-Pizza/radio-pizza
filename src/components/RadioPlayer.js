@@ -69,6 +69,24 @@ function RadioPlayer() {
     await dispatch({ type: "MIX_LOADED" });
   };
 
+  const handleEnded = async () => {
+    console.log('onEnded');
+
+
+    // ADD check in case we are ending on a single track, not a playlist
+    if(globalState.playlist.length){
+      // if list_curr_index from global state is less the current playlist's number of tracks, then dispatch func which increments it by one and plays next 
+      if(globalState.playlist.length -1 > globalState.list_curr_index) {
+        await dispatch({ type: "PLAYLIST_PLAY_NEXT" });
+      } else {
+        await dispatch({ type: "PLAYLIST_LOOP" });
+      }
+    }
+
+    return;
+
+  };
+
   // const handleVolumeChange = (e) => {
   //   let value = parseFloat(e.target.value);
   //   console.log("current volume", value);
@@ -230,7 +248,7 @@ function RadioPlayer() {
         // onEnablePIP={this.handleEnablePIP}
         // onDisablePIP={this.handleDisablePIP}
         // onSeek={e => console.log('onSeek', e)}
-        // onEnded={this.handleEnded}
+        onEnded={handleEnded}
         // onProgress={this.handleProgress}
       />
     </>
@@ -303,11 +321,6 @@ export default hot(module)(RadioPlayer);
 //   if (!this.state.seeking) {
 //     this.setState(state);
 //   }
-// };
-
-// export const handleEnded = () => {
-//   // console.log('onEnded');
-//   this.setState({ playing: this.state.loop });
 // };
 
 // export const handleDuration = duration => {

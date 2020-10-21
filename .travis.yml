@@ -1,3 +1,5 @@
+os: linux
+dist: focal
 language: node_js
 node_js:
   - 14
@@ -9,15 +11,16 @@ script:
   - "npm run test"
 # https://docs.travis-ci.com/user/deployment-v2/providers/netlify/
 env:
-  - NETLIFY_SITE_ID=<site> NETLIFY_AUTH_TOKEN=<auth>
+  matrix:
+    - NETLIFY_SITE_ID=<site> NETLIFY_AUTH_TOKEN=<auth>
 deploy:
   provider: netlify
   edge: true # opt in to dpl v2
-  site: <site>
-  auth: <auth>
+  site: "<site>"
+  auth: "<auth>"
   cleanup: true
   message: "Deploy triggered by Travis CI"
   on:
     branch: deploy
 notifications:
-  slack: superluigibrospizza:Y1lW96ZU0ir2XFBSnfrBTvXU
+  secure: "ChyCZop8M9eAvnby8rDnSGfTORfFQ4vBs6jN2rXdkdm5wgNfdLdi06HWdBvUVlNwsfGH1XLfCxa5hhg5zpFVXDgJqtviV26qkSfk21UBrvK5k9rUc/5mKI/hCoH8MA3wcAF7JqKo9TN2ypvN72KbU73AhPTwhcorqmJyFdh6kmSfUkfrqmuXOjd0+yIwQvejPHydgfZzc+b/5y2RnrF/EeOUNCfUyXlIP/gFREzFV6TDcHFTJDa5Qv37CAjvZf9o8xx8GgMMH8kyUchfxXS5yeskwn/5uqFcBGw2Tit9qFlqx1Plpuv6rjXDD567iAATl/bbqbSthT6NTGTRN0mJYe3dvssR0SltpwN2SPJgTJZb5n8ZOfltkpidbGR0kpfbeWmkBo48BcpymRmDNYtdeOnDO/+cVMBV7jOQiplmRtGMYqSLM7+QVORdFCpq7EQSH+Rcz+RmflO6mmg0rRMJQU3/jeuE56YGr2TA+T425Anpoz+w7aruCEDYvQEiLfYQlgVFK7kqc6We3yD6vjvoPCHLeEAqcCcO+m2O8OK8VlIG/M/+BuXUkOetX+/Xtk8EqsotpM/EbRonhVp9x1HLKMynrIp6hYL0vfqduWIA0XHCWBu1+OKzr+VGeQTf11ve0kKprs/1FlVcIgWxGPtTk5zW6ynDUp8+g1Rp5BeGs7Q="

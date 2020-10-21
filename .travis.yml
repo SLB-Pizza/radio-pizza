@@ -4,11 +4,6 @@ node_js:
 cache:
   directories:
     - node_modules
-before_install:
-  - npm i -g npm@6.14.8
-before_script:
-  - "npm i -g gatsby"
-  - "npm i"
 # Run mocha tests
 script:
   - "npm run test"

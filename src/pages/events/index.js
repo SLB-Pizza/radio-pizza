@@ -1,10 +1,10 @@
-import React from "react";
-import { Link, graphql } from "gatsby";
-import { RichText } from "prismic-reactjs";
-import { SingleEventCard } from "../../components";
-import { linkResolver } from "../../utils";
+import React from 'react'
+import { Link, graphql } from 'gatsby'
+import { RichText } from 'prismic-reactjs'
+import { SingleEventCard } from '../../components'
+import { linkResolver } from '../../utils'
 
-import dummyEvents from "../../../__test__/dummyEvents.json";
+import dummyEvents from '../../../__test__/dummyEvents.json'
 /**
  * @category Pages
  * @subcategory Indexes
@@ -12,13 +12,13 @@ import dummyEvents from "../../../__test__/dummyEvents.json";
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/features` landing page
  */
 function EventsIndex({ data }) {
-  const prismicContent = data.prismic.allEvents.edges;
-  if (!prismicContent) return null;
+  const prismicContent = data.prismic.allEvents.edges
+  if (!prismicContent) return null
 
-  const allEventsData = prismicContent;
+  const allEventsData = prismicContent
 
   const eventPageLayout =
-    "column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen";
+    'column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen'
 
   return (
     <div className="container is-fluid black-bg-page">
@@ -40,7 +40,7 @@ function EventsIndex({ data }) {
         ))}
       </div>
     </div>
-  );
+  )
 }
 
 // <pre key={index}>node {JSON.stringify(node, null, 2)}</pre>
@@ -49,7 +49,7 @@ function EventsIndex({ data }) {
 //   eventData={event}
 //   eventColumnLayout={eventPageLayout}
 // />
-export default EventsIndex;
+export default EventsIndex
 
 export const query = graphql`
   query EventsIndexQuery {
@@ -72,4 +72,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { graphql } from "gatsby";
-import { RichText } from "prismic-reactjs";
-import { EventHeader } from "../components";
-import { formatDateTime, htmlSerializer, linkResolver } from "../utils";
+import React, { useEffect, useState } from 'react'
+import { graphql } from 'gatsby'
+import { RichText } from 'prismic-reactjs'
+import { EventHeader } from '../components'
+import { formatDateTime, htmlSerializer, linkResolver } from '../utils'
 
-import dayjs from "dayjs";
+import dayjs from 'dayjs'
 
 /**
  * @category Templates
@@ -13,9 +13,9 @@ import dayjs from "dayjs";
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/features` landing page
  */
 function EventTemplate({ data }) {
-  const prismicContent = data.prismic.allEvents.edges[0];
-  if (!prismicContent) return null;
-  const eventData = prismicContent.node;
+  const prismicContent = data.prismic.allEvents.edges[0]
+  if (!prismicContent) return null
+  const eventData = prismicContent.node
 
   const {
     event_start,
@@ -27,11 +27,11 @@ function EventTemplate({ data }) {
     event_location_link,
     event_header_button_text,
     event_header_button_link,
-  } = eventData;
+  } = eventData
 
-  const startTimeEST = formatDateTime(dayjs(event_start), "UTC-to-EST");
+  const startTimeEST = formatDateTime(dayjs(event_start), 'UTC-to-EST')
   const endTimeEST =
-    event_end !== null ? formatDateTime(dayjs(event_end), "UTC-to-EST") : null;
+    event_end !== null ? formatDateTime(dayjs(event_end), 'UTC-to-EST') : null
 
   return (
     <main className="full-height-page">
@@ -78,18 +78,18 @@ function EventTemplate({ data }) {
         </section>
         <section
           className="container"
-          style={{ backgroundColor: "darkred", height: "15rem" }}
+          style={{ backgroundColor: 'darkred', height: '15rem' }}
         ></section>
         <section
           className="container"
-          style={{ backgroundColor: "darkgrey", height: "15rem" }}
+          style={{ backgroundColor: 'darkgrey', height: '15rem' }}
         ></section>
       </article>
     </main>
-  );
+  )
 }
 
-export default EventTemplate;
+export default EventTemplate
 
 export const query = graphql`
   query EventTemplateQuery($uid: String) {
@@ -122,4 +122,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`

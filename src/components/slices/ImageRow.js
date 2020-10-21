@@ -1,5 +1,5 @@
-import React from "react";
-import { ImageHelper } from "./index";
+import React from 'react'
+import { ImageHelper } from './index'
 
 /**
  * Creates a Slice Component that display two images and some text. The text section can be either on the left of the right.
@@ -19,11 +19,11 @@ function ImageRow({ slice }) {
               key={`img-#${index}-${single_img.alt}`}
               imageData={single_img}
             />
-          );
+          )
         })}
       </div>
     </section>
-  );
+  )
 }
 
-export default ImageRow;
+export default ImageRow

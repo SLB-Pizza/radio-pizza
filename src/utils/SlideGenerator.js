@@ -1,6 +1,6 @@
-import React from "react";
-import { navigate } from "gatsby";
-import { RichText } from "prismic-reactjs";
+import React from 'react'
+import { navigate } from 'gatsby'
+import { RichText } from 'prismic-reactjs'
 
 /**
  * @category Site Elements
@@ -25,19 +25,25 @@ function SlideGenerator({ background, headline, link, cta }) {
     >
       <div
         className="hero-body"
-        style={{ position: "relative", zIndex: 9999999 }}
+        style={{ position: 'relative', zIndex: 9999999 }}
         onClick={() => {
-          navigate(`${link.url}`);
+          navigate(`${link.url}`)
         }}
       >
         <div className="container">
           <div className="columns">
             <div className="column">
-              <h1 className="title is-size-1-desktop is-size-3-touch is-size-5-mobile hero-title" style={{ pointerEvents: 'auto' }}>
+              <h1
+                className="title is-size-1-desktop is-size-3-touch is-size-5-mobile hero-title"
+                style={{ pointerEvents: 'auto' }}
+              >
                 {RichText.asText(headline)}
               </h1>
               <br />
-              <h2 className="subtitle is-size-5-desktop is-size-5-touch is-size-7-mobile hero-title cta" style={{ pointerEvents: 'auto' }}>
+              <h2
+                className="subtitle is-size-5-desktop is-size-5-touch is-size-7-mobile hero-title cta"
+                style={{ pointerEvents: 'auto' }}
+              >
                 {RichText.asText(cta)}
               </h2>
             </div>
@@ -45,7 +51,7 @@ function SlideGenerator({ background, headline, link, cta }) {
         </div>
       </div>
     </section>
-  );
+  )
 }
 
-export default SlideGenerator;
+export default SlideGenerator

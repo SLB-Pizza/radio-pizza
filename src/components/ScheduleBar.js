@@ -1,53 +1,51 @@
-import React, { useState, useContext, useEffect } from "react";
-import { Link } from "gatsby";
-import { gql, useQuery } from "@apollo/client";
+import React, { useState, useContext, useEffect } from 'react'
+import { Link } from 'gatsby'
+import { gql, useQuery } from '@apollo/client'
 import {
   faSearch,
   faComments,
   faCalendarAlt,
   faBroadcastTower,
   faHeadphones,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Ticker from "react-ticker";
-import PageVisibility from "react-page-visibility";
+} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Ticker from 'react-ticker'
+import PageVisibility from 'react-page-visibility'
 import {
   GlobalDispatchContext,
   GlobalStateContext,
-} from "../context/GlobalContextProvider";
-import { ScheduleDropdown, OutsideClick, UpcomingShow } from "./index";
-import { formatDateTime } from "../utils";
-import dayjs from "dayjs";
-import utc from "dayjs/plugin/utc";
-import timezone from "dayjs/plugin/timezone";
-dayjs.extend(utc);
-dayjs.extend(timezone);
+} from '../context/GlobalContextProvider'
+import { ScheduleDropdown, OutsideClick, UpcomingShow } from './index'
+import { formatDateTime } from '../utils'
+import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
+import timezone from 'dayjs/plugin/timezone'
+dayjs.extend(utc)
+dayjs.extend(timezone)
 
 function ScheduleBar({ timeNow }) {
-  const dispatch = useContext(GlobalDispatchContext);
-  const globalState = useContext(GlobalStateContext);
+  const dispatch = useContext(GlobalDispatchContext)
+  const globalState = useContext(GlobalStateContext)
 
-  const [open, setOpen] = useState(false);
-  const [pageIsVisible, setPageIsVisible] = useState(true);
-  const [todaysSchedule, setTodaysSchedule] = useState([]);
-  const [currentTime, setCurrentTime] = useState(
-    dayjs().tz("America/New_York")
-  );
+  const [open, setOpen] = useState(false)
+  const [pageIsVisible, setPageIsVisible] = useState(true)
+  const [todaysSchedule, setTodaysSchedule] = useState([])
+  const [currentTime, setCurrentTime] = useState(dayjs().tz('America/New_York'))
 
   useEffect(() => {
     const schedTime = setInterval(() => {
-      setCurrentTime(currentTime.add(1, "s"));
-    }, 1000);
+      setCurrentTime(currentTime.add(1, 's'))
+    }, 1000)
 
     return () => {
-      clearInterval(schedTime);
-    };
-  }, []);
+      clearInterval(schedTime)
+    }
+  }, [])
 
   /**
    * Format timeNow for use in schedule_date_before and schedule_date_after below. Neither date is inclusive so we need to pass in yesterday as the filter date.
    */
-  let yesterday = formatDateTime(currentTime, "prismic-date-query", -1);
+  let yesterday = formatDateTime(currentTime, 'prismic-date-query', -1)
 
   /**
    * Query for Prismic in the GraphQL syntax, not the Gatsby syntax!
@@ -89,7 +87,7 @@ function ScheduleBar({ timeNow }) {
         }
       }
     }
-  `;
+  `
 
   /**
    * Run the query on load and poll every 120 seconds; 2 minutes.
@@ -97,7 +95,7 @@ function ScheduleBar({ timeNow }) {
   const { loading, error, data } = useQuery(GET_NEXT_SHOW, {
     variables: { yesterday },
     pollInterval: 5000,
-  });
+  })
 
   /**
    * Query the HMBK Prismic CMS to get the data for the next scheduled show's data.
@@ -116,45 +114,45 @@ function ScheduleBar({ timeNow }) {
         // );
       }
       if (error) {
-        console.log(`Error: ${error.message}`);
+        console.log(`Error: ${error.message}`)
       }
       if (data) {
         // console.log("data received", data);
-        const todayScheduleData = data.allSchedules.edges;
-        setTodaysSchedule(todayScheduleData);
+        const todayScheduleData = data.allSchedules.edges
+        setTodaysSchedule(todayScheduleData)
         // console.log(todaysSchedule);
       }
-    };
+    }
 
-    return getNextShowData();
-  }, [data, loading, error]);
+    return getNextShowData()
+  }, [data, loading, error])
 
-  const handleVisibilityChange = (isVisible) => {
-    setPageIsVisible(isVisible);
-  };
+  const handleVisibilityChange = isVisible => {
+    setPageIsVisible(isVisible)
+  }
 
   const handlePlayLive = async () => {
     await dispatch({
-      type: "CHANGE_URL",
+      type: 'CHANGE_URL',
       payload: {
-        url: "https://streamer.radio.co/sa3c47c55b/listen",
-        title: "Halfmoon Radio",
+        url: 'https://streamer.radio.co/sa3c47c55b/listen',
+        title: 'Halfmoon Radio',
       },
-    });
-  };
+    })
+  }
 
   const closeSchedule = async () => {
-    await dispatch({ type: "CLOSE_SCHEDULE" });
-  };
+    await dispatch({ type: 'CLOSE_SCHEDULE' })
+  }
 
   const toggleSchedule = async () => {
-    await dispatch({ type: "TOGGLE_SCHEDULE" });
-  };
+    await dispatch({ type: 'TOGGLE_SCHEDULE' })
+  }
 
   // TEST ONLY -- just for live toggle
   const handleLiveTest = async () => {
-    await dispatch({ type: "TOGGLE_LIVE_TEST" });
-  };
+    await dispatch({ type: 'TOGGLE_LIVE_TEST' })
+  }
 
   // const showLiveStatus = () => (globalState.live ? "true" : "false");
   // END TEST CODE
@@ -169,8 +167,8 @@ function ScheduleBar({ timeNow }) {
           </p>
         )}
       </Ticker>
-    );
-  };
+    )
+  }
 
   /**
    * Schedule Bar LAYOUT
@@ -179,15 +177,15 @@ function ScheduleBar({ timeNow }) {
    * @see {@link BottomNav|Related globalState situation in BottomNav}
    * @see {@link https://github.com/gatsbyjs/gatsby/issues/24264#issuecomment-631995753|Re: ERROR #95313 - To stop the error immediately, add a null check for the object}
    */
-  if (!globalState) return null;
+  if (!globalState) return null
 
   return globalState.scheduleOpen ? (
-    <OutsideClick id={"schedule-bar"} onClick={() => closeSchedule()}>
+    <OutsideClick id={'schedule-bar'} onClick={() => closeSchedule()}>
       <div
         className={
           globalState.live
-            ? "schedule-bar container is-fluid is-open is-live"
-            : "schedule-bar container is-fluid is-open"
+            ? 'schedule-bar container is-fluid is-open is-live'
+            : 'schedule-bar container is-fluid is-open'
         }
         id="schedule-bar"
       >
@@ -195,8 +193,8 @@ function ScheduleBar({ timeNow }) {
           <div
             className="column is-narrow"
             onClick={() => {
-              handleLiveTest();
-              closeSchedule();
+              handleLiveTest()
+              closeSchedule()
             }}
           >
             {globalState.live ? (
@@ -245,7 +243,7 @@ function ScheduleBar({ timeNow }) {
           <div className="column upcoming is-hidden-tablet">
             <PageVisibility onChange={handleVisibilityChange}>
               {pageIsVisible &&
-                nextShowTicker("MON 4.21", "An HMBK Moment In Time")}
+                nextShowTicker('MON 4.21', 'An HMBK Moment In Time')}
             </PageVisibility>
           </div>
           <div className="column is-narrow">
@@ -297,16 +295,16 @@ function ScheduleBar({ timeNow }) {
     <div
       className={
         globalState.live
-          ? "schedule-bar container is-fluid is-live"
-          : "schedule-bar container is-fluid"
+          ? 'schedule-bar container is-fluid is-live'
+          : 'schedule-bar container is-fluid'
       }
     >
       <div className="columns is-vcentered is-mobile is-variable is-2 up-next">
         <div
           className="column is-narrow"
           onClick={() => {
-            handleLiveTest();
-            closeSchedule();
+            handleLiveTest()
+            closeSchedule()
           }}
         >
           {globalState.live ? (
@@ -390,7 +388,7 @@ function ScheduleBar({ timeNow }) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default ScheduleBar;
+export default ScheduleBar

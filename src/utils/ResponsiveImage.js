@@ -1,6 +1,6 @@
-import React from "react";
-import lazySizes from "lazysizes";
-import "lazysizes/plugins/attrchange/ls.attrchange";
+import React from 'react'
+import lazySizes from 'lazysizes'
+import 'lazysizes/plugins/attrchange/ls.attrchange'
 // import "lazysizes/plugins/blur-up/ls.blur-up";
 
 /**
@@ -27,27 +27,27 @@ function ResponsiveImage({ largestImg, responsiveData }) {
         /**
          * Pull breakpoint-specific image url from responsiveData
          */
-        const url = responsiveData[imgSize].url;
+        const url = responsiveData[imgSize].url
 
         /**
          * Pull breakpoint-specific image width from responsiveData
          */
-        const width = responsiveData[imgSize].dimensions.width;
+        const width = responsiveData[imgSize].dimensions.width
 
         /**
          * Pull breakpoint-specific image height from responsiveData
          */
-        const height = responsiveData[imgSize].dimensions.height;
+        const height = responsiveData[imgSize].dimensions.height
 
         /**
          * Used with imgSize to get the Source's media query data
          */
         const breakpoints = {
-          mobile: "(max-width: 767px)",
-          tablet: "(max-width: 1023px)",
-          desktop: "(max-width: 1215px)",
-          widescreen: "(max-width: 1407px)",
-        };
+          mobile: '(max-width: 767px)',
+          tablet: '(max-width: 1023px)',
+          desktop: '(max-width: 1215px)',
+          widescreen: '(max-width: 1407px)',
+        }
 
         return (
           <source
@@ -57,18 +57,18 @@ function ResponsiveImage({ largestImg, responsiveData }) {
             height={height}
             media={`${breakpoints[imgSize]}`}
           />
-        );
+        )
       })}
       <img
         alt={largestImg.alt}
-        data-lowsrc={responsiveData["lo_fi"].url}
+        data-lowsrc={responsiveData['lo_fi'].url}
         width={largestImg.dimensions.width}
         height={largestImg.dimensions.height}
         data-src={largestImg.url}
         className="lazyload inline-image"
       />
     </picture>
-  );
+  )
 }
 
-export default ResponsiveImage;
+export default ResponsiveImage

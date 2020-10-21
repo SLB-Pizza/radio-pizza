@@ -1,13 +1,13 @@
-import React from "react";
-import { Link } from "gatsby";
-import { RichText } from "prismic-reactjs";
-import NanoClamp from "nanoclamp";
+import React from 'react'
+import { Link } from 'gatsby'
+import { RichText } from 'prismic-reactjs'
+import NanoClamp from 'nanoclamp'
 
 import {
   linkResolver,
   processPublicationDates,
   ResponsiveImage,
-} from "../utils";
+} from '../utils'
 
 /**
  * @category Utilities
@@ -17,31 +17,31 @@ import {
  * @returns {jsx}
  */
 function LandingPageElement({ pageElement, layout, imageAspectRatio }) {
-  const { _meta, body } = pageElement.node;
+  const { _meta, body } = pageElement.node
 
-  const { type, uid, firstPublicationDate, lastPublicationDate } = _meta;
+  const { type, uid, firstPublicationDate, lastPublicationDate } = _meta
   const linkTo = {
     type,
     uid,
-  };
+  }
   const pageElementDateDetails = processPublicationDates(
     firstPublicationDate,
     lastPublicationDate
-  );
+  )
 
   const {
     article_headline_img,
     article_headline,
     article_subtitle,
     article_subcategory,
-  } = body[0].primary;
+  } = body[0].primary
 
   const fullSizeImg = {
     alt: article_headline_img.alt,
     photoCredit: article_headline_img.copyright,
     url: article_headline_img.url,
     dimensions: article_headline_img.dimensions,
-  };
+  }
 
   const responsiveSizes = {
     widescreen: article_headline_img.widescreen,
@@ -49,7 +49,7 @@ function LandingPageElement({ pageElement, layout, imageAspectRatio }) {
     tablet: article_headline_img.tablet,
     mobile: article_headline_img.mobile,
     lo_fi: article_headline_img.lo_fi_placeholder,
-  };
+  }
 
   return (
     <article className={layout}>
@@ -95,7 +95,7 @@ function LandingPageElement({ pageElement, layout, imageAspectRatio }) {
         </div>
       </Link>
     </article>
-  );
+  )
 }
 
-export default LandingPageElement;
+export default LandingPageElement

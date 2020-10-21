@@ -1,4 +1,4 @@
-import { formatDateTime } from "../utils";
+import { formatDateTime } from '../utils'
 
 /**
  * Four scenarios:
@@ -15,10 +15,10 @@ import { formatDateTime } from "../utils";
  * @param {Object} nextShowData - the schedule data object
  */
 function formatNextShow(nextShowData, currentTime) {
-  let formattedNextShowDate = nextShowData.schedule_date;
-  let todayFormatted = formatDateTime(currentTime, "prismic-date-query", 0);
+  let formattedNextShowDate = nextShowData.schedule_date
+  let todayFormatted = formatDateTime(currentTime, 'prismic-date-query', 0)
 
-  return formattedNextShowDate === todayFormatted;
+  return formattedNextShowDate === todayFormatted
 }
 
-export default formatNextShow;
+export default formatNextShow

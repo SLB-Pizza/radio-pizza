@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react'
 
 function SearchColumns(props) {
   return (
     <div className="columns is-mobile is-hidden-mobile">
       <div
         className={
-          props.isSelected === "mixes"
-            ? "column is-4 is-hidden-mobile is-active"
-            : "column is-4 is-hidden-mobile"
+          props.isSelected === 'mixes'
+            ? 'column is-4 is-hidden-mobile is-active'
+            : 'column is-4 is-hidden-mobile'
         }
         id="mixes"
         onClick={props.toggleColumn}
@@ -18,9 +18,9 @@ function SearchColumns(props) {
       </div>
       <div
         className={
-          props.isSelected === "residents"
-            ? "column is-4 is-hidden-mobile is-active"
-            : "column is-4 is-hidden-mobile"
+          props.isSelected === 'residents'
+            ? 'column is-4 is-hidden-mobile is-active'
+            : 'column is-4 is-hidden-mobile'
         }
         id="residents"
         onClick={props.toggleColumn}
@@ -31,9 +31,9 @@ function SearchColumns(props) {
       </div>
       <div
         className={
-          props.isSelected === "events"
-            ? "column is-4 is-hidden-mobile is-active"
-            : "column is-4 is-hidden-mobile"
+          props.isSelected === 'events'
+            ? 'column is-4 is-hidden-mobile is-active'
+            : 'column is-4 is-hidden-mobile'
         }
         id="events"
         onClick={props.toggleColumn}
@@ -57,7 +57,7 @@ function SearchColumns(props) {
           News (10)
       </div> */}
     </div>
-  );
+  )
 }
 
-export default SearchColumns;
+export default SearchColumns

@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { RichText } from "prismic-reactjs";
-import { EventCountdown } from "../components";
-import { formatDateTime } from "../utils";
-import dayjs from "dayjs";
-import utc from "dayjs/plugin/utc";
-import timezone from "dayjs/plugin/timezone";
-import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
+import React, { useState, useEffect } from 'react'
+import { RichText } from 'prismic-reactjs'
+import { EventCountdown } from '../components'
+import { formatDateTime } from '../utils'
+import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
+import timezone from 'dayjs/plugin/timezone'
+import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
 
-dayjs.extend(utc);
-dayjs.extend(timezone);
-dayjs.extend(isSameOrBefore);
+dayjs.extend(utc)
+dayjs.extend(timezone)
+dayjs.extend(isSameOrBefore)
 
 /**
  * Component that renders the time remaining and relevant button for each event
@@ -26,78 +26,76 @@ function EventHeader({
   headerButtonText,
   headerButtonLink,
 }) {
-  const [currentTime, setCurrentTime] = useState(
-    dayjs().tz("America/New_York")
-  );
-  const [beforeEvent, setBeforeEvent] = useState(null);
-  const [dayCount, setDayCount] = useState(null);
-  const [hourCount, setHourCount] = useState(null);
-  const [minuteCount, setMinuteCount] = useState(null);
-  const [secondCount, setSecondCount] = useState(null);
-  const [eventHeight, setEventHeight] = useState(1);
-  const [timerHeight, setTimerHeight] = useState(1);
-  const [headerIsSticky, setHeaderIsSticky] = useState(false);
+  const [currentTime, setCurrentTime] = useState(dayjs().tz('America/New_York'))
+  const [beforeEvent, setBeforeEvent] = useState(null)
+  const [dayCount, setDayCount] = useState(null)
+  const [hourCount, setHourCount] = useState(null)
+  const [minuteCount, setMinuteCount] = useState(null)
+  const [secondCount, setSecondCount] = useState(null)
+  const [eventHeight, setEventHeight] = useState(1)
+  const [timerHeight, setTimerHeight] = useState(1)
+  const [headerIsSticky, setHeaderIsSticky] = useState(false)
 
-  const startDateText = formatDateTime(startDate, "long-form-date-time");
+  const startDateText = formatDateTime(startDate, 'long-form-date-time')
   const endDateText =
-    endDate !== null ? formatDateTime(endDate, "long-form-date") : null;
+    endDate !== null ? formatDateTime(endDate, 'long-form-date') : null
 
   useEffect(() => {
     const countdownClock = setInterval(() => {
-      setCurrentTime(currentTime.add(1, "s"));
+      setCurrentTime(currentTime.add(1, 's'))
 
       // Check if currentTime is before or same as startDate
       if (currentTime.isSameOrBefore(dayjs(startDate))) {
-        setBeforeEvent(true);
+        setBeforeEvent(true)
 
-        let startDayJS = dayjs(startDate);
-        let days = dayjs(startDayJS).diff(currentTime, "day");
+        let startDayJS = dayjs(startDate)
+        let days = dayjs(startDayJS).diff(currentTime, 'day')
 
         // 24 hours in a day
-        let hours = dayjs(startDayJS).diff(currentTime, "hour") % 24;
+        let hours = dayjs(startDayJS).diff(currentTime, 'hour') % 24
 
         // 60 minutes in a hour
-        let minutes = dayjs(startDayJS).diff(currentTime, "minute") % 60;
+        let minutes = dayjs(startDayJS).diff(currentTime, 'minute') % 60
 
         // 60 seconds in a minute
-        let seconds = dayjs(startDayJS).diff(currentTime, "second") % 60;
+        let seconds = dayjs(startDayJS).diff(currentTime, 'second') % 60
 
-        setDayCount(days);
-        setHourCount(hours);
-        setMinuteCount(minutes);
-        setSecondCount(seconds);
+        setDayCount(days)
+        setHourCount(hours)
+        setMinuteCount(minutes)
+        setSecondCount(seconds)
       }
-    }, 1000);
+    }, 1000)
 
     return () => {
-      clearInterval(countdownClock);
-    };
-  }, [currentTime]);
+      clearInterval(countdownClock)
+    }
+  }, [currentTime])
 
   useEffect(() => {
-    const handleScroll = (e) => {
+    const handleScroll = e => {
       // Set base values for the heights of the image and timer component
       if (timerHeight === 1 && eventHeight === 1) {
-        let eventImage = document.querySelector("header.event-image");
-        let eventHeader = document.querySelector(".event-header");
+        let eventImage = document.querySelector('header.event-image')
+        let eventHeader = document.querySelector('.event-header')
 
         /**
          * Using clientHeight here because neither eventImage nor eventHeader has a border to count.
          * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/Element/clientHeight|Element.clientHeight - MDN}
          */
-        setEventHeight(eventImage.clientHeight);
-        setTimerHeight(eventHeader.clientHeight);
+        setEventHeight(eventImage.clientHeight)
+        setTimerHeight(eventHeader.clientHeight)
       }
 
-      let topNav = document.querySelector(".radio-and-schedule-bar");
-      let bottomNav = document.querySelector(".navbar.is-fixed-bottom");
+      let topNav = document.querySelector('.radio-and-schedule-bar')
+      let bottomNav = document.querySelector('.navbar.is-fixed-bottom')
 
       /**
        * Using offsetHeight here because both topNav and bottomNav have borders to account for.
        * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetHeight|HTMLElement.offsetHeight - MDN}
        */
-      let topNavHeight = topNav.offsetHeight;
-      let bottomNavHeight = bottomNav.offsetHeight;
+      let topNavHeight = topNav.offsetHeight
+      let bottomNavHeight = bottomNav.offsetHeight
 
       // If we've scrolled down enough for the event timer to become sticky...
       if (
@@ -105,34 +103,34 @@ function EventHeader({
         eventHeight + timerHeight - topNavHeight - bottomNavHeight
       ) {
         //...make hasScrolled true to activate the style changes...
-        setHeaderIsSticky(true);
+        setHeaderIsSticky(true)
       } else {
         //...else set to false to deactivate the style changes...
-        setHeaderIsSticky(false);
+        setHeaderIsSticky(false)
       }
-    };
+    }
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll)
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [eventHeight, timerHeight, headerIsSticky]);
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [eventHeight, timerHeight, headerIsSticky])
 
   return (
     <div
       className="container event-header"
-      style={headerIsSticky ? { minHeight: "auto" } : null}
+      style={headerIsSticky ? { minHeight: 'auto' } : null}
     >
       <div className="columns is-mobile is-vcentered event-title">
         <div
-          className={headerButtonLink !== null ? "column is-9" : "column is-12"}
+          className={headerButtonLink !== null ? 'column is-9' : 'column is-12'}
         >
           <div className="content">
-            <p className={headerIsSticky ? "title is-size-4" : "title"}>
+            <p className={headerIsSticky ? 'title is-size-4' : 'title'}>
               {RichText.asText(eventName)}
             </p>
-            <p className={headerIsSticky ? "subtitle is-size-6" : "subtitle"}>
+            <p className={headerIsSticky ? 'subtitle is-size-6' : 'subtitle'}>
               {endDate
                 ? `${startDateText} to ${endDateText} | ${location}`
                 : `${startDateText} | ${location}`}
@@ -145,8 +143,8 @@ function EventHeader({
               <button
                 className={
                   headerIsSticky
-                    ? "button is-fullwidth is-outlined is-rounded display-text"
-                    : "button is-medium is-fullwidth is-outlined is-rounded display-text"
+                    ? 'button is-fullwidth is-outlined is-rounded display-text'
+                    : 'button is-medium is-fullwidth is-outlined is-rounded display-text'
                 }
               >
                 {headerButtonText}
@@ -165,7 +163,7 @@ function EventHeader({
         />
       ) : null}
     </div>
-  );
+  )
 }
 
-export default EventHeader;
+export default EventHeader

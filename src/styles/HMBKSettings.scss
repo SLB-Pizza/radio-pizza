@@ -109,20 +109,26 @@ button.button,
   font-weight: 700;
 }
 
-button.active {
-  color: white;
-  border-color: $primary;
-}
-
-p,
+button p,
 .subtitle {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-display: swap;
 }
 
-button {
+button.button {
   transition: 0.25s ease-in-out;
+  border-color: $grey;
+
+  @include until-widescreen {
+    font-size: 0.625rem;
+  }
+
+  &.active {
+    transition: 0.25s ease-in-out;
+    color: white;
+    border-color: $primary;
+  }
 }
 
 .buttons.are-tags {
@@ -132,16 +138,6 @@ button {
   flex-wrap: wrap;
   align-items: flex-end;
   padding-top: 1rem;
-
-  .button {
-    @include until-widescreen {
-      font-size: 0.625rem;
-
-    }
-    &:hover {
-      font-style: italic;
-    }
-  }
 }
 
 .icon-color {
@@ -199,7 +195,6 @@ figcaption {
 // Push the tagline after the title of a card down
 // Give the date of content items some space
 //================================================
-
 
 // Prevents clipping of background color through the curved card border
 .card-content {

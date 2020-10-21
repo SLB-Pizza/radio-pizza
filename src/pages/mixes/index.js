@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { graphql } from "gatsby";
+import React, { useState } from 'react'
+import { graphql } from 'gatsby'
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faTag } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch, faTag } from '@fortawesome/free-solid-svg-icons'
 import {
   CuratedCollections,
   SingleMixCard,
   MixPlayOverlay,
-} from "../../components/";
+} from '../../components/'
 
 /**
  * @category Pages
@@ -20,30 +20,30 @@ function MixesIndexPage({ data }) {
   /**
    * **NB:** allMixs is NOT a typo.
    */
-  const prismicContent = data.prismic;
-  if (!prismicContent) return null;
+  const prismicContent = data.prismic
+  if (!prismicContent) return null
 
   /**
    * Grab and manip the nodes array of mixs
    */
-  const allMixesData = prismicContent.allMixs.edges;
+  const allMixesData = prismicContent.allMixs.edges
 
   const mixListLayout =
-    "column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen";
+    'column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen'
   const dummyOptions = [
-    "Argentina",
-    "Bolivia",
-    "Brazil",
-    "Chile",
-    "Colombia",
-    "Ecuador",
-    "Guyana",
-    "Paraguay",
-    "Peru",
-    "Suriname",
-    "Uruguay",
-    "Venezuela",
-  ];
+    'Argentina',
+    'Bolivia',
+    'Brazil',
+    'Chile',
+    'Colombia',
+    'Ecuador',
+    'Guyana',
+    'Paraguay',
+    'Peru',
+    'Suriname',
+    'Uruguay',
+    'Venezuela',
+  ]
 
   return (
     <main className="black-bg-page">
@@ -80,7 +80,7 @@ function MixesIndexPage({ data }) {
                 <div className="select is-fullwidth is-rounded">
                   <select name="country">
                     <option value="">--Country--</option>
-                    {dummyOptions.map((option) => (
+                    {dummyOptions.map(option => (
                       <option key={option} value={option}>
                         {option}
                       </option>
@@ -107,14 +107,14 @@ function MixesIndexPage({ data }) {
                 mixData={node}
                 columnLayout={mixListLayout}
               />
-            );
+            )
           })}
           <hr />
           <pre>{JSON.stringify(allMixesData, null, 2)}</pre>
         </div>
       </section>
     </main>
-  );
+  )
 }
 
 export const query = graphql`
@@ -150,9 +150,9 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
-export default MixesIndexPage;
+export default MixesIndexPage
 
 // Mix img square sizes
 // --- MOBILE ---

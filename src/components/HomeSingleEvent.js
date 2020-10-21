@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 function HomeSingleEvent() {
   return (
@@ -26,7 +26,7 @@ function HomeSingleEvent() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default HomeSingleEvent;
+export default HomeSingleEvent

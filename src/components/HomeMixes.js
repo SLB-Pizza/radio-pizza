@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "gatsby";
-import { RichText } from "prismic-reactjs";
-import { SingleMixCard } from "./index";
+import React from 'react'
+import { Link } from 'gatsby'
+import { RichText } from 'prismic-reactjs'
+import { SingleMixCard } from './index'
 
 /**
  * Returns the Mixes content section of the Homepage, directly underneath the {@link Hero} section.
@@ -17,8 +17,7 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
   /**
    * The string passed into {@link SingleMixCard} that defines the column sizing for the mix cards in the Mixes section of the Homepage.
    */
-  const homeMixesLayout =
-    "column is-9-mobile is-two-fifths-tablet is-4-desktop";
+  const homeMixesLayout = 'column is-9-mobile is-two-fifths-tablet is-4-desktop'
 
   return (
     <div className="container is-fluid" id="home-mixes">
@@ -46,7 +45,7 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
                   mixData={node}
                   columnLayout={homeMixesLayout}
                 />
-              );
+              )
             })}
           </div>
         </div>
@@ -78,11 +77,11 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
               mixData={node}
               columnLayout={homeMixesLayout}
             />
-          );
+          )
         })}
       </div>
     </div>
-  );
+  )
 }
 
-export default HomeMixes;
+export default HomeMixes

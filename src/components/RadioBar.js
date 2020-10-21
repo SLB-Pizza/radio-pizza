@@ -1,27 +1,27 @@
-import React, { useContext, useEffect, useState } from "react";
-import axios from "axios";
-import { Link } from "gatsby";
-import Ticker from "react-ticker";
-import { gql, useQuery } from "@apollo/client";
+import React, { useContext, useEffect, useState } from 'react'
+import axios from 'axios'
+import { Link } from 'gatsby'
+import Ticker from 'react-ticker'
+import { gql, useQuery } from '@apollo/client'
 // import { PrismicLink } from "apollo-link-prismic";
-import { formatDateTime, getResidentString } from "../utils";
-import { RadioPlayer } from "./index";
+import { formatDateTime, getResidentString } from '../utils'
+import { RadioPlayer } from './index'
 import {
   GlobalDispatchContext,
   GlobalStateContext,
-} from "../context/GlobalContextProvider";
-import dayjs from "dayjs";
-const utc = require("dayjs/plugin/utc");
-dayjs.extend(utc);
+} from '../context/GlobalContextProvider'
+import dayjs from 'dayjs'
+const utc = require('dayjs/plugin/utc')
+dayjs.extend(utc)
 
 // import PageVisibility from "react-page-visibility";
 
 function RadioBar({ nycTime, laTime }) {
-  const dispatch = useContext(GlobalDispatchContext);
-  const globalState = useContext(GlobalStateContext);
+  const dispatch = useContext(GlobalDispatchContext)
+  const globalState = useContext(GlobalStateContext)
 
-  const [radioData, setRadioData] = useState({});
-  const [pageIsVisible, setPageIsVisible] = useState(true);
+  const [radioData, setRadioData] = useState({})
+  const [pageIsVisible, setPageIsVisible] = useState(true)
 
   // const handleVisibilityChange = (isVisible) => {
   //   setPageIsVisible(isVisible);
@@ -81,9 +81,9 @@ function RadioBar({ nycTime, laTime }) {
         }
       }
     }
-  `;
+  `
 
-  const { loading, error, data } = useQuery(INITIAL_MIX);
+  const { loading, error, data } = useQuery(INITIAL_MIX)
 
   /**
    * Query the HMBK Prismic CMS to get the data for the initial mix data.
@@ -96,29 +96,29 @@ function RadioBar({ nycTime, laTime }) {
       // console.log("Initial Mix request in progress");
     }
     if (error) {
-      console.log(`initialMix Error: ${error.message}`);
+      console.log(`initialMix Error: ${error.message}`)
     }
     if (data) {
-      const mixDataObject = data.allTopnavs.edges[0].node.default_mix;
+      const mixDataObject = data.allTopnavs.edges[0].node.default_mix
       const {
         featured_residents,
         mix_image,
         mix_link,
         mix_title,
-      } = mixDataObject;
+      } = mixDataObject
 
-      const mixResidentsString = getResidentString(featured_residents);
+      const mixResidentsString = getResidentString(featured_residents)
       return dispatch({
-        type: "SET_INITIAL_MIX",
+        type: 'SET_INITIAL_MIX',
         payload: {
           url: mix_link,
           title: mix_title,
           resident: mixResidentsString,
           img: mix_image.now_playing.url,
         },
-      });
+      })
     }
-  }, [data, loading, error]);
+  }, [data, loading, error])
 
   // Currently offline! Not gonna work until HMBK pays for it
   // useEffect(() => {
@@ -164,15 +164,15 @@ function RadioBar({ nycTime, laTime }) {
 
         <div className="column is-narrow is-hidden-mobile">
           <p className="display-text is-size-6">
-            {formatDateTime(laTime, "hour-minute")} LA
+            {formatDateTime(laTime, 'hour-minute')} LA
           </p>
           <p className="display-text is-size-6">
-            {formatDateTime(nycTime, "hour-minute")} NYC
+            {formatDateTime(nycTime, 'hour-minute')} NYC
           </p>
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default RadioBar;
+export default RadioBar

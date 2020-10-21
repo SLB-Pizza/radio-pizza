@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 import {
   ArticleHeadline,
   Blockquote,
@@ -8,7 +8,7 @@ import {
   OneImageAndText,
   TwoImagesAndText,
   TextBlock,
-} from "./slices";
+} from './slices'
 
 /**
  * Receives params as props from a template file. Processes the sliceZone object to match slice types, the keys in sliceComponents, to their corresponding component values.
@@ -58,13 +58,13 @@ function SliceZone({ sliceZone, metadata }) {
     one_image_and_text1: OneImageAndText,
     two_images_and_text: TwoImagesAndText,
     text: TextBlock,
-  };
+  }
 
   const sliceZoneContent = sliceZone.map((slice, index) => {
     /**
      * Grab the CMS Slice by using slice.type as the key for sliceComponents
      */
-    const SliceComponent = sliceComponents[slice.type];
+    const SliceComponent = sliceComponents[slice.type]
 
     if (SliceComponent) {
       return (
@@ -73,12 +73,12 @@ function SliceZone({ sliceZone, metadata }) {
           metadata={metadata}
           key={`slice-${index}`}
         />
-      );
+      )
     }
-    return null;
-  });
+    return null
+  })
 
-  return <>{sliceZoneContent}</>;
+  return <>{sliceZoneContent}</>
 }
 
-export default SliceZone;
+export default SliceZone

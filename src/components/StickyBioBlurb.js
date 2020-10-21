@@ -1,32 +1,32 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faTwitter,
   faInstagram,
   faSoundcloud,
   faMixcloud,
   faBandcamp,
-} from "@fortawesome/free-brands-svg-icons";
+} from '@fortawesome/free-brands-svg-icons'
 
 function StickyBioBlurb(props) {
   const sampleSocial = [
     {
-      url: "https://twitter.com/home",
-      icon: "faTwitter",
+      url: 'https://twitter.com/home',
+      icon: 'faTwitter',
     },
     {
-      url: "https://instagram.com",
-      icon: "faInstagram",
+      url: 'https://instagram.com',
+      icon: 'faInstagram',
     },
     {
-      url: "https://soundcloud.com",
-      icon: "faSoundCloud",
+      url: 'https://soundcloud.com',
+      icon: 'faSoundCloud',
     },
     {
-      url: "https://bandcamp.com",
-      icon: "faBandcamp",
+      url: 'https://bandcamp.com',
+      icon: 'faBandcamp',
     },
-  ];
+  ]
 
   return (
     <div className="columns is-vcentered">
@@ -74,7 +74,7 @@ function StickyBioBlurb(props) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default StickyBioBlurb;
+export default StickyBioBlurb

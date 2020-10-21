@@ -1,5 +1,5 @@
-import React from "react";
-import Layout from "../components/Layout";
+import React from 'react'
+import Layout from '../components/Layout'
 
 const NotFoundPage = () => (
   <main className="black-bg-page">
@@ -12,6 +12,6 @@ const NotFoundPage = () => (
       </div>
     </div>
   </main>
-);
+)
 
-export default NotFoundPage;
+export default NotFoundPage

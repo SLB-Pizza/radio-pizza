@@ -1,5 +1,5 @@
-import React from "react";
-import { formatDateTime } from "../utils";
+import React from 'react'
+import { formatDateTime } from '../utils'
 
 /**
  * Function that creates styled date selector buttons using today's date and /schedule's toggleColumn function
@@ -16,12 +16,12 @@ function DateSelectorButton({ date, toggleColumn }) {
   /**
    * Provide additive values to display today and the next six days' worth of schedules.
    */
-  const daysToAdd = [0, 1, 2, 3, 4, 5, 6];
+  const daysToAdd = [0, 1, 2, 3, 4, 5, 6]
 
   return (
     <div className="columns is-vcentered is-mobile date-selector">
       {daysToAdd.map((number, index) => {
-        const currentDay = formatDateTime(date, "add-days", number);
+        const currentDay = formatDateTime(date, 'add-days', number)
 
         return (
           <div key={`date-#${index}-${currentDay}`} className="column">
@@ -33,10 +33,10 @@ function DateSelectorButton({ date, toggleColumn }) {
               {currentDay}
             </button>
           </div>
-        );
+        )
       })}
     </div>
-  );
+  )
 }
 
-export default DateSelectorButton;
+export default DateSelectorButton

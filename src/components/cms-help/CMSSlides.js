@@ -1,8 +1,8 @@
-import React from "react";
-import { RichText } from "prismic-reactjs";
+import React from 'react'
+import { RichText } from 'prismic-reactjs'
 
 export default function CMSSlides(props) {
-  const { slideData } = props;
+  const { slideData } = props
 
   return (
     <section className="columns is-multiline cms-section" id="slides">
@@ -26,12 +26,12 @@ export default function CMSSlides(props) {
       <div className="column is-half-desktop is-flex-desktop">
         <div
           className={
-            slideData.bgAlt === null ? "content cms-warning" : "content"
+            slideData.bgAlt === null ? 'content cms-warning' : 'content'
           }
         >
           <h4 className="subtitle">
             Does this BG image have alt text?
-            {slideData.bgAlt === null ? " ❌ NO" : " ✅ YES"}
+            {slideData.bgAlt === null ? ' ❌ NO' : ' ✅ YES'}
           </h4>
           {slideData.bgAlt === null ? (
             <>
@@ -56,7 +56,7 @@ export default function CMSSlides(props) {
                 </li>
                 <li>
                   Find the image(s) without alt text and add a short text
-                  description of the image to the <em>Alternative Text</em>{" "}
+                  description of the image to the <em>Alternative Text</em>{' '}
                   field in the top right.
                 </li>
                 <li>
@@ -72,28 +72,28 @@ export default function CMSSlides(props) {
         <div>
           <h4 className="subtitle">Slide Headline</h4>
           <p>
-            {">"} {RichText.asText(slideData.slideHeadline)}
+            {'>'} {RichText.asText(slideData.slideHeadline)}
           </p>
         </div>
         <div>
           <h4 className="subtitle">Slide Call To Action</h4>
           <p>
-            {">"} {RichText.asText(slideData.slideCta)}
+            {'>'} {RichText.asText(slideData.slideCta)}
           </p>
         </div>
         <div
-          className={slideData.slideLinkTarget === "null" ? "cms-warning" : ""}
+          className={slideData.slideLinkTarget === 'null' ? 'cms-warning' : ''}
         >
           <h4 className="subtitle">Slide Link</h4>
           <p>
-            {">"} {slideData.slideLink}
+            {'>'} {slideData.slideLink}
           </p>
           <p>
-            Opens in new tab?{" "}
-            {slideData.slideLinkTarget === "null" ? "Yes" : "No"}
+            Opens in new tab?{' '}
+            {slideData.slideLinkTarget === 'null' ? 'Yes' : 'No'}
           </p>
         </div>
       </div>
     </section>
-  );
+  )
 }

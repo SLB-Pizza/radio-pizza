@@ -1,5 +1,5 @@
-import React from "react";
-import { getResidentLinks } from "../utils";
+import React from 'react'
+import { getResidentLinks } from '../utils'
 
 /**
  * @category Site Elements
@@ -9,7 +9,7 @@ import { getResidentLinks } from "../utils";
  * @returns {jsx}
  */
 function SingleScheduleEntryRow({ start, end, show }) {
-  const { mix_title, featured_residents } = show;
+  const { mix_title, featured_residents } = show
 
   return (
     <div className="columns is-mobile is-vcentered single-show-entry">
@@ -35,7 +35,7 @@ function SingleScheduleEntryRow({ start, end, show }) {
         </div>
       )}
     </div>
-  );
+  )
 }
 
-export default SingleScheduleEntryRow;
+export default SingleScheduleEntryRow

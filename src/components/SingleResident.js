@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "gatsby";
-import Nanoclamp from "nanoclamp";
-import { linkResolver, ResponsiveImage } from "../utils";
+import React from 'react'
+import { Link } from 'gatsby'
+import Nanoclamp from 'nanoclamp'
+import { linkResolver, ResponsiveImage } from '../utils'
 
 /**
  * @category Layout Helper
@@ -15,7 +15,7 @@ import { linkResolver, ResponsiveImage } from "../utils";
  * @returns {jsx}
  */
 function SingleResident({ resident }) {
-  const { _meta, resident_name, resident_image } = resident;
+  const { _meta, resident_name, resident_image } = resident
 
   return (
     <div className="column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen resident-box">
@@ -37,6 +37,6 @@ function SingleResident({ resident }) {
         </div>
       </Link>
     </div>
-  );
+  )
 }
-export default SingleResident;
+export default SingleResident

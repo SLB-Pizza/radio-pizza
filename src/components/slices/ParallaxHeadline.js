@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { RichText } from "prismic-reactjs";
+import React, { useState, useEffect } from 'react'
+import { RichText } from 'prismic-reactjs'
 
 /**
  * @category CMS
@@ -20,30 +20,30 @@ function ParallaxHeadline({ cta, hook, imgObj }) {
   //   feature_author_pic,
   // } = slice.primary;
 
-  const [bgOpacity, setBGOpacity] = useState(1);
+  const [bgOpacity, setBGOpacity] = useState(1)
 
   useEffect(() => {
-    let bgIMG = document.getElementById("parallax-headline"); // works
-    const bgHeight = bgIMG.clientHeight;
+    let bgIMG = document.getElementById('parallax-headline') // works
+    const bgHeight = bgIMG.clientHeight
 
     const calculateOpacity = (scrollY, height) => {
-      const halfHeight = 0.5 * height;
+      const halfHeight = 0.5 * height
 
       if (scrollY > halfHeight) {
-        return 0;
+        return 0
       }
-      return (halfHeight - scrollY) / halfHeight;
-    };
+      return (halfHeight - scrollY) / halfHeight
+    }
 
     const onScroll = () =>
-      setBGOpacity(calculateOpacity(window.scrollY, bgHeight));
+      setBGOpacity(calculateOpacity(window.scrollY, bgHeight))
 
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener('scroll', onScroll)
 
     return function cleanup() {
-      window.removeEventListener("scroll", onScroll);
-    };
-  }, []);
+      window.removeEventListener('scroll', onScroll)
+    }
+  }, [])
 
   return (
     <>
@@ -58,7 +58,7 @@ function ParallaxHeadline({ cta, hook, imgObj }) {
       <section
         className="container headline-block"
         style={{
-          marginTop: "-62.5vh",
+          marginTop: '-62.5vh',
         }}
       >
         <div className="columns">
@@ -77,16 +77,16 @@ function ParallaxHeadline({ cta, hook, imgObj }) {
       <section
         className="container"
         style={{
-          marginTop: "-5.75rem",
+          marginTop: '-5.75rem',
         }}
       >
         <div className="columns is-multiline">
           <div
             className="column is-12"
             style={{
-              backgroundColor: "black",
-              borderTopLeftRadius: ".75rem",
-              borderTopRightRadius: ".75rem",
+              backgroundColor: 'black',
+              borderTopLeftRadius: '.75rem',
+              borderTopRightRadius: '.75rem',
             }}
           >
             <div className="content">
@@ -141,7 +141,7 @@ function ParallaxHeadline({ cta, hook, imgObj }) {
         </div>
       </section>
     </>
-  );
+  )
 }
 
-export default ParallaxHeadline;
+export default ParallaxHeadline

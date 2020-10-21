@@ -1,8 +1,8 @@
-import React from "react";
-import { RichText } from "prismic-reactjs";
+import React from 'react'
+import { RichText } from 'prismic-reactjs'
 
 export default function HomeContentSample(props) {
-  const { homeContentData } = props;
+  const { homeContentData } = props
 
   return (
     <section className="columns is-multiline cms-section" id="HomeContent">
@@ -15,11 +15,11 @@ export default function HomeContentSample(props) {
         <div className="content">
           <h4 className="subtitle">CMS Data for Home Mixes</h4>
           <p>
-            Home Mixes Headline{": "}
+            Home Mixes Headline{': '}
             <span>{RichText.asText(homeContentData.mixesHeadline)}</span>
           </p>
           <p>
-            Home Mixes Blurb{": "}
+            Home Mixes Blurb{': '}
             <span>{RichText.asText(homeContentData.mixesBlurb)}</span>
           </p>
         </div>
@@ -29,11 +29,11 @@ export default function HomeContentSample(props) {
         <div className="content">
           <h4 className="subtitle">CMS Data for Home Mixes</h4>
           <p>
-            Home Events Headline{": "}
+            Home Events Headline{': '}
             <span>{RichText.asText(homeContentData.eventsHeadline)}</span>
           </p>
           <p>
-            Home Events Blurb{": "}
+            Home Events Blurb{': '}
             <span>{RichText.asText(homeContentData.eventsBlurb)}</span>
           </p>
         </div>
@@ -43,15 +43,15 @@ export default function HomeContentSample(props) {
         <div className="content">
           <h4 className="subtitle">CMS Data for Home Mixes</h4>
           <p>
-            Home Features Headline{": "}
+            Home Features Headline{': '}
             <span>{RichText.asText(homeContentData.featuresHeadline)}</span>
           </p>
           <p>
-            Home Features Blurb{": "}
+            Home Features Blurb{': '}
             <span>{RichText.asText(homeContentData.featuresBlurb)}</span>
           </p>
         </div>
       </div>
     </section>
-  );
+  )
 }

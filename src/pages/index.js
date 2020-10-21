@@ -1,9 +1,9 @@
-import React from "react";
-import { graphql } from "gatsby";
-import PropTypes from "prop-types";
+import React from 'react'
+import { graphql } from 'gatsby'
+import PropTypes from 'prop-types'
 
-import "../styles/index.scss";
-import { Hero, HomeMixes, HomeEvents, HomeNews } from "../components";
+import '../styles/index.scss'
+import { Hero, HomeMixes, HomeEvents, HomeNews } from '../components'
 
 /**
  * @category Pages
@@ -14,15 +14,15 @@ import { Hero, HomeMixes, HomeEvents, HomeNews } from "../components";
  */
 function IndexPage({ data }) {
   // Focus the node for the prismicContent check below.
-  const homepageData = data.prismic.allHomepages.edges[0];
-  const homeMixesData = data.prismic.allMixs.edges;
-  const homeFeaturesData = data.prismic.allFeatures.edges;
+  const homepageData = data.prismic.allHomepages.edges[0]
+  const homeMixesData = data.prismic.allMixs.edges
+  const homeFeaturesData = data.prismic.allFeatures.edges
 
   /**
    * This line is here to prevent an error from occurring when you eventually deploy the site live. There is an issue with the preview functionality that requires this check on every page.
    * Details: https://prismic.io/docs/gatsby/rendering/retrieve-the-document-object#21_0-adding-a-validation-check
    */
-  if (!homepageData || !homeMixesData) return null;
+  if (!homepageData || !homeMixesData) return null
 
   /**
    * Create objects by pulling data values from carouselSlidesData to pass as props to components in return statement.
@@ -35,7 +35,7 @@ function IndexPage({ data }) {
     home_features_headline,
     home_features_blurb,
     homepage_carousel,
-  } = homepageData.node;
+  } = homepageData.node
 
   return (
     <div className="has-navbar-fixed-bottom full-height-page">
@@ -55,7 +55,7 @@ function IndexPage({ data }) {
         />
       </section>
     </div>
-  );
+  )
 }
 
 export const query = graphql`
@@ -139,9 +139,9 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
-export default IndexPage;
+export default IndexPage
 
 // Mix img square sizes
 // --- MOBILE ---

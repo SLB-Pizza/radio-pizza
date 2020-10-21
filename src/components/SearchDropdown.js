@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 function SearchDropdown(props) {
   return (
@@ -16,7 +16,7 @@ function SearchDropdown(props) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default SearchDropdown;
+export default SearchDropdown

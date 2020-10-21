@@ -1,8 +1,8 @@
-import PropTypes from "prop-types";
-import React, { useState, useEffect } from "react";
-import { RichText } from "prismic-reactjs";
-import { ResidentSocialLinks, mappableDataCheck } from "../utils";
-import NanoClamp from "nanoclamp";
+import PropTypes from 'prop-types'
+import React, { useState, useEffect } from 'react'
+import { RichText } from 'prismic-reactjs'
+import { ResidentSocialLinks, mappableDataCheck } from '../utils'
+import NanoClamp from 'nanoclamp'
 
 /**
  * @category Layout Helper
@@ -12,7 +12,7 @@ import NanoClamp from "nanoclamp";
  */
 
 function ResidentBio({ residentBioData }) {
-  const [hasSocialMedia, setMediaData] = useState(false);
+  const [hasSocialMedia, setMediaData] = useState(false)
 
   let {
     resident_image,
@@ -20,7 +20,7 @@ function ResidentBio({ residentBioData }) {
     resident_status,
     resident_blurb,
     social_media,
-  } = residentBioData;
+  } = residentBioData
 
   /**
    * Once residentBioData is receiveed, check mappable data subarrays with {@link mappableDataCheck}.
@@ -34,18 +34,18 @@ function ResidentBio({ residentBioData }) {
   useEffect(() => {
     const bioDataCheck = () => {
       if (residentBioData) {
-        const socialMediaCheck = mappableDataCheck(social_media, 2);
+        const socialMediaCheck = mappableDataCheck(social_media, 2)
 
         if (socialMediaCheck) {
           // Assign social_media value of socialMediaCheck array
           // Make hasMedia true
-          social_media = socialMediaCheck;
-          setMediaData(true);
+          social_media = socialMediaCheck
+          setMediaData(true)
         }
       }
-    };
-    return bioDataCheck();
-  }, [residentBioData, social_media]);
+    }
+    return bioDataCheck()
+  }, [residentBioData, social_media])
 
   return (
     <div className="column is-3-desktop is-4-tablet is-12-mobile sticky-bio">
@@ -83,10 +83,10 @@ function ResidentBio({ residentBioData }) {
         </div>
       ) : null}
     </div>
-  );
+  )
 }
 
-export default ResidentBio;
+export default ResidentBio
 
 ResidentBio.propTypes = {
   residentData: PropTypes.shape({
@@ -101,4 +101,4 @@ ResidentBio.propTypes = {
     resident_blurb: PropTypes.arrayOf(PropTypes.object),
     social_media: PropTypes.arrayOf(PropTypes.object),
   }),
-};
+}

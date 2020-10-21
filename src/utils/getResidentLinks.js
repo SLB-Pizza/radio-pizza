@@ -1,6 +1,6 @@
-import React from "react";
-import { Link, path } from "gatsby";
-import { linkResolver } from "../utils";
+import React from 'react'
+import { Link, path } from 'gatsby'
+import { linkResolver } from '../utils'
 
 /**
  * Returns a Gatsby Link element with the correctly resolved link path and label {@link SingleMixCard})
@@ -13,32 +13,32 @@ import { linkResolver } from "../utils";
  */
 function getResidentLinks(residentsArr, currentPath) {
   return residentsArr.map(({ mix_resident }, index) => {
-    const { _meta, resident_name } = mix_resident;
+    const { _meta, resident_name } = mix_resident
 
-    const linkTo = linkResolver(_meta);
-    const linkLabel = resident_name;
+    const linkTo = linkResolver(_meta)
+    const linkLabel = resident_name
 
     if (currentPath === linkTo) {
       if (index !== residentsArr.length - 1) {
         return (
           <span key={`res-link-${index}-${linkLabel}`}>{`${linkLabel}, `}</span>
-        );
+        )
       } else {
-        return <span key={`res-link-${index}-${linkLabel}`}>{linkLabel}</span>;
+        return <span key={`res-link-${index}-${linkLabel}`}>{linkLabel}</span>
       }
     } else if (index !== residentsArr.length - 1) {
       return (
         <Link to={linkTo} key={`res-link-${index}-${linkLabel}`}>
           {`${linkLabel}, `}
         </Link>
-      );
+      )
     } else {
       return (
         <Link to={linkTo} key={`res-link-${index}-${linkLabel}`}>
           {linkLabel}
         </Link>
-      );
+      )
     }
-  });
+  })
 }
-export default getResidentLinks;
+export default getResidentLinks

@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { graphql } from "gatsby";
-import { DateSelectorButton, SingleScheduleEntryRow } from "../../components";
-import { formatDateTime } from "../../utils";
-import dayjs from "dayjs";
-import isBetween from "dayjs/plugin/isBetween";
-import utc from "dayjs/plugin/utc";
-dayjs.extend(isBetween);
-dayjs.extend(utc);
+import React, { useState, useEffect } from 'react'
+import { graphql } from 'gatsby'
+import { DateSelectorButton, SingleScheduleEntryRow } from '../../components'
+import { formatDateTime } from '../../utils'
+import dayjs from 'dayjs'
+import isBetween from 'dayjs/plugin/isBetween'
+import utc from 'dayjs/plugin/utc'
+dayjs.extend(isBetween)
+dayjs.extend(utc)
 
-import scheduleDummyData from "../../../__test__/HMBK-schedule-page-query-test.json";
+import scheduleDummyData from '../../../__test__/HMBK-schedule-page-query-test.json'
 
 /**
  * @category Pages
@@ -18,20 +18,20 @@ import scheduleDummyData from "../../../__test__/HMBK-schedule-page-query-test.j
  * @returns {jsx}
  */
 function ScheduleIndexPage({ data }) {
-  const prismicContent = data.prismic.allSchedules.edges;
-  if (!prismicContent) return null;
+  const prismicContent = data.prismic.allSchedules.edges
+  if (!prismicContent) return null
 
   /**
    * Grab and manip the nodes array of mixs
    */
-  const allSchedulesData = prismicContent;
+  const allSchedulesData = prismicContent
 
   const [todayDate, setTodayDate] = useState(
-    dayjs(new Date().toLocaleString("en-US", { timeZone: "America/New_York" }))
-  );
+    dayjs(new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }))
+  )
   const [isActive, setIsActive] = useState(
-    formatDateTime(todayDate, "month-day")
-  );
+    formatDateTime(todayDate, 'month-day')
+  )
 
   /**
    * Format timeNow for use in schedule_date_before and schedule_date_after below. Neither date is inclusive so
@@ -98,20 +98,20 @@ function ScheduleIndexPage({ data }) {
   //   return `Error ${error.message}`;
   // }
 
-  const getSevenDays = (arr) => {
-    const today = dayjs(todayDate);
-    const sixDaysFromToday = today.add(6, "day");
+  const getSevenDays = arr => {
+    const today = dayjs(todayDate)
+    const sixDaysFromToday = today.add(6, 'day')
 
     const sevenDaysArray = arr.filter(({ node }) =>
-      dayjs(node.schedule_date).isBetween(today, sixDaysFromToday, "day", [])
-    );
+      dayjs(node.schedule_date).isBetween(today, sixDaysFromToday, 'day', [])
+    )
 
-    return sevenDaysArray;
-  };
+    return sevenDaysArray
+  }
 
   function toggleColumn(e) {
     if (isActive !== e.currentTarget.id) {
-      setIsActive(e.currentTarget.id);
+      setIsActive(e.currentTarget.id)
     }
   }
 
@@ -121,15 +121,15 @@ function ScheduleIndexPage({ data }) {
    */
   useEffect(() => {
     const date = setInterval(() => {
-      setTodayDate(todayDate.add(15, "s"));
-    }, 15000);
+      setTodayDate(todayDate.add(15, 's'))
+    }, 15000)
 
     return () => {
-      clearInterval(date);
-    };
-  }, [todayDate]);
+      clearInterval(date)
+    }
+  }, [todayDate])
 
-  const sevenDaysData = getSevenDays(scheduleDummyData);
+  const sevenDaysData = getSevenDays(scheduleDummyData)
   return (
     <main className="container is-fluid black-bg-page">
       <div className="columns is-mobile is-multiline">
@@ -144,13 +144,13 @@ function ScheduleIndexPage({ data }) {
       <DateSelectorButton date={todayDate} toggleColumn={toggleColumn} />
 
       {sevenDaysData.map(({ node }, index) => {
-        const { schedule_date, schedule_entries } = node;
+        const { schedule_date, schedule_entries } = node
 
-        const dateID = formatDateTime(schedule_date, "month-day");
+        const dateID = formatDateTime(schedule_date, 'month-day')
         const scheduleDateHeading = formatDateTime(
           schedule_date,
-          "schedule-date-heading"
-        );
+          'schedule-date-heading'
+        )
 
         if (isActive === dateID) {
           return (
@@ -167,15 +167,12 @@ function ScheduleIndexPage({ data }) {
               {schedule_entries !== null ? (
                 <div className="column is-12">
                   {schedule_entries.map((entry, index) => {
-                    const { start_time, end_time, scheduled_show } = entry;
+                    const { start_time, end_time, scheduled_show } = entry
                     const formattedStart = formatDateTime(
                       start_time,
-                      "hour-minute"
-                    );
-                    const formattedEnd = formatDateTime(
-                      end_time,
-                      "hour-minute"
-                    );
+                      'hour-minute'
+                    )
+                    const formattedEnd = formatDateTime(end_time, 'hour-minute')
 
                     return (
                       <SingleScheduleEntryRow
@@ -184,7 +181,7 @@ function ScheduleIndexPage({ data }) {
                         end={formattedEnd}
                         show={scheduled_show}
                       />
-                    );
+                    )
                   })}
                 </div>
               ) : (
@@ -197,16 +194,16 @@ function ScheduleIndexPage({ data }) {
                 </div>
               )}
             </div>
-          );
+          )
         } else {
-          return null;
+          return null
         }
       })}
     </main>
-  );
+  )
 }
 
-export default ScheduleIndexPage;
+export default ScheduleIndexPage
 
 export const query = graphql`
   query SchedulePageQuery {
@@ -240,4 +237,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`

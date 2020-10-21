@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { ImageModal, ResponsiveImage } from "../../../utils";
+import React, { useState } from 'react'
+import { ImageModal, ResponsiveImage } from '../../../utils'
 /**
  * Creates a JSX segment that CMS Slices call on to format images. Its text counterpart is {@link ContentHelper}. Called upon by {@link ResponsiveImage}
  * @category CMS
@@ -19,24 +19,22 @@ import { ImageModal, ResponsiveImage } from "../../../utils";
  * @returns {jsx}
  */
 function ImageHelper({ columnClassName, imageData }) {
-  const [imgModalOpen, setImgModalOpen] = useState(false);
+  const [imgModalOpen, setImgModalOpen] = useState(false)
 
-  const defaultImageClass = "column is-12-mobile";
+  const defaultImageClass = 'column is-12-mobile'
 
   /**
    * If a columnClassName prop was passed in, use that prop value.
    * Else, use the defaultImageClass defined above.
    */
-  const imageColumnClass = columnClassName
-    ? columnClassName
-    : defaultImageClass;
+  const imageColumnClass = columnClassName ? columnClassName : defaultImageClass
 
   const fullSizeImg = {
     alt: imageData.alt,
     photoCredit: imageData.copyright,
     url: imageData.url,
     dimensions: imageData.dimensions,
-  };
+  }
 
   const responsiveSizes = {
     widescreen: imageData.widescreen,
@@ -44,7 +42,7 @@ function ImageHelper({ columnClassName, imageData }) {
     tablet: imageData.tablet,
     mobile: imageData.mobile,
     lo_fi: imageData.lo_fi_placeholder,
-  };
+  }
 
   return (
     <div className={imageColumnClass}>
@@ -70,7 +68,7 @@ function ImageHelper({ columnClassName, imageData }) {
         />
       ) : null}
     </div>
-  );
+  )
 }
 
-export default ImageHelper;
+export default ImageHelper

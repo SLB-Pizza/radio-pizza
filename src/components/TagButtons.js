@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
-import React from "react";
+import PropTypes from 'prop-types'
+import React from 'react'
 
 /**
  * Makes tag buttons.
@@ -16,7 +16,7 @@ function TagButtons({ tagsArray }) {
   return (
     <div className="buttons are-tags">
       {tagsArray.map((tag, index) => {
-        const lowercaseTag = tag.toLowerCase();
+        const lowercaseTag = tag.toLowerCase()
 
         return (
           <button
@@ -25,14 +25,14 @@ function TagButtons({ tagsArray }) {
           >
             {lowercaseTag}
           </button>
-        );
+        )
       })}
     </div>
-  );
+  )
 }
 
-export default TagButtons;
+export default TagButtons
 
 TagButtons.propTypes = {
   tagsArray: PropTypes.arrayOf(PropTypes.string),
-};
+}

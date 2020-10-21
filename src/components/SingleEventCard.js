@@ -1,9 +1,9 @@
-import React from "react";
-import { Link } from "gatsby";
-import NanoClamp from "nanoclamp";
-import { RichText } from "prismic-reactjs";
-import { formatDateTime, linkResolver } from "../utils";
-import { faOm } from "@fortawesome/free-solid-svg-icons";
+import React from 'react'
+import { Link } from 'gatsby'
+import NanoClamp from 'nanoclamp'
+import { RichText } from 'prismic-reactjs'
+import { formatDateTime, linkResolver } from '../utils'
+import { faOm } from '@fortawesome/free-solid-svg-icons'
 
 function SingleEventCard({ eventColumnLayout, eventData }) {
   const {
@@ -14,10 +14,10 @@ function SingleEventCard({ eventColumnLayout, eventData }) {
     event_blurb,
     event_start,
     event_end,
-  } = eventData;
+  } = eventData
 
-  const start = formatDateTime(event_start, "year-month-day");
-  const end = formatDateTime(event_end, "year-month-day");
+  const start = formatDateTime(event_start, 'year-month-day')
+  const end = formatDateTime(event_end, 'year-month-day')
 
   return (
     <div className={eventColumnLayout}>
@@ -55,7 +55,7 @@ function SingleEventCard({ eventColumnLayout, eventData }) {
                   className="blurb is-size-7 has-text-white"
                   is="p"
                   lines={3}
-                  ellipsis={"..."}
+                  ellipsis={'...'}
                   text={RichText.asText(event_blurb)}
                 />
               )}
@@ -64,7 +64,7 @@ function SingleEventCard({ eventColumnLayout, eventData }) {
         </div>
       </Link>
     </div>
-  );
+  )
 }
 
-export default SingleEventCard;
+export default SingleEventCard

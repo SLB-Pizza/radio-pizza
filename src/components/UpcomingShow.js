@@ -1,5 +1,5 @@
-import React from "react";
-import { getResidentLinks, formatDateTime } from "../utils";
+import React from 'react'
+import { getResidentLinks, formatDateTime } from '../utils'
 
 /**
  * @function UpcomingShow
@@ -7,7 +7,7 @@ import { getResidentLinks, formatDateTime } from "../utils";
  * @returns {jsx}
  */
 function UpcomingShow({ showData }) {
-  const { schedule_date, schedule_entries } = showData;
+  const { schedule_date, schedule_entries } = showData
 
   /**
    * No schedule_entries or schedule_date data available to process.
@@ -19,15 +19,15 @@ function UpcomingShow({ showData }) {
           Taking a short break! No upcoming shows planned.
         </p>
       </div>
-    );
+    )
   }
 
-  const { start_time, scheduled_show } = schedule_entries[0];
-  const { mix_title, featured_residents } = scheduled_show;
+  const { start_time, scheduled_show } = schedule_entries[0]
+  const { mix_title, featured_residents } = scheduled_show
 
-  const showDate = formatDateTime(schedule_date, "full-month-day");
-  const showStart = formatDateTime(start_time, "hour-minute");
-  const showName = mix_title;
+  const showDate = formatDateTime(schedule_date, 'full-month-day')
+  const showStart = formatDateTime(start_time, 'hour-minute')
+  const showName = mix_title
 
   if (!!showName) {
     return (
@@ -38,7 +38,7 @@ function UpcomingShow({ showData }) {
           )}`}
         </p>
       </div>
-    );
+    )
   } else {
     return (
       <div className="column next-show is-loaded is-hidden-mobile">
@@ -48,8 +48,8 @@ function UpcomingShow({ showData }) {
           )}`}
         </p>
       </div>
-    );
+    )
   }
 }
 
-export default UpcomingShow;
+export default UpcomingShow

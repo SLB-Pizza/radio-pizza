@@ -1,6 +1,6 @@
-import React from "react";
-import { graphql } from "gatsby";
-import { LandingPageElement } from "../../components";
+import React from 'react'
+import { graphql } from 'gatsby'
+import { LandingPageElement } from '../../components'
 
 /**
  * @category Pages
@@ -8,12 +8,12 @@ import { LandingPageElement } from "../../components";
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/guide` landing page
  */
 function CMSGuideIndex({ data }) {
-  const prismicContent = data.prismic.allCms_guides.edges;
-  if (!prismicContent) return null;
-  const cmsGuideData = prismicContent;
+  const prismicContent = data.prismic.allCms_guides.edges
+  if (!prismicContent) return null
+  const cmsGuideData = prismicContent
 
-  const cmsCardColumnLayout = "column is-12 landing-page-element";
-  const cmsImageAspectRatio = "image is-3by1";
+  const cmsCardColumnLayout = 'column is-12 landing-page-element'
+  const cmsImageAspectRatio = 'image is-3by1'
 
   return (
     <main className="container is-fluid black-bg-page">
@@ -40,7 +40,7 @@ function CMSGuideIndex({ data }) {
         ))}
       </div>
     </main>
-  );
+  )
 }
 
 export const query = graphql`
@@ -72,6 +72,6 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
-export default CMSGuideIndex;
+export default CMSGuideIndex

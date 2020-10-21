@@ -1,9 +1,9 @@
-import PropTypes from "prop-types";
-import React, { useState, useEffect } from "react";
-import { graphql } from "gatsby";
-import NanoClamp from "nanoclamp";
-import { ResidentBio, SingleMixCard } from "../components";
-import { mappableDataCheck } from "../utils";
+import PropTypes from 'prop-types'
+import React, { useState, useEffect } from 'react'
+import { graphql } from 'gatsby'
+import NanoClamp from 'nanoclamp'
+import { ResidentBio, SingleMixCard } from '../components'
+import { mappableDataCheck } from '../utils'
 
 /**
  * @category Templates
@@ -14,27 +14,27 @@ import { mappableDataCheck } from "../utils";
  * @returns {jsx}
  */
 function ResidentTemplate({ data }) {
-  const [isOpen, setIsOpen] = useState("Mixes");
-  const [hasMixes, setMixesData] = useState(false);
-  const [hasEvents, setEventsData] = useState(false);
-  const [hasFeatures, setFeaturesData] = useState(false);
+  const [isOpen, setIsOpen] = useState('Mixes')
+  const [hasMixes, setMixesData] = useState(false)
+  const [hasEvents, setEventsData] = useState(false)
+  const [hasFeatures, setFeaturesData] = useState(false)
 
-  const prismicContent = data.prismic.allResidents.edges[0];
-  if (!prismicContent) return null;
-  const residentData = prismicContent.node;
+  const prismicContent = data.prismic.allResidents.edges[0]
+  if (!prismicContent) return null
+  const residentData = prismicContent.node
 
   const {
     resident_mixes,
     resident_features,
     resident_events,
     ...rest
-  } = residentData;
+  } = residentData
 
-  const residentCardLayout = "column is-12-mobile is-6-tablet is-4-widescreen";
+  const residentCardLayout = 'column is-12-mobile is-6-tablet is-4-widescreen'
 
   function toggleColumn(event) {
     if (isOpen !== event.currentTarget.id) {
-      setIsOpen(event.currentTarget.id);
+      setIsOpen(event.currentTarget.id)
     }
   }
 
@@ -45,18 +45,18 @@ function ResidentTemplate({ data }) {
     const dataCheck = () => {
       if (data) {
         if (mappableDataCheck(resident_mixes)) {
-          setMixesData(true);
+          setMixesData(true)
         }
         if (mappableDataCheck(resident_events)) {
-          setEventsData(true);
+          setEventsData(true)
         }
         if (mappableDataCheck(resident_features)) {
-          setFeaturesData(true);
+          setFeaturesData(true)
         }
       }
-    };
-    return dataCheck();
-  }, [data, resident_mixes, resident_events, resident_features]);
+    }
+    return dataCheck()
+  }, [data, resident_mixes, resident_events, resident_features])
 
   return (
     <div className="container is-fluid full-height-page">
@@ -71,9 +71,9 @@ function ResidentTemplate({ data }) {
                 {/* TABLET */}
                 <button
                   className={
-                    isOpen === "Mixes"
-                      ? "button active is-fullwidth is-outlined is-rounded display-text"
-                      : "button is-fullwidth is-outlined is-rounded display-text"
+                    isOpen === 'Mixes'
+                      ? 'button active is-fullwidth is-outlined is-rounded display-text'
+                      : 'button is-fullwidth is-outlined is-rounded display-text'
                   }
                   id="Mixes"
                   onClick={toggleColumn}
@@ -87,9 +87,9 @@ function ResidentTemplate({ data }) {
               <div className="column">
                 <button
                   className={
-                    isOpen === "Events"
-                      ? "button active is-fullwidth is-outlined is-rounded display-text"
-                      : "button is-fullwidth is-outlined is-rounded display-text"
+                    isOpen === 'Events'
+                      ? 'button active is-fullwidth is-outlined is-rounded display-text'
+                      : 'button is-fullwidth is-outlined is-rounded display-text'
                   }
                   id="Events"
                   onClick={toggleColumn}
@@ -103,9 +103,9 @@ function ResidentTemplate({ data }) {
               <div className="column">
                 <button
                   className={
-                    isOpen === "Features"
-                      ? "button active is-fullwidth is-outlined is-rounded display-text"
-                      : "button is-fullwidth is-outlined is-rounded display-text"
+                    isOpen === 'Features'
+                      ? 'button active is-fullwidth is-outlined is-rounded display-text'
+                      : 'button is-fullwidth is-outlined is-rounded display-text'
                   }
                   id="Features"
                   onClick={toggleColumn}
@@ -131,9 +131,9 @@ function ResidentTemplate({ data }) {
                 {/* TABLET */}
                 <button
                   className={
-                    isOpen === "Mixes"
-                      ? "button is-small active is-fullwidth is-outlined is-rounded display-text"
-                      : "button is-small is-fullwidth is-outlined is-rounded display-text"
+                    isOpen === 'Mixes'
+                      ? 'button is-small active is-fullwidth is-outlined is-rounded display-text'
+                      : 'button is-small is-fullwidth is-outlined is-rounded display-text'
                   }
                   id="Mixes"
                   onClick={toggleColumn}
@@ -147,9 +147,9 @@ function ResidentTemplate({ data }) {
               <div className="column">
                 <button
                   className={
-                    isOpen === "Events"
-                      ? "button is-small active is-fullwidth is-outlined is-rounded display-text"
-                      : "button is-small is-fullwidth is-outlined is-rounded display-text"
+                    isOpen === 'Events'
+                      ? 'button is-small active is-fullwidth is-outlined is-rounded display-text'
+                      : 'button is-small is-fullwidth is-outlined is-rounded display-text'
                   }
                   id="Events"
                   onClick={toggleColumn}
@@ -163,9 +163,9 @@ function ResidentTemplate({ data }) {
               <div className="column">
                 <button
                   className={
-                    isOpen === "Features"
-                      ? "button is-small active is-fullwidth is-outlined is-rounded display-text"
-                      : "button is-small is-fullwidth is-outlined is-rounded display-text"
+                    isOpen === 'Features'
+                      ? 'button is-small active is-fullwidth is-outlined is-rounded display-text'
+                      : 'button is-small is-fullwidth is-outlined is-rounded display-text'
                   }
                   id="Features"
                   onClick={toggleColumn}
@@ -177,7 +177,7 @@ function ResidentTemplate({ data }) {
           </div>
 
           {/* RESIDENT MIXES */}
-          {isOpen === "Mixes" ? (
+          {isOpen === 'Mixes' ? (
             <div className="columns is-mobile is-multiline">
               {resident_mixes.map(({ resident_mix }, index) => (
                 <SingleMixCard
@@ -193,7 +193,7 @@ function ResidentTemplate({ data }) {
           ) : null}
 
           {/* RESIDENT EVENTS */}
-          {isOpen === "Events" ? (
+          {isOpen === 'Events' ? (
             <div className="columns is-mobile is-multiline">
               {/* {resident_events.map(({ event }, index) => (
                 <SingleEventCard
@@ -207,7 +207,7 @@ function ResidentTemplate({ data }) {
           ) : null}
 
           {/* RESIDENT Features */}
-          {isOpen === "Features" ? (
+          {isOpen === 'Features' ? (
             <div className="columns is-mobile is-multiline">
               {/* {resident_features.map((feature, index) => (
                 <LandingPageElement
@@ -225,7 +225,7 @@ function ResidentTemplate({ data }) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 ResidentTemplate.propTypes = {
@@ -236,7 +236,7 @@ ResidentTemplate.propTypes = {
       }),
     }),
   }),
-};
+}
 
 export const query = graphql`
   query ResidentTemplateQuery($uid: String) {
@@ -320,9 +320,9 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
-export default ResidentTemplate;
+export default ResidentTemplate
 
 // Resident Template
 // Resident Img sizes (square)

@@ -1,9 +1,9 @@
-import PropTypes from "prop-types";
-import React from "react";
-import { Link } from "gatsby";
-import NanoClamp from "nanoclamp";
-import { MixPlayOverlay, TagButtons } from "./index";
-import { getResidentString, formatDateTime, linkResolver } from "../utils";
+import PropTypes from 'prop-types'
+import React from 'react'
+import { Link } from 'gatsby'
+import NanoClamp from 'nanoclamp'
+import { MixPlayOverlay, TagButtons } from './index'
+import { getResidentString, formatDateTime, linkResolver } from '../utils'
 
 /**
  * @category Utilities
@@ -28,17 +28,17 @@ function SingleMixCard({ mixData, columnLayout, path }) {
     mix_link,
     mix_title,
     featured_residents,
-  } = mixData;
+  } = mixData
 
-  const { uid, type, tags } = _meta;
+  const { uid, type, tags } = _meta
 
   const linkTo = {
     type,
     uid,
-  };
+  }
 
-  const mixDate = formatDateTime(mix_date, "year-month-day");
-  const mixResidentsString = getResidentString(featured_residents);
+  const mixDate = formatDateTime(mix_date, 'year-month-day')
+  const mixResidentsString = getResidentString(featured_residents)
 
   return (
     <div className={columnLayout}>
@@ -95,7 +95,7 @@ function SingleMixCard({ mixData, columnLayout, path }) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 SingleMixCard.propTypes = {
@@ -105,12 +105,12 @@ SingleMixCard.propTypes = {
       tags: PropTypes.arrayOf(PropTypes.string),
       uid: PropTypes.string.isRequired,
       type: PropTypes.oneOf([
-        "cms_guide",
-        "event",
-        "feature",
-        "mix",
-        "page",
-        "resident",
+        'cms_guide',
+        'event',
+        'feature',
+        'mix',
+        'page',
+        'resident',
       ]),
     }),
     mix_date: PropTypes.string.isRequired,
@@ -130,6 +130,6 @@ SingleMixCard.propTypes = {
     }),
   }).isRequired,
   path: PropTypes.string,
-};
+}
 
-export default SingleMixCard;
+export default SingleMixCard

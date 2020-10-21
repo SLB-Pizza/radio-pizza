@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "gatsby";
-import { RichText } from "prismic-reactjs";
-import { HomeSingleNews } from "./index";
+import React from 'react'
+import { Link } from 'gatsby'
+import { RichText } from 'prismic-reactjs'
+import { HomeSingleNews } from './index'
 
 function HomeFeatures({ headline, blurb, homeFeaturesData }) {
   return (
@@ -26,7 +26,7 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
         <div className="column is-9">
           <div className="columns is-multiline">
             {homeFeaturesData.map((singleFeature, index) => {
-              const { _meta, body } = singleFeature.node;
+              const { _meta, body } = singleFeature.node
 
               return (
                 <HomeSingleNews
@@ -34,7 +34,7 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
                   metadata={_meta}
                   body={body}
                 />
-              );
+              )
             })}
           </div>
         </div>
@@ -61,7 +61,7 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
       </div>
       <div className="columns is-mobile is-hidden-desktop mobile-single-items">
         {homeFeaturesData.map((singleFeature, index) => {
-          const { _meta, body } = singleFeature.node;
+          const { _meta, body } = singleFeature.node
 
           return (
             <HomeSingleNews
@@ -69,11 +69,11 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
               metadata={_meta}
               body={body}
             />
-          );
+          )
         })}
       </div>
     </div>
-  );
+  )
 }
 
-export default HomeFeatures;
+export default HomeFeatures

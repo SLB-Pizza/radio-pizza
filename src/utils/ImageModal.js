@@ -1,5 +1,5 @@
-import React from "react";
-import { ResponsiveImage } from "./index";
+import React from 'react'
+import { ResponsiveImage } from './index'
 
 /**
  * Creates an Image Modal; called by {@link ImageHelper}.
@@ -58,7 +58,7 @@ function ImageModal({ fullSizeImg, responsiveData, setImgModalOpen }) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default ImageModal;
+export default ImageModal

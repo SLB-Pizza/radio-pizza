@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "gatsby";
+import React from 'react'
+import { Link } from 'gatsby'
 
-import { HomeSingleEvent } from "./index";
+import { HomeSingleEvent } from './index'
 
 function HomeEvents() {
   return (
@@ -58,7 +58,7 @@ function HomeEvents() {
         <HomeSingleEvent />
       </div>
     </div>
-  );
+  )
 }
 
-export default HomeEvents;
+export default HomeEvents

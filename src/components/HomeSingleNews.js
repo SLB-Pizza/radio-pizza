@@ -1,7 +1,7 @@
-import React from "react";
-import { RichText } from "prismic-reactjs";
-import { Link } from "gatsby";
-import { linkResolver } from "../utils";
+import React from 'react'
+import { RichText } from 'prismic-reactjs'
+import { Link } from 'gatsby'
+import { linkResolver } from '../utils'
 
 function HomeSingleNews({ metadata, body }) {
   const {
@@ -9,13 +9,13 @@ function HomeSingleNews({ metadata, body }) {
     article_subcategory,
     article_headline,
     article_subtitle,
-  } = body[0].primary;
+  } = body[0].primary
 
-  const { lastPublicationDate, type, uid, ...rest } = metadata;
+  const { lastPublicationDate, type, uid, ...rest } = metadata
   const linkData = {
     type,
     uid,
-  };
+  }
 
   return (
     <div className="column is-9-mobile is-6-tablet">
@@ -43,7 +43,7 @@ function HomeSingleNews({ metadata, body }) {
         </div>
       </Link>
     </div>
-  );
+  )
 }
 
-export default HomeSingleNews;
+export default HomeSingleNews

@@ -1,9 +1,9 @@
-import React from "react";
-import { Link, graphql } from "gatsby";
-import Highlight, { defaultProps } from "prism-react-renderer";
-import { StickyFeature, SliceZone } from "../../components";
-import { ParallaxHeadline } from "../../components/slices";
-import PropTypes from "prop-types";
+import React from 'react'
+import { Link, graphql } from 'gatsby'
+import Highlight, { defaultProps } from 'prism-react-renderer'
+import { StickyFeature, SliceZone } from '../../components'
+import { ParallaxHeadline } from '../../components/slices'
+import PropTypes from 'prop-types'
 
 /**
  * @category Pages
@@ -16,13 +16,13 @@ function SupportPage({ data }) {
   /**
    * Focus the node for the prismicContent check below.
    */
-  const prismicContent = data.prismic.allSupports.edges[0];
+  const prismicContent = data.prismic.allSupports.edges[0]
 
   /**
    * This line is here to prevent an error from occurring when you eventually deploy the site live. There is an issue with the preview functionality that requires this check on every page.
    * @see https://prismic.io/docs/gatsby/rendering/retrieve-the-document-object#21_0-adding-a-validation-check
    */
-  if (!prismicContent) return null;
+  if (!prismicContent) return null
 
   /**
    * Grab the first node object from the prismicContent array of nodes to pass as leadfeatureData prop to StickyFeature.
@@ -31,7 +31,7 @@ function SupportPage({ data }) {
    *
    * The remaining array of node objects can be mapped over normally using XYZ_Component.
    */
-  const supportPageData = prismicContent.node;
+  const supportPageData = prismicContent.node
 
   /**
    * Pull out parts from supportPageData to make passing data easier.
@@ -40,8 +40,8 @@ function SupportPage({ data }) {
     cta: supportPageData.support_cta,
     hook: supportPageData.support_cta_hook,
     img: supportPageData.support_cta_bg_img,
-  };
-  const supportSlice = supportPageData.body;
+  }
+  const supportSlice = supportPageData.body
 
   return (
     <main className="full-height-page">
@@ -63,10 +63,10 @@ function SupportPage({ data }) {
         </div>
       </section>
     </main>
-  );
+  )
 }
 
-export default SupportPage;
+export default SupportPage
 
 SupportPage.propTypes = {
   leadFeatureData: PropTypes.exact({
@@ -74,7 +74,7 @@ SupportPage.propTypes = {
     body: PropTypes.arrayOf(PropTypes.object),
   }),
   allOtherFeatures: PropTypes.arrayOf(PropTypes.object),
-};
+}
 
 export const query = graphql`
   query SupportPage {
@@ -100,4 +100,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { graphql } from "gatsby";
+import React, { useState } from 'react'
+import { graphql } from 'gatsby'
 
 /**
  * @category Pages
@@ -25,7 +25,7 @@ function CollectionsIndexPage({ data }) {
         </div>
       </header>
     </main>
-  );
+  )
 }
 
 export const query = graphql`
@@ -73,8 +73,8 @@ export const query = graphql`
       }
     }
   }
-`;
-export default CollectionsIndexPage;
+`
+export default CollectionsIndexPage
 
 // allEndless_mixs {
 //   edges {

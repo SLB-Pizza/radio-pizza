@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "gatsby";
-import { formatDateTime } from "../utils";
-import dayjs from "dayjs";
-import utc from "dayjs/plugin/utc";
-dayjs.extend(utc);
+import React, { useState, useEffect } from 'react'
+import { Link } from 'gatsby'
+import { formatDateTime } from '../utils'
+import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
+dayjs.extend(utc)
 
-import { SingleScheduleEntryRow } from "../components";
-import dummySchedule from "../../__test__/HMBK-schedule-page-query-test.json";
+import { SingleScheduleEntryRow } from '../components'
+import dummySchedule from '../../__test__/HMBK-schedule-page-query-test.json'
 
 // See ScheduleShowEntry for details on these
 function ScheduleDropdown({
@@ -28,9 +28,9 @@ function ScheduleDropdown({
   //   };
   // });
 
-  const { schedule_date, schedule_entries } = showData;
+  const { schedule_date, schedule_entries } = showData
 
-  const todaysDate = formatDateTime(timeNow, "schedule-date-heading");
+  const todaysDate = formatDateTime(timeNow, 'schedule-date-heading')
 
   return (
     <div className="columns is-multiline is-vcentered is-mobile dropdown">
@@ -45,24 +45,24 @@ function ScheduleDropdown({
           <button
             className="button is-small is-outlined is-rounded display-text"
             onClick={() => {
-              setOpen(!open);
-              toggleSchedule();
+              setOpen(!open)
+              toggleSchedule()
             }}
           >
             Full Schedule
           </button>
         </Link>
       </div>
-            
+
       {/* 
       schedule_entries !== undefined : display today's schedule
       schedule_entries === undefined : show  */}
       {schedule_entries !== undefined ? (
         <div className="column is-12">
           {schedule_entries.map((entry, index) => {
-            const { start_time, end_time, scheduled_show } = entry;
-            const formattedStart = formatDateTime(start_time, "hour-minute");
-            const formattedEnd = formatDateTime(end_time, "hour-minute");
+            const { start_time, end_time, scheduled_show } = entry
+            const formattedStart = formatDateTime(start_time, 'hour-minute')
+            const formattedEnd = formatDateTime(end_time, 'hour-minute')
 
             return (
               <SingleScheduleEntryRow
@@ -71,7 +71,7 @@ function ScheduleDropdown({
                 end={formattedEnd}
                 show={scheduled_show}
               />
-            );
+            )
           })}
         </div>
       ) : (
@@ -109,7 +109,7 @@ function ScheduleDropdown({
         </div>
       ))} */}
     </div>
-  );
+  )
 }
 
-export default ScheduleDropdown;
+export default ScheduleDropdown

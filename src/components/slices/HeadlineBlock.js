@@ -1,6 +1,6 @@
-import React from "react";
-import { RichText } from "prismic-reactjs";
-import processPublicationDates from "../../utils/processPublicationDates";
+import React from 'react'
+import { RichText } from 'prismic-reactjs'
+import processPublicationDates from '../../utils/processPublicationDates'
 
 /**
  * @category CMS
@@ -23,10 +23,10 @@ function HeadlineBlock({ slice, metadata }) {
     article_subtitle,
     article_author_pic,
     article_author,
-  } = slice.primary;
+  } = slice.primary
 
-  const { firstPublicationDate, lastPublicationDate } = metadata;
-  const { hmbk_staff_name, hmbk_staff_position } = article_author;
+  const { firstPublicationDate, lastPublicationDate } = metadata
+  const { hmbk_staff_name, hmbk_staff_position } = article_author
 
   /**
    * Pass the metadaa to {@link processPublicationDates}.
@@ -34,19 +34,19 @@ function HeadlineBlock({ slice, metadata }) {
   const featureDateDetails = processPublicationDates(
     firstPublicationDate,
     lastPublicationDate
-  );
+  )
 
   /**
    * Transform article_category for layout use.
    */
-  const allCapsCategory = article_category.toUpperCase();
+  const allCapsCategory = article_category.toUpperCase()
 
   return (
     <section
       className="hero"
       role="region"
       aria-labelledby="article-heading"
-      style={{ backgroundColor: "blue" }}
+      style={{ backgroundColor: 'blue' }}
     >
       <div
         className="hero-body headline-block"
@@ -59,7 +59,7 @@ function HeadlineBlock({ slice, metadata }) {
             <div className="column">
               <p className="is-size-6-desktop is-size-7-touch has-text-centered category">
                 {allCapsCategory}
-                <span>{" ‣ " + article_subcategory}</span>
+                <span>{' ‣ ' + article_subcategory}</span>
               </p>
               <div className="content">
                 <h1
@@ -86,7 +86,7 @@ function HeadlineBlock({ slice, metadata }) {
                   <div className="column is-narrow">
                     <p className="has-text-centered">
                       {hmbk_staff_name}
-                      {", "}
+                      {', '}
                       <em>{hmbk_staff_position}</em>
                     </p>
                   </div>
@@ -104,7 +104,7 @@ function HeadlineBlock({ slice, metadata }) {
         </div>
       </div>
     </section>
-  );
+  )
 }
 
-export default HeadlineBlock;
+export default HeadlineBlock

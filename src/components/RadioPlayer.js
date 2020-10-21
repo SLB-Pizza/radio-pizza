@@ -1,15 +1,15 @@
-import React, { useContext, useRef, useState } from "react";
-import ReactPlayer from "react-player";
-import Ticker from "react-ticker";
-import PageVisibility from "react-page-visibility";
-import { hot } from "react-hot-loader";
+import React, { useContext, useRef, useState } from 'react'
+import ReactPlayer from 'react-player'
+import Ticker from 'react-ticker'
+import PageVisibility from 'react-page-visibility'
+import { hot } from 'react-hot-loader'
 
 import {
   GlobalDispatchContext,
   GlobalStateContext,
-} from "../context/GlobalContextProvider";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
+} from '../context/GlobalContextProvider'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons'
 
 /**
  * @category Site Elements
@@ -18,8 +18,8 @@ import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
  * @returns {jsx}
  */
 function RadioPlayer() {
-  const dispatch = useContext(GlobalDispatchContext);
-  const globalState = useContext(GlobalStateContext);
+  const dispatch = useContext(GlobalDispatchContext)
+  const globalState = useContext(GlobalStateContext)
 
   const [localState, setLocalState] = useState({
     url: null,
@@ -35,18 +35,18 @@ function RadioPlayer() {
     duration: 0,
     playbackRate: 1.0,
     loop: false,
-  });
+  })
 
   /**
    * Eliminate width and height = 0 errors by breaking ReactPlayer out of normal document flow and throwing it above the top of the page
    */
   const playerStyle = {
-    position: "absolute",
-    top: "-175px",
-    width: "1px",
-    height: "1px",
-    margin: "-1px",
-  };
+    position: 'absolute',
+    top: '-175px',
+    width: '1px',
+    height: '1px',
+    margin: '-1px',
+  }
 
   // const [pageIsVisible, setPageIsVisible] = useState(true);
 
@@ -55,41 +55,35 @@ function RadioPlayer() {
   // };
 
   const handlePlayPause = async () => {
-    await dispatch({ type: "TOGGLE_PLAYING" });
-  };
+    await dispatch({ type: 'TOGGLE_PLAYING' })
+  }
   const handlePlay = () => {
-    setLocalState({ ...localState, playing: true });
-  };
+    setLocalState({ ...localState, playing: true })
+  }
 
   const handlePause = () => {
-    setLocalState({ ...localState, playing: false });
-  };
+    setLocalState({ ...localState, playing: false })
+  }
 
   const handleMixReady = async () => {
-    await dispatch({ type: "MIX_LOADED" });
-  };
+    await dispatch({ type: 'MIX_LOADED' })
+  }
 
   const handleEnded = async () => {
-    console.log('onEnded');
-
+    console.log('onEnded')
 
     // ADD check in case we are ending on a single track, not a playlist
-    if(globalState.playlist.length){
-      // if list_curr_index from global state is less the current playlist's number of tracks, then dispatch func which increments it by one and plays next 
-      if(globalState.playlist.length -1 > globalState.list_curr_index) {
-
-        await dispatch({ type: "PLAYLIST_PLAY_NEXT" });
-
+    if (globalState.playlist.length) {
+      // if list_curr_index from global state is less the current playlist's number of tracks, then dispatch func which increments it by one and plays next
+      if (globalState.playlist.length - 1 > globalState.list_curr_index) {
+        await dispatch({ type: 'PLAYLIST_PLAY_NEXT' })
       } else {
-
-        await dispatch({ type: "PLAYLIST_LOOP" });
-
+        await dispatch({ type: 'PLAYLIST_LOOP' })
       }
     }
 
-    return;
-
-  };
+    return
+  }
 
   // const handleVolumeChange = (e) => {
   //   let value = parseFloat(e.target.value);
@@ -130,15 +124,15 @@ function RadioPlayer() {
   //   );
   // };
 
-  const player = useRef(ReactPlayer);
+  const player = useRef(ReactPlayer)
 
   return (
     <>
       <div
         className={
           globalState.isLoading
-            ? "column is-narrow mix-data"
-            : "column is-narrow mix-data is-loaded"
+            ? 'column is-narrow mix-data'
+            : 'column is-narrow mix-data is-loaded'
         }
       >
         {!globalState.playing ? (
@@ -161,8 +155,8 @@ function RadioPlayer() {
       <div
         className={
           globalState.isLoading
-            ? "column is-narrow mix-data"
-            : "column is-narrow mix-data is-loaded"
+            ? 'column is-narrow mix-data'
+            : 'column is-narrow mix-data is-loaded'
         }
       >
         <figure className="image is-48x48">
@@ -173,8 +167,8 @@ function RadioPlayer() {
       <div
         className={
           globalState.isLoading
-            ? "column text-truncate mix-data"
-            : "column text-truncate mix-data is-loaded"
+            ? 'column text-truncate mix-data'
+            : 'column text-truncate mix-data is-loaded'
         }
         id="now-playing"
       >
@@ -243,10 +237,10 @@ function RadioPlayer() {
         loop={globalState.loop}
         onPlay={handlePlay}
         onPause={handlePause}
-        onError={(error) => console.log("ReactPlayer has an issue ↴\n", error)}
+        onError={error => console.log('ReactPlayer has an issue ↴\n', error)}
         onReady={handleMixReady}
         onStart={() => console.log(`PLAYING: ${globalState.title}`)}
-        onBuffer={() => console.log("onBuffer")}
+        onBuffer={() => console.log('onBuffer')}
         // muted={globalState.muted}
         // onDuration={handleDuration}
         // onEnablePIP={this.handleEnablePIP}
@@ -256,10 +250,10 @@ function RadioPlayer() {
         // onProgress={this.handleProgress}
       />
     </>
-  );
+  )
 }
 
-export default hot(module)(RadioPlayer);
+export default hot(module)(RadioPlayer)
 
 // export const handleStop = () => {
 //   this.setState({ url: null, playing: false });

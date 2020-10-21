@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 function AboutIndexPage() {
   return (
@@ -34,7 +34,7 @@ function AboutIndexPage() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default AboutIndexPage;
+export default AboutIndexPage

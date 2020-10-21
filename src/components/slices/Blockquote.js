@@ -1,6 +1,6 @@
-import React from "react";
-import { RichText } from "prismic-reactjs";
-import getBlockquoteStyling from "../../utils/getBlockquoteStyling";
+import React from 'react'
+import { RichText } from 'prismic-reactjs'
+import getBlockquoteStyling from '../../utils/getBlockquoteStyling'
 
 /**
  * @category CMS
@@ -25,7 +25,7 @@ function Blockquote({ slice }) {
     blockquote_text,
     blockquote_attribution,
     blockquote_bg_img,
-  } = slice.primary;
+  } = slice.primary
 
   /**
    * Pass the type and the bg_type objects to {@link getBlockquoteStyling} to derive styling.
@@ -33,7 +33,7 @@ function Blockquote({ slice }) {
   const blockquoteStyling = getBlockquoteStyling(
     blockquote_type,
     blockquote_bg_img
-  );
+  )
 
   return (
     <section className="hero slice" style={blockquoteStyling.imgStyle}>
@@ -50,7 +50,7 @@ function Blockquote({ slice }) {
         </div>
       </div>
     </section>
-  );
+  )
 }
 
-export default Blockquote;
+export default Blockquote

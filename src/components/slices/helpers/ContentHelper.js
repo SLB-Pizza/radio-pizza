@@ -1,5 +1,5 @@
-import React from "react";
-import { RichText } from "prismic-reactjs";
+import React from 'react'
+import { RichText } from 'prismic-reactjs'
 
 /**
  * Creates a JSX segment that CMS Slices call on to format text content. Its image counterpart is {@link ImageHelper}.
@@ -19,7 +19,7 @@ import { RichText } from "prismic-reactjs";
  * @returns {jsx}
  */
 function ContentHelper({ columnClassName, text }) {
-  const defaultContentClassName = "column is-12";
+  const defaultContentClassName = 'column is-12'
 
   /**
    * If a columnClassName prop was passed in, use that prop value.
@@ -27,13 +27,13 @@ function ContentHelper({ columnClassName, text }) {
    */
   const contentColumnClass = columnClassName
     ? columnClassName
-    : defaultContentClassName;
+    : defaultContentClassName
 
   return (
     <div className={contentColumnClass}>
       <div className="content">{RichText.render(text)}</div>
     </div>
-  );
+  )
 }
 
-export default ContentHelper;
+export default ContentHelper

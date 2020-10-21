@@ -1,6 +1,6 @@
-import React from "react";
-import { RichText } from "prismic-reactjs";
-import { processPublicationDates } from "../../utils";
+import React from 'react'
+import { RichText } from 'prismic-reactjs'
+import { processPublicationDates } from '../../utils'
 
 /**
  * @category CMS
@@ -19,10 +19,10 @@ function ArticleHeadline({ slice, metadata }) {
     article_subtitle,
     article_author_pic,
     article_author,
-  } = slice.primary;
+  } = slice.primary
 
-  const { firstPublicationDate, lastPublicationDate } = metadata;
-  const { hmbk_staff_name, hmbk_staff_position } = article_author;
+  const { firstPublicationDate, lastPublicationDate } = metadata
+  const { hmbk_staff_name, hmbk_staff_position } = article_author
 
   /**
    * Pass the metadata to {@link processPublicationDates}.
@@ -30,12 +30,12 @@ function ArticleHeadline({ slice, metadata }) {
   const featureDateDetails = processPublicationDates(
     firstPublicationDate,
     lastPublicationDate
-  );
+  )
 
   /**
    * Transform article_category for layout use.
    */
-  const allCapsCategory = article_category.toUpperCase();
+  const allCapsCategory = article_category.toUpperCase()
 
   /**
    * If the image has copyright info (photo credit):
@@ -51,7 +51,7 @@ function ArticleHeadline({ slice, metadata }) {
     <figcaption className="credit" id="article-headline-image">
       {article_headline_img.alt}
     </figcaption>
-  );
+  )
 
   return (
     <header className="hero article-header" aria-labelledby="article-headline">
@@ -69,7 +69,7 @@ function ArticleHeadline({ slice, metadata }) {
             <div className="column is-12">
               <p className="is-size-6-desktop is-size-7-touch">
                 {allCapsCategory}
-                <span>{" ‣ " + article_subcategory}</span>
+                <span>{' ‣ ' + article_subcategory}</span>
               </p>
               <div className="content">
                 <h1
@@ -104,7 +104,7 @@ function ArticleHeadline({ slice, metadata }) {
             <div className="column is-narrow-desktop">
               {featureDateDetails.hasBeenUpdated ? (
                 <p className="subtitle is-size-6-desktop is-size-7-touch">
-                  Updated{" "}
+                  Updated{' '}
                   <time dateTime={lastPublicationDate}>
                     {featureDateDetails.pubDate}
                   </time>
@@ -121,7 +121,7 @@ function ArticleHeadline({ slice, metadata }) {
         </div>
       </div>
     </header>
-  );
+  )
 }
 
-export default ArticleHeadline;
+export default ArticleHeadline

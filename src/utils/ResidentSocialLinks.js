@@ -1,6 +1,6 @@
-import PropTypes from "prop-types";
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import PropTypes from 'prop-types'
+import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faApple,
   faBandcamp,
@@ -10,8 +10,8 @@ import {
   faSoundcloud,
   faSpotify,
   faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
-import { faGlobe } from "@fortawesome/free-solid-svg-icons";
+} from '@fortawesome/free-brands-svg-icons'
+import { faGlobe } from '@fortawesome/free-solid-svg-icons'
 
 /**
  * Function that returns a column an icon that links to the resident's appropriate social media page.
@@ -27,37 +27,37 @@ function ResidentSocialLinks({ url, platform }) {
   /**
    * Default the icon to a generic globe icon
    */
-  let icon = faGlobe;
+  let icon = faGlobe
 
   switch (platform) {
-    case "Personal Site":
-      break; // Use the globe
-    case "Apple Music":
-      icon = faApple;
-      break;
-    case "Bandcamp":
-      icon = faBandcamp;
-      break;
-    case "Facebook":
-      icon = faFacebookSquare;
-      break;
-    case "Instagram":
-      icon = faInstagram;
-      break;
-    case "Mixcloud":
-      icon = faMixcloud;
-      break;
-    case "Soundcloud":
-      icon = faSoundcloud;
-      break;
-    case "Spotify":
-      icon = faSpotify;
-      break;
-    case "Twitter":
-      icon = faTwitter;
-      break;
+    case 'Personal Site':
+      break // Use the globe
+    case 'Apple Music':
+      icon = faApple
+      break
+    case 'Bandcamp':
+      icon = faBandcamp
+      break
+    case 'Facebook':
+      icon = faFacebookSquare
+      break
+    case 'Instagram':
+      icon = faInstagram
+      break
+    case 'Mixcloud':
+      icon = faMixcloud
+      break
+    case 'Soundcloud':
+      icon = faSoundcloud
+      break
+    case 'Spotify':
+      icon = faSpotify
+      break
+    case 'Twitter':
+      icon = faTwitter
+      break
     default:
-      return icon;
+      return icon
   }
 
   return (
@@ -68,12 +68,12 @@ function ResidentSocialLinks({ url, platform }) {
         </span>
       </a>
     </div>
-  );
+  )
 }
 
 ResidentSocialLinks.propTypes = {
   platform: PropTypes.string,
   url: PropTypes.string,
-};
+}
 
-export default ResidentSocialLinks;
+export default ResidentSocialLinks

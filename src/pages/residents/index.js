@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { graphql } from "gatsby";
-import { SingleResident } from "../../components";
+import React, { useState, Fragment } from 'react'
+import { graphql } from 'gatsby'
+import { SingleResident } from '../../components'
 
 /**
  * @category Pages
@@ -11,92 +11,108 @@ import { SingleResident } from "../../components";
  */
 
 function ResidentsIndex({ data }) {
-  const [isOpen, setIsOpen] = useState("Residents");
+  const [isOpen, setIsOpen] = useState('Residents')
 
-  const prismicContent = data.prismic.allResidents.edges;
-  if (!prismicContent) return null;
-  const allResidentsData = prismicContent;
+  const prismicContent = data.prismic.allResidents.edges
+  if (!prismicContent) return null
+  const allResidentsData = prismicContent
 
-  let residents = [];
-  let guests = [];
-  let alumni = [];
+  let residents = []
+  let guests = []
+  let alumni = []
 
   allResidentsData.forEach(({ node }) => {
-    if (node.resident_status === "Resident") {
-      residents.push(node);
+    if (node.resident_status === 'Resident') {
+      residents.push(node)
     }
-    if (node.resident_status === "Guest") {
-      guests.push(node);
+    if (node.resident_status === 'Guest') {
+      guests.push(node)
     }
-    if (node.resident_status === "Alumnus") {
-      alumni.push(node);
+    if (node.resident_status === 'Alumnus') {
+      alumni.push(node)
     }
-  });
+  })
 
   function toggleColumn(event) {
     if (isOpen !== event.currentTarget.id) {
-      setIsOpen(event.currentTarget.id);
+      setIsOpen(event.currentTarget.id)
     }
   }
 
   return (
     <div className="container is-fluid black-bg-page">
-      <div className="columns is-mobile is-multiline">
+      <div className="columns is-mobile">
         <div className="column is-full">
-          <h1 className="title">Halfmoon Residents</h1>
+          <h1 className="title is-size-3-desktop is-size-5-touch">
+            Halfmoon Residents
+          </h1>
         </div>
+      </div>
 
-        {/* COLUMN SELECTOR BUTTONS */}
-        {["Residents", "Alumni", "Guests"].map((type, index) => (
-          <div className="column" key={`column-${index}-${type}`}>
-            <button
-              className={
-                isOpen === type
-                  ? "button active is-fullwidth is-outlined is-rounded display-text"
-                  : "button is-fullwidth is-outlined is-rounded display-text"
-              }
-              id={type}
-              onClick={toggleColumn}
-            >
-              {type}
-            </button>
-          </div>
+      <div className="columns is-mobile is-variable is-1">
+        {/* RESIDENT TYPE SELECTOR BUTTONS */}
+        {['Residents', 'Alumni', 'Guests'].map((type, index) => (
+          <Fragment key={`column-${index}-${type}`}>
+            {/* DESKTOP SIZED BUTTONS */}
+            <div className="column is-hidden-touch">
+              <button
+                className={
+                  isOpen === type
+                    ? 'button active is-fullwidth is-outlined is-rounded display-text'
+                    : 'button is-fullwidth is-outlined is-rounded display-text'
+                }
+                id={type}
+                onClick={toggleColumn}
+              >
+                {type}
+              </button>
+            </div>
+            {/* TOUCH SIZED BUTTONS */}
+            <div className="column is-hidden-desktop">
+              <button
+                className={
+                  isOpen === type
+                    ? 'button is-small active is-fullwidth is-outlined is-rounded display-text'
+                    : 'button is-small is-fullwidth is-outlined is-rounded display-text'
+                }
+                id={type}
+                onClick={toggleColumn}
+              >
+                {type}
+              </button>
+            </div>
+          </Fragment>
         ))}
       </div>
 
       {/* CURRENT HMBK RESIDENTS */}
-      {isOpen === "Residents" ? (
+      {isOpen === 'Residents' ? (
         <div className="columns is-mobile is-multiline">
           {residents.map((resident, index) => {
-            return (
-              <SingleResident key={`Event-${index}`} resident={resident} />
-            );
+            return <SingleResident key={`Event-${index}`} resident={resident} />
           })}
-          <pre>{JSON.stringify(residents, null, 2)}</pre>
         </div>
       ) : null}
 
       {/* HMBK ALUMNI */}
-      {isOpen === "Alumni" ? (
+      {isOpen === 'Alumni' ? (
         <div className="columns is-mobile is-multiline">
           {alumni.map((alumnus, index) => {
-            return <SingleResident key={`Event-${index}`} resident={alumnus} />;
+            return <SingleResident key={`Event-${index}`} resident={alumnus} />
           })}
-          <pre>{JSON.stringify(alumni, null, 2)}</pre>
         </div>
       ) : null}
 
       {/* HMBK GUESTS */}
-      {isOpen === "Guests" ? (
+      {isOpen === 'Guests' ? (
         <div className="columns is-mobile is-multiline">
           {guests.map((guest, index) => {
-            return <SingleResident key={`Event-${index}`} resident={guest} />;
+            return <SingleResident key={`Event-${index}`} resident={guest} />
           })}
-          <pre>{JSON.stringify(guests, null, 2)}</pre>
         </div>
       ) : null}
     </div>
-  );
+  )
 }
 
 export const query = graphql`
@@ -117,9 +133,9 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
-export default ResidentsIndex;
+export default ResidentsIndex
 
 // Resident Square Image sizes
 // --- MOBILE ---

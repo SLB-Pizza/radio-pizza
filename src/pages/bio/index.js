@@ -1,15 +1,15 @@
-import React from "react";
-import { HMBKDivider, SingleMixCard } from "../../components";
+import React from 'react'
+import { HMBKDivider, SingleMixCard } from '../../components'
 
 // Dummy data in __test__ folder
-import hmbkMixesResidents from "../../../__test__/HMBK-mixes-with-residents.json";
+import hmbkMixesResidents from '../../../__test__/HMBK-mixes-with-residents.json'
 
 function StickyBioIndexPage() {
   /**
    * @param {string} stickyBioLayout - The string that will be used as the className to style this component's SingleMixCard data mapping. This string follows the site's bulma.io column styling conventions.
    */
   const stickyBioLayout =
-    "column is-12-mobile is-12-tablet is-6-desktop is-4-widescreen";
+    'column is-12-mobile is-12-tablet is-6-desktop is-4-widescreen'
 
   return (
     <div className="container is-fluid full-height-page">
@@ -117,7 +117,7 @@ function StickyBioIndexPage() {
         </div> */}
       </div>
     </div>
-  );
+  )
 }
 
-export default StickyBioIndexPage;
+export default StickyBioIndexPage

@@ -1,5 +1,5 @@
-import React from "react";
-import processPublicationDates from "../utils/processPublicationDates";
+import React from 'react'
+import processPublicationDates from '../utils/processPublicationDates'
 
 export default function StickyFeature({ leadFeatureData }) {
   /**
@@ -15,7 +15,7 @@ export default function StickyFeature({ leadFeatureData }) {
     feature_subtitle,
     feature_author,
     feature_author_pic,
-  } = leadFeatureData.body[0].primary;
+  } = leadFeatureData.body[0].primary
 
   // const DummyColumn = () => {
   //   return (
@@ -81,5 +81,5 @@ export default function StickyFeature({ leadFeatureData }) {
         </div>*/}
       </section>
     </>
-  );
+  )
 }

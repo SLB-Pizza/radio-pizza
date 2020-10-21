@@ -1,12 +1,12 @@
-import React from "react";
-import { MixPlayOverlay, TagButtons } from "../components";
-import { getResidentString } from "../utils";
+import React from 'react'
+import { MixPlayOverlay, TagButtons } from '../components'
+import { getResidentString } from '../utils'
 
 function CuratedCollections({ curatedMixes }) {
-  let mixLinks = [];
-  let mixResidents = new Set();
-  let mixTags = new Set();
-  let mixCount = "";
+  let mixLinks = []
+  let mixResidents = new Set()
+  let mixTags = new Set()
+  let mixCount = ''
 
   return (
     <section className="container is-fluid">
@@ -26,36 +26,36 @@ function CuratedCollections({ curatedMixes }) {
           endless_mix_img,
           shuffle_mix_order,
           endless_mix_playlist,
-        } = endlessMix.node;
+        } = endlessMix.node
 
         mixCount =
           endless_mix_playlist.length === 1
             ? `${endless_mix_playlist.length} mix`
-            : `${endless_mix_playlist.length} mixes`;
+            : `${endless_mix_playlist.length} mixes`
 
         endless_mix_playlist.map(({ endless_mix_entry }) => {
-          const { _meta, mix_link, featured_residents } = endless_mix_entry;
+          const { _meta, mix_link, featured_residents } = endless_mix_entry
 
           /**
            * Push mix link string to mixLinks array to pass to {@link RadioPlayer}
            */
-          mixLinks.push(mix_link);
+          mixLinks.push(mix_link)
 
           /**
            * Add each resident on the current endless_mix_entry to the mixResidents set
            */
           featured_residents.map(({ mix_resident }) => {
-            mixResidents.add(mix_resident.resident_name);
+            mixResidents.add(mix_resident.resident_name)
             // console.log("mixResidents current size", mixResidents.size);
-          });
+          })
 
           /**
            * Normalize tags by making them lowercase and adding them the mixTags set.
            */
-          _meta.tags.map((tag) => {
-            mixTags.add(tag.toLowerCase());
-          });
-        });
+          _meta.tags.map(tag => {
+            mixTags.add(tag.toLowerCase())
+          })
+        })
 
         return (
           <div
@@ -86,11 +86,11 @@ function CuratedCollections({ curatedMixes }) {
               />
             </div>
           </div>
-        );
+        )
       })}
       <hr />
     </section>
-  );
+  )
 }
 
-export default CuratedCollections;
+export default CuratedCollections

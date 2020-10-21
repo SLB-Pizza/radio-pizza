@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 function EventCountdown({ sticky, days, hours, minutes, seconds }) {
   return (
@@ -7,8 +7,8 @@ function EventCountdown({ sticky, days, hours, minutes, seconds }) {
         <p
           className={
             sticky
-              ? "title time-amount is-size-5-desktop is-size-6-touch has-text-centered"
-              : "title time-amount is-size-2 has-text-centered"
+              ? 'title time-amount is-size-5-desktop is-size-6-touch has-text-centered'
+              : 'title time-amount is-size-2 has-text-centered'
           }
         >
           {days}
@@ -16,8 +16,8 @@ function EventCountdown({ sticky, days, hours, minutes, seconds }) {
         <p
           className={
             sticky
-              ? "subtitle is-size-6 timer-caption has-text-centered"
-              : "subtitle timer-caption has-text-centered"
+              ? 'subtitle is-size-6 timer-caption has-text-centered'
+              : 'subtitle timer-caption has-text-centered'
           }
         >
           DAYS
@@ -27,8 +27,8 @@ function EventCountdown({ sticky, days, hours, minutes, seconds }) {
         <p
           className={
             sticky
-              ? "title time-amount is-size-5-desktop is-size-6-touch has-text-centered"
-              : "title time-amount is-size-2 has-text-centered"
+              ? 'title time-amount is-size-5-desktop is-size-6-touch has-text-centered'
+              : 'title time-amount is-size-2 has-text-centered'
           }
         >
           {hours}
@@ -36,8 +36,8 @@ function EventCountdown({ sticky, days, hours, minutes, seconds }) {
         <p
           className={
             sticky
-              ? "subtitle is-size-6 timer-caption has-text-centered"
-              : "subtitle timer-caption has-text-centered"
+              ? 'subtitle is-size-6 timer-caption has-text-centered'
+              : 'subtitle timer-caption has-text-centered'
           }
         >
           HOURS
@@ -47,8 +47,8 @@ function EventCountdown({ sticky, days, hours, minutes, seconds }) {
         <p
           className={
             sticky
-              ? "title time-amount is-size-5-desktop is-size-6-touch has-text-centered"
-              : "title time-amount is-size-2 has-text-centered"
+              ? 'title time-amount is-size-5-desktop is-size-6-touch has-text-centered'
+              : 'title time-amount is-size-2 has-text-centered'
           }
         >
           {minutes}
@@ -56,8 +56,8 @@ function EventCountdown({ sticky, days, hours, minutes, seconds }) {
         <p
           className={
             sticky
-              ? "subtitle is-size-6 timer-caption has-text-centered"
-              : "subtitle timer-caption has-text-centered"
+              ? 'subtitle is-size-6 timer-caption has-text-centered'
+              : 'subtitle timer-caption has-text-centered'
           }
         >
           MINUTES
@@ -67,8 +67,8 @@ function EventCountdown({ sticky, days, hours, minutes, seconds }) {
         <p
           className={
             sticky
-              ? "title time-amount is-size-5-desktop is-size-6-touch has-text-centered"
-              : "title time-amount is-size-2 has-text-centered"
+              ? 'title time-amount is-size-5-desktop is-size-6-touch has-text-centered'
+              : 'title time-amount is-size-2 has-text-centered'
           }
         >
           {seconds}
@@ -76,15 +76,15 @@ function EventCountdown({ sticky, days, hours, minutes, seconds }) {
         <p
           className={
             sticky
-              ? "subtitle is-size-6 timer-caption has-text-centered"
-              : "subtitle timer-caption has-text-centered"
+              ? 'subtitle is-size-6 timer-caption has-text-centered'
+              : 'subtitle timer-caption has-text-centered'
           }
         >
           SECONDS
         </p>
       </div>
     </div>
-  );
+  )
 }
 
-export default EventCountdown;
+export default EventCountdown

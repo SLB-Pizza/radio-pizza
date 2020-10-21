@@ -1,6 +1,6 @@
-import React from "react";
-import { RichText } from "prismic-reactjs";
-import { htmlSerializer, linkResolver } from "../../utils";
+import React from 'react'
+import { RichText } from 'prismic-reactjs'
+import { htmlSerializer, linkResolver } from '../../utils'
 
 /**
  * @category CMS
@@ -10,7 +10,7 @@ import { htmlSerializer, linkResolver } from "../../utils";
  * @returns {jsx}
  */
 function TextBlock({ slice }) {
-  const { body_text, set_first_letter } = slice.primary;
+  const { body_text, set_first_letter } = slice.primary
 
   if (set_first_letter) {
   }
@@ -29,7 +29,7 @@ function TextBlock({ slice }) {
         </div>
       </div>
     </section>
-  );
+  )
 }
 
-export default TextBlock;
+export default TextBlock

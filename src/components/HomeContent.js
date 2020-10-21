@@ -1,5 +1,5 @@
-import React from "react";
-import { HomeMixes, HomeEvents, HomeNews } from "./index";
+import React from 'react'
+import { HomeMixes, HomeEvents, HomeNews } from './index'
 
 function HomeContent() {
   return (
@@ -8,7 +8,7 @@ function HomeContent() {
       <HomeEvents />
       <HomeNews />
     </section>
-  );
+  )
 }
 
-export default HomeContent;
+export default HomeContent

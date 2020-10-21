@@ -1,6 +1,6 @@
-import React from "react";
-import { graphql } from "gatsby";
-import { SliceZone } from "../components";
+import React from 'react'
+import { graphql } from 'gatsby'
+import { SliceZone } from '../components'
 
 /**
  * @category Templates
@@ -11,13 +11,13 @@ import { SliceZone } from "../components";
  */
 
 function FeatureTemplate({ data }) {
-  const prismicContent = data.prismic.allFeatures.edges[0];
-  if (!prismicContent) return null;
-  const featuresData = prismicContent.node;
+  const prismicContent = data.prismic.allFeatures.edges[0]
+  if (!prismicContent) return null
+  const featuresData = prismicContent.node
 
   // Grab the metadata for the feature and CMS slice data
-  const featureMetadata = featuresData._meta;
-  const featureSliceData = featuresData.body;
+  const featureMetadata = featuresData._meta
+  const featureSliceData = featuresData.body
 
   return (
     <main className="full-height-page">
@@ -29,7 +29,7 @@ function FeatureTemplate({ data }) {
           <SliceZone sliceZone={guideSliceData} metadata={guideMetadata} /> */}
       </article>
     </main>
-  );
+  )
 }
 
 export const query = graphql`
@@ -117,6 +117,6 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
-export default FeatureTemplate;
+export default FeatureTemplate

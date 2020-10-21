@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react'
+import PropTypes from 'prop-types'
 
 /**
  * @category CMS
@@ -9,28 +9,28 @@ import PropTypes from "prop-types";
  * @param {Object} metadata - data object from Prismic CMS that contains
  * @returns {jsx}
  */ function FullWidthImage({ slice }) {
-  const { full_width_image, fwi_titling, fwi_height } = slice.primary;
+  const { full_width_image, fwi_titling, fwi_height } = slice.primary
 
   let imgStyle = {
     backgroundImage: `url(${full_width_image.url})`,
-  };
+  }
 
-  let heroClassName = "";
+  let heroClassName = ''
   switch (fwi_height) {
-    case "Short":
-      heroClassName = "hero slice";
-      break;
-    case "Medium":
-      heroClassName = "hero is-medium slice";
-      break;
-    case "Tall":
-      heroClassName = "hero is-large slice";
-      break;
-    case "Fullheight":
-      heroClassName = "hero homepage-hero slice";
-      break;
+    case 'Short':
+      heroClassName = 'hero slice'
+      break
+    case 'Medium':
+      heroClassName = 'hero is-medium slice'
+      break
+    case 'Tall':
+      heroClassName = 'hero is-large slice'
+      break
+    case 'Fullheight':
+      heroClassName = 'hero homepage-hero slice'
+      break
     default:
-      heroClassName = "hero slice";
+      heroClassName = 'hero slice'
   }
 
   return (
@@ -39,7 +39,7 @@ import PropTypes from "prop-types";
         {fwi_titling ? <h1 className="title is-size-3">{data}</h1> : null}
       </div>
     </section>
-  );
+  )
 }
 
 // FullWidthImage.propTypes = {
@@ -48,4 +48,4 @@ import PropTypes from "prop-types";
 //   full_width_image.url: PropTypes.string.isRequired,
 // };
 
-export default FullWidthImage;
+export default FullWidthImage

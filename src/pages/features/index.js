@@ -1,7 +1,7 @@
-import React from "react";
-import { Link, graphql } from "gatsby";
-import { LandingPageElement, StickyFeature } from "../../components";
-import PropTypes from "prop-types";
+import React from 'react'
+import { Link, graphql } from 'gatsby'
+import { LandingPageElement, StickyFeature } from '../../components'
+import PropTypes from 'prop-types'
 
 /**
  * @category Pages
@@ -13,13 +13,13 @@ function FeaturesIndex({ data }) {
   /**
    * Focus the node for the prismicContent check below.
    */
-  const prismicContent = data.prismic.allFeatures.edges;
+  const prismicContent = data.prismic.allFeatures.edges
 
   /**
    * This line is here to prevent an error from occurring when you eventually deploy the site live. There is an issue with the preview functionality that requires this check on every page.
    * @see https://prismic.io/docs/gatsby/rendering/retrieve-the-document-object#21_0-adding-a-validation-check
    */
-  if (!prismicContent) return null;
+  if (!prismicContent) return null
 
   /**
    * Grab the first node object from the prismicContent array of nodes to pass as leadfeatureData prop to StickyFeature.
@@ -28,15 +28,15 @@ function FeaturesIndex({ data }) {
    *
    * The remaining array of node objects can be mapped over normally using XYZ_Component.
    */
-  const allFeaturesData = prismicContent;
+  const allFeaturesData = prismicContent
 
-  const leadFeatureData = allFeaturesData[0];
-  const lfLayout = "column is-12 landing-page-element";
-  const lfImageAspectRatio = "image is-2by1";
+  const leadFeatureData = allFeaturesData[0]
+  const lfLayout = 'column is-12 landing-page-element'
+  const lfImageAspectRatio = 'image is-2by1'
 
-  const allOtherFeatures = allFeaturesData.slice(1);
-  const aofLayout = "column is-6 landing-page-element";
-  const aofImageAspectRatio = "image is-16by9";
+  const allOtherFeatures = allFeaturesData.slice(1)
+  const aofLayout = 'column is-6 landing-page-element'
+  const aofImageAspectRatio = 'image is-16by9'
 
   return (
     <main className="container is-fluid black-bg-page">
@@ -80,7 +80,7 @@ function FeaturesIndex({ data }) {
         </div> */}
       </div>
     </main>
-  );
+  )
 }
 
 FeaturesIndex.propTypes = {
@@ -89,7 +89,7 @@ FeaturesIndex.propTypes = {
     body: PropTypes.arrayOf(PropTypes.object),
   }),
   allOtherFeatures: PropTypes.arrayOf(PropTypes.object),
-};
+}
 
 export const query = graphql`
   query FeaturesIndexPage {
@@ -120,6 +120,6 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
-export default FeaturesIndex;
+export default FeaturesIndex

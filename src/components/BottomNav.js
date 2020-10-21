@@ -1,16 +1,16 @@
-import React, { useContext } from "react";
-import { Link } from "gatsby";
+import React, { useContext } from 'react'
+import { Link } from 'gatsby'
 import {
   faMixcloud,
   faTwitter,
   faInstagram,
-} from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+} from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   GlobalDispatchContext,
   GlobalStateContext,
-} from "../context/GlobalContextProvider";
-import { OutsideClick } from "./index";
+} from '../context/GlobalContextProvider'
+import { OutsideClick } from './index'
 
 /**
  * @function BottomNav
@@ -18,23 +18,23 @@ import { OutsideClick } from "./index";
 function BottomNav() {
   // const [menuOpen, setMenuOpen] = useState(false);
 
-  const dispatch = useContext(GlobalDispatchContext);
-  const globalState = useContext(GlobalStateContext);
+  const dispatch = useContext(GlobalDispatchContext)
+  const globalState = useContext(GlobalStateContext)
 
   const closeNavMenu = async () => {
-    await dispatch({ type: "CLOSE_NAVMENU" });
-  };
+    await dispatch({ type: 'CLOSE_NAVMENU' })
+  }
 
   const toggleNavMenu = async () => {
-    await dispatch({ type: "TOGGLE_NAVMENU" });
-  };
+    await dispatch({ type: 'TOGGLE_NAVMENU' })
+  }
 
   /**
    * This globalState null return prevents ERROR #95313.
    * @see {@link TopNav|Related globalState situation in TopNav}
    * @see {@link https://github.com/gatsbyjs/gatsby/issues/24264#issuecomment-631995753|Re: ERROR #95313 - To stop the error immediately, add a null check for the object}
    */
-  if (!globalState) return null;
+  if (!globalState) return null
   return (
     <nav
       className="navbar is-fixed-bottom"
@@ -42,7 +42,7 @@ function BottomNav() {
       aria-label="navigation bar"
       id="navigation"
     >
-      <OutsideClick id={"navigation"} onClick={() => closeNavMenu()}>
+      <OutsideClick id={'navigation'} onClick={() => closeNavMenu()}>
         <div className="navbar-brand">
           <Link
             to="/"
@@ -55,12 +55,12 @@ function BottomNav() {
           <span
             className={
               globalState.navMenuOpen
-                ? "navbar-burger is-active"
-                : "navbar-burger"
+                ? 'navbar-burger is-active'
+                : 'navbar-burger'
             }
             role="button"
             aria-label="navigation menu"
-            aria-expanded={globalState.navMenuOpen ? "true" : "false"}
+            aria-expanded={globalState.navMenuOpen ? 'true' : 'false'}
             data-target="nav-menu"
             onClick={() => toggleNavMenu()}
           >
@@ -71,7 +71,7 @@ function BottomNav() {
         </div>
         <div
           className={
-            globalState.navMenuOpen ? "navbar-menu is-active" : "navbar-menu"
+            globalState.navMenuOpen ? 'navbar-menu is-active' : 'navbar-menu'
           }
           id="nav-menu"
         >
@@ -218,7 +218,7 @@ function BottomNav() {
         </div>
       </OutsideClick>
     </nav>
-  );
+  )
 }
 
-export default BottomNav;
+export default BottomNav

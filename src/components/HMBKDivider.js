@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 function HMBKDivider() {
   return (
@@ -16,7 +16,7 @@ function HMBKDivider() {
         <hr />
       </div>
     </div>
-  );
+  )
 }
 
-export default HMBKDivider;
+export default HMBKDivider

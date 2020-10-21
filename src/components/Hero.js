@@ -1,6 +1,6 @@
-import React from "react";
-import Slider from "@farbenmeer/react-spring-slider";
-import SlideGenerator from "../utils/SlideGenerator";
+import React from 'react'
+import Slider from '@farbenmeer/react-spring-slider'
+import SlideGenerator from '../utils/SlideGenerator'
 
 /**
  * @category Site Elements
@@ -13,22 +13,22 @@ function HeroCarousel({ slides }) {
   /**
    * Amount of time in ms to stay on each slide before <Slider> auto moves to next slide; preset to 8000
    */
-  const timePerSlide = 8000;
+  const timePerSlide = 8000
 
   /**
    * Style object for bullets to pass as props for <Slider>
    */
-  const heroBullets = { backgroundColor: "#000", border: "2px solid white" };
+  const heroBullets = { backgroundColor: '#000', border: '2px solid white' }
 
   /**
    * Style object for arrows to pass as props for <Slider>
    */
   const heroArrows = {
-    border: "solid white",
-    margin: "auto 3rem auto 2rem",
-    borderWidth: "0 10px 10px 0",
-    color: "black",
-  };
+    border: 'solid white',
+    margin: 'auto 3rem auto 2rem',
+    borderWidth: '0 10px 10px 0',
+    color: 'black',
+  }
 
   return (
     <div className="slider-sizing">
@@ -40,7 +40,7 @@ function HeroCarousel({ slides }) {
         bulletStyle={heroBullets}
       >
         {slides.map((slide, index) => {
-          const { slide_link, slide_bg, slide_headline, slide_cta } = slide;
+          const { slide_link, slide_bg, slide_headline, slide_cta } = slide
 
           return (
             <SlideGenerator
@@ -50,11 +50,11 @@ function HeroCarousel({ slides }) {
               link={slide_link}
               cta={slide_cta}
             />
-          );
+          )
         })}
       </Slider>
     </div>
-  );
+  )
 }
 
-export default HeroCarousel;
+export default HeroCarousel

@@ -1,30 +1,30 @@
-import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import React, { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
-import { SearchColumns, SearchDropdown, SearchResults } from "../../components";
+import { SearchColumns, SearchDropdown, SearchResults } from '../../components'
 
 function SearchIndexPage() {
-  const [isSelected, setIsSelected] = useState("mixes");
-  const [visibleLogo, setVisibleLogo] = useState(false);
-  const [searchValue, setSearchValue] = useState("");
-  const [searchStatus, setSearchStatus] = useState(false);
+  const [isSelected, setIsSelected] = useState('mixes')
+  const [visibleLogo, setVisibleLogo] = useState(false)
+  const [searchValue, setSearchValue] = useState('')
+  const [searchStatus, setSearchStatus] = useState(false)
 
-  const handleChange = (e) => {
-    setSearchValue(e.target.value);
-    console.log(searchValue, "current value");
-  };
+  const handleChange = e => {
+    setSearchValue(e.target.value)
+    console.log(searchValue, 'current value')
+  }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(searchValue, "submitted");
-    setVisibleLogo(false);
-    setSearchStatus(true);
-  };
+  const handleSubmit = e => {
+    e.preventDefault()
+    console.log(searchValue, 'submitted')
+    setVisibleLogo(false)
+    setSearchStatus(true)
+  }
 
   function toggleColumn(e) {
     if (isSelected !== e.currentTarget.id) {
-      setIsSelected(e.currentTarget.id);
+      setIsSelected(e.currentTarget.id)
     }
   }
 
@@ -35,7 +35,7 @@ function SearchIndexPage() {
           <p
             className="title is-size-3-desktop is-size-4-touch"
             onClick={() => {
-              setVisibleLogo(!visibleLogo);
+              setVisibleLogo(!visibleLogo)
             }}
           >
             Search
@@ -50,8 +50,8 @@ function SearchIndexPage() {
             <div
               className={
                 searchStatus
-                  ? "control is-expanded has-icons-left has-icons-right is-loading"
-                  : "control is-expanded has-icons-left"
+                  ? 'control is-expanded has-icons-left has-icons-right is-loading'
+                  : 'control is-expanded has-icons-left'
               }
             >
               <input
@@ -93,7 +93,7 @@ function SearchIndexPage() {
         </>
       )}
     </div>
-  );
+  )
 }
 
-export default SearchIndexPage;
+export default SearchIndexPage

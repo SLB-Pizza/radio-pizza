@@ -1,8 +1,8 @@
-import PropTypes from "prop-types";
-import React, { useContext } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay } from "@fortawesome/free-solid-svg-icons";
-import { GlobalDispatchContext } from "../context/GlobalContextProvider";
+import PropTypes from 'prop-types'
+import React, { useContext } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlay } from '@fortawesome/free-solid-svg-icons'
+import { GlobalDispatchContext } from '../context/GlobalContextProvider'
 
 /**
  * Creates a clickable play button that sends the selected mix to {@link RadioPlayer}
@@ -18,20 +18,20 @@ import { GlobalDispatchContext } from "../context/GlobalContextProvider";
  */
 
 function MixPlayOverlay({ url, title, residents, img, wrapperClassName }) {
-  const dispatch = useContext(GlobalDispatchContext);
+  const dispatch = useContext(GlobalDispatchContext)
 
   const changeUrl = async () => {
-    await dispatch({ type: "SHOW_LOADING" });
+    await dispatch({ type: 'SHOW_LOADING' })
     await dispatch({
-      type: "CHANGE_URL",
+      type: 'CHANGE_URL',
       payload: {
         url,
         title,
         resident: residents,
         img: img.now_playing.url,
       },
-    });
-  };
+    })
+  }
 
   return (
     <div className={wrapperClassName}>
@@ -57,10 +57,10 @@ function MixPlayOverlay({ url, title, residents, img, wrapperClassName }) {
         </figure>
       </div>
     </div>
-  );
+  )
 }
 
-export default MixPlayOverlay;
+export default MixPlayOverlay
 MixPlayOverlay.propTypes = {
   img: PropTypes.shape({
     alt: PropTypes.string,
@@ -73,4 +73,4 @@ MixPlayOverlay.propTypes = {
   title: PropTypes.string,
   url: PropTypes.string,
   wrapperClassName: PropTypes.string,
-};
+}

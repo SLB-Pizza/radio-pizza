@@ -1,9 +1,9 @@
-import React from "react";
-import { Link, graphql } from "gatsby";
-import { MixPlayOverlay, TagButtons, SingleResident } from "../components";
-import { RichText } from "prismic-reactjs";
-import { linkResolver, getResidentString } from "../utils";
-import NanoClamp from "nanoclamp";
+import React from 'react'
+import { Link, graphql } from 'gatsby'
+import { MixPlayOverlay, TagButtons, SingleResident } from '../components'
+import { RichText } from 'prismic-reactjs'
+import { linkResolver, getResidentString } from '../utils'
+import NanoClamp from 'nanoclamp'
 
 /**
  * @category Templates
@@ -14,9 +14,9 @@ import NanoClamp from "nanoclamp";
  */
 
 function MixTemplate({ data }) {
-  const prismicContent = data.prismic.allMixs.edges[0];
-  if (!prismicContent) return null;
-  const mixData = prismicContent.node;
+  const prismicContent = data.prismic.allMixs.edges[0]
+  if (!prismicContent) return null
+  const mixData = prismicContent.node
 
   const {
     _meta,
@@ -27,9 +27,9 @@ function MixTemplate({ data }) {
     mix_blurb,
     featured_residents,
     related_events,
-  } = mixData;
+  } = mixData
 
-  const mixResidentString = getResidentString(featured_residents);
+  const mixResidentString = getResidentString(featured_residents)
 
   return (
     <main className="black-bg-page">
@@ -133,7 +133,7 @@ function MixTemplate({ data }) {
         </div>
       </article>
     </main>
-  );
+  )
 }
 
 export const query = graphql`
@@ -180,6 +180,6 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
-export default MixTemplate;
+export default MixTemplate

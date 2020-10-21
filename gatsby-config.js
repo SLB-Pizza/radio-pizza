@@ -1,46 +1,46 @@
-require("dotenv").config({
+require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
-});
+})
 
 module.exports = {
   siteMetadata: {
-    title: "HalfmoonBK",
-    description: "Ears to the concrete.",
+    title: 'HalfmoonBK',
+    description: 'Ears to the concrete.',
   },
   plugins: [
     /**
      * Provides drop-in support for server rendering data added with React Helmet
      * @see {@link https://www.gatsbyjs.com/plugins/gatsby-plugin-react-helmet/?=helm/|gatsby-plugin-react-helmet}
      */
-    "gatsby-plugin-react-helmet",
+    'gatsby-plugin-react-helmet',
     /**
      * Provides drop-in support for Sass/SCSS stylesheets
      * @see {@link https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sass|gatsby-plugin-sass}
      */
-    "gatsby-plugin-sass",
+    'gatsby-plugin-sass',
     /**
      * A Gatsby source plugin for sourcing data into your Gatsby application from your local filesystem
      * @see {@link https://www.gatsbyjs.com/plugins/gatsby-plugin-sass/?=file|gatsby-source-filesystem}
      */
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/static/img`,
-        name: "uploads",
+        name: 'uploads',
       },
     },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/pages`,
-        name: "pages",
+        name: 'pages',
       },
     },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/img`,
-        name: "images",
+        name: 'images',
       },
     },
     /**
@@ -48,11 +48,11 @@ module.exports = {
      * @see {@link https://www.gatsbyjs.com/plugins/@mkitio/gatsby-theme-password-protect/|gatsby-theme-password-protect}
      */
     {
-      resolve: "@mkitio/gatsby-theme-password-protect",
+      resolve: '@mkitio/gatsby-theme-password-protect',
       options: {
-        password: "$HalfmoonBK2020",
+        password: '$HalfmoonBK2020',
         partialMatching: true, // /guide, /guide/any-other-routes, etc..
-        pagePaths: ["/guide"], // delete or `undefined` to disable password protection
+        pagePaths: ['/guide'], // delete or `undefined` to disable password protection
       },
     },
     /**
@@ -62,35 +62,35 @@ module.exports = {
      * @see {@link https://prismic.io/docs/gatsby/getting-started/prismic-gatsby-source-plugin|Prismic.io docs - Prismic Gatsby Plugin}
      */
     {
-      resolve: "gatsby-source-prismic-graphql",
+      resolve: 'gatsby-source-prismic-graphql',
       options: {
-        repositoryName: "hmbk-cms", //https://hmbk-cms.prismic.io/
+        repositoryName: 'hmbk-cms', //https://hmbk-cms.prismic.io/
         pages: [
           {
-            type: "Feature",
-            match: "/features/:uid",
-            path: "/feature-preview",
-            component: require.resolve("./src/templates/Feature.js"),
+            type: 'Feature',
+            match: '/features/:uid',
+            path: '/feature-preview',
+            component: require.resolve('./src/templates/Feature.js'),
           },
           {
-            type: "Cms_guide",
-            match: "/guide/:uid",
-            component: require.resolve("./src/templates/CMSGuide.js"),
+            type: 'Cms_guide',
+            match: '/guide/:uid',
+            component: require.resolve('./src/templates/CMSGuide.js'),
           },
           {
-            type: "Resident",
-            match: "/residents/:uid",
-            component: require.resolve("./src/templates/Resident.js"),
+            type: 'Resident',
+            match: '/residents/:uid',
+            component: require.resolve('./src/templates/Resident.js'),
           },
           {
-            type: "Mix",
-            match: "/mixes/:uid",
-            component: require.resolve("./src/templates/Mix.js"),
+            type: 'Mix',
+            match: '/mixes/:uid',
+            component: require.resolve('./src/templates/Mix.js'),
           },
           {
-            type: "Event",
-            match: "/events/:uid",
-            component: require.resolve("./src/templates/Event.js"),
+            type: 'Event',
+            match: '/events/:uid',
+            component: require.resolve('./src/templates/Event.js'),
           },
         ],
       },
@@ -101,7 +101,7 @@ module.exports = {
      * @see {@link https://www.gatsbyjs.com/plugins/gatsby-plugin-purgecss/|gatsby-plugin-purgecss}
      */
     {
-      resolve: "gatsby-plugin-purgecss",
+      resolve: 'gatsby-plugin-purgecss',
       options: {
         develop: false, // Activates purging in npm run develop
         printRejected: true,
@@ -111,6 +111,6 @@ module.exports = {
      * Automatically generates a _headers file and a _redirects file at the root of the public folder to configure HTTP headers and redirects on Netlify
      * @see {@link https://www.gatsbyjs.com/plugins/gatsby-plugin-netlify/|gatsby-plugin-netlify}
      */
-    "gatsby-plugin-netlify", // make sure to keep it last in the array
+    'gatsby-plugin-netlify', // make sure to keep it last in the array
   ],
-};
+}

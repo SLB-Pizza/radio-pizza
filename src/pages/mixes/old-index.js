@@ -1,34 +1,34 @@
-import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faTag } from "@fortawesome/free-solid-svg-icons";
-import { SingleMixCard } from "../../components";
+import React, { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch, faTag } from '@fortawesome/free-solid-svg-icons'
+import { SingleMixCard } from '../../components'
 
 // Dummy data in __test__ folder
-import hmbkMixesResidents from "../../../__test__/HMBK-mixes-with-residents.json";
+import hmbkMixesResidents from '../../../__test__/HMBK-mixes-with-residents.json'
 
 const dummyOptions = [
-  "Argentina",
-  "Bolivia",
-  "Brazil",
-  "Chile",
-  "Colombia",
-  "Ecuador",
-  "Guyana",
-  "Paraguay",
-  "Peru",
-  "Suriname",
-  "Uruguay",
-  "Venezuela",
-];
+  'Argentina',
+  'Bolivia',
+  'Brazil',
+  'Chile',
+  'Colombia',
+  'Ecuador',
+  'Guyana',
+  'Paraguay',
+  'Peru',
+  'Suriname',
+  'Uruguay',
+  'Venezuela',
+]
 
 function MixesIndexPage() {
-  const [searchInput, setSearchInput] = useState("");
+  const [searchInput, setSearchInput] = useState('')
 
   /**
    * @param {string} mixListLayout - The string that will be used as the className to style this component's SingleMixCard data mapping. This string follows the site's bulma.io column styling conventions.
    */
   const mixListLayout =
-    "column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen";
+    'column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen'
 
   return (
     <div className="container is-fluid full-height-page">
@@ -38,10 +38,10 @@ function MixesIndexPage() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default MixesIndexPage;
+export default MixesIndexPage
 
 // <div className="column is-full">
 //   <p className="title is-size-3-desktop is-size-4-touch">

@@ -25,48 +25,48 @@ export default function getBlockquoteStyling(type, bgIMG) {
    */
   let styling = {
     imgStyle: null,
-    blockClassNames: "is-size-1-desktop is-size-3-tablet is-size-4-mobile",
+    blockClassNames: 'is-size-1-desktop is-size-3-tablet is-size-4-mobile',
     citeClassNames:
-      "is-size-4-desktop is-size-5-tablet is-size-6-mobile has-text-right",
-  };
+      'is-size-4-desktop is-size-5-tablet is-size-6-mobile has-text-right',
+  }
 
   /**
    * Pull the type through a .split() on the ":" character of type, grabbing the first entry of that array and transforming that string to all lowercase to match the cases in the switch statement.
    */
-  const bgType = type.split(":")[0].toLowerCase();
+  const bgType = type.split(':')[0].toLowerCase()
 
   switch (bgType) {
     /**
      * Blockquote with no background image
      */
-    case "none":
-      styling.imgStyle = null;
-      break;
+    case 'none':
+      styling.imgStyle = null
+      break
     /**
      * Blockquote with light color background image
      */
-    case "light":
+    case 'light':
       styling.imgStyle = {
         backgroundImage: `url(${bgIMG.url})`,
-      };
-      styling.blockClassNames += " light-bg";
-      styling.citeClassNames += " has-text-black";
-      break;
+      }
+      styling.blockClassNames += ' light-bg'
+      styling.citeClassNames += ' has-text-black'
+      break
     /**
      * Blockquote with dark color background image
      */
 
-    case "dark":
+    case 'dark':
       styling.imgStyle = {
         backgroundImage: `url(${bgIMG.url})`,
-      };
-      styling.blockClassNames += " dark-bg";
-      break;
+      }
+      styling.blockClassNames += ' dark-bg'
+      break
     default:
       /**
        * Default to white text on black, no background image
        */
-      styling.imgStyle = null;
+      styling.imgStyle = null
   }
-  return styling;
+  return styling
 }

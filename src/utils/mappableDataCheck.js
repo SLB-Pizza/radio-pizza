@@ -94,48 +94,48 @@ export default function mappableDataCheck(dataArray, objectKeyCount) {
     // It's an array with at least one entry
     // Begin checks on entry key-value pairs
 
-    let filteredArr = dataArray.filter((arrayEntry) => {
+    let filteredArr = dataArray.filter(arrayEntry => {
       // Remove any falsy values from the array
       if (!arrayEntry) {
-        return false;
+        return false
       }
 
       // Each valid item in a Prismic group field is an object containing one key with one object value, the content relation data (e.g. mix data, etc.)
       if (Array.isArray(arrayEntry)) {
-        return false;
+        return false
       }
 
       //
       if (objectKeyCount) {
         // Each data object should contain objectKeyCount # of key-value pairs
         if (Object.keys(arrayEntry).length !== objectKeyCount) {
-          return false;
+          return false
         }
 
         // Each value in the data object should not be null
-        if (!Object.values(arrayEntry).every((entry) => entry !== null)) {
-          return false;
+        if (!Object.values(arrayEntry).every(entry => entry !== null)) {
+          return false
         }
       } else {
         // Each data object should contain only one key-value pair
         if (Object.keys(arrayEntry).length !== 1) {
-          return false;
+          return false
         }
 
         // The value inside the arrayEntry object is not null
         if (Object.values(arrayEntry)[0] === null) {
-          return false;
+          return false
         }
       }
-      return true;
-    });
+      return true
+    })
 
     // If no array entries made it through the filter, return 0
     if (filteredArr.length === 0) {
-      return 0;
+      return 0
     }
     // The filteredArr has at least one entry
-    return filteredArr;
+    return filteredArr
   }
-  return 0;
+  return 0
 }

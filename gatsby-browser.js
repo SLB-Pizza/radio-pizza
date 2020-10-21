@@ -3,7 +3,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 import { PrismicLink } from 'apollo-link-prismic'
 import GlobalContextProvider from './src/context/GlobalContextProvider'
 import Layout from './src/components/Layout'
-import { registerLinkResolver } from 'gatsby-source-prismic-graphql'
+import { registerLinkResolver } from '@prismicio/gatsby-source-prismic-graphql'
 import linkResolver from './src/utils/linkResolver'
 
 /**

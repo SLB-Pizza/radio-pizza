@@ -58,11 +58,11 @@ module.exports = {
     /**
      * A Gatsby plugin for fetching source data from the Prismic headless CMS using Prismic’s beta GraphQL API
      * @see {@link https://hmbk-cms.prismic.io/|HMBK Prismic CMS}
-     * @see {@link https://www.gatsbyjs.com/plugins/gatsby-source-prismic-graphql/|gatsby-source-prismic-graphql}
+     * @see {@link https://www.gatsbyjs.com/plugins/@prismicio/gatsby-source-prismic-graphql/|gatsby-source-prismic-graphql}
      * @see {@link https://prismic.io/docs/gatsby/getting-started/prismic-gatsby-source-plugin|Prismic.io docs - Prismic Gatsby Plugin}
      */
     {
-      resolve: 'gatsby-source-prismic-graphql',
+      resolve: '@prismicio/gatsby-source-prismic-graphql',
       options: {
         repositoryName: 'hmbk-cms', //https://hmbk-cms.prismic.io/
         pages: [

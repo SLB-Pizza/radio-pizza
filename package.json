@@ -25,22 +25,19 @@
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@fortawesome/react-fontawesome": "^0.1.11",
     "@mkitio/gatsby-theme-password-protect": "^2.1.2",
+    "@prismicio/gatsby-source-prismic-graphql": "^3.6.13",
     "apollo-link-prismic": "^1.0.8",
     "axios": "^0.19.2",
     "bulma": "^0.8.0",
     "dayjs": "^1.8.35",
     "dotenv": "^8.2.0",
-    "eslint-config-fullstack": "^6.0.0",
-    "eslint-plugin-react": "^7.17.0",
     "fs": "0.0.1-security",
-    "gatsby": "^2.23.1",
+    "gatsby": "^2.24.84",
     "gatsby-plugin-netlify": "^2.0.6",
     "gatsby-plugin-purgecss": "^4.0.0",
     "gatsby-plugin-react-helmet": "^3.0.4",
     "gatsby-plugin-sass": "^2.0.7",
     "gatsby-source-filesystem": "^2.1.57",
-    "gatsby-source-graphql-universal": "3.3.0",
-    "gatsby-source-prismic-graphql": "^3.6.2",
     "lazysizes": "^5.2.2",
     "lodash": "^4.17.19",
     "lodash-webpack-plugin": "^0.11.4",
@@ -51,13 +48,10 @@
     "react-dom": "^16.8.4",
     "react-helmet": "^5.2.0",
     "react-hot-loader": "^4.12.19",
-    "react-map-gl": "^5.2.9",
     "react-page-visibility": "^5.1.0",
     "react-player": "^2.6.2",
-    "react-redux": "^7.1.3",
     "react-spring": "^8.0.27",
     "react-ticker": "^1.2.2",
-    "redux": "^4.0.4",
     "uuid": "^3.2.1"
   },
   "devDependencies": {
@@ -107,14 +101,10 @@
     "docs": "jsdoc -c jsdoc.conf.json",
     "develop": "npm run clean && gatsby develop -H 0.0.0.0",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js,__test__/**/*.*.js}\"",
-    "preinstall": "npx npm-force-resolutions",
     "screenshots": "node __test__/gatsby-puppeteer.js",
     "start": "npm run develop",
     "storybook": "start-storybook -p 6006",
     "test": "NODE_ENV=test mocha -r @babel/register -r jsdom-global/register ./__test__/tests/*.test.js"
-  },
-  "resolutions": {
-    "gatsby-source-graphql-universal": "3.3.0"
   },
   "husky": {
     "hooks": {

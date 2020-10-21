@@ -8,6 +8,7 @@ cache:
     - node_modules
 script:
   - npm run test
+before_deploy: "gatsby build"
 deploy:
   provider: netlify
   edge: true
@@ -15,8 +16,7 @@ deploy:
   message: Deploy triggered by Travis CI
   on:
     branch: deploy
-  site:
-    secure: WtB8xrqFt7bUngIwsZ0drgocSAyNaSbJWsjT1uGy/0PvHFpQs+qgLNipSuoPf8S/RLfGU9OAPaOmGBSO2kclWGy+7gKdExxDKOaEnQpHcTk0frwGktfzm4fa+VqO6bUI9+0F56nOefp7Djhv9VwlyXKjKBpbz6JZ1Lb8grGQQfMYp/VXpt48oF6R/0ljLpRnoxB4SN/0UDfi/W2yUouLp++z64WFMWUSy+dpuE/4p5gaO/+vhgxLPLLa1JlCAr49Jcoq50LRWTftSCyvBKipXU6hch4F1lCT+6dh6mGzheSCIuPsLliHmSKwspeA2UwU34tujkUvEhLbYenMYSalKGCor0BtcjKzlwWg9PNwhxVMLAwjDSCwOQ5r6HEmzo5KEiXbswYebX7GNxWhmBjZwdDw8E1vGPcmbc9MfKkPKfRbIcIUa4CkNu0FQdBCOqIICkP0vNSJwqNL2+YIudlRDX9UeEK7yB9KM4tDtgRosiwl2ODw6ZFSVp7IGsu6WIVSKi5esGTmPly9D1q37gwFPpcprfYmEXXEDJXRG0uT6G3w/SiIlxImyI2riNW95CuAl5TCFidY79g/jXBYzqlrhHhijuEy70dj34TsAfb8f2sY/4Lz370f0oDDQgQQ+eV1VDgYRAsbzOpABFWCvEhfgEA8cU6owayyYwwYvxnl5qE=
+  site: b487e43f-6e4f-415e-8da1-c96925870e26
   auth:
     secure: cmzwL0pyGcE14qS/FLyqUAennUNplPhFKMxioBL+lumIfCml5PGr4C0NgXvuK8F5coRg8jIBfeQr7GumRy4cHt5Bc2zDXSglvm9gestMn+glfm8FPYcdl8e4jJEzDuTbJGX5nOAPVNWD2xn7wVmMPyH9ZtBmQMD6PQE2h12g4emF+mhasZEO8EPwLcGsPs8rWBclLo0kUHZgNI23vy3g3qO2XlDRCSZx1nyJ8o0RboPPvVi+dyW2usUOcpIH2WHvLPgrtlQy8XCRfbVGJUQzk7CfEDpCaGNIy2XHD03ZSOHt0Bg+XDw1s6A7P0afNH2S2YwLBPpyoLcV3zADuQAe2SnxBZwIYALEvaC9oJ35JhQk5XofoDrZQw7qbYXWRXBLYIfCL7nXlTv9fz9e/o7BoLRTAWaZIe/hNKsSOfdVsIB9KVzEpAoxLD8+y+Z9xIpbyPRkXHaqSssgZ7yNIgXYnpmU1ie6Hv0yT/X6pKiUXlcay1+GYOYUqFEzRLVGSWs4ik+LegWmDTjeeJqtu6TyatBfH8s/OFbOpcs9xXMCy02z82uQ75u5uzo0Z02jGVWWBagaz3H2VPRb6a++sjzQzVNCc+esrM1igujth50YUuJqeLr/8x4scY7Q2QMWaafylPa8fm4hUaxr7VpUDD7PjtsoCuD5HVvYzhlxzGYw9HU=
 notifications:

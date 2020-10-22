@@ -2,7 +2,6 @@
 // Single column space for resident
 .resident-box .card-content {
   min-height: 3.75rem;
-
 }
 //=================================
 // /templates/Resident.js
@@ -38,7 +37,5 @@
   top: 6.625rem;
   @include tablet {
     margin-top: -1.25rem;
-  }
-  div.column > p {
   }
 }

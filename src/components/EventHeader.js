@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import { RichText } from 'prismic-reactjs'
 import { EventCountdown } from '../components'
 import { formatDateTime } from '../utils'
@@ -119,18 +119,44 @@ function EventHeader({
 
   return (
     <div
-      className="container event-header"
+      className="container is-fluid event-header"
       style={headerIsSticky ? { minHeight: 'auto' } : null}
     >
-      <div className="columns is-mobile is-vcentered event-title">
+      <div className="columns is-mobile is-multiline is-vcentered event-title">
         <div
-          className={headerButtonLink !== null ? 'column is-9' : 'column is-12'}
+          className={
+            headerButtonLink !== null
+              ? 'column is-hidden-mobile'
+              : 'column is-12 is-hidden-mobile'
+          }
         >
           <div className="content">
-            <p className={headerIsSticky ? 'title is-size-4' : 'title'}>
+            <p
+              className={
+                headerIsSticky
+                  ? 'title is-size-5'
+                  : 'title is-size-4-tablet is-size-5-mobile'
+              }
+            >
               {RichText.asText(eventName)}
             </p>
-            <p className={headerIsSticky ? 'subtitle is-size-6' : 'subtitle'}>
+            <p
+              className={
+                headerIsSticky
+                  ? 'subtitle is-size-7'
+                  : 'subtitle is-size-6-tablet is-size-7-mobile'
+              }
+            >
+              {endDate
+                ? `${startDateText} to ${endDateText} | ${location}`
+                : `${startDateText} | ${location}`}
+            </p>
+          </div>
+        </div>
+        <div className="column is-12 is-hidden-tablet">
+          <div className="content">
+            <p className="title is-size-5">{RichText.asText(eventName)}</p>
+            <p className="subtitle is-size-7">
               {endDate
                 ? `${startDateText} to ${endDateText} | ${location}`
                 : `${startDateText} | ${location}`}
@@ -138,19 +164,36 @@ function EventHeader({
           </div>
         </div>
         {beforeEvent && headerButtonLink !== null ? (
-          <div className="column is-3">
-            <a href={headerButtonLink.url} target="_blank">
-              <button
-                className={
-                  headerIsSticky
-                    ? 'button is-fullwidth is-outlined is-rounded display-text'
-                    : 'button is-medium is-fullwidth is-outlined is-rounded display-text'
-                }
-              >
-                {headerButtonText}
-              </button>
-            </a>
-          </div>
+          <>
+            {/* TABLET AND DESKTOP BUTTON */}
+            <div className="column is-narrow is-hidden-mobile">
+              <a href={headerButtonLink.url} target="_blank">
+                <button
+                  className={
+                    headerIsSticky
+                      ? 'button is-small is-fullwidth is-outlined is-rounded'
+                      : 'button is-fullwidth is-outlined is-rounded'
+                  }
+                >
+                  {headerButtonText}
+                </button>
+              </a>
+            </div>
+            {/* MOBILE BUTTON */}
+            <div className="column is-8 is-offset-2 is-hidden-tablet">
+              <a href={headerButtonLink.url} target="_blank">
+                <button
+                  className={
+                    headerIsSticky
+                      ? 'button is-small is-fullwidth is-outlined is-rounded'
+                      : 'button is-fullwidth is-outlined is-rounded'
+                  }
+                >
+                  {headerButtonText}
+                </button>
+              </a>
+            </div>
+          </>
         ) : null}
       </div>
       {beforeEvent ? (

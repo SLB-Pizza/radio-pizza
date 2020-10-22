@@ -9,20 +9,28 @@
   margin: 0 auto 0;
 }
 
-.event-header {
+.container.event-header {
   background-color: black;
   min-height: 9rem;
   position: sticky;
   position: -webkit-sticky;
   top: 6.625rem;
   z-index: 3;
+  @include touch {
+    width: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
 }
 
-.event-title p, .time-amount, .timer-caption, .event-header {
-  transition: .25s ease;
+.event-title p,
+.time-amount,
+.timer-caption,
+.event-header {
+  transition: 0.25s ease;
 }
 
 .timer-caption {
   font-weight: 300;
-  letter-spacing: .125rem;
+  letter-spacing: 0.125rem;
 }

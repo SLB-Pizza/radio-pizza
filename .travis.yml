@@ -12,7 +12,6 @@ before_deploy: "gatsby build"
 deploy:
   provider: netlify
   edge: true
-  cleanup: true
   message: Deploy triggered by Travis CI
   on:
     branch: deploy

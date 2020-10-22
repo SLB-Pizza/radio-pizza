@@ -74,16 +74,16 @@ function EventTemplate({ data }) {
               {event_location}
             </a>
           )}
-          <pre>{JSON.stringify(eventData, null, 2)}</pre>
         </section>
-        <section
+        <pre>{JSON.stringify(eventData, null, 2)}</pre>
+        {/* <section
           className="container"
           style={{ backgroundColor: 'darkred', height: '15rem' }}
         ></section>
         <section
           className="container"
           style={{ backgroundColor: 'darkgrey', height: '15rem' }}
-        ></section>
+        ></section> */}
       </article>
     </main>
   )

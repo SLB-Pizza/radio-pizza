@@ -49,17 +49,17 @@ function ResidentsIndex({ data }) {
         </div>
       </div>
 
-      <div className="columns is-mobile is-variable is-1">
+      <div className="columns is-mobile is-variable is-2">
         {/* RESIDENT TYPE SELECTOR BUTTONS */}
         {['Residents', 'Alumni', 'Guests'].map((type, index) => (
           <Fragment key={`column-${index}-${type}`}>
             {/* DESKTOP SIZED BUTTONS */}
-            <div className="column is-hidden-touch">
+            <div className="column is-hidden-mobile">
               <button
                 className={
                   isOpen === type
-                    ? 'button active is-fullwidth is-outlined is-rounded display-text'
-                    : 'button is-fullwidth is-outlined is-rounded display-text'
+                    ? 'button active is-fullwidth is-outlined is-rounded'
+                    : 'button is-fullwidth is-outlined is-rounded'
                 }
                 id={type}
                 onClick={toggleColumn}
@@ -68,12 +68,12 @@ function ResidentsIndex({ data }) {
               </button>
             </div>
             {/* TOUCH SIZED BUTTONS */}
-            <div className="column is-hidden-desktop">
+            <div className="column is-hidden-tablet">
               <button
                 className={
                   isOpen === type
-                    ? 'button is-small active is-fullwidth is-outlined is-rounded display-text'
-                    : 'button is-small is-fullwidth is-outlined is-rounded display-text'
+                    ? 'button is-small active is-fullwidth is-outlined is-rounded'
+                    : 'button is-small is-fullwidth is-outlined is-rounded'
                 }
                 id={type}
                 onClick={toggleColumn}

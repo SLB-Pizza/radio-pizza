@@ -8,11 +8,12 @@ cache:
     - node_modules
 script:
   - npm run test
-before_deploy: "gatsby build"
+before_deploy: "npm run build"
 deploy:
   provider: netlify
   edge: true
   message: Deploy triggered by Travis CI
+  prod: true
   on:
     branch: deploy
   site: b487e43f-6e4f-415e-8da1-c96925870e26

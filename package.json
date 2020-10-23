@@ -95,7 +95,7 @@
     "webpack": "^4.44.1"
   },
   "scripts": {
-    "build": "npm run clean && gatsby build",
+    "build": "npm run clean && gatsby build --verbose",
     "build-storybook": "build-storybook",
     "clean": "gatsby clean",
     "docs": "jsdoc -c jsdoc.conf.json",

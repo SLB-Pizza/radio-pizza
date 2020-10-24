@@ -146,25 +146,20 @@ function HMBKAdminPage({ data }) {
                 let checkUID = uidValidator(node)
 
                 if (checkUID) {
-                  const entryTitle =
-                    node.mix_title === null ? node.mix_link : node.mix_title
                   const messageType = 'message is-' + checkUID.type
                   return (
                     <>
                       <article className={messageType}>
                         <div className="message-header">
                           <p className="subtitle has-text-black">
-                            Mix UID Issue:
+                            {`Issue: ${checkUID.reason}`}
                           </p>
                         </div>
                         <div className="message-body content">
-                          <p className="subtitle is-size-6 has-text-black">
-                            {`Issue: UID auto-created by Prismic from mix link.`}
-                          </p>
                           <p className="is-size-6 has-text-black">
-                            {'Mix Entry CMS Name: '}
+                            {'Mix Entry: '}
                             <span className="is-family-code has-text-grey">
-                              {entryTitle}
+                              {checkUID.entry}
                             </span>
                           </p>
                           <div className="tile is-ancestor has-text-centered">
@@ -185,16 +180,8 @@ function HMBKAdminPage({ data }) {
                               </article>
                             </div>
                           </div>
-
-                          <p>
-                            hello
-                            <span>
-                              <pre>{checkUID.result}</pre>
-                            </span>
-                          </p>
                         </div>
                       </article>
-                      <pre>{JSON.stringify(node, null, 2)}</pre>
                     </>
                   )
                 }

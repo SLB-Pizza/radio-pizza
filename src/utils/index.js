@@ -11,12 +11,15 @@ export { default as linkResolver } from './linkResolver'
  *
  * These utility functions are called throughout this projects to help with data processing.
  */
+export { default as devEntryDetails } from './devEntryDetails'
 export { default as formatDateTime } from './formatDateTime'
 export { default as formatNextShow } from './formatNextShow'
 export { default as getBlockquoteStyling } from './getBlockquoteStyling'
 export { default as getResidentLinks } from './getResidentLinks'
 export { default as getResidentString } from './getResidentString'
+export { default as linkStripper } from './linkStripper'
 export { default as mappableDataCheck } from './mappableDataCheck'
+export { default as uidAssembler } from './uidAssembler'
 export { default as uidValidator } from './uidValidator'
 export { default as processPublicationDates } from './processPublicationDates'
 

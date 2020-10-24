@@ -14,19 +14,24 @@
       "hmbk_staff_name": "Christian Mejia"
     }
   },
-  "development_entries": {
+  "dev_entries": {
     "mix": {
-      "mix_title": "Silk Wave (EP)",
-      "mix_date": "2020-05-29",
-      "mix_link": "https://soundcloud.com/koan-sound/sets/silk-wave",
       "_meta": {
-        "uid": "dev-mixes-silk-wave-full-ep",
+        "uid": "dev-mix-moon-album",
         "type": "mix"
       },
+      "mix_title": null,
+      "mix_link": "https://www.youtube.com/watch?v=Q9XTqQbuavI",
+      "mix_date": "2020-08-02",
       "featured_residents": [
         {
           "mix_resident": {
-            "resident_name": "KOAN Sound"
+            "resident_name": "Jardin de la Croix"
+          }
+        },
+        {
+          "mix_resident": {
+            "resident_name": "Infected Mushroom"
           }
         }
       ]

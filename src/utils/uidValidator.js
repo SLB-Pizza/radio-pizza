@@ -9,17 +9,26 @@ import { getResidentString } from './index'
  * @property {String} documentNode._meta.type - the document type; used here to determine UID formatting strategy and by {@link linkResolver} to create slugs
  * @property {String} documentNode._meta.firstPublicationDate - date the document was first published
  * @property {String} documentNode._meta.lastPublicationDate - date the document was last updated
- * @returns
+ * @returns {0|String}
  */
 function uidValidator(documentNode) {
-  if (!documentNode._meta)
+  // Somethings wrong with the node that was passed in.
+  if (!documentNode._meta) {
     return "Error: Please check this entry's UID and data in the CMS."
-
+  }
   const { _meta, ...rest } = documentNode
 
+  // DEV CMS ENTRY CHECK
+  // We don't need to validate dev CMS entries
+  let endIdx = _meta.type.length + 4 // "dev-" is 4
+  if (_meta.uid && _meta.uid.substr(0, endIdx) === `dev-${_meta.type}`) {
+    return 'This entry was created as a development aide. Please delete it.'
+  }
+
+  // HELPER FUNCTIONS
   const linkStripper = url =>
     url
-      .replace(/[:/\s<>{}]/g, '')
+      .replace(/[:/|\s<>{}]/g, '')
       .toLowerCase()
       .slice(0, 45)
 
@@ -57,7 +66,7 @@ function uidValidator(documentNode) {
         return uidComparison(suggestedUID, _meta.uid)
       }
     default:
-      return
+      return 'No issue: This document type does not need UID validation.'
   }
 }
 

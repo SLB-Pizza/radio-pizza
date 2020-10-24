@@ -3,6 +3,42 @@
     "__typename": "PRISMIC_Resident",
     "resident_name": "Jayda B"
   },
+  "no_validation_needed": {
+    "staff": {
+      "_meta": {
+        "uid": null,
+        "type": "staff",
+        "lastPublicationDate": "2020-08-06T21:21:35+0000",
+        "firstPublicationDate": "2020-08-06T21:19:38+0000"
+      },
+      "hmbk_staff_name": "Christian Mejia"
+    }
+  },
+  "development_entries": {
+    "mix": {
+      "mix_title": "Silk Wave (EP)",
+      "mix_date": "2020-05-29",
+      "mix_link": "https://soundcloud.com/koan-sound/sets/silk-wave",
+      "_meta": {
+        "uid": "dev-mixes-silk-wave-full-ep",
+        "type": "mix"
+      },
+      "featured_residents": [
+        {
+          "mix_resident": {
+            "resident_name": "KOAN Sound"
+          }
+        }
+      ]
+    },
+    "resident": {
+      "_meta": {
+        "type": "resident",
+        "uid": "dev-resident-jardin-de-la-croix"
+      },
+      "resident_name": "Jardin de la Croix"
+    }
+  },
   "mixes": {
     "no_title": {
       "single_resident": {
@@ -53,7 +89,7 @@
         "mix_date": "2019-06-14",
         "mix_link": "https://soundcloud.com/thank-you-scientist/sets/terraformer-3",
         "_meta": {
-          "uid": "dev-mixes-terraformer",
+          "uid": "terraformer",
           "type": "mix"
         },
         "featured_residents": [
@@ -183,5 +219,6 @@
         }
       }
     }
-  }
+  },
+  "residents": {}
 }

@@ -17,6 +17,7 @@ export { default as getBlockquoteStyling } from './getBlockquoteStyling'
 export { default as getResidentLinks } from './getResidentLinks'
 export { default as getResidentString } from './getResidentString'
 export { default as mappableDataCheck } from './mappableDataCheck'
+export { default as uidValidator } from './uidValidator'
 export { default as processPublicationDates } from './processPublicationDates'
 
 /**

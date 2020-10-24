@@ -1,12 +1,36 @@
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
+import { uidValidator } from '../utils'
 
 function HMBKAdminPage({ data }) {
   const prismicContent = data.prismic._allDocuments
   if (!prismicContent) return null
 
   const docCount = prismicContent.totalCount
+  let mixes = []
+  let features = []
+  let events = []
+  let cmsGuides = []
+  let residents = []
+  let collections = []
+  let schedules = []
+  let staffs = []
+
+  prismicContent.edges.forEach(({ node }) => {
+    switch (node._meta.type) {
+      case 'mix':
+        mixes.push(node)
+      case 'event':
+        events.push(node)
+      case 'resident':
+        residents.push(node)
+      case 'endless_mix':
+        collections.push(node)
+      default:
+        return
+    }
+  })
 
   return (
     <main className="black-bg-page">
@@ -113,6 +137,77 @@ function HMBKAdminPage({ data }) {
               </div>
             </section>
           </div>
+          {mixes.length && (
+            <div className="column is-12">
+              <div className="content">
+                <h1 className="title">Mixes</h1>
+              </div>
+              {mixes.map(node => {
+                let checkUID = uidValidator(node)
+
+                if (checkUID) {
+                  const entryTitle =
+                    node.mix_title === null ? node.mix_link : node.mix_title
+                  const messageType = 'message is-' + checkUID.type
+                  return (
+                    <>
+                      <article className={messageType}>
+                        <div className="message-header">
+                          <p className="subtitle has-text-black">
+                            Mix UID Issue:
+                          </p>
+                        </div>
+                        <div className="message-body content">
+                          <p className="subtitle is-size-6 has-text-black">
+                            {`Issue: UID auto-created by Prismic from mix link.`}
+                          </p>
+                          <p className="is-size-6 has-text-black">
+                            {'Mix Entry CMS Name: '}
+                            <span className="is-family-code has-text-grey">
+                              {entryTitle}
+                            </span>
+                          </p>
+                          <div className="tile is-ancestor has-text-centered">
+                            <div className="tile is-parent">
+                              <article className="tile is-child box">
+                                <p className="subtitle has-text-black">
+                                  Current Mix UID
+                                </p>
+                                <pre>{node._meta.uid}</pre>
+                              </article>
+                            </div>
+                            <div className="tile is-parent">
+                              <article className="tile is-child box">
+                                <p className="subtitle has-text-black">
+                                  Suggested UID
+                                </p>
+                                <pre>{checkUID.result}</pre>
+                              </article>
+                            </div>
+                          </div>
+
+                          <p>
+                            hello
+                            <span>
+                              <pre>{checkUID.result}</pre>
+                            </span>
+                          </p>
+                        </div>
+                      </article>
+                      <pre>{JSON.stringify(node, null, 2)}</pre>
+                    </>
+                  )
+                }
+              })}
+            </div>
+          )}
+          {residents.length && (
+            <div className="column is-12">
+              <div className="content">
+                <h1 className="title">Residents</h1>
+              </div>
+            </div>
+          )}
           <div className="column is-12">
             <section className="section content">
               <pre>{JSON.stringify(prismicContent.edges, null, 2)}</pre>
@@ -140,7 +235,7 @@ HMBKAdminPage.propTypes = {
 export default HMBKAdminPage
 
 export const query = graphql`
-  query MyQuery {
+  query HMBKAdminQuery {
     prismic {
       _allDocuments(sortBy: meta_firstPublicationDate_DESC) {
         totalCount

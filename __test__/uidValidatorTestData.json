@@ -42,180 +42,271 @@
   "mixes": {
     "no_title": {
       "single_resident": {
-        "__typename": "PRISMIC_Mix",
-        "_meta": {
-          "uid": "jayda-b--10-21-2020",
-          "type": "mix",
-          "lastPublicationDate": "2020-10-13T01:58:05+0000",
-          "firstPublicationDate": "2020-10-10T20:19:48+0000"
-        },
-        "mix_link": "https://soundcloud.com/jayda_b/waxx-fm-vol-4-62719",
-        "mix_date": "2020-10-21",
-        "mix_title": null,
-        "featured_residents": [
-          {
-            "mix_resident": {
-              "__typename": "PRISMIC_Resident",
-              "resident_name": "Jayda B"
+        "bad_structure": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "uid": "jayda-b--10-21-2020",
+            "type": "mix",
+            "lastPublicationDate": "2020-10-13T01:58:05+0000",
+            "firstPublicationDate": "2020-10-10T20:19:48+0000"
+          },
+          "mix_link": "https://soundcloud.com/jayda_b/waxx-fm-vol-4-62719",
+          "mix_date": "2020-10-21",
+          "mix_title": null,
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "Jayda B"
+              }
             }
-          }
-        ]
+          ]
+        },
+        "auto_created": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "uid": "httpssoundcloud.comjayda_bwaxx-fm-vol-4-62719",
+            "type": "mix",
+            "lastPublicationDate": "2020-10-13T01:58:05+0000",
+            "firstPublicationDate": "2020-10-10T20:19:48+0000"
+          },
+          "mix_link": "https://soundcloud.com/jayda_b/waxx-fm-vol-4-62719",
+          "mix_date": "2020-10-21",
+          "mix_title": null,
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "Jayda B"
+              }
+            }
+          ]
+        }
       },
       "multiple_residents": {
-        "mix_title": null,
-        "mix_date": "2020-08-02",
-        "mix_link": "https://www.youtube.com/watch?v=Q9XTqQbuavI",
-        "_meta": {
-          "uid": "dev-moon-album",
-          "type": "mix"
-        },
-        "featured_residents": [
-          {
-            "mix_resident": {
-              "resident_name": "Jardin de la Croix"
-            }
+        "bad_structure": {
+          "mix_title": null,
+          "mix_date": "2020-08-02",
+          "mix_link": "https://www.youtube.com/watch?v=Q9XTqQbuavI",
+          "_meta": {
+            "uid": "dev-moon-album",
+            "type": "mix"
           },
-          {
-            "mix_resident": {
-              "resident_name": "Infected Mushroom"
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "Jardin de la Croix"
+              }
+            },
+            {
+              "mix_resident": {
+                "resident_name": "Infected Mushroom"
+              }
             }
-          }
-        ]
+          ]
+        },
+        "auto_created": {
+          "mix_title": null,
+          "mix_date": "2020-08-02",
+          "mix_link": "https://www.youtube.com/watch?v=Q9XTqQbuavI",
+          "_meta": {
+            "uid": "httpswww.youtube.comwatch?v=q9xtqqbuavi",
+            "type": "mix"
+          },
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "Jardin de la Croix"
+              }
+            },
+            {
+              "mix_resident": {
+                "resident_name": "Infected Mushroom"
+              }
+            }
+          ]
+        }
       }
     },
     "have_title": {
       "single_resident": {
-        "mix_title": "Terraformer",
-        "mix_date": "2019-06-14",
-        "mix_link": "https://soundcloud.com/thank-you-scientist/sets/terraformer-3",
-        "_meta": {
-          "uid": "terraformer",
-          "type": "mix"
-        },
-        "featured_residents": [
-          {
-            "mix_resident": {
-              "resident_name": "Thank You Scientist"
+        "bad_structure": {
+          "mix_title": "Terraformer",
+          "mix_date": "2019-06-14",
+          "mix_link": "https://soundcloud.com/thank-you-scientist/sets/terraformer-3",
+          "_meta": {
+            "uid": "terraformer",
+            "type": "mix"
+          },
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "Thank You Scientist"
+              }
             }
-          }
-        ]
+          ]
+        },
+        "auto_created": {
+          "mix_title": "Terraformer",
+          "mix_date": "2019-06-14",
+          "mix_link": "https://soundcloud.com/thank-you-scientist/sets/terraformer-3",
+          "_meta": {
+            "uid": "httpssoundcloud.comthank-you-scientistsetster",
+            "type": "mix"
+          },
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "Thank You Scientist"
+              }
+            }
+          ]
+        }
       },
       "multiple_residents": {
-        "mix_title": "Silk Wave",
-        "mix_date": "2020-05-19",
-        "mix_link": "https://www.youtube.com/watch?v=ICkNi17Gsrc",
-        "_meta": {
-          "uid": "dev-endless-test-silk-wave",
-          "type": "mix"
+        "bad_structure": {
+          "mix_title": "Silk Wave",
+          "mix_date": "2020-05-19",
+          "mix_link": "https://www.youtube.com/watch?v=ICkNi17Gsrc",
+          "_meta": {
+            "uid": "silk-wave-endless",
+            "type": "mix"
+          },
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "KOAN Sound"
+              }
+            },
+            {
+              "mix_resident": {
+                "resident_name": "Javeon"
+              }
+            },
+            {
+              "mix_resident": {
+                "resident_name": "Anna-Lisa"
+              }
+            }
+          ]
         },
-        "featured_residents": [
-          {
-            "mix_resident": {
-              "resident_name": "KOAN Sound"
-            }
+        "auto_created": {
+          "mix_title": "Silk Wave",
+          "mix_date": "2020-05-19",
+          "mix_link": "https://www.youtube.com/watch?v=ICkNi17Gsrc",
+          "_meta": {
+            "uid": "httpswww.youtube.comwatch?v=ickni17gsrc",
+            "type": "mix"
           },
-          {
-            "mix_resident": {
-              "resident_name": "Javeon"
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "KOAN Sound"
+              }
+            },
+            {
+              "mix_resident": {
+                "resident_name": "Javeon"
+              }
+            },
+            {
+              "mix_resident": {
+                "resident_name": "Anna-Lisa"
+              }
             }
-          },
-          {
-            "mix_resident": {
-              "resident_name": "Anna-Lisa"
-            }
-          }
-        ]
+          ]
+        }
       }
-    },
-    "uid_match": {
-      "mixes": {
-        "no_title": {
-          "single_resident": {
-            "mix_title": null,
-            "mix_date": "2020-10-21",
-            "mix_link": "https://soundcloud.com/jayda_b/waxx-fm-vol-4-62719",
-            "_meta": {
-              "uid": "jayda-b--2020-10-21",
-              "type": "mix"
-            },
-            "featured_residents": [
-              {
-                "mix_resident": {
-                  "resident_name": "Jayda B"
-                }
-              }
-            ]
+    }
+  },
+  "uid_match": {
+    "mixes": {
+      "no_title": {
+        "single_resident": {
+          "mix_title": null,
+          "mix_date": "2020-10-21",
+          "mix_link": "https://soundcloud.com/jayda_b/waxx-fm-vol-4-62719",
+          "_meta": {
+            "uid": "jayda-b--2020-10-21",
+            "type": "mix"
           },
-          "multiple_residents": {
-            "mix_title": null,
-            "mix_date": "2020-08-02",
-            "mix_link": "https://www.youtube.com/watch?v=Q9XTqQbuavI",
-            "_meta": {
-              "uid": "jardin-infected--2020-08-02",
-              "type": "mix"
-            },
-            "featured_residents": [
-              {
-                "mix_resident": {
-                  "resident_name": "Jardin de la Croix"
-                }
-              },
-              {
-                "mix_resident": {
-                  "resident_name": "Infected Mushroom"
-                }
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "Jayda B"
               }
-            ]
-          }
+            }
+          ]
         },
-        "have_title": {
-          "single_resident": {
-            "mix_title": "Silk Wave (EP)",
-            "mix_date": "2020-05-29",
-            "mix_link": "https://soundcloud.com/koan-sound/sets/silk-wave",
-            "_meta": {
-              "uid": "silk-wave-(ep)--2020-05-29",
-              "type": "mix"
-            },
-            "featured_residents": [
-              {
-                "mix_resident": {
-                  "resident_name": "KOAN Sound"
-                }
-              }
-            ]
+        "multiple_residents": {
+          "mix_title": null,
+          "mix_date": "2020-08-02",
+          "mix_link": "https://www.youtube.com/watch?v=Q9XTqQbuavI",
+          "_meta": {
+            "uid": "jardin-infected--2020-08-02",
+            "type": "mix"
           },
-          "multiple_residents": {
-            "mix_title": "More Than Just a Name",
-            "mix_date": "2020-01-20",
-            "mix_link": "https://soundcloud.com/monstercat/sets/infected-mushroom-more-than",
-            "_meta": {
-              "uid": "more-than-just-a-name--2020-01-20",
-              "type": "mix"
-            },
-            "featured_residents": [
-              {
-                "mix_resident": {
-                  "resident_name": "Infected Mushroom"
-                }
-              },
-              {
-                "mix_resident": {
-                  "resident_name": "WHITENO1SE"
-                }
-              },
-              {
-                "mix_resident": {
-                  "resident_name": "Bliss"
-                }
-              },
-              {
-                "mix_resident": {
-                  "resident_name": "Freedom Fighters & Mr. Bill"
-                }
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "Jardin de la Croix"
               }
-            ]
-          }
+            },
+            {
+              "mix_resident": {
+                "resident_name": "Infected Mushroom"
+              }
+            }
+          ]
+        }
+      },
+      "have_title": {
+        "single_resident": {
+          "mix_title": "Silk Wave (EP)",
+          "mix_date": "2020-05-29",
+          "mix_link": "https://soundcloud.com/koan-sound/sets/silk-wave",
+          "_meta": {
+            "uid": "silk-wave-(ep)--2020-05-29",
+            "type": "mix"
+          },
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "KOAN Sound"
+              }
+            }
+          ]
+        },
+        "multiple_residents": {
+          "mix_title": "More Than Just a Name",
+          "mix_date": "2020-01-20",
+          "mix_link": "https://soundcloud.com/monstercat/sets/infected-mushroom-more-than",
+          "_meta": {
+            "uid": "more-than-just-a-name--2020-01-20",
+            "type": "mix"
+          },
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "Infected Mushroom"
+              }
+            },
+            {
+              "mix_resident": {
+                "resident_name": "WHITENO1SE"
+              }
+            },
+            {
+              "mix_resident": {
+                "resident_name": "Bliss"
+              }
+            },
+            {
+              "mix_resident": {
+                "resident_name": "Freedom Fighters & Mr. Bill"
+              }
+            }
+          ]
         }
       }
     }

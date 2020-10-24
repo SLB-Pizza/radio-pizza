@@ -9,20 +9,28 @@ import { getResidentString } from './index'
  * @property {String} documentNode._meta.type - the document type; used here to determine UID formatting strategy and by {@link linkResolver} to create slugs
  * @property {String} documentNode._meta.firstPublicationDate - date the document was first published
  * @property {String} documentNode._meta.lastPublicationDate - date the document was last updated
- * @returns {0|String}
+ * @returns {0|Object} returns 0 when the documentNode's UID matches the suggested UID; returns an object containing a type (string) and a result (string) of the suggested UID or an info message
  */
 function uidValidator(documentNode) {
   // Somethings wrong with the node that was passed in.
   if (!documentNode._meta) {
-    return "Error: Please check this entry's UID and data in the CMS."
+    return {
+      type: 'danger',
+      result: "Error: Please check this entry's data in the CMS.",
+    }
   }
   const { _meta, ...rest } = documentNode
 
   // DEV CMS ENTRY CHECK
   // We don't need to validate dev CMS entries
+
   let endIdx = _meta.type.length + 4 // "dev-" is 4
   if (_meta.uid && _meta.uid.substr(0, endIdx) === `dev-${_meta.type}`) {
-    return 'This entry was created as a development aide. Please delete it.'
+    return {
+      type: 'danger',
+      result:
+        'This entry was created as a development aide. Remember to delete immediately before launch.',
+    }
   }
 
   // HELPER FUNCTIONS
@@ -43,8 +51,15 @@ function uidValidator(documentNode) {
     return baseStr + '--' + dateStr
   }
 
-  const uidComparison = (assembledUID, currentUID) => {
-    return assembledUID === currentUID ? 0 : assembledUID
+  const uidComparison = (assembledUID, currentUID, entryName, reason) => {
+    return assembledUID === currentUID
+      ? 0
+      : {
+          type: 'warning',
+          entry: entryName,
+          result: assembledUID,
+          reason,
+        }
   }
 
   switch (_meta.type) {
@@ -54,19 +69,25 @@ function uidValidator(documentNode) {
         // return a UID formatted like so: 'string-of-resident-names--yyyy-mm-dd'
         const residentString = getResidentString(rest.featured_residents, true)
         const suggestedUID = uidAssembler(residentString, rest.mix_date)
+        const reason =
+          _meta.uid === linkStripper(rest.mix_link)
+            ? 'UID auto-created by Prismic from mix link.'
+            : 'UID does not follow suggested Mix UID structure.'
 
-        return uidComparison(suggestedUID, _meta.uid)
+        return uidComparison(suggestedUID, _meta.uid, rest.mix_link, reason)
       } else {
-        // Has mix_title -- use mix_title instead of residents as baseStr
-      }
-      if (_meta.uid !== linkStripper(rest.mix_link)) {
         let lowercaseTitle = rest.mix_title.replace(/\s/g, '-').toLowerCase()
         const suggestedUID = uidAssembler(lowercaseTitle, rest.mix_date)
+        const reason =
+          _meta.uid === linkStripper(rest.mix_link)
+            ? 'UID auto-created by Prismic from mix link.'
+            : 'UID does not follow suggested Mix UID structure.'
 
-        return uidComparison(suggestedUID, _meta.uid)
+        return uidComparison(suggestedUID, _meta.uid, rest.mix_title, reason)
       }
+
     default:
-      return 'No issue: This document type does not need UID validation.'
+      return 0
   }
 }
 

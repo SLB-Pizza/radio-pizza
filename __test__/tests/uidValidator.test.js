@@ -62,15 +62,6 @@ describe('uidValidator', () => {
       })
     })
   })
-
-  describe("returns 'no issue' message for doc types that don't need validation", () => {
-    Object.values(testData.no_validation_needed).forEach(ignorableEntry => {
-      it(`for ${ignorableEntry._meta.type} CMS entries`, () => {
-        let nodeData = ignorableEntry
-        expect(uidValidator(nodeData)).to.equal(0)
-      })
-    })
-  })
 })
 
 describe('returns the suggested UID with reason for the issue', () => {
@@ -163,6 +154,14 @@ describe('returns the suggested UID with reason for the issue', () => {
 })
 
 describe('returns 0', () => {
+  describe("for doc types that don't need validation", () => {
+    Object.values(testData.no_validation_needed).forEach(ignorableEntry => {
+      it(`${ignorableEntry._meta.type} CMS entries`, () => {
+        let nodeData = ignorableEntry
+        expect(uidValidator(nodeData)).to.equal(0)
+      })
+    })
+  })
   describe('when the document UID matches the suggested UID', () => {
     describe('for mixes without a title', () => {
       it('with one featured resident', () => {

@@ -47,8 +47,6 @@ function uidValidator(cmsNode) {
   switch (_meta.type) {
     case 'mix':
       if (_meta.uid.substr(0, endIdx) === `dev-${_meta.type}`) {
-        console.log('substr', _meta.uid.substr(0, endIdx))
-        console.log('type', `dev-${_meta.type}`)
         return devEntryDetails(cmsNode)
       } else if (rest.mix_title === null) {
         const residentString = getResidentString(rest.featured_residents, true)

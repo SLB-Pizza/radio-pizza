@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
+import { CMSIssueMessage } from '../components'
 import { uidValidator } from '../utils'
 
 function HMBKAdminPage({ data }) {
@@ -8,25 +9,25 @@ function HMBKAdminPage({ data }) {
   if (!prismicContent) return null
 
   const docCount = prismicContent.totalCount
-  let mixes = []
-  let features = []
-  let events = []
-  let cmsGuides = []
-  let residents = []
-  let collections = []
-  let schedules = []
-  let staffs = []
+  let problemMixes = []
+  let problemFeatures = []
+  let problemEvents = []
+  let problemCMSGuides = []
+  let problemResidents = []
+  let problemCollections = []
+  let problemSchedules = []
+  let problemStaffs = []
 
   prismicContent.edges.forEach(({ node }) => {
     switch (node._meta.type) {
       case 'mix':
-        mixes.push(node)
+        problemMixes.push(node)
       case 'event':
-        events.push(node)
+        problemEvents.push(node)
       case 'resident':
-        residents.push(node)
+        problemResidents.push(node)
       case 'endless_mix':
-        collections.push(node)
+        problemCollections.push(node)
       default:
         return
     }
@@ -46,7 +47,7 @@ function HMBKAdminPage({ data }) {
               can hover/touch and play them the same way. Try it!
             </p>
           </div>
-          <div className="column is-3">
+          <div className="column is-2">
             <aside className="menu is-hidden-mobile">
               <p className="menu-label">General</p>
               <ul className="menu-list">
@@ -114,81 +115,54 @@ function HMBKAdminPage({ data }) {
           </div>
 
           <div className="column is-9">
-            <section className="info-tiles">
-              <div className="tile is-ancestor has-text-centered">
-                <div className="tile is-parent">
-                  <article className="tile is-child box">
-                    <p className="title">{docCount}</p>
-                    <p className="subtitle">HMBK CMS Entries</p>
-                  </article>
-                </div>
-                <div className="tile is-parent">
-                  <article className="tile is-child box">
-                    <p className="title">59k</p>
-                    <p className="subtitle">Products</p>
-                  </article>
-                </div>
-                <div className="tile is-parent">
-                  <article className="tile is-child box">
-                    <p className="title">3.4k</p>
-                    <p className="subtitle">Open Orders</p>
-                  </article>
-                </div>
+            <div className="columns is-mobile is-multiline">
+              <div className="column is-12">
+                <section className="info-tiles">
+                  <div className="tile is-ancestor has-text-centered">
+                    <div className="tile is-parent">
+                      <article className="tile is-child box">
+                        <p className="title">{docCount}</p>
+                        <p className="subtitle">HMBK CMS Entries</p>
+                      </article>
+                    </div>
+                    <div className="tile is-parent">
+                      <article className="tile is-child box">
+                        <p className="title">59k</p>
+                        <p className="subtitle">Products</p>
+                      </article>
+                    </div>
+                    <div className="tile is-parent">
+                      <article className="tile is-child box">
+                        <p className="title">3.4k</p>
+                        <p className="subtitle">Open Orders</p>
+                      </article>
+                    </div>
+                  </div>
+                </section>
               </div>
-            </section>
+            </div>
           </div>
-          {mixes.length && (
+          {problemMixes.length && (
             <div className="column is-12">
               <div className="content">
                 <h1 className="title">Mixes</h1>
               </div>
-              {mixes.map(node => {
+              {problemMixes.map((node, index) => {
                 let checkUID = uidValidator(node)
 
                 if (checkUID) {
-                  const messageType = 'message is-' + checkUID.type
                   return (
-                    <>
-                      <article className={messageType}>
-                        <div className="message-header">
-                          <p className="subtitle has-text-black">
-                            {`Issue: ${checkUID.reason}`}
-                          </p>
-                        </div>
-                        <div className="message-body content">
-                          <p className="is-size-6 has-text-black">
-                            {'Mix Entry: '}
-                            <span className="is-family-code has-text-grey">
-                              {checkUID.entry}
-                            </span>
-                          </p>
-                          <div className="tile is-ancestor has-text-centered">
-                            <div className="tile is-parent">
-                              <article className="tile is-child box">
-                                <p className="subtitle has-text-black">
-                                  Current Mix UID
-                                </p>
-                                <pre>{node._meta.uid}</pre>
-                              </article>
-                            </div>
-                            <div className="tile is-parent">
-                              <article className="tile is-child box">
-                                <p className="subtitle has-text-black">
-                                  Suggested UID
-                                </p>
-                                <pre>{checkUID.result}</pre>
-                              </article>
-                            </div>
-                          </div>
-                        </div>
-                      </article>
-                    </>
+                    <CMSIssueMessage
+                      key={`problem-mixes-${index}`}
+                      node={node}
+                      issueData={checkUID}
+                    />
                   )
                 }
               })}
             </div>
           )}
-          {residents.length && (
+          {problemResidents.length && (
             <div className="column is-12">
               <div className="content">
                 <h1 className="title">Residents</h1>

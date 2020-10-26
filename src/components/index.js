@@ -4,6 +4,7 @@ export { default as HomeContentSample } from './cms-help/HomeContentSample'
 
 export { default as BottomNav } from './BottomNav'
 export { default as CuratedCollections } from './CuratedCollections'
+export { default as CMSIssueMessage } from './CMSIssueMessage'
 export { default as DateSelectorButton } from './DateSelectorButton'
 export { default as EventHeader } from './EventHeader'
 export { default as EventCountdown } from './EventCountdown'

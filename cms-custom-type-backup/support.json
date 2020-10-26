@@ -1,0 +1,131 @@
+{
+  "Main": {
+    "support_cta_bg_img": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Support Call to Action Image"
+      }
+    },
+    "support_cta": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Support Call To Action",
+        "placeholder": "Enter a call to action that will make people want to support Halfmoon..."
+      }
+    },
+    "support_cta_hook": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading3",
+        "label": "Support Call to Action Hook",
+        "placeholder": "Enter a short blurb that'll hook people into donating..."
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "one_image_and_text": [],
+          "two_images___text1": []
+        },
+        "choices": {
+          "two_images___text": {
+            "type": "Slice",
+            "fieldset": "Two Images & Text",
+            "description": "Two images with a text section on the left or right.",
+            "icon": "filter_2",
+            "display": "list",
+            "non-repeat": {
+              "tiat_layout": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Left: Text-Image-Image",
+                    "Right: Image-Image-Text"
+                  ],
+                  "default_value": "Left: Text-Image-Image",
+                  "label": "Is the text section on the left or the right?",
+                  "placeholder": "Select text section location..."
+                }
+              },
+              "tiat_text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "Text Section Content",
+                  "placeholder": "Enter text caption here..."
+                }
+              },
+              "tiat_is_gapless": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "Images are spaced apart",
+                  "placeholder_true": "Images touch each other",
+                  "default_value": false,
+                  "label": "Do you want the images to have a horizontal gap between them?"
+                }
+              },
+              "tiat_left_img": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Left Image"
+                }
+              },
+              "tiat_right_img": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Right Image"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "one_image_and_text": {
+            "type": "Slice",
+            "fieldset": "One Image and Text",
+            "description": "One image and a text section on the left or right.",
+            "icon": "art_track",
+            "display": "list",
+            "non-repeat": {
+              "oiat_layout": {
+                "type": "Select",
+                "config": {
+                  "options": ["Left: Text-Image", "Right: Image-Text"],
+                  "default_value": "Left: Text-Image",
+                  "label": "Which side is the text section on?",
+                  "placeholder": "Select the layout..."
+                }
+              },
+              "oiat_text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, strong, em",
+                  "label": "Text Section",
+                  "placeholder": "Enter the text that will appear alongside the image here..."
+                }
+              },
+              "oiat_img": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Select your image..."
+                }
+              }
+            },
+            "repeat": {}
+          }
+        }
+      }
+    }
+  }
+}

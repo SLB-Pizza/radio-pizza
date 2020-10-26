@@ -1,0 +1,129 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "Resident Unique ID",
+        "placeholder": "Enter meaningful unique id (no spaces, hyphenate-words-like-this) >> example-resident-unique-id"
+      }
+    },
+    "resident_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Resident Image"
+      }
+    },
+    "resident_name": {
+      "type": "Text",
+      "config": {
+        "label": "Resident Name",
+        "placeholder": "Enter Resident Name here..."
+      }
+    },
+    "resident_status": {
+      "type": "Select",
+      "config": {
+        "options": ["Resident", "Guest", "Alumnus"],
+        "default_value": "Resident",
+        "label": "Resident Status",
+        "placeholder": "Resident Status"
+      }
+    },
+    "resident_blurb": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, strong, em, hyperlink, list-item, o-list-item, o-list-item",
+        "allowTargetBlank": true,
+        "label": "Resident Blurb",
+        "placeholder": "Enter Resident Blurb Here..."
+      }
+    },
+    "social_media": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "resident_social_page": {
+            "type": "Select",
+            "config": {
+              "options": [
+                "Personal Site",
+                "Spotify",
+                "Apple Music",
+                "Twitter",
+                "Instagram",
+                "Soundcloud",
+                "Bandcamp",
+                "Facebook",
+                "Mixcloud"
+              ],
+              "default_value": "Personal Site",
+              "label": "Resident Social Page"
+            }
+          },
+          "resident_social_link": {
+            "type": "Link",
+            "config": {
+              "allowTargetBlank": true,
+              "label": "Social Media Page Link",
+              "placeholder": "Enter Social Media Page Link here..."
+            }
+          }
+        },
+        "label": "Social Media"
+      }
+    },
+    "resident_mixes": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "resident_mix": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": ["mix", "endless_mix"],
+              "label": "Resident Mix",
+              "placeholder": "Add a mix this resident has featured in..."
+            }
+          }
+        },
+        "label": "Featured Mixes"
+      }
+    },
+    "resident_events": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "resident_event": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": ["event"],
+              "label": "Resident Event",
+              "placeholder": "Add an event this resident has appeared in.."
+            }
+          }
+        },
+        "label": "Event Appearances"
+      }
+    },
+    "resident_features": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "resident_feature": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": ["feature"],
+              "label": "Resident Feature",
+              "placeholder": "Add an article this resident has been featured in..."
+            }
+          }
+        },
+        "label": "Article Features"
+      }
+    }
+  }
+}

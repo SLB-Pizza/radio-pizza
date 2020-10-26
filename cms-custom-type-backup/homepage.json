@@ -1,0 +1,94 @@
+{
+  "Hero": {
+    "homepage_carousel": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "slide_bg": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Slide Background Image"
+            }
+          },
+          "slide_headline": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading1",
+              "label": "Slide Headline",
+              "placeholder": "Enter Slide Headline Here"
+            }
+          },
+          "slide_cta": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading4",
+              "label": "Slide Call To Action",
+              "placeholder": "Enter Slide Call To Action Here"
+            }
+          },
+          "slide_link": {
+            "type": "Link",
+            "config": {
+              "allowTargetBlank": true,
+              "label": "Slide Link",
+              "placeholder": "Enter Content Link Here"
+            }
+          }
+        },
+        "label": "Homepage Carousel"
+      }
+    }
+  },
+  "Home Content": {
+    "home_mixes_headline": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Home Mixes Headline",
+        "placeholder": "Enter Home Mixes headline here..."
+      }
+    },
+    "home_mixes_blurb": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, strong, em",
+        "label": "Home Mixes Blurb",
+        "placeholder": "Enter Home Mixes blurb here..."
+      }
+    },
+    "home_events_headline": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Home Events Headline",
+        "placeholder": "Enter Home Events headline here"
+      }
+    },
+    "home_events_blurb": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph, strong, em",
+        "label": "Home Events Blurb",
+        "placeholder": "Enter Home Events blurb here..."
+      }
+    },
+    "home_features_headline": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Home Features Headline",
+        "placeholder": "Enter Home Features Headline here..."
+      }
+    },
+    "home_features_blurb": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph, strong, em",
+        "label": "Home Features Blurb",
+        "placeholder": "Enter Home Features blurb here..."
+      }
+    }
+  }
+}

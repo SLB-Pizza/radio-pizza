@@ -1,0 +1,97 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "Mix Unique UID",
+        "placeholder": "Enter meaningful unique id (no spaces, hyphenate-words-like-this) >> example-mix-unique-id"
+      }
+    },
+    "mix_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {
+          "width": 600,
+          "height": 600
+        },
+        "thumbnails": [
+          {
+            "name": "medium",
+            "width": 350,
+            "height": 350
+          },
+          {
+            "name": "now_playing",
+            "width": 96,
+            "height": 96
+          }
+        ],
+        "label": "Mix Image"
+      }
+    },
+    "mix_title": {
+      "type": "Text",
+      "config": {
+        "label": "Mix Title",
+        "placeholder": "Enter mix title here..."
+      }
+    },
+    "mix_link": {
+      "type": "Text",
+      "config": {
+        "label": "Radio Link",
+        "placeholder": "Enter the link to the mix..."
+      }
+    },
+    "mix_date": {
+      "type": "Date",
+      "config": {
+        "label": "Mix Date",
+        "placeholder": "Select Mix Date"
+      }
+    },
+    "mix_blurb": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
+        "allowTargetBlank": true,
+        "label": "Mix Blurb",
+        "placeholder": "Enter a short blurb talking about the mix here..."
+      }
+    },
+    "featured_residents": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "mix_resident": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": ["resident", "restest2"],
+              "label": "Mix Resident",
+              "placeholder": "Select a resident that features on this mix..."
+            }
+          }
+        },
+        "label": "(REQUIRED) Featured Residents"
+      }
+    },
+    "related_events": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "mix_event": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": ["event"],
+              "label": "Event",
+              "placeholder": "Select an event this mix is related to..."
+            }
+          }
+        },
+        "label": "Related Events"
+      }
+    }
+  }
+}

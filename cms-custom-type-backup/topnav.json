@@ -1,0 +1,21 @@
+{
+  "Main": {
+    "default_mix": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": ["mix"],
+        "label": "Default Mix",
+        "placeholder": "Select the mix that will be loaded when Halfmoon is not live..."
+      }
+    },
+    "chat_link": {
+      "type": "Link",
+      "config": {
+        "allowTargetBlank": true,
+        "label": "Chat Link",
+        "placeholder": "Enter the link to go to Halfmoon's chat..."
+      }
+    }
+  }
+}

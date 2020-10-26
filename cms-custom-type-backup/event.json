@@ -1,0 +1,147 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "Event Unique ID",
+        "placeholder": "Enter meaningful unique id (no spaces, hyphenate-words-like-this) >> example-event-unique-id"
+      }
+    },
+    "main_event_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Main Event Image"
+      }
+    },
+    "event_name": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "(REQUIRED) Event Name",
+        "placeholder": "Add the event name here..."
+      }
+    },
+    "event_blurb": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
+        "allowTargetBlank": true,
+        "label": "(REQUIRED) Event Blurb",
+        "placeholder": "Add a blurb describing the event here..."
+      }
+    },
+    "event_start": {
+      "type": "Timestamp",
+      "config": {
+        "label": "(REQUIRED) Event Start",
+        "placeholder": "Set the event's start date and time..."
+      }
+    },
+    "event_end": {
+      "type": "Timestamp",
+      "config": {
+        "label": "Event End",
+        "placeholder": "Set the event's end date and time..."
+      }
+    },
+    "event_header_button_text": {
+      "type": "Text",
+      "config": {
+        "label": "Event Header Button Text",
+        "placeholder": "Add a short phrase labelling the button in the event header..."
+      }
+    },
+    "event_header_button_link": {
+      "type": "Link",
+      "config": {
+        "allowTargetBlank": true,
+        "label": "Event Header Button Link",
+        "placeholder": "Add a link to the button..."
+      }
+    },
+    "event_location": {
+      "type": "Text",
+      "config": {
+        "label": "(REQUIRED) Event Location",
+        "placeholder": "Entry the name of the location of the City, State where the event is (e.g. Radio City Music Hall; Las Vegas, Nevada)"
+      }
+    },
+    "event_location_link": {
+      "type": "Link",
+      "config": {
+        "allowTargetBlank": true,
+        "label": "(REQUIRED) Event Location Link",
+        "placeholder": "Digital: Copy paste URL. || In-Person: Find the location in Google Maps and click the 'share' option. Paste that link here."
+      }
+    },
+    "event_mixes": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "event_mix": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": ["mix"],
+              "label": "Event Mix",
+              "placeholder": "Add a mix from this event..."
+            }
+          }
+        },
+        "label": "Event Mixes"
+      }
+    },
+    "event_residents": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "event_resident": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": ["resident"],
+              "label": "Event Resident",
+              "placeholder": "Add a resident that featured in this event..."
+            }
+          }
+        },
+        "label": "Event Residents"
+      }
+    },
+    "event_features": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "event_feature": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": ["feature"],
+              "label": "Event Feature",
+              "placeholder": "Add a feature article talking about this event..."
+            }
+          }
+        },
+        "label": "Event Features"
+      }
+    },
+    "event_photos": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "event_photo_gallery": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "label": "Event Photo Gallery",
+              "placeholder": "Add a photo gallery related to the event here..."
+            }
+          }
+        },
+        "label": "Event Photos"
+      }
+    }
+  }
+}

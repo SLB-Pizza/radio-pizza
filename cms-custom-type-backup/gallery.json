@@ -1,0 +1,63 @@
+{
+  "Main": {
+    "gallery_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Gallery Title",
+        "placeholder": "Add the gallery title here..."
+      }
+    },
+    "gallery_blurb": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
+        "allowTargetBlank": true,
+        "label": "Gallery Blurb",
+        "placeholder": "Add a blurb describing what this collection of images is from..."
+      }
+    },
+    "gallery_images": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "gallery_img": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [
+                {
+                  "name": "widescreen",
+                  "width": 1407,
+                  "height": null
+                },
+                {
+                  "name": "desktop",
+                  "width": 1215,
+                  "height": null
+                },
+                {
+                  "name": "tablet",
+                  "width": 1023,
+                  "height": null
+                },
+                {
+                  "name": "tablet",
+                  "width": 767,
+                  "height": null
+                },
+                {
+                  "name": "lo_fi_placeholder",
+                  "width": 32,
+                  "height": null
+                }
+              ],
+              "label": "Gallery Image"
+            }
+          }
+        },
+        "label": "Gallery Images"
+      }
+    }
+  }
+}

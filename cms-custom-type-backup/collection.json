@@ -1,0 +1,78 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "Collection Unique ID",
+        "placeholder": "Enter meaningful unique id (no spaces, hyphenate-words-like-this) >> example-endless-mix-unique-id"
+      }
+    },
+    "collection_title": {
+      "type": "Text",
+      "config": {
+        "label": "Collection Title",
+        "placeholder": "(REQUIRED) Enter the title for this curated collection..."
+      }
+    },
+    "collection_blurb": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, strong, em, hyperlink, list-item, o-list-item",
+        "allowTargetBlank": true,
+        "label": "Collection Blurb",
+        "placeholder": "(REQUIRED) Enter a short blurb (one/two lines) describing this curated collection."
+      }
+    },
+    "collection_img": {
+      "type": "Image",
+      "config": {
+        "constraint": {
+          "width": 600,
+          "height": 600
+        },
+        "thumbnails": [
+          {
+            "name": "now_playing",
+            "width": 96,
+            "height": 96
+          }
+        ],
+        "label": "Collection Image"
+      }
+    },
+    "shuffle_mix_order": {
+      "type": "Boolean",
+      "config": {
+        "placeholder_false": "In Order",
+        "placeholder_true": "Shuffled",
+        "default_value": true,
+        "label": "How should this mix be played?"
+      }
+    },
+    "collection_playlist": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "endless_mix_entry": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": ["mix"],
+              "label": "Endless Mix Entry",
+              "placeholder": "Add a mix to this Endless Mix..."
+            }
+          }
+        },
+        "label": "Curated Collection Playlist"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {},
+        "choices": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "Entry": {
+    "schedule_date": {
+      "type": "Date",
+      "config": {
+        "label": "Schedule Date",
+        "placeholder": "Choose the date for the schedule entries..."
+      }
+    },
+    "schedule_entries": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "start_time": {
+            "type": "Timestamp",
+            "config": {
+              "label": "Start Time",
+              "placeholder": "Select the show's start time..."
+            }
+          },
+          "end_time": {
+            "type": "Timestamp",
+            "config": {
+              "label": "End Time",
+              "placeholder": "Select the show's end time..."
+            }
+          },
+          "scheduled_show": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": ["mix"],
+              "label": "Scheduled Show",
+              "placeholder": "Select the show for this time slot..."
+            }
+          }
+        },
+        "label": "Schedule Entries"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {},
+        "choices": {}
+      }
+    }
+  }
+}

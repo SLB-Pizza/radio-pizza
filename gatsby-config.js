@@ -9,6 +9,11 @@ module.exports = {
   },
   plugins: [
     /**
+     * Disables Font Awesome auto CSS insertion and instead inserts it at compile time. On the initial load, a page will jump because the icons load without styling. The problem is that Font Awesome inserts its styles in the frontend.
+     * @see {@link https://www.gatsbyjs.com/plugins/gatsby-plugin-fontawesome-css/|gatsby-plugin-fontawesome-css}
+     */
+    'gatsby-plugin-fontawesome-css',
+    /**
      * Provides drop-in support for server rendering data added with React Helmet
      * @see {@link https://www.gatsbyjs.com/plugins/gatsby-plugin-react-helmet/?=helm/|gatsby-plugin-react-helmet}
      */

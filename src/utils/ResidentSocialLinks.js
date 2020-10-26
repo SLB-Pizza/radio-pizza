@@ -11,7 +11,6 @@ import {
   faSpotify,
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons'
-import { faGlobe } from '@fortawesome/free-solid-svg-icons'
 
 /**
  * Function that returns a column an icon that links to the resident's appropriate social media page.
@@ -27,34 +26,34 @@ function ResidentSocialLinks({ url, platform }) {
   /**
    * Default the icon to a generic globe icon
    */
-  let icon = faGlobe
+  let icon = 'globe'
 
   switch (platform) {
     case 'Personal Site':
       break // Use the globe
     case 'Apple Music':
-      icon = faApple
+      icon = ['fab', 'apple']
       break
     case 'Bandcamp':
-      icon = faBandcamp
+      icon = ['fab', 'bandcamp']
       break
     case 'Facebook':
-      icon = faFacebookSquare
+      icon = ['fab', 'facebook-square']
       break
     case 'Instagram':
-      icon = faInstagram
+      icon = ['fab', 'instagram']
       break
     case 'Mixcloud':
-      icon = faMixcloud
+      icon = ['fab', 'mixcloud']
       break
     case 'Soundcloud':
-      icon = faSoundcloud
+      icon = ['fab', 'soundcloud']
       break
     case 'Spotify':
-      icon = faSpotify
+      icon = ['fab', 'spotify']
       break
     case 'Twitter':
-      icon = faTwitter
+      icon = ['fab', 'twitter']
       break
     default:
       return icon

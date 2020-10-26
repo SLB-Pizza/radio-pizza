@@ -1,13 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { Link } from 'gatsby'
 import { gql, useQuery } from '@apollo/client'
-import {
-  faSearch,
-  faComments,
-  faCalendarAlt,
-  faBroadcastTower,
-  faHeadphones,
-} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Ticker from 'react-ticker'
 import PageVisibility from 'react-page-visibility'
@@ -207,7 +200,7 @@ function ScheduleBar({ timeNow }) {
                     <span>Listening</span>
                     <span className="icon">
                       <FontAwesomeIcon
-                        icon={faHeadphones}
+                        icon="headphones"
                         size="1x"
                         className="live-light"
                       />
@@ -219,7 +212,7 @@ function ScheduleBar({ timeNow }) {
                     <span>Live</span>
                     <span className="icon">
                       <FontAwesomeIcon
-                        icon={faBroadcastTower}
+                        icon="broadcast-tower"
                         size="1x"
                         className="live-light"
                       />
@@ -248,7 +241,7 @@ function ScheduleBar({ timeNow }) {
           </div>
           <div className="column is-narrow">
             <FontAwesomeIcon
-              icon={faCalendarAlt}
+              icon="calendar-alt"
               size="1x"
               className="icon-color"
               onClick={() => toggleSchedule()}
@@ -258,7 +251,7 @@ function ScheduleBar({ timeNow }) {
             <Link to="/search">
               <FontAwesomeIcon
                 onClick={() => closeSchedule()}
-                icon={faSearch}
+                icon="search"
                 size="1x"
                 className="icon-color"
               />
@@ -273,7 +266,7 @@ function ScheduleBar({ timeNow }) {
             >
               <FontAwesomeIcon
                 onClick={() => closeSchedule()}
-                icon={faComments}
+                icon="comments"
                 size="1x"
                 className="icon-color"
               />
@@ -317,7 +310,7 @@ function ScheduleBar({ timeNow }) {
                   <span>Listening</span>
                   <span className="icon">
                     <FontAwesomeIcon
-                      icon={faHeadphones}
+                      icon="headphones"
                       size="1x"
                       className="live-light"
                     />
@@ -328,7 +321,7 @@ function ScheduleBar({ timeNow }) {
                   <span>Live</span>
                   <span className="icon">
                     <FontAwesomeIcon
-                      icon={faBroadcastTower}
+                      icon="broadcast-tower"
                       size="1x"
                       className="live-light"
                     />
@@ -356,7 +349,7 @@ function ScheduleBar({ timeNow }) {
         <div className="column is-narrow">
           <FontAwesomeIcon
             onClick={() => toggleSchedule()}
-            icon={faCalendarAlt}
+            icon="calendar-alt"
             size="1x"
             className="icon-color"
           />
@@ -365,7 +358,7 @@ function ScheduleBar({ timeNow }) {
           <Link to="/search">
             <FontAwesomeIcon
               onClick={() => closeSchedule()}
-              icon={faSearch}
+              icon="search"
               size="1x"
               className="icon-color"
             />
@@ -380,7 +373,7 @@ function ScheduleBar({ timeNow }) {
           >
             <FontAwesomeIcon
               onClick={() => closeSchedule()}
-              icon={faComments}
+              icon="comments"
               size="1x"
               className="icon-color"
             />

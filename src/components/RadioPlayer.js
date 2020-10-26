@@ -9,7 +9,6 @@ import {
   GlobalStateContext,
 } from '../context/GlobalContextProvider'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons'
 
 /**
  * @category Site Elements
@@ -42,7 +41,7 @@ function RadioPlayer() {
    */
   const playerStyle = {
     position: 'absolute',
-    top: '-175px',
+    top: '-1000px',
     width: '1px',
     height: '1px',
     margin: '-1px',
@@ -137,14 +136,14 @@ function RadioPlayer() {
       >
         {!globalState.playing ? (
           <FontAwesomeIcon
-            icon={faPlay}
+            icon="play"
             className="icon-color"
             onClick={handlePlayPause}
             size="2x"
           />
         ) : (
           <FontAwesomeIcon
-            icon={faPause}
+            icon="pause"
             className="icon-color"
             onClick={handlePlayPause}
             size="2x"

@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { useContext } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlay } from '@fortawesome/free-solid-svg-icons'
 import { GlobalDispatchContext } from '../context/GlobalContextProvider'
 
 /**
@@ -48,7 +47,7 @@ function MixPlayOverlay({ url, title, residents, img, wrapperClassName }) {
           <img src={img.url} alt={img.alt} />
           <div className="play-btn-diffuser is-overlay">
             <FontAwesomeIcon
-              icon={faPlay}
+              icon="play"
               size="5x"
               className="play-icon"
               onClick={() => changeUrl()}

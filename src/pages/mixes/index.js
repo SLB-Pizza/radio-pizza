@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faTag } from '@fortawesome/free-solid-svg-icons'
 import {
   CuratedCollections,
   SingleMixCard,
@@ -69,7 +68,7 @@ function MixesIndexPage({ data }) {
                   placeholder="Search all mixes..."
                 />
                 <span className="icon is-left">
-                  <FontAwesomeIcon icon={faSearch} />
+                  <FontAwesomeIcon icon="search" />
                 </span>
               </div>
             </div>
@@ -89,7 +88,7 @@ function MixesIndexPage({ data }) {
                 </div>
 
                 <span className="icon is-left">
-                  <FontAwesomeIcon icon={faTag} />
+                  <FontAwesomeIcon icon="tag" />
                 </span>
               </div>
             </div>

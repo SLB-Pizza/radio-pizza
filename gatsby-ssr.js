@@ -5,6 +5,53 @@ import GlobalContextProvider from './src/context/GlobalContextProvider'
 import Layout from './src/components/Layout'
 import { registerLinkResolver } from '@prismicio/gatsby-source-prismic-graphql'
 import linkResolver from './src/utils/linkResolver'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import {
+  faApple,
+  faBandcamp,
+  faFacebookSquare,
+  faInstagram,
+  faMixcloud,
+  faSoundcloud,
+  faSpotify,
+  faTwitter,
+} from '@fortawesome/free-brands-svg-icons'
+import {
+  faBroadcastTower,
+  faCalendarAlt,
+  faCheck,
+  faComments,
+  faGlobe,
+  faHeadphones,
+  faPlay,
+  faPause,
+  faSearch,
+  faTag,
+} from '@fortawesome/free-solid-svg-icons'
+
+/**
+ * @see {@link https://github.com/FortAwesome/react-fontawesome#build-a-library-to-reference-icons-throughout-your-app-more-conveniently|Build a Library to Reference Icons Throughout Your App More Conveniently}
+ */
+library.add(
+  faApple,
+  faBandcamp,
+  faBroadcastTower,
+  faCalendarAlt,
+  faCheck,
+  faComments,
+  faHeadphones,
+  faFacebookSquare,
+  faGlobe,
+  faInstagram,
+  faMixcloud,
+  faPlay,
+  faPause,
+  faSoundcloud,
+  faSearch,
+  faTag,
+  faSpotify,
+  faTwitter
+)
 
 /**
  * Create the Apollo Client and give it our Prismic CMS graphql endpoint

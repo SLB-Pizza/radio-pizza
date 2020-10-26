@@ -1,10 +1,5 @@
 import React, { useContext } from 'react'
 import { Link } from 'gatsby'
-import {
-  faMixcloud,
-  faTwitter,
-  faInstagram,
-} from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   GlobalDispatchContext,
@@ -13,11 +8,10 @@ import {
 import { OutsideClick } from './index'
 
 /**
+ *
  * @function BottomNav
  */
 function BottomNav() {
-  // const [menuOpen, setMenuOpen] = useState(false);
-
   const dispatch = useContext(GlobalDispatchContext)
   const globalState = useContext(GlobalStateContext)
 
@@ -148,7 +142,7 @@ function BottomNav() {
               rel="noopener"
             >
               <span className="icon is-medium" aria-hidden="true">
-                <FontAwesomeIcon icon={faMixcloud} size="lg" />
+                <FontAwesomeIcon icon={['fab', 'mixcloud']} size="lg" />
               </span>
             </a>
             <a
@@ -160,7 +154,7 @@ function BottomNav() {
               rel="noopener"
             >
               <span className="icon is-medium" aria-hidden="true">
-                <FontAwesomeIcon icon={faInstagram} size="lg" />
+                <FontAwesomeIcon icon={['fab', 'instagram']} size="lg" />
               </span>
             </a>
             <a
@@ -172,7 +166,7 @@ function BottomNav() {
               rel="noopener"
             >
               <span className="icon is-medium" aria-hidden="true">
-                <FontAwesomeIcon icon={faTwitter} size="lg" />
+                <FontAwesomeIcon icon={['fab', 'twitter']} size="lg" />
               </span>
             </a>
           </div>
@@ -187,7 +181,7 @@ function BottomNav() {
               rel="noopener"
             >
               <span className="icon is-medium" aria-hidden="true">
-                <FontAwesomeIcon icon={faMixcloud} size="lg" />
+                <FontAwesomeIcon icon={['fab', 'mixcloud']} size="lg" />
               </span>
             </a>
             <a
@@ -199,7 +193,7 @@ function BottomNav() {
               rel="noopener"
             >
               <span className="icon is-medium" aria-hidden="true">
-                <FontAwesomeIcon icon={faInstagram} size="lg" />
+                <FontAwesomeIcon icon={['fab', 'instagram']} size="lg" />
               </span>
             </a>
             <a
@@ -211,7 +205,7 @@ function BottomNav() {
               rel="noopener"
             >
               <span className="icon is-medium" aria-hidden="true">
-                <FontAwesomeIcon icon={faTwitter} size="lg" />
+                <FontAwesomeIcon icon={['fab', 'twitter']} size="lg" />
               </span>
             </a>
           </div>

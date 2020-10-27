@@ -98,9 +98,9 @@
   "scripts": {
     "build": "npm run clean && gatsby build --verbose",
     "build-storybook": "build-storybook",
-    "clean": "gatsby clean",
+    "clean": "gatsby clean --verbose",
     "docs": "jsdoc -c jsdoc.conf.json",
-    "develop": "npm run clean && gatsby develop -H 0.0.0.0",
+    "develop": "npm run clean && gatsby develop -H 0.0.0.0 --verbose",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js,__test__/**/*.*.js}\"",
     "screenshots": "node __test__/gatsby-puppeteer.js",
     "start": "npm run develop",

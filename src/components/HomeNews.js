@@ -9,14 +9,12 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
       {/* DESKTOP */}
       <div className="columns is-hidden-touch">
         <div className="column is-3">
-          <div className="sticky-section-blurb">
-            <p className="display-text is-size-3">
-              {RichText.asText(headline)}
-            </p>
-            <div className="content">{RichText.render(blurb)}</div>
+          <div className="sticky-section-blurb content">
+            <p className="title">{RichText.asText(headline)}</p>
+            <p className="subtitle">{RichText.render(blurb)}</p>
 
             <Link to="/features">
-              <button className="button is-small is-outlined is-rounded">
+              <button className="button is-outlined is-rounded">
                 All Features
               </button>
             </Link>
@@ -44,7 +42,8 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
       */}
       <div className="columns is-mobile is-multiline is-vcentered is-hidden-desktop">
         <div className="column">
-          <p className="display-text is-size-4">Features</p>
+          <p className="title is-4">{RichText.asText(headline)}</p>
+          <p className="subtitle is-6">{RichText.asText(blurb)}</p>
         </div>
         <div className="column is-narrow">
           <Link to="/features">
@@ -52,11 +51,6 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
               All Features
             </button>
           </Link>
-        </div>
-        <div className="column is-12">
-          <p className="subtitle is-size-6">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </p>
         </div>
       </div>
       <div className="columns is-mobile is-hidden-desktop mobile-single-items">

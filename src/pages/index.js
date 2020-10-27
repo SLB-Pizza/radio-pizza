@@ -46,7 +46,7 @@ function IndexPage({ data }) {
           blurb={home_mixes_blurb}
           homeMixesData={homeMixesData}
         />
-        <HomeEvents />
+        <HomeEvents headline={home_events_headline} blurb={home_events_blurb} />
         {/* <pre>{JSON.stringify(data.prismic, null, 2)}</pre> */}
         <HomeNews
           headline={home_features_headline}
@@ -86,7 +86,7 @@ export const query = graphql`
           }
         }
       }
-      allMixs(sortBy: meta_firstPublicationDate_DESC, last: 12) {
+      allMixs(sortBy: mix_date_DESC, first: 12) {
         edges {
           node {
             _meta {

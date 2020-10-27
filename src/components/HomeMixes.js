@@ -24,13 +24,11 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
       {/* DESKTOP */}
       <div className="columns is-hidden-touch">
         <div className="column is-3">
-          <div className="sticky-section-blurb">
-            <p className="display-text is-size-3">
-              {RichText.asText(headline)}
-            </p>
-            <div className="content">{RichText.render(blurb)}</div>
+          <div className="sticky-section-blurb content">
+            <p className="title">{RichText.asText(headline)}</p>
+            <p className="subtitle">{RichText.render(blurb)}</p>
             <Link to="/mixes">
-              <button className="button is-small is-outlined is-rounded display-text">
+              <button className="button is-outlined is-rounded">
                 All Mixes
               </button>
             </Link>
@@ -51,9 +49,10 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
         </div>
       </div>
       {/* TOUCH */}
-      <div className="columns is-mobile is-multiline is-vcentered is-hidden-desktop mobile-home-content">
+      <div className="columns is-mobile is-multiline is-vcentered is-hidden-desktop">
         <div className="column">
-          <p className="display-text is-size-4">Daily Mixes</p>
+          <p className="title is-4">{RichText.asText(headline)}</p>
+          <p className="subtitle is-6">{RichText.asText(blurb)}</p>
         </div>
         <div className="column is-narrow">
           <Link to="/mixes">
@@ -62,12 +61,12 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
             </button>
           </Link>
         </div>
-        <div className="column is-12 mobile-home-description">
+        {/* <div className="column is-12 mobile-home-description">
           <p className="subtitle is-size-6">
             These dummy mixes are the same as the ones on the sample bio page.
             You can hover/touch and play them the same way. Try it!
           </p>
-        </div>
+        </div> */}
       </div>
       <div className="columns is-mobile is-hidden-desktop mobile-single-items">
         {homeMixesData.map(({ node }, index) => {

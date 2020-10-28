@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
 import { RichText } from 'prismic-reactjs'
-import { ResidentSocialLinks, mappableDataCheck } from '../utils'
+import { ResidentSocialLinks, mappableDataFilter } from '../utils'
 import NanoClamp from 'nanoclamp'
 
 /**
@@ -23,7 +23,7 @@ function ResidentBio({ residentBioData }) {
   } = residentBioData
 
   /**
-   * Once residentBioData is receiveed, check mappable data subarrays with {@link mappableDataCheck}.
+   * Once residentBioData is receiveed, check mappable data subarrays with {@link mappableDataFilter}.
    *
    * TL;DR
    * If the data subarray has no valid entries
@@ -34,7 +34,7 @@ function ResidentBio({ residentBioData }) {
   useEffect(() => {
     const bioDataCheck = () => {
       if (residentBioData) {
-        const socialMediaCheck = mappableDataCheck(social_media, 2)
+        const socialMediaCheck = mappableDataFilter(social_media, 2)
 
         if (socialMediaCheck) {
           // Assign social_media value of socialMediaCheck array

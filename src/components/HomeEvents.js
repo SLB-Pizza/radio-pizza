@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import { HomeSingleEvent } from './index'
 
-function HomeEvents({ blurb, headline }) {
+function HomeEvents({ blurb, headline, homeEventsData }) {
   return (
     <div className="container is-fluid" id="home-events">
       {/* DESKTOP */}

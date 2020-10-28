@@ -40,7 +40,7 @@ function HMBKAdminPage({ data }) {
         <div className="columns is-mobile is-multiline">
           <div className="column is-12 content">
             <h3 className="title is-size-3-desktop is-size-4-touch">
-              Recent Mixes
+              HalfmoonBK Admin Daskhboard
             </h3>
             <p className="subtitle is-size-5-desktop is-size-6-touch">
               These dummy mixes are the same as the ones on the home page. You
@@ -49,66 +49,16 @@ function HMBKAdminPage({ data }) {
           </div>
           <div className="column is-2">
             <aside className="menu is-hidden-mobile">
-              <p className="menu-label">General</p>
+              <p className="menu-label">CMS Dashboard</p>
               <ul className="menu-list">
-                <li>
-                  <a className="is-active">Dashboard</a>
-                </li>
-                <li>
-                  <a>Customers</a>
-                </li>
+                {problemMixes.length && (
+                  <li>
+                    <a href="#mixes">Mixes</a>
+                  </li>
+                )}
+
                 <li>
                   <a>Other</a>
-                </li>
-              </ul>
-              <p className="menu-label">Administration</p>
-              <ul className="menu-list">
-                <li>
-                  <a>Team Settings</a>
-                </li>
-                <li>
-                  <a>Manage Your Team</a>
-                  <ul>
-                    <li>
-                      <a>Members</a>
-                    </li>
-                    <li>
-                      <a>Plugins</a>
-                    </li>
-                    <li>
-                      <a>Add a member</a>
-                    </li>
-                    <li>
-                      <a>Remove a member</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a>Invitations</a>
-                </li>
-                <li>
-                  <a>Cloud Storage Environment Settings</a>
-                </li>
-                <li>
-                  <a>Authentication</a>
-                </li>
-                <li>
-                  <a>Payments</a>
-                </li>
-              </ul>
-              <p className="menu-label">Transactions</p>
-              <ul className="menu-list">
-                <li>
-                  <a>Payments</a>
-                </li>
-                <li>
-                  <a>Transfers</a>
-                </li>
-                <li>
-                  <a>Balance</a>
-                </li>
-                <li>
-                  <a>Reports</a>
                 </li>
               </ul>
             </aside>
@@ -145,7 +95,9 @@ function HMBKAdminPage({ data }) {
           {problemMixes.length && (
             <div className="column is-12">
               <div className="content">
-                <h1 className="title">Mixes</h1>
+                <h1 className="title">
+                  <a href="#mixes"># </a>Mixes
+                </h1>
               </div>
               {problemMixes.map((node, index) => {
                 let checkUID = uidValidator(node)

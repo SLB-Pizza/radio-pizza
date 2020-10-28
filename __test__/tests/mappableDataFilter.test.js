@@ -1,58 +1,58 @@
 import { expect } from 'chai'
-import { mappableDataCheck } from '../../src/utils'
+import { mappableDataFilter } from '../../src/utils'
 
-describe('mappableDataCheck', () => {
+describe('mappableDataFilter', () => {
   // Immediate rejection
   describe('returns 0', () => {
     it('when passed nothing', () => {
-      expect(mappableDataCheck()).to.equal(0)
+      expect(mappableDataFilter()).to.equal(0)
     })
 
     it('when passed an empty object', () => {
-      expect(mappableDataCheck({})).to.equal(0)
+      expect(mappableDataFilter({})).to.equal(0)
     })
 
     it('when passed an empty string', () => {
-      expect(mappableDataCheck('')).to.equal(0)
+      expect(mappableDataFilter('')).to.equal(0)
     })
 
-    it('when passed a number', () => {
-      expect(mappableDataCheck(42)).to.equal(0)
+    it('when passed only a number', () => {
+      expect(mappableDataFilter(42)).to.equal(0)
     })
 
     it('when passed undefined', () => {
-      expect(mappableDataCheck(undefined)).to.equal(0)
+      expect(mappableDataFilter(undefined)).to.equal(0)
     })
 
     it('when passed null', () => {
-      expect(mappableDataCheck(null)).to.equal(0)
+      expect(mappableDataFilter(null)).to.equal(0)
     })
     it('when passed false', () => {
-      expect(mappableDataCheck(false)).to.equal(0)
+      expect(mappableDataFilter(false)).to.equal(0)
     })
   })
 
   describe('returns 0 when passed an array with no valid entries', () => {
     it('when passed an empty array', () => {
-      expect(mappableDataCheck([])).to.equal(0)
+      expect(mappableDataFilter([])).to.equal(0)
     })
 
     // Is an array, but with invalid entries
     it('when passed an array with a nested array within', () => {
-      expect(mappableDataCheck([[]])).to.equal(0)
+      expect(mappableDataFilter([[]])).to.equal(0)
     })
 
     it('when passed an array containing one empty object', () => {
-      expect(mappableDataCheck([{}])).to.equal(0)
+      expect(mappableDataFilter([{}])).to.equal(0)
     })
 
     it('when passed an array with multiple empty objects', () => {
-      expect(mappableDataCheck([{}, {}, {}])).to.equal(0)
+      expect(mappableDataFilter([{}, {}, {}])).to.equal(0)
     })
 
     it('when passed an array with an object containing a null key-value pair', () => {
       let nullKeyValue = [{ sample_field: null }]
-      expect(mappableDataCheck(nullKeyValue)).to.equal(0)
+      expect(mappableDataFilter(nullKeyValue)).to.equal(0)
     })
 
     it('when passed an array with one object containing multiple key-value pairs', () => {
@@ -64,7 +64,7 @@ describe('mappableDataCheck', () => {
         },
       ]
 
-      expect(mappableDataCheck(hasObjectWithMultipleKeys)).to.equal(0)
+      expect(mappableDataFilter(hasObjectWithMultipleKeys)).to.equal(0)
     })
 
     it('when passed an array with multiple objects, each containing a null key-value pair', () => {
@@ -75,7 +75,7 @@ describe('mappableDataCheck', () => {
         { sample_field: null },
         { sample_field: null },
       ]
-      expect(mappableDataCheck(allNullKeyValues)).to.equal(0)
+      expect(mappableDataFilter(allNullKeyValues)).to.equal(0)
     })
   })
 
@@ -149,7 +149,7 @@ describe('mappableDataCheck', () => {
         },
       ]
 
-      expect(mappableDataCheck(oneValidEntry)).to.eql(oneValidEntry)
+      expect(mappableDataFilter(oneValidEntry)).to.eql(oneValidEntry)
     })
 
     it('when passed an array where the first object has a null key-value pair', () => {
@@ -168,7 +168,7 @@ describe('mappableDataCheck', () => {
         },
       ]
 
-      expect(mappableDataCheck(firstKeyValuePairNull)).to.eql([
+      expect(mappableDataFilter(firstKeyValuePairNull)).to.eql([
         {
           resident_event: {
             __typename: 'PRISMIC_Event',
@@ -200,7 +200,7 @@ describe('mappableDataCheck', () => {
         },
       ]
 
-      expect(mappableDataCheck(lastKeyValuePairNull)).to.eql([
+      expect(mappableDataFilter(lastKeyValuePairNull)).to.eql([
         {
           resident_image: {
             dimensions: {
@@ -312,7 +312,7 @@ describe('mappableDataCheck', () => {
       it(`${test.array.length} entries; ${test.invalid} invalid ${
         test.invalid === 1 ? 'entry removed' : 'entries removed'
       }`, () => {
-        expect(mappableDataCheck(test.array)).to.eql(test.allValid)
+        expect(mappableDataFilter(test.array)).to.eql(test.allValid)
       })
     })
   })
@@ -322,7 +322,13 @@ describe('mappableDataCheck', () => {
       it("arrayEntry doesn't have objectKeyCount # of keys", () => {
         let oneObjectOneKey = [{ only_key: [1, 2, 3, 4, 5] }]
 
-        expect(mappableDataCheck(oneObjectOneKey, 2)).to.equal(0)
+        expect(mappableDataFilter(oneObjectOneKey, 2)).to.equal(0)
+      })
+
+      it("arrayEntry doesn't have objectKeyCount # of keys", () => {
+        let oneObjectOneKey = [{ only_key: [1, 2, 3, 4, 5] }]
+
+        expect(mappableDataFilter(oneObjectOneKey, 2)).to.equal(0)
       })
 
       it('arrayEntry has objectKeyCount # of keys but all values are null', () => {
@@ -330,7 +336,7 @@ describe('mappableDataCheck', () => {
           { first_null: null, second_null: null },
         ]
 
-        expect(mappableDataCheck(oneObjectTwoKeyAllNullValues, 2)).to.equal(0)
+        expect(mappableDataFilter(oneObjectTwoKeyAllNullValues, 2)).to.equal(0)
       })
 
       it('arrayEntry has objectKeyCount # of keys but all values are not null', () => {
@@ -338,7 +344,7 @@ describe('mappableDataCheck', () => {
           { first_key: [1, 2, 3, 4, 5], second_key: null },
         ]
 
-        expect(mappableDataCheck(oneObjectTwoKeyOneNullValue, 2)).to.equal(0)
+        expect(mappableDataFilter(oneObjectTwoKeyOneNullValue, 2)).to.equal(0)
       })
     })
 
@@ -359,7 +365,9 @@ describe('mappableDataCheck', () => {
         const correctReturnArray = [
           { this_object_has: 'two keys', this_object_is: 'correctly setup' },
         ]
-        expect(mappableDataCheck(oneCorrectEntry, 2)).to.eql(correctReturnArray)
+        expect(mappableDataFilter(oneCorrectEntry, 2)).to.eql(
+          correctReturnArray
+        )
       })
     })
   })

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { graphql } from 'gatsby'
 import NanoClamp from 'nanoclamp'
 import { ResidentBio, SingleMixCard } from '../components'
-import { mappableDataCheck } from '../utils'
+import { mappableDataFilter } from '../utils'
 
 /**
  * @category Templates
@@ -39,18 +39,18 @@ function ResidentTemplate({ data }) {
   }
 
   /**
-   * When Gatsby receives the Prismic data, perform a {@link mappableDataCheck} on the Resident's data object to determine which selection columns should be displayed to avoid having empty categories displayed.
+   * When Gatsby receives the Prismic data, perform a {@link mappableDataFilter} on the Resident's data object to determine which selection columns should be displayed to avoid having empty categories displayed.
    */
   useEffect(() => {
     const dataCheck = () => {
       if (data) {
-        if (mappableDataCheck(resident_mixes)) {
+        if (mappableDataFilter(resident_mixes)) {
           setMixesData(true)
         }
-        if (mappableDataCheck(resident_events)) {
+        if (mappableDataFilter(resident_events)) {
           setEventsData(true)
         }
-        if (mappableDataCheck(resident_features)) {
+        if (mappableDataFilter(resident_features)) {
           setFeaturesData(true)
         }
       }

@@ -1,9 +1,19 @@
 import React from 'react'
 
 function CMSIssueMessage({ node, issueData }) {
-  const messageType = 'message is-' + issueData.type
+  let message = 'message'
+
+  switch (issueData.type) {
+    case 'warning':
+      message = 'message is-warning'
+    case 'danger':
+      message = 'message is-danger'
+    default:
+      break
+  }
+
   return (
-    <article className={messageType}>
+    <article className={message}>
       <div className="message-header">
         <p className="subtitle has-text-black">{`Issue: ${issueData.reason}`}</p>
       </div>

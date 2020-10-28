@@ -16,13 +16,14 @@ function IndexPage({ data }) {
   // Focus the node for the prismicContent check below.
   const homepageData = data.prismic.allHomepages.edges[0]
   const homeMixesData = data.prismic.allMixs.edges
+  const homeEventsData = data.prismic.allEvents.edges
   const homeFeaturesData = data.prismic.allFeatures.edges
 
   /**
    * This line is here to prevent an error from occurring when you eventually deploy the site live. There is an issue with the preview functionality that requires this check on every page.
    * Details: https://prismic.io/docs/gatsby/rendering/retrieve-the-document-object#21_0-adding-a-validation-check
    */
-  if (!homepageData || !homeMixesData) return null
+  if (!homepageData || !homeMixesData || !homeEventsData) return null
 
   /**
    * Create objects by pulling data values from carouselSlidesData to pass as props to components in return statement.
@@ -40,20 +41,22 @@ function IndexPage({ data }) {
   return (
     <div className="has-navbar-fixed-bottom full-height-page">
       <Hero slides={homepage_carousel} />
-      <section className="home-content">
-        <HomeMixes
-          headline={home_mixes_headline}
-          blurb={home_mixes_blurb}
-          homeMixesData={homeMixesData}
-        />
-        <HomeEvents headline={home_events_headline} blurb={home_events_blurb} />
-        {/* <pre>{JSON.stringify(data.prismic, null, 2)}</pre> */}
-        <HomeNews
-          headline={home_features_headline}
-          blurb={home_features_blurb}
-          homeFeaturesData={homeFeaturesData}
-        />
-      </section>
+      <HomeMixes
+        headline={home_mixes_headline}
+        blurb={home_mixes_blurb}
+        homeMixesData={homeMixesData}
+      />
+      <HomeEvents
+        headline={home_events_headline}
+        blurb={home_events_blurb}
+        homeEventsData={homeEventsData}
+      />
+      {/* <pre>{JSON.stringify(data.prismic, null, 2)}</pre> */}
+      <HomeNews
+        headline={home_features_headline}
+        blurb={home_features_blurb}
+        homeFeaturesData={homeFeaturesData}
+      />
     </div>
   )
 }
@@ -114,7 +117,23 @@ export const query = graphql`
           }
         }
       }
-      allFeatures(last: 2) {
+      allEvents(sortBy: event_start_DESC, first: 6) {
+        edges {
+          node {
+            _meta {
+              uid
+              type
+            }
+            event_blurb
+            main_event_image
+            event_name
+            event_end
+            event_start
+            event_location
+          }
+        }
+      }
+      allFeatures(sortBy: meta_firstPublicationDate_DESC, first: 4) {
         edges {
           node {
             _meta {

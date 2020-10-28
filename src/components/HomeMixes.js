@@ -20,7 +20,7 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
   const homeMixesLayout = 'column is-9-mobile is-two-fifths-tablet is-4-desktop'
 
   return (
-    <div className="container is-fluid" id="home-mixes">
+    <div className="section container is-fluid" id="home-mixes">
       {/* DESKTOP */}
       <div className="columns is-hidden-touch">
         <div className="column is-3">

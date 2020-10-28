@@ -371,4 +371,154 @@ describe('mappableDataFilter', () => {
       })
     })
   })
+
+  describe('when nodeValidation is set to true', () => {
+    describe('returns 0', () => {
+      it('if the filtered array has no entries', () => {
+        let allNullKeyValues = [
+          { sample_field: null },
+          { sample_field: null },
+          { sample_field: null },
+          { sample_field: null },
+          { sample_field: null },
+        ]
+        expect(mappableDataFilter(allNullKeyValues, null, true)).to.equal(0)
+      })
+
+      it('when passed an array with one object containing multiple key-value pairs and objectKeyCount is undefined', () => {
+        let objectWithMultipleKeys = [
+          {
+            type: 'paragraph',
+            text: '',
+            spans: [],
+          },
+        ]
+
+        expect(mappableDataFilter(objectWithMultipleKeys, null, true)).to.equal(
+          0
+        )
+      })
+
+      it('arrayEntry has objectKeyCount # of keys but all values are null', () => {
+        let oneObjectTwoKeyAllNullValues = [
+          { first_null: null, second_null: null },
+        ]
+
+        expect(
+          mappableDataFilter(oneObjectTwoKeyAllNullValues, 2, true)
+        ).to.equal(0)
+      })
+
+      it("arrayEntry doesn't have objectKeyCount # of keys", () => {
+        let oneObjectOneKey = [{ only_key: [1, 2, 3, 4, 5] }]
+
+        expect(mappableDataFilter(oneObjectOneKey, 2, true)).to.equal(0)
+      })
+    })
+
+    describe('return a non-zero numbers representing the number of bad entries there are', () => {
+      const testCaseMaker = () => {
+        let testCases = []
+
+        for (let i = 1; i <= 100; i++) {
+          let validEntriesTotal = Math.ceil(Math.random() * 500) + i + 99
+          let invalidEntriesTotal = i
+          let testArrayLength = validEntriesTotal + invalidEntriesTotal
+          let validEntry = {
+            not_null: {
+              sub_key: 'value',
+            },
+          }
+
+          // Array of all the bad entry test cases used so far
+          let badEntries = [
+            {},
+            '',
+            42,
+            undefined,
+            null,
+            false,
+            [],
+            [[]],
+            [{}],
+            [{}, {}, {}],
+            [{ sample_field: null }],
+            [
+              {
+                type: 'paragraph',
+                text: '',
+                spans: [],
+              },
+            ],
+            [
+              { sample_field: null },
+              { sample_field: null },
+              { sample_field: null },
+              { sample_field: null },
+              { sample_field: null },
+            ],
+          ]
+
+          const arrayMaker = () => {
+            let validCount = 0
+            let invalidCount = 0
+            let mixedArray = []
+
+            while (mixedArray.length !== testArrayLength) {
+              let badIndex = i % badEntries.length
+
+              if (validCount === validEntriesTotal) {
+                // Randomly select and add an invalid entry
+                mixedArray.push(badEntries[badIndex])
+                invalidCount++
+              } else if (invalidCount === invalidEntriesTotal) {
+                // Add a valid entry
+                mixedArray.push(validEntry)
+                validCount++
+              } else {
+                // Flip a numeric coin
+                let validOrInvalid = Math.ceil(Math.random() * 2)
+
+                // if 1, add invalid; if 2, add valid
+                if (validOrInvalid === 1) {
+                  mixedArray.push(badEntries[badIndex])
+                  invalidCount++
+                } else {
+                  mixedArray.push(validEntry)
+                  validCount++
+                }
+              }
+            }
+            return mixedArray
+          }
+
+          let testArray = arrayMaker()
+          // Create an array with validEntries # of empty slots and fill each slot with valid entry
+          let arrayMatch = Array(validEntriesTotal).fill(validEntry)
+          // Create 100 test cases to examine
+          testCases.push({
+            array: testArray,
+            allValid: arrayMatch,
+            invalid: invalidEntriesTotal,
+          })
+        }
+
+        return testCases
+      }
+
+      let hundredTestCases = testCaseMaker()
+
+      hundredTestCases.forEach(test => {
+        it(`${test.array.length} entries; ${test.invalid} invalid ${
+          test.invalid === 1
+            ? 'entry removed and counted'
+            : 'entries removed and counted'
+        }`, () => {
+          expect(mappableDataFilter(test.array, null, true)).to.equal(
+            test.invalid
+          )
+        })
+      })
+    })
+  })
 })

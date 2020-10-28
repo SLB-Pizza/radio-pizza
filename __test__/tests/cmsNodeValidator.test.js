@@ -3,7 +3,7 @@ import { cmsNodeValidator } from '../../src/utils'
 import testData from '../cmsNodeValidatorTestData.json'
 
 describe('cmsNodeValidator', () => {
-  describe('returns 0, indicating that the node is problem-free when a CMS data node', () => {
+  xdescribe('returns 0, indicating that the node is problem-free when a CMS data node', () => {
     describe("has all of its required fields filled in properly and doesn't have unaccounted data keys", () => {
       it('for mixes', () => {
         let validMix = testData.valid.mix
@@ -14,7 +14,7 @@ describe('cmsNodeValidator', () => {
   })
 
   describe('returns an object containing details of the issue(s) the node has', () => {
-    it.only('for mixes', () => {
+    it('for mixes', () => {
       let invalidMix = testData.invalid.mix
 
       expect(cmsNodeValidator(invalidMix)).to.eql({

@@ -85,63 +85,71 @@
  * @category Utilities
  * @function mappableDataFilter
  * @param {Array} dataArray - a Prismic data subarray that will be checking to ensure proper Layout Component mapping
- * @param {?Number} objectKeyCount - an integer greater than 1 that dictates the number of key-value pairs the mappable object entry has; when present, overrides default of 1 key-value pair per object
+ * @param {?Number} objectKeyCount - an optional integer greater than 1 that dictates the number of key-value pairs the mappable object entry has; when present, overrides default of 1 key-value pair per object
+ * @param {?Boolean} nodeValidation - an optional boolean that changes the output of the function
  * @returns {Boolean|Array}
  */
-export default function mappableDataFilter(dataArray, objectKeyCount) {
+function mappableDataFilter(dataArray, objectKeyCount, nodeValidation) {
+  let invalidEntryCount = 0
+
   // Immediately reject dataArray if it's not an array OR empty
   if (Array.isArray(dataArray) && dataArray.length !== 0) {
     // It's an array with at least one entry
     // Begin checks on entry key-value pairs
 
-    // if objectKeyCount is defined,
-    // objectKeyCount must be an integer greater than 0
-
     let filteredArr = dataArray.filter(arrayEntry => {
       // Remove any falsy values from the array
       if (!arrayEntry) {
+        invalidEntryCount++
         return false
       }
 
       // Each valid item in a Prismic group field is an object containing one key with one object value, the content relation data (e.g. mix data, etc.)
       if (Array.isArray(arrayEntry)) {
+        invalidEntryCount++
         return false
       }
 
-      // If objectKeyCount is valid, filter like so:
+      //
       if (objectKeyCount) {
         // Each data object should contain objectKeyCount # of key-value pairs
         if (Object.keys(arrayEntry).length !== objectKeyCount) {
+          invalidEntryCount++
           return false
         }
 
         // Each value in the data object should not be null
         if (!Object.values(arrayEntry).every(entry => entry !== null)) {
+          invalidEntryCount++
           return false
         }
-      }
-      // objectKeyCount is undefined, use 1 as default count
-      else {
+      } else {
         // Each data object should contain only one key-value pair
         if (Object.keys(arrayEntry).length !== 1) {
+          invalidEntryCount++
           return false
         }
 
         // The value inside the arrayEntry object is not null
         if (Object.values(arrayEntry)[0] === null) {
+          invalidEntryCount++
           return false
         }
       }
-      // key-value pair is valid
       return true
     })
 
     // If no array entries made it through the filter, return 0
-    if (filteredArr.length === 0) {
+    if (!filteredArr.length) {
       return 0
+    }
+    if (nodeValidation && invalidEntryCount !== 0) {
+      return invalidEntryCount
     }
     // The filteredArr has at least one entry
     return filteredArr
   }
   return 0
 }
+
+export default mappableDataFilter

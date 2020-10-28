@@ -1,6 +1,5 @@
 import { mappableDataFilter } from './index'
 import { mixNode } from '../../cms-json-files/index'
-import { property, values } from 'lodash'
 /**
  *
  * @function cmsNodeValidator
@@ -47,6 +46,18 @@ function cmsNodeValidator(node) {
           issue =
             'If possible, copyright data should be added to this image (photographer, date, location, etc). Copyright info allows for proper attribution.'
           notices.info.push(issueMaker(key, issue))
+        }
+        break
+      case 'featured_residents':
+        let arrayTest = mappableDataFilter(node.featured_residents, null, true)
+        if (arrayTest === 0) {
+          issue = `There is a problem with all residents on this ${node._meta.type} entry. Please address immediately.`
+          notices.warnings.push(issueMaker(key, issue))
+        } else if (arrayTest > 0) {
+          issue = `There is a problem with ${arrayTest} resident ${
+            arrayTest === 1 ? 'entry' : 'entries'
+          } on this ${node._meta.type} entry. Please address immediately.`
+          notices.warnings.push(issueMaker(key, issue))
         }
         break
       default:

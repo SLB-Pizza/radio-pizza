@@ -14,8 +14,8 @@ describe('cmsNodeValidator', () => {
   })
 
   describe('returns an object containing details of the issue(s) the node has', () => {
-    it('for mixes', () => {
-      let invalidMix = testData.invalid.mix
+    it('for mixes with all bad residents', () => {
+      let invalidMix = testData.invalid.mix.bad_resident
 
       expect(cmsNodeValidator(invalidMix)).to.eql({
         info: [
@@ -34,7 +34,35 @@ describe('cmsNodeValidator', () => {
           },
           {
             field: 'featured_residents',
-            reason: 'This entry does not have a value for this set.',
+            reason:
+              'There is a problem with all residents on this mix entry. Please address immediately.',
+          },
+        ],
+      })
+    })
+
+    it('for mixes with only one good resident', () => {
+      let invalidMix = testData.invalid.mix.only_one_good_resident
+
+      expect(cmsNodeValidator(invalidMix)).to.eql({
+        info: [
+          {
+            field: 'copyright',
+            reason:
+              'If possible, copyright data should be added to this image (photographer, date, location, etc). Copyright info allows for proper attribution.',
+          },
+        ],
+        warnings: [
+          { field: 'tags', reason: 'There are no tags for this mix.' },
+          {
+            field: 'alt',
+            reason:
+              'Alt text (alternative text) describes an image on a web page and is critically important to set for each image.',
+          },
+          {
+            field: 'featured_residents',
+            reason:
+              'There is a problem with 4 resident entries on this mix entry. Please address immediately.',
           },
         ],
       })

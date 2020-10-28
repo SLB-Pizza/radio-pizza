@@ -3,7 +3,6 @@ import { Link } from 'gatsby'
 import NanoClamp from 'nanoclamp'
 import { RichText } from 'prismic-reactjs'
 import { formatDateTime, linkResolver } from '../utils'
-import { faOm } from '@fortawesome/free-solid-svg-icons'
 
 function SingleEventCard({ eventColumnLayout, eventData }) {
   const {
@@ -43,7 +42,7 @@ function SingleEventCard({ eventColumnLayout, eventData }) {
                 />
                 {event_name && (
                   <NanoClamp
-                    className="title is-size-6-touch is-size-6-desktop is-size-5-widescreen"
+                    className="title is-size-6-touch is-size-6-desktop"
                     is="p"
                     lines={2}
                     text={RichText.asText(event_name)}

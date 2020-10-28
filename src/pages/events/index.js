@@ -4,7 +4,6 @@ import { RichText } from 'prismic-reactjs'
 import { SingleEventCard } from '../../components'
 import { linkResolver } from '../../utils'
 
-import dummyEvents from '../../../__test__/dummyEvents.json'
 /**
  * @category Pages
  * @subcategory Indexes
@@ -17,8 +16,7 @@ function EventsIndex({ data }) {
 
   const allEventsData = prismicContent
 
-  const eventPageLayout =
-    'column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen'
+  const eventPageLayout = 'column is-12-mobile is-6-tablet is-4-desktop'
 
   return (
     <div className="container is-fluid black-bg-page">
@@ -28,16 +26,18 @@ function EventsIndex({ data }) {
             Halfmoon Events
           </p>
         </div>
-        {allEventsData.map(({ node }, index) => (
-          <SingleEventCard
-            key={`halfmoon-event-${index}`}
-            eventData={node}
-            eventColumnLayout={eventPageLayout}
-          />
-        ))}
-        {allEventsData.map(({ node }, index) => (
-          <pre>node {JSON.stringify(node, null, 2)}</pre>
-        ))}
+        {allEventsData &&
+          allEventsData.map(({ node }, index) => (
+            <SingleEventCard
+              key={`halfmoon-event-${index}`}
+              eventData={node}
+              eventColumnLayout={eventPageLayout}
+            />
+          ))}
+        {allEventsData &&
+          allEventsData.map(({ node }, index) => (
+            <pre key={index}>node {JSON.stringify(node, null, 2)}</pre>
+          ))}
       </div>
     </div>
   )

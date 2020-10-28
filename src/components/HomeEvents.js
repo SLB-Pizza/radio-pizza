@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
-import { HomeSingleEvent } from './index'
+import { SingleEventCard } from './index'
 
 function HomeEvents({ blurb, headline, homeEventsData }) {
+  const eventPageLayout = 'column is-9-mobile is-two-fifths-tablet is-4-desktop'
+
   return (
     <div className="container is-fluid" id="home-events">
       {/* DESKTOP */}
@@ -21,9 +23,14 @@ function HomeEvents({ blurb, headline, homeEventsData }) {
         </div>
         <div className="column is-9">
           <div className="columns is-multiline">
-            <HomeSingleEvent />
-            <HomeSingleEvent />
-            <HomeSingleEvent />
+            {homeEventsData &&
+              homeEventsData.map(({ node }, index) => (
+                <SingleEventCard
+                  key={`halfmoon-event-${index}`}
+                  eventData={node}
+                  eventColumnLayout={eventPageLayout}
+                />
+              ))}
           </div>
         </div>
       </div>
@@ -42,14 +49,14 @@ function HomeEvents({ blurb, headline, homeEventsData }) {
         </div>
       </div>
       <div className="columns is-mobile is-hidden-desktop mobile-single-items">
-        <HomeSingleEvent />
-        <HomeSingleEvent />
-        <HomeSingleEvent />
-        <HomeSingleEvent />
-        <HomeSingleEvent />
-        <HomeSingleEvent />
-        <HomeSingleEvent />
-        <HomeSingleEvent />
+        {homeEventsData &&
+          homeEventsData.map(({ node }, index) => (
+            <SingleEventCard
+              key={`halfmoon-event-${index}`}
+              eventData={node}
+              eventColumnLayout={eventPageLayout}
+            />
+          ))}
       </div>
     </div>
   )

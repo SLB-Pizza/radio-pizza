@@ -416,7 +416,7 @@ describe('mappableDataFilter', () => {
       })
     })
 
-    describe('return a non-zero numbers representing the number of bad entries there are', () => {
+    describe('return a non-zero number of bad entries', () => {
       const testCaseMaker = () => {
         let testCases = []
 
@@ -511,8 +511,8 @@ describe('mappableDataFilter', () => {
       hundredTestCases.forEach(test => {
         it(`${test.array.length} entries; ${test.invalid} invalid ${
           test.invalid === 1
-            ? 'entry removed and counted'
-            : 'entries removed and counted'
+            ? `entry counted and removed`
+            : `entries counted and removed `
         }`, () => {
           expect(mappableDataFilter(test.array, null, true)).to.equal(
             test.invalid

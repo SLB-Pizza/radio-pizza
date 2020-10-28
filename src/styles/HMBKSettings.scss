@@ -205,7 +205,7 @@ figcaption {
 .event-card-sizing {
   display: flex;
   flex-direction: column;
-  min-height: 8rem;
+  min-height: 9rem;
 
   .details {
     flex: 1;
@@ -261,6 +261,7 @@ figcaption {
   }
 
   img {
+    min-height: 9rem;
     object-fit: cover;
   }
 

@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
-import { CMSIssueMessage } from '../components'
-import { uidValidator } from '../utils'
+import { CMSIssueMessage } from '../../components'
+import { uidValidator } from '../../utils'
 
 function HMBKAdminPage({ data }) {
   const prismicContent = data.prismic._allDocuments

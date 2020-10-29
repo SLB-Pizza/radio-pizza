@@ -1,8 +1,15 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import { Link } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import { SingleEventCard } from './index'
 
+/**
+ * The Events section featuring the 6 most recent events.
+ * @function HomeEvents
+ * @param {*} { blurb, headline, homeEventsData }
+ * @returns {JSX}
+ */
 function HomeEvents({ blurb, headline, homeEventsData }) {
   const eventPageLayout = 'column is-9-mobile is-two-fifths-tablet is-4-desktop'
 
@@ -60,6 +67,14 @@ function HomeEvents({ blurb, headline, homeEventsData }) {
       </div>
     </div>
   )
+}
+
+HomeEvents.propTypes = {
+  blurb: PropTypes.any,
+  headline: PropTypes.any,
+  homeEventsData: PropTypes.shape({
+    map: PropTypes.func,
+  }),
 }
 
 export default HomeEvents

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -12,6 +12,12 @@ import { OutsideClick } from './index'
  * @function BottomNav
  */
 function BottomNav() {
+  const [dropUpOpen, setDropUpOpen] = useState(false)
+
+  const toggleDropUp = () => {
+    setDropUpOpen(state => !state)
+  }
+
   const dispatch = useContext(GlobalDispatchContext)
   const globalState = useContext(GlobalStateContext)
 
@@ -78,13 +84,35 @@ function BottomNav() {
               Residents
             </Link>
 
-            <Link
-              to="/mixes"
-              className="navbar-item"
-              onClick={() => toggleNavMenu()}
+            <div
+              className={
+                dropUpOpen
+                  ? 'navbar-item has-dropdown has-dropdown-up is-active'
+                  : 'navbar-item has-dropdown has-dropdown-up'
+              }
             >
-              Mixes
-            </Link>
+              <a className="navbar-item" onClick={() => toggleDropUp()}>
+                Music
+              </a>
+              <div className="navbar-dropdown">
+                <Link
+                  to="/mixes"
+                  className="navbar-item"
+                  onClick={() => toggleNavMenu()}
+                >
+                  Music
+                </Link>
+
+                <Link
+                  to="/collections"
+                  className="navbar-item"
+                  onClick={() => toggleNavMenu()}
+                >
+                  Collections
+                </Link>
+              </div>
+            </div>
+
             <Link
               to="/events"
               className="navbar-item"
@@ -106,31 +134,6 @@ function BottomNav() {
             >
               About
             </Link>
-
-            {/*
-          <div className="navbar-item has-dropdown has-dropdown-up is-hoverable">
-            <a className="navbar-link">Content</a>
-            <div className="navbar-dropdown">
-              <a className="navbar-item" onClick={() => toggleNavMenu()}>
-                Recent Mixes
-              </a>
-              <a
-                href="#"
-                className="navbar-item"
-                onClick={() => toggleNavMenu()}
-              >
-                Live Events
-              </a>
-              <a
-                href="#"
-                className="navbar-item"
-                onClick={() => toggleNavMenu()}
-              >
-                Features
-              </a>
-            </div>
-          </div>
-          */}
           </div>
           <div className="navbar-end is-hidden-touch">
             <a

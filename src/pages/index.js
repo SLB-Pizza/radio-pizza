@@ -51,7 +51,6 @@ function IndexPage({ data }) {
         blurb={home_events_blurb}
         homeEventsData={homeEventsData}
       />
-      {/* <pre>{JSON.stringify(data.prismic, null, 2)}</pre> */}
       <HomeNews
         headline={home_features_headline}
         blurb={home_features_blurb}

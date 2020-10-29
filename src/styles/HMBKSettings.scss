@@ -5,9 +5,19 @@
 //==================================
 @import "./bulma.sass";
 
+$border: white;
 $pink: #f600ff;
 $primary: $pink;
 $body-background-color: black;
+
+//==================================
+// navbar variables
+//==================================
+$navbar-dropdown-background-color: black;
+$navbar-dropdown-item-hover-color: white;
+$navbar-dropdown-item-hover-background-color: darken($primary, 25);
+$navbar-item-active-background-color: darken($primary, 25);
+
 //==================================
 // text variables
 //==================================
@@ -73,13 +83,6 @@ $card-radius: 0.75rem;
 //==================================
 // FONTS
 //==================================
-// @font-face {
-//   font-family: "Authentic Sans Condensed - 60";
-//   src: url("../fonts/AUTHENTICSans-Condensed-60.woff") format("woff")
-//     url("../fonts/AUTHENTICSans-Condensed-60.woff2") format("woff2");
-// }
-@import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Aldrich&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,700;0,900;1,300;1,500;1,700;1,900&display=swap");
 
 //==================================

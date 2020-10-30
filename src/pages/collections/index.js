@@ -61,7 +61,6 @@ export const query = graphql`
             collection_playlist {
               endless_mix_entry {
                 ... on PRISMIC_Mix {
-                  mix_title
                   _meta {
                     tags
                     type

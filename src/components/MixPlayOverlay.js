@@ -66,7 +66,10 @@ MixPlayOverlay.propTypes = {
     now_playing: PropTypes.shape({
       url: PropTypes.string,
     }),
-    url: PropTypes.string,
+    url: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.arrayOf(PropTypes.string),
+    ]),
   }),
   residents: PropTypes.string,
   title: PropTypes.string,

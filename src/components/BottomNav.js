@@ -100,7 +100,7 @@ function BottomNav() {
                   className="navbar-item"
                   onClick={() => toggleNavMenu()}
                 >
-                  Music
+                  Mixes
                 </Link>
 
                 <Link

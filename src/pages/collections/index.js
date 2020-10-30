@@ -48,9 +48,11 @@ export const query = graphql`
         edges {
           node {
             _meta {
+              tags
+              lastPublicationDate
+              firstPublicationDate
               uid
               type
-              tags
             }
             collection_blurb
             collection_img
@@ -59,7 +61,6 @@ export const query = graphql`
             collection_playlist {
               endless_mix_entry {
                 ... on PRISMIC_Mix {
-                  mix_image
                   mix_title
                   _meta {
                     tags

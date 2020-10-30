@@ -66,7 +66,7 @@ function HMBKAdminPage({ data }) {
           </div>
           <div className="column is-2">
             <aside className="menu is-hidden-mobile">
-              <p className="menu-label">CMS Dashboard</p>
+              <p className="menu-label">Dashboard</p>
               <ul className="menu-list">
                 {problemMixes.length && (
                   <li>
@@ -84,8 +84,7 @@ function HMBKAdminPage({ data }) {
           <div className="column is-10">
             <div className="columns is-mobile is-multiline">
               <div className="column is-12 content has-text-centered">
-                <p className="title">{docCount}</p>
-                <p className="subtitle">HMBK CMS Entries</p>
+                <p className="title">{docCount} HMBK CMS Entries</p>
               </div>
             </div>
           </div>

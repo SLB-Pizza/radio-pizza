@@ -23,13 +23,41 @@ function SingleCollection({ singleCollection }) {
 
   return (
     <div className="columns is-mobile curated-mix">
-      <div className="column is-9 content">
-        <h3 className="title">{collection_title}</h3>
-        <p className="subtitle is-6"></p>
-        <p className="subtitle is-7">{mixCount}</p>
+      <div className="column is-9">
+        <div className="content">
+          <p className="title">{collection_title}</p>
+          <p className="subtitle is-6">{mixCount}</p>
+          {collection_blurb && (
+            <RichText
+              render={collection_blurb}
+              htmlSerializer={htmlSerializer}
+            />
+          )}
+        </div>
 
-        <RichText render={collection_blurb} htmlSerializer={htmlSerializer} />
+        {collection_playlist.map(({ endless_mix_entry }, index) => {
+          const {
+            _meta,
+            mix_title,
+            mix_link,
+            featured_residents,
+          } = endless_mix_entry
 
+          // Add the mix_link to this
+          mixLinks.push(mix_link)
+
+          // Add the tags to the tags set
+          _meta.tags.map(tag => {
+            mixTags.add(tag.toLowerCase())
+          })
+
+          // Add the residents to the resident set
+          featured_residents.map(({ mix_resident }) => {
+            // let nameToCheck = mix_resident.resident_name
+            // if()
+            mixResidents.add(mix_resident)
+          })
+        })}
         <pre>Links {JSON.stringify(mixLinks, null, 2)}</pre>
         <pre>
           Residents {JSON.stringify([...mixResidents.values()], null, 2)}

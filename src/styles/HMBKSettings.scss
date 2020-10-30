@@ -5,12 +5,11 @@
 //==================================
 @import "./bulma.sass";
 
-$family-sans-serif: "Poppins", sans-serif;
 $border: white;
 $pink: #f600ff;
 $primary: $pink;
 $body-background-color: black;
-
+$family-sans-serif: "Poppins", sans-serif;
 //==================================
 // navbar variables
 //==================================
@@ -101,6 +100,11 @@ $card-radius: 0.75rem;
   padding-top: 7rem;
   padding-bottom: 5rem;
   min-height: 100vh;
+}
+
+p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
 }
 
 button.button,

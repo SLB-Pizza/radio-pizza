@@ -1,7 +1,11 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-function CMSIssueMessage({ node, issueData }) {
+function CMSIssueMessage({ issueData }) {
+  const { nodeName, node, entryIssues, uidIssue } = issueData
+
   let message = 'message'
+  let icon = 'info-circle'
 
   switch (issueData.type) {
     case 'warning':
@@ -12,16 +16,70 @@ function CMSIssueMessage({ node, issueData }) {
       break
   }
 
+  function getIcon(type) {
+    switch (type) {
+      case 'warning':
+        return 'info-circle'
+      case 'danger':
+        return 'exclamation-triangle'
+      default:
+        return 'info-circle'
+    }
+  }
+
   return (
     <article className={message}>
       <div className="message-header">
-        <p className="subtitle has-text-black">{`Issue: ${issueData.reason}`}</p>
+        <p className="subtitle has-text-black">
+          {`Mix Entry: ${issueData.nodeName}`}
+        </p>
       </div>
-      <div className="message-body content">
-        <p className="has-text-black">{`Mix Entry: ${issueData.entry}`}</p>
+      <div className="message-body">
+        {entryIssues.length &&
+          entryIssues.map(issue => (
+            <pre>{JSON.stringify(issue, null, 2)}</pre>
+            // <article className="media">
+            //   <figure className="media-left">
+            //     <span className="icon">
+            //       <FontAwesomeIcon icon="info-circle" size="lg" />
+            //     </span>
+            //   </figure>
+            //   <div className="media-content">
+            //     <div className="content">
+            //       <p className="subtitle has-text-black">
+            //         {entryIssues.reason}
+            //       </p>
+            //     </div>
+            //   </div>
+            // </article>
+          ))}
+        {uidIssue.type && (
+          <pre>{JSON.stringify(uidIssue, null, 2)}</pre>
+          // <article className="media">
+          //   <figure className="media-left">
+          //     <span className="icon">
+          //       <FontAwesomeIcon icon={getIcon(uidIssue.type)} size="2x" />
+          //     </span>
+          //   </figure>
+          //   <div className="media-content">
+          //     <div className="content">
+          //       <p className="title is-5 has-text-black">{uidIssue.reason}</p>
+          //       <p className="subtitle is-6 has-text-black">
+          //         To fix this issue, open this entry in the CMS and change the
+          //         current UID to the suggested UID, then save and publish the
+          //         changes.
+          //       </p>
+          //       <p className="has-text-black">Current UID</p>
+          //       <pre>{node._meta.uid}</pre>
+          //       <p className="has-text-black">Suggested UID</p>
+          //       <pre>{uidIssue.result}</pre>
+          //     </div>
+          //   </div>
+          // </article>
+        )}
+        {/* <p className="has-text-black"></p>
         <hr className="has-background-black" />
         <h6 className="subtitle is-6">text</h6>
-        <pre>{JSON.stringify(issueData, null, 2)}</pre>
         <div className="tile is-ancestor has-text-centered">
           <div className="tile is-parent has-background-warning-dark">
             <article className="tile is-child box ">
@@ -32,10 +90,10 @@ function CMSIssueMessage({ node, issueData }) {
           <div className="tile is-parent has-background-warning-dark">
             <article className="tile is-child box">
               <p className="subtitle">Suggested UID</p>
-              <pre>{issueData.result}</pre>
+              <pre>{JSON.stringify(issueData.result, null, 2)}</pre>
             </article>
           </div>
-        </div>
+        </div> */}
       </div>
     </article>
   )

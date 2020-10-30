@@ -90,6 +90,8 @@
  * @returns {Boolean|Array}
  */
 function mappableDataFilter(dataArray, objectKeyCount, nodeValidation) {
+  // If nodeValidation === true and this isn't 0 after filtering dataArray,
+  // return this value
   let invalidEntryCount = 0
 
   // Immediately reject dataArray if it's not an array OR empty

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
 import { CMSIssueMessage } from '../../components'
-import { uidValidator } from '../../utils'
+import { cmsNodeValidator, getMixTitle, uidValidator } from '../../utils'
 
 function HMBKAdminPage({ data }) {
   const prismicContent = data.prismic._allDocuments
@@ -18,20 +18,39 @@ function HMBKAdminPage({ data }) {
   let problemSchedules = []
   let problemStaffs = []
 
-  prismicContent.edges.forEach(({ node }) => {
-    switch (node._meta.type) {
-      case 'mix':
-        problemMixes.push(node)
-      case 'event':
-        problemEvents.push(node)
-      case 'resident':
-        problemResidents.push(node)
-      case 'endless_mix':
-        problemCollections.push(node)
-      default:
-        return
+  // Process each node
+  for (let i = 0; i < prismicContent.edges.length; i++) {
+    const node = prismicContent.edges[i].node
+
+    const entryIssues = cmsNodeValidator(node)
+    const uidIssue = uidValidator(node)
+
+    // If the node has no issues, continue to the next loop
+    // else determine the node type and
+    // push it to the correct array to process
+    if (!entryIssues && !uidIssue) {
+      continue
+    } else {
+      switch (node._meta.type) {
+        case 'mix':
+          const nodeName = getMixTitle(node)
+          const issuePackage = { nodeName, node, entryIssues, uidIssue }
+          problemMixes.push(issuePackage)
+          break
+        case 'event':
+          problemEvents.push(issuePackage)
+          break
+        case 'resident':
+          problemResidents.push(issuePackage)
+          break
+        case 'endless_mix':
+          problemCollections.push(issuePackage)
+          break
+        default:
+          console.log(node._meta.type)
+      }
     }
-  })
+  }
 
   return (
     <main className="black-bg-page">
@@ -39,10 +58,8 @@ function HMBKAdminPage({ data }) {
       <header className="container is-fluid">
         <div className="columns is-mobile is-multiline">
           <div className="column is-12 content">
-            <h3 className="title is-size-3-desktop is-size-4-touch">
-              HalfmoonBK Admin Daskhboard
-            </h3>
-            <p className="subtitle is-size-5-desktop is-size-6-touch">
+            <h3 className="title is-4-touch">HalfmoonBK Admin Dashboard</h3>
+            <p className="subtitle is-6-touch">
               These dummy mixes are the same as the ones on the home page. You
               can hover/touch and play them the same way. Try it!
             </p>
@@ -64,68 +81,43 @@ function HMBKAdminPage({ data }) {
             </aside>
           </div>
 
-          <div className="column is-9">
+          <div className="column is-10">
             <div className="columns is-mobile is-multiline">
-              <div className="column is-12">
-                <section className="info-tiles">
-                  <div className="tile is-ancestor has-text-centered">
-                    <div className="tile is-parent">
-                      <article className="tile is-child box">
-                        <p className="title">{docCount}</p>
-                        <p className="subtitle">HMBK CMS Entries</p>
-                      </article>
-                    </div>
-                    <div className="tile is-parent">
-                      <article className="tile is-child box">
-                        <p className="title">59k</p>
-                        <p className="subtitle">Products</p>
-                      </article>
-                    </div>
-                    <div className="tile is-parent">
-                      <article className="tile is-child box">
-                        <p className="title">3.4k</p>
-                        <p className="subtitle">Open Orders</p>
-                      </article>
-                    </div>
-                  </div>
-                </section>
+              <div className="column is-12 content has-text-centered">
+                <p className="title">{docCount}</p>
+                <p className="subtitle">HMBK CMS Entries</p>
               </div>
             </div>
           </div>
-          {problemMixes.length && (
-            <div className="column is-12">
-              <div className="content">
-                <h1 className="title">
-                  <a href="#mixes"># </a>Mixes
-                </h1>
-              </div>
-              {problemMixes.map((node, index) => {
-                let checkUID = uidValidator(node)
-
-                if (checkUID) {
-                  return (
-                    <CMSIssueMessage
-                      key={`problem-mixes-${index}`}
-                      node={node}
-                      issueData={checkUID}
-                    />
-                  )
-                }
-              })}
-            </div>
-          )}
-          {problemResidents.length && (
-            <div className="column is-12">
-              <div className="content">
-                <h1 className="title">Residents</h1>
-              </div>
-            </div>
-          )}
+        </div>
+        {problemMixes.length && (
           <div className="column is-12">
-            <section className="section content">
-              <pre>{JSON.stringify(prismicContent.edges, null, 2)}</pre>
-            </section>
+            <div className="content">
+              <h1 className="title">
+                <a href="#mixes"># </a>Mixes
+              </h1>
+            </div>
+            {problemMixes.map((issuePackage, index) => {
+              return (
+                <CMSIssueMessage
+                  key={`problem-mixes-${index}`}
+                  issueData={issuePackage}
+                />
+              )
+            })}
           </div>
+        )}
+        {problemResidents.length && (
+          <div className="column is-12">
+            <div className="content">
+              <h1 className="title">Residents</h1>
+            </div>
+          </div>
+        )}
+        <div className="column is-12">
+          <section className="section content">
+            <pre>{JSON.stringify(prismicContent.edges, null, 2)}</pre>
+          </section>
         </div>
       </header>
     </main>
@@ -157,6 +149,7 @@ export const query = graphql`
             _meta {
               uid
               type
+              tags
               lastPublicationDate
               firstPublicationDate
             }

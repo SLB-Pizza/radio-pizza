@@ -1,0 +1,35 @@
+{
+  "tags": {
+    "no_tags": {
+      "level": "warning",
+      "error": "There are no tags for this mix.",
+      "message": "Open this entry in the CMS and add up to 4 short tags."
+    },
+    "too_many": {
+      "level": "warning",
+      "error": "There are too many tags for this mix. Please keep it to a maximum of 4.",
+      "message": "Open this entry in the CMS and remove tags until there are 4 or less."
+    }
+  },
+  "alt": {
+    "level": "danger",
+    "error": "No alt text specified for this image.",
+    "message": "Alt text (alternative text) describes an image on a web page and is critically important to set for each image. Open this image in the Media Library and add descriptive text to the alt text field.",
+    "moreInfo": "https://ahrefs.com/blog/alt-text/"
+  },
+  "copyright": {
+    "level": "warning",
+    "error": "No copyright data set.",
+    "message": "If possible, copyright data should be added to this image (photographer, date, location, etc). Copyright info allows for proper attribution. Open this image in the Media Library and add descriptive text to the copyright field."
+  },
+  "featured_residents": {
+    "level": "danger",
+    "error": "There is a problem in the Residents section of this entry."
+  },
+  "uid": {},
+  "default": {
+    "level": "warning",
+    "error": "This entry does not have a value set for this field.",
+    "message": "Open this entry in the CMS and assign a value to this field."
+  }
+}

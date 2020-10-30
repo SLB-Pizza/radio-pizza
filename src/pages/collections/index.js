@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { graphql } from 'gatsby'
+import { SingleCollection } from '../../components'
 
 /**
  * @category Pages
@@ -9,21 +10,33 @@ import { graphql } from 'gatsby'
  * @returns {jsx}
  */
 function CollectionsIndexPage({ data }) {
+  const prismicContent = data.prismic.allEndless_mixs
+  if (!prismicContent) return null
+
+  const allCollectionsData = prismicContent.edges
+
   return (
     <main className="black-bg-page">
       {/* FIRST SECTION - Header Section */}
-      <header className="container is-fluid">
-        <div className="columns is-mobile is-multiline">
+      <section className="container is-fluid">
+        <header className="columns is-mobile">
           <div className="column is-12 content">
-            <h3 className="title is-size-3-desktop is-size-4-touch">
-              Curated Collections
-            </h3>
-            <p className="subtitle is-size-5-desktop is-size-6-touch">
+            <p className="title is-4-touch">Curated Collections</p>
+            <p className="subtitle is-6-touch">
               Where Curated Collections will be displayed
             </p>
           </div>
-        </div>
-      </header>
+        </header>
+
+        {allCollectionsData.length &&
+          allCollectionsData.map(({ node }, index) => (
+            <SingleCollection
+              key={`collection-${index}`}
+              singleCollection={node}
+            />
+          ))}
+        <pre>{JSON.stringify(allCollectionsData, null, 2)}</pre>
+      </section>
     </main>
   )
 }

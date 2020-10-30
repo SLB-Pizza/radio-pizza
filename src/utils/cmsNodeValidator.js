@@ -35,13 +35,21 @@ function cmsNodeValidator(node) {
         }
         break
       case 'alt':
-        if (typeof node.mix_image.copyright !== 'string') {
+        if (!node.mix_image) {
+          console.log('no mix_image field')
+          break
+        }
+        if (typeof node.mix_image.alt !== 'string') {
           issue =
             'Alt text (alternative text) describes an image on a web page and is critically important to set for each image.'
           notices.warnings.push(issueMaker(key, issue))
         }
         break
       case 'copyright':
+        if (!node.mix_image) {
+          console.log('no mix_image field')
+          break
+        }
         if (typeof node.mix_image.copyright !== 'string') {
           issue =
             'If possible, copyright data should be added to this image (photographer, date, location, etc). Copyright info allows for proper attribution.'
@@ -70,8 +78,10 @@ function cmsNodeValidator(node) {
   }
 
   // Loop through the node object to do checks
-  for (const [keyType, value] of Object.entries(checkTemplate)) {
-    nodeChecker(keyType, value, node)
+  if (checkTemplate !== undefined) {
+    for (const [keyType, value] of Object.entries(checkTemplate)) {
+      nodeChecker(keyType, value, node)
+    }
   }
 
   // If notices has no entries, return 0; else return the notices object

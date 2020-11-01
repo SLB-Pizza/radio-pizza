@@ -1,0 +1,991 @@
+{
+  "mixes": {
+    "all_unique_mixes": [
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": ["hip-hop", "rap"],
+            "type": "mix",
+            "uid": "roland-jones---murda-season-iii"
+          },
+          "mix_link": "https://soundcloud.com/rolandjones/murda-season-chapter-iii",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "Roland Jones",
+                "_meta": {
+                  "uid": "roland-jones",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": [],
+            "type": "mix",
+            "uid": "jayda-b--10-21-2020"
+          },
+          "mix_link": "https://soundcloud.com/jayda_b/waxx-fm-vol-4-62719",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "Jayda B",
+                "_meta": {
+                  "uid": "jayda-b",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": [
+              "hardbass",
+              "electronic",
+              "vocals",
+              "live set",
+              "one really long tag"
+            ],
+            "type": "mix",
+            "uid": "dev-mix-long-long-field-text"
+          },
+          "mix_link": "https://soundcloud.com/dave-aliveintheory/russian-hard-bass-2019-live-mix-by-dj-slavine",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "DJ Slavine | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this ---",
+                "_meta": {
+                  "uid": "dev-resident-dj-slavine",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": [],
+            "type": "mix",
+            "uid": "dev-mixes-terraformer"
+          },
+          "mix_link": "https://soundcloud.com/thank-you-scientist/sets/terraformer-3",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "Thank You Scientist",
+                "_meta": {
+                  "uid": "dev-res-thank-you-scientist",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": ["instrumental", "post rock", "prog rock", "math rock"],
+            "type": "mix",
+            "uid": "dev-letargo-by-jardin-de-la-croix"
+          },
+          "mix_link": "https://soundcloud.com/jardindelacroixofficial/sets/letargo-6",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "Jardin de la Croix",
+                "_meta": {
+                  "uid": "dev-resident-jardin-de-la-croix",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "two_alternating_mixes": [
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": ["hip-hop", "rap"],
+            "type": "mix",
+            "uid": "roland-jones---murda-season-iii"
+          },
+          "mix_link": "https://soundcloud.com/rolandjones/murda-season-chapter-iii",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "Roland Jones",
+                "_meta": {
+                  "uid": "roland-jones",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": [],
+            "type": "mix",
+            "uid": "jayda-b--10-21-2020"
+          },
+          "mix_link": "https://soundcloud.com/jayda_b/waxx-fm-vol-4-62719",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "Jayda B",
+                "_meta": {
+                  "uid": "jayda-b",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": [
+              "hardbass",
+              "electronic",
+              "vocals",
+              "live set",
+              "one really long tag"
+            ],
+            "type": "mix",
+            "uid": "dev-mix-long-long-field-text"
+          },
+          "mix_link": "https://soundcloud.com/rolandjones/murda-season-chapter-iii",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "DJ Slavine | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this ---",
+                "_meta": {
+                  "uid": "dev-resident-dj-slavine",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": [],
+            "type": "mix",
+            "uid": "dev-mixes-terraformer"
+          },
+          "mix_link": "https://soundcloud.com/jayda_b/waxx-fm-vol-4-62719",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "Thank You Scientist",
+                "_meta": {
+                  "uid": "dev-res-thank-you-scientist",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": ["instrumental", "post rock", "prog rock", "math rock"],
+            "type": "mix",
+            "uid": "dev-letargo-by-jardin-de-la-croix"
+          },
+          "mix_link": "https://soundcloud.com/rolandjones/murda-season-chapter-iii",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "Jardin de la Croix",
+                "_meta": {
+                  "uid": "dev-resident-jardin-de-la-croix",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "all_the_same_mix": [
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": ["hip-hop", "rap"],
+            "type": "mix",
+            "uid": "roland-jones---murda-season-iii"
+          },
+          "mix_link": "https://soundcloud.com/thank-you-scientist/sets/terraformer-3",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "Roland Jones",
+                "_meta": {
+                  "uid": "roland-jones",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": [],
+            "type": "mix",
+            "uid": "jayda-b--10-21-2020"
+          },
+          "mix_link": "https://soundcloud.com/thank-you-scientist/sets/terraformer-3",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "Jayda B",
+                "_meta": {
+                  "uid": "jayda-b",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": [
+              "hardbass",
+              "electronic",
+              "vocals",
+              "live set",
+              "one really long tag"
+            ],
+            "type": "mix",
+            "uid": "dev-mix-long-long-field-text"
+          },
+          "mix_link": "https://soundcloud.com/thank-you-scientist/sets/terraformer-3",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "DJ Slavine | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this ---",
+                "_meta": {
+                  "uid": "dev-resident-dj-slavine",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": [],
+            "type": "mix",
+            "uid": "dev-mixes-terraformer"
+          },
+          "mix_link": "https://soundcloud.com/thank-you-scientist/sets/terraformer-3",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "Thank You Scientist",
+                "_meta": {
+                  "uid": "dev-res-thank-you-scientist",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": ["instrumental", "post rock", "prog rock", "math rock"],
+            "type": "mix",
+            "uid": "dev-letargo-by-jardin-de-la-croix"
+          },
+          "mix_link": "https://soundcloud.com/thank-you-scientist/sets/terraformer-3",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "Jardin de la Croix",
+                "_meta": {
+                  "uid": "dev-resident-jardin-de-la-croix",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "tags": {
+    "no_tag_mixes": [
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": [],
+            "type": "mix",
+            "uid": "dev-endless-test-silk-wave"
+          },
+          "mix_link": "https://www.youtube.com/watch?v=ICkNi17Gsrc",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "KOAN Sound",
+                "_meta": {
+                  "uid": "dev-res-koan-sound",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": [],
+            "type": "mix",
+            "uid": "dev-endless-test-cosmic-tuba"
+          },
+          "mix_link": "https://www.youtube.com/watch?v=fNPf6DJLpRA",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "KOAN Sound",
+                "_meta": {
+                  "uid": "dev-res-koan-sound",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": [],
+            "type": "mix",
+            "uid": "dev-endless-test-grounded-feat-javeon"
+          },
+          "mix_link": "https://www.youtube.com/watch?v=K05sV1rVog0",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "KOAN Sound",
+                "_meta": {
+                  "uid": "dev-res-koan-sound",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": [],
+            "type": "mix",
+            "uid": "dev-endless-test-taken-under"
+          },
+          "mix_link": "https://www.youtube.com/watch?v=npgyfbNOy9k",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "KOAN Sound",
+                "_meta": {
+                  "uid": "dev-res-koan-sound",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "one_tag_mixes": [
+      {
+        "endless_mix_entry": {
+          "mix_title": "Murda Season III",
+          "_meta": {
+            "tags": ["hip-hop"],
+            "type": "mix",
+            "uid": "roland-jones---murda-season-iii"
+          },
+          "mix_link": "https://soundcloud.com/rolandjones/murda-season-chapter-iii",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "Roland Jones",
+                "_meta": {
+                  "uid": "roland-jones",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "mix_title": null,
+          "_meta": {
+            "tags": ["rap"],
+            "type": "mix",
+            "uid": "jayda-b--10-21-2020"
+          },
+          "mix_link": "https://soundcloud.com/jayda_b/waxx-fm-vol-4-62719",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "Jayda B",
+                "_meta": {
+                  "uid": "jayda-b",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "mix_title": "Russian Hard Bass 2019 LIVE Mix | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this ---| TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this ---",
+          "_meta": {
+            "tags": ["hardbass"],
+            "type": "mix",
+            "uid": "dev-mix-long-long-field-text"
+          },
+          "mix_link": "https://soundcloud.com/dave-aliveintheory/russian-hard-bass-2019-live-mix-by-dj-slavine",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "DJ Slavine | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this ---",
+                "_meta": {
+                  "uid": "dev-resident-dj-slavine",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "mix_title": "Terraformer",
+          "_meta": {
+            "tags": ["prog rock"],
+            "type": "mix",
+            "uid": "dev-mixes-terraformer"
+          },
+          "mix_link": "https://soundcloud.com/thank-you-scientist/sets/terraformer-3",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "Thank You Scientist",
+                "_meta": {
+                  "uid": "dev-res-thank-you-scientist",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "mix_title": "Letargo",
+          "_meta": {
+            "tags": ["math rock"],
+            "type": "mix",
+            "uid": "dev-letargo-by-jardin-de-la-croix"
+          },
+          "mix_link": "https://soundcloud.com/jardindelacroixofficial/sets/letargo-6",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "Jardin de la Croix",
+                "_meta": {
+                  "uid": "dev-resident-jardin-de-la-croix",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "multi_tag_mixes": [
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": ["hip-hop", "rap"],
+            "type": "mix",
+            "uid": "roland-jones---murda-season-iii"
+          },
+          "mix_link": "https://soundcloud.com/rolandjones/murda-season-chapter-iii",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "Roland Jones",
+                "_meta": {
+                  "uid": "roland-jones",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": [],
+            "type": "mix",
+            "uid": "jayda-b--10-21-2020"
+          },
+          "mix_link": "https://soundcloud.com/jayda_b/waxx-fm-vol-4-62719",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "Jayda B",
+                "_meta": {
+                  "uid": "jayda-b",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": [
+              "hardbass",
+              "electronic",
+              "vocals",
+              "live set",
+              "one really long tag"
+            ],
+            "type": "mix",
+            "uid": "dev-mix-long-long-field-text"
+          },
+          "mix_link": "https://soundcloud.com/dave-aliveintheory/russian-hard-bass-2019-live-mix-by-dj-slavine",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "DJ Slavine | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this ---",
+                "_meta": {
+                  "uid": "dev-resident-dj-slavine",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": [],
+            "type": "mix",
+            "uid": "dev-mixes-terraformer"
+          },
+          "mix_link": "https://soundcloud.com/thank-you-scientist/sets/terraformer-3",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "Thank You Scientist",
+                "_meta": {
+                  "uid": "dev-res-thank-you-scientist",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": ["instrumental", "post rock", "prog rock", "math rock"],
+            "type": "mix",
+            "uid": "dev-letargo-by-jardin-de-la-croix"
+          },
+          "mix_link": "https://soundcloud.com/jardindelacroixofficial/sets/letargo-6",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "Jardin de la Croix",
+                "_meta": {
+                  "uid": "dev-resident-jardin-de-la-croix",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "residents": {
+    "two_mixes_four_residents": [
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": [],
+            "type": "mix",
+            "uid": "jayda-b--10-21-2020"
+          },
+          "mix_link": "https://soundcloud.com/jayda_b/waxx-fm-vol-4-62719",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "Jayda B",
+                "_meta": {
+                  "uid": "jayda-b",
+                  "type": "resident"
+                }
+              }
+            },
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "Roland Jones",
+                "_meta": {
+                  "uid": "roland-jones",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": [],
+            "type": "mix",
+            "uid": "dev-mixes-terraformer"
+          },
+          "mix_link": "https://soundcloud.com/thank-you-scientist/sets/terraformer-3",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "Thank You Scientist",
+                "_meta": {
+                  "uid": "dev-res-thank-you-scientist",
+                  "type": "resident"
+                }
+              }
+            },
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "Jardin de la Croix",
+                "_meta": {
+                  "uid": "dev-resident-jardin-de-la-croix",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "all_unique_residents": [
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": ["hip-hop", "rap"],
+            "type": "mix",
+            "uid": "roland-jones---murda-season-iii"
+          },
+          "mix_link": "https://soundcloud.com/rolandjones/murda-season-chapter-iii",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "Roland Jones",
+                "_meta": {
+                  "uid": "roland-jones",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": [],
+            "type": "mix",
+            "uid": "jayda-b--10-21-2020"
+          },
+          "mix_link": "https://soundcloud.com/jayda_b/waxx-fm-vol-4-62719",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "Jayda B",
+                "_meta": {
+                  "uid": "jayda-b",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": [
+              "hardbass",
+              "electronic",
+              "vocals",
+              "live set",
+              "one really long tag"
+            ],
+            "type": "mix",
+            "uid": "dev-mix-long-long-field-text"
+          },
+          "mix_link": "https://soundcloud.com/dave-aliveintheory/russian-hard-bass-2019-live-mix-by-dj-slavine",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "DJ Slavine | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this ---",
+                "_meta": {
+                  "uid": "dev-resident-dj-slavine",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": [],
+            "type": "mix",
+            "uid": "dev-mixes-terraformer"
+          },
+          "mix_link": "https://soundcloud.com/thank-you-scientist/sets/terraformer-3",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "Thank You Scientist",
+                "_meta": {
+                  "uid": "dev-res-thank-you-scientist",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": ["instrumental", "post rock", "prog rock", "math rock"],
+            "type": "mix",
+            "uid": "dev-letargo-by-jardin-de-la-croix"
+          },
+          "mix_link": "https://soundcloud.com/jardindelacroixofficial/sets/letargo-6",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "Jardin de la Croix",
+                "_meta": {
+                  "uid": "dev-resident-jardin-de-la-croix",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "all_mixes_same_resident": [
+      {
+        "endless_mix_entry": {
+          "mix_title": "Silk Wave",
+          "_meta": {
+            "tags": [],
+            "type": "mix",
+            "uid": "dev-endless-test-silk-wave"
+          },
+          "mix_link": "https://www.youtube.com/watch?v=ICkNi17Gsrc",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "KOAN Sound",
+                "_meta": {
+                  "uid": "dev-res-koan-sound",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "mix_title": "Cosmic Tuba",
+          "_meta": {
+            "tags": [],
+            "type": "mix",
+            "uid": "dev-endless-test-cosmic-tuba"
+          },
+          "mix_link": "https://www.youtube.com/watch?v=fNPf6DJLpRA",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "KOAN Sound",
+                "_meta": {
+                  "uid": "dev-res-koan-sound",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "mix_title": "Grounded ft. Javeon",
+          "_meta": {
+            "tags": [],
+            "type": "mix",
+            "uid": "dev-endless-test-grounded-feat-javeon"
+          },
+          "mix_link": "https://www.youtube.com/watch?v=K05sV1rVog0",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "KOAN Sound",
+                "_meta": {
+                  "uid": "dev-res-koan-sound",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "endless_mix_entry": {
+          "mix_title": "Taken Under ft. Anna Lisa",
+          "_meta": {
+            "tags": [],
+            "type": "mix",
+            "uid": "dev-endless-test-taken-under"
+          },
+          "mix_link": "https://www.youtube.com/watch?v=npgyfbNOy9k",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "KOAN Sound",
+                "_meta": {
+                  "uid": "dev-res-koan-sound",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

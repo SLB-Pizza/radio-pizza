@@ -37,7 +37,7 @@ function SingleCollection({ singleCollection }) {
           )}
         </div>
 
-        {collection_playlist.map(({ endless_mix_entry }, index) => {
+        {collection_playlist.map(({ endless_mix_entry }) => {
           const { _meta, mix_link, featured_residents } = endless_mix_entry
 
           // Add the mix_link to this

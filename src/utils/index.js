@@ -13,6 +13,7 @@ export { default as linkResolver } from './linkResolver'
  */
 export { default as cmsNodeValidator } from './cmsNodeValidator'
 export { default as devEntryDetails } from './devEntryDetails'
+export { default as displayCollectionPlaylistDetails } from './displayCollectionPlaylistDetails'
 export { default as formatDateTime } from './formatDateTime'
 export { default as formatNextShow } from './formatNextShow'
 export { default as getBlockquoteStyling } from './getBlockquoteStyling'

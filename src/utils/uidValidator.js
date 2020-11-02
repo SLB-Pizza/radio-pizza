@@ -49,7 +49,7 @@ function uidValidator(cmsNode) {
       if (_meta.uid.substr(0, endIdx) === `dev-${_meta.type}`) {
         return devEntryDetails(cmsNode)
       } else if (rest.mix_title === null) {
-        const residentString = getResidentString(rest.featured_residents, true)
+        const residentString = getResidentString(rest.featured_residents, 'uid')
         const suggestedUID = uidAssembler(residentString, rest.mix_date)
 
         return uidAnalyzer(suggestedUID, _meta.uid, rest.mix_link)

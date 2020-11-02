@@ -4,11 +4,11 @@
  * @subcategory Data Processing
  * @function getResidentString
  * @param {Object[]} residentsArr - Array of resident objects, each containing their _meta data to create links to their page and the resident's name
- * @param {?Boolean} forUID - Optional boolean that changes the way the residents string is formatted and returned
+ * @param {?String} useCase - Optional boolean that changes the way the residents string is formatted and returned
  * @returns {string}
  */
 
-function getResidentString(residentsArr, forUID) {
+function getResidentString(residentsArr, useCase) {
   let residents = []
 
   /**
@@ -27,7 +27,7 @@ function getResidentString(residentsArr, forUID) {
    *  push to residents array
    *  join all residents with a hyphen
    */
-  if (forUID) {
+  if (useCase === 'uid') {
     if (residentsArr.length > 1) {
       // SINGLE RESIDENT
       residentsArr.forEach(({ mix_resident }) => {

@@ -13,26 +13,35 @@ function displayCollectionPlaylistDetails(playlistArray) {
   playlistArray.map(({ endless_mix_entry }) => {
     const { _meta, mix_link, featured_residents } = endless_mix_entry
 
-    // Add the mix_link to this
+    // Add the mix_link to mixLinks
     mixLinks.push(mix_link)
 
-    // Add the tags to the tags set
+    // Make each tag lowercase and add it to the tags set
     _meta.tags.map(tag => {
       mixTags.add(tag.toLowerCase())
     })
 
-    // Add the residents to the resident set
+    /**
+     * Add the residents to the resident set
+     * Grab mix_residents' uid
+     * See if the uidChecks Set has it
+     *  DOESN'T HAVE IT
+     *    - add the current uid to uidChecks Set to reference for next check
+     *    - add current mix_resident object to mixResidents Set
+     *  DOES HAVE IT
+     *    - means we've seen this uid -> we've already added this resident
+     *    - do nothing; go to next mix_resident in featured_residents and test
+     */
     featured_residents.map(({ mix_resident }) => {
       let nameToCheck = mix_resident._meta.uid
       if (!uidChecks.has(nameToCheck)) {
         uidChecks.add(nameToCheck)
         mixResidents.add(mix_resident)
-      } else {
-        uidChecks.add(nameToCheck)
       }
     })
   })
 
+  // Convert all sets to arrays and return in structured object
   return {
     mixes: mixLinks,
     tags: [...mixTags.values()],

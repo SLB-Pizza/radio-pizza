@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
+import { getCursorFromDocumentIndex } from '@prismicio/gatsby-source-prismic-graphql'
 import { graphql } from 'gatsby'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -15,17 +16,30 @@ import {
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to display all mixes on `/mixes`
  * @returns {jsx}
  */
-function MixesIndexPage({ data }) {
+function MixesIndexPage({ data, prismic }) {
+  const entryLimit = 20
+  const didMountRef = useRef(false)
+  const [page, setPage] = useState(-1)
+  const [mixesData, setMixesData] = useState(data.prismic.allMixs.edges)
   /**
    * **NB:** allMixs is NOT a typo.
    */
   const prismicContent = data.prismic
   if (!prismicContent) return null
 
-  /**
-   * Grab and manip the nodes array of mixs
-   */
-  const allMixesData = prismicContent.allMixs.edges
+  const onNextClick = () => setPage(page + entryLimit)
+
+  useEffect(() => {
+    if (!didMountRef.current) {
+      didMountRef.current = true
+      return
+    }
+
+    prismic
+      .load({ variables: { after: getCursorFromDocumentIndex(page) } })
+      // .then((res) => console.log(res.data));
+      .then(res => setMixesData([...mixesData, ...res.data.allMixs.edges]))
+  }, [page])
 
   const mixListLayout =
     'column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen'
@@ -58,10 +72,12 @@ function MixesIndexPage({ data }) {
               can hover/touch and play them the same way. Try it!
             </p>
           </div>
+          {/*
+          Inactive Search Bar!
           <div className="column is-9-widescreen is-8-tablet is-12-mobile">
             <div className="field">
               <div className="control is-expanded has-icons-left has-icons-right">
-                {/* <div className="control is-expanded has-icons-left has-icons-right is-loading is-medium"> */}
+                <div className="control is-expanded has-icons-left has-icons-right is-loading is-medium">
                 <input
                   className="input is-rounded"
                   type="text"
@@ -92,14 +108,14 @@ function MixesIndexPage({ data }) {
                 </span>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </header>
       {/* SECOND SECTION - Mix section */}
       <section className="container is-fluid">
         <div className="columns is-mobile is-multiline">
           {/* All Mixs data in pulled correctly */}
-          {allMixesData.map(({ node }, index) => {
+          {mixesData.map(({ node }, index) => {
             return (
               <SingleMixCard
                 key={`mixes-page-#${index}`}
@@ -109,17 +125,39 @@ function MixesIndexPage({ data }) {
             )
           })}
           <hr />
-          <pre>{JSON.stringify(allMixesData, null, 2)}</pre>
+          {/* <pre>{JSON.stringify(mixesData, null, 2)}</pre> */}
         </div>
+        <button
+          className="button is-large is-outlined is-black"
+          disabled={!data.prismic.allMixs.pageInfo.hasNextPage}
+          onClick={onNextClick}
+        >
+          next page
+        </button>
       </section>
     </main>
   )
 }
 
 export const query = graphql`
-  query MixesIndexPage {
+  query MixesIndexPage(
+    $first: Int = 20
+    $last: Int
+    $after: String
+    $before: String
+  ) {
     prismic {
-      allMixs(sortBy: meta_firstPublicationDate_DESC) {
+      allMixs(
+        sortBy: meta_firstPublicationDate_DESC
+        first: $first
+        last: $last
+        after: $after
+        before: $before
+      ) {
+        pageInfo {
+          hasNextPage
+          endCursor
+        }
         edges {
           node {
             _meta {

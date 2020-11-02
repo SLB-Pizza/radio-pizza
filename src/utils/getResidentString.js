@@ -12,7 +12,7 @@ function getResidentString(residentsArr, useCase) {
   let residents = []
 
   /**
-   * UID TRANSFORMATION STEPS
+   * UID TRANSFORMATION STEPS (useCase === "uid")
    *
    * SINGLE RESIDENT CASE
    *  make resident name lowercase

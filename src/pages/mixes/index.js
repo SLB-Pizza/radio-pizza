@@ -19,6 +19,7 @@ import {
 function MixesIndexPage({ data, prismic }) {
   const entryLimit = 20
   const didMountRef = useRef(false)
+  const [hasMore, setHasMore] = useState(true)
   const [page, setPage] = useState(-1)
   const [mixesData, setMixesData] = useState(data.prismic.allMixs.edges)
   /**
@@ -35,10 +36,22 @@ function MixesIndexPage({ data, prismic }) {
       return
     }
 
+    if (hasMore === null) {
+      console.log('has more is null')
+      setHasMore(prismicContent.allMixs.pageInfo.hasNextPage)
+      return
+    }
+
     prismic
       .load({ variables: { after: getCursorFromDocumentIndex(page) } })
-      // .then((res) => console.log(res.data));
-      .then(res => setMixesData([...mixesData, ...res.data.allMixs.edges]))
+      .then(res => {
+        // spread the received mix objects into the existing mixesData array
+        setMixesData([...mixesData, ...res.data.allMixs.edges])
+        // if there are no further mixes to get, don't show the load button
+        if (!res.data.allMixs.pageInfo.hasNextPage) {
+          setHasMore(false)
+        }
+      })
   }, [page])
 
   const mixListLayout =
@@ -61,7 +74,7 @@ function MixesIndexPage({ data, prismic }) {
   return (
     <main className="black-bg-page">
       {/* FIRST SECTION - Header Section */}
-      <header className="container is-fluid">
+      <header className="container is-fluid" id="mixes-header">
         <div className="columns is-mobile is-multiline">
           <div className="column is-12 content">
             <h3 className="title is-size-3-desktop is-size-4-touch">
@@ -127,13 +140,35 @@ function MixesIndexPage({ data, prismic }) {
           <hr />
           {/* <pre>{JSON.stringify(mixesData, null, 2)}</pre> */}
         </div>
-        <button
-          className="button is-large is-outlined is-black"
-          disabled={!data.prismic.allMixs.pageInfo.hasNextPage}
-          onClick={onNextClick}
-        >
-          next page
-        </button>
+        {hasMore ? (
+          <div className="columns is-mobile">
+            <div className="column">
+              <button
+                className="button is-fullwidth is-outlined is-rounded"
+                onClick={onNextClick}
+              >
+                More Music!
+              </button>
+            </div>
+            <div className="column is-narrow">
+              <a href="#mixes-header">
+                <button className="button is-fullwidth is-outlined is-rounded">
+                  Top
+                </button>
+              </a>
+            </div>
+          </div>
+        ) : (
+          <div className="columns is-mobile">
+            <div className="column is-offset-10 is-2">
+              <a href="#mixes-header">
+                <button className="button is-fullwidth is-outlined is-rounded">
+                  Top
+                </button>
+              </a>
+            </div>
+          </div>
+        )}
       </section>
     </main>
   )

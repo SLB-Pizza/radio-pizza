@@ -70,31 +70,37 @@ module.exports = {
       resolve: '@prismicio/gatsby-source-prismic-graphql',
       options: {
         repositoryName: 'hmbk-cms', //https://hmbk-cms.prismic.io/
+        previews: true,
+        path: '/preview',
         pages: [
           {
             type: 'Feature',
             match: '/features/:uid',
-            path: '/feature-preview',
+            path: '/feature-preview/',
             component: require.resolve('./src/templates/Feature.js'),
           },
           {
             type: 'Cms_guide',
             match: '/guide/:uid',
+            path: '/guide-preview/',
             component: require.resolve('./src/templates/CMSGuide.js'),
           },
           {
             type: 'Resident',
             match: '/residents/:uid',
+            path: '/resident-preview/',
             component: require.resolve('./src/templates/Resident.js'),
           },
           {
             type: 'Mix',
             match: '/mixes/:uid',
+            path: '/mix-preview/',
             component: require.resolve('./src/templates/Mix.js'),
           },
           {
             type: 'Event',
             match: '/events/:uid',
+            path: '/event-preview/',
             component: require.resolve('./src/templates/Event.js'),
           },
         ],

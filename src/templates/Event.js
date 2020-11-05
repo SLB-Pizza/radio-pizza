@@ -33,6 +33,11 @@ function EventTemplate({ data }) {
   const endTimeEST =
     event_end !== null ? formatDateTime(dayjs(event_end), 'UTC-to-EST') : null
 
+  /**
+   * Boolean to ensure that BOTH location and location link data are present in order to render the link
+   */
+  const locationDetailsCheck = event_location && event_location_link
+
   return (
     <main className="full-height-page">
       <article>
@@ -69,13 +74,13 @@ function EventTemplate({ data }) {
 
         <section className="container">
           <div className="columns is-mobile"></div>
-          {event_location_link.url && (
+          {locationDetailsCheck && (
             <a href={event_location_link.url} target="_blank">
               {event_location}
             </a>
           )}
         </section>
-        <pre>{JSON.stringify(eventData, null, 2)}</pre>
+        {/* <pre>{JSON.stringify(eventData, null, 2)}</pre> */}
         {/* <section
           className="container"
           style={{ backgroundColor: 'darkred', height: '15rem' }}

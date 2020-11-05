@@ -125,7 +125,7 @@ function EventHeader({
       <div className="columns is-mobile is-multiline is-vcentered event-title">
         <div
           className={
-            headerButtonLink !== null
+            headerButtonLink
               ? 'column is-hidden-mobile'
               : 'column is-12 is-hidden-mobile'
           }
@@ -163,7 +163,7 @@ function EventHeader({
             </p>
           </div>
         </div>
-        {beforeEvent && headerButtonLink !== null ? (
+        {beforeEvent && headerButtonLink ? (
           <>
             {/* TABLET AND DESKTOP BUTTON */}
             <div className="column is-narrow is-hidden-mobile">

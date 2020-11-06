@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
-import { EventHeader } from '../components'
+import { EventHeader, EventMapEmbed } from '../components'
 import { formatDateTime, htmlSerializer, linkResolver } from '../utils'
 
 import dayjs from 'dayjs'
@@ -24,6 +24,7 @@ function EventTemplate({ data }) {
     main_event_image,
     event_name,
     event_location,
+    event_physical_location_link,
     event_location_link,
     event_header_button_text,
     event_header_button_link,
@@ -36,7 +37,8 @@ function EventTemplate({ data }) {
   /**
    * Boolean to ensure that BOTH location and location link data are present in order to render the link
    */
-  const locationDetailsCheck = event_location && event_location_link
+  const locationDetailsCheck =
+    event_location && (event_location_link || event_physical_location_link)
 
   return (
     <main className="full-height-page">
@@ -68,18 +70,22 @@ function EventTemplate({ data }) {
                   htmlSerializer={htmlSerializer}
                 />
               </div>
+              {locationDetailsCheck && (
+                <p className="title is-size-4-tablet is-size-5-mobile">
+                  Getting to {event_location}
+                </p>
+              )}
             </div>
           </div>
         </section>
 
-        <section className="container">
-          <div className="columns is-mobile"></div>
-          {locationDetailsCheck && (
-            <a href={event_location_link.url} target="_blank">
-              {event_location}
-            </a>
-          )}
-        </section>
+        {locationDetailsCheck && (
+          <EventMapEmbed
+            description={event_location}
+            onlineLocation={event_location_link}
+            physicalLocation={event_physical_location_link}
+          />
+        )}
         {/* <pre>{JSON.stringify(eventData, null, 2)}</pre> */}
         {/* <section
           className="container"
@@ -108,6 +114,7 @@ export const query = graphql`
             event_end
             event_start
             event_location
+            event_physical_location_link
             event_location_link {
               ... on PRISMIC__ExternalLink {
                 target

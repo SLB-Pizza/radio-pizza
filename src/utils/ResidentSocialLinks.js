@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import {
   faApple,
   faBandcamp,
@@ -63,7 +63,7 @@ function ResidentSocialLinks({ url, platform }) {
     <div className="column social-links">
       <a href={url} rel="noopener" target="_blank">
         <span className="icon">
-          <FontAwesomeIcon icon={icon} size="lg" className="icon-color" />
+          <Icon icon={icon} size="lg" className="icon-color" />
         </span>
       </a>
     </div>

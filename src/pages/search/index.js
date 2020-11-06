@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
 import { SearchColumns, SearchDropdown, SearchResults } from '../../components'
 
@@ -62,11 +62,11 @@ function SearchIndexPage() {
                 placeholder="Search HalfmoonBK..."
               />
               <span className="icon is-left">
-                <FontAwesomeIcon icon="faSearch" />
+                <Icon icon="faSearch" />
               </span>
               {/* {searchStatus ? (
                 <span className="icon is-right is-large">
-                  <FontAwesomeIcon icon={faCheck} />
+                  <Icon icon={faCheck} />
                 </span>
               ) : null} */}
             </div>

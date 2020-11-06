@@ -1,12 +1,13 @@
-import React, { useState, useEffect, Fragment } from 'react'
+import React, { useState, useEffect } from 'react'
+import _ from 'lodash'
 import { RichText } from 'prismic-reactjs'
 import { EventCountdown } from '../components'
 import { formatDateTime } from '../utils'
+
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
-
 dayjs.extend(utc)
 dayjs.extend(timezone)
 dayjs.extend(isSameOrBefore)
@@ -37,9 +38,9 @@ function EventHeader({
   const [headerIsSticky, setHeaderIsSticky] = useState(false)
 
   const startDateText = formatDateTime(startDate, 'long-form-date-time')
-  const endDateText =
-    endDate !== null ? formatDateTime(endDate, 'long-form-date') : null
+  const endDateText = endDate ? formatDateTime(endDate, 'long-form-date') : null
 
+  //
   useEffect(() => {
     const countdownClock = setInterval(() => {
       setCurrentTime(currentTime.add(1, 's'))
@@ -85,6 +86,7 @@ function EventHeader({
          */
         setEventHeight(eventImage.clientHeight)
         setTimerHeight(eventHeader.clientHeight)
+        return
       }
 
       let topNav = document.querySelector('.radio-and-schedule-bar')
@@ -110,10 +112,13 @@ function EventHeader({
       }
     }
 
-    window.addEventListener('scroll', handleScroll)
+    // Limit checks to every 1/8 second, instead of on every pixel change
+    const throttledStickyCheck = _.throttle(handleScroll, 125)
+
+    window.addEventListener('scroll', throttledStickyCheck)
 
     return () => {
-      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('scroll', throttledStickyCheck)
     }
   }, [eventHeight, timerHeight, headerIsSticky])
 

@@ -126,7 +126,7 @@ const htmlSerializer = function(type, element, content, children, key) {
         width: '300',
         className: 'has-ratio',
       })
-      console.log(element)
+
       const imgDetails = element.copyright ? (
         <figcaption className="credit">
           {`${element.alt} - ${element.copyright}`}
@@ -134,6 +134,7 @@ const htmlSerializer = function(type, element, content, children, key) {
       ) : (
         <figcaption className="credit">{element.alt}</figcaption>
       )
+
       const wrappedImg = React.createElement(
         'figure',
         propsWithUniqueKey({ className: 'is-pulled-right is-clearfix' }, key),

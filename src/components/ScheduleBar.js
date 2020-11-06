@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { Link } from 'gatsby'
 import { gql, useQuery } from '@apollo/client'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import Ticker from 'react-ticker'
 import PageVisibility from 'react-page-visibility'
 import {
@@ -199,7 +199,7 @@ function ScheduleBar({ timeNow }) {
                   <>
                     <span>Listening</span>
                     <span className="icon">
-                      <FontAwesomeIcon
+                      <Icon
                         icon="headphones"
                         size="1x"
                         className="live-light"
@@ -211,7 +211,7 @@ function ScheduleBar({ timeNow }) {
                   <>
                     <span>Live</span>
                     <span className="icon">
-                      <FontAwesomeIcon
+                      <Icon
                         icon="broadcast-tower"
                         size="1x"
                         className="live-light"
@@ -240,7 +240,7 @@ function ScheduleBar({ timeNow }) {
             </PageVisibility>
           </div>
           <div className="column is-narrow">
-            <FontAwesomeIcon
+            <Icon
               icon="calendar-alt"
               size="1x"
               className="icon-color"
@@ -249,7 +249,7 @@ function ScheduleBar({ timeNow }) {
           </div>
           <div className="column is-narrow">
             <Link to="/search">
-              <FontAwesomeIcon
+              <Icon
                 onClick={() => closeSchedule()}
                 icon="search"
                 size="1x"
@@ -264,7 +264,7 @@ function ScheduleBar({ timeNow }) {
               target="_blank"
               rel="noopener"
             >
-              <FontAwesomeIcon
+              <Icon
                 onClick={() => closeSchedule()}
                 icon="comments"
                 size="1x"
@@ -309,18 +309,14 @@ function ScheduleBar({ timeNow }) {
                 <>
                   <span>Listening</span>
                   <span className="icon">
-                    <FontAwesomeIcon
-                      icon="headphones"
-                      size="1x"
-                      className="live-light"
-                    />
+                    <Icon icon="headphones" size="1x" className="live-light" />
                   </span>
                 </>
               ) : (
                 <>
                   <span>Live</span>
                   <span className="icon">
-                    <FontAwesomeIcon
+                    <Icon
                       icon="broadcast-tower"
                       size="1x"
                       className="live-light"
@@ -347,7 +343,7 @@ function ScheduleBar({ timeNow }) {
           </PageVisibility> */}
         </div>
         <div className="column is-narrow">
-          <FontAwesomeIcon
+          <Icon
             onClick={() => toggleSchedule()}
             icon="calendar-alt"
             size="1x"
@@ -356,7 +352,7 @@ function ScheduleBar({ timeNow }) {
         </div>
         <div className="column is-narrow">
           <Link to="/search">
-            <FontAwesomeIcon
+            <Icon
               onClick={() => closeSchedule()}
               icon="search"
               size="1x"
@@ -371,7 +367,7 @@ function ScheduleBar({ timeNow }) {
             target="_blank"
             rel="noopener"
           >
-            <FontAwesomeIcon
+            <Icon
               onClick={() => closeSchedule()}
               icon="comments"
               size="1x"

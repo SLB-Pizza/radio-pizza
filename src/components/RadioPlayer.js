@@ -8,7 +8,7 @@ import {
   GlobalDispatchContext,
   GlobalStateContext,
 } from '../context/GlobalContextProvider'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
 /**
  * @category Site Elements
@@ -135,14 +135,14 @@ function RadioPlayer() {
         }
       >
         {!globalState.playing ? (
-          <FontAwesomeIcon
+          <Icon
             icon="play"
             className="icon-color"
             onClick={handlePlayPause}
             size="2x"
           />
         ) : (
-          <FontAwesomeIcon
+          <Icon
             icon="pause"
             className="icon-color"
             onClick={handlePlayPause}

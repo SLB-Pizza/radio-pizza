@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import { getCursorFromDocumentIndex } from '@prismicio/gatsby-source-prismic-graphql'
 import { graphql } from 'gatsby'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import {
   CuratedCollections,
   SingleMixCard,
@@ -97,7 +97,7 @@ function MixesIndexPage({ data, prismic }) {
                   placeholder="Search all mixes..."
                 />
                 <span className="icon is-left">
-                  <FontAwesomeIcon icon="search" />
+                  <Icon icon="search" />
                 </span>
               </div>
             </div>
@@ -117,7 +117,7 @@ function MixesIndexPage({ data, prismic }) {
                 </div>
 
                 <span className="icon is-left">
-                  <FontAwesomeIcon icon="tag" />
+                  <Icon icon="tag" />
                 </span>
               </div>
             </div>

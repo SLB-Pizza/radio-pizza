@@ -1,5 +1,5 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
 function CMSIssueMessage({ issueData }) {
   const { nodeName, node, entryIssues, uidIssue } = issueData
@@ -41,7 +41,7 @@ function CMSIssueMessage({ issueData }) {
             // <article className="media">
             //   <figure className="media-left">
             //     <span className="icon">
-            //       <FontAwesomeIcon icon="info-circle" size="lg" />
+            //       <Icon icon="info-circle" size="lg" />
             //     </span>
             //   </figure>
             //   <div className="media-content">
@@ -58,7 +58,7 @@ function CMSIssueMessage({ issueData }) {
           // <article className="media">
           //   <figure className="media-left">
           //     <span className="icon">
-          //       <FontAwesomeIcon icon={getIcon(uidIssue.type)} size="2x" />
+          //       <Icon icon={getIcon(uidIssue.type)} size="2x" />
           //     </span>
           //   </figure>
           //   <div className="media-content">

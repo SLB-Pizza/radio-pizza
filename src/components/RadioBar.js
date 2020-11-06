@@ -37,6 +37,8 @@ function RadioBar({ nycTime, laTime }) {
   //   });
   // };
 
+  // NEW LINK: https://public.radio.co/stations/s2857aa101/status
+
   // const liveText = "Pendulum: Hold Your Colour 15th Anniversary Live Set";
   // const renderLiveTicker = (text) => {
   //   return (

@@ -22,9 +22,7 @@ function EventsIndex({ data }) {
     <div className="container is-fluid black-bg-page">
       <div className="columns is-mobile is-multiline">
         <div className="column is-full">
-          <p className="display-text is-size-3-desktop is-size-4-touch">
-            Halfmoon Events
-          </p>
+          <h1 className="title">Halfmoon Events</h1>
         </div>
         {allEventsData &&
           allEventsData.map(({ node }, index) => (

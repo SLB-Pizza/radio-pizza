@@ -17,7 +17,7 @@ import {
  * @returns {jsx}
  */
 function MixesIndexPage({ data, prismic }) {
-  const entryLimit = 20
+  const entryLimit = 12
   const didMountRef = useRef(false)
   const [hasMore, setHasMore] = useState(true)
   const [page, setPage] = useState(-1)
@@ -35,19 +35,19 @@ function MixesIndexPage({ data, prismic }) {
       didMountRef.current = true
       return
     }
+    //
+    // if (hasMore === null) {
+    //   setHasMore(prismicContent.allMixs.pageInfo.hasNextPage);
+    //   return;
+    // }
 
-    if (hasMore === null) {
-      console.log('has more is null')
-      setHasMore(prismicContent.allMixs.pageInfo.hasNextPage)
-      return
-    }
-
+    // Grab the next 12 mixes
     prismic
       .load({ variables: { after: getCursorFromDocumentIndex(page) } })
       .then(res => {
-        // spread the received mix objects into the existing mixesData array
+        // Spread the received mix objects into the existing mixesData array
         setMixesData([...mixesData, ...res.data.allMixs.edges])
-        // if there are no further mixes to get, don't show the load button
+        // If there are no further mixes to get, don't show the load button
         if (!res.data.allMixs.pageInfo.hasNextPage) {
           setHasMore(false)
         }
@@ -56,6 +56,7 @@ function MixesIndexPage({ data, prismic }) {
 
   const mixListLayout =
     'column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen'
+
   const dummyOptions = [
     'Argentina',
     'Bolivia',
@@ -77,10 +78,8 @@ function MixesIndexPage({ data, prismic }) {
       <header className="container is-fluid" id="mixes-header">
         <div className="columns is-mobile is-multiline">
           <div className="column is-12 content">
-            <h3 className="title is-size-3-desktop is-size-4-touch">
-              Recent Mixes
-            </h3>
-            <p className="subtitle is-size-5-desktop is-size-6-touch">
+            <h1 className="title is-3-desktop is-4-touch">Recent Mixes</h1>
+            <p className="subtitle is-5-desktop is-6-touch">
               These dummy mixes are the same as the ones on the home page. You
               can hover/touch and play them the same way. Try it!
             </p>
@@ -176,14 +175,14 @@ function MixesIndexPage({ data, prismic }) {
 
 export const query = graphql`
   query MixesIndexPage(
-    $first: Int = 20
+    $first: Int = 12
     $last: Int
     $after: String
     $before: String
   ) {
     prismic {
       allMixs(
-        sortBy: meta_firstPublicationDate_DESC
+        sortBy: mix_date_DESC
         first: $first
         last: $last
         after: $after

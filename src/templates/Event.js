@@ -37,8 +37,7 @@ function EventTemplate({ data }) {
   /**
    * Boolean to ensure that BOTH location and location link data are present in order to render the link
    */
-  const locationDetailsCheck =
-    event_location && (event_location_link || event_physical_location_link)
+  const displayEventMap = event_location && event_physical_location_link
 
   return (
     <main className="full-height-page">
@@ -70,7 +69,7 @@ function EventTemplate({ data }) {
                   htmlSerializer={htmlSerializer}
                 />
               </div>
-              {locationDetailsCheck && (
+              {displayEventMap && (
                 <p className="title is-size-4-tablet is-size-5-mobile">
                   Getting to {event_location}
                 </p>
@@ -79,10 +78,9 @@ function EventTemplate({ data }) {
           </div>
         </section>
 
-        {locationDetailsCheck && (
+        {displayEventMap && (
           <EventMapEmbed
             description={event_location}
-            onlineLocation={event_location_link}
             physicalLocation={event_physical_location_link}
           />
         )}

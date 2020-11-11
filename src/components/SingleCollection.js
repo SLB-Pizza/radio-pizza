@@ -7,6 +7,7 @@ import {
   getResidentString,
   htmlSerializer,
 } from '../utils'
+import { stubTrue } from 'lodash'
 
 function SingleCollection({ singleCollection }) {
   const {
@@ -30,13 +31,23 @@ function SingleCollection({ singleCollection }) {
   const collectionDetails = displayCollectionPlaylistDetails(
     collection_playlist
   )
-
   return (
-    <div className="columns is-mobile curated-mix">
-      <div className="column is-9">
-        <div className="content">
+    <div className="columns is-mobile is-multiline curated-mix">
+      <div className="column is-3-tablet is-12-mobile">
+        <MixPlayOverlay
+          wrapperClassName="card collection"
+          img={collection_img}
+          title={collection_title}
+          url={mixLinks}
+          isCollection={true}
+        />
+      </div>
+
+      <div className="column is-9-tablet is-12-mobile curated-description">
+        <div className="content details">
           <p className="title is-4">{collection_title}</p>
           <p className="subtitle is-6">{mixCount}</p>
+          {/* <p className="subtitle is-7">{mixCount}</p> */}
           {collection_blurb && (
             <RichText
               render={collection_blurb}
@@ -44,22 +55,14 @@ function SingleCollection({ singleCollection }) {
             />
           )}
         </div>
-
-        {/* <pre>Links {JSON.stringify(mixLinks, null, 2)}</pre> */}
-        {/* <pre>
-          Residents {JSON.stringify(collectionDetails.residents, null, 2)}
-        </pre> */}
-        {/* <pre>Tags {JSON.stringify(collectionDetails.tags, null, 2)}</pre> */}
         <TagButtons tagsArray={collectionDetails.tags} />
-      </div>
 
-      <div className="column is-3">
-        <MixPlayOverlay
-          wrapperClassName="card"
-          img={collection_img}
-          title={collection_title}
-          url={mixLinks}
-        />
+        {/* <pre>Links {JSON.stringify(collection_playlist, null, 2)}</pre> */}
+        <pre>Links {JSON.stringify(collectionDetails.mixes, null, 2)}</pre>
+        <pre>
+          Residents {JSON.stringify(collectionDetails.residents, null, 2)}
+        </pre>
+        {/* <pre>Tags {JSON.stringify(collectionDetails.tags, null, 2)}</pre> */}
       </div>
     </div>
   )

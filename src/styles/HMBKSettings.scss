@@ -137,13 +137,29 @@ button.button {
   }
 }
 
-.buttons.are-tags {
-  flex: 0;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  padding-top: 1rem;
+// Global Tag Buttons
+// .buttons.are-tags {
+//   @include touch {
+//     transform: scale(0.75);
+//   }
+//   flex: 0;
+//   display: flex;
+//   flex-direction: row;
+//   flex-wrap: wrap;
+//   align-items: flex-end;
+//   padding-top: 1rem;
+// }
+// .tags {
+//   flex: 0;
+//   display: flex;
+//   flex-direction: row;
+//   flex-wrap: wrap;
+//   align-items: flex-end;
+//   padding-top: 1rem;
+// }
+
+.tag {
+  border: 2px solid white;
 }
 
 .icon-color {

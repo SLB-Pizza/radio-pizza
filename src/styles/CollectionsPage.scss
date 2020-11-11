@@ -1,0 +1,26 @@
+.curated-mix {
+  border: 2px solid white;
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+.collection-play {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 7.5rem;
+}
+
+.curated-description {
+  @include tablet {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    .content {
+      flex: 1;
+    }
+    .tags {
+      flex: 0;
+    }
+  }
+}

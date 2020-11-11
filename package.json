@@ -97,7 +97,7 @@
     "webpack": "^4.44.1"
   },
   "scripts": {
-    "build": "gatsby build --verbose",
+    "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "build-storybook": "build-storybook",
     "clean": "gatsby clean --verbose",
     "docs": "jsdoc -c jsdoc.conf.json",

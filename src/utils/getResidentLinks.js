@@ -18,6 +18,9 @@ function getResidentLinks(residentsArr, currentPath) {
     const linkTo = linkResolver(_meta)
     const linkLabel = resident_name
 
+    /**
+     *
+     */
     if (currentPath === linkTo) {
       if (index !== residentsArr.length - 1) {
         return (

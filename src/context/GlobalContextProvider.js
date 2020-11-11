@@ -4,11 +4,13 @@ export const GlobalStateContext = React.createContext()
 export const GlobalDispatchContext = React.createContext()
 
 const initialState = {
-  url: null,
   // playlist is an array of shows to play in as a playlist;
-  // should be array of show objects (that include title, url, reisdent, etc)
+  // should be array of show objects (that include title, url, resident, etc)
+  collection_title: null,
+  collection_img: null,
   playlist: [],
   list_curr_index: 0,
+  url: null,
   title: null,
   resident: null,
   img: null,
@@ -122,20 +124,42 @@ function reducer(state, action) {
       }
     }
 
-    // PLAYLIST_PLAY_FIRST should be hit by dispatch called when a NEW Curated Collection is played
-    case 'PLAYLIST_PLAY_FIRST': {
-      // assuming payload looks like: action: { payload: { playlist: [arrayOfShowObjects] }}
+    // PLAYLIST_START should be hit by dispatch called when a NEW Curated Collection is played
+    case 'PLAYLIST_START': {
+      /**
+       * Payload looks like:
+       * action: {
+       *    payload: {
+       *      ..otherStuff,
+       *      playlist: [arrayOfShowObjects]
+       *    }
+       * }
+       *
+       * Test to see if references to self via action.payload.playlist don't play audio
+       */
       return {
         ...state,
         isLoading: false,
         playing: true,
-        playlist: action.payload.playlist,
         list_curr_index: 0,
+        collection_title: action.payload.collection_title,
+        collection_img: action.payload.collection_img,
+        playlist: action.payload.playlist,
         url: action.payload.playlist[0].url,
-        title: action.payload.playlist[0].title,
         resident: action.payload.playlist[0].resident,
-        img: action.payload.playlist[0].img,
       }
+      // RICH ORIGINAL
+      // return {
+      //   ...state,
+      //   isLoading: false,
+      //   playing: true,
+      //   playlist: action.payload.playlist,
+      //   list_curr_index: 0,
+      //   url: action.payload.playlist[0].url,
+      //   title: action.payload.playlist[0].title,
+      //   resident: action.payload.playlist[0].resident,
+      //   img: action.payload.playlist[0].img,
+      // };
     }
 
     // PLAYLIST_PLAY_NEXT should be hit by dispatch called by onEnded() in radio player callback
@@ -148,13 +172,23 @@ function reducer(state, action) {
         ...state,
         isLoading: false,
         playing: true,
-        list_curr_index: nextidx,
-        // playlist should be an array of objects
+        list_curr_index: nextIdx,
+        // playlist should already exist as an array of objects
         url: state.playlist[nextIdx].url,
-        title: state.playlist[nextIdx].title,
         resident: state.playlist[nextIdx].resident,
-        img: state.playlist[nextIdx].img,
       }
+      // RICH ORIGNAL
+      // return {
+      //   ...state,
+      //   isLoading: false,
+      //   playing: true,
+      //   list_curr_index: nextidx,
+      //   // playlist should be an array of objects
+      //   url: state.playlist[nextIdx].url,
+      //   title: state.playlist[nextIdx].title,
+      //   resident: state.playlist[nextIdx].resident,
+      //   img: state.playlist[nextIdx].img,
+      // };
     }
 
     // this case should be hit by dispatch called by onEnded() in radio player callback when last index item in playlist hit BUT playlist should loop (maybe only case we need vs PLAYLIST_END?)
@@ -165,10 +199,19 @@ function reducer(state, action) {
         playing: true,
         list_curr_index: 0,
         url: state.playlist[0].url,
-        title: state.playlist[0].title,
         resident: state.playlist[0].resident,
-        img: state.playlist[0].img,
       }
+      // RICH ORIGINAL
+      // return {
+      //   ...state,
+      //   isLoading: false,
+      //   playing: true,
+      //   list_curr_index: 0,
+      //   url: state.playlist[0].url,
+      //   title: state.playlist[0].title,
+      //   resident: state.playlist[0].resident,
+      //   img: state.playlist[0].img,
+      // };
     }
 
     default:

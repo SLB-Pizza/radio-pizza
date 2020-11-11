@@ -10,13 +10,22 @@ import { GlobalDispatchContext } from '../context/GlobalContextProvider'
  * @function MixPlayOverlay
  * @param {String} url - URL of the mix to play
  * @param {String} title - title of the mix to play; shown in {@link RadioPlayer}
- * @param {String} resident - resident(s) that made the mix; shown in {@link RadioPlayer}, preprocessed by {@link getResidentString}
+ * @param {String} resident - resident(s) that made the mix; shown in {@link RadioPlayer}.
+ * - Single mixes, it's preprocessed by {@link getResidentString}
+ * - Collections, processed here in the component
  * @param {String} img - the mix's image; shown in {@link RadioPlayer}
  * @param {?String} wrapperClassName - optional string detailing the overlay wrapper's class
+ * @param {?Boolean} isCollection - optional boolean that triggers in how CHANGE_URL is prepared
  * @returns {jsx} A play icon that onClick dispatches the SHOW_LOADING and CHANGE_URL actions, playing the audio source through RadioPlayer.js
  */
-
-function MixPlayOverlay({ url, title, residents, img, wrapperClassName }) {
+function MixPlayOverlay({
+  url,
+  title,
+  residents,
+  img,
+  wrapperClassName,
+  isCollection,
+}) {
   const dispatch = useContext(GlobalDispatchContext)
 
   const changeUrl = async () => {
@@ -30,6 +39,15 @@ function MixPlayOverlay({ url, title, residents, img, wrapperClassName }) {
         img: img.now_playing.url,
       },
     })
+  }
+
+  /**
+   * Dispatch corresponds to "PLAYLIST_PLAY_FIRST"
+   * @see {@link GlobalContextProvider}
+   */
+  const playCollection = async () => {
+    await dispatch({ type: 'SHOW_LOADING' })
+    await dispatch({ type: 'PLAYLIST_PLAY_FIRST' })
   }
 
   return (

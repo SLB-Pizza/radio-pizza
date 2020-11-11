@@ -1,0 +1,343 @@
+{
+  "soundcloud": {
+    "data": {
+      "_meta": {
+        "tags": [],
+        "lastPublicationDate": "2020-10-13T00:31:36+0000",
+        "firstPublicationDate": "2020-10-12T23:52:24+0000",
+        "uid": "soundcloud-only-endless-mix",
+        "type": "endless_mix"
+      },
+      "collection_blurb": [
+        {
+          "type": "paragraph",
+          "text": "This is a test collection of ONLY soundcloud mixes",
+          "spans": [
+            {
+              "start": 29,
+              "end": 34,
+              "type": "strong"
+            }
+          ]
+        }
+      ],
+      "collection_img": {
+        "dimensions": {
+          "width": 600,
+          "height": 600
+        },
+        "alt": "Black and White Turtle",
+        "copyright": "Photo by Richard Segal from Pexels",
+        "url": "https://images.prismic.io/hmbk-cms/4a1d841f-eabb-4a5b-8702-543499210694_pexels-richard-segal-1618606%281%29.jpg?auto=compress,format&rect=360,0,1200,1200&w=600&h=600",
+        "now_playing": {
+          "dimensions": {
+            "width": 96,
+            "height": 96
+          },
+          "alt": "Black and White Turtle",
+          "copyright": "Photo by Richard Segal from Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/4a1d841f-eabb-4a5b-8702-543499210694_pexels-richard-segal-1618606%281%29.jpg?auto=compress,format&rect=363,0,1200,1200&w=96&h=96"
+        }
+      },
+      "collection_title": "Soundcloud Only Test Mix",
+      "shuffle_mix_order": true,
+      "collection_playlist": [
+        {
+          "endless_mix_entry": {
+            "__typename": "PRISMIC_Mix",
+            "_meta": {
+              "tags": ["hip-hop", "rap"],
+              "type": "mix",
+              "uid": "roland-jones---murda-season-iii"
+            },
+            "mix_link": "https://soundcloud.com/rolandjones/murda-season-chapter-iii",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "__typename": "PRISMIC_Resident",
+                  "resident_name": "Roland Jones",
+                  "_meta": {
+                    "uid": "roland-jones",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "endless_mix_entry": {
+            "__typename": "PRISMIC_Mix",
+            "_meta": {
+              "tags": [],
+              "type": "mix",
+              "uid": "jayda-b--10-21-2020"
+            },
+            "mix_link": "https://soundcloud.com/jayda_b/waxx-fm-vol-4-62719",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "__typename": "PRISMIC_Resident",
+                  "resident_name": "Jayda B",
+                  "_meta": {
+                    "uid": "jayda-b",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "endless_mix_entry": {
+            "__typename": "PRISMIC_Mix",
+            "_meta": {
+              "tags": [
+                "hardbass",
+                "electronic",
+                "vocals",
+                "live set",
+                "one really long tag"
+              ],
+              "type": "mix",
+              "uid": "dev-mix-long-long-field-text"
+            },
+            "mix_link": "https://soundcloud.com/dave-aliveintheory/russian-hard-bass-2019-live-mix-by-dj-slavine",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "__typename": "PRISMIC_Resident",
+                  "resident_name": "DJ Slavine | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this ---",
+                  "_meta": {
+                    "uid": "dev-resident-dj-slavine",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "endless_mix_entry": {
+            "__typename": "PRISMIC_Mix",
+            "_meta": {
+              "tags": [],
+              "type": "mix",
+              "uid": "dev-mixes-terraformer"
+            },
+            "mix_link": "https://soundcloud.com/thank-you-scientist/sets/terraformer-3",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "__typename": "PRISMIC_Resident",
+                  "resident_name": "Thank You Scientist",
+                  "_meta": {
+                    "uid": "dev-res-thank-you-scientist",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "endless_mix_entry": {
+            "__typename": "PRISMIC_Mix",
+            "_meta": {
+              "tags": ["instrumental", "post rock", "prog rock", "math rock"],
+              "type": "mix",
+              "uid": "dev-letargo-by-jardin-de-la-croix"
+            },
+            "mix_link": "https://soundcloud.com/jardindelacroixofficial/sets/letargo-6",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "__typename": "PRISMIC_Resident",
+                  "resident_name": "Jardin de la Croix",
+                  "_meta": {
+                    "uid": "dev-resident-jardin-de-la-croix",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "linksArr": [
+      "https://soundcloud.com/rolandjones/murda-season-chapter-iii",
+      "https://soundcloud.com/jayda_b/waxx-fm-vol-4-62719",
+      "https://soundcloud.com/dave-aliveintheory/russian-hard-bass-2019-live-mix-by-dj-slavine",
+      "https://soundcloud.com/thank-you-scientist/sets/terraformer-3",
+      "https://soundcloud.com/jardindelacroixofficial/sets/letargo-6"
+    ],
+    "residentsArr": [
+      "Roland Jones",
+      "Jayda B",
+      "DJ Slavine | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this ---",
+      "Thank You Scientist",
+      "Jardin de la Croix"
+    ]
+  },
+  "silk_wave": {
+    "data": {
+      "_meta": {
+        "tags": [],
+        "lastPublicationDate": "2020-10-13T00:33:46+0000",
+        "firstPublicationDate": "2020-09-16T23:03:57+0000",
+        "uid": "dev-endless-silk-wave",
+        "type": "endless_mix"
+      },
+      "collection_blurb": [
+        {
+          "type": "paragraph",
+          "text": "Following on from their Virtue single dropped earlier this year, KOAN Sound are back with their silky smooth new EP, Silk Wave. ",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "This package showcases four killer IDM tracks; Silk Wave, Cosmic Tuba, Grounded and Taken Under. The EP fires up with title track, Silk Wave, marrying their signature organic, instrumental aesthetic with a weighty breakdown, whilst Cosmic Tuba memorises with its captivating complex layers and building bassline. Rounding off the EP with their Bristol neighbours and crossover leaning weapons, Grounded features Javeon’s beautifully raw vocals, which soar over trap and bass elements. Meanwhile, a collaboration with rising star, Anna Lisa ends the EP on a glistening high with Taken Under, which brims with fiery synths and bass to make it an emotional yet danceable track.",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "- Text taken from this website",
+          "spans": [
+            {
+              "start": 13,
+              "end": 30,
+              "type": "hyperlink",
+              "data": {
+                "link_type": "Web",
+                "url": "https://www.shanethegamer.com/koan-sound-drop-enchanting-new-silk-wave-ep/",
+                "target": "_blank"
+              }
+            }
+          ]
+        }
+      ],
+      "collection_img": {
+        "dimensions": {
+          "width": 600,
+          "height": 600
+        },
+        "alt": "KOAN Sound - Silk Wave",
+        "copyright": null,
+        "url": "https://images.prismic.io/hmbk-cms/daf5aa23-d013-472c-98e5-cd2b34329c65_silk-wave.jpg?auto=compress,format&rect=0,0,500,500&w=600&h=600",
+        "now_playing": {
+          "dimensions": {
+            "width": 96,
+            "height": 96
+          },
+          "alt": "KOAN Sound - Silk Wave",
+          "copyright": null,
+          "url": "https://images.prismic.io/hmbk-cms/daf5aa23-d013-472c-98e5-cd2b34329c65_silk-wave.jpg?auto=compress,format&rect=0,0,500,500&w=96&h=96"
+        }
+      },
+      "collection_title": "Silk Wave",
+      "shuffle_mix_order": true,
+      "collection_playlist": [
+        {
+          "endless_mix_entry": {
+            "__typename": "PRISMIC_Mix",
+            "_meta": {
+              "tags": [],
+              "type": "mix",
+              "uid": "dev-endless-test-silk-wave"
+            },
+            "mix_link": "https://www.youtube.com/watch?v=ICkNi17Gsrc",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "__typename": "PRISMIC_Resident",
+                  "resident_name": "KOAN Sound",
+                  "_meta": {
+                    "uid": "dev-res-koan-sound",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "endless_mix_entry": {
+            "__typename": "PRISMIC_Mix",
+            "_meta": {
+              "tags": [],
+              "type": "mix",
+              "uid": "dev-endless-test-cosmic-tuba"
+            },
+            "mix_link": "https://www.youtube.com/watch?v=fNPf6DJLpRA",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "__typename": "PRISMIC_Resident",
+                  "resident_name": "KOAN Sound",
+                  "_meta": {
+                    "uid": "dev-res-koan-sound",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "endless_mix_entry": {
+            "__typename": "PRISMIC_Mix",
+            "_meta": {
+              "tags": [],
+              "type": "mix",
+              "uid": "dev-endless-test-grounded-feat-javeon"
+            },
+            "mix_link": "https://www.youtube.com/watch?v=K05sV1rVog0",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "__typename": "PRISMIC_Resident",
+                  "resident_name": "KOAN Sound",
+                  "_meta": {
+                    "uid": "dev-res-koan-sound",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "endless_mix_entry": {
+            "__typename": "PRISMIC_Mix",
+            "_meta": {
+              "tags": [],
+              "type": "mix",
+              "uid": "dev-endless-test-taken-under"
+            },
+            "mix_link": "https://www.youtube.com/watch?v=npgyfbNOy9k",
+            "featured_residents": [
+              {
+                "mix_resident": {
+                  "__typename": "PRISMIC_Resident",
+                  "resident_name": "KOAN Sound",
+                  "_meta": {
+                    "uid": "dev-res-koan-sound",
+                    "type": "resident"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "linksArr": [
+      "https://www.youtube.com/watch?v=ICkNi17Gsrc",
+      "https://www.youtube.com/watch?v=fNPf6DJLpRA",
+      "https://www.youtube.com/watch?v=K05sV1rVog0",
+      "https://www.youtube.com/watch?v=npgyfbNOy9k"
+    ],
+    "resident": "KOAN Sound"
+  }
+}

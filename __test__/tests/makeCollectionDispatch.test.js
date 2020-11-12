@@ -2,7 +2,7 @@ import { expect } from 'chai'
 import { makeCollectionDispatch } from '../../src/utils'
 import testData from '../makeCollectionDispatch.test.json'
 
-describe.only('makeCollectionDispatch', () => {
+describe('makeCollectionDispatch', () => {
   const soundCloudDispatch = makeCollectionDispatch(testData.soundcloud.data)
   const silkWaveDispatch = makeCollectionDispatch(testData.silk_wave.data)
 

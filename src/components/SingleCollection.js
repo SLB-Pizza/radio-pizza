@@ -7,7 +7,6 @@ import {
   getResidentString,
   htmlSerializer,
 } from '../utils'
-import { stubTrue } from 'lodash'
 
 function SingleCollection({ singleCollection }) {
   const {
@@ -34,9 +33,10 @@ function SingleCollection({ singleCollection }) {
   return (
     <div className="columns is-mobile is-multiline curated-mix">
       <div className="column is-3-tablet is-12-mobile">
+        {/* <pre>{JSON.stringify(collection_img, null, 2)}</pre> */}
         <MixPlayOverlay
-          wrapperClassName="card collection"
-          img={collection_img.url}
+          wrapperClassName="card collection-play"
+          img={collection_img}
           title={collection_title}
           url={mixLinks}
           isCollection={true}
@@ -47,7 +47,6 @@ function SingleCollection({ singleCollection }) {
         <div className="content details">
           <p className="title is-4">{collection_title}</p>
           <p className="subtitle is-6">{mixCount}</p>
-          {/* <p className="subtitle is-7">{mixCount}</p> */}
           {collection_blurb && (
             <RichText
               render={collection_blurb}

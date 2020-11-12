@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import GoogleMapReact from 'google-map-react'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
 function LocationPin(text) {
@@ -12,39 +11,43 @@ function LocationPin(text) {
   )
 }
 
-function EventMapEmbed({ description, physicalLocation, onlineLocation }) {
+function EventMapEmbed({ description, address }) {
   const [processedDescription, setDescription] = useState(null)
+  const [mapWidth, setMapWidth] = useState(null)
 
   useEffect(() => {
     const mapPreparation = () => {
+      const placeWithAddress = `${description} ${address}`
+
       /**
        * Prepping the query portion of the map embed src URL
        * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent|encodeURIComponent()}
        */
-      const encodedDescription = encodeURIComponent(description)
+      const encodedDescription = encodeURIComponent(placeWithAddress)
       setDescription(encodedDescription)
+
+      const containerWidth =
+        document.querySelector('#event-blurb').clientWidth - 48 // 3rem padding
+      console.log(containerWidth)
+      setMapWidth(containerWidth)
     }
+
     return mapPreparation()
   }, [])
 
-  if (processedDescription) {
-    // Small correction to
-    const mapWidth = window.innerWidth - 12
-
+  if (processedDescription && mapWidth) {
     return (
-      <section className="hero" id="event-map">
-        <iframe
-          width={mapWidth}
-          height="600"
-          frameBorder="0"
-          src={`https://www.google.com/maps/embed/v1/place?key=${process.env.MAPS_EMBED_KEY}&q=${processedDescription}&zoom=19`}
-          allowFullScreen
-        />
-      </section>
+      <iframe
+        width={mapWidth}
+        height="600"
+        frameBorder="0"
+        src={`https://www.google.com/maps/embed/v1/place?key=${process.env.MAPS_EMBED_KEY}&q=${processedDescription}&zoom=19`}
+        allowFullScreen
+      />
     )
   }
 
-  return <section className="hero is-large" id="event-map" />
+  return null
 }
 
 export default EventMapEmbed

@@ -24,7 +24,7 @@ function EventTemplate({ data }) {
     main_event_image,
     event_name,
     event_location,
-    event_physical_location_link,
+    event_location_physical_address,
     event_location_link,
     event_header_button_text,
     event_header_button_link,
@@ -37,7 +37,7 @@ function EventTemplate({ data }) {
   /**
    * Boolean to ensure that BOTH location and location link data are present in order to render the link
    */
-  const displayEventMap = event_location && event_physical_location_link
+  const displayEventMap = event_location && event_location_physical_address
 
   return (
     <main className="full-height-page">
@@ -59,7 +59,8 @@ function EventTemplate({ data }) {
           headerButtonText={event_header_button_text}
           headerButtonLink={event_header_button_link}
         />
-        <section className="section container">
+
+        <section className="section container" id="event-blurb">
           <div className="columns is-mobile">
             <div className="column is-12">
               <div className="content">
@@ -69,21 +70,22 @@ function EventTemplate({ data }) {
                   htmlSerializer={htmlSerializer}
                 />
               </div>
+
               {displayEventMap && (
-                <p className="title is-size-4-tablet is-size-5-mobile">
-                  Getting to {event_location}
-                </p>
+                <>
+                  <p className="title is-size-4-tablet is-size-5-mobile">
+                    Getting to {event_location}
+                  </p>
+                  <EventMapEmbed
+                    description={event_location}
+                    address={event_location_physical_address}
+                  />
+                </>
               )}
             </div>
           </div>
         </section>
 
-        {displayEventMap && (
-          <EventMapEmbed
-            description={event_location}
-            physicalLocation={event_physical_location_link}
-          />
-        )}
         {/* <pre>{JSON.stringify(eventData, null, 2)}</pre> */}
         {/* <section
           className="container"
@@ -112,7 +114,7 @@ export const query = graphql`
             event_end
             event_start
             event_location
-            event_physical_location_link
+            event_location_physical_address
             event_location_link {
               ... on PRISMIC__ExternalLink {
                 target

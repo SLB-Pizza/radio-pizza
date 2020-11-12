@@ -22,7 +22,9 @@ function ArticleHeadline({ slice, metadata }) {
   } = slice.primary
 
   const { firstPublicationDate, lastPublicationDate } = metadata
-  const { hmbk_staff_name, hmbk_staff_position } = article_author
+
+  // Boolean used to short circuit author details.
+  const hasAuthorDetails = article_author && article_author_pic
 
   /**
    * Pass the metadata to {@link processPublicationDates}.
@@ -84,23 +86,27 @@ function ArticleHeadline({ slice, metadata }) {
                 </h4>
               </div>
             </div>
-            <div className="column is-narrow">
-              <figure
-                className="image is-32x32"
-                aria-label={`${hmbk_staff_name}, ${hmbk_staff_position}`}
-              >
-                <img
-                  className="is-rounded"
-                  src={article_author_pic.url}
-                  alt={`${hmbk_staff_name}, ${hmbk_staff_position}`}
-                />
-              </figure>
-            </div>
-            <div className="column is-narrow-desktop">
-              <p className="subtitle is-size-6-desktop is-size-7-touch">
-                {`${hmbk_staff_name}, ${hmbk_staff_position}`}
-              </p>
-            </div>
+            {hasAuthorDetails && (
+              <div className="column is-narrow">
+                <figure
+                  className="image is-32x32"
+                  aria-label={`${article_author.hmbk_staff_name}, ${article_author.hmbk_staff_position}`}
+                >
+                  <img
+                    className="is-rounded"
+                    src={article_author_pic.url}
+                    alt={`${article_author.hmbk_staff_name}, ${article_author.hmbk_staff_position}`}
+                  />
+                </figure>
+              </div>
+            )}
+            {hasAuthorDetails && (
+              <div className="column is-narrow-desktop">
+                <p className="subtitle is-size-6-desktop is-size-7-touch">
+                  {`${article_author.hmbk_staff_name}, ${article_author.hmbk_staff_position}`}
+                </p>
+              </div>
+            )}
             <div className="column is-narrow-desktop">
               {featureDateDetails.hasBeenUpdated ? (
                 <p className="subtitle is-size-6-desktop is-size-7-touch">

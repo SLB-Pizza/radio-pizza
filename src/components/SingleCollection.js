@@ -36,7 +36,7 @@ function SingleCollection({ singleCollection }) {
       <div className="column is-3-tablet is-12-mobile">
         <MixPlayOverlay
           wrapperClassName="card collection"
-          img={collection_img}
+          img={collection_img.url}
           title={collection_title}
           url={mixLinks}
           isCollection={true}

@@ -20,10 +20,12 @@ function LandingPageElement({ pageElement, layout, imageAspectRatio }) {
   const { _meta, body } = pageElement.node
 
   const { type, uid, firstPublicationDate, lastPublicationDate } = _meta
+
   const linkTo = {
     type,
     uid,
   }
+
   const pageElementDateDetails = processPublicationDates(
     firstPublicationDate,
     lastPublicationDate
@@ -99,3 +101,13 @@ function LandingPageElement({ pageElement, layout, imageAspectRatio }) {
 }
 
 export default LandingPageElement
+
+//
+//   <section className="container is-fluid">
+//     <div className="columns">
+//       <div className="column content">
+//         <pre>{JSON.stringify(body, null, 2)}</pre>
+//       </div>
+//     </div>
+//   </section>
+//

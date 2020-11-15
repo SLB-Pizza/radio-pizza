@@ -1,0 +1,488 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> src/templates/Resident.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">HMBK Gatsby Docs</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    API Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Global</h3><ul><li><a href="global.html#BottomNav">BottomNav</a></li><li><a href="global.html#cmsNodeValidator">cmsNodeValidator</a></li><li><a href="global.html#dateString">dateString</a></li><li><a href="global.html#displayCollectionPlaylistDetails">displayCollectionPlaylistDetails</a></li><li><a href="global.html#getNavbarHeights">getNavbarHeights</a></li><li><a href="global.html#guide">guide</a></li><li><a href="global.html#HomeEvents">HomeEvents</a></li><li><a href="global.html#parseViewports">parseViewports</a></li><li><a href="global.html#playlistShuffle">playlistShuffle</a></li><li><a href="global.html#processPublicationDates">processPublicationDates</a></li><li><a href="global.html#sliceZone">sliceZone</a></li><li><a href="global.html#TopNav">TopNav</a></li><li><a href="global.html#UpcomingShow">UpcomingShow</a></li></ul></div><div class="category"><h2>CMS</h2><h3>Components / Layout Helper</h3><ul><li><a href="ResponsiveImage.html">ResponsiveImage</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ArticleHeadline">ArticleHeadline</a></li><li><a href="global.html#Blockquote">Blockquote</a></li><li><a href="global.html#ContentHelper">ContentHelper</a></li><li><a href="global.html#FullWidthImage">FullWidthImage</a></li><li><a href="global.html#HeadlineBlock">HeadlineBlock</a></li><li><a href="global.html#ImageHelper">ImageHelper</a></li><li><a href="global.html#ImageModal">ImageModal</a></li><li><a href="global.html#ImageRow">ImageRow</a></li><li><a href="global.html#OneImageAndText">OneImageAndText</a></li><li><a href="global.html#ParallaxHeadline">ParallaxHeadline</a></li><li><a href="global.html#TextBlock">TextBlock</a></li><li><a href="global.html#TwoImagesAndText">TwoImagesAndText</a></li></ul></div><div class="category"><h2>Layout Helper</h2><h3>Global</h3><ul><li><a href="global.html#EventHeader">EventHeader</a></li><li><a href="global.html#ResidentBio">ResidentBio</a></li><li><a href="global.html#SingleResident">SingleResident</a></li><li><a href="global.html#TagButtons">TagButtons</a></li></ul></div><div class="category"><h2>Pages</h2><h3>Global</h3><ul><li><a href="global.html#CMSGuideIndex">CMSGuideIndex</a></li><li><a href="global.html#CollectionsIndexPage">CollectionsIndexPage</a></li><li><a href="global.html#EventsIndex">EventsIndex</a></li><li><a href="global.html#FeaturesIndex">FeaturesIndex</a></li><li><a href="global.html#IndexPage">IndexPage</a></li><li><a href="global.html#MixesIndexPage">MixesIndexPage</a></li><li><a href="global.html#ResidentIndex">ResidentIndex</a></li><li><a href="global.html#ScheduleIndexPage">ScheduleIndexPage</a></li><li><a href="global.html#SupportPage">SupportPage</a></li></ul></div><div class="category"><h2>Site Elements</h2><h3>Global</h3><ul><li><a href="global.html#DateSelectorButton">DateSelectorButton</a></li><li><a href="global.html#HeroCarousel">HeroCarousel</a></li><li><a href="global.html#HomeMixes">HomeMixes</a></li><li><a href="global.html#MixPlayOverlay">MixPlayOverlay</a></li><li><a href="global.html#RadioPlayer">RadioPlayer</a></li><li><a href="global.html#ResidentSocialLinks">ResidentSocialLinks</a></li><li><a href="global.html#SingleScheduleEntryRow">SingleScheduleEntryRow</a></li><li><a href="global.html#SlideGenerator">SlideGenerator</a></li></ul></div><div class="category"><h2>Templates</h2><h3>Global</h3><ul><li><a href="global.html#CMSGuideTemplate">CMSGuideTemplate</a></li><li><a href="global.html#EventsTemplate">EventsTemplate</a></li><li><a href="global.html#FeatureTemplate">FeatureTemplate</a></li><li><a href="global.html#MixTemplate">MixTemplate</a></li><li><a href="global.html#ResidentTemplate">ResidentTemplate</a></li></ul></div><div class="category"><h2>Testing</h2><h3>Global</h3><ul><li><a href="global.html#PuppeteerTesting">PuppeteerTesting</a></li></ul></div><div class="category"><h2>Utilities</h2><h3>Global</h3><ul><li><a href="global.html#formatDateTime">formatDateTime</a></li><li><a href="global.html#formatNextShow">formatNextShow</a></li><li><a href="global.html#getBlockquoteStyling">getBlockquoteStyling</a></li><li><a href="global.html#getResidentLinks">getResidentLinks</a></li><li><a href="global.html#getResidentString">getResidentString</a></li><li><a href="global.html#htmlSerializer">htmlSerializer</a></li><li><a href="global.html#LandingPageElement">LandingPageElement</a></li><li><a href="global.html#linkResolver">linkResolver</a></li><li><a href="global.html#mappableDataFilter">mappableDataFilter</a></li><li><a href="global.html#SingleMixCard">SingleMixCard</a></li></ul></div><div class="category"><h2>Utility Functions</h2><h3>Global</h3><ul><li><a href="global.html#uidValidator">uidValidator</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>src/templates/Resident.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import PropTypes from 'prop-types'
+import React, { useState, useEffect } from 'react'
+import { graphql } from 'gatsby'
+import NanoClamp from 'nanoclamp'
+import { ResidentBio, SingleMixCard } from '../components'
+import { mappableDataFilter } from '../utils'
+
+/**
+ * @category Templates
+ * @subcategory Resident
+ * @function ResidentTemplate
+ * @param {object} data - Prismic CMS data object containing all data needed to build `/residents/:uid`
+ * @param {object} path - the :uid of `/residents/:uid`; passed to {@link SingleMixCard} so that it can be used by {@link getResidentLink} to compare to the `featured_residents` _meta data
+ * @returns {jsx}
+ */
+function ResidentTemplate({ data }) {
+  const [isOpen, setIsOpen] = useState('Mixes')
+  const [hasMixes, setMixesData] = useState(false)
+  const [hasEvents, setEventsData] = useState(false)
+  const [hasFeatures, setFeaturesData] = useState(false)
+
+  const prismicContent = data.prismic.allResidents.edges[0]
+  if (!prismicContent) return null
+  const residentData = prismicContent.node
+
+  const {
+    resident_mixes,
+    resident_features,
+    resident_events,
+    ...rest
+  } = residentData
+
+  const residentCardLayout = 'column is-12-mobile is-6-tablet is-4-widescreen'
+
+  function toggleColumn(event) {
+    if (isOpen !== event.currentTarget.id) {
+      setIsOpen(event.currentTarget.id)
+    }
+  }
+
+  /**
+   * When Gatsby receives the Prismic data, perform a {@link mappableDataFilter} on the Resident's data object to determine which selection columns should be displayed to avoid having empty categories displayed.
+   */
+  useEffect(() => {
+    const dataCheck = () => {
+      if (data) {
+        if (mappableDataFilter(resident_mixes)) {
+          setMixesData(true)
+        }
+        if (mappableDataFilter(resident_events)) {
+          setEventsData(true)
+        }
+        if (mappableDataFilter(resident_features)) {
+          setFeaturesData(true)
+        }
+      }
+    }
+    return dataCheck()
+  }, [data, resident_mixes, resident_events, resident_features])
+
+  return (
+    &lt;div className="container is-fluid full-height-page">
+      &lt;div className="columns is-multiline">
+        &lt;ResidentBio residentBioData={rest} />
+        {/* RESIDENT MIX, EVENT, FEATURE SECTION */}
+        &lt;div className="column is-8-tablet is-9-desktop resident-content">
+          {/* TABLET, DESKTOP CONTENT SELECTOR BUTTONS */}
+          &lt;div className="columns is-mobile selector is-hidden-mobile">
+            {hasMixes ? (
+              &lt;div className="column">
+                {/* TABLET */}
+                &lt;button
+                  className={
+                    isOpen === 'Mixes'
+                      ? 'button active is-fullwidth is-outlined is-rounded display-text'
+                      : 'button is-fullwidth is-outlined is-rounded display-text'
+                  }
+                  id="Mixes"
+                  onClick={toggleColumn}
+                >
+                  Mixes
+                &lt;/button>
+              &lt;/div>
+            ) : null}
+
+            {hasEvents ? (
+              &lt;div className="column">
+                &lt;button
+                  className={
+                    isOpen === 'Events'
+                      ? 'button active is-fullwidth is-outlined is-rounded display-text'
+                      : 'button is-fullwidth is-outlined is-rounded display-text'
+                  }
+                  id="Events"
+                  onClick={toggleColumn}
+                >
+                  Events
+                &lt;/button>
+              &lt;/div>
+            ) : null}
+
+            {hasFeatures ? (
+              &lt;div className="column">
+                &lt;button
+                  className={
+                    isOpen === 'Features'
+                      ? 'button active is-fullwidth is-outlined is-rounded display-text'
+                      : 'button is-fullwidth is-outlined is-rounded display-text'
+                  }
+                  id="Features"
+                  onClick={toggleColumn}
+                >
+                  Features
+                &lt;/button>
+              &lt;/div>
+            ) : null}
+          &lt;/div>
+
+          {/* MOBILE CONTENT SELECTOR BUTTONS */}
+          &lt;div className="columns is-mobile is-multiline selector is-hidden-tablet">
+            &lt;div className="column is-12">
+              &lt;NanoClamp
+                className="title is-size-5"
+                is="p"
+                lines={2}
+                text={rest.resident_name}
+              />
+            &lt;/div>
+            {hasMixes ? (
+              &lt;div className="column">
+                {/* TABLET */}
+                &lt;button
+                  className={
+                    isOpen === 'Mixes'
+                      ? 'button is-small active is-fullwidth is-outlined is-rounded display-text'
+                      : 'button is-small is-fullwidth is-outlined is-rounded display-text'
+                  }
+                  id="Mixes"
+                  onClick={toggleColumn}
+                >
+                  Mixes
+                &lt;/button>
+              &lt;/div>
+            ) : null}
+
+            {hasEvents ? (
+              &lt;div className="column">
+                &lt;button
+                  className={
+                    isOpen === 'Events'
+                      ? 'button is-small active is-fullwidth is-outlined is-rounded display-text'
+                      : 'button is-small is-fullwidth is-outlined is-rounded display-text'
+                  }
+                  id="Events"
+                  onClick={toggleColumn}
+                >
+                  Events
+                &lt;/button>
+              &lt;/div>
+            ) : null}
+
+            {hasFeatures ? (
+              &lt;div className="column">
+                &lt;button
+                  className={
+                    isOpen === 'Features'
+                      ? 'button is-small active is-fullwidth is-outlined is-rounded display-text'
+                      : 'button is-small is-fullwidth is-outlined is-rounded display-text'
+                  }
+                  id="Features"
+                  onClick={toggleColumn}
+                >
+                  Features
+                &lt;/button>
+              &lt;/div>
+            ) : null}
+          &lt;/div>
+
+          {/* RESIDENT MIXES */}
+          {isOpen === 'Mixes' ? (
+            &lt;div className="columns is-mobile is-multiline">
+              {resident_mixes.map(({ resident_mix }, index) => (
+                &lt;SingleMixCard
+                  key={`resident-mix-#${index}`}
+                  mixData={resident_mix}
+                  columnLayout={residentCardLayout}
+                />
+              ))}
+              {/* &lt;pre>
+                Resident Mixes {JSON.stringify(resident_mixes, null, 2)}
+              &lt;/pre> */}
+            &lt;/div>
+          ) : null}
+
+          {/* RESIDENT EVENTS */}
+          {isOpen === 'Events' ? (
+            &lt;div className="columns is-mobile is-multiline">
+              {/* {resident_events.map(({ event }, index) => (
+                &lt;SingleEventCard
+                  key={`resident-event-#${index}`}
+                  eventData={event}
+                  columnLayout={residentCardLayout}
+                />
+              ))} */}
+              &lt;pre>{JSON.stringify(resident_events, null, 2)}&lt;/pre>
+            &lt;/div>
+          ) : null}
+
+          {/* RESIDENT Features */}
+          {isOpen === 'Features' ? (
+            &lt;div className="columns is-mobile is-multiline">
+              {/* {resident_features.map((feature, index) => (
+                &lt;LandingPageElement
+                  key={`resident-feature-#${index}`}
+                  pageElement={feature}
+                  imageAspectRatio="image is-16by9"
+                  columnLayout="column is-6 landing-page-element"
+                />
+              ))} */}
+              &lt;pre>{JSON.stringify(resident_features, null, 2)}&lt;/pre>
+            &lt;/div>
+          ) : null}
+
+          &lt;pre>All Resident Data {JSON.stringify(residentData, null, 2)}&lt;/pre>
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+  )
+}
+
+ResidentTemplate.propTypes = {
+  data: PropTypes.shape({
+    prismic: PropTypes.shape({
+      allResidents: PropTypes.shape({
+        edges: PropTypes.array,
+      }),
+    }),
+  }),
+}
+
+export const query = graphql`
+  query ResidentTemplateQuery($uid: String) {
+    prismic {
+      allResidents(uid: $uid) {
+        edges {
+          node {
+            resident_image
+            resident_name
+            resident_status
+            resident_blurb
+            social_media {
+              resident_social_page
+              resident_social_link {
+                ... on PRISMIC__ExternalLink {
+                  target
+                  _linkType
+                  url
+                }
+              }
+            }
+            resident_mixes {
+              resident_mix {
+                ... on PRISMIC_Mix {
+                  _meta {
+                    tags
+                    uid
+                    type
+                  }
+                  mix_image
+                  mix_title
+                  mix_link
+                  mix_date
+                  featured_residents {
+                    mix_resident {
+                      ... on PRISMIC_Resident {
+                        resident_name
+                        _meta {
+                          uid
+                          type
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            resident_features {
+              resident_feature {
+                ... on PRISMIC_Feature {
+                  body {
+                    ... on PRISMIC_FeatureBodyHeadline_block {
+                      primary {
+                        article_headline_img
+                        article_headline
+                        article_subtitle
+                        article_subcategory
+                      }
+                    }
+                  }
+                  _meta {
+                    uid
+                    type
+                    lastPublicationDate
+                  }
+                }
+              }
+            }
+            resident_events {
+              resident_event {
+                ... on PRISMIC_Event {
+                  _meta {
+                    uid
+                    type
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
+export default ResidentTemplate
+
+// Resident Template
+// Resident Img sizes (square)
+// --- MOBILE ---
+// --- min-max avg:  461---
+// --- mean:  403.33---
+// 767  - 703
+
+// 768  - 219
+// 1023 - 304
+
+// --- DESKTOP ---
+// --- min-max avg:  453.5---
+// --- mean:  417.67---
+// 1024 - 304
+// 1215 - 368
+
+// 1216 - 368
+// 1407 - 431
+
+// 1408 - 432
+// 1920 - 603
+
+// Mix Img sizes (square)
+// --- MOBILE ---
+// --- min-max avg:  574---
+// --- mean:  590.33---
+// 767  - 695
+
+// 768  - 453
+// 1023 - 623
+
+// --- DESKTOP ---
+// --- min-max avg:  307.5---
+// --- mean:  302.5---
+// 1024 - 296
+// 1215 - 360
+
+// 1216 - 229
+// 1407 - 272
+
+// 1408 - 272
+// 1920 - 386
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+</body>
+</html>

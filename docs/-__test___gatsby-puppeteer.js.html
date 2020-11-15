@@ -1,0 +1,656 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> __test__/gatsby-puppeteer.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">HMBK Gatsby Docs</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    API Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Global</h3><ul><li><a href="global.html#BottomNav">BottomNav</a></li><li><a href="global.html#cmsNodeValidator">cmsNodeValidator</a></li><li><a href="global.html#dateString">dateString</a></li><li><a href="global.html#displayCollectionPlaylistDetails">displayCollectionPlaylistDetails</a></li><li><a href="global.html#getNavbarHeights">getNavbarHeights</a></li><li><a href="global.html#guide">guide</a></li><li><a href="global.html#HomeEvents">HomeEvents</a></li><li><a href="global.html#parseViewports">parseViewports</a></li><li><a href="global.html#playlistShuffle">playlistShuffle</a></li><li><a href="global.html#processPublicationDates">processPublicationDates</a></li><li><a href="global.html#sliceZone">sliceZone</a></li><li><a href="global.html#TopNav">TopNav</a></li><li><a href="global.html#UpcomingShow">UpcomingShow</a></li></ul></div><div class="category"><h2>CMS</h2><h3>Components / Layout Helper</h3><ul><li><a href="ResponsiveImage.html">ResponsiveImage</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ArticleHeadline">ArticleHeadline</a></li><li><a href="global.html#Blockquote">Blockquote</a></li><li><a href="global.html#ContentHelper">ContentHelper</a></li><li><a href="global.html#FullWidthImage">FullWidthImage</a></li><li><a href="global.html#HeadlineBlock">HeadlineBlock</a></li><li><a href="global.html#ImageHelper">ImageHelper</a></li><li><a href="global.html#ImageModal">ImageModal</a></li><li><a href="global.html#ImageRow">ImageRow</a></li><li><a href="global.html#OneImageAndText">OneImageAndText</a></li><li><a href="global.html#ParallaxHeadline">ParallaxHeadline</a></li><li><a href="global.html#TextBlock">TextBlock</a></li><li><a href="global.html#TwoImagesAndText">TwoImagesAndText</a></li></ul></div><div class="category"><h2>Layout Helper</h2><h3>Global</h3><ul><li><a href="global.html#EventHeader">EventHeader</a></li><li><a href="global.html#ResidentBio">ResidentBio</a></li><li><a href="global.html#SingleResident">SingleResident</a></li><li><a href="global.html#TagButtons">TagButtons</a></li></ul></div><div class="category"><h2>Pages</h2><h3>Global</h3><ul><li><a href="global.html#CMSGuideIndex">CMSGuideIndex</a></li><li><a href="global.html#CollectionsIndexPage">CollectionsIndexPage</a></li><li><a href="global.html#EventsIndex">EventsIndex</a></li><li><a href="global.html#FeaturesIndex">FeaturesIndex</a></li><li><a href="global.html#IndexPage">IndexPage</a></li><li><a href="global.html#MixesIndexPage">MixesIndexPage</a></li><li><a href="global.html#ResidentIndex">ResidentIndex</a></li><li><a href="global.html#ScheduleIndexPage">ScheduleIndexPage</a></li><li><a href="global.html#SupportPage">SupportPage</a></li></ul></div><div class="category"><h2>Site Elements</h2><h3>Global</h3><ul><li><a href="global.html#DateSelectorButton">DateSelectorButton</a></li><li><a href="global.html#HeroCarousel">HeroCarousel</a></li><li><a href="global.html#HomeMixes">HomeMixes</a></li><li><a href="global.html#MixPlayOverlay">MixPlayOverlay</a></li><li><a href="global.html#RadioPlayer">RadioPlayer</a></li><li><a href="global.html#ResidentSocialLinks">ResidentSocialLinks</a></li><li><a href="global.html#SingleScheduleEntryRow">SingleScheduleEntryRow</a></li><li><a href="global.html#SlideGenerator">SlideGenerator</a></li></ul></div><div class="category"><h2>Templates</h2><h3>Global</h3><ul><li><a href="global.html#CMSGuideTemplate">CMSGuideTemplate</a></li><li><a href="global.html#EventsTemplate">EventsTemplate</a></li><li><a href="global.html#FeatureTemplate">FeatureTemplate</a></li><li><a href="global.html#MixTemplate">MixTemplate</a></li><li><a href="global.html#ResidentTemplate">ResidentTemplate</a></li></ul></div><div class="category"><h2>Testing</h2><h3>Global</h3><ul><li><a href="global.html#PuppeteerTesting">PuppeteerTesting</a></li></ul></div><div class="category"><h2>Utilities</h2><h3>Global</h3><ul><li><a href="global.html#formatDateTime">formatDateTime</a></li><li><a href="global.html#formatNextShow">formatNextShow</a></li><li><a href="global.html#getBlockquoteStyling">getBlockquoteStyling</a></li><li><a href="global.html#getResidentLinks">getResidentLinks</a></li><li><a href="global.html#getResidentString">getResidentString</a></li><li><a href="global.html#htmlSerializer">htmlSerializer</a></li><li><a href="global.html#LandingPageElement">LandingPageElement</a></li><li><a href="global.html#linkResolver">linkResolver</a></li><li><a href="global.html#mappableDataFilter">mappableDataFilter</a></li><li><a href="global.html#SingleMixCard">SingleMixCard</a></li></ul></div><div class="category"><h2>Utility Functions</h2><h3>Global</h3><ul><li><a href="global.html#uidValidator">uidValidator</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>__test__/gatsby-puppeteer.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const chalk = require("chalk");
+const figlet = require("figlet");
+const inquirer = require("inquirer");
+const puppeteer = require("puppeteer");
+const lighthouse = require("lighthouse");
+const { URL } = require("url");
+const deviceList = puppeteer.devices;
+
+/**
+ * Primary script variables, script testing variables, situational variables
+ * @category Testing
+ * @subcategory Puppeteer
+ * @function PuppeteerTesting
+ * @param {string} pageRoute - the /route to capture
+ * @param {string} pageVersion - version of page captured; change each revision
+ * @param {string} pageURL - pulls in route and passes result to puppeteer
+ * @param {boolean} takeShot - set to false when testing the script
+ * @param {boolean} fullPageCapture - set true if page is taller than window height
+ * @param {boolean} promptUserQuestions - gates CLI questionnaire to gather info
+ * @param {boolean} clickItem - gates click script section
+ * @param {string} clickTarget- the element to be clicked e.g. "div #expand-button"
+ * @param {boolean} scrollToSection - gates scroll script section
+ */
+const pageRoute = "";
+const pageName = pageRoute === "" ? "home" : pageRoute;
+const pageVersion = "v6";
+const pageURL = `http://localhost:8000/${pageRoute}`;
+
+const takeShot = true;
+const fullPageCapture = false;
+const auditDeploy = false;
+
+const promptUserQuestions = false;
+const clickItem = false;
+const clickTarget = "div #expand-button";
+const scrollToSection = false;
+
+/************************************************
+ * WARNING
+ * THAR BE DRAGONS AHEAD
+ ************************************************/
+
+/**
+ * CONSTANTS
+ * @param {string} guide - ASCII guide of bulma breakpoints; used in user prompt
+ * @param {object[]} questions - array of question objects displayed in user prompt
+ * @param {object[]} customDevices - array of device objects to emulate in script
+ * @param {object[]} allDevices - complete array of devices to capture screenshots of
+ */
+const guide = chalk.white(`
+  Breakpoints Guide (in px)
+
+  |        TOUCH SIZES         ||             DESKTOP SIZES
+  0 ---------- 768 ---------- 1024 ---------- 1216 ---------- 1408 ---------->
+  |   mobile    |    tablet    ||    desktop   |   widescreen  |   fullhd\n`);
+
+const questions = [
+  {
+    type: "input",
+    name: "baseURL",
+    message: "Base URL?",
+    default() {
+      return "http://localhost:8000/";
+    },
+  },
+  {
+    type: "input",
+    name: "page",
+    message: "Page to screenshot?",
+    default() {
+      return "schedule";
+    },
+  },
+  {
+    type: "input",
+    name: "version",
+    message: "Page version?",
+    default() {
+      return "v1";
+    },
+  },
+  {
+    type: "checkbox",
+    message() {
+      console.log(guide);
+      return "Which viewports to screenshot?";
+    },
+    name: "viewports",
+    pageSize: 21,
+    choices: [
+      new inquirer.Separator("Select a viewport group..."),
+      {
+        name: "All Sizes",
+      },
+      {
+        name: "Touch Sizes",
+      },
+      {
+        name: "Desktop Sizes",
+      },
+      new inquirer.Separator("...or pick the ones you need."),
+      {
+        name: "Mobile",
+      },
+      {
+        name: "Tablet",
+      },
+      {
+        name: "Desktop",
+      },
+      {
+        name: "Widescreen",
+      },
+      {
+        name: "FullHD",
+      },
+    ],
+  },
+  {
+    type: "confirm",
+    name: "confirm",
+    message(a) {
+      console.log(
+        chalk.white(`
+  Current Settings:
+
+  - Link: ${a.baseURL}${a.page}
+  - Version: ${a.page} ${a.version}
+  - Pages: ${
+    a.viewports.length ? a.viewports.join(", ") : "=== NONE SELECTED ==="
+  }
+`)
+      );
+      return "Continue with these settings?";
+    },
+    default() {
+      return true;
+    },
+  },
+];
+
+const customDevices = [
+  {
+    name: "Desktop",
+    description:
+      "a narrow monitor or wide tablet, desktop (1024px &lt;- size -> 1215px)",
+    viewport: {
+      width: 1024,
+      height: 768,
+      deviceScaleFactor: 1,
+      isMobile: false,
+      hasTouch: false,
+      isLandscape: true,
+    },
+  },
+  {
+    name: "Widescreen",
+    description:
+      "a low-res laptop screen, widescreen (1216px &lt;- size -> 1407px)",
+    viewport: {
+      width: 1280,
+      height: 800,
+      deviceScaleFactor: 1,
+      isMobile: false,
+      hasTouch: false,
+      isLandscape: true,
+    },
+  },
+  {
+    name: "1080p",
+    description: "a typical 1080p FHD monitor, fullhd (size >= 1408px)",
+    viewport: {
+      width: 1920,
+      height: 1080,
+      deviceScaleFactor: 1,
+      isMobile: false,
+      hasTouch: false,
+      isLandscape: true,
+    },
+  },
+];
+
+const iPhoneSE = deviceList["iPhone SE"];
+const iPhoneX = deviceList["iPhone X"];
+const p2XL = deviceList["Pixel 2 XL"];
+const iPhone6 = deviceList["iPhone 6"];
+const iPhone6Plus = deviceList["iPhone 6 Plus"];
+const iPad = deviceList["iPad"];
+const kindleFireHDX = deviceList["Kindle Fire HDX"];
+
+iPhoneSE.description =
+  "a 2012 iPhone with a tiny screen - mobile (size &lt;= 767px)";
+iPhoneX.description = "a modern iPhone - mobile (size &lt;= 767px)";
+p2XL.description = "a modern Android phone - mobile (size &lt;= 767px)";
+iPhone6.description =
+  "the screen for the iPhone 6/7/8 - mobile (size &lt;= 767px)";
+iPhone6Plus.description =
+  "the screen for the iPhone 6/7/8 Plus - mobile (size &lt;= 767px)";
+iPad.description = "the most common tablet - tablet (768px &lt;- size -> 1023px)";
+kindleFireHDX.description =
+  "a common Android tablet - tablet (768px &lt;- size -> 1023px)";
+
+const allDevices = [
+  iPhoneSE,
+  iPhoneX,
+  p2XL,
+  iPhone6,
+  iPhone6Plus,
+  iPad,
+  kindleFireHDX,
+  ...customDevices,
+];
+
+/**
+ * FUNCTIONS
+ *
+ * Running order
+ * - inquirer
+ * - parseViewports
+ * - dateString
+ */
+
+/**
+ * Returns an array of viewports to capture screenshots of
+ * @function parseViewports
+ * @param {string[]} choices - array of strings from the user prompt
+ * @returns {array} - array of selected viewports
+ */
+const parseViewports = (choices) => {
+  console.log("Choices is:\n", choices, "\n");
+
+  let viewports = new Set();
+
+  if (choices.indexOf("All Sizes") !== -1) {
+    viewports.add(allDevices[0]);
+    viewports.add(allDevices[1]);
+    viewports.add(allDevices[2]);
+    viewports.add(allDevices[3]);
+    viewports.add(allDevices[4]);
+    console.log("All", viewports.size);
+  } else if (choices.indexOf("Touch Sizes") !== -1) {
+    viewports.add(allDevices[0]);
+    viewports.add(allDevices[1]);
+    console.log("Touch", viewports.size);
+  } else if (choices.indexOf("Desktop Sizes") !== -1) {
+    viewports.add(allDevices[2]);
+    viewports.add(allDevices[3]);
+    viewports.add(allDevices[4]);
+    console.log("Desktop", viewports.size);
+  } else {
+    for (let i = 0; i &lt; choices.length; i++) {
+      let choice = choices[i];
+
+      switch (choice) {
+        case "Mobile":
+          viewports.add(allDevices[0]);
+          break;
+        case "Tablet":
+          viewports.add(allDevices[1]);
+          break;
+        case "Desktop":
+          viewports.add(allDevices[2]);
+          break;
+        case "Widescreen":
+          viewports.add(allDevices[3]);
+          break;
+        case "FullHD":
+          viewports.add(allDevices[4]);
+          break;
+      }
+    }
+    console.log("Mix and Match", viewports.size);
+    return viewports;
+  }
+};
+
+/**
+ * Returns a formatted time and date string for use in naming files
+ * @function dateString
+ * @returns {string} - a filename safe formatted time-date string
+ */
+const dateString = () => {
+  let now = Date.now();
+  let time = new Date(now);
+  let string = time.toLocaleString("en-US", {
+    day: "numeric",
+    month: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "America/New_York",
+  });
+
+  // Replace the comma and colon in the time expression with ""
+  let regEx = new RegExp("[,:]", "gi");
+  let dateStr = string.replace(regEx, "");
+  return dateStr;
+};
+
+(async () => {
+  try {
+    console.clear();
+    console.log(
+      chalk.white(
+        figlet.textSync("Screenshots", {
+          font: "Slant",
+          horizontalLayout: "default",
+          verticalLayout: "default",
+        })
+      )
+    );
+    console.log(chalk.white("Capturing your project in different devices.\n"));
+
+    // Ask the user questions
+    if (promptUserQuestions) {
+      let answers = await inquirer.prompt(questions);
+
+      // Kill the script if the settings were wrong
+      if (answers.confirm === false) {
+        process.exit();
+      }
+
+      let viewports = parseViewports(answers.viewports);
+      console.log(viewports, "\n");
+    }
+
+    // Load puppeteer
+    console.log(chalk.bold.white(`  Loading Puppeteer...`));
+    const browser = await puppeteer.launch();
+
+    console.log(
+      chalk.white(
+        `  Preparing to take ${allDevices.length} screenshots of ${pageURL}.\n`
+      )
+    );
+
+    const time = dateString();
+    let accessTimes = [];
+    let count = 0;
+    for (let device of allDevices) {
+      count++;
+
+      // Add userAgent string to device object for the customDevices
+      if (!device.hasOwnProperty("userAgent")) {
+        device.userAgent = await browser.userAgent();
+      }
+
+      chalk.cyan(
+        console.log(`------------------------------------------------------\n`)
+      );
+
+      // Show the user whether or not script is in test mode
+      if (takeShot) {
+        console.log(
+          chalk.bold.white(
+            `  #${count} of ${allDevices.length} - ${device.name}`
+          )
+        );
+        console.log(chalk.white(`  ┣ Represents ${device.description}.`));
+        console.log(chalk.white(`  ┃`));
+      } else {
+        console.log(
+          chalk.bold.yellow(
+            `  #${count} of ${allDevices.length} - ${device.name} - TESTING: No screenshots`
+          )
+        );
+        console.log(chalk.yellow(`  ┣ Represents ${device.description}.`));
+        console.log(chalk.yellow(`  ┃`));
+      }
+
+      // Open a new browser page
+      console.log(chalk.cyan(`  ┣ Opening new browser tab...`));
+      const page = await browser.newPage();
+
+      // Emulate the device
+      console.log(chalk.cyan(`  ┣ Emulating ${device.name}...`));
+      await page.emulate(device);
+
+      // Navigate to the pageURL and print the load time.
+      console.log(chalk.cyan(`  ┣ Navigating to ${pageURL}...`));
+      let startNow = Date.now();
+      await page.goto(`${pageURL}`, {
+        waitUntil: ["load", "domcontentloaded", "networkidle2"],
+        timeout: 60000,
+      });
+      let endNow = Date.now();
+      console.log(
+        chalk.cyan(`  ┣ Page loaded successfully in ${endNow - startNow}ms.`)
+      );
+      let loadTime = endNow - startNow;
+
+      if (clickItem || scrollToSection) {
+        console.log(chalk.cyan(`  ┃`));
+      }
+
+      // Click one of the time-date divs on /schedule
+      if (clickItem) {
+        console.log(chalk.cyan(`  ┣ Locating click target...`));
+        await page.click(`${clickTarget}`);
+        console.log(chalk.cyan(`  ┣ '${clickTarget}' clicked.`));
+      }
+
+      // Scroll the page to the bottom
+      if (scrollToSection) {
+        console.log(chalk.cyan(`  ┣ Scrolling page...`));
+        await page.evaluate(() => {
+          window.scrollBy(0, document.body.scrollHeight);
+        });
+        console.log(chalk.cyan(`  ┣ Page scrolled.`));
+      }
+
+      // Take the screenshot
+      if (takeShot) {
+        console.log(
+          chalk.cyan(
+            `  ┣ Capturing ${
+              fullPageCapture ? "full height " : ""
+            }screenshot...`
+          )
+        );
+        await page.screenshot({
+          path: `__test__/screenshots/${pageName} ${pageVersion} | ${device.name} | ${time}.jpeg`,
+          fullPage: fullPageCapture,
+          type: "jpeg",
+          quality: 75,
+        });
+      }
+
+      accessTimes.push(loadTime);
+      if (!takeShot) {
+        console.log(chalk.yellow(`  ┣ Value pushed: ${loadTime}`));
+        console.log(chalk.yellow(`  ┣ accessTimes: ${accessTimes}`));
+      }
+      // Success! Report back to the user.
+      console.log(chalk.cyan(`  ┃`));
+      console.log(
+        chalk.green(
+          `  ┣ 🖼️   ${device.name} (${device.viewport.width}x${device.viewport.height}) captured.`
+        )
+      );
+      console.log(
+        chalk.green(
+          `  ┗ 💾  Saved to '/screenshots/${pageName} ${pageVersion} | ${device.name} | ${time}.jpeg'\n`
+        )
+      );
+
+      // Close the current page - don't let them buildup or it'll slow down and timeout.
+      await page.close();
+    }
+
+    // Calculate metrics
+    const avgTime = (times) => times.reduce((a, b) => a + b, 0) / times.length;
+
+    // Summarize screenshot total
+    console.log(
+      chalk.inverse.green(
+        `====== ${count} screenshots taken successfully! ======\n`
+      )
+    );
+    console.log(chalk.green(`  Results`));
+    console.log(chalk.green(`  ┃`));
+    console.log(
+      chalk.green(`  ┣ Average page load: ${avgTime(accessTimes)}ms.`)
+    );
+    console.log(
+      chalk.green(`  ┣ Fastest page load: ${Math.min(...accessTimes)}ms.`)
+    );
+    console.log(
+      chalk.green(`  ┣ Slowest page load: ${Math.max(...accessTimes)}ms.`)
+    );
+
+    if (auditDeploy) {
+      console.log(
+        chalk.white(
+          figlet.textSync("Lighthouse", {
+            font: "Slant",
+            horizontalLayout: "default",
+            verticalLayout: "default",
+          })
+        )
+      );
+      const url = `https://halfmoon-rebuild-wip-2020.netlify.com/`;
+      console.log(chalk.white(`\nAuditing ${url} with Lighthouse.\n`));
+
+      // Lighthouse will open URL. Puppeteer observes `targetchanged` and sets up network conditions.
+      // Possible race condition.
+      const { lhr } = await lighthouse(url, {
+        port: new URL(browser.wsEndpoint()).port,
+        output: "json",
+        logLevel: "info",
+      });
+
+      const auditCategories = ["Performance", ""];
+
+      console.log(
+        chalk.white(
+          `\nLighthouse Audit Results:\n${Object.values(lhr.categories)
+            .map((c) => `${c.title} -- ${Math.floor(c.score * 100)}/100`)
+            .join("\n")}`
+        )
+      );
+    }
+
+    // Wrap everything up
+    await browser.close();
+    process.exit();
+  } catch (error) {
+    // Check for errors with puppeteer errors...
+    if (error instanceof puppeteer.errors.TimeoutError) {
+      console.log(chalk.red(`  ┃`));
+      console.log(chalk.red(`  ┣ Operation timed out.`));
+      console.log(
+        chalk.red(
+          `  ┣ Try changing/removing 'waitUntil' conditions for 'page.goTo()'.`,
+          `  ┣ Are you opening too many pages at once without closing them?`
+        )
+      );
+      console.log(chalk.red(`  ┗ Error logs below. `));
+      console.log("\n", error);
+      process.exit();
+    }
+    // ...then for errors displaying the questionnaire...
+    else if (error.isTtyError) {
+      console.log(chalk.red(`  ┃`));
+      console.log(chalk.red(`  ┗ Questionnaire couldn't be rendered.`));
+      console.log("\n", error);
+      process.exit();
+    }
+    // ...then for other errors.
+    else {
+      console.log(chalk.red(`  ┃`));
+      console.log(chalk.red(`  ┗ Something went wrong. Error logs below.`));
+      console.log("\n", error);
+      process.exit();
+    }
+  }
+})();
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+</body>
+</html>

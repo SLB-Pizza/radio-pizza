@@ -220,7 +220,7 @@ describe('mappableDataFilter', () => {
     const testCaseMaker = () => {
       let testCases = []
 
-      for (let i = 1; i <= 100; i++) {
+      for (let i = 1; i <= 25; i++) {
         let validEntriesTotal = Math.ceil(Math.random() * 500) + i + 99
         let invalidEntriesTotal = i
         let testArrayLength = validEntriesTotal + invalidEntriesTotal
@@ -306,9 +306,9 @@ describe('mappableDataFilter', () => {
       return testCases
     }
 
-    let hundredTestCases = testCaseMaker()
+    let twentyFiveCases = testCaseMaker()
 
-    hundredTestCases.forEach(test => {
+    twentyFiveCases.forEach(test => {
       it(`${test.array.length} entries; ${test.invalid} invalid ${
         test.invalid === 1 ? 'entry removed' : 'entries removed'
       }`, () => {
@@ -420,7 +420,7 @@ describe('mappableDataFilter', () => {
       const testCaseMaker = () => {
         let testCases = []
 
-        for (let i = 1; i <= 100; i++) {
+        for (let i = 1; i <= 25; i++) {
           let validEntriesTotal = Math.ceil(Math.random() * 500) + i + 99
           let invalidEntriesTotal = i
           let testArrayLength = validEntriesTotal + invalidEntriesTotal
@@ -506,9 +506,9 @@ describe('mappableDataFilter', () => {
         return testCases
       }
 
-      let hundredTestCases = testCaseMaker()
+      let twentyFiveCases = testCaseMaker()
 
-      hundredTestCases.forEach(test => {
+      twentyFiveCases.forEach(test => {
         it(`${test.array.length} entries; ${test.invalid} invalid ${
           test.invalid === 1
             ? `entry counted and removed`

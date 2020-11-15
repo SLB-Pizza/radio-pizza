@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> src/components/BottomNav.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">HMBK Gatsby Docs</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    API Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Global</h3><ul><li><a href="global.html#BottomNav">BottomNav</a></li><li><a href="global.html#cmsNodeValidator">cmsNodeValidator</a></li><li><a href="global.html#dateString">dateString</a></li><li><a href="global.html#displayCollectionPlaylistDetails">displayCollectionPlaylistDetails</a></li><li><a href="global.html#getNavbarHeights">getNavbarHeights</a></li><li><a href="global.html#guide">guide</a></li><li><a href="global.html#HomeEvents">HomeEvents</a></li><li><a href="global.html#parseViewports">parseViewports</a></li><li><a href="global.html#playlistShuffle">playlistShuffle</a></li><li><a href="global.html#processPublicationDates">processPublicationDates</a></li><li><a href="global.html#sliceZone">sliceZone</a></li><li><a href="global.html#TopNav">TopNav</a></li><li><a href="global.html#UpcomingShow">UpcomingShow</a></li></ul></div><div class="category"><h2>CMS</h2><h3>Components / Layout Helper</h3><ul><li><a href="ResponsiveImage.html">ResponsiveImage</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ArticleHeadline">ArticleHeadline</a></li><li><a href="global.html#Blockquote">Blockquote</a></li><li><a href="global.html#ContentHelper">ContentHelper</a></li><li><a href="global.html#FullWidthImage">FullWidthImage</a></li><li><a href="global.html#HeadlineBlock">HeadlineBlock</a></li><li><a href="global.html#ImageHelper">ImageHelper</a></li><li><a href="global.html#ImageModal">ImageModal</a></li><li><a href="global.html#ImageRow">ImageRow</a></li><li><a href="global.html#OneImageAndText">OneImageAndText</a></li><li><a href="global.html#ParallaxHeadline">ParallaxHeadline</a></li><li><a href="global.html#TextBlock">TextBlock</a></li><li><a href="global.html#TwoImagesAndText">TwoImagesAndText</a></li></ul></div><div class="category"><h2>Layout Helper</h2><h3>Global</h3><ul><li><a href="global.html#EventHeader">EventHeader</a></li><li><a href="global.html#ResidentBio">ResidentBio</a></li><li><a href="global.html#SingleResident">SingleResident</a></li><li><a href="global.html#TagButtons">TagButtons</a></li></ul></div><div class="category"><h2>Pages</h2><h3>Global</h3><ul><li><a href="global.html#CMSGuideIndex">CMSGuideIndex</a></li><li><a href="global.html#CollectionsIndexPage">CollectionsIndexPage</a></li><li><a href="global.html#EventsIndex">EventsIndex</a></li><li><a href="global.html#FeaturesIndex">FeaturesIndex</a></li><li><a href="global.html#IndexPage">IndexPage</a></li><li><a href="global.html#MixesIndexPage">MixesIndexPage</a></li><li><a href="global.html#ResidentIndex">ResidentIndex</a></li><li><a href="global.html#ScheduleIndexPage">ScheduleIndexPage</a></li><li><a href="global.html#SupportPage">SupportPage</a></li></ul></div><div class="category"><h2>Site Elements</h2><h3>Global</h3><ul><li><a href="global.html#DateSelectorButton">DateSelectorButton</a></li><li><a href="global.html#HeroCarousel">HeroCarousel</a></li><li><a href="global.html#HomeMixes">HomeMixes</a></li><li><a href="global.html#MixPlayOverlay">MixPlayOverlay</a></li><li><a href="global.html#RadioPlayer">RadioPlayer</a></li><li><a href="global.html#ResidentSocialLinks">ResidentSocialLinks</a></li><li><a href="global.html#SingleScheduleEntryRow">SingleScheduleEntryRow</a></li><li><a href="global.html#SlideGenerator">SlideGenerator</a></li></ul></div><div class="category"><h2>Templates</h2><h3>Global</h3><ul><li><a href="global.html#CMSGuideTemplate">CMSGuideTemplate</a></li><li><a href="global.html#EventsTemplate">EventsTemplate</a></li><li><a href="global.html#FeatureTemplate">FeatureTemplate</a></li><li><a href="global.html#MixTemplate">MixTemplate</a></li><li><a href="global.html#ResidentTemplate">ResidentTemplate</a></li></ul></div><div class="category"><h2>Testing</h2><h3>Global</h3><ul><li><a href="global.html#PuppeteerTesting">PuppeteerTesting</a></li></ul></div><div class="category"><h2>Utilities</h2><h3>Global</h3><ul><li><a href="global.html#formatDateTime">formatDateTime</a></li><li><a href="global.html#formatNextShow">formatNextShow</a></li><li><a href="global.html#getBlockquoteStyling">getBlockquoteStyling</a></li><li><a href="global.html#getResidentLinks">getResidentLinks</a></li><li><a href="global.html#getResidentString">getResidentString</a></li><li><a href="global.html#htmlSerializer">htmlSerializer</a></li><li><a href="global.html#LandingPageElement">LandingPageElement</a></li><li><a href="global.html#linkResolver">linkResolver</a></li><li><a href="global.html#mappableDataFilter">mappableDataFilter</a></li><li><a href="global.html#SingleMixCard">SingleMixCard</a></li></ul></div><div class="category"><h2>Utility Functions</h2><h3>Global</h3><ul><li><a href="global.html#uidValidator">uidValidator</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>src/components/BottomNav.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useContext, useState } from 'react'
+import { Link } from 'gatsby'
+import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
+import {
+  GlobalDispatchContext,
+  GlobalStateContext,
+} from '../context/GlobalContextProvider'
+import { OutsideClick } from './index'
+
+/**
+ *
+ * @function BottomNav
+ */
+function BottomNav() {
+  const [dropUpOpen, setDropUpOpen] = useState(false)
+
+  const toggleDropUp = () => {
+    setDropUpOpen(state => !state)
+  }
+
+  const dispatch = useContext(GlobalDispatchContext)
+  const globalState = useContext(GlobalStateContext)
+
+  const closeNavMenu = async () => {
+    await dispatch({ type: 'CLOSE_NAVMENU' })
+  }
+
+  const toggleNavMenu = async () => {
+    await dispatch({ type: 'TOGGLE_NAVMENU' })
+  }
+
+  /**
+   * This globalState null return prevents ERROR #95313.
+   * @see {@link TopNav|Related globalState situation in TopNav}
+   * @see {@link https://github.com/gatsbyjs/gatsby/issues/24264#issuecomment-631995753|Re: ERROR #95313 - To stop the error immediately, add a null check for the object}
+   */
+  if (!globalState) return null
+  return (
+    &lt;nav
+      className="navbar is-fixed-bottom"
+      role="navigation"
+      aria-label="navigation bar"
+      id="navigation"
+    >
+      &lt;OutsideClick id={'navigation'} onClick={() => closeNavMenu()}>
+        &lt;div className="navbar-brand">
+          &lt;Link
+            to="/"
+            className="navbar-item display-text"
+            onClick={() => toggleNavMenu()}
+          >
+            Ears to the concrete.
+          &lt;/Link>
+
+          &lt;span
+            className={
+              globalState.navMenuOpen
+                ? 'navbar-burger is-active'
+                : 'navbar-burger'
+            }
+            role="button"
+            aria-label="navigation menu"
+            aria-expanded={globalState.navMenuOpen ? 'true' : 'false'}
+            data-target="nav-menu"
+            onClick={() => toggleNavMenu()}
+          >
+            &lt;span aria-hidden="true">&lt;/span>
+            &lt;span aria-hidden="true">&lt;/span>
+            &lt;span aria-hidden="true">&lt;/span>
+          &lt;/span>
+        &lt;/div>
+        &lt;div
+          className={
+            globalState.navMenuOpen ? 'navbar-menu is-active' : 'navbar-menu'
+          }
+          id="nav-menu"
+        >
+          &lt;div className="navbar-start">
+            &lt;Link
+              to="/residents"
+              className="navbar-item"
+              onClick={() => toggleNavMenu()}
+            >
+              Residents
+            &lt;/Link>
+
+            &lt;div
+              className={
+                dropUpOpen
+                  ? 'navbar-item has-dropdown has-dropdown-up is-active'
+                  : 'navbar-item has-dropdown has-dropdown-up'
+              }
+            >
+              &lt;a className="navbar-item" onClick={() => toggleDropUp()}>
+                Music
+              &lt;/a>
+              &lt;div className="navbar-dropdown">
+                &lt;Link
+                  to="/mixes"
+                  className="navbar-item"
+                  onClick={() => toggleNavMenu()}
+                >
+                  Mixes
+                &lt;/Link>
+
+                &lt;Link
+                  to="/collections"
+                  className="navbar-item"
+                  onClick={() => toggleNavMenu()}
+                >
+                  Collections
+                &lt;/Link>
+              &lt;/div>
+            &lt;/div>
+
+            &lt;Link
+              to="/events"
+              className="navbar-item"
+              onClick={() => toggleNavMenu()}
+            >
+              Events
+            &lt;/Link>
+            &lt;Link
+              to="/features"
+              className="navbar-item"
+              onClick={() => toggleNavMenu()}
+            >
+              Features
+            &lt;/Link>
+            &lt;Link
+              to="/about"
+              className="navbar-item"
+              onClick={() => toggleNavMenu()}
+            >
+              About
+            &lt;/Link>
+          &lt;/div>
+          &lt;div className="navbar-end is-hidden-touch">
+            &lt;a
+              href="https://www.mixcloud.com/HalfMoonbk/"
+              className="navbar-item"
+              onClick={() => toggleNavMenu()}
+              aria-label="Halfmoon on Mixcloud"
+              target="_blank"
+              rel="noopener"
+            >
+              &lt;span className="icon is-medium" aria-hidden="true">
+                &lt;Icon icon={['fab', 'mixcloud']} size="lg" />
+              &lt;/span>
+            &lt;/a>
+            &lt;a
+              href="https://www.instagram.com/halfmoonbk/"
+              className="navbar-item"
+              onClick={() => toggleNavMenu()}
+              aria-label="Halfmoon on Instagram"
+              target="_blank"
+              rel="noopener"
+            >
+              &lt;span className="icon is-medium" aria-hidden="true">
+                &lt;Icon icon={['fab', 'instagram']} size="lg" />
+              &lt;/span>
+            &lt;/a>
+            &lt;a
+              href="https://twitter.com/halfmoonbk"
+              className="navbar-item"
+              onClick={() => toggleNavMenu()}
+              aria-label="Halfmoon on Twitter"
+              target="_blank"
+              rel="noopener"
+            >
+              &lt;span className="icon is-medium" aria-hidden="true">
+                &lt;Icon icon={['fab', 'twitter']} size="lg" />
+              &lt;/span>
+            &lt;/a>
+          &lt;/div>
+          &lt;hr className="navbar-divider">&lt;/hr>
+          &lt;div className="navbar-end is-hidden-desktop">
+            &lt;a
+              href="https://www.mixcloud.com/HalfMoonbk/"
+              className="navbar-item"
+              onClick={() => toggleNavMenu()}
+              aria-label="Halfmoon on Mixcloud"
+              target="_blank"
+              rel="noopener"
+            >
+              &lt;span className="icon is-medium" aria-hidden="true">
+                &lt;Icon icon={['fab', 'mixcloud']} size="lg" />
+              &lt;/span>
+            &lt;/a>
+            &lt;a
+              href="https://www.instagram.com/halfmoonbk/"
+              className="navbar-item"
+              onClick={() => toggleNavMenu()}
+              aria-label="Halfmoon on Instagram"
+              target="_blank"
+              rel="noopener"
+            >
+              &lt;span className="icon is-medium" aria-hidden="true">
+                &lt;Icon icon={['fab', 'instagram']} size="lg" />
+              &lt;/span>
+            &lt;/a>
+            &lt;a
+              href="https://twitter.com/halfmoonbk"
+              className="navbar-item"
+              onClick={() => toggleNavMenu()}
+              aria-label="Halfmoon on Twitter"
+              target="_blank"
+              rel="noopener"
+            >
+              &lt;span className="icon is-medium" aria-hidden="true">
+                &lt;Icon icon={['fab', 'twitter']} size="lg" />
+              &lt;/span>
+            &lt;/a>
+          &lt;/div>
+        &lt;/div>
+      &lt;/OutsideClick>
+    &lt;/nav>
+  )
+}
+
+export default BottomNav
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+</body>
+</html>

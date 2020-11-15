@@ -1,0 +1,188 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> src/utils/uidValidator.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">HMBK Gatsby Docs</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    API Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Global</h3><ul><li><a href="global.html#BottomNav">BottomNav</a></li><li><a href="global.html#cmsNodeValidator">cmsNodeValidator</a></li><li><a href="global.html#dateString">dateString</a></li><li><a href="global.html#displayCollectionPlaylistDetails">displayCollectionPlaylistDetails</a></li><li><a href="global.html#getNavbarHeights">getNavbarHeights</a></li><li><a href="global.html#guide">guide</a></li><li><a href="global.html#HomeEvents">HomeEvents</a></li><li><a href="global.html#parseViewports">parseViewports</a></li><li><a href="global.html#playlistShuffle">playlistShuffle</a></li><li><a href="global.html#processPublicationDates">processPublicationDates</a></li><li><a href="global.html#sliceZone">sliceZone</a></li><li><a href="global.html#TopNav">TopNav</a></li><li><a href="global.html#UpcomingShow">UpcomingShow</a></li></ul></div><div class="category"><h2>CMS</h2><h3>Components / Layout Helper</h3><ul><li><a href="ResponsiveImage.html">ResponsiveImage</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ArticleHeadline">ArticleHeadline</a></li><li><a href="global.html#Blockquote">Blockquote</a></li><li><a href="global.html#ContentHelper">ContentHelper</a></li><li><a href="global.html#FullWidthImage">FullWidthImage</a></li><li><a href="global.html#HeadlineBlock">HeadlineBlock</a></li><li><a href="global.html#ImageHelper">ImageHelper</a></li><li><a href="global.html#ImageModal">ImageModal</a></li><li><a href="global.html#ImageRow">ImageRow</a></li><li><a href="global.html#OneImageAndText">OneImageAndText</a></li><li><a href="global.html#ParallaxHeadline">ParallaxHeadline</a></li><li><a href="global.html#TextBlock">TextBlock</a></li><li><a href="global.html#TwoImagesAndText">TwoImagesAndText</a></li></ul></div><div class="category"><h2>Layout Helper</h2><h3>Global</h3><ul><li><a href="global.html#EventHeader">EventHeader</a></li><li><a href="global.html#ResidentBio">ResidentBio</a></li><li><a href="global.html#SingleResident">SingleResident</a></li><li><a href="global.html#TagButtons">TagButtons</a></li></ul></div><div class="category"><h2>Pages</h2><h3>Global</h3><ul><li><a href="global.html#CMSGuideIndex">CMSGuideIndex</a></li><li><a href="global.html#CollectionsIndexPage">CollectionsIndexPage</a></li><li><a href="global.html#EventsIndex">EventsIndex</a></li><li><a href="global.html#FeaturesIndex">FeaturesIndex</a></li><li><a href="global.html#IndexPage">IndexPage</a></li><li><a href="global.html#MixesIndexPage">MixesIndexPage</a></li><li><a href="global.html#ResidentIndex">ResidentIndex</a></li><li><a href="global.html#ScheduleIndexPage">ScheduleIndexPage</a></li><li><a href="global.html#SupportPage">SupportPage</a></li></ul></div><div class="category"><h2>Site Elements</h2><h3>Global</h3><ul><li><a href="global.html#DateSelectorButton">DateSelectorButton</a></li><li><a href="global.html#HeroCarousel">HeroCarousel</a></li><li><a href="global.html#HomeMixes">HomeMixes</a></li><li><a href="global.html#MixPlayOverlay">MixPlayOverlay</a></li><li><a href="global.html#RadioPlayer">RadioPlayer</a></li><li><a href="global.html#ResidentSocialLinks">ResidentSocialLinks</a></li><li><a href="global.html#SingleScheduleEntryRow">SingleScheduleEntryRow</a></li><li><a href="global.html#SlideGenerator">SlideGenerator</a></li></ul></div><div class="category"><h2>Templates</h2><h3>Global</h3><ul><li><a href="global.html#CMSGuideTemplate">CMSGuideTemplate</a></li><li><a href="global.html#EventsTemplate">EventsTemplate</a></li><li><a href="global.html#FeatureTemplate">FeatureTemplate</a></li><li><a href="global.html#MixTemplate">MixTemplate</a></li><li><a href="global.html#ResidentTemplate">ResidentTemplate</a></li></ul></div><div class="category"><h2>Testing</h2><h3>Global</h3><ul><li><a href="global.html#PuppeteerTesting">PuppeteerTesting</a></li></ul></div><div class="category"><h2>Utilities</h2><h3>Global</h3><ul><li><a href="global.html#formatDateTime">formatDateTime</a></li><li><a href="global.html#formatNextShow">formatNextShow</a></li><li><a href="global.html#getBlockquoteStyling">getBlockquoteStyling</a></li><li><a href="global.html#getResidentLinks">getResidentLinks</a></li><li><a href="global.html#getResidentString">getResidentString</a></li><li><a href="global.html#htmlSerializer">htmlSerializer</a></li><li><a href="global.html#LandingPageElement">LandingPageElement</a></li><li><a href="global.html#linkResolver">linkResolver</a></li><li><a href="global.html#mappableDataFilter">mappableDataFilter</a></li><li><a href="global.html#SingleMixCard">SingleMixCard</a></li></ul></div><div class="category"><h2>Utility Functions</h2><h3>Global</h3><ul><li><a href="global.html#uidValidator">uidValidator</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>src/utils/uidValidator.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import {
+  devEntryDetails,
+  getResidentString,
+  linkStripper,
+  uidAssembler,
+} from './index'
+
+/**
+ * @category Utility Functions
+ * @function uidValidator
+ * @param {Object} cmsNode
+ * @property {Object} cmsNode._meta - contains the UID, cmsNode type, firstPublicationData and lastPublicationDate
+ * @property {String} cmsNode._meta.uid - the uid that's assigned to the current document
+ * @property {String} cmsNode._meta.type - the document type; used here to determine UID formatting strategy and by {@link linkResolver} to create slugs
+ * @property {String} cmsNode._meta.firstPublicationDate - date the document was first published
+ * @property {String} cmsNode._meta.lastPublicationDate - date the document was last updated
+ * @returns {0|Object} returns 0 when the cmsNode's UID matches the suggested UID; returns an object containing a type (string) and a result (string) of the suggested UID or an info message
+ */
+function uidValidator(cmsNode) {
+  const { _meta, ...rest } = cmsNode
+  // Somethings wrong with the node that was passed in.
+  if (!cmsNode._meta) {
+    return {
+      type: 'danger',
+      result: "Error: Please check this entry's data in the CMS.",
+    }
+  }
+
+  function uidAnalyzer(assembledUID, currentUID, entryName) {
+    if (assembledUID === currentUID) {
+      return 0
+    }
+    const reason =
+      _meta.uid === linkStripper(rest.mix_link)
+        ? 'UID auto-created by Prismic from mix link.'
+        : 'UID does not follow suggested Mix UID structure.'
+    return {
+      type: 'warning',
+      entry: entryName,
+      result: assembledUID,
+      reason,
+    }
+  }
+
+  let endIdx = _meta.type.length + 4 // "dev-" is 4
+
+  switch (_meta.type) {
+    case 'mix':
+      if (_meta.uid.substr(0, endIdx) === `dev-${_meta.type}`) {
+        return devEntryDetails(cmsNode)
+      } else if (rest.mix_title === null) {
+        const residentString = getResidentString(rest.featured_residents, 'uid')
+        const suggestedUID = uidAssembler(residentString, rest.mix_date)
+
+        return uidAnalyzer(suggestedUID, _meta.uid, rest.mix_link)
+      } else {
+        let lowercaseTitle = rest.mix_title.replace(/\s/g, '-').toLowerCase()
+        const suggestedUID = uidAssembler(lowercaseTitle, rest.mix_date)
+
+        return uidAnalyzer(suggestedUID, _meta.uid, rest.mix_title)
+      }
+
+    default:
+      return 0
+  }
+}
+
+export default uidValidator
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+</body>
+</html>

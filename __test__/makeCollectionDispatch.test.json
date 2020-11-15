@@ -40,7 +40,7 @@
         }
       },
       "collection_title": "Soundcloud Only Test Mix",
-      "shuffle_mix_order": true,
+      "shuffle_mix_order": false,
       "collection_playlist": [
         {
           "endless_mix_entry": {
@@ -107,7 +107,7 @@
               {
                 "mix_resident": {
                   "__typename": "PRISMIC_Resident",
-                  "resident_name": "DJ Slavine | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this ---",
+                  "resident_name": "DJ Slavine | TEST TEXT truncate this",
                   "_meta": {
                     "uid": "dev-resident-dj-slavine",
                     "type": "resident"
@@ -175,7 +175,7 @@
     "residentsArr": [
       "Roland Jones",
       "Jayda B",
-      "DJ Slavine | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- | TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this --- TEST TEXT truncate this ---",
+      "DJ Slavine | TEST TEXT truncate this",
       "Thank You Scientist",
       "Jardin de la Croix"
     ]

@@ -1,0 +1,351 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> src/utils/htmlSerializer.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">HMBK Gatsby Docs</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    API Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Global</h3><ul><li><a href="global.html#BottomNav">BottomNav</a></li><li><a href="global.html#cmsNodeValidator">cmsNodeValidator</a></li><li><a href="global.html#dateString">dateString</a></li><li><a href="global.html#displayCollectionPlaylistDetails">displayCollectionPlaylistDetails</a></li><li><a href="global.html#getNavbarHeights">getNavbarHeights</a></li><li><a href="global.html#guide">guide</a></li><li><a href="global.html#HomeEvents">HomeEvents</a></li><li><a href="global.html#parseViewports">parseViewports</a></li><li><a href="global.html#playlistShuffle">playlistShuffle</a></li><li><a href="global.html#processPublicationDates">processPublicationDates</a></li><li><a href="global.html#sliceZone">sliceZone</a></li><li><a href="global.html#TopNav">TopNav</a></li><li><a href="global.html#UpcomingShow">UpcomingShow</a></li></ul></div><div class="category"><h2>CMS</h2><h3>Components / Layout Helper</h3><ul><li><a href="ResponsiveImage.html">ResponsiveImage</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ArticleHeadline">ArticleHeadline</a></li><li><a href="global.html#Blockquote">Blockquote</a></li><li><a href="global.html#ContentHelper">ContentHelper</a></li><li><a href="global.html#FullWidthImage">FullWidthImage</a></li><li><a href="global.html#HeadlineBlock">HeadlineBlock</a></li><li><a href="global.html#ImageHelper">ImageHelper</a></li><li><a href="global.html#ImageModal">ImageModal</a></li><li><a href="global.html#ImageRow">ImageRow</a></li><li><a href="global.html#OneImageAndText">OneImageAndText</a></li><li><a href="global.html#ParallaxHeadline">ParallaxHeadline</a></li><li><a href="global.html#TextBlock">TextBlock</a></li><li><a href="global.html#TwoImagesAndText">TwoImagesAndText</a></li></ul></div><div class="category"><h2>Layout Helper</h2><h3>Global</h3><ul><li><a href="global.html#EventHeader">EventHeader</a></li><li><a href="global.html#ResidentBio">ResidentBio</a></li><li><a href="global.html#SingleResident">SingleResident</a></li><li><a href="global.html#TagButtons">TagButtons</a></li></ul></div><div class="category"><h2>Pages</h2><h3>Global</h3><ul><li><a href="global.html#CMSGuideIndex">CMSGuideIndex</a></li><li><a href="global.html#CollectionsIndexPage">CollectionsIndexPage</a></li><li><a href="global.html#EventsIndex">EventsIndex</a></li><li><a href="global.html#FeaturesIndex">FeaturesIndex</a></li><li><a href="global.html#IndexPage">IndexPage</a></li><li><a href="global.html#MixesIndexPage">MixesIndexPage</a></li><li><a href="global.html#ResidentIndex">ResidentIndex</a></li><li><a href="global.html#ScheduleIndexPage">ScheduleIndexPage</a></li><li><a href="global.html#SupportPage">SupportPage</a></li></ul></div><div class="category"><h2>Site Elements</h2><h3>Global</h3><ul><li><a href="global.html#DateSelectorButton">DateSelectorButton</a></li><li><a href="global.html#HeroCarousel">HeroCarousel</a></li><li><a href="global.html#HomeMixes">HomeMixes</a></li><li><a href="global.html#MixPlayOverlay">MixPlayOverlay</a></li><li><a href="global.html#RadioPlayer">RadioPlayer</a></li><li><a href="global.html#ResidentSocialLinks">ResidentSocialLinks</a></li><li><a href="global.html#SingleScheduleEntryRow">SingleScheduleEntryRow</a></li><li><a href="global.html#SlideGenerator">SlideGenerator</a></li></ul></div><div class="category"><h2>Templates</h2><h3>Global</h3><ul><li><a href="global.html#CMSGuideTemplate">CMSGuideTemplate</a></li><li><a href="global.html#EventsTemplate">EventsTemplate</a></li><li><a href="global.html#FeatureTemplate">FeatureTemplate</a></li><li><a href="global.html#MixTemplate">MixTemplate</a></li><li><a href="global.html#ResidentTemplate">ResidentTemplate</a></li></ul></div><div class="category"><h2>Testing</h2><h3>Global</h3><ul><li><a href="global.html#PuppeteerTesting">PuppeteerTesting</a></li></ul></div><div class="category"><h2>Utilities</h2><h3>Global</h3><ul><li><a href="global.html#formatDateTime">formatDateTime</a></li><li><a href="global.html#formatNextShow">formatNextShow</a></li><li><a href="global.html#getBlockquoteStyling">getBlockquoteStyling</a></li><li><a href="global.html#getResidentLinks">getResidentLinks</a></li><li><a href="global.html#getResidentString">getResidentString</a></li><li><a href="global.html#htmlSerializer">htmlSerializer</a></li><li><a href="global.html#LandingPageElement">LandingPageElement</a></li><li><a href="global.html#linkResolver">linkResolver</a></li><li><a href="global.html#mappableDataFilter">mappableDataFilter</a></li><li><a href="global.html#SingleMixCard">SingleMixCard</a></li></ul></div><div class="category"><h2>Utility Functions</h2><h3>Global</h3><ul><li><a href="global.html#uidValidator">uidValidator</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>src/utils/htmlSerializer.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react'
+import { Elements } from 'prismic-richtext'
+import { linkResolver } from './index'
+import { Link as PrismicLink } from 'prismic-reactjs'
+import { Link } from 'gatsby'
+
+// -- Function to add unique key to props
+const propsWithUniqueKey = function(props, key) {
+  // console.log(key);
+  return Object.assign(props || {}, { key })
+}
+
+/**
+ * Customize the HTML output of a Rich Text Field by incorporating an HTML Serializer into your project. This allows you to do things like adding custom classes to certain elements or modifying the way an element will be displayed.
+ * @category Utilities
+ * @function htmlSerializer
+ * @see {@link https://prismic.io/docs/gatsby/misc-topics/html-serializer|HTML Serializer with Gatsby}
+ * @returns {JSX} The customized JSX
+ */
+const htmlSerializer = function(type, element, content, children, key) {
+  var props = {}
+
+  switch (type) {
+    case Elements.heading1: // Heading 1
+      props = { className: 'title' }
+      return React.createElement('h1', propsWithUniqueKey(props, key), children)
+
+    case Elements.heading2: // Heading 2
+      props = { className: 'title' }
+      return React.createElement('h2', propsWithUniqueKey(props, key), children)
+
+    case Elements.heading3: // Heading 3
+      props = { className: 'title' }
+      return React.createElement('h3', propsWithUniqueKey(props, key), children)
+
+    case Elements.heading4: // Heading 4
+      props = { className: 'title' }
+      return React.createElement('h4', propsWithUniqueKey(props, key), children)
+
+    case Elements.heading5: // Heading 5
+      props = { className: 'title' }
+      return React.createElement('h5', propsWithUniqueKey(props, key), children)
+
+    case Elements.heading6: // Heading 6
+      props = { className: 'title' }
+      return React.createElement('h6', propsWithUniqueKey(props, key), children)
+
+    // case Elements.paragraph: // Paragraph
+    //   return React.createElement("p", propsWithUniqueKey(props, key), children);
+
+    // case Elements.preformatted: // Preformatted
+    //   return React.createElement(
+    //     "pre",
+    //     propsWithUniqueKey(props, key),
+    //     children
+    //   );
+
+    // case Elements.strong: // Strong
+    //   return React.createElement(
+    //     "strong",
+    //     propsWithUniqueKey(props, key),
+    //     children
+    //   );
+
+    // case Elements.em: // Emphasis
+    //   return React.createElement(
+    //     "em",
+    //     propsWithUniqueKey(props, key),
+    //     children
+    //   );
+
+    // case Elements.listItem: // Unordered List Item
+    //   return React.createElement(
+    //     "li",
+    //     propsWithUniqueKey(props, key),
+    //     children
+    //   );
+
+    // case Elements.oListItem: // Ordered List Item
+    //   return React.createElement(
+    //     "li",
+    //     propsWithUniqueKey(props, key),
+    //     children
+    //   );
+
+    // case Elements.list: // Unordered List
+    //   return React.createElement(
+    //     "ul",
+    //     propsWithUniqueKey(props, key),
+    //     children
+    //   );
+
+    // case Elements.oList: // Ordered List
+    //   return React.createElement(
+    //     "ol",
+    //     propsWithUniqueKey(props, key),
+    //     children
+    //   );
+
+    /**
+     * For inline images, pull the image right and wrap it according to bulma CSS conventions. Make sure the whole thing is wrapped in a React fragment so we don't add `&lt;div>` to
+     *
+     * Result:
+     * ```
+     * &lt;>
+     *  &lt;figure className="is-pulled-right is-clearfix">
+     *    &lt;img className="has-ratio" />
+     *    &lt;figcaption>{available img details}&lt;/figcaption>
+     *  &lt;/figure>
+     *  &lt;div className="is-clearfix" />
+     * &lt;>
+     * ```
+     */
+    case Elements.image: // Image
+      const linkUrl = element.linkTo
+        ? element.linkTo.url || linkResolver(element.linkTo)
+        : null
+      const linkTarget =
+        element.linkTo &amp;&amp; element.linkTo.target
+          ? { target: element.linkTo.target }
+          : {}
+      const linkRel = linkTarget.target ? { rel: 'noopener' } : {}
+      const img = React.createElement('img', {
+        src: element.url,
+        alt: element.alt || '',
+        width: '300',
+        className: 'has-ratio',
+      })
+
+      const imgDetails = element.copyright ? (
+        &lt;figcaption className="credit">
+          {`${element.alt} - ${element.copyright}`}
+        &lt;/figcaption>
+      ) : (
+        &lt;figcaption className="credit">{element.alt}&lt;/figcaption>
+      )
+
+      const wrappedImg = React.createElement(
+        'figure',
+        propsWithUniqueKey({ className: 'is-pulled-right is-clearfix' }, key),
+        linkUrl
+          ? React.createElement(
+              'a',
+              Object.assign({ href: linkUrl }, linkTarget, linkRel),
+              img,
+              imgDetails
+            )
+          : img,
+        imgDetails
+      )
+      return &lt;React.Fragment key={key}>{wrappedImg}&lt;/React.Fragment>
+
+    // DEFAULT EMBED
+    case Elements.embed: // Embed
+      props = Object.assign(
+        {
+          'data-oembed': element.oembed.embed_url,
+          'data-oembed-type': element.oembed.type,
+          'data-oembed-provider': element.oembed.provider_name,
+          className: 'has-ratio embed',
+          dangerouslySetInnerHTML: { __html: element.oembed.html },
+        },
+        element.label ? { className: element.label } : {}
+      )
+
+      return React.createElement('div', propsWithUniqueKey(props, key), null)
+
+    case Elements.hyperlink: // Hyperlinks
+      let result = ''
+      const url = PrismicLink.url(element.data, linkResolver)
+      if (element.data.link_type === 'Document') {
+        result = (
+          &lt;Link to={url} key={key}>
+            {content}
+          &lt;/Link>
+        )
+      } else {
+        const targetAttr = element.data.target
+          ? { target: element.data.target }
+          : {}
+        const relAttr = element.data.target ? { rel: 'noopener' } : {}
+        props = Object.assign(
+          {
+            href: element.data.url || linkResolver(element.data),
+          },
+          targetAttr,
+          relAttr
+        )
+        result = React.createElement(
+          'a',
+          propsWithUniqueKey(props, key),
+          children
+        )
+      }
+      return result
+
+    case Elements.label: // Label
+      props = element.data
+        ? Object.assign({}, { className: element.data.label })
+        : {}
+      return React.createElement(
+        'span',
+        propsWithUniqueKey(props, key),
+        children
+      )
+
+    case Elements.span: // Span
+      if (content) {
+        return content.split('\\n').reduce((acc, p) => {
+          if (acc.length === 0) {
+            return [p]
+          } else {
+            const brIndex = (acc.length + 1) / 2 - 1
+            const br = React.createElement(
+              'br',
+              propsWithUniqueKey({}, brIndex)
+            )
+            return acc.concat([br, p])
+          }
+        }, [])
+      } else {
+        return null
+      }
+
+    // Always include a default that returns null
+    default:
+      return null
+  }
+}
+
+export default htmlSerializer
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+</body>
+</html>

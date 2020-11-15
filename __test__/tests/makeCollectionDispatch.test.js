@@ -14,14 +14,18 @@ describe.only('makeCollectionDispatch', () => {
       expect(soundCloudDispatch).to.have.property('collection_title')
       expect(soundCloudDispatch).to.have.property('collection_img')
       expect(soundCloudDispatch).to.have.property('playlist')
+      expect(soundCloudDispatch).to.have.property('url')
+      expect(soundCloudDispatch).to.have.property('resident')
 
       expect(silkWaveDispatch).to.have.property('isLoading')
       expect(silkWaveDispatch).to.have.property('playing')
       expect(silkWaveDispatch).to.have.property('collection_title')
       expect(silkWaveDispatch).to.have.property('collection_img')
       expect(silkWaveDispatch).to.have.property('playlist')
+      expect(silkWaveDispatch).to.have.property('url')
+      expect(silkWaveDispatch).to.have.property('resident')
     })
-    context('has static values (shuffle does NOT matter)', () => {
+    context('sets static values (shuffle does NOT matter)', () => {
       it('`isLoading: false`', () => {
         expect(soundCloudDispatch.isLoading).to.be.false
         expect(silkWaveDispatch.isLoading).to.be.false
@@ -46,6 +50,32 @@ describe.only('makeCollectionDispatch', () => {
         expect(silkWaveDispatch.collection_img).to.equal(
           'https://images.prismic.io/hmbk-cms/daf5aa23-d013-472c-98e5-cd2b34329c65_silk-wave.jpg?auto=compress,format&rect=0,0,500,500&w=96&h=96'
         )
+      })
+
+      it('`url` from first entry in dispatch playlist', () => {
+        // SoundCloud isn't shuffled; compare with static value
+        const firstUnshuffledURL = testData.soundcloud.linksArr[0]
+        expect(soundCloudDispatch.playlist[0].url).to.equal(firstUnshuffledURL)
+
+        // Silk Wave is shuffled; use dynamic value
+        // Grab first url from first .playlist mix object
+        // Use it to compare to .url
+        const firstShuffledURL = silkWaveDispatch.playlist[0].url
+        expect(silkWaveDispatch.url).to.equal(firstShuffledURL)
+      })
+
+      it('`resident` from first entry in dispatch playlist', () => {
+        // SoundCloud isn't shuffled; compare with static value
+        const firstUnshuffledResident = testData.soundcloud.residentsArr[0]
+        expect(soundCloudDispatch.playlist[0].resident).to.equal(
+          firstUnshuffledResident
+        )
+
+        // Silk Wave is shuffled; use dynamic value
+        // Grab first resident from first .playlist mix object
+        // Use it to compare to .resident
+        const firstShuffledResident = silkWaveDispatch.playlist[0].resident
+        expect(silkWaveDispatch.resident).to.equal(firstShuffledResident)
       })
     })
 
@@ -130,7 +160,6 @@ describe.only('makeCollectionDispatch', () => {
         it('shuffles the mix entries each time playlistShuffle is called', () => {
           function shuffleTester() {
             let basePlaylistArray = []
-            let dispatchPlaylists = []
 
             // Default to true; compare equality with shuffled array
             let allPlaylistsSameOrder = true

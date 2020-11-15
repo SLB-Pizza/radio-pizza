@@ -36,6 +36,9 @@ function makeCollectionDispatch(collectionDataObject) {
     ? playlistShuffle(playlistEntries)
     : playlistEntries
 
+  // Grab the first mix entry to set starting mix URL and resident data in dispatch object
+  const firstMixEntry = dispatchPlaylist[0]
+
   // Build the dispatch object
   let dispatchObject = {
     isLoading: false,
@@ -43,6 +46,8 @@ function makeCollectionDispatch(collectionDataObject) {
     collection_title: collection_title,
     collection_img: collection_img.now_playing.url,
     playlist: dispatchPlaylist,
+    url: firstMixEntry.url,
+    resident: firstMixEntry.resident,
   }
 
   return dispatchObject

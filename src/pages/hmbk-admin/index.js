@@ -64,7 +64,7 @@ function HMBKAdminPage({ data }) {
               can hover/touch and play them the same way. Try it!
             </p>
           </div>
-          <div className="column is-2">
+          <div className="column is-narrow">
             <aside className="menu is-hidden-mobile">
               <p className="menu-label">Dashboard</p>
               <ul className="menu-list">
@@ -81,10 +81,12 @@ function HMBKAdminPage({ data }) {
             </aside>
           </div>
 
-          <div className="column is-10">
-            <div className="columns is-mobile is-multiline">
-              <div className="column is-12 content has-text-centered">
-                <p className="title">{docCount} HMBK CMS Entries</p>
+          <div className="column has-background-info">
+            <div className="columns is-vcentered is-mobile is-multiline">
+              <div className="column content">
+                <p className="title has-text-centered">
+                  {docCount} HMBK CMS Entries
+                </p>
               </div>
             </div>
           </div>
@@ -113,11 +115,11 @@ function HMBKAdminPage({ data }) {
             </div>
           </div>
         )}
-        <div className="column is-12">
+        {/* <div className="column is-12">
           <section className="section content">
             <pre>{JSON.stringify(prismicContent.edges, null, 2)}</pre>
           </section>
-        </div>
+        </div> */}
       </header>
     </main>
   )

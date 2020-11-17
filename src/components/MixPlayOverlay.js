@@ -26,7 +26,7 @@ function MixPlayOverlay({
   img,
   wrapperClassName,
   isCollection,
-  collectionDispatch,
+  collectionDetails,
 }) {
   const dispatch = useContext(GlobalDispatchContext)
 
@@ -49,11 +49,11 @@ function MixPlayOverlay({
    */
   const playCollection = async () => {
     await dispatch({ type: 'SHOW_LOADING' })
-    await dispatch({ type: 'PLAYLIST_START', payload: collectionDispatch })
+    await dispatch({ type: 'PLAYLIST_START', payload: collectionDetails })
   }
 
-  const dispatchFunc = isCollection ? playCollection : changeUrl
-  // console.log(typeof dispatchFuncToUse);
+  // Determine which dispatch function to use based on isCollection boolean
+  const dispatchFunc = isCollection === true ? playCollection : changeUrl
 
   return (
     <div className={wrapperClassName}>

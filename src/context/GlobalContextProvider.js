@@ -133,18 +133,18 @@ function reducer(state, action) {
        *    }
        * }
        */
-      console.log('CHANGE_URL case hit; \npayload: ', action.payload)
+      console.log('PLAYLIST_START; \npayload: ', action.payload)
 
       return {
         ...state,
         isLoading: false,
         playing: true,
         list_curr_index: 0,
-        collection_title: action.payload.collection_title,
-        collection_img: action.payload.collection_img,
-        playlist: action.payload.playlist,
+        title: action.payload.title,
+        img: action.payload.img,
         url: action.payload.url,
         resident: action.payload.resident,
+        playlist: action.payload.playlist,
       }
       // RICH ORIGINAL
       // return {

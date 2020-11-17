@@ -3,28 +3,31 @@ import { isEqual } from 'lodash'
 import { makeCollectionDispatch } from '../../src/utils'
 import testData from '../makeCollectionDispatch.test.json'
 
-describe('makeCollectionDispatch', () => {
+describe.only('makeCollectionDispatch', () => {
   const soundCloudDispatch = makeCollectionDispatch(testData.soundcloud.data)
   const silkWaveDispatch = makeCollectionDispatch(testData.silk_wave.data)
 
   describe('the dispatch object', () => {
     it('has the correct structure', () => {
-      expect(soundCloudDispatch).to.have.property('isLoading')
-      expect(soundCloudDispatch).to.have.property('playing')
-      expect(soundCloudDispatch).to.have.property('collection_title')
-      expect(soundCloudDispatch).to.have.property('collection_img')
-      expect(soundCloudDispatch).to.have.property('playlist')
-      expect(soundCloudDispatch).to.have.property('url')
-      expect(soundCloudDispatch).to.have.property('resident')
+      const propertyList = [
+        'isLoading',
+        'playing',
+        'title',
+        'img',
+        'playlist',
+        'url',
+        'resident',
+      ]
 
-      expect(silkWaveDispatch).to.have.property('isLoading')
-      expect(silkWaveDispatch).to.have.property('playing')
-      expect(silkWaveDispatch).to.have.property('collection_title')
-      expect(silkWaveDispatch).to.have.property('collection_img')
-      expect(silkWaveDispatch).to.have.property('playlist')
-      expect(silkWaveDispatch).to.have.property('url')
-      expect(silkWaveDispatch).to.have.property('resident')
+      propertyList.forEach(property => {
+        expect(soundCloudDispatch).to.have.property(property)
+      })
+
+      propertyList.forEach(property => {
+        expect(silkWaveDispatch).to.have.property(property)
+      })
     })
+
     context('sets static values (shuffle does NOT matter)', () => {
       it('`isLoading: false`', () => {
         expect(soundCloudDispatch.isLoading).to.be.false
@@ -36,18 +39,16 @@ describe('makeCollectionDispatch', () => {
         expect(silkWaveDispatch.playing).to.be.true
       })
 
-      it("collection's title", () => {
-        expect(soundCloudDispatch.collection_title).to.equal(
-          'Soundcloud Only Test Mix'
-        )
-        expect(silkWaveDispatch.collection_title).to.equal('Silk Wave')
+      it('`title: collection_title`', () => {
+        expect(soundCloudDispatch.title).to.equal('Soundcloud Only Test Mix')
+        expect(silkWaveDispatch.title).to.equal('Silk Wave')
       })
 
-      it("collection's image URL", () => {
-        expect(soundCloudDispatch.collection_img).to.equal(
+      it('`img: collection_img.now_playing.url`', () => {
+        expect(soundCloudDispatch.img).to.equal(
           'https://images.prismic.io/hmbk-cms/4a1d841f-eabb-4a5b-8702-543499210694_pexels-richard-segal-1618606%281%29.jpg?auto=compress,format&rect=363,0,1200,1200&w=96&h=96'
         )
-        expect(silkWaveDispatch.collection_img).to.equal(
+        expect(silkWaveDispatch.img).to.equal(
           'https://images.prismic.io/hmbk-cms/daf5aa23-d013-472c-98e5-cd2b34329c65_silk-wave.jpg?auto=compress,format&rect=0,0,500,500&w=96&h=96'
         )
       })

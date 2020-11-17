@@ -15,7 +15,8 @@ import { GlobalDispatchContext } from '../context/GlobalContextProvider'
  * - Collections, processed here in the component
  * @param {String} img - the mix's image; shown in {@link RadioPlayer}
  * @param {?String} wrapperClassName - optional string detailing the overlay wrapper's class
- * @param {?Boolean} isCollection - optional boolean that triggers in how CHANGE_URL is prepared
+ * @param {?Boolean} isCollection - optional boolean that triggers in how CHANGE_URL is prepared; comes from {@link SingleCollection}
+ * @param {?Object} collectionDispatch - optional object containing the dispatch payload in collection format; passed from {@link SingleCollection}
  * @returns {jsx} A play icon that onClick dispatches the SHOW_LOADING and CHANGE_URL actions, playing the audio source through RadioPlayer.js
  */
 function MixPlayOverlay({
@@ -25,6 +26,7 @@ function MixPlayOverlay({
   img,
   wrapperClassName,
   isCollection,
+  collectionDispatch,
 }) {
   const dispatch = useContext(GlobalDispatchContext)
 
@@ -43,12 +45,15 @@ function MixPlayOverlay({
 
   /**
    * Dispatch corresponds to "PLAYLIST_PLAY_FIRST"
-   * @see {@link GlobalContextProvider}
+   * @see {@link makeCollectionDispatch}
    */
   const playCollection = async () => {
     await dispatch({ type: 'SHOW_LOADING' })
-    await dispatch({ type: 'PLAYLIST_PLAY_FIRST' })
+    await dispatch({ type: 'PLAYLIST_START', payload: collectionDispatch })
   }
+
+  const dispatchFunc = isCollection ? playCollection : changeUrl
+  // console.log(typeof dispatchFuncToUse);
 
   return (
     <div className={wrapperClassName}>
@@ -57,7 +62,7 @@ function MixPlayOverlay({
           href="#"
           className="sr-only display-text"
           tabIndex="0"
-          onClick={() => changeUrl()}
+          onClick={() => dispatchFunc()}
         >
           Play This Mix
         </a>
@@ -68,7 +73,7 @@ function MixPlayOverlay({
               icon="play"
               size="5x"
               className="play-icon"
-              onClick={() => changeUrl()}
+              onClick={() => dispatchFunc()}
             />
           </div>
         </figure>

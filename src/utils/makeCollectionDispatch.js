@@ -1,5 +1,11 @@
 import { getResidentString, playlistShuffle } from '../utils'
 
+/**
+ * @category Utilities
+ * @function makeCollectionDispatch
+ * @param {Object} collectionDataObject - an object containing the data used to build {@link SingleCollection} entry
+ * @returns {Object} a dispatch object to pass to {@link MixPlayOverlay}
+ */
 function makeCollectionDispatch(collectionDataObject) {
   const {
     collection_img,
@@ -40,14 +46,14 @@ function makeCollectionDispatch(collectionDataObject) {
   const firstMixEntry = dispatchPlaylist[0]
 
   // Build the dispatch object
-  let dispatchObject = {
+  const dispatchObject = {
     isLoading: false,
     playing: true,
-    collection_title: collection_title,
-    collection_img: collection_img.now_playing.url,
-    playlist: dispatchPlaylist,
+    title: collection_title,
+    img: collection_img.now_playing.url,
     url: firstMixEntry.url,
     resident: firstMixEntry.resident,
+    playlist: dispatchPlaylist,
   }
 
   return dispatchObject

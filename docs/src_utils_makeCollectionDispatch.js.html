@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> src/components/slices/ParallaxHeadline.js</title>
+  <title> src/utils/makeCollectionDispatch.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>src/components/slices/ParallaxHeadline.js</h1>
+                    <h1>src/utils/makeCollectionDispatch.js</h1>
                 </header>
                 
 
@@ -89,153 +89,67 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from 'react'
-import { RichText } from 'prismic-reactjs'
+            <pre class="prettyprint source linenums"><code>import { getResidentString, playlistShuffle } from "../utils";
 
 /**
- * @category CMS
- * @subcategory Slices
- * @function
- * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create the HeadlineBlock slice
- * @returns {jsx}
+ * @category Utilities
+ * @function makeCollectionDispatch
+ * @param {Object} collectionDataObject - an object containing the data used to build {@link SingleCollection} entry
+ * @returns {Object} a dispatch object to pass to {@link MixPlayOverlay}
  */
+function makeCollectionDispatch(collectionDataObject) {
+  const {
+    collection_img,
+    collection_title,
+    shuffle_mix_order,
+    collection_playlist,
+  } = collectionDataObject;
 
-function ParallaxHeadline({ cta, hook, imgObj }) {
-  // const {
-  //   feature_headline_img,
-  //   feature_category,
-  //   feature_subcategory,
-  //   feature_headline,
-  //   feature_subtitle,
-  //   feature_author,
-  //   feature_author_pic,
-  // } = slice.primary;
+  let playlistEntries = [];
 
-  const [bgOpacity, setBGOpacity] = useState(1)
+  for (let i = 0; i &lt; collection_playlist.length; i++) {
+    const currentEntry = collection_playlist[i];
 
-  useEffect(() => {
-    let bgIMG = document.getElementById('parallax-headline') // works
-    const bgHeight = bgIMG.clientHeight
+    /**
+     * Build a string from the residents on the mix using {@link getResidentString}
+     */
+    const entryResidentString = getResidentString(
+      currentEntry.endless_mix_entry.featured_residents
+    );
 
-    const calculateOpacity = (scrollY, height) => {
-      const halfHeight = 0.5 * height
+    // Each Playlist Mix Entry contains a mix link and a resident string to display
+    const processedMixEntry = {
+      url: currentEntry.endless_mix_entry.mix_link,
+      resident: entryResidentString,
+    };
+    playlistEntries.push(processedMixEntry);
+  }
 
-      if (scrollY > halfHeight) {
-        return 0
-      }
-      return (halfHeight - scrollY) / halfHeight
-    }
+  /**
+   * If the mix is to be shuffled on play, (determined by Boolean shuffle_mix_order), pass the playlistEntries array to {@link playlistShuffle}
+   * Else, use playlistEntries array as created
+   */
+  const dispatchPlaylist = shuffle_mix_order
+    ? playlistShuffle(playlistEntries)
+    : playlistEntries;
 
-    const onScroll = () =>
-      setBGOpacity(calculateOpacity(window.scrollY, bgHeight))
+  // Grab the first mix entry to set starting mix URL and resident data in dispatch object
+  const firstMixEntry = dispatchPlaylist[0];
 
-    window.addEventListener('scroll', onScroll)
+  // Build the dispatch object
+  const dispatchObject = {
+    isLoading: false,
+    playing: true,
+    collection_title: collection_title,
+    collection_img: collection_img.now_playing.url,
+    url: firstMixEntry.url,
+    resident: firstMixEntry.resident,
+    playlist: dispatchPlaylist,
+  };
 
-    return function cleanup() {
-      window.removeEventListener('scroll', onScroll)
-    }
-  }, [])
-
-  return (
-    &lt;>
-      &lt;section
-        className="hero is-fullheight-with-navbar homepage-hero"
-        id="parallax-headline"
-        style={{
-          backgroundImage: `url(${imgObj.url})`,
-          opacity: bgOpacity,
-        }}
-      >&lt;/section>
-      &lt;section
-        className="container headline-block"
-        style={{
-          marginTop: '-62.5vh',
-        }}
-      >
-        &lt;div className="columns">
-          &lt;div className="column">
-            &lt;div className="content">
-              &lt;h1 className="title is-size-1-widescreen is-size-2-desktop is-size-3-tablet is-size-4-mobile">
-                {RichText.asText(cta)}
-              &lt;/h1>
-              &lt;h3 className="is-size-4-desktop is-size-6-touch has-text-centered">
-                {RichText.asText(hook)}
-              &lt;/h3>
-            &lt;/div>
-          &lt;/div>
-        &lt;/div>
-      &lt;/section>
-      &lt;section
-        className="container"
-        style={{
-          marginTop: '-5.75rem',
-        }}
-      >
-        &lt;div className="columns is-multiline">
-          &lt;div
-            className="column is-12"
-            style={{
-              backgroundColor: 'black',
-              borderTopLeftRadius: '.75rem',
-              borderTopRightRadius: '.75rem',
-            }}
-          >
-            &lt;div className="content">
-              &lt;p>
-                Andromeda aries auriga camelopardalis cancer canes venatici
-                centaurus cepheus columba corona austrina eridanus hercules
-                lacerta leo leo minor lupus lyra norma octans ophiuchus pisces
-                pyxis scorpius sculptor scutum taurus tucana vela virgo.
-                Andromeda cetus corona borealis cygnus delphinus indus lepus
-                ophiuchus pyxis sculptor tucana ursa major vela. Caelum
-                camelopardalis canes venatici canis major cassiopeia corona
-                borealis crater crux cygnus dorado gemini grus hydra hydrus leo
-                lepus lupus monoceros octans perseus puppis scorpius triangulum
-                triangulum australe.
-              &lt;/p>
-              &lt;p>
-                Aquila carina coma berenices dorado equuleus fornax grus indus
-                leo lyra mensa ophiuchus orion perseus pictor piscis austrinus
-                reticulum sagitta triangulum triangulum australe vulpecula. Apus
-                auriga cancer canes venatici canis major canis minor carina
-                centaurus chamaeleon circinus corona borealis crater delphinus
-                grus libra lupus mensa monoceros norma octans piscis austrinus
-                puppis pyxis reticulum tucana ursa major ursa minor virgo.
-                Cancer capricornus circinus crater leo mensa perseus reticulum
-                scorpius telescopium volans.
-              &lt;/p>
-              &lt;p>
-                Andromeda aries auriga camelopardalis cancer canes venatici
-                centaurus cepheus columba corona austrina eridanus hercules
-                lacerta leo leo minor lupus lyra norma octans ophiuchus pisces
-                pyxis scorpius sculptor scutum taurus tucana vela virgo.
-                Andromeda cetus corona borealis cygnus delphinus indus lepus
-                ophiuchus pyxis sculptor tucana ursa major vela. Caelum
-                camelopardalis canes venatici canis major cassiopeia corona
-                borealis crater crux cygnus dorado gemini grus hydra hydrus leo
-                lepus lupus monoceros octans perseus puppis scorpius triangulum
-                triangulum australe.
-              &lt;/p>
-              &lt;p>
-                Aquila carina coma berenices dorado equuleus fornax grus indus
-                leo lyra mensa ophiuchus orion perseus pictor piscis austrinus
-                reticulum sagitta triangulum triangulum australe vulpecula. Apus
-                auriga cancer canes venatici canis major canis minor carina
-                centaurus chamaeleon circinus corona borealis crater delphinus
-                grus libra lupus mensa monoceros norma octans piscis austrinus
-                puppis pyxis reticulum tucana ursa major ursa minor virgo.
-                Cancer capricornus circinus crater leo mensa perseus reticulum
-                scorpius telescopium volans.
-              &lt;/p>
-            &lt;/div>
-          &lt;/div>
-        &lt;/div>
-      &lt;/section>
-    &lt;/>
-  )
+  return dispatchObject;
 }
-
-export default ParallaxHeadline
+export default makeCollectionDispatch;
 </code></pre>
         </article>
     </section>

@@ -6,8 +6,6 @@ export const GlobalDispatchContext = React.createContext()
 const initialState = {
   // playlist is an array of shows to play in as a playlist;
   // should be array of show objects (that include title, url, resident, etc)
-  collection_title: null,
-  collection_img: null,
   playlist: [],
   list_curr_index: 0,
   url: null,
@@ -134,9 +132,9 @@ function reducer(state, action) {
        *      playlist: [arrayOfShowObjects]
        *    }
        * }
-       *
-       * Test to see if references to self via action.payload.playlist don't play audio
        */
+      console.log('CHANGE_URL case hit; \npayload: ', action.payload)
+
       return {
         ...state,
         isLoading: false,
@@ -145,8 +143,8 @@ function reducer(state, action) {
         collection_title: action.payload.collection_title,
         collection_img: action.payload.collection_img,
         playlist: action.payload.playlist,
-        url: action.payload.playlist[0].url,
-        resident: action.payload.playlist[0].resident,
+        url: action.payload.url,
+        resident: action.payload.resident,
       }
       // RICH ORIGINAL
       // return {

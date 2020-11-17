@@ -6,7 +6,7 @@ import {
 } from './index'
 
 /**
- * @category Utility Functions
+ * @category Utilities
  * @function uidValidator
  * @param {Object} cmsNode
  * @property {Object} cmsNode._meta - contains the UID, cmsNode type, firstPublicationData and lastPublicationDate

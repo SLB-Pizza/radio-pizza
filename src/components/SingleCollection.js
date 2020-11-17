@@ -4,6 +4,7 @@ import { FeaturedResident, MixPlayOverlay, TagButtons } from './index'
 import { RichText } from 'prismic-reactjs'
 import {
   displayCollectionPlaylistDetails,
+  makeCollectionDispatch,
   getResidentString,
   htmlSerializer,
 } from '../utils'
@@ -30,16 +31,15 @@ function SingleCollection({ singleCollection }) {
   const collectionDetails = displayCollectionPlaylistDetails(
     collection_playlist
   )
+  const dispatchData = makeCollectionDispatch(singleCollection)
   return (
     <div className="columns is-mobile is-multiline curated-mix">
       <div className="column is-3-tablet is-12-mobile">
-        {/* <pre>{JSON.stringify(collection_img, null, 2)}</pre> */}
         <MixPlayOverlay
           wrapperClassName="card collection-play"
           img={collection_img}
-          title={collection_title}
-          url={mixLinks}
           isCollection={true}
+          collectionDetails={dispatchData}
         />
       </div>
 
@@ -57,10 +57,11 @@ function SingleCollection({ singleCollection }) {
         <TagButtons tagsArray={collectionDetails.tags} />
 
         {/* <pre>Links {JSON.stringify(collection_playlist, null, 2)}</pre> */}
-        <pre>Links {JSON.stringify(collectionDetails.mixes, null, 2)}</pre>
-        <pre>
+        <pre>Collection Dispatch {JSON.stringify(dispatchData, null, 2)}</pre>
+        {/* <pre>Links {JSON.stringify(collectionDetails.mixes, null, 2)}</pre> */}
+        {/* <pre>
           Residents {JSON.stringify(collectionDetails.residents, null, 2)}
-        </pre>
+        </pre> */}
         {/* <pre>Tags {JSON.stringify(collectionDetails.tags, null, 2)}</pre> */}
       </div>
     </div>

@@ -43,6 +43,7 @@ jobs:
             prefix: feat/
           - label: wontfix
             skip: true
+        mode: chatops
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Echo branch name

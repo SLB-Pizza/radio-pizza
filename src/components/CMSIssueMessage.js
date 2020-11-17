@@ -28,8 +28,6 @@ function CMSIssueMessage({ issueData }) {
     }
   }
 
-  console.table(issueData)
-
   return (
     <CMSIssueMessageType type={issueData.uidIssue.type}>
       <div className="message-header">

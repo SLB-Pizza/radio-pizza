@@ -11,6 +11,11 @@
       "instructions": "Open this entry in the CMS and remove all but the 4 most importants. Please keep it to a maximum of 4."
     }
   },
+  "date": {
+    "level": "danger",
+    "error": "This entry does not have a date set.",
+    "instructions": "Open the CMS and please add a date to this entry's field: "
+  },
   "missing_image": {
     "level": "danger",
     "error": "This entry does not have its required image.",
@@ -23,7 +28,7 @@
     "moreInfo": "https://ahrefs.com/blog/alt-text/"
   },
   "copyright": {
-    "level": "warning",
+    "level": "info",
     "error": "No copyright data set.",
     "instructions": "If possible, copyright data should be added to this image (photographer, date, location, etc). Copyright info allows for proper attribution. Open this image in the Media Library and add descriptive text to the copyright field."
   },

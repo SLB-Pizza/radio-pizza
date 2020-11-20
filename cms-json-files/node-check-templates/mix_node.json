@@ -1,7 +1,6 @@
 {
-  "copyright": "string",
   "tags": true,
-  "alt": "string",
+  "mix_image": "object",
   "mix_date": "string",
   "mix_link": "string",
   "featured_residents": true

@@ -18,9 +18,23 @@ describe('cmsNodeValidator', () => {
     describe('with the correct priority', () => {})
 
     describe('generic entry errors', () => {
+      describe('missing image', () => {
+        it('mixes', () => {
+          const noMixImage = testData.invalid.generic.missing_image.mix
+          const noMixImageResult = cmsNodeValidator(noMixImage)
+          const noMixImageErrObj = {
+            field: 'mix_image',
+            ...validatorErrors.missing_image,
+          }
+
+          expect(noMixImageResult.priority).to.eql('danger')
+          expect(noMixImageResult.errors[0]).to.eql(noMixImageErrObj)
+        })
+      })
+
       describe('image alt text', () => {
         it('mixes', () => {
-          const noAltTextMix = testData.invalid.generic.image_text.mix
+          const noAltTextMix = testData.invalid.generic.alt_text.mix
           const noAltMixResult = cmsNodeValidator(noAltTextMix)
           const noAltTextErrObj = { field: 'alt', ...validatorErrors.alt_text }
 
@@ -28,9 +42,41 @@ describe('cmsNodeValidator', () => {
           expect(noAltMixResult.errors[0]).to.eql(noAltTextErrObj)
         })
       })
+
+      describe('copyright text', () => {
+        it('mixes', () => {
+          const noCopyrightMix = testData.invalid.generic.copyright.mix
+          const noCopyrightMixResult = cmsNodeValidator(noCopyrightMix)
+          const noCopyrightMixErrObj = {
+            field: 'copyright',
+            ...validatorErrors.copyright,
+          }
+
+          expect(noCopyrightMixResult.priority).to.equal('info')
+          expect(noCopyrightMixResult.errors[0]).to.eql(noCopyrightMixErrObj)
+        })
+      })
+
+      describe('entry date', () => {
+        it('mixes', () => {
+          const noDateMix = testData.invalid.generic.date.mix
+          const noDateMixResult = cmsNodeValidator(noDateMix)
+          const noDateMixErrObj = {
+            field: 'mix_date',
+            instructions:
+              "Open the CMS and please add a date to this entry's field: " +
+              'mix_date',
+            ...validatorErrors.date,
+          }
+
+          expect(noDateMixResult.priority).to.equal('danger')
+          expect(noDateMixResult.errors[0]).to.eql(noDateMixErrObj)
+        })
+        it('events')
+      })
     })
 
-    describe('mix entry specific errors', () => {
+    describe('mix specific errors', () => {
       describe('tags', () => {
         it('has no tags', () => {
           const noTagsMix = testData.invalid.mix.no_tags
@@ -40,18 +86,20 @@ describe('cmsNodeValidator', () => {
             ...validatorErrors.tags.no_tags,
           }
 
+          expect(noTagsResult.priority).to.equal('warning')
           expect(noTagsResult.errors[0]).to.eql(noTagsErrObj)
         })
 
         it('has too many tags', () => {
-          const noTagsMix = testData.invalid.mix.too_many_tags
-          const noTagsResult = cmsNodeValidator(noTagsMix)
+          const tooManyTagsMix = testData.invalid.mix.too_many_tags
+          const tooManyTagsResult = cmsNodeValidator(tooManyTagsMix)
           const tooManyTagsErrObj = {
             field: 'tags',
             ...validatorErrors.tags.too_many,
           }
 
-          expect(noTagsResult.errors[0]).to.eql(tooManyTagsErrObj)
+          expect(tooManyTagsResult.priority).to.equal('warning')
+          expect(tooManyTagsResult.errors[0]).to.eql(tooManyTagsErrObj)
         })
       })
     })

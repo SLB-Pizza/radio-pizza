@@ -1,7 +1,111 @@
 {
   "invalid": {
     "generic": {
-      "image_text": {
+      "date": {
+        "mix": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": ["alpha", "beta", "gamma"],
+            "uid": "dj-freedem--10-05-20",
+            "type": "mix"
+          },
+          "mix_image": {
+            "dimensions": {
+              "width": 600,
+              "height": 600
+            },
+            "alt": "DJ Freedem",
+            "copyright": "DJ Freedem",
+            "url": "https://images.prismic.io/hmbk-cms/7ff1d0b1-4450-4ebb-bda2-0289e95204d2_document_journal_djfreedom_WEBREADY.jpg?auto=compress,format&rect=0,203,1195,1195&w=600&h=600",
+            "medium": {
+              "dimensions": {
+                "width": 350,
+                "height": 350
+              },
+              "alt": "DJ Freedem",
+              "copyright": "DJ Freedem",
+              "url": "https://images.prismic.io/hmbk-cms/7ff1d0b1-4450-4ebb-bda2-0289e95204d2_document_journal_djfreedom_WEBREADY.jpg?auto=compress,format&rect=0,201,1195,1195&w=350&h=350"
+            },
+            "now_playing": {
+              "dimensions": {
+                "width": 96,
+                "height": 96
+              },
+              "alt": "DJ Freedem",
+              "copyright": "DJ Freedem",
+              "url": "https://images.prismic.io/hmbk-cms/7ff1d0b1-4450-4ebb-bda2-0289e95204d2_document_journal_djfreedom_WEBREADY.jpg?auto=compress,format&rect=0,199,1195,1195&w=96&h=96"
+            }
+          },
+          "mix_title": "DJ Freedem – 10.05.20 Mixes",
+          "mix_link": "https://www.mixcloud.com/HalfMoonbk/dj-freedem-9242019/",
+          "mix_date": null,
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "DJ Freedem",
+                "_meta": {
+                  "uid": "dj-freedem",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "copyright": {
+        "mix": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": ["alpha", "beta", "gamma"],
+            "uid": "dj-freedem--10-05-20",
+            "type": "mix"
+          },
+          "mix_image": {
+            "dimensions": {
+              "width": 600,
+              "height": 600
+            },
+            "alt": "DJ Freedem",
+            "copyright": null,
+            "url": "https://images.prismic.io/hmbk-cms/7ff1d0b1-4450-4ebb-bda2-0289e95204d2_document_journal_djfreedom_WEBREADY.jpg?auto=compress,format&rect=0,203,1195,1195&w=600&h=600",
+            "medium": {
+              "dimensions": {
+                "width": 350,
+                "height": 350
+              },
+              "alt": "DJ Freedem",
+              "copyright": null,
+              "url": "https://images.prismic.io/hmbk-cms/7ff1d0b1-4450-4ebb-bda2-0289e95204d2_document_journal_djfreedom_WEBREADY.jpg?auto=compress,format&rect=0,201,1195,1195&w=350&h=350"
+            },
+            "now_playing": {
+              "dimensions": {
+                "width": 96,
+                "height": 96
+              },
+              "alt": "DJ Freedem",
+              "copyright": null,
+              "url": "https://images.prismic.io/hmbk-cms/7ff1d0b1-4450-4ebb-bda2-0289e95204d2_document_journal_djfreedom_WEBREADY.jpg?auto=compress,format&rect=0,199,1195,1195&w=96&h=96"
+            }
+          },
+          "mix_title": "DJ Freedem – 10.05.20 Mixes",
+          "mix_link": "https://www.mixcloud.com/HalfMoonbk/dj-freedem-9242019/",
+          "mix_date": "2020-10-05",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "DJ Freedem",
+                "_meta": {
+                  "uid": "dj-freedem",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "alt_text": {
         "mix": {
           "__typename": "PRISMIC_Mix",
           "_meta": {
@@ -36,6 +140,32 @@
               "url": "https://images.prismic.io/hmbk-cms/7ff1d0b1-4450-4ebb-bda2-0289e95204d2_document_journal_djfreedom_WEBREADY.jpg?auto=compress,format&rect=0,199,1195,1195&w=96&h=96"
             }
           },
+          "mix_title": "DJ Freedem – 10.05.20 Mixes",
+          "mix_link": "https://www.mixcloud.com/HalfMoonbk/dj-freedem-9242019/",
+          "mix_date": "2020-10-05",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "DJ Freedem",
+                "_meta": {
+                  "uid": "dj-freedem",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "missing_image": {
+        "mix": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": ["alpha", "beta", "gamma"],
+            "uid": "dj-freedem--10-05-20",
+            "type": "mix"
+          },
+          "mix_image": null,
           "mix_title": "DJ Freedem – 10.05.20 Mixes",
           "mix_link": "https://www.mixcloud.com/HalfMoonbk/dj-freedem-9242019/",
           "mix_date": "2020-10-05",

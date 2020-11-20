@@ -30,8 +30,9 @@ function cmsNodeValidator(node) {
     }
   }
 
-  function dataChecker(field, dataType, node, entryType) {
+  function dataChecker(field, dataType, node) {
     let issue
+
     switch (field) {
       case 'tags':
         // Mixes should have between 1-4 tags
@@ -45,27 +46,32 @@ function cmsNodeValidator(node) {
           addErrorToNotices(field, issue)
         }
         break
-      case 'alt':
-        // MIX entry image check
-        if (entryType === 'mix')
-          if (!node.mix_image) {
-            issue = validatorErrors.missing_image
-            addErrorToNotices('image', issue)
-            break
-          }
-        if (typeof node.mix_image.alt !== dataType) {
-          issue = validatorErrors.alt_text
+      // image field names are sourced from checkTemplate
+      case 'mix_image':
+        // image does not exist, add missing image error
+        // ignore alt text and copyright errors
+        if (!node[field]) {
+          issue = validatorErrors.missing_image
           addErrorToNotices(field, issue)
         }
-        break
-      case 'copyright':
-        if (!node.mix_image) {
-          issue = validatorErrors.missing_image
-          addErrorToNotices('image', issue)
-          break
+        // image exists, check for alt text and copyright existence
+        else {
+          if (!node[field].alt) {
+            issue = validatorErrors.alt_text
+            addErrorToNotices('alt', issue)
+          }
+          if (!node[field].copyright) {
+            issue = validatorErrors.copyright
+            addErrorToNotices('copyright', issue)
+          }
         }
-        if (typeof node.mix_image.copyright !== dataType) {
-          issue = validatorErrors.copyright
+        break
+      // mixes and events have required date fields; mix_date and event_start
+      case 'mix_date':
+        if (!node[field]) {
+          issue = validatorErrors.date
+          // add the field date to the end of the issue's instructions
+          issue.instructions += field
           addErrorToNotices(field, issue)
         }
         break

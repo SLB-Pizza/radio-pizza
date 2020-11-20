@@ -1,91 +1,104 @@
-import { mappableDataFilter } from './index'
-import { mixNode } from '../../cms-json-files/index'
+import { mappableDataFilter, prioritySetter } from './index'
+import { mixNode, validatorErrors } from '../../cms-json-files/index'
 /**
+ * NODE VALIDATION PROCESS STEPS
+ * 1. Determine node type from _meta.type and grab corresponding check template
+ * 1a. Check template values are used for the default case if a key isn't checked for in dataChecker
+ * 2.
  *
  * @function cmsNodeValidator
  * @param {Object} node - The single cms data node coming from the CMS from either a Page query or Template query
  * @return {0|Object}
  */
 function cmsNodeValidator(node) {
-  let checkTemplate
-  let notices = { info: [], warnings: [] }
-
+  let checkTemplate,
+    notices = { priority: '', errors: [] },
+    type = node._meta.type
   // Determine the type of node and assign the correct checking template for use
-  switch (node._meta.type) {
+  switch (type) {
     case 'mix':
+      checkTemplate = mixNode
+      break
+    default:
       checkTemplate = mixNode
   }
 
-  function issueMaker(field, reason) {
-    return { field, reason }
+  // Loop through the node object to do checks
+  if (checkTemplate !== undefined) {
+    for (const [keyType, valueType] of Object.entries(checkTemplate)) {
+      dataChecker(keyType, valueType, node, type)
+    }
   }
 
-  function nodeChecker(key, dataType, node) {
+  function dataChecker(field, dataType, node, entryType) {
     let issue
-    switch (key) {
+    switch (field) {
       case 'tags':
         // Mixes should have between 1-4 tags
         if (node._meta.tags.length === 0) {
-          issue = 'There are no tags for this mix.'
-          notices.warnings.push(issueMaker(key, issue))
-        } else if (node._meta.tags.length > 4) {
-          issue =
-            'There are too many tags for this mix. Please keep it to a maximum of 4'
-          notices.warnings.push(issueMaker(key, issue))
+          issue = validatorErrors.tags.no_tags
+          addErrorToNotices(field, issue)
+        }
+        // Mixes should not have more than 4 tags
+        else if (node._meta.tags.length > 4) {
+          issue = validatorErrors.tags.too_many
+          addErrorToNotices(field, issue)
         }
         break
       case 'alt':
-        if (!node.mix_image) {
-          console.log('no mix_image field')
-          break
-        }
-        if (typeof node.mix_image.alt !== 'string') {
-          issue =
-            'Alt text (alternative text) describes an image on a web page and is critically important to set for each image.'
-          notices.warnings.push(issueMaker(key, issue))
+        // MIX entry image check
+        if (entryType === 'mix')
+          if (!node.mix_image) {
+            issue = validatorErrors.missing_image
+            addErrorToNotices('image', issue)
+            break
+          }
+        if (typeof node.mix_image.alt !== dataType) {
+          issue = validatorErrors.alt_text
+          addErrorToNotices(field, issue)
         }
         break
       case 'copyright':
         if (!node.mix_image) {
-          console.log('no mix_image field')
+          issue = validatorErrors.missing_image
+          addErrorToNotices('image', issue)
           break
         }
-        if (typeof node.mix_image.copyright !== 'string') {
-          issue =
-            'If possible, copyright data should be added to this image (photographer, date, location, etc). Copyright info allows for proper attribution.'
-          notices.info.push(issueMaker(key, issue))
+        if (typeof node.mix_image.copyright !== dataType) {
+          issue = validatorErrors.copyright
+          addErrorToNotices(field, issue)
         }
         break
       case 'featured_residents':
         let arrayTest = mappableDataFilter(node.featured_residents, null, true)
         if (arrayTest === 0) {
           issue = `There is a problem with all residents on this ${node._meta.type} entry. Please address immediately.`
-          notices.warnings.push(issueMaker(key, issue))
+          addErrorToNotices(field, issue)
         } else if (arrayTest > 0) {
           issue = `There is a problem with ${arrayTest} resident ${
             arrayTest === 1 ? 'entry' : 'entries'
           } on this ${node._meta.type} entry. Please address immediately.`
-          notices.warnings.push(issueMaker(key, issue))
+          addErrorToNotices(field, issue)
         }
         break
       default:
-        if (typeof node[key] !== dataType) {
+        if (typeof node[field] !== dataType) {
           issue = 'This entry does not have a value for this set.'
-          notices.warnings.push(issueMaker(key, issue))
+          addErrorToNotices(field, issue)
         }
         break
     }
   }
 
-  // Loop through the node object to do checks
-  if (checkTemplate !== undefined) {
-    for (const [keyType, value] of Object.entries(checkTemplate)) {
-      nodeChecker(keyType, value, node)
-    }
+  function addErrorToNotices(field, issueDetails) {
+    // Update maximum notice priority level
+    // Push the error object to notice's errors array
+    notices.priority = prioritySetter(notices.priority, issueDetails.level)
+    notices.errors.push({ field, ...issueDetails })
   }
 
-  // If notices has no entries, return 0; else return the notices object
-  if (notices.info.length + notices.warnings.length === 0) {
+  // If noticeshas no entries, return 0; else return the notices object
+  if (notices.errors.length === 0) {
     return 0
   } else {
     return notices
@@ -106,4 +119,7 @@ export default cmsNodeValidator
  *   }
  * ]
  *
+ */
+
+/**
  */

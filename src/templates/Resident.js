@@ -15,9 +15,12 @@ import { mappableDataFilter } from '../utils'
  */
 function ResidentTemplate({ data }) {
   const [isOpen, setIsOpen] = useState('Mixes')
-  const [hasMixes, setMixesData] = useState(false)
-  const [hasEvents, setEventsData] = useState(false)
-  const [hasFeatures, setFeaturesData] = useState(false)
+  const [hasMixes, setHasMixes] = useState(false)
+  const [mixesData, setMixesData] = useState([])
+  const [hasEvents, setHasEvents] = useState(false)
+  const [eventsData, setEventsData] = useState([])
+  const [hasFeatures, setHasFeatures] = useState(false)
+  const [featuresData, setFeaturesData] = useState(false)
 
   const prismicContent = data.prismic.allResidents.edges[0]
   if (!prismicContent) return null
@@ -45,13 +48,13 @@ function ResidentTemplate({ data }) {
     const dataCheck = () => {
       if (data) {
         if (mappableDataFilter(resident_mixes)) {
-          setMixesData(true)
+          setHasMixes(true)
         }
         if (mappableDataFilter(resident_events)) {
-          setEventsData(true)
+          setHasEvents(true)
         }
         if (mappableDataFilter(resident_features)) {
-          setFeaturesData(true)
+          setHasFeatures(true)
         }
       }
     }
@@ -179,16 +182,16 @@ function ResidentTemplate({ data }) {
           {/* RESIDENT MIXES */}
           {isOpen === 'Mixes' ? (
             <div className="columns is-mobile is-multiline">
-              {resident_mixes.map(({ resident_mix }, index) => (
+              {/* {resident_mixes.map(({ resident_mix }, index) => (
                 <SingleMixCard
                   key={`resident-mix-#${index}`}
                   mixData={resident_mix}
                   columnLayout={residentCardLayout}
                 />
-              ))}
-              {/* <pre>
+              ))} */}
+              <pre>
                 Resident Mixes {JSON.stringify(resident_mixes, null, 2)}
-              </pre> */}
+              </pre>
             </div>
           ) : null}
 

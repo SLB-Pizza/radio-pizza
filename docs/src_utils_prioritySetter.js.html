@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> src/components/TagButtons.js</title>
+  <title> src/utils/prioritySetter.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>src/components/TagButtons.js</h1>
+                    <h1>src/utils/prioritySetter.js</h1>
                 </header>
                 
 
@@ -89,59 +89,33 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import PropTypes from 'prop-types'
-import React from 'react'
-
-/**
- * Makes tag buttons.
- *
- * Used in:
- * - {@link SingleMixCard}
- *
- * @category Layout Helper
- * @function TagButtons
- * @param {String[]} tagsArray - array of strings that are used to make the individual tag buttons
- * @returns {jsx} a button with the tag as the label
+            <pre class="prettyprint source linenums"><code>/**
+ * Sets/Upgrades the priority level based of most urgent error message level as dictated by `validator-error-messages.json` and processed by {@link cmsNodeValidator}.
+ * The final priority level for any notices object is use by {@link CMSIssueMessageType}
+ * @function prioritySetter
+ * @param {String} currentLevel
+ * @param {String} incomingLevel
+ * @returns {String}
  */
-function TagButtons({ tagsArray }) {
-  return (
-    &lt;div className="tags">
-      {tagsArray.map((tag, index) => {
-        const lowercaseTag = tag.toLowerCase()
-
-        return (
-          &lt;span
-            key={`span-tag-#${index}`}
-            className="tag is-outlined is-rounded is-black"
-          >
-            {lowercaseTag}
-          &lt;/span>
-        )
-      })}
-    &lt;/div>
-  )
-  // return (
-  //   &lt;div className="buttons are-tags">
-  //     {tagsArray.map((tag, index) => {
-  //       const lowercaseTag = tag.toLowerCase()
-
-  //       return (
-  //         &lt;button
-  //           key={`button-tag-#${index}`}
-  //           className="button is-small is-outlined is-rounded"
-  //         >
-  //           {lowercaseTag}
-  //         &lt;/button>
-  //       )
-  //     })}
-  //   &lt;/div>
-  // )
-}
-
-export default TagButtons
-
-TagButtons.propTypes = {
-  tagsArray: PropTypes.arrayOf(PropTypes.string),
+export default function prioritySetter(currentLevel, incomingLevel) {
+  // Base Case 1: If currentLevel has not been set yet
+  if (!currentLevel) {
+    return incomingLevel
+  }
+  // Base Case 2: Incoming incomingLevel and currentLevel are the same
+  else if (currentLevel === incomingLevel) {
+    return
+  } // Upgrade 'info' priority only if incoming incomingLevel is 'warning' || 'danger'
+  else if (
+    currentLevel === 'info' &amp;&amp;
+    (incomingLevel === 'warning' || incomingLevel === 'danger')
+  ) {
+    return incomingLevel
+  }
+  // Upgrade 'warning' priority only if incoming incomingLevel is 'danger'
+  else if (currentLevel === 'warning' &amp;&amp; incomingLevel === 'danger') {
+    return incomingLevel
+  }
 }
 </code></pre>
         </article>

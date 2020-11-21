@@ -14,7 +14,7 @@ describe('cmsNodeValidator', () => {
     })
   })
 
-  describe.only('returns a notices object containing node issue details', () => {
+  describe('returns a notices object containing node issue details', () => {
     describe('with the correct priority', () => {})
 
     describe('generic entry errors', () => {
@@ -27,8 +27,20 @@ describe('cmsNodeValidator', () => {
             ...validatorErrors.missing_image,
           }
 
-          expect(noMixImageResult.priority).to.eql('danger')
+          expect(noMixImageResult.priority).to.equal('danger')
           expect(noMixImageResult.errors[0]).to.eql(noMixImageErrObj)
+        })
+
+        it.only('resident', () => {
+          const noResidentImg = testData.invalid.generic.missing_image.resident
+          const noResidentImgResult = cmsNodeValidator(noResidentImg)
+          const noResidentImgErrObj = {
+            field: 'resident_image',
+            ...validatorErrors.missing_image,
+          }
+
+          expect(noResidentImgResult.priority).to.equal('danger')
+          expect(noResidentImgResult.errors[0]).to.eql(noResidentImgErrObj)
         })
       })
 

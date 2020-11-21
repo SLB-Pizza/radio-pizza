@@ -111,6 +111,8 @@ function ResidentsIndex({ data }) {
           })}
         </div>
       ) : null}
+
+      <pre>{JSON.stringify(residents, null, 2)}</pre>
     </div>
   )
 }

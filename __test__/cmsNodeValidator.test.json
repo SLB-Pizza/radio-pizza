@@ -181,6 +181,44 @@
               }
             }
           ]
+        },
+        "resident": {
+          "__typename": "PRISMIC_Resident",
+          "_meta": {
+            "uid": "dj-abc",
+            "type": "resident"
+          },
+          "resident_image": null,
+          "resident_name": "DJ ABC",
+          "resident_status": "Resident",
+          "resident_blurb": [
+            {
+              "type": "paragraph",
+              "text": "",
+              "spans": []
+            }
+          ],
+          "social_media": [
+            {
+              "resident_social_page": "Personal Site",
+              "resident_social_link": null
+            }
+          ],
+          "resident_mixes": [
+            {
+              "resident_mix": null
+            }
+          ],
+          "resident_features": [
+            {
+              "resident_feature": null
+            }
+          ],
+          "resident_events": [
+            {
+              "resident_event": null
+            }
+          ]
         }
       },
       "resident_group": {

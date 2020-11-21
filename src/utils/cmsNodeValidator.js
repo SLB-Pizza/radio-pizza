@@ -1,23 +1,30 @@
 import { mappableDataFilter, prioritySetter } from './index'
-import { mixNode, validatorErrors } from '../../cms-json-files/index'
+import {
+  mixNode,
+  residentNode,
+  validatorErrors,
+} from '../../cms-json-files/index'
 /**
  * NODE VALIDATION PROCESS STEPS
  * 1. Determine node type from _meta.type and grab corresponding check template
  * 1a. Check template values are used for the default case if a key isn't checked for in dataChecker
  * 2.
- *
  * @function cmsNodeValidator
  * @param {Object} node - The single cms data node coming from the CMS from either a Page query or Template query
  * @return {0|Object} returns 0 when the node is issue free; returns the notices
  */
 function cmsNodeValidator(node) {
-  let checkTemplate,
-    notices = { priority: '', errors: [] },
-    type = node._meta.type
+  let checkTemplate
+  let notices = { priority: '', errors: [] }
+  let type = node._meta.type
+
   // Determine the type of node and assign the correct checking template for use
   switch (type) {
     case 'mix':
       checkTemplate = mixNode
+      break
+    case 'resident':
+      checkTemplate = residentNode
       break
     default:
       checkTemplate = mixNode
@@ -25,8 +32,8 @@ function cmsNodeValidator(node) {
 
   // Loop through the checkTemplate to do checks on the node
   if (checkTemplate !== undefined) {
-    for (const [keyType, valueType] of Object.entries(checkTemplate)) {
-      dataChecker(keyType, valueType, node, type)
+    for (const [node_field, dataType] of Object.entries(checkTemplate)) {
+      dataChecker(node_field, dataType, node)
     }
   }
 
@@ -49,9 +56,10 @@ function cmsNodeValidator(node) {
       /**
        * Image Field Check      Entry Type
        * mix_image              Mix
-       * event_start            Event
+       * resident_image         Resident
        */
       case 'mix_image':
+      case 'resident_image':
         // image does not exist, add missing image error
         // ignore alt text and copyright errors
         if (!node[field]) {
@@ -111,8 +119,8 @@ function cmsNodeValidator(node) {
 
   function addErrorToNotices(field, issueDetails) {
     // Update maximum notice priority level
-    // Push the error object to notice's errors array
     notices.priority = prioritySetter(notices.priority, issueDetails.level)
+    // Push the error object to notice's errors array
     notices.errors.push({ field, ...issueDetails })
   }
 

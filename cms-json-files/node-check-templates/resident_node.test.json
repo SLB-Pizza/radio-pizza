@@ -1,0 +1,6 @@
+{
+  "resident_image": "object",
+  "resident_name": "string",
+  "resident_status": "string",
+  "resident_mixes": true
+}

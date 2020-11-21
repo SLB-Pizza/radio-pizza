@@ -7,14 +7,11 @@
  * @returns {String}
  */
 export default function prioritySetter(currentLevel, incomingLevel) {
-  // Base Case 1: If currentLevel has not been set yet
+  // If currentLevel has not been set yet, use incomingLevel
   if (!currentLevel) {
     return incomingLevel
   }
-  // Base Case 2: Incoming incomingLevel and currentLevel are the same
-  else if (currentLevel === incomingLevel) {
-    return
-  } // Upgrade 'info' priority only if incoming incomingLevel is 'warning' || 'danger'
+  // Upgrade 'info' priority only if incoming incomingLevel is 'warning' || 'danger'
   else if (
     currentLevel === 'info' &&
     (incomingLevel === 'warning' || incomingLevel === 'danger')
@@ -24,5 +21,9 @@ export default function prioritySetter(currentLevel, incomingLevel) {
   // Upgrade 'warning' priority only if incoming incomingLevel is 'danger'
   else if (currentLevel === 'warning' && incomingLevel === 'danger') {
     return incomingLevel
+  }
+  // If currentLevel is 'danger', return 'danger' -> max priority
+  else if (currentLevel === 'danger') {
+    return currentLevel
   }
 }

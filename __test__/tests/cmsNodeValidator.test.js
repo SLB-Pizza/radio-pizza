@@ -74,6 +74,20 @@ describe('cmsNodeValidator', () => {
         })
         it('events')
       })
+
+      describe('residents group field', () => {
+        it('mixes', () => {
+          const noResidentMix = testData.invalid.generic.resident_group.mix
+          const noResidentMixResult = cmsNodeValidator(noResidentMix)
+          const noResidentMixErrObj = {
+            field: 'featured_residents',
+            ...validatorErrors.residents_group_error,
+          }
+
+          expect(noResidentMixResult.priority).to.equal('danger')
+          expect(noResidentMixResult.errors[0]).to.eql(noResidentMixErrObj)
+        })
+      })
     })
 
     describe('mix specific errors', () => {

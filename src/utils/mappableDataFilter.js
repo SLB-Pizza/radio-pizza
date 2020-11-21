@@ -82,24 +82,26 @@
  * ```
  * Used by:
  * - {@link ResidentTemplate}
+ * Optionally called by:
+ * - {@link cmsNodeValidator}
  * @category Utilities
  * @function mappableDataFilter
- * @param {Array} dataArray - a Prismic data subarray that will be checking to ensure proper Layout Component mapping
- * @param {?Number} objectKeyCount - an optional integer greater than 1 that dictates the number of key-value pairs the mappable object entry has; when present, overrides default of 1 key-value pair per object
- * @param {?Boolean} nodeValidation - an optional boolean that changes the output of the function
- * @returns {Boolean|Array}
+ * @param {Array} groupFieldArray - a Prismic data subarray that will be checking to ensure proper Layout Component mapping
+ * @param {?Number} objectKeyCount - an optional integer greater than 1 that dictates the number of key-value pairs the mappable object entry has; when present; passing null defaults to 1 key-value pair per object
+ * @param {?Boolean} nodeValidation - an optional boolean that changes the output of the function from a filtered array to a boolean
+ * @returns {Object[]|Number} returns a filtered array of valid, mappable group fields for a component to use; if called by {@link cmsNodeValidator} via nodeValidation: true, return the number of invalid entries found in this mappable group field.
  */
-function mappableDataFilter(dataArray, objectKeyCount, nodeValidation) {
-  // If nodeValidation === true and this isn't 0 after filtering dataArray,
+function mappableDataFilter(groupFieldArray, objectKeyCount, nodeValidation) {
+  // If nodeValidation === true and this isn't 0 after filtering groupFieldArray,
   // return this value
   let invalidEntryCount = 0
 
-  // Immediately reject dataArray if it's not an array OR empty
-  if (Array.isArray(dataArray) && dataArray.length !== 0) {
+  // Immediately reject groupFieldArray if it's not an array OR empty
+  if (Array.isArray(groupFieldArray) && groupFieldArray.length !== 0) {
     // It's an array with at least one entry
     // Begin checks on entry key-value pairs
 
-    let filteredArr = dataArray.filter(arrayEntry => {
+    let filteredArr = groupFieldArray.filter(arrayEntry => {
       // Remove any falsy values from the array
       if (!arrayEntry) {
         invalidEntryCount++
@@ -120,7 +122,7 @@ function mappableDataFilter(dataArray, objectKeyCount, nodeValidation) {
           return false
         }
 
-        // Each value in the data object should not be null
+        // Each value in the sub data object should not be null
         if (!Object.values(arrayEntry).every(entry => entry !== null)) {
           invalidEntryCount++
           return false
@@ -145,12 +147,16 @@ function mappableDataFilter(dataArray, objectKeyCount, nodeValidation) {
     if (!filteredArr.length) {
       return 0
     }
+    /**
+     * If used by {@link cmsNodeValidator}, and invalid entries exist, return the count
+     */
     if (nodeValidation && invalidEntryCount !== 0) {
       return invalidEntryCount
     }
-    // The filteredArr has at least one entry
+    // The filteredArr has at least one entry, return it
     return filteredArr
   }
+  // The group field is undefined, return 0
   return 0
 }
 

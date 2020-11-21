@@ -8,7 +8,7 @@ import { mixNode, validatorErrors } from '../../cms-json-files/index'
  *
  * @function cmsNodeValidator
  * @param {Object} node - The single cms data node coming from the CMS from either a Page query or Template query
- * @return {0|Object}
+ * @return {0|Object} returns 0 when the node is issue free; returns the notices
  */
 function cmsNodeValidator(node) {
   let checkTemplate,
@@ -23,7 +23,7 @@ function cmsNodeValidator(node) {
       checkTemplate = mixNode
   }
 
-  // Loop through the node object to do checks
+  // Loop through the checkTemplate to do checks on the node
   if (checkTemplate !== undefined) {
     for (const [keyType, valueType] of Object.entries(checkTemplate)) {
       dataChecker(keyType, valueType, node, type)
@@ -46,7 +46,11 @@ function cmsNodeValidator(node) {
           addErrorToNotices(field, issue)
         }
         break
-      // image field names are sourced from checkTemplate
+      /**
+       * Image Field Check      Entry Type
+       * mix_image              Mix
+       * event_start            Event
+       */
       case 'mix_image':
         // image does not exist, add missing image error
         // ignore alt text and copyright errors
@@ -66,7 +70,11 @@ function cmsNodeValidator(node) {
           }
         }
         break
-      // mixes and events have required date fields; mix_date and event_start
+      /**
+       * Date Field Check       Entry Type
+       * mix_date               Mix
+       * event_start            Event
+       */
       case 'mix_date':
         if (!node[field]) {
           issue = validatorErrors.date
@@ -75,15 +83,20 @@ function cmsNodeValidator(node) {
           addErrorToNotices(field, issue)
         }
         break
+      /**
+       * Uses {@link mappableDataFilter} with nodeValidation:true
+       * Resident Group Field Check       Entry Type
+       * featured_residents               Mix
+       */
       case 'featured_residents':
-        let arrayTest = mappableDataFilter(node.featured_residents, null, true)
-        if (arrayTest === 0) {
-          issue = `There is a problem with all residents on this ${node._meta.type} entry. Please address immediately.`
-          addErrorToNotices(field, issue)
-        } else if (arrayTest > 0) {
-          issue = `There is a problem with ${arrayTest} resident ${
-            arrayTest === 1 ? 'entry' : 'entries'
-          } on this ${node._meta.type} entry. Please address immediately.`
+        let residentGroupTest = mappableDataFilter(node[field], null, true)
+        /**
+         * If residentGroupTest is a number, it means that there were issues with the resident group field.
+         * 0        All resident data objects in group have a problem.
+         * num > 0  Some resident data objects in group have a problem.
+         */
+        if (typeof residentGroupTest === 'number') {
+          issue = validatorErrors.residents_group_error
           addErrorToNotices(field, issue)
         }
         break

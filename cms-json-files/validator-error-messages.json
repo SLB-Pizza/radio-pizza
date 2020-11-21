@@ -32,9 +32,34 @@
     "error": "No copyright data set.",
     "instructions": "If possible, copyright data should be added to this image (photographer, date, location, etc). Copyright info allows for proper attribution. Open this image in the Media Library and add descriptive text to the copyright field."
   },
-  "featured_residents": {
+  "residents_group_error": {
     "level": "danger",
-    "error": "There is a problem in the Residents section of this entry."
+    "error": "There is a problem with the Residents group field for this entry.",
+    "instructions": "Open this entry in the CMS and ensure that all attached Residents are correctly filled out and that there are no gaps ('Add a resident...' messages) in the Residents group field.",
+    "moreInfo": [
+      {
+        "type": "list-item",
+        "text": "Check that all attached Residents are correctly filled out.",
+        "spans": []
+      },
+      {
+        "type": "list-item",
+        "text": "Ensure that there are no gaps ('Add a resident...' messages) in the Residents group field.",
+        "spans": [
+          { "start": 0, "end": 59, "type": "em" },
+          {
+            "start": 0,
+            "end": 59,
+            "type": "hyperlink",
+            "data": {
+              "link_type": "Web",
+              "url": "https://en.wikipedia.org/wiki/Legend_of_the_Black_Shawarma",
+              "target": "_blank"
+            }
+          }
+        ]
+      }
+    ]
   },
   "uid": {},
   "default": {

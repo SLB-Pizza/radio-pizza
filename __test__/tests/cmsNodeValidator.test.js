@@ -76,16 +76,36 @@ describe('cmsNodeValidator', () => {
       })
 
       describe('residents group field', () => {
-        it('mixes', () => {
-          const noResidentMix = testData.invalid.generic.resident_group.mix
-          const noResidentMixResult = cmsNodeValidator(noResidentMix)
-          const noResidentMixErrObj = {
-            field: 'featured_residents',
-            ...validatorErrors.residents_group_error,
-          }
+        describe('zero good residents', () => {
+          it('mixes', () => {
+            const noResidentMix =
+              testData.invalid.generic.resident_group.mix.zero_good
+            const noResidentMixResult = cmsNodeValidator(noResidentMix)
+            const noResidentMixErrObj = {
+              field: 'featured_residents',
+              ...validatorErrors.residents_group_error,
+            }
 
-          expect(noResidentMixResult.priority).to.equal('danger')
-          expect(noResidentMixResult.errors[0]).to.eql(noResidentMixErrObj)
+            expect(noResidentMixResult.priority).to.equal('danger')
+            expect(noResidentMixResult.errors[0]).to.eql(noResidentMixErrObj)
+          })
+        })
+
+        describe('not all residents good', () => {
+          it('mixes', () => {
+            const notAllGoodResidentsMix =
+              testData.invalid.generic.resident_group.mix.not_all_good
+            const notAllGoodResMixResult = cmsNodeValidator(
+              notAllGoodResidentsMix
+            )
+            const notAllGoodResErrObj = {
+              field: 'featured_residents',
+              ...validatorErrors.residents_group_error,
+            }
+
+            expect(notAllGoodResMixResult.priority).to.equal('danger')
+            expect(notAllGoodResMixResult.errors[0]).to.eql(notAllGoodResErrObj)
+          })
         })
       })
     })
@@ -115,6 +135,17 @@ describe('cmsNodeValidator', () => {
           expect(tooManyTagsResult.priority).to.equal('warning')
           expect(tooManyTagsResult.errors[0]).to.eql(tooManyTagsErrObj)
         })
+      })
+      it('has no mix_link defined', () => {
+        const noMixLink = testData.invalid.mix.no_mix_link
+        const noMixLinkResult = cmsNodeValidator(noMixLink)
+        const noMixLinkErrObj = {
+          field: 'mix_link',
+          ...validatorErrors.default_error,
+        }
+
+        expect(noMixLinkResult.priority).to.equal('danger')
+        expect(noMixLinkResult.errors[0]).to.eql(noMixLinkErrObj)
       })
     })
   })

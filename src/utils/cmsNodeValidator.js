@@ -102,7 +102,7 @@ function cmsNodeValidator(node) {
         break
       default:
         if (typeof node[field] !== dataType) {
-          issue = 'This entry does not have a value for this set.'
+          issue = validatorErrors.default_error
           addErrorToNotices(field, issue)
         }
         break

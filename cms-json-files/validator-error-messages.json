@@ -62,8 +62,8 @@
     ]
   },
   "uid": {},
-  "default": {
-    "level": "warning",
+  "default_error": {
+    "level": "danger",
     "error": "This entry does not have a value set for this field.",
     "instructions": "Open this entry in the CMS and assign a value to this field."
   }

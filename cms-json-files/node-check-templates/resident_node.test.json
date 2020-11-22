@@ -1,6 +1,7 @@
 {
   "resident_image": "object",
-  "resident_name": "string",
-  "resident_status": "string",
-  "resident_mixes": true
+  "resident_name": { "level": "danger", "type": "string" },
+  "resident_blurb": { "level": "danger" },
+  "social_media": 2,
+  "resident_mixes": null
 }

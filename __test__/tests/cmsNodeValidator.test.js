@@ -2,6 +2,7 @@ import { expect } from 'chai'
 import { cmsNodeValidator } from '../../src/utils'
 import { validatorErrors } from '../../cms-json-files/index'
 import testData from '../cmsNodeValidator.test.json'
+import { ValidationError } from 'webpack'
 
 describe('cmsNodeValidator', () => {
   xdescribe('returns 0, indicating that the node is problem-free when a CMS data node', () => {
@@ -14,13 +15,13 @@ describe('cmsNodeValidator', () => {
     })
   })
 
-  describe('returns a notices object containing node issue details', () => {
+  describe.only('returns a notices object containing node issue details', () => {
     describe('with the correct priority', () => {})
 
     describe('generic entry errors', () => {
       describe('missing image', () => {
-        it('mixes', () => {
-          const noMixImage = testData.invalid.generic.missing_image.mix
+        it('mixes - `mix_image`', () => {
+          const noMixImage = testData.generic.missing_image.mix
           const noMixImageResult = cmsNodeValidator(noMixImage)
           const noMixImageErrObj = {
             field: 'mix_image',
@@ -31,8 +32,8 @@ describe('cmsNodeValidator', () => {
           expect(noMixImageResult.errors[0]).to.eql(noMixImageErrObj)
         })
 
-        it.only('resident', () => {
-          const noResidentImg = testData.invalid.generic.missing_image.resident
+        it('resident - `resident_image`', () => {
+          const noResidentImg = testData.generic.missing_image.resident
           const noResidentImgResult = cmsNodeValidator(noResidentImg)
           const noResidentImgErrObj = {
             field: 'resident_image',
@@ -45,19 +46,31 @@ describe('cmsNodeValidator', () => {
       })
 
       describe('image alt text', () => {
-        it('mixes', () => {
-          const noAltTextMix = testData.invalid.generic.alt_text.mix
+        it('mixes - `mix_image.alt`', () => {
+          const noAltTextMix = testData.generic.alt_text.mix
           const noAltMixResult = cmsNodeValidator(noAltTextMix)
           const noAltTextErrObj = { field: 'alt', ...validatorErrors.alt_text }
 
           expect(noAltMixResult.priority).to.equal('danger')
           expect(noAltMixResult.errors[0]).to.eql(noAltTextErrObj)
         })
+
+        it('resident - `resident_image.alt`', () => {
+          const noAltResident = testData.generic.alt_text.resident
+          const noAltResidentResult = cmsNodeValidator(noAltResident)
+          const noAltResidentErrObj = {
+            field: 'alt',
+            ...validatorErrors.alt_text,
+          }
+
+          expect(noAltResidentResult.priority).to.equal('danger')
+          expect(noAltResidentResult.errors[0]).to.eql(noAltResidentErrObj)
+        })
       })
 
       describe('copyright text', () => {
-        it('mixes', () => {
-          const noCopyrightMix = testData.invalid.generic.copyright.mix
+        it('mixes - `mix_image.copyright`', () => {
+          const noCopyrightMix = testData.generic.copyright.mix
           const noCopyrightMixResult = cmsNodeValidator(noCopyrightMix)
           const noCopyrightMixErrObj = {
             field: 'copyright',
@@ -67,11 +80,27 @@ describe('cmsNodeValidator', () => {
           expect(noCopyrightMixResult.priority).to.equal('info')
           expect(noCopyrightMixResult.errors[0]).to.eql(noCopyrightMixErrObj)
         })
+
+        it('resident - `resident_image.copyright`', () => {
+          const noCopyrightResident = testData.generic.copyright.resident
+          const noCopyrightResidentResult = cmsNodeValidator(
+            noCopyrightResident
+          )
+          const noCopyrightResidentErrObj = {
+            field: 'copyright',
+            ...validatorErrors.copyright,
+          }
+
+          expect(noCopyrightResidentResult.priority).to.equal('info')
+          expect(noCopyrightResidentResult.errors[0]).to.eql(
+            noCopyrightResidentErrObj
+          )
+        })
       })
 
       describe('entry date', () => {
-        it('mixes', () => {
-          const noDateMix = testData.invalid.generic.date.mix
+        it('mixes - `mix_date`', () => {
+          const noDateMix = testData.generic.date.mix
           const noDateMixResult = cmsNodeValidator(noDateMix)
           const noDateMixErrObj = {
             field: 'mix_date',
@@ -84,14 +113,30 @@ describe('cmsNodeValidator', () => {
           expect(noDateMixResult.priority).to.equal('danger')
           expect(noDateMixResult.errors[0]).to.eql(noDateMixErrObj)
         })
-        it('events')
+        it('events - `event_start`')
       })
 
-      describe('residents group field', () => {
-        describe('zero good residents', () => {
-          it('mixes', () => {
-            const noResidentMix =
-              testData.invalid.generic.resident_group.mix.zero_good
+      describe('Prismic rich text field errors', () => {
+        it('resident - `resident_blurb`', () => {
+          const noResBlurb = testData.generic.rich_text_error.resident
+          const noResBlurbResult = cmsNodeValidator(noResBlurb)
+          const noResBlurbErrObj = {
+            field: 'resident_blurb',
+            level: 'blurb',
+            ...validatorErrors.default_error,
+          }
+
+          console.table(noResBlurbResult)
+
+          expect(noResBlurbResult.priority).to.equal('danger')
+          expect(noResBlurbResult.errors[0]).to.eql(noResBlurbErrObj)
+        })
+      })
+
+      describe('group field entry errors', () => {
+        describe('mixes - `featured_residents`', () => {
+          it('has all bad resident entries', () => {
+            const noResidentMix = testData.generic.resident_group.mix.zero_good
             const noResidentMixResult = cmsNodeValidator(noResidentMix)
             const noResidentMixErrObj = {
               field: 'featured_residents',
@@ -101,12 +146,10 @@ describe('cmsNodeValidator', () => {
             expect(noResidentMixResult.priority).to.equal('danger')
             expect(noResidentMixResult.errors[0]).to.eql(noResidentMixErrObj)
           })
-        })
 
-        describe('not all residents good', () => {
-          it('mixes', () => {
+          it('has some bad resident entries', () => {
             const notAllGoodResidentsMix =
-              testData.invalid.generic.resident_group.mix.not_all_good
+              testData.generic.resident_group.mix.not_all_good
             const notAllGoodResMixResult = cmsNodeValidator(
               notAllGoodResidentsMix
             )
@@ -125,7 +168,7 @@ describe('cmsNodeValidator', () => {
     describe('mix specific errors', () => {
       describe('tags', () => {
         it('has no tags', () => {
-          const noTagsMix = testData.invalid.mix.no_tags
+          const noTagsMix = testData.mix.no_tags
           const noTagsResult = cmsNodeValidator(noTagsMix)
           const noTagsErrObj = {
             field: 'tags',
@@ -137,7 +180,7 @@ describe('cmsNodeValidator', () => {
         })
 
         it('has too many tags', () => {
-          const tooManyTagsMix = testData.invalid.mix.too_many_tags
+          const tooManyTagsMix = testData.mix.too_many_tags
           const tooManyTagsResult = cmsNodeValidator(tooManyTagsMix)
           const tooManyTagsErrObj = {
             field: 'tags',
@@ -148,8 +191,8 @@ describe('cmsNodeValidator', () => {
           expect(tooManyTagsResult.errors[0]).to.eql(tooManyTagsErrObj)
         })
       })
-      it('has no mix_link defined', () => {
-        const noMixLink = testData.invalid.mix.no_mix_link
+      it('`mix_link` undefined', () => {
+        const noMixLink = testData.mix.no_mix_link
         const noMixLinkResult = cmsNodeValidator(noMixLink)
         const noMixLinkErrObj = {
           field: 'mix_link',
@@ -159,6 +202,23 @@ describe('cmsNodeValidator', () => {
         expect(noMixLinkResult.priority).to.equal('danger')
         expect(noMixLinkResult.errors[0]).to.eql(noMixLinkErrObj)
       })
+    })
+
+    describe('resident specific errors', () => {
+      it('`resident_name` undefined', () => {
+        const noNameResident = testData.resident.has_no_name
+        const noNameResResult = cmsNodeValidator(noNameResident)
+        const noNameResErrObj = {
+          field: 'resident_name',
+          level: 'danger',
+          ...validatorErrors.default_error,
+        }
+
+        expect(noNameResResult.priority).to.equal('danger')
+        expect(noNameResResult.errors[0]).to.eql(noNameResErrObj)
+      })
+
+      it('`social_media` incomplete')
     })
   })
 })
@@ -180,7 +240,7 @@ describe('cmsNodeValidator', () => {
 
 //   describe.only("returns an object containing details of the issue(s) the node has", () => {
 //     it("for mixes with all bad residents", () => {
-//       let invalidMix = testData.invalid.mix.bad_resident;
+//       let invalidMix = testData.mix.bad_resident;
 
 //       expect(cmsNodeValidator(invalidMix)).to.eql({
 //         info: [
@@ -207,7 +267,7 @@ describe('cmsNodeValidator', () => {
 //     });
 
 //     it("for mixes with only one good resident", () => {
-//       let invalidMix = testData.invalid.mix.only_one_good_resident;
+//       let invalidMix = testData.mix.only_one_good_resident;
 
 //       expect(cmsNodeValidator(invalidMix)).to.eql({
 //         info: [

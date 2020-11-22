@@ -2,6 +2,6 @@
   "tags": true,
   "mix_image": "object",
   "mix_date": "string",
-  "mix_link": "string",
-  "featured_residents": true
+  "mix_link": { "level": "danger", "type": "string" },
+  "featured_residents": null
 }

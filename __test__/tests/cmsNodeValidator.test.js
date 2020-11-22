@@ -126,8 +126,6 @@ describe('cmsNodeValidator', () => {
             ...validatorErrors.default_error,
           }
 
-          console.table(noResBlurbResult)
-
           expect(noResBlurbResult.priority).to.equal('danger')
           expect(noResBlurbResult.errors[0]).to.eql(noResBlurbErrObj)
         })

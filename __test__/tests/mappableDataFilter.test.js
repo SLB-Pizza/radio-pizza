@@ -1,5 +1,6 @@
 import { expect } from 'chai'
-import { mappableDataFilter } from '../../src/utils'
+import { mappableDataFilter, testCaseMaker } from '../../src/utils'
+import testData from './mappableDataFilter.test.json'
 
 describe('mappableDataFilter', () => {
   // Immediate rejection
@@ -51,37 +52,25 @@ describe('mappableDataFilter', () => {
     })
 
     it('when passed an array with an object containing a null key-value pair', () => {
-      let nullKeyValue = [{ sample_field: null }]
+      let nullKeyValue = testData.invalid.one_key_null_value
       expect(mappableDataFilter(nullKeyValue)).to.equal(0)
     })
 
     it('when passed an array with one object containing multiple key-value pairs', () => {
-      let hasObjectWithMultipleKeys = [
-        {
-          type: 'paragraph',
-          text: '',
-          spans: [],
-        },
-      ]
-
+      let hasObjectWithMultipleKeys = testData.invalid.one_object_multiple_keys
       expect(mappableDataFilter(hasObjectWithMultipleKeys)).to.equal(0)
     })
 
     it('when passed an array with multiple objects, each containing a null key-value pair', () => {
-      let allNullKeyValues = [
-        { sample_field: null },
-        { sample_field: null },
-        { sample_field: null },
-        { sample_field: null },
-        { sample_field: null },
-      ]
+      let allNullKeyValues = testData.invalid.multiple_objects_each_null_value
       expect(mappableDataFilter(allNullKeyValues)).to.equal(0)
     })
   })
 
   describe('returns an array only containing valid key-value pairs', () => {
-    it('when passed an array with a single valid entry', () => {
-      let oneValidEntry = [
+    it('when passed an array where its only data object is valid', () => {
+      let oneValidEntry = testData.has_valid.only_entry_is_valid
+      expect(mappableDataFilter(oneValidEntry)).to.eql([
         {
           resident_mix: {
             __typename: 'PRISMIC_Mix',
@@ -147,26 +136,11 @@ describe('mappableDataFilter', () => {
             ],
           },
         },
-      ]
-
-      expect(mappableDataFilter(oneValidEntry)).to.eql(oneValidEntry)
+      ])
     })
 
     it('when passed an array where the first object has a null key-value pair', () => {
-      let firstKeyValuePairNull = [
-        {
-          sample_field: null,
-        },
-        {
-          resident_event: {
-            __typename: 'PRISMIC_Event',
-            _meta: {
-              uid: 'dev-event-edc-las-vegas',
-              type: 'event',
-            },
-          },
-        },
-      ]
+      let firstKeyValuePairNull = testData.has_valid.first_object_null_value
 
       expect(mappableDataFilter(firstKeyValuePairNull)).to.eql([
         {
@@ -182,23 +156,7 @@ describe('mappableDataFilter', () => {
     })
 
     it('when passed an array where the last object has a null key-value pair', () => {
-      let lastKeyValuePairNull = [
-        {
-          resident_image: {
-            dimensions: {
-              width: 900,
-              height: 506,
-            },
-            alt: 'DJ Freedem',
-            copyright: null,
-            url:
-              'https://images.prismic.io/hmbk-cms/4669971b-35ff-41ee-bddf-469d6bc515d6_1295420.jpg?auto=compress,format',
-          },
-        },
-        {
-          sample_field: null,
-        },
-      ]
+      let lastKeyValuePairNull = testData.has_valid.last_object_null_value
 
       expect(mappableDataFilter(lastKeyValuePairNull)).to.eql([
         {
@@ -217,98 +175,15 @@ describe('mappableDataFilter', () => {
     })
   })
   describe('returns a correctly filtered array of mappable data', () => {
-    const testCaseMaker = () => {
-      let testCases = []
-
-      for (let i = 1; i <= 25; i++) {
-        let validEntriesTotal = Math.ceil(Math.random() * 500) + i + 99
-        let invalidEntriesTotal = i
-        let testArrayLength = validEntriesTotal + invalidEntriesTotal
-        let validEntry = {
-          not_null: {
-            sub_key: 'value',
-          },
-        }
-
-        // Array of all the bad entry test cases used so far
-        let badEntries = [
-          {},
-          '',
-          42,
-          undefined,
-          null,
-          false,
-          [],
-          [[]],
-          [{}],
-          [{}, {}, {}],
-          [{ sample_field: null }],
-          [
-            {
-              type: 'paragraph',
-              text: '',
-              spans: [],
-            },
-          ],
-          [
-            { sample_field: null },
-            { sample_field: null },
-            { sample_field: null },
-            { sample_field: null },
-            { sample_field: null },
-          ],
-        ]
-
-        const arrayMaker = () => {
-          let validCount = 0
-          let invalidCount = 0
-          let mixedArray = []
-
-          while (mixedArray.length !== testArrayLength) {
-            let badIndex = i % badEntries.length
-
-            if (validCount === validEntriesTotal) {
-              // Randomly select and add an invalid entry
-              mixedArray.push(badEntries[badIndex])
-              invalidCount++
-            } else if (invalidCount === invalidEntriesTotal) {
-              // Add a valid entry
-              mixedArray.push(validEntry)
-              validCount++
-            } else {
-              // Flip a numeric coin
-              let validOrInvalid = Math.ceil(Math.random() * 2)
-
-              // if 1, add invalid; if 2, add valid
-              if (validOrInvalid === 1) {
-                mixedArray.push(badEntries[badIndex])
-                invalidCount++
-              } else {
-                mixedArray.push(validEntry)
-                validCount++
-              }
-            }
-          }
-          return mixedArray
-        }
-
-        let testArray = arrayMaker()
-        // Create an array with validEntries # of empty slots and fill each slot with valid entry
-        let arrayMatch = Array(validEntriesTotal).fill(validEntry)
-        // Create 100 test cases to examine
-        testCases.push({
-          array: testArray,
-          allValid: arrayMatch,
-          invalid: invalidEntriesTotal,
-        })
-      }
-
-      return testCases
+    let validEntry = {
+      not_null: {
+        sub_key: 'value',
+      },
     }
 
-    let twentyFiveCases = testCaseMaker()
+    let tenSingleKeyValueCases = testCaseMaker(validEntry)
 
-    twentyFiveCases.forEach(test => {
+    tenSingleKeyValueCases.forEach(test => {
       it(`${test.array.length} entries; ${test.invalid} invalid ${
         test.invalid === 1 ? 'entry removed' : 'entries removed'
       }`, () => {
@@ -320,29 +195,21 @@ describe('mappableDataFilter', () => {
   describe('when objectKeyCount is defined', () => {
     describe('returns 0 when', () => {
       it("arrayEntry doesn't have objectKeyCount # of keys", () => {
-        let oneObjectOneKey = [{ only_key: [1, 2, 3, 4, 5] }]
+        let singleKeyObject = testData.objectKeyCount.is_two.single_key_object
 
-        expect(mappableDataFilter(oneObjectOneKey, 2)).to.equal(0)
+        expect(mappableDataFilter(singleKeyObject, 2)).to.equal(0)
       })
 
-      it("arrayEntry doesn't have objectKeyCount # of keys", () => {
-        let oneObjectOneKey = [{ only_key: [1, 2, 3, 4, 5] }]
+      it('arrayEntry has objectKeyCount # of keys; all values are null', () => {
+        let twoKeysTwoNullValues =
+          testData.objectKeyCount.is_two.two_keys_two_null_values
 
-        expect(mappableDataFilter(oneObjectOneKey, 2)).to.equal(0)
+        expect(mappableDataFilter(twoKeysTwoNullValues, 2)).to.equal(0)
       })
 
-      it('arrayEntry has objectKeyCount # of keys but all values are null', () => {
-        let oneObjectTwoKeyAllNullValues = [
-          { first_null: null, second_null: null },
-        ]
-
-        expect(mappableDataFilter(oneObjectTwoKeyAllNullValues, 2)).to.equal(0)
-      })
-
-      it('arrayEntry has objectKeyCount # of keys but all values are not null', () => {
-        let oneObjectTwoKeyOneNullValue = [
-          { first_key: [1, 2, 3, 4, 5], second_key: null },
-        ]
+      it('arrayEntry has objectKeyCount # of keys; some values are null', () => {
+        let oneObjectTwoKeyOneNullValue =
+          testData.objectKeyCount.is_two.two_keys_one_null_value
 
         expect(mappableDataFilter(oneObjectTwoKeyOneNullValue, 2)).to.equal(0)
       })
@@ -350,24 +217,12 @@ describe('mappableDataFilter', () => {
 
     describe('returns an array only containing objects with valid key counts and no null values', () => {
       it('when passed an array where only one entry is correctly setup', () => {
-        const oneCorrectEntry = [
-          { only_one_key: 'we need two keys' },
-          { this_object_has: 'two keys', this_object_is: 'correctly setup' },
-          {
-            wrong: [1, 2, 3],
-            also_wrong: 4,
-            still_wrong: {
-              key_count: 3,
-            },
-          },
-        ]
+        const oneCorrectEntry =
+          testData.objectKeyCount.is_two.three_entries_one_correct
 
-        const correctReturnArray = [
+        expect(mappableDataFilter(oneCorrectEntry, 2)).to.eql([
           { this_object_has: 'two keys', this_object_is: 'correctly setup' },
-        ]
-        expect(mappableDataFilter(oneCorrectEntry, 2)).to.eql(
-          correctReturnArray
-        )
+        ])
       })
     })
   })
@@ -375,148 +230,110 @@ describe('mappableDataFilter', () => {
   describe('when nodeValidation is set to true', () => {
     describe('returns 0', () => {
       it('if the filtered array has no entries', () => {
-        let allNullKeyValues = [
-          { sample_field: null },
-          { sample_field: null },
-          { sample_field: null },
-          { sample_field: null },
-          { sample_field: null },
-        ]
-        expect(mappableDataFilter(allNullKeyValues, null, true)).to.equal(0)
+        let oneKeyNullValue = testData.invalid.one_key_null_value
+        expect(mappableDataFilter(oneKeyNullValue, null, true)).to.equal(0)
       })
 
       it('when passed an array with one object containing multiple key-value pairs and objectKeyCount is undefined', () => {
-        let objectWithMultipleKeys = [
-          {
-            type: 'paragraph',
-            text: '',
-            spans: [],
-          },
-        ]
+        let oneObjectMultipleKeys = testData.invalid.one_object_multiple_keys
 
-        expect(mappableDataFilter(objectWithMultipleKeys, null, true)).to.equal(
+        expect(mappableDataFilter(oneObjectMultipleKeys, null, true)).to.equal(
           0
         )
       })
 
-      it('arrayEntry has objectKeyCount # of keys but all values are null', () => {
-        let oneObjectTwoKeyAllNullValues = [
-          { first_null: null, second_null: null },
-        ]
+      it('arrayEntry has objectKeyCount # of keys; all values are null', () => {
+        let twoKeyObjectAllNullValues = testData.invalid.two_keys_all_nulls
 
-        expect(
-          mappableDataFilter(oneObjectTwoKeyAllNullValues, 2, true)
-        ).to.equal(0)
+        expect(mappableDataFilter(twoKeyObjectAllNullValues, 2, true)).to.equal(
+          0
+        )
       })
 
       it("arrayEntry doesn't have objectKeyCount # of keys", () => {
-        let oneObjectOneKey = [{ only_key: [1, 2, 3, 4, 5] }]
+        let oneKeyValuePairTwoNeeded = testData.invalid.one_valid_key_two_needed
+        expect(mappableDataFilter(oneKeyValuePairTwoNeeded, 2, true)).to.equal(
+          0
+        )
+      })
+    })
 
-        expect(mappableDataFilter(oneObjectOneKey, 2, true)).to.equal(0)
+    describe('returns the array if there are no bad entries', () => {
+      it('when objectKeyCount is undefined (one key-value pair)', () => {
+        const allValidOneKeyObjects =
+          testData.has_valid.multiple_valid_one_key_objects
+
+        const result = mappableDataFilter(allValidOneKeyObjects, null, true)
+
+        expect(result).to.eql([
+          { key_name: 'valid' },
+          { key_name: 'valid' },
+          { key_name: 'valid' },
+          { key_name: 'valid' },
+          { key_name: 'valid' },
+          { key_name: 'valid' },
+        ])
+      })
+
+      it('when objectKeyCount is defined', () => {
+        const multipleValidOneKeyObjects =
+          testData.has_valid.three_keys_all_valid_objects
+
+        const result = mappableDataFilter(multipleValidOneKeyObjects, 3, true)
+
+        expect(result).to.eql([
+          {
+            first_key: 'valid',
+            second_key: 12345,
+            third_key: [1, 2, 3, 4, 5],
+          },
+          {
+            first_key: 'second valid',
+            second_key: 23456,
+            third_key: [2, 3, 4, 5, 6],
+          },
+        ])
       })
     })
 
     describe('return a non-zero number of bad entries', () => {
-      const testCaseMaker = () => {
-        let testCases = []
+      describe('when objectKeyCount is undefined (one key-value pair)', () => {
+        let oneKeyValidEntry = {
+          first: {
+            sub_key: 'value',
+          },
+        }
+        let nodeValidationSingleKeyCases = testCaseMaker(oneKeyValidEntry)
 
-        for (let i = 1; i <= 25; i++) {
-          let validEntriesTotal = Math.ceil(Math.random() * 500) + i + 99
-          let invalidEntriesTotal = i
-          let testArrayLength = validEntriesTotal + invalidEntriesTotal
-          let validEntry = {
-            not_null: {
-              sub_key: 'value',
-            },
-          }
-
-          // Array of all the bad entry test cases used so far
-          let badEntries = [
-            {},
-            '',
-            42,
-            undefined,
-            null,
-            false,
-            [],
-            [[]],
-            [{}],
-            [{}, {}, {}],
-            [{ sample_field: null }],
-            [
-              {
-                type: 'paragraph',
-                text: '',
-                spans: [],
-              },
-            ],
-            [
-              { sample_field: null },
-              { sample_field: null },
-              { sample_field: null },
-              { sample_field: null },
-              { sample_field: null },
-            ],
-          ]
-
-          const arrayMaker = () => {
-            let validCount = 0
-            let invalidCount = 0
-            let mixedArray = []
-
-            while (mixedArray.length !== testArrayLength) {
-              let badIndex = i % badEntries.length
-
-              if (validCount === validEntriesTotal) {
-                // Randomly select and add an invalid entry
-                mixedArray.push(badEntries[badIndex])
-                invalidCount++
-              } else if (invalidCount === invalidEntriesTotal) {
-                // Add a valid entry
-                mixedArray.push(validEntry)
-                validCount++
-              } else {
-                // Flip a numeric coin
-                let validOrInvalid = Math.ceil(Math.random() * 2)
-
-                // if 1, add invalid; if 2, add valid
-                if (validOrInvalid === 1) {
-                  mixedArray.push(badEntries[badIndex])
-                  invalidCount++
-                } else {
-                  mixedArray.push(validEntry)
-                  validCount++
-                }
-              }
-            }
-            return mixedArray
-          }
-
-          let testArray = arrayMaker()
-          // Create an array with validEntries # of empty slots and fill each slot with valid entry
-          let arrayMatch = Array(validEntriesTotal).fill(validEntry)
-          // Create 100 test cases to examine
-          testCases.push({
-            array: testArray,
-            allValid: arrayMatch,
-            invalid: invalidEntriesTotal,
+        nodeValidationSingleKeyCases.forEach(test => {
+          it(`${test.array.length} entries; ${test.invalid} invalid ${
+            test.invalid === 1 ? `entry counted` : `entries counted `
+          }`, () => {
+            expect(mappableDataFilter(test.array, null, true)).to.equal(
+              test.invalid
+            )
           })
+        })
+      })
+
+      describe('when objectKeyCount is defined', () => {
+        let twoKeysValidEntry = {
+          first: {
+            sub_key: 'value',
+          },
+          second: [1, 3, 5, 7, 9],
         }
 
-        return testCases
-      }
+        let nodeValidationMultipleKeyCases = testCaseMaker(twoKeysValidEntry)
 
-      let twentyFiveCases = testCaseMaker()
-
-      twentyFiveCases.forEach(test => {
-        it(`${test.array.length} entries; ${test.invalid} invalid ${
-          test.invalid === 1
-            ? `entry counted and removed`
-            : `entries counted and removed `
-        }`, () => {
-          expect(mappableDataFilter(test.array, null, true)).to.equal(
-            test.invalid
-          )
+        nodeValidationMultipleKeyCases.forEach(test => {
+          it(`${test.array.length} entries; ${test.invalid} invalid ${
+            test.invalid === 1 ? `entry counted` : `entries counted `
+          }`, () => {
+            expect(mappableDataFilter(test.array, 2, true)).to.equal(
+              test.invalid
+            )
+          })
         })
       })
     })

@@ -1,6 +1,6 @@
 import { displayCollectionPlaylistDetails } from '../../src/utils'
 import { expect } from 'chai'
-import testData from '../displayCollectionPlaylistDetails.test.json'
+import testData from './displayCollectionPlaylistDetails.test.json'
 
 describe('displayCollectionPlaylistDetails', () => {
   describe('returns an object that contains', () => {

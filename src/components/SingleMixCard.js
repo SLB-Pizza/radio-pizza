@@ -3,7 +3,12 @@ import React from 'react'
 import { Link } from 'gatsby'
 import NanoClamp from 'nanoclamp'
 import { MixPlayOverlay, TagButtons } from './index'
-import { getResidentString, formatDateTime, linkResolver } from '../utils'
+import {
+  getResidentString,
+  formatDateTime,
+  mappableDataFilter,
+  linkResolver,
+} from '../utils'
 
 /**
  * @category Utilities
@@ -38,7 +43,11 @@ function SingleMixCard({ mixData, columnLayout, path }) {
   }
 
   const mixDate = formatDateTime(mix_date, 'year-month-day')
-  const mixResidentsString = getResidentString(featured_residents)
+  const filteredResidents = mappableDataFilter(featured_residents)
+  console.table(filteredResidents)
+  const mixResidentsString = filteredResidents
+    ? getResidentString(featured_residents)
+    : 'no resident data'
 
   return (
     <div className={columnLayout}>

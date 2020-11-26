@@ -1,0 +1,190 @@
+{
+  "invalid": {
+    "one_key_null_value": [{ "sample_field": null }],
+    "one_valid_key_two_needed": [{ "only_key": [1, 2, 3, 4, 5] }],
+    "two_keys_all_nulls": [{ "first_null": null, "second_null": null }],
+    "one_object_multiple_keys": [
+      {
+        "type": "paragraph",
+        "text": "",
+        "spans": []
+      }
+    ],
+    "multiple_objects_each_null_value": [
+      { "sample_field": null },
+      { "sample_field": null },
+      { "sample_field": null },
+      { "sample_field": null },
+      { "sample_field": null }
+    ]
+  },
+  "has_valid": {
+    "only_entry_is_valid": [
+      {
+        "resident_mix": {
+          "__typename": "PRISMIC_Mix",
+          "_meta": {
+            "tags": ["prog rock", "post rock", "instrumental", "math rock"],
+            "uid": "dev-moon-album",
+            "type": "mix"
+          },
+          "mix_image": {
+            "dimensions": {
+              "width": 700,
+              "height": 700
+            },
+            "alt": "Digital moon",
+            "copyright": null,
+            "url": "https://images.prismic.io/hmbk-cms/0bada19d-6533-4bd1-a587-25e58b093704_wallhaven-g8qy13.jpg?auto=compress,format&rect=93,0,1080,1080&w=700&h=700",
+            "medium": {
+              "dimensions": {
+                "width": 500,
+                "height": 500
+              },
+              "alt": "Digital moon",
+              "copyright": null,
+              "url": "https://images.prismic.io/hmbk-cms/0bada19d-6533-4bd1-a587-25e58b093704_wallhaven-g8qy13.jpg?auto=compress,format&rect=748,0,1080,1080&w=500&h=500"
+            },
+            "now_playing": {
+              "dimensions": {
+                "width": 96,
+                "height": 96
+              },
+              "alt": "Digital moon",
+              "copyright": null,
+              "url": "https://images.prismic.io/hmbk-cms/0bada19d-6533-4bd1-a587-25e58b093704_wallhaven-g8qy13.jpg?auto=compress,format&rect=416,0,1080,1080&w=96&h=96"
+            }
+          },
+          "mix_title": null,
+          "mix_link": "https://www.youtube.com/watch?v=Q9XTqQbuavI",
+          "mix_date": "2020-08-02",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "Jardin de la Croix",
+                "_meta": {
+                  "uid": "dev-resident-jardin-de-la-croix",
+                  "type": "resident"
+                }
+              }
+            },
+            {
+              "mix_resident": {
+                "__typename": "PRISMIC_Resident",
+                "resident_name": "Infected Mushroom",
+                "_meta": {
+                  "uid": "dev-resident-infected-mushroom",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "first_object_null_value": [
+      {
+        "sample_field": null
+      },
+      {
+        "resident_event": {
+          "__typename": "PRISMIC_Event",
+          "_meta": {
+            "uid": "dev-event-edc-las-vegas",
+            "type": "event"
+          }
+        }
+      }
+    ],
+    "last_object_null_value": [
+      {
+        "resident_image": {
+          "dimensions": {
+            "width": 900,
+            "height": 506
+          },
+          "alt": "DJ Freedem",
+          "copyright": null,
+          "url": "https://images.prismic.io/hmbk-cms/4669971b-35ff-41ee-bddf-469d6bc515d6_1295420.jpg?auto=compress,format"
+        }
+      },
+      {
+        "sample_field": null
+      }
+    ],
+    "multiple_valid_one_key_objects": [
+      { "key_name": "valid" },
+      { "key_name": "valid" },
+      { "key_name": "valid" },
+      { "key_name": "valid" },
+      { "key_name": "valid" },
+      { "key_name": "valid" }
+    ],
+    "three_keys_all_valid_objects": [
+      {
+        "first_key": "valid",
+        "second_key": 12345,
+        "third_key": [1, 2, 3, 4, 5]
+      },
+      {
+        "first_key": "second valid",
+        "second_key": 23456,
+        "third_key": [2, 3, 4, 5, 6]
+      }
+    ]
+  },
+  "bad_entries": [
+    {},
+    "",
+    42,
+    null,
+    false,
+    [],
+    [[]],
+    [{}],
+    [{}, {}, {}],
+    [{ "sample_field": null }],
+    [
+      {
+        "type": "paragraph",
+        "text": "",
+        "spans": []
+      }
+    ],
+    [
+      { "sample_field": null },
+      { "sample_field": null },
+      { "sample_field": null },
+      { "sample_field": null },
+      { "sample_field": null }
+    ],
+    [{ "first_null": null, "second_null": null }]
+  ],
+  "objectKeyCount": {
+    "is_two": {
+      "single_key_object": [{ "only_key": [1, 2, 3, 4, 5] }],
+      "two_keys_two_null_values": [{ "first_null": null, "second_null": null }],
+      "two_keys_one_null_value": [
+        {
+          "first_key": [1, 2, 3, 4, 5],
+          "second_key": null
+        }
+      ],
+      "three_entries_one_correct": [
+        { "only_one_key": "we need two keys" },
+        {
+          "this_object_has": "two keys",
+          "this_object_is": "correctly setup"
+        },
+        {
+          "wrong": [1, 2, 3],
+          "also_wrong": 4,
+          "still_wrong": {
+            "key_count": 3
+          }
+        }
+      ]
+    }
+  }
+}

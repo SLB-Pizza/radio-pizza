@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 import { isEqual } from 'lodash'
 import { makeCollectionDispatch } from '../../src/utils'
-import testData from '../makeCollectionDispatch.test.json'
+import testData from './makeCollectionDispatch.test.json'
 
 describe('makeCollectionDispatch', () => {
   const soundCloudDispatch = makeCollectionDispatch(testData.soundcloud.data)

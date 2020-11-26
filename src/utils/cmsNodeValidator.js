@@ -7,7 +7,7 @@ import {
 /**
  * NODE VALIDATION PROCESS STEPS
  * 1. Determine node type from _meta.type and grab corresponding check template
- * 1a. Check template values are used for the default case if a key isn't checked for in dataChecker
+ * 1a. checkTemplate values are used for the default case if a key isn't checked for in dataChecker
  * 2.
  * @function cmsNodeValidator
  * @param {Object} node - The single cms data node coming from the CMS from either a Page query or Template query
@@ -93,7 +93,7 @@ function cmsNodeValidator(node) {
          */
         if (node[field].length === 1) {
           const { type, text, spans } = node[field][0]
-          // Check types of sole rich text object
+          // Check types of single rich text object
           const typeCheck = type === 'paragraph'
           const textCheck = text === ''
           const spanCheck = Array.isArray(spans) && spans.length === 0
@@ -120,18 +120,19 @@ function cmsNodeValidator(node) {
           addErrorToNotices(field, issue)
         }
         break
-      /**
-       * Only checks group fields when the group has at least one entry
-       * Uses {@link mappableDataFilter}
-       *  -- objectKeyCount: typeInfo (from checkTemplate), NUMBER type
-       *  -- nodeValidation: true
-       * Resident Group Field Check       Entry Type
-       * featured_residents               Mix
-       * resident_mixes                   Resident
-       */
       case 'featured_residents':
       case 'resident_mixes':
       case 'social_media':
+        /**
+         * Only checks group fields when the group has at least one entry
+         * Uses {@link mappableDataFilter}
+         *  -- objectKeyCount: typeInfo (from checkTemplate), NUMBER type
+         *  -- nodeValidation: true
+         * Resident Group Field Check       Entry Type
+         * featured_residents               Mix
+         * resident_mixes                   Resident
+         * social_media                     Resident
+         */
         if (node[field].length > 0) {
           let groupFieldTest = mappableDataFilter(node[field], typeInfo, true)
           /**
@@ -140,7 +141,7 @@ function cmsNodeValidator(node) {
            * num > 0      Some data objects in group field have a problem.
            */
           if (typeof groupFieldTest === 'number') {
-            issue = validatorErrors.residents_group_error
+            issue = validatorErrors.group_field
             addErrorToNotices(field, issue)
           }
           break

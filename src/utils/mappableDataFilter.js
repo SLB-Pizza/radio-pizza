@@ -92,8 +92,8 @@
  * @returns {Object[]|Number} returns a filtered array of valid, mappable group fields for a component to use; if called by {@link cmsNodeValidator} via nodeValidation: true, return the number of invalid entries found in this mappable group field.
  */
 function mappableDataFilter(groupFieldArray, objectKeyCount, nodeValidation) {
-  // If nodeValidation === true and this isn't 0 after filtering groupFieldArray,
-  // return this value
+  // If nodeValidation === true and this isn't 0 after
+  // filtering groupFieldArray, return this value
   let invalidEntryCount = 0
 
   // Immediately reject groupFieldArray if it's not an array OR empty

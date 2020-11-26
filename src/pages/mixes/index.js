@@ -31,46 +31,30 @@ function MixesIndexPage({ data, prismic }) {
   const onNextClick = () => setPage(page + entryLimit)
 
   useEffect(() => {
-    if (!didMountRef.current) {
-      didMountRef.current = true
-      return
-    }
-    //
-    // if (hasMore === null) {
-    //   setHasMore(prismicContent.allMixs.pageInfo.hasNextPage);
-    //   return;
-    // }
+    const loadMoreMixes = () => {
+      if (!didMountRef.current) {
+        didMountRef.current = true
+        return
+      }
 
-    // Grab the next 12 mixes
-    prismic
-      .load({ variables: { after: getCursorFromDocumentIndex(page) } })
-      .then(res => {
-        // Spread the received mix objects into the existing mixesData array
-        setMixesData([...mixesData, ...res.data.allMixs.edges])
-        // If there are no further mixes to get, don't show the load button
-        if (!res.data.allMixs.pageInfo.hasNextPage) {
-          setHasMore(false)
-        }
-      })
+      // Grab the next 12 mixes
+      prismic
+        .load({ variables: { after: getCursorFromDocumentIndex(page) } })
+        .then(res => {
+          // Spread the received mix objects into the existing mixesData array
+          setMixesData([...mixesData, ...res.data.allMixs.edges])
+          // If there are no further mixes to get, don't show the load button
+          if (!res.data.allMixs.pageInfo.hasNextPage) {
+            setHasMore(false)
+          }
+        })
+    }
+
+    return loadMoreMixes()
   }, [page])
 
   const mixListLayout =
     'column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen'
-
-  const dummyOptions = [
-    'Argentina',
-    'Bolivia',
-    'Brazil',
-    'Chile',
-    'Colombia',
-    'Ecuador',
-    'Guyana',
-    'Paraguay',
-    'Peru',
-    'Suriname',
-    'Uruguay',
-    'Venezuela',
-  ]
 
   return (
     <main className="black-bg-page">

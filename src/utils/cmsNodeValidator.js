@@ -7,7 +7,7 @@ import {
 /**
  * NODE VALIDATION PROCESS STEPS
  * 1. Determine node type from _meta.type and grab corresponding check template
- * 1a. checkTemplate values are used for the default case if a key isn't checked for in dataChecker
+ * 1a. checkTemplate values are used for the default case if a key isn't checked for in templateFieldCheck
  * 2.
  * @function cmsNodeValidator
  * @param {Object} node - The single cms data node coming from the CMS from either a Page query or Template query
@@ -33,11 +33,11 @@ function cmsNodeValidator(node) {
   // Loop through the checkTemplate to do checks on the node
   if (checkTemplate !== undefined) {
     for (const [node_field, typeInfo] of Object.entries(checkTemplate)) {
-      dataChecker(node_field, typeInfo, node)
+      templateFieldCheck(node_field, typeInfo, node)
     }
   }
 
-  function dataChecker(field, typeInfo, node) {
+  function templateFieldCheck(field, typeInfo, node) {
     let issue
 
     switch (field) {

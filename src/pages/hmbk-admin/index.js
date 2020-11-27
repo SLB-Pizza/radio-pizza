@@ -23,6 +23,10 @@ function HMBKAdminPage({ data }) {
     const node = prismicContent.edges[i].node
 
     const entryIssues = cmsNodeValidator(node)
+    console.log(
+      '\n============================================================'
+    )
+    console.log(entryIssues)
     const uidIssue = uidValidator(node)
 
     // If the node has no issues, continue to the next loop
@@ -178,6 +182,25 @@ export const query = graphql`
             }
             ... on PRISMIC_Resident {
               resident_name
+              resident_image
+              resident_blurb
+              social_media {
+                resident_social_link {
+                  ... on PRISMIC__ExternalLink {
+                    target
+                    url
+                  }
+                }
+                resident_social_page
+              }
+              resident_mixes {
+                resident_mix {
+                  ... on PRISMIC_Mix {
+                    mix_image
+                    mix_title
+                  }
+                }
+              }
             }
             ... on PRISMIC_Endless_mix {
               collection_title

@@ -4,6 +4,7 @@ import {
   linkStripper,
   uidAssembler,
 } from './index'
+import { validatorErrors } from '../../cms-json-files/index'
 
 /**
  * @category Utilities
@@ -20,26 +21,7 @@ function uidValidator(cmsNode) {
   const { _meta, ...rest } = cmsNode
   // Somethings wrong with the node that was passed in.
   if (!cmsNode._meta) {
-    return {
-      type: 'danger',
-      result: "Error: Please check this entry's data in the CMS.",
-    }
-  }
-
-  function uidAnalyzer(assembledUID, currentUID, entryName) {
-    if (assembledUID === currentUID) {
-      return 0
-    }
-    const reason =
-      _meta.uid === linkStripper(rest.mix_link)
-        ? 'UID auto-created by Prismic from mix link.'
-        : 'UID does not follow suggested Mix UID structure.'
-    return {
-      type: 'warning',
-      entry: entryName,
-      result: assembledUID,
-      reason,
-    }
+    return validatorErrors.uid.no_meta
   }
 
   let endIdx = _meta.type.length + 4 // "dev-" is 4
@@ -59,9 +41,24 @@ function uidValidator(cmsNode) {
 
         return uidAnalyzer(suggestedUID, _meta.uid, rest.mix_title)
       }
-
     default:
       return 0
+  }
+
+  function uidAnalyzer(assembledUID, currentUID, entryName) {
+    if (assembledUID === currentUID) {
+      return 0
+    }
+    const reason =
+      _meta.uid === linkStripper(rest.mix_link)
+        ? 'UID auto-created by Prismic from mix link.'
+        : 'UID does not follow suggested Mix UID structure.'
+    return {
+      type: 'warning',
+      entry: entryName,
+      result: assembledUID,
+      reason,
+    }
   }
 }
 

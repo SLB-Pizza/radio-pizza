@@ -1,5 +1,6 @@
 import { expect } from 'chai'
 import { uidValidator } from '../../src/utils'
+import { validatorErrors } from '../../cms-json-files'
 import testData from '../uidValidatorTestData.json'
 import axios from 'axios'
 
@@ -40,11 +41,9 @@ describe('uidValidator', () => {
   describe('returns the correct message', () => {
     it('telling the user to check the CMS entry when _meta.type is undefined', () => {
       let nodeData = testData.no_meta
+      let errorObj = validatorErrors.uid.no_meta
 
-      expect(uidValidator(nodeData)).to.eql({
-        type: 'danger',
-        result: "Error: Please check this entry's data in the CMS.",
-      })
+      expect(uidValidator(nodeData)).to.eql(errorObj)
     })
 
     describe('telling the user to delete', () => {

@@ -44,7 +44,6 @@ function SingleMixCard({ mixData, columnLayout, path }) {
 
   const mixDate = formatDateTime(mix_date, 'year-month-day')
   const filteredResidents = mappableDataFilter(featured_residents)
-  console.table(filteredResidents)
   const mixResidentsString = filteredResidents
     ? getResidentString(featured_residents)
     : 'no resident data'

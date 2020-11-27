@@ -23,22 +23,22 @@ function HMBKAdminPage({ data }) {
     const node = prismicContent.edges[i].node
 
     const entryIssues = cmsNodeValidator(node)
-    console.log(
-      '\n============================================================'
-    )
     console.log(entryIssues)
-    const uidIssue = uidValidator(node)
+    console.log(
+      '\n============================================================\n'
+    )
+    // const uidIssue = uidValidator(node)
 
     // If the node has no issues, continue to the next loop
     // else determine the node type and
     // push it to the correct array to process
-    if (!entryIssues && !uidIssue) {
+    if (!entryIssues) {
       continue
     } else {
       switch (node._meta.type) {
         case 'mix':
           const nodeName = getMixTitle(node)
-          const issuePackage = { nodeName, node, entryIssues, uidIssue }
+          const issuePackage = { nodeName, node, entryIssues }
           problemMixes.push(issuePackage)
           break
         case 'event':
@@ -95,7 +95,7 @@ function HMBKAdminPage({ data }) {
             </div>
           </div>
         </div>
-        {problemMixes.length && (
+        {/* {problemMixes.length && (
           <div className="column is-12">
             <div className="content">
               <h1 className="title">
@@ -108,10 +108,10 @@ function HMBKAdminPage({ data }) {
                   key={`problem-mixes-${index}`}
                   issueData={issuePackage}
                 />
-              )
+              );
             })}
           </div>
-        )}
+        )} */}
         {problemResidents.length && (
           <div className="column is-12">
             <div className="content">

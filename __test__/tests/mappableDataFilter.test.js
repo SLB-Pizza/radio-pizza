@@ -28,6 +28,7 @@ describe('mappableDataFilter', () => {
     it('when passed null', () => {
       expect(mappableDataFilter(null)).to.equal(0)
     })
+
     it('when passed false', () => {
       expect(mappableDataFilter(false)).to.equal(0)
     })

@@ -42,11 +42,11 @@ function SingleMixCard({ mixData, columnLayout, path }) {
     uid,
   }
 
-  const mixDate = formatDateTime(mix_date, 'year-month-day')
+  const mixDate = formatDateTime(mix_date, 'year-month-day') ?? 'no date'
   const filteredResidents = mappableDataFilter(featured_residents)
   const mixResidentsString = filteredResidents
     ? getResidentString(featured_residents)
-    : 'no resident data'
+    : ''
 
   return (
     <div className={columnLayout}>
@@ -63,7 +63,7 @@ function SingleMixCard({ mixData, columnLayout, path }) {
           <div className="mix-card-sizing">
             {/**
              * mix_title !== null : format mix_title under list of residents
-             * mix_title === null : formart list of residents as mix_title
+             * mix_title === null : format list of residents as mix_title
              */
             mix_title !== null ? (
               <div className="mix-text">

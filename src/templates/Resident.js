@@ -20,7 +20,7 @@ function ResidentTemplate({ data }) {
   const [hasEvents, setHasEvents] = useState(false)
   const [eventsData, setEventsData] = useState([])
   const [hasFeatures, setHasFeatures] = useState(false)
-  const [featuresData, setFeaturesData] = useState(false)
+  const [featuresData, setFeaturesData] = useState([])
 
   const prismicContent = data.prismic.allResidents.edges[0]
   if (!prismicContent) return null
@@ -47,13 +47,19 @@ function ResidentTemplate({ data }) {
   useEffect(() => {
     const dataCheck = () => {
       if (data) {
-        if (mappableDataFilter(resident_mixes)) {
+        const filteredMixes = mappableDataFilter(resident_mixes)
+        const filteredEvents = mappableDataFilter(resident_events)
+        const filteredFeatures = mappableDataFilter(resident_features)
+        if (filteredMixes) {
+          setMixesData(filteredMixes)
           setHasMixes(true)
         }
-        if (mappableDataFilter(resident_events)) {
+        if (filteredEvents) {
+          setEventsData(filteredEvents)
           setHasEvents(true)
         }
-        if (mappableDataFilter(resident_features)) {
+        if (filteredFeatures) {
+          setFeaturesData(filteredFeatures)
           setHasFeatures(true)
         }
       }
@@ -180,47 +186,47 @@ function ResidentTemplate({ data }) {
           </div>
 
           {/* RESIDENT MIXES */}
-          {isOpen === 'Mixes' ? (
+          {hasMixes && isOpen === 'Mixes' ? (
             <div className="columns is-mobile is-multiline">
-              {/* {resident_mixes.map(({ resident_mix }, index) => (
+              {mixesData.map(({ resident_mix }, index) => (
                 <SingleMixCard
                   key={`resident-mix-#${index}`}
                   mixData={resident_mix}
                   columnLayout={residentCardLayout}
                 />
-              ))} */}
-              <pre>
+              ))}
+              {/* <pre>
                 Resident Mixes {JSON.stringify(resident_mixes, null, 2)}
-              </pre>
+              </pre> */}
             </div>
           ) : null}
 
           {/* RESIDENT EVENTS */}
-          {isOpen === 'Events' ? (
+          {hasEvents && isOpen === 'Events' ? (
             <div className="columns is-mobile is-multiline">
-              {/* {resident_events.map(({ event }, index) => (
+              {eventsData.map(({ event }, index) => (
                 <SingleEventCard
                   key={`resident-event-#${index}`}
                   eventData={event}
                   columnLayout={residentCardLayout}
                 />
-              ))} */}
-              <pre>{JSON.stringify(resident_events, null, 2)}</pre>
+              ))}
+              {/* <pre>{JSON.stringify(resident_events, null, 2)}</pre> */}
             </div>
           ) : null}
 
           {/* RESIDENT Features */}
-          {isOpen === 'Features' ? (
+          {hasFeatures && isOpen === 'Features' ? (
             <div className="columns is-mobile is-multiline">
-              {/* {resident_features.map((feature, index) => (
+              {featuresData.map((feature, index) => (
                 <LandingPageElement
                   key={`resident-feature-#${index}`}
                   pageElement={feature}
                   imageAspectRatio="image is-16by9"
                   columnLayout="column is-6 landing-page-element"
                 />
-              ))} */}
-              <pre>{JSON.stringify(resident_features, null, 2)}</pre>
+              ))}
+              {/* <pre>{JSON.stringify(resident_features, null, 2)}</pre> */}
             </div>
           ) : null}
 

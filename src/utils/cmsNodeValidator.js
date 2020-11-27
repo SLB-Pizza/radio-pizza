@@ -17,6 +17,8 @@ function cmsNodeValidator(node) {
   let checkTemplate
   let notices = { priority: '', errors: [] }
   let type = node._meta.type
+  console.log(node)
+  console.log('> ', type)
 
   // Determine the type of node and assign the correct checking template for use
   switch (type) {
@@ -33,6 +35,7 @@ function cmsNodeValidator(node) {
   // Loop through the checkTemplate to do checks on the node
   if (checkTemplate !== undefined) {
     for (const [node_field, typeInfo] of Object.entries(checkTemplate)) {
+      console.log('    field:', node_field)
       templateFieldCheck(node_field, typeInfo, node)
     }
   }
@@ -91,7 +94,15 @@ function cmsNodeValidator(node) {
          * mix_blurb                            Mix
          * resident_blurb                       Resident
          */
-        if (node[field].length === 1) {
+        // If the resident_blurb is null/undefined
+        if (!node[field]) {
+          issue = validatorErrors.default_error
+          // Use the level defined in checkTemplate
+          issue.level = typeInfo.level
+          addErrorToNotices(field, issue)
+        }
+        // Else if resident_blurb is an array
+        else if (node[field].length === 1) {
           const { type, text, spans } = node[field][0]
           // Check types of single rich text object
           const typeCheck = type === 'paragraph'

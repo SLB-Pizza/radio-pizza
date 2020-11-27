@@ -89,12 +89,17 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import PropTypes from 'prop-types'
-import React from 'react'
-import { Link } from 'gatsby'
-import NanoClamp from 'nanoclamp'
-import { MixPlayOverlay, TagButtons } from './index'
-import { getResidentString, formatDateTime, linkResolver } from '../utils'
+            <pre class="prettyprint source linenums"><code>import PropTypes from "prop-types";
+import React from "react";
+import { Link } from "gatsby";
+import NanoClamp from "nanoclamp";
+import { MixPlayOverlay, TagButtons } from "./index";
+import {
+  getResidentString,
+  formatDateTime,
+  mappableDataFilter,
+  linkResolver,
+} from "../utils";
 
 /**
  * @category Utilities
@@ -119,17 +124,20 @@ function SingleMixCard({ mixData, columnLayout, path }) {
     mix_link,
     mix_title,
     featured_residents,
-  } = mixData
+  } = mixData;
 
-  const { uid, type, tags } = _meta
+  const { uid, type, tags } = _meta;
 
   const linkTo = {
     type,
     uid,
-  }
+  };
 
-  const mixDate = formatDateTime(mix_date, 'year-month-day')
-  const mixResidentsString = getResidentString(featured_residents)
+  const mixDate = mixDate ? formatDateTime(mix_date, "year-month-day") : "";
+  const filteredResidents = mappableDataFilter(featured_residents);
+  const mixResidentsString = filteredResidents
+    ? getResidentString(featured_residents)
+    : "no resident data";
 
   return (
     &lt;div className={columnLayout}>
@@ -186,7 +194,7 @@ function SingleMixCard({ mixData, columnLayout, path }) {
         &lt;/div>
       &lt;/div>
     &lt;/div>
-  )
+  );
 }
 
 SingleMixCard.propTypes = {
@@ -196,12 +204,12 @@ SingleMixCard.propTypes = {
       tags: PropTypes.arrayOf(PropTypes.string),
       uid: PropTypes.string.isRequired,
       type: PropTypes.oneOf([
-        'cms_guide',
-        'event',
-        'feature',
-        'mix',
-        'page',
-        'resident',
+        "cms_guide",
+        "event",
+        "feature",
+        "mix",
+        "page",
+        "resident",
       ]),
     }),
     mix_date: PropTypes.string.isRequired,
@@ -221,9 +229,9 @@ SingleMixCard.propTypes = {
     }),
   }).isRequired,
   path: PropTypes.string,
-}
+};
 
-export default SingleMixCard
+export default SingleMixCard;
 </code></pre>
         </article>
     </section>

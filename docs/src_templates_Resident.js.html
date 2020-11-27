@@ -89,12 +89,12 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import PropTypes from 'prop-types'
-import React, { useState, useEffect } from 'react'
-import { graphql } from 'gatsby'
-import NanoClamp from 'nanoclamp'
-import { ResidentBio, SingleMixCard } from '../components'
-import { mappableDataFilter } from '../utils'
+            <pre class="prettyprint source linenums"><code>import PropTypes from "prop-types";
+import React, { useState, useEffect } from "react";
+import { graphql } from "gatsby";
+import NanoClamp from "nanoclamp";
+import { ResidentBio, SingleMixCard } from "../components";
+import { mappableDataFilter } from "../utils";
 
 /**
  * @category Templates
@@ -105,30 +105,30 @@ import { mappableDataFilter } from '../utils'
  * @returns {jsx}
  */
 function ResidentTemplate({ data }) {
-  const [isOpen, setIsOpen] = useState('Mixes')
-  const [hasMixes, setHasMixes] = useState(false)
-  const [mixesData, setMixesData] = useState([])
-  const [hasEvents, setHasEvents] = useState(false)
-  const [eventsData, setEventsData] = useState([])
-  const [hasFeatures, setHasFeatures] = useState(false)
-  const [featuresData, setFeaturesData] = useState(false)
+  const [isOpen, setIsOpen] = useState("Mixes");
+  const [hasMixes, setHasMixes] = useState(false);
+  const [mixesData, setMixesData] = useState([]);
+  const [hasEvents, setHasEvents] = useState(false);
+  const [eventsData, setEventsData] = useState([]);
+  const [hasFeatures, setHasFeatures] = useState(false);
+  const [featuresData, setFeaturesData] = useState([]);
 
-  const prismicContent = data.prismic.allResidents.edges[0]
-  if (!prismicContent) return null
-  const residentData = prismicContent.node
+  const prismicContent = data.prismic.allResidents.edges[0];
+  if (!prismicContent) return null;
+  const residentData = prismicContent.node;
 
   const {
     resident_mixes,
     resident_features,
     resident_events,
     ...rest
-  } = residentData
+  } = residentData;
 
-  const residentCardLayout = 'column is-12-mobile is-6-tablet is-4-widescreen'
+  const residentCardLayout = "column is-12-mobile is-6-tablet is-4-widescreen";
 
   function toggleColumn(event) {
     if (isOpen !== event.currentTarget.id) {
-      setIsOpen(event.currentTarget.id)
+      setIsOpen(event.currentTarget.id);
     }
   }
 
@@ -138,19 +138,25 @@ function ResidentTemplate({ data }) {
   useEffect(() => {
     const dataCheck = () => {
       if (data) {
-        if (mappableDataFilter(resident_mixes)) {
-          setHasMixes(true)
+        const filteredMixes = mappableDataFilter(resident_mixes);
+        const filteredEvents = mappableDataFilter(resident_events);
+        const filteredFeatures = mappableDataFilter(resident_features);
+        if (filteredMixes) {
+          setMixesData(filteredMixes);
+          setHasMixes(true);
         }
-        if (mappableDataFilter(resident_events)) {
-          setHasEvents(true)
+        if (filteredEvents) {
+          setEventsData(filteredEvents);
+          setHasEvents(true);
         }
-        if (mappableDataFilter(resident_features)) {
-          setHasFeatures(true)
+        if (filteredFeatures) {
+          setFeaturesData(filteredFeatures);
+          setHasFeatures(true);
         }
       }
-    }
-    return dataCheck()
-  }, [data, resident_mixes, resident_events, resident_features])
+    };
+    return dataCheck();
+  }, [data, resident_mixes, resident_events, resident_features]);
 
   return (
     &lt;div className="container is-fluid full-height-page">
@@ -165,9 +171,9 @@ function ResidentTemplate({ data }) {
                 {/* TABLET */}
                 &lt;button
                   className={
-                    isOpen === 'Mixes'
-                      ? 'button active is-fullwidth is-outlined is-rounded display-text'
-                      : 'button is-fullwidth is-outlined is-rounded display-text'
+                    isOpen === "Mixes"
+                      ? "button active is-fullwidth is-outlined is-rounded display-text"
+                      : "button is-fullwidth is-outlined is-rounded display-text"
                   }
                   id="Mixes"
                   onClick={toggleColumn}
@@ -181,9 +187,9 @@ function ResidentTemplate({ data }) {
               &lt;div className="column">
                 &lt;button
                   className={
-                    isOpen === 'Events'
-                      ? 'button active is-fullwidth is-outlined is-rounded display-text'
-                      : 'button is-fullwidth is-outlined is-rounded display-text'
+                    isOpen === "Events"
+                      ? "button active is-fullwidth is-outlined is-rounded display-text"
+                      : "button is-fullwidth is-outlined is-rounded display-text"
                   }
                   id="Events"
                   onClick={toggleColumn}
@@ -197,9 +203,9 @@ function ResidentTemplate({ data }) {
               &lt;div className="column">
                 &lt;button
                   className={
-                    isOpen === 'Features'
-                      ? 'button active is-fullwidth is-outlined is-rounded display-text'
-                      : 'button is-fullwidth is-outlined is-rounded display-text'
+                    isOpen === "Features"
+                      ? "button active is-fullwidth is-outlined is-rounded display-text"
+                      : "button is-fullwidth is-outlined is-rounded display-text"
                   }
                   id="Features"
                   onClick={toggleColumn}
@@ -225,9 +231,9 @@ function ResidentTemplate({ data }) {
                 {/* TABLET */}
                 &lt;button
                   className={
-                    isOpen === 'Mixes'
-                      ? 'button is-small active is-fullwidth is-outlined is-rounded display-text'
-                      : 'button is-small is-fullwidth is-outlined is-rounded display-text'
+                    isOpen === "Mixes"
+                      ? "button is-small active is-fullwidth is-outlined is-rounded display-text"
+                      : "button is-small is-fullwidth is-outlined is-rounded display-text"
                   }
                   id="Mixes"
                   onClick={toggleColumn}
@@ -241,9 +247,9 @@ function ResidentTemplate({ data }) {
               &lt;div className="column">
                 &lt;button
                   className={
-                    isOpen === 'Events'
-                      ? 'button is-small active is-fullwidth is-outlined is-rounded display-text'
-                      : 'button is-small is-fullwidth is-outlined is-rounded display-text'
+                    isOpen === "Events"
+                      ? "button is-small active is-fullwidth is-outlined is-rounded display-text"
+                      : "button is-small is-fullwidth is-outlined is-rounded display-text"
                   }
                   id="Events"
                   onClick={toggleColumn}
@@ -257,9 +263,9 @@ function ResidentTemplate({ data }) {
               &lt;div className="column">
                 &lt;button
                   className={
-                    isOpen === 'Features'
-                      ? 'button is-small active is-fullwidth is-outlined is-rounded display-text'
-                      : 'button is-small is-fullwidth is-outlined is-rounded display-text'
+                    isOpen === "Features"
+                      ? "button is-small active is-fullwidth is-outlined is-rounded display-text"
+                      : "button is-small is-fullwidth is-outlined is-rounded display-text"
                   }
                   id="Features"
                   onClick={toggleColumn}
@@ -271,47 +277,47 @@ function ResidentTemplate({ data }) {
           &lt;/div>
 
           {/* RESIDENT MIXES */}
-          {isOpen === 'Mixes' ? (
+          {hasMixes &amp;&amp; isOpen === "Mixes" ? (
             &lt;div className="columns is-mobile is-multiline">
-              {/* {resident_mixes.map(({ resident_mix }, index) => (
+              {mixesData.map(({ resident_mix }, index) => (
                 &lt;SingleMixCard
                   key={`resident-mix-#${index}`}
                   mixData={resident_mix}
                   columnLayout={residentCardLayout}
                 />
-              ))} */}
-              &lt;pre>
+              ))}
+              {/* &lt;pre>
                 Resident Mixes {JSON.stringify(resident_mixes, null, 2)}
-              &lt;/pre>
+              &lt;/pre> */}
             &lt;/div>
           ) : null}
 
           {/* RESIDENT EVENTS */}
-          {isOpen === 'Events' ? (
+          {hasEvents &amp;&amp; isOpen === "Events" ? (
             &lt;div className="columns is-mobile is-multiline">
-              {/* {resident_events.map(({ event }, index) => (
+              {eventsData.map(({ event }, index) => (
                 &lt;SingleEventCard
                   key={`resident-event-#${index}`}
                   eventData={event}
                   columnLayout={residentCardLayout}
                 />
-              ))} */}
-              &lt;pre>{JSON.stringify(resident_events, null, 2)}&lt;/pre>
+              ))}
+              {/* &lt;pre>{JSON.stringify(resident_events, null, 2)}&lt;/pre> */}
             &lt;/div>
           ) : null}
 
           {/* RESIDENT Features */}
-          {isOpen === 'Features' ? (
+          {hasFeatures &amp;&amp; isOpen === "Features" ? (
             &lt;div className="columns is-mobile is-multiline">
-              {/* {resident_features.map((feature, index) => (
+              {featuresData.map((feature, index) => (
                 &lt;LandingPageElement
                   key={`resident-feature-#${index}`}
                   pageElement={feature}
                   imageAspectRatio="image is-16by9"
                   columnLayout="column is-6 landing-page-element"
                 />
-              ))} */}
-              &lt;pre>{JSON.stringify(resident_features, null, 2)}&lt;/pre>
+              ))}
+              {/* &lt;pre>{JSON.stringify(resident_features, null, 2)}&lt;/pre> */}
             &lt;/div>
           ) : null}
 
@@ -319,7 +325,7 @@ function ResidentTemplate({ data }) {
         &lt;/div>
       &lt;/div>
     &lt;/div>
-  )
+  );
 }
 
 ResidentTemplate.propTypes = {
@@ -330,7 +336,7 @@ ResidentTemplate.propTypes = {
       }),
     }),
   }),
-}
+};
 
 export const query = graphql`
   query ResidentTemplateQuery($uid: String) {
@@ -414,9 +420,9 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default ResidentTemplate
+export default ResidentTemplate;
 
 // Resident Template
 // Resident Img sizes (square)

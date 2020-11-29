@@ -1,4 +1,4 @@
-import { mappableDataFilter, prioritySetter } from './index'
+import { mappableDataFilter, prioritySetter, uidValidator } from './index'
 import {
   mixNode,
   residentNode,
@@ -29,7 +29,7 @@ function cmsNodeValidator(node) {
       checkTemplate = residentNode
       break
     default:
-      checkTemplate = mixNode
+      checkTemplate = undefined
   }
 
   // Loop through the checkTemplate to do checks on the node
@@ -38,6 +38,15 @@ function cmsNodeValidator(node) {
       console.log('    field:', node_field)
       templateFieldCheck(node_field, typeInfo, node)
     }
+  }
+
+  // Do a UID validation check; add an issue object to notices if problem exists
+
+  // If notices has no entries, return 0; else return the notices object
+  if (notices.errors.length === 0) {
+    return 0
+  } else {
+    return notices
   }
 
   function templateFieldCheck(field, typeInfo, node) {
@@ -178,13 +187,6 @@ function cmsNodeValidator(node) {
     notices.priority = prioritySetter(notices.priority, issueDetails.level)
     // Push the error object to notice's errors array
     notices.errors.push({ field, ...issueDetails })
-  }
-
-  // If noticeshas no entries, return 0; else return the notices object
-  if (notices.errors.length === 0) {
-    return 0
-  } else {
-    return notices
   }
 }
 export default cmsNodeValidator

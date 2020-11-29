@@ -5,56 +5,69 @@ import { CMSIssueMessage } from '../../components'
 import { cmsNodeValidator, getMixTitle, uidValidator } from '../../utils'
 
 function HMBKAdminPage({ data }) {
+  const [totalCount, setCount] = useState(0)
+  const [problemMixes, setMixes] = useState([])
+  const [problemResidents, setResidents] = useState([])
+  const [problemFeatures, setFeatures] = useState([])
+  const [problemEvents, setEvents] = useState([])
+  const [problemCMSGuides, setCMSGuides] = useState([])
+  const [problemCollections, setCollections] = useState([])
+  const [problemSchedules, setSchedules] = useState([])
+  const [problemStaffs, setStaffs] = useState([])
+
   const prismicContent = data.prismic._allDocuments
   if (!prismicContent) return null
 
-  const docCount = prismicContent.totalCount
-  let problemMixes = []
-  let problemFeatures = []
-  let problemEvents = []
-  let problemCMSGuides = []
-  let problemResidents = []
-  let problemCollections = []
-  let problemSchedules = []
-  let problemStaffs = []
+  useEffect(() => {
+    const nodeProcessor = () => {
+      if (prismicContent) {
+        // Set total count of all HMBK entries
+        setCount(prismicContent.totalCount)
 
-  // Process each node
-  for (let i = 0; i < prismicContent.edges.length; i++) {
-    const node = prismicContent.edges[i].node
+        // Process each node
+        for (let i = 0; i < prismicContent.edges.length; i++) {
+          const currentNode = prismicContent.edges[i].node
+          const entryType = currentNode._meta.type
 
-    const entryIssues = cmsNodeValidator(node)
-    console.log(entryIssues)
-    console.log(
-      '\n============================================================\n'
-    )
-    // const uidIssue = uidValidator(node)
+          const entryIssues = cmsNodeValidator(currentNode)
+          console.log(entryIssues)
+          console.log(
+            '\n============================================================\n'
+          )
+          // const uidIssue = uidValidator(currentNode)
 
-    // If the node has no issues, continue to the next loop
-    // else determine the node type and
-    // push it to the correct array to process
-    if (!entryIssues) {
-      continue
-    } else {
-      switch (node._meta.type) {
-        case 'mix':
-          const nodeName = getMixTitle(node)
-          const issuePackage = { nodeName, node, entryIssues }
-          problemMixes.push(issuePackage)
-          break
-        case 'event':
-          problemEvents.push(issuePackage)
-          break
-        case 'resident':
-          problemResidents.push(issuePackage)
-          break
-        case 'endless_mix':
-          problemCollections.push(issuePackage)
-          break
-        default:
-          console.log(node._meta.type)
+          // If the currentNode has no issues, continue to the next loop
+          if (!entryIssues) {
+            continue
+          }
+          // else determine the currentNode type and
+          // spread it into an existing problem array
+          else {
+            const issuePackage = { nodeName: '', entryIssues }
+            switch (entryType) {
+              case 'mix':
+                issuePackage.name = getMixTitle(currentNode)
+                setMixes([...problemMixes, issuePackage])
+                break
+              case 'event':
+                setEvents([...problemEvents, issuePackage])
+                break
+              case 'resident':
+                setResidents([...problemResidents, issuePackage])
+                break
+              case 'endless_mix':
+                setCollections([...problemCollections, issuePackage])
+                break
+              default:
+                console.log(entryType)
+            }
+          }
+        }
       }
     }
-  }
+
+    return nodeProcessor()
+  }, [prismicContent])
 
   return (
     <main className="black-bg-page">
@@ -89,34 +102,45 @@ function HMBKAdminPage({ data }) {
             <div className="columns is-vcentered is-mobile is-multiline">
               <div className="column content">
                 <p className="title has-text-centered">
-                  {docCount} HMBK CMS Entries
+                  {totalCount} HMBK CMS Entries
                 </p>
               </div>
             </div>
           </div>
         </div>
-        {/* {problemMixes.length && (
+        {problemMixes.length && (
           <div className="column is-12">
             <div className="content">
               <h1 className="title">
                 <a href="#mixes"># </a>Mixes
               </h1>
+              {/* <pre>{JSON.stringify(prismicContent, null, 2)}</pre> */}
             </div>
-            {problemMixes.map((issuePackage, index) => {
+            {problemMixes.map((mixIssue, index) => {
               return (
-                <CMSIssueMessage
-                  key={`problem-mixes-${index}`}
-                  issueData={issuePackage}
-                />
-              );
+                <pre>{JSON.stringify(mixIssue, null, 2)}</pre>
+                // <CMSIssueMessage
+                //   key={`problem-mixes-${index}`}
+                //   issueData={issuePackage}
+                // />
+              )
             })}
           </div>
-        )} */}
+        )}
         {problemResidents.length && (
           <div className="column is-12">
             <div className="content">
               <h1 className="title">Residents</h1>
             </div>
+            {problemResidents.map((residentIssue, index) => {
+              return (
+                <pre>{JSON.stringify(residentIssue, null, 2)}</pre>
+                // <CMSIssueMessage
+                //   key={`problem-mixes-${index}`}
+                //   issueData={issuePackage}
+                // />
+              )
+            })}
           </div>
         )}
         {/* <div className="column is-12">

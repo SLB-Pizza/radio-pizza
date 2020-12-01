@@ -17,6 +17,7 @@ export { default as displayCollectionPlaylistDetails } from './displayCollection
 export { default as formatDateTime } from './formatDateTime'
 export { default as formatNextShow } from './formatNextShow'
 export { default as getBlockquoteStyling } from './getBlockquoteStyling'
+export { default as getCMSEntryName } from './getCMSEntryName'
 export { default as getMixTitle } from './getMixTitle'
 export { default as getResidentLinks } from './getResidentLinks'
 export { default as getResidentString } from './getResidentString'

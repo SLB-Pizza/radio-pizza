@@ -162,6 +162,7 @@ describe('uidValidator', () => {
         })
       })
     })
+
     describe('when the document UID matches the suggested UID', () => {
       describe('for mixes without a title', () => {
         it('with one featured resident', () => {

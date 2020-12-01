@@ -8,20 +8,21 @@ import {
  * NODE VALIDATION PROCESS STEPS
  * 1. Determine node type from _meta.type and grab corresponding check template
  * 1a. checkTemplate values are used for the default case if a key isn't checked for in templateFieldCheck
- * 2.
+ * 2. Loop through checkTemplate's key-value pairs and call templateFieldChecker
+ * 3.
  * @function cmsNodeValidator
  * @param {Object} node - The single cms data node coming from the CMS from either a Page query or Template query
  * @return {0|Object} returns 0 when the node is issue free; returns the notices
  */
 function cmsNodeValidator(node) {
   let checkTemplate
-  let notices = { priority: '', errors: [] }
-  let type = node._meta.type
+  let notices = { entryName: '', priority: '', errors: [] }
+  let entryType = node._meta.type
   console.log(node)
-  console.log('> ', type)
+  console.log('> ', entryType)
 
-  // Determine the type of node and assign the correct checking template for use
-  switch (type) {
+  // Determine the entryType of node and assign the correct checking template for use
+  switch (entryType) {
     case 'mix':
       checkTemplate = mixNode
       break
@@ -34,13 +35,15 @@ function cmsNodeValidator(node) {
 
   // Loop through the checkTemplate to do checks on the node
   if (checkTemplate !== undefined) {
-    for (const [node_field, typeInfo] of Object.entries(checkTemplate)) {
-      console.log('    field:', node_field)
-      templateFieldCheck(node_field, typeInfo, node)
+    for (const [nodeField, dataType] of Object.entries(checkTemplate)) {
+      console.log('    field:', nodeField)
+      templateFieldCheck(nodeField, dataType, node)
     }
   }
 
-  // Do a UID validation check; add an issue object to notices if problem exists
+  // Do a UID validation check by passing the the CMS entry node and its type
+  // Add an issue object to notices if UID problem exists
+  // uidValidator(node);
 
   // If notices has no entries, return 0; else return the notices object
   if (notices.errors.length === 0) {
@@ -49,6 +52,13 @@ function cmsNodeValidator(node) {
     return notices
   }
 
+  /**
+   * Is called every loop with one of checkTemplates' `{nodeField: dataType}` pairs. Uses the key to go into the a particular case and examine that field's data with dataType's help.
+   * @function templateFieldCheck
+   * @param {String} field - comes from checkTemplate; key of typeInfo's value
+   * @param {*} typeInfo - value of field's checkTemplate key; used as a helper value depending on the field case currently examined
+   * @param {Object} node - the current CMS entry data node
+   */
   function templateFieldCheck(field, typeInfo, node) {
     let issue
 
@@ -182,6 +192,13 @@ function cmsNodeValidator(node) {
     }
   }
 
+  /**
+   * Helper function to {@link cmsNodeValidator}.
+   * Takes in the node field examined and the issue details object and adjusts the notices object max priority level, if needed, and adds a new error object to the errors array in notices using the field and issue details
+   * @function addErrorToNotices
+   * @param {String} field
+   * @param {Object} issueDetails
+   */
   function addErrorToNotices(field, issueDetails) {
     // Update maximum notice priority level
     notices.priority = prioritySetter(notices.priority, issueDetails.level)

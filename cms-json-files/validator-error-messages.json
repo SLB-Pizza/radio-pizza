@@ -35,7 +35,7 @@
   "dev_entry": {
     "level": "danger",
     "error": "Dummy CMS Entry",
-    "instructions": "This entry was created as a development aide. Please open the CMS and delete this entry immediately AFTER LAUNCH."
+    "instructions": "This entry was created as a development aide. Please open the CMS and delete this entry immediately after launch."
   },
   "group_field": {
     "level": "danger",
@@ -97,7 +97,19 @@
     "no_meta": {
       "level": "danger",
       "error": "This CMS entry has a critical error all of its data fields need to reviewed immediately.",
-      "instructions": "Please check this entry's data in the CMS. If this is a test entry AND if this is being used to test a function, please check the test entry data in the JSON file."
+      "instructions": "Please check this entry's data in the CMS.",
+      "moreInfo": [
+        {
+          "type": "paragraph",
+          "text": "If this is a test entry AND if this is being used to test a function, please check the test entry data in the JSON file.",
+          "spans": []
+        }
+      ]
+    },
+    "entry_missing_fields": {
+      "level": "danger",
+      "error": "This field is missing data in the key fields necessary to validate this entry's UID.",
+      "instructions": "Please open this CMS entry and ensure that all of the necessary fields are filled out."
     }
   },
   "default_error": {

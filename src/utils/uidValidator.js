@@ -12,25 +12,27 @@ import { validatorErrors } from '../../cms-json-files/index'
  * @param {Object} cmsNode
  * @property {Object} cmsNode._meta - contains the UID, cmsNode type, firstPublicationData and lastPublicationDate
  * @property {String} cmsNode._meta.uid - the uid that's assigned to the current document
- * @property {String} cmsNode._meta.type - the document type; used here to determine UID formatting strategy and by {@link linkResolver} to create slugs
- * @property {String} cmsNode._meta.firstPublicationDate - date the document was first published
- * @property {String} cmsNode._meta.lastPublicationDate - date the document was last updated
- * @returns {0|Object} returns 0 when the cmsNode's UID matches the suggested UID; returns an object containing a type (string) and a result (string) of the suggested UID or an info message
+ * @param {String} nodeType - the type of Prismic CMS entry; pulled from the node by {@link cmsNodeValidator}
  */
 function uidValidator(cmsNode) {
   const { _meta, ...rest } = cmsNode
-  // Somethings wrong with the node that was passed in.
-  if (!cmsNode._meta) {
+
+  // If there's no _meta, something's wrong with the node that was passed in.
+  if (!_meta) {
     return validatorErrors.uid.no_meta
   }
+  const nodeType = _meta.type
 
-  let endIdx = _meta.type.length + 4 // "dev-" is 4
+  /**
+   * Development entries start with the prefix "dev-"
+   */
+  let endIdx = nodeType.length + 4 // "dev-" is 4
 
-  switch (_meta.type) {
+  switch (nodeType) {
     case 'mix':
-      if (_meta.uid.substr(0, endIdx) === `dev-${_meta.type}`) {
+      if (_meta.uid.substr(0, endIdx) === `dev-${nodeType}`) {
         return devEntryDetails(cmsNode)
-      } else if (rest.mix_title === null) {
+      } else if (!rest.mix_title) {
         const residentString = getResidentString(rest.featured_residents, 'uid')
         const suggestedUID = uidAssembler(residentString, rest.mix_date)
 

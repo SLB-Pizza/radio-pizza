@@ -14,6 +14,10 @@ import { OutsideClick } from './index'
 function BottomNav() {
   const [dropUpOpen, setDropUpOpen] = useState(false)
 
+  const closeDropUp = () => {
+    setDropUpOpen(false)
+  }
+
   const toggleDropUp = () => {
     setDropUpOpen(state => !state)
   }
@@ -42,7 +46,13 @@ function BottomNav() {
       aria-label="navigation bar"
       id="navigation"
     >
-      <OutsideClick id={'navigation'} onClick={() => closeNavMenu()}>
+      <OutsideClick
+        id={'navigation'}
+        onClick={() => {
+          closeNavMenu()
+          closeDropUp()
+        }}
+      >
         <div className="navbar-brand">
           <Link
             to="/"

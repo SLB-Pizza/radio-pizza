@@ -120,6 +120,50 @@ function ScheduleBar({ timeNow }) {
     return getNextShowData()
   }, [data, loading, error])
 
+
+  // check if the Radio.co stream is live once upon bar mounting.
+  // if so, set the globalState.live boolean to true.
+  useEffect(async () => {
+    fetch(`https://public.radio.co/stations/s2857aa101/status`)
+    .then(response => response.json())
+    .then(resultData => {
+      console.log('resultData', resultData);
+      if(resultData.status === 'online') {
+        await dispatch({
+          type: 'SET_LIVE'
+        })
+      }
+    })
+  }, [])
+
+  // Repeats the check above every 60 seconds, but also doesn't dispatch a context update unless needed.
+  // clears itself when unmounting.
+  useEffect(async () => {
+    const interval = setInterval(() => {
+      fetch(`https://public.radio.co/stations/s2857aa101/status`)
+      .then(response => response.json())
+      .then(resultData => {
+        console.log('resultData:', resultData)
+        console.log('globalState.live:', globalState.live)
+        // I think a live status is "online" as a not live status is "offline"
+        if(resultData.status === 'online' && globalState.live === false) {
+          await dispatch({
+            type: 'SET_LIVE'
+          })
+        } else if(resultData.status === 'offline' && globalState.live === true ) {
+          await dispatch({
+            type: 'SET_NOT_LIVE'
+          })
+        } else {
+          await dispatch({
+            type: 'SET_NOT_LIVE'
+          })
+        }
+      })
+    }, 60000);
+    return () => clearInterval(interval);
+  }, [])
+
   const handleVisibilityChange = isVisible => {
     setPageIsVisible(isVisible)
   }

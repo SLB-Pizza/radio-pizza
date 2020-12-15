@@ -30,10 +30,10 @@ function HMBKAdminPage({ data }) {
           const entryType = currentNode._meta.type
 
           const entryIssues = cmsNodeValidator(currentNode)
-          console.log(entryIssues)
-          console.log(
-            '\n============================================================\n'
-          )
+          // console.log("entryIssues", entryIssues);
+          // console.log(
+          //   "\n============================================================\n"
+          // );
           // const uidIssue = uidValidator(currentNode)
 
           // If the currentNode has no issues, continue to the next loop
@@ -43,10 +43,9 @@ function HMBKAdminPage({ data }) {
           // else determine the currentNode type and
           // spread it into an existing problem array
           else {
-            const issuePackage = { nodeName: '', entryIssues }
+            const issuePackage = { entryIssues }
             switch (entryType) {
               case 'mix':
-                issuePackage.name = getMixTitle(currentNode)
                 setMixes([...problemMixes, issuePackage])
                 break
               case 'event':
@@ -67,7 +66,7 @@ function HMBKAdminPage({ data }) {
     }
 
     return nodeProcessor()
-  }, [prismicContent])
+  }, [])
 
   return (
     <main className="black-bg-page">
@@ -108,41 +107,45 @@ function HMBKAdminPage({ data }) {
             </div>
           </div>
         </div>
-        {problemMixes.length && (
+        {/* {problemMixes.length && (
           <div className="column is-12">
             <div className="content">
               <h1 className="title">
                 <a href="#mixes"># </a>Mixes
               </h1>
-              {/* <pre>{JSON.stringify(prismicContent, null, 2)}</pre> */}
+              <pre>Problem Mixes {JSON.stringify(problemMixes, null, 2)}</pre>
             </div>
-            {problemMixes.map((mixIssue, index) => {
+            {problemMixes.map((mixIssuePkg, index) => {
               return (
-                <pre>{JSON.stringify(mixIssue, null, 2)}</pre>
-                // <CMSIssueMessage
-                //   key={`problem-mixes-${index}`}
-                //   issueData={issuePackage}
-                // />
-              )
+                <>
+                  <CMSIssueMessage
+                    key={`problem-mixes-${index}`}
+                    issueData={mixIssuePkg}
+                  />
+                  <pre>{JSON.stringify(mixIssuePkg, null, 2)}</pre>
+                </>
+              );
             })}
           </div>
-        )}
-        {problemResidents.length && (
+        )} */}
+        {/* {problemResidents.length && (
           <div className="column is-12">
             <div className="content">
               <h1 className="title">Residents</h1>
             </div>
-            {problemResidents.map((residentIssue, index) => {
+            {problemResidents.map((residentIssuePkg, index) => {
               return (
-                <pre>{JSON.stringify(residentIssue, null, 2)}</pre>
-                // <CMSIssueMessage
-                //   key={`problem-mixes-${index}`}
-                //   issueData={issuePackage}
-                // />
-              )
+                <>
+                  <CMSIssueMessage
+                    key={`problem-residents-${index}`}
+                    issueData={residentIssuePkg}
+                  />
+                  <pre>{JSON.stringify(residentIssuePkg, null, 2)}</pre>
+                </>
+              );
             })}
           </div>
-        )}
+        )} */}
         {/* <div className="column is-12">
           <section className="section content">
             <pre>{JSON.stringify(prismicContent.edges, null, 2)}</pre>

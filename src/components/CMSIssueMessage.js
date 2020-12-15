@@ -1,9 +1,13 @@
 import React from 'react'
+import { RichText } from 'prismic-reactjs'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import { CMSIssueMessageType } from '../components'
+import { htmlSerializer, linkResolver } from '../utils'
 
 function CMSIssueMessage({ issueData }) {
   const { nodeName, node, entryIssues, uidIssue } = issueData
+
+  const { entryName, priority, errors } = entryIssues
 
   let message = 'message'
   let icon = 'info-circle'
@@ -29,30 +33,44 @@ function CMSIssueMessage({ issueData }) {
   }
 
   return (
-    <CMSIssueMessageType type={issueData.uidIssue.type}>
+    <CMSIssueMessageType type={priority}>
       <div className="message-header">
-        <p className="subtitle has-text-black">
-          {`Mix Entry: ${issueData.nodeName}`}
-        </p>
+        <p className="subtitle has-text-black">{`Entry: ${entryName}`}</p>
       </div>
       <div className="message-body">
-        {entryIssues.length &&
-          entryIssues.map(issue => (
-            // <pre>{JSON.stringify(issue, null, 2)}</pre>
-            <article className="media">
-              <figure className="media-left">
-                <span className="icon">
-                  <Icon icon="info-circle" size="lg" />
-                </span>
-              </figure>
-              <div className="media-content">
-                <div className="content">
-                  <p className="subtitle has-text-black">{issue.reason}</p>
-                </div>
-              </div>
-            </article>
-          ))}
-        {uidIssue.type && (
+        {/* errors is {@link cmsNodeValidator} errors array */
+        errors.length &&
+          errors.map(singleError => {
+            const { field, level, error, instructions, moreInfo } = singleError
+            const icon = getIcon(level)
+
+            return (
+              <>
+                <article className="media">
+                  <figure className="media-left">
+                    <span className="icon is-small">
+                      <Icon icon={icon} size="lg" />
+                    </span>
+                  </figure>
+                  <div className="media-content">
+                    <div className="content">
+                      <p className="subtitle is-6 has-text-black">{`${field}: ${error}`}</p>
+                      <p>{instructions}</p>
+                      {moreInfo && (
+                        <RichText
+                          render={moreInfo}
+                          linkResolver={linkResolver}
+                          htmlSerializer={htmlSerializer}
+                        />
+                      )}
+                    </div>
+                  </div>
+                </article>
+                {/* <pre>{JSON.stringify(issue, null, 2)}</pre> */}
+              </>
+            )
+          })}
+        {/* {uidIssue.type && (
           // <pre>{JSON.stringify(uidIssue, null, 2)}</pre>
           <article className="media">
             <figure className="media-left">
@@ -75,7 +93,7 @@ function CMSIssueMessage({ issueData }) {
               </div>
             </div>
           </article>
-        )}
+        )} */}
         {/* <p className="has-text-black"></p>
         <hr className="has-background-black" />
         <h6 className="subtitle is-6">text</h6>

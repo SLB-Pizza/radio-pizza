@@ -8,9 +8,10 @@
         "type": "paragraph",
         "text": "Read more about why alt text is important.",
         "spans": [
+          { "start": 0, "end": 15, "type": "em" },
           {
             "start": 0,
-            "end": 14,
+            "end": 15,
             "type": "hyperlink",
             "data": {
               "link_type": "Web",
@@ -40,21 +41,21 @@
   "group_field": {
     "level": "danger",
     "error": "There is a problem with the group field for this entry.",
-    "instructions": "Open this entry in the CMS and ensure the following.",
+    "instructions": "Open this entry in the CMS and ensure the following:",
     "moreInfo": [
       {
         "type": "list-item",
-        "text": "Check that all portions of all items added to this CMS group field are correctly filled out.",
+        "text": "If this CMS entry is supposed to have entries linked to it, ensure that all parts of all linked entries are correctly filled out.",
         "spans": []
       },
       {
         "type": "list-item",
-        "text": "Ensure that there are no gaps before, after or in-between added items in the group field.",
+        "text": "Ensure that there are no empty fields before, after or in-between linked entries in the group field.",
         "spans": [
-          { "start": 12, "end": 68, "type": "em" },
+          { "start": 12, "end": 80, "type": "em" },
           {
             "start": 12,
-            "end": 68,
+            "end": 80,
             "type": "hyperlink",
             "data": {
               "link_type": "Web",

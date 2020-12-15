@@ -1,6 +1,7 @@
 import {
   devEntryDetails,
   getResidentString,
+  getMixTitle,
   linkStripper,
   uidAssembler,
 } from './index'

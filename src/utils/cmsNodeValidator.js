@@ -1,4 +1,9 @@
-import { mappableDataFilter, prioritySetter, uidValidator } from './index'
+import {
+  getMixTitle,
+  mappableDataFilter,
+  prioritySetter,
+  uidValidator,
+} from './index'
 import {
   mixNode,
   residentNode,
@@ -18,16 +23,18 @@ function cmsNodeValidator(node) {
   let checkTemplate
   let notices = { entryName: '', priority: '', errors: [] }
   let entryType = node._meta.type
-  console.log(node)
-  console.log('> ', entryType)
+  // console.log(node);
+  // console.log("> ", entryType);
 
   // Determine the entryType of node and assign the correct checking template for use
   switch (entryType) {
     case 'mix':
       checkTemplate = mixNode
+      notices.entryName = getMixTitle(node)
       break
     case 'resident':
       checkTemplate = residentNode
+      notices.entryName = node.resident_name
       break
     default:
       checkTemplate = undefined
@@ -36,7 +43,7 @@ function cmsNodeValidator(node) {
   // Loop through the checkTemplate to do checks on the node
   if (checkTemplate !== undefined) {
     for (const [nodeField, dataType] of Object.entries(checkTemplate)) {
-      console.log('    field:', nodeField)
+      // console.log("    field:", nodeField);
       templateFieldCheck(nodeField, dataType, node)
     }
   }
@@ -154,7 +161,18 @@ function cmsNodeValidator(node) {
       case 'resident_mixes':
       case 'social_media':
         /**
-         * Only checks group fields when the group has at least one entry
+         * If a group field is an empty array or has a nullish value,
+         * create the issue using the group field error and
+         * add the error to the notices obj
+         */
+        if (node[field].length === 0 || !node[field]) {
+          console.log('in group field', field)
+          issue = validatorErrors.group_field
+          addErrorToNotices(field, issue)
+          break
+        }
+        /**
+         * Checks group fields when the group has at least one entry
          * Uses {@link mappableDataFilter}
          *  -- objectKeyCount: typeInfo (from checkTemplate), NUMBER type
          *  -- nodeValidation: true
@@ -174,12 +192,15 @@ function cmsNodeValidator(node) {
             issue = validatorErrors.group_field
             addErrorToNotices(field, issue)
           }
-          break
         }
+        break
       default:
         // Fields that evaluate here in default,
         // have an object containing type and issue level data
         // Use typeInfo's type to type match against
+        // console.log("node[field]", node[field]);
+        // console.log("typeInfo", typeInfo);
+
         if (typeof node[field] !== typeInfo.type) {
           issue = validatorErrors.default_error
           // The default error does not have a level predefined
@@ -207,21 +228,3 @@ function cmsNodeValidator(node) {
   }
 }
 export default cmsNodeValidator
-
-/**
- * Data structure
- * [
- *   {
- *     node: {
- *      _meta: {
- *
- *        },
- *     ...rest
- *     },
- *   }
- * ]
- *
- */
-
-/**
- */

@@ -107,13 +107,13 @@ function HMBKAdminPage({ data }) {
             </div>
           </div>
         </div>
-        {/* {problemMixes.length && (
+        {problemMixes.length && (
           <div className="column is-12">
             <div className="content">
               <h1 className="title">
                 <a href="#mixes"># </a>Mixes
               </h1>
-              <pre>Problem Mixes {JSON.stringify(problemMixes, null, 2)}</pre>
+              {/* <pre>Problem Mixes {JSON.stringify(problemMixes, null, 2)}</pre> */}
             </div>
             {problemMixes.map((mixIssuePkg, index) => {
               return (
@@ -122,13 +122,13 @@ function HMBKAdminPage({ data }) {
                     key={`problem-mixes-${index}`}
                     issueData={mixIssuePkg}
                   />
-                  <pre>{JSON.stringify(mixIssuePkg, null, 2)}</pre>
+                  {/* <pre>{JSON.stringify(mixIssuePkg, null, 2)}</pre> */}
                 </>
-              );
+              )
             })}
           </div>
-        )} */}
-        {/* {problemResidents.length && (
+        )}
+        {problemResidents.length && (
           <div className="column is-12">
             <div className="content">
               <h1 className="title">Residents</h1>
@@ -140,12 +140,12 @@ function HMBKAdminPage({ data }) {
                     key={`problem-residents-${index}`}
                     issueData={residentIssuePkg}
                   />
-                  <pre>{JSON.stringify(residentIssuePkg, null, 2)}</pre>
+                  {/* <pre>{JSON.stringify(residentIssuePkg, null, 2)}</pre> */}
                 </>
-              );
+              )
             })}
           </div>
-        )} */}
+        )}
         {/* <div className="column is-12">
           <section className="section content">
             <pre>{JSON.stringify(prismicContent.edges, null, 2)}</pre>

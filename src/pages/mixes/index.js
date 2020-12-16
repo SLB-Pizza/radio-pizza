@@ -120,6 +120,15 @@ function MixesIndexPage({ data, prismic }) {
               />
             )
           })}
+          {/* {mixesData.map(({ node }, index) => {
+            return (
+              <SingleMixCard
+                key={`mixes-page-#${index}`}
+                mixData={node}
+                columnLayout={mixListLayout}
+              />
+            );
+          })} */}
           <hr />
           {/* <pre>{JSON.stringify(mixesData, null, 2)}</pre> */}
         </div>

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FeaturedResident, MixPlayOverlay, TagButtons } from './index'
 import { RichText } from 'prismic-reactjs'
 import {
@@ -10,6 +10,9 @@ import {
 } from '../utils'
 
 function SingleCollection({ singleCollection }) {
+  const [collectionDetails, setDetails] = useState(null)
+  const [dispatchData, setDispatch] = useState(null)
+
   const {
     _meta,
     collection_title,
@@ -19,28 +22,38 @@ function SingleCollection({ singleCollection }) {
     collection_playlist,
   } = singleCollection
 
-  let mixLinks = []
-  let uidChecks = new Set()
-  let mixResidents = new Set()
-  let mixTags = new Set()
   let mixCount =
     collection_playlist.length === 1
       ? `${collection_playlist.length} mix`
       : `${collection_playlist.length} mixes`
 
-  const collectionDetails = displayCollectionPlaylistDetails(
-    collection_playlist
-  )
-  const dispatchData = makeCollectionDispatch(singleCollection)
+  useEffect(() => {
+    const makeCollection = () => {
+      if (singleCollection) {
+        const displayDetails = displayCollectionPlaylistDetails(
+          collection_playlist
+        )
+        const currentDispatch = makeCollectionDispatch(singleCollection)
+
+        setDetails(displayDetails)
+        setDispatch(currentDispatch)
+      }
+    }
+
+    return makeCollection()
+  }, [])
+
   return (
     <div className="columns is-mobile is-multiline curated-mix">
       <div className="column is-3-tablet is-12-mobile">
-        <MixPlayOverlay
-          wrapperClassName="card collection-play"
-          img={collection_img}
-          isCollection={true}
-          collectionDetails={dispatchData}
-        />
+        {dispatchData && (
+          <MixPlayOverlay
+            wrapperClassName="card collection-play"
+            img={collection_img}
+            isCollection={true}
+            collectionDetails={dispatchData}
+          />
+        )}
       </div>
 
       <div className="column is-9-tablet is-12-mobile curated-description">
@@ -54,7 +67,7 @@ function SingleCollection({ singleCollection }) {
             />
           )}
         </div>
-        <TagButtons tagsArray={collectionDetails.tags} />
+        {collectionDetails && <TagButtons tagsArray={collectionDetails.tags} />}
 
         {/* <pre>Links {JSON.stringify(collection_playlist, null, 2)}</pre> */}
         <pre>Collection Dispatch {JSON.stringify(dispatchData, null, 2)}</pre>

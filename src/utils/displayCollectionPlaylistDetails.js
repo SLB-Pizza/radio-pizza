@@ -2,7 +2,7 @@
  * Process the collection_playlist array on each collection data node to display in {@link SingleCollection}
  * @function displayCollectionPlaylistDetails
  * @param {Object[]} playlistArray - the collection playlist containing all mix and relevant resident information
- * @returns {Object} an object filled with collection playlist data structured like so: `{mixes: [], tags: [], residents:[]}`
+ * @returns {Object} an object filled with collection playlist data structured like so: `{ mixes: [], tags: [], residents:[] }`
  */
 function displayCollectionPlaylistDetails(playlistArray) {
   let mixLinks = []
@@ -17,9 +17,11 @@ function displayCollectionPlaylistDetails(playlistArray) {
     mixLinks.push(mix_link)
 
     // Make each tag lowercase and add it to the tags set
-    _meta.tags.map(tag => {
-      mixTags.add(tag.toLowerCase())
-    })
+    if (_meta.tags.length) {
+      _meta.tags.map(tag => {
+        mixTags.add(tag.toLowerCase())
+      })
+    }
 
     /**
      * Add the residents to the resident set
@@ -32,13 +34,17 @@ function displayCollectionPlaylistDetails(playlistArray) {
      *    - means we've seen this uid -> we've already added this resident
      *    - do nothing; go to next mix_resident in featured_residents and test
      */
-    featured_residents.map(({ mix_resident }) => {
-      let nameToCheck = mix_resident._meta.uid
-      if (!uidChecks.has(nameToCheck)) {
-        uidChecks.add(nameToCheck)
-        mixResidents.add(mix_resident)
+    for (const mix_resident of featured_residents) {
+      if (!mix_resident) {
+        continue
+      } else {
+        let nameToCheck = mix_resident._meta.uid
+        if (!uidChecks.has(nameToCheck)) {
+          uidChecks.add(nameToCheck)
+          mixResidents.add(mix_resident)
+        }
       }
-    })
+    }
   })
 
   // Convert all sets to arrays and return in structured object

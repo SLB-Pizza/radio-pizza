@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import { MixPlayOverlay, TagButtons, SingleResident } from '../components'
 import { RichText } from 'prismic-reactjs'
-import { linkResolver, getResidentString } from '../utils'
+import { linkResolver, getResidentString, mappableDataFilter } from '../utils'
 import NanoClamp from 'nanoclamp'
 
 /**
@@ -29,7 +29,11 @@ function MixTemplate({ data }) {
     related_events,
   } = mixData
 
-  const mixResidentString = getResidentString(featured_residents)
+  const filteredResidents = mappableDataFilter(featured_residents)
+  const mixResidentString =
+    filteredResidents !== 0
+      ? getResidentString(filteredResidents)
+      : 'HMBK Guest'
 
   return (
     <main className="black-bg-page">
@@ -85,10 +89,11 @@ function MixTemplate({ data }) {
             </div>
           </div>
           {featured_residents.map(({ mix_resident }, index) => (
-            <SingleResident
-              key={`mix-resident-${index}`}
-              resident={mix_resident}
-            />
+            <pre>{JSON.stringify(mix_resident, null, 2)}</pre>
+            // <SingleResident
+            //   key={`mix-resident-${index}`}
+            //   resident={mix_resident}
+            // />
           ))}
         </div>
 

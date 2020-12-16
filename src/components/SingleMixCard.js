@@ -32,7 +32,7 @@ function SingleMixCard({ mixData, columnLayout, path }) {
     mix_image,
     mix_link,
     mix_title,
-    featured_residents,
+    featured_residents = 'HMBK Guest',
   } = mixData
 
   const { uid, type, tags } = _meta
@@ -43,10 +43,15 @@ function SingleMixCard({ mixData, columnLayout, path }) {
   }
 
   const mixDate = formatDateTime(mix_date, 'year-month-day') ?? 'no date'
+
+  // Filter out bad linked Resident entries
   const filteredResidents = mappableDataFilter(featured_residents)
-  const mixResidentsString = filteredResidents
-    ? getResidentString(featured_residents)
-    : ''
+
+  //
+  const mixResidentsString =
+    typeof filteredResidents !== 'number'
+      ? getResidentString(filteredResidents, path)
+      : ''
 
   return (
     <div className={columnLayout}>
@@ -72,10 +77,7 @@ function SingleMixCard({ mixData, columnLayout, path }) {
                     className="subtitle is-size-7 has-text-grey-lighter"
                     is="p"
                     lines={2}
-                    text={`${mixDate} | ${getResidentString(
-                      featured_residents,
-                      path
-                    )}`}
+                    text={`${mixDate} | ${mixResidentsString}`}
                   />
                   <NanoClamp
                     className="title is-size-6"
@@ -93,11 +95,18 @@ function SingleMixCard({ mixData, columnLayout, path }) {
                     className="title is-size-6"
                     is="p"
                     lines={2}
-                    text={getResidentString(featured_residents, path)}
+                    text={mixResidentsString}
                   />
                 </Link>
               </div>
             )}
+            {/* <pre>uid: {JSON.stringify(uid, null, 2)}</pre>
+            <pre>
+              filteredResidents: {JSON.stringify(filteredResidents, null, 2)}
+            </pre>
+            <pre>
+              mixResidentsString: {JSON.stringify(mixResidentsString, null, 2)}
+            </pre> */}
             <TagButtons tagsArray={tags} />
           </div>
         </div>

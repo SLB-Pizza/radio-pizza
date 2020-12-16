@@ -114,6 +114,21 @@ function reducer(state, action) {
         live: !state.live,
       }
     }
+
+    case 'SET_LIVE': {
+      return {
+        ...state,
+        live: true,
+      }
+    }
+
+    case 'SET_NOT_LIVE': {
+      return {
+        ...state,
+        live: false,
+      }
+    }
+
     case 'PLAY_LIVE_RADIO': {
       return {
         ...state,

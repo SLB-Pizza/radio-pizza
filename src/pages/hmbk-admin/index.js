@@ -1,11 +1,16 @@
 import PropTypes from 'prop-types'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { graphql } from 'gatsby'
 import { CMSIssueMessage } from '../../components'
 import { cmsNodeValidator, getMixTitle, uidValidator } from '../../utils'
 
-function HMBKAdminPage({ data }) {
-  const [totalCount, setCount] = useState(0)
+function HMBKAdminPage({ data, prismic }) {
+  const entryLimit = 20
+  const totalCount = data.prismic._allDocuments.totalCount
+  const didMountRef = useRef(false)
+  const [page, setPage] = useState(-1)
+  const [cmsEntries, setEntries] = useState(data.prismic._allDocuments.edges)
+
   const [problemMixes, setMixes] = useState([])
   const [problemResidents, setResidents] = useState([])
   const [problemFeatures, setFeatures] = useState([])
@@ -18,55 +23,55 @@ function HMBKAdminPage({ data }) {
   const prismicContent = data.prismic._allDocuments
   if (!prismicContent) return null
 
-  useEffect(() => {
-    const nodeProcessor = () => {
-      if (prismicContent) {
-        // Set total count of all HMBK entries
-        setCount(prismicContent.totalCount)
+  // useEffect(() => {
+  //   const nodeProcessor = () => {
+  //     if (prismicContent) {
+  //       // Set total count of all HMBK entries
+  //       setCount(prismicContent.totalCount);
 
-        // Process each node
-        for (let i = 0; i < prismicContent.edges.length; i++) {
-          const currentNode = prismicContent.edges[i].node
-          const entryType = currentNode._meta.type
+  //       // Process each node
+  //       for (let i = 0; i < prismicContent.edges.length; i++) {
+  //         const currentNode = prismicContent.edges[i].node;
+  //         const entryType = currentNode._meta.type;
 
-          const entryIssues = cmsNodeValidator(currentNode)
-          // console.log("entryIssues", entryIssues);
-          // console.log(
-          //   "\n============================================================\n"
-          // );
-          // const uidIssue = uidValidator(currentNode)
+  //         const entryIssues = cmsNodeValidator(currentNode);
+  //         // console.log("entryIssues", entryIssues);
+  //         // console.log(
+  //         //   "\n============================================================\n"
+  //         // );
+  //         // const uidIssue = uidValidator(currentNode)
 
-          // If the currentNode has no issues, continue to the next loop
-          if (!entryIssues) {
-            continue
-          }
-          // else determine the currentNode type and
-          // spread it into an existing problem array
-          else {
-            const issuePackage = { entryIssues }
-            switch (entryType) {
-              case 'mix':
-                setMixes([...problemMixes, issuePackage])
-                break
-              case 'event':
-                setEvents([...problemEvents, issuePackage])
-                break
-              case 'resident':
-                setResidents([...problemResidents, issuePackage])
-                break
-              case 'endless_mix':
-                setCollections([...problemCollections, issuePackage])
-                break
-              default:
-                console.log(entryType)
-            }
-          }
-        }
-      }
-    }
+  //         // If the currentNode has no issues, continue to the next loop
+  //         if (!entryIssues) {
+  //           continue;
+  //         }
+  //         // else determine the currentNode type and
+  //         // spread it into an existing problem array
+  //         else {
+  //           const issuePackage = { entryIssues };
+  //           switch (entryType) {
+  //             case "mix":
+  //               setMixes([...problemMixes, issuePackage]);
+  //               break;
+  //             case "event":
+  //               setEvents([...problemEvents, issuePackage]);
+  //               break;
+  //             case "resident":
+  //               setResidents([...problemResidents, issuePackage]);
+  //               break;
+  //             case "endless_mix":
+  //               setCollections([...problemCollections, issuePackage]);
+  //               break;
+  //             default:
+  //               console.log(entryType);
+  //           }
+  //         }
+  //       }
+  //     }
+  //   };
 
-    return nodeProcessor()
-  }, [])
+  //   return nodeProcessor();
+  // }, []);
 
   return (
     <main className="black-bg-page">
@@ -172,10 +177,25 @@ HMBKAdminPage.propTypes = {
 export default HMBKAdminPage
 
 export const query = graphql`
-  query HMBKAdminQuery {
+  query HMBKAdminQuery(
+    $first: Int = 20
+    $last: Int
+    $after: String
+    $before: String
+  ) {
     prismic {
-      _allDocuments(sortBy: meta_firstPublicationDate_DESC) {
+      _allDocuments(
+        sortBy: meta_lastPublicationDate_DESC
+        first: $first
+        last: $last
+        after: $after
+        before: $before
+      ) {
         totalCount
+        pageInfo {
+          hasNextPage
+          endCursor
+        }
         edges {
           node {
             _meta {

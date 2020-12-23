@@ -13,6 +13,8 @@ import { OutsideClick } from './index'
  */
 function BottomNav() {
   const [dropUpOpen, setDropUpOpen] = useState(false)
+  const dispatch = useContext(GlobalDispatchContext)
+  const globalState = useContext(GlobalStateContext)
 
   const closeDropUp = () => {
     setDropUpOpen(false)
@@ -21,9 +23,6 @@ function BottomNav() {
   const toggleDropUp = () => {
     setDropUpOpen(state => !state)
   }
-
-  const dispatch = useContext(GlobalDispatchContext)
-  const globalState = useContext(GlobalStateContext)
 
   const closeNavMenu = async () => {
     await dispatch({ type: 'CLOSE_NAVMENU' })
@@ -57,7 +56,7 @@ function BottomNav() {
           <Link
             to="/"
             className="navbar-item display-text"
-            onClick={() => toggleNavMenu()}
+            onClick={() => closeNavMenu()}
           >
             Ears to the concrete.
           </Link>

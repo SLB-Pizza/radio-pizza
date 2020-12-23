@@ -35,6 +35,7 @@ function Blockquote({ slice }) {
     blockquote_bg_img
   )
 
+  // console.log("attr", blockquote_attribution);
   return (
     <section className="hero slice" style={blockquoteStyling.imgStyle}>
       <div className="hero-body">
@@ -43,9 +44,11 @@ function Blockquote({ slice }) {
             <blockquote className={blockquoteStyling.blockClassNames}>
               {RichText.render(blockquote_text)}
             </blockquote>
-            <cite className={blockquoteStyling.citeClassNames}>
-              {RichText.asText(blockquote_attribution)}
-            </cite>
+            {blockquote_attribution && (
+              <cite className={blockquoteStyling.citeClassNames}>
+                {RichText.asText(blockquote_attribution)}
+              </cite>
+            )}
           </div>
         </div>
       </div>

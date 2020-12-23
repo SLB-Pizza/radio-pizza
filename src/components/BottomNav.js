@@ -110,7 +110,7 @@ function BottomNav() {
                   className="navbar-item"
                   onClick={() => toggleNavMenu()}
                 >
-                  Mixes
+                  Radio
                 </Link>
 
                 <Link

@@ -17,18 +17,19 @@ import {
  * @returns {jsx}
  */
 function MixesIndexPage({ data, prismic }) {
-  const entryLimit = 12
-  const didMountRef = useRef(false)
-  const [hasMore, setHasMore] = useState(true)
-  const [page, setPage] = useState(-1)
-  const [mixesData, setMixesData] = useState(data.prismic.allMixs.edges)
-  /**
-   * **NB:** allMixs is NOT a typo.
-   */
-  const prismicContent = data.prismic
+  // Initial useState is first query results
+  // loadNextMixes calls trigger the loadMoreMixes useEffect and add to mixesData
+  const prismicContent = data.prismic.allMixs.edges
   if (!prismicContent) return null
+  const [mixesData, setMixesData] = useState(prismicContent)
 
-  const onNextClick = () => setPage(page + entryLimit)
+  // for loadMoreMixes useEffect and loadNextMixes function
+  const mixesPerPage = 12
+  const didMountRef = useRef(false)
+  const [page, setPage] = useState(-1)
+  const [hasMoreMixes, setHasMoreMixes] = useState(true)
+
+  const loadNextMixes = () => setPage(page => page + mixesPerPage)
 
   useEffect(() => {
     const loadMoreMixes = () => {
@@ -44,9 +45,10 @@ function MixesIndexPage({ data, prismic }) {
           // Spread the received mix objects into the existing mixesData array
           setMixesData([...mixesData, ...res.data.allMixs.edges])
           // If there are no further mixes to get, don't show the load button
-          if (!res.data.allMixs.pageInfo.hasNextPage) {
-            setHasMore(false)
-          }
+          console.log(res)
+          // if (!res.data.allMixs.pageInfo.hasNextPage) {
+          //   setHasMoreMixes(false);
+          // }
         })
     }
 
@@ -132,12 +134,12 @@ function MixesIndexPage({ data, prismic }) {
           <hr />
           {/* <pre>{JSON.stringify(mixesData, null, 2)}</pre> */}
         </div>
-        {hasMore ? (
+        {hasMoreMixes ? (
           <div className="columns is-mobile">
             <div className="column">
               <button
                 className="button is-fullwidth is-outlined is-rounded"
-                onClick={onNextClick}
+                onClick={loadNextMixes}
               >
                 More Music!
               </button>
@@ -167,7 +169,7 @@ function MixesIndexPage({ data, prismic }) {
 }
 
 export const query = graphql`
-  query MixesIndexPage(
+  query MixesIndexQuery(
     $first: Int = 12
     $last: Int
     $after: String
@@ -181,10 +183,6 @@ export const query = graphql`
         after: $after
         before: $before
       ) {
-        pageInfo {
-          hasNextPage
-          endCursor
-        }
         edges {
           node {
             _meta {

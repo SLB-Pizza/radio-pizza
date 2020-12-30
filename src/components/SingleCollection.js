@@ -27,50 +27,50 @@ function SingleCollection({ singleCollection }) {
       ? `${collection_playlist.length} mix`
       : `${collection_playlist.length} mixes`
 
-  // useEffect(() => {
-  //   const makeCollection = () => {
-  //     if (singleCollection) {
-  //       const displayDetails = displayCollectionPlaylistDetails(
-  //         collection_playlist
-  //       );
-  //       const currentDispatch = makeCollectionDispatch(singleCollection);
+  useEffect(() => {
+    const makeCollection = () => {
+      if (singleCollection) {
+        const displayDetails = displayCollectionPlaylistDetails(
+          collection_playlist
+        )
+        const currentDispatch = makeCollectionDispatch(singleCollection)
 
-  //       setDetails(displayDetails);
-  //       setDispatch(currentDispatch);
-  //     }
-  //   };
+        setDetails(displayDetails)
+        setDispatch(currentDispatch)
+      }
+    }
 
-  //   return makeCollection();
-  // }, []);
+    return makeCollection()
+  }, [])
 
   return (
     <div className="columns is-mobile is-multiline curated-mix">
       <div className="column is-3-tablet is-12-mobile">
-        {/* {dispatchData && (
+        {dispatchData && (
           <MixPlayOverlay
             wrapperClassName="card collection-play"
             img={collection_img}
             isCollection={true}
             collectionDetails={dispatchData}
           />
-        )} */}
+        )}
       </div>
 
       <div className="column is-9-tablet is-12-mobile curated-description">
         <div className="content details">
           <p className="title is-4">{collection_title}</p>
           <p className="subtitle is-6">{mixCount}</p>
-          {/* {collection_blurb && (
+          {collection_blurb && (
             <RichText
               render={collection_blurb}
               htmlSerializer={htmlSerializer}
             />
-          )} */}
+          )}
         </div>
         {/* {collectionDetails && <TagButtons tagsArray={collectionDetails.tags} />} */}
 
         {/* <pre>Links {JSON.stringify(collection_playlist, null, 2)}</pre> */}
-        <pre>Collection Dispatch {JSON.stringify(dispatchData, null, 2)}</pre>
+        {/* <pre>Collection Dispatch {JSON.stringify(dispatchData, null, 2)}</pre> */}
         {/* <pre>Links {JSON.stringify(collectionDetails.mixes, null, 2)}</pre> */}
         {/* <pre>
           Residents {JSON.stringify(collectionDetails.residents, null, 2)}

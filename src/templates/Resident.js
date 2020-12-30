@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { graphql } from 'gatsby'
 import NanoClamp from 'nanoclamp'
 import { ResidentBio, SingleMixCard } from '../components'
-import { mappableDataFilter } from '../utils'
+import { formatDateTime, mappableDataFilter } from '../utils'
 
 /**
  * @category Templates
@@ -51,6 +51,16 @@ function ResidentTemplate({ data }) {
         const filteredEvents = mappableDataFilter(resident_events)
         const filteredFeatures = mappableDataFilter(resident_features)
         if (filteredMixes) {
+          /**
+           * Convert the mix_date fields to Dates with {@link formatDateTime} and sort from most recent to least
+           * Passing only the mix_date string to {@link formatDateTime} parses it into a Date object
+           */
+          filteredMixes.sort((a, b) => {
+            return (
+              formatDateTime(b.resident_mix.mix_date) -
+              formatDateTime(a.resident_mix.mix_date)
+            )
+          })
           setMixesData(filteredMixes)
           setHasMixes(true)
         }
@@ -65,7 +75,7 @@ function ResidentTemplate({ data }) {
       }
     }
     return dataCheck()
-  }, [data, resident_mixes, resident_events, resident_features])
+  }, [data])
 
   return (
     <div className="container is-fluid full-height-page">

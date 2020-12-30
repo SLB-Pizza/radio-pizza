@@ -2,7 +2,7 @@ import { displayCollectionPlaylistDetails } from '../../src/utils'
 import { expect } from 'chai'
 import testData from './displayCollectionPlaylistDetails.test.json'
 
-describe('displayCollectionPlaylistDetails', () => {
+describe.only('displayCollectionPlaylistDetails', () => {
   describe('returns an object that contains', () => {
     describe('a mixes array containing one link from each mix in the playlist', () => {
       it('when each mix link is unique', () => {

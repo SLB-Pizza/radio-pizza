@@ -31,10 +31,10 @@ function displayCollectionPlaylistDetails(playlistArray) {
      *    - add the current uid to uidChecks Set to reference for next check
      *    - add current mix_resident object to mixResidents Set
      *  DOES HAVE IT
-     *    - means we've seen this uid -> we've already added this resident
+     *    - means we've seen this uid -> already added this resident
      *    - do nothing; go to next mix_resident in featured_residents and test
      */
-    for (const mix_resident of featured_residents) {
+    for (const { mix_resident } of featured_residents) {
       if (!mix_resident) {
         continue
       } else {

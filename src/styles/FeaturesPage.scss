@@ -11,3 +11,40 @@
 .other-features {
   margin-top: 8.5rem;
 }
+
+section.is-ancestor {
+  height: calc(100vh - 17.75rem); // - 9.75rem .homepage-hero reference
+}
+
+#featured-articles {
+  height: calc(100vh - 17.75rem); // - 9.75rem .homepage-hero reference
+  padding: 0.75rem;
+
+  .column {
+    border: 2px solid white;
+    border-radius: 0.75rem;
+  }
+}
+
+.tile.is-child {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  .article-image {
+    flex: 0;
+    img {
+      border-top-left-radius: 0.75rem;
+      border-top-right-radius: 0.75rem;
+    }
+  }
+  .article-content {
+    padding: 0.75rem;
+    flex: 1;
+  }
+}
+#secondary-articles {
+  .columns {
+    height: calc(0.475 * (100vh - 17.75rem));
+    padding: 0.75rem;
+  }
+}

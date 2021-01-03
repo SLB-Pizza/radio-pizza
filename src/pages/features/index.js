@@ -40,7 +40,7 @@ function FeaturesIndex({ data }) {
 
   return (
     <main className="container is-fluid black-bg-page">
-      <div className="columns is-multiline is-mobile">
+      <section className="columns is-multiline is-mobile">
         <div className="column is-12">
           <div className="content">
             <h1 className="title is-size-2-widescreen is-size-3-desktop is-size-4-touch">
@@ -52,25 +52,158 @@ function FeaturesIndex({ data }) {
             </h4>
           </div>
         </div>
+      </section>
 
-        {/* Lead Feature */}
-        <LandingPageElement
+      {/* <section
+        className="columns is-multiline is-mobile has-background-info"
+        id="featured-articles"
+      >
+        <div className="column is-6-widescreen has-background-dark">
+          <article className="content">
+            <h1 className="title">Title</h1>
+            <p className="subtitle">Subtitle summarizing the content below.</p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+              ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas
+              non massa sem. Etiam finibus odio quis feugiat facilisis.
+            </p>
+          </article>
+        </div>
+
+        <div className="column is-6-widescreen" id="secondary-articles">
+          <div className="columns">
+            <div className="column has-background-dark">
+              <article className="content">
+                <h1 className="title">Title</h1>
+                <p className="subtitle">
+                  Subtitle summarizing the content below.
+                </p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+                  ornare magna eros, eu pellentesque tortor vestibulum ut.
+                  Maecenas non massa sem. Etiam finibus odio quis feugiat
+                  facilisis.
+                </p>
+              </article>
+            </div>
+          </div>
+          <div className="columns">
+            <div className="column has-background-dark">
+              <article className="content">
+                <h1 className="title">Title</h1>
+                <p className="subtitle">
+                  Subtitle summarizing the content below.
+                </p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+                  ornare magna eros, eu pellentesque tortor vestibulum ut.
+                  Maecenas non massa sem. Etiam finibus odio quis feugiat
+                  facilisis.
+                </p>
+              </article>
+            </div>
+            <div className="column has-background-dark">
+              <article className="content">
+                <h1 className="title">Title</h1>
+                <p className="subtitle">
+                  Subtitle summarizing the content below.
+                </p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+                  ornare magna eros, eu pellentesque tortor vestibulum ut.
+                  Maecenas non massa sem. Etiam finibus odio quis feugiat
+                  facilisis.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section> */}
+
+      {/* Featured Articles Section */}
+      <section className="tile is-ancestor has-background-primary">
+        <div className="tile is-parent is-7">
+          <article className="tile is-child box">
+            <div className="article-image">
+              <figure className="image">
+                <img src="https://dummyimage.com/1500x500/123eac/fff.jpg" />
+              </figure>
+            </div>
+            <div className="article-content">
+              <p className="title">Title</p>
+              <p className="subtitle">Subtitle</p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+                ornare magna eros, eu pellentesque tortor vestibulum ut.
+                Maecenas non massa sem. Etiam finibus odio quis feugiat
+                facilisis.
+              </p>
+            </div>
+          </article>
+        </div>
+        <div className="tile is-vertical">
+          {/* LEFT 8 COLUMNS */}
+          <div className="tile is-parent">
+            <article className="tile is-child box">
+              <div className="article-image">
+                <figure className="image">
+                  <img src="https://dummyimage.com/1500x500/123eac/fff.jpg" />
+                </figure>
+              </div>
+              <div className="article-content">
+                <p className="title is-5">Title</p>
+                <p className="subtitle is-7">Subtitle</p>
+                <p className="is-size-7">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+                  ornare magna eros, eu pellentesque tortor vestibulum ut.
+                  Maecenas non massa sem. Etiam finibus odio quis feugiat
+                  facilisis.
+                </p>
+              </div>
+            </article>
+          </div>
+          <div className="tile is-parent">
+            <article className="tile is-child box">
+              <div className="article-image">
+                <figure className="image">
+                  <img src="https://dummyimage.com/1500x500/123eac/fff.jpg" />
+                </figure>
+              </div>
+              <div className="article-content">
+                <p className="title is-5">Title</p>
+                <p className="subtitle is-7">Subtitle</p>
+                <p className="is-size-7">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+                  ornare magna eros, eu pellentesque tortor vestibulum ut.
+                  Maecenas non massa sem. Etiam finibus odio quis feugiat
+                  facilisis.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* Other Articles Section */}
+
+      {/* Lead Feature */}
+      {/* <LandingPageElement
           pageElement={leadFeatureData}
           layout={lfLayout}
           imageAspectRatio={lfImageAspectRatio}
-        />
+        /> */}
 
-        {/* All other Features */}
-        {allOtherFeatures.map((singleFeature, index) => (
+      {/* All other Features */}
+      {/* {allOtherFeatures.map((singleFeature, index) => (
           <LandingPageElement
             key={`Feature-#${index + 1}`}
             pageElement={singleFeature}
             layout={aofLayout}
             imageAspectRatio={aofImageAspectRatio}
           />
-        ))}
+        ))} */}
 
-        {/* <div className="column is-12">
+      {/* <div className="column is-12">
           <h1 className="title">leadFeatureData Data Object</h1>
           <pre>{JSON.stringify(leadFeatureData, null, 2)}</pre>
         </div>
@@ -78,7 +211,6 @@ function FeaturesIndex({ data }) {
           <h1 className="title">allOtherFeatures Data Object</h1>
           <pre>{JSON.stringify(allOtherFeatures, null, 2)}</pre>
         </div> */}
-      </div>
     </main>
   )
 }

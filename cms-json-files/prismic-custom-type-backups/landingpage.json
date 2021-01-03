@@ -1,0 +1,51 @@
+{
+  "Radio Page": {},
+  "Collections Page": {},
+  "Residents Page": {},
+  "Events Page": {},
+  "Features Page": {
+    "features_page_header": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Features Page Header",
+        "placeholder": "Enter the Features Page header text here..."
+      }
+    },
+    "features_page_subtitle": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading3",
+        "label": "Features Page Subtitle",
+        "placeholder": "Enter the Features Page header text here..."
+      }
+    },
+    "main_feature_article": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": ["feature"],
+        "label": "Main Feature Article (Large Left Half)",
+        "placeholder": "Select a Feature to use as the Main Feature"
+      }
+    },
+    "top_right_feature": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": ["feature"],
+        "label": "Top Right Feature",
+        "placeholder": "Select a Feature to use as the Top Right Feature"
+      }
+    },
+    "bottom_right_feature": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": ["feature"],
+        "label": "Bottom Right Feature",
+        "placeholder": "Select a Feature to use as the Bottom Right Feature"
+      }
+    }
+  }
+}

@@ -181,7 +181,7 @@ header.article-header {
 // Layout Helper - ResponsiveImage
 // ==================================
 .inline-image {
-  transition: all 1s;
+  transition: all 0.25s;
   &:hover {
     cursor: pointer;
   }

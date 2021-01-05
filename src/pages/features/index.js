@@ -1,6 +1,12 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import { LandingPageElement, StickyFeature } from '../../components'
+import { RichText } from 'prismic-reactjs'
+import {
+  FeatureArticleTile,
+  LandingPageElement,
+  StickyFeature,
+} from '../../components'
+import { htmlSerializer } from '../../utils'
 import PropTypes from 'prop-types'
 
 /**
@@ -11,24 +17,40 @@ import PropTypes from 'prop-types'
  */
 function FeaturesIndex({ data }) {
   /**
-   * Focus the node for the prismicContent check below.
+   * Focus the node for the allFeaturesData check below.
    */
-  const prismicContent = data.prismic.allFeatures.edges
+  const featuresHeaderData = data.prismic.allLandingpages.edges[0].node
+  const allFeaturesData = data.prismic.allFeatures.edges
 
   /**
    * This line is here to prevent an error from occurring when you eventually deploy the site live. There is an issue with the preview functionality that requires this check on every page.
    * @see https://prismic.io/docs/gatsby/rendering/retrieve-the-document-object#21_0-adding-a-validation-check
    */
-  if (!prismicContent) return null
+  if (!allFeaturesData || !featuresHeaderData) return null
 
   /**
-   * Grab the first node object from the prismicContent array of nodes to pass as leadfeatureData prop to StickyFeature.
+   * Grab the first node object from the allFeaturesData array of nodes to pass as leadfeatureData prop to StickyFeature.
    *
    * The data from the 'FeaturesIndexPage' query comes pre-sorted to show the most recent published feature, NOT the most recently updated.
    *
    * The remaining array of node objects can be mapped over normally using XYZ_Component.
    */
-  const allFeaturesData = prismicContent
+
+  /**
+   * Break down featuresHeaderData for use
+   */
+
+  const {
+    features_page_header,
+    features_page_subtitle,
+    bottom_right_feature,
+    top_right_feature,
+    main_feature_article,
+  } = featuresHeaderData
+
+  const featuresHeadline = features_page_header ?? 'Features'
+  const featuresSubheadline =
+    features_page_subtitle ?? 'Your music, residents and more, in depth.'
 
   const leadFeatureData = allFeaturesData[0]
   const lfLayout = 'column is-12 landing-page-element'
@@ -43,13 +65,53 @@ function FeaturesIndex({ data }) {
       <section className="columns is-multiline is-mobile">
         <div className="column is-12">
           <div className="content">
-            <h1 className="title is-size-2-widescreen is-size-3-desktop is-size-4-touch">
+            {/*
+              If string : using default value; use RichText.asText
+              Else      : content from Prismic, use RichText render
+            */}
+            {typeof featuresHeadline !== 'string' ? (
+              <RichText
+                render={featuresHeadline}
+                htmlSerializer={htmlSerializer}
+              />
+            ) : (
+              <h1 className="title">{RichText.asText(featuresHeadline)}</h1>
+            )}
+            {typeof featuresSubheadline !== 'string' ? (
+              <RichText
+                render={featuresSubheadline}
+                htmlSerializer={htmlSerializer}
+              />
+            ) : (
+              <h1 className="title">{RichText.asText(featuresSubheadline)}</h1>
+            )}
+
+            {/* <h1 className="title is-size-2-widescreen is-size-3-desktop is-size-4-touch">
               Features
             </h1>
             <h4 className="subtitle is-size-6-touch">
               Your reference for Prismic CMS, image guidelines, editorial
               standards and more.
-            </h4>
+            </h4> */}
+            <pre>
+              featuresHeaderData {JSON.stringify(featuresHeaderData, null, 2)}
+            </pre>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Articles Section */}
+      <section className="tile is-ancestor has-background-primary">
+        <div className="tile is-parent is-6">
+          <FeatureArticleTile />
+        </div>
+        <div className="tile is-vertical">
+          {/* LEFT 8 COLUMNS */}
+          <div className="tile is-parent">
+            <FeatureArticleTile secondaryFeature={true} />
+          </div>
+          <div className="tile is-parent">
+            <FeatureArticleTile secondaryFeature={true} />
           </div>
         </div>
       </section>
@@ -120,70 +182,6 @@ function FeaturesIndex({ data }) {
         </div>
       </section> */}
 
-      {/* Featured Articles Section */}
-      <section className="tile is-ancestor has-background-primary">
-        <div className="tile is-parent is-7">
-          <article className="tile is-child box">
-            <div className="article-image">
-              <figure className="image">
-                <img src="https://dummyimage.com/1500x500/123eac/fff.jpg" />
-              </figure>
-            </div>
-            <div className="article-content">
-              <p className="title">Title</p>
-              <p className="subtitle">Subtitle</p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-                ornare magna eros, eu pellentesque tortor vestibulum ut.
-                Maecenas non massa sem. Etiam finibus odio quis feugiat
-                facilisis.
-              </p>
-            </div>
-          </article>
-        </div>
-        <div className="tile is-vertical">
-          {/* LEFT 8 COLUMNS */}
-          <div className="tile is-parent">
-            <article className="tile is-child box">
-              <div className="article-image">
-                <figure className="image">
-                  <img src="https://dummyimage.com/1500x500/123eac/fff.jpg" />
-                </figure>
-              </div>
-              <div className="article-content">
-                <p className="title is-5">Title</p>
-                <p className="subtitle is-7">Subtitle</p>
-                <p className="is-size-7">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-                  ornare magna eros, eu pellentesque tortor vestibulum ut.
-                  Maecenas non massa sem. Etiam finibus odio quis feugiat
-                  facilisis.
-                </p>
-              </div>
-            </article>
-          </div>
-          <div className="tile is-parent">
-            <article className="tile is-child box">
-              <div className="article-image">
-                <figure className="image">
-                  <img src="https://dummyimage.com/1500x500/123eac/fff.jpg" />
-                </figure>
-              </div>
-              <div className="article-content">
-                <p className="title is-5">Title</p>
-                <p className="subtitle is-7">Subtitle</p>
-                <p className="is-size-7">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-                  ornare magna eros, eu pellentesque tortor vestibulum ut.
-                  Maecenas non massa sem. Etiam finibus odio quis feugiat
-                  facilisis.
-                </p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
       {/* Other Articles Section */}
 
       {/* Lead Feature */}
@@ -226,6 +224,76 @@ FeaturesIndex.propTypes = {
 export const query = graphql`
   query FeaturesIndexPage {
     prismic {
+      allLandingpages {
+        edges {
+          node {
+            bottom_right_feature {
+              ... on PRISMIC_Feature {
+                _linkType
+                _meta {
+                  uid
+                  type
+                  lastPublicationDate
+                  firstPublicationDate
+                }
+                body {
+                  ... on PRISMIC_FeatureBodyHeadline_block {
+                    primary {
+                      article_headline_img
+                      article_headline
+                      article_subtitle
+                      article_subcategory
+                    }
+                  }
+                }
+              }
+            }
+            features_page_header
+            features_page_subtitle
+            main_feature_article {
+              ... on PRISMIC_Feature {
+                _linkType
+                _meta {
+                  uid
+                  type
+                  lastPublicationDate
+                  firstPublicationDate
+                }
+                body {
+                  ... on PRISMIC_FeatureBodyHeadline_block {
+                    primary {
+                      article_subtitle
+                      article_headline
+                      article_subcategory
+                      article_headline_img
+                    }
+                  }
+                }
+              }
+            }
+            top_right_feature {
+              ... on PRISMIC_Feature {
+                _meta {
+                  uid
+                  type
+                  lastPublicationDate
+                  firstPublicationDate
+                }
+                body {
+                  ... on PRISMIC_FeatureBodyHeadline_block {
+                    primary {
+                      article_subtitle
+                      article_subcategory
+                      article_headline_img
+                      article_headline
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
       allFeatures(sortBy: meta_firstPublicationDate_DESC) {
         edges {
           node {
@@ -253,5 +321,36 @@ export const query = graphql`
     }
   }
 `
+
+// export const query = graphql`
+//   query FeaturesIndexPage {
+//     prismic {
+//       allFeatures(sortBy: meta_firstPublicationDate_DESC) {
+//         edges {
+//           node {
+//             _meta {
+//               uid
+//               firstPublicationDate
+//               lastPublicationDate
+//               type
+//               tags
+//             }
+//             body {
+//               ... on PRISMIC_FeatureBodyHeadline_block {
+//                 type
+//                 primary {
+//                   article_headline
+//                   article_headline_img
+//                   article_subcategory
+//                   article_subtitle
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `
 
 export default FeaturesIndex

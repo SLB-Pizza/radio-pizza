@@ -236,13 +236,13 @@ export const query = graphql`
                   lastPublicationDate
                   firstPublicationDate
                 }
-                body {
-                  ... on PRISMIC_FeatureBodyHeadline_block {
+                headline_block {
+                  ... on PRISMIC_FeatureHeadline_blockHeadline_block {
                     primary {
                       article_headline_img
                       article_headline
-                      article_subtitle
                       article_subcategory
+                      article_subtitle
                     }
                   }
                 }
@@ -259,13 +259,13 @@ export const query = graphql`
                   lastPublicationDate
                   firstPublicationDate
                 }
-                body {
-                  ... on PRISMIC_FeatureBodyHeadline_block {
+                headline_block {
+                  ... on PRISMIC_FeatureHeadline_blockHeadline_block {
                     primary {
-                      article_subtitle
+                      article_headline_img
                       article_headline
                       article_subcategory
-                      article_headline_img
+                      article_subtitle
                     }
                   }
                 }
@@ -279,13 +279,14 @@ export const query = graphql`
                   lastPublicationDate
                   firstPublicationDate
                 }
-                body {
-                  ... on PRISMIC_FeatureBodyHeadline_block {
+                headline_block {
+                  ... on PRISMIC_FeatureHeadline_blockHeadline_block {
+                    type
                     primary {
-                      article_subtitle
-                      article_subcategory
                       article_headline_img
                       article_headline
+                      article_subcategory
+                      article_subtitle
                     }
                   }
                 }
@@ -304,12 +305,11 @@ export const query = graphql`
               type
               tags
             }
-            body {
-              ... on PRISMIC_FeatureBodyHeadline_block {
-                type
+            headline_block {
+              ... on PRISMIC_FeatureHeadline_blockHeadline_block {
                 primary {
-                  article_headline
                   article_headline_img
+                  article_headline
                   article_subcategory
                   article_subtitle
                 }

@@ -44,15 +44,14 @@ export const query = graphql`
               firstPublicationDate
               type
             }
-            body {
-              ... on PRISMIC_FeatureBodyHeadline_block {
-                type
+            headline_block {
+              ... on PRISMIC_FeatureHeadline_blockHeadline_block {
                 primary {
-                  article_headline
-                  article_headline_img
-                  article_category
-                  article_subcategory
                   article_subtitle
+                  article_subcategory
+                  article_headline_img
+                  article_headline
+                  article_category
                   article_author_pic
                   article_author {
                     ... on PRISMIC_Staff {
@@ -62,6 +61,8 @@ export const query = graphql`
                   }
                 }
               }
+            }
+            body {
               ... on PRISMIC_FeatureBodyText {
                 type
                 primary {

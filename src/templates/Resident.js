@@ -306,8 +306,8 @@ export const query = graphql`
             resident_features {
               resident_feature {
                 ... on PRISMIC_Feature {
-                  body {
-                    ... on PRISMIC_FeatureBodyHeadline_block {
+                  headline_block {
+                    ... on PRISMIC_FeatureHeadline_blockHeadline_block {
                       primary {
                         article_headline_img
                         article_headline

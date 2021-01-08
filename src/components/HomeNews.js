@@ -24,13 +24,14 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
         <div className="column is-9">
           <div className="columns is-multiline">
             {homeFeaturesData.map((singleFeature, index) => {
-              const { _meta, body } = singleFeature.node
+              const { _meta, headline_block } = singleFeature.node
 
               return (
+                // <pre>node {JSON.stringify(singleFeature, null, 2)}</pre>
                 <HomeSingleNews
                   key={`index-#${index}-home-feature`}
                   metadata={_meta}
-                  body={body}
+                  body={headline_block}
                 />
               )
             })}
@@ -55,13 +56,14 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
       </div>
       <div className="columns is-mobile is-hidden-desktop mobile-single-items">
         {homeFeaturesData.map((singleFeature, index) => {
-          const { _meta, body } = singleFeature.node
+          const { _meta, headline_block } = singleFeature.node
 
           return (
+            // <pre>node{JSON.stringify(singleFeature, null, 2)}</pre>
             <HomeSingleNews
               key={`index-#${index}-home-feature`}
               metadata={_meta}
-              body={body}
+              body={headline_block}
             />
           )
         })}

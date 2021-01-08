@@ -205,15 +205,15 @@ export const query = graphql`
               lastPublicationDate
               firstPublicationDate
             }
-            ... on PRISMIC_Feature {
-              body {
-                ... on PRISMIC_FeatureBodyHeadline_block {
-                  primary {
-                    article_headline
-                  }
-                }
-              }
-            }
+            # ... on PRISMIC_Feature {
+            #   body {
+            #     ... on PRISMIC_FeatureBodyHeadline_block {
+            #       primary {
+            #         article_headline
+            #       }
+            #     }
+            #   }
+            # }
             ... on PRISMIC_Event {
               event_name
             }

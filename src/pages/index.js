@@ -51,6 +51,7 @@ function IndexPage({ data }) {
         blurb={home_events_blurb}
         homeEventsData={homeEventsData}
       />
+      {/* <pre>homeFeaturesData {JSON.stringify(homeFeaturesData, null, 2)}</pre> */}
       <HomeNews
         headline={home_features_headline}
         blurb={home_features_blurb}
@@ -141,13 +142,13 @@ export const query = graphql`
               firstPublicationDate
               lastPublicationDate
             }
-            body {
-              ... on PRISMIC_FeatureBodyHeadline_block {
-                type
+            headline_block {
+              ... on PRISMIC_FeatureHeadline_blockHeadline_block {
                 primary {
-                  article_headline
-                  article_headline_img
+                  article_category
                   article_subcategory
+                  article_headline_img
+                  article_headline
                   article_subtitle
                 }
               }

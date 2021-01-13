@@ -52,7 +52,8 @@ function FeaturesIndex({ data }) {
   const featuresSubheadline =
     features_page_subtitle ?? 'Your music, residents and more, in depth.'
 
-  const leadFeatureData = allFeaturesData[0]
+  const mainHeader =
+    main_feature_article.headline_block[0].primary.article_headline
   const lfLayout = 'column is-12 landing-page-element'
   const lfImageAspectRatio = 'image is-2by1'
 
@@ -61,156 +62,200 @@ function FeaturesIndex({ data }) {
   const aofImageAspectRatio = 'image is-16by9'
 
   return (
-    <main className="container is-fluid black-bg-page">
-      <section className="columns is-multiline is-mobile">
-        <div className="column is-12">
-          <div className="content">
-            {/*
-              If string : using default value; use RichText.asText
-              Else      : content from Prismic, use RichText render
-            */}
-            {typeof featuresHeadline !== 'string' ? (
-              <RichText
-                render={featuresHeadline}
-                htmlSerializer={htmlSerializer}
-              />
-            ) : (
-              <h1 className="title">{RichText.asText(featuresHeadline)}</h1>
-            )}
-            {typeof featuresSubheadline !== 'string' ? (
-              <RichText
-                render={featuresSubheadline}
-                htmlSerializer={htmlSerializer}
-              />
-            ) : (
-              <h1 className="title">{RichText.asText(featuresSubheadline)}</h1>
-            )}
-
-            {/* <h1 className="title is-size-2-widescreen is-size-3-desktop is-size-4-touch">
-              Features
-            </h1>
-            <h4 className="subtitle is-size-6-touch">
-              Your reference for Prismic CMS, image guidelines, editorial
-              standards and more.
-            </h4> */}
-            <pre>
-              featuresHeaderData {JSON.stringify(featuresHeaderData, null, 2)}
-            </pre>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Articles Section */}
-      <section className="tile is-ancestor has-background-primary">
-        <div className="tile is-parent is-6">
-          <FeatureArticleTile />
-        </div>
-        <div className="tile is-vertical">
-          {/* LEFT 8 COLUMNS */}
-          <div className="tile is-parent">
-            <FeatureArticleTile secondaryFeature={true} />
-          </div>
-          <div className="tile is-parent">
-            <FeatureArticleTile secondaryFeature={true} />
-          </div>
-        </div>
-      </section>
-
-      {/* <section
-        className="columns is-multiline is-mobile has-background-info"
-        id="featured-articles"
+    <main className="full-height-page">
+      <section
+        className="hero homepage-hero"
+        style={{
+          backgroundImage: `url(${main_feature_article.headline_block[0].primary.article_headline_img.url})`,
+        }}
       >
-        <div className="column is-6-widescreen has-background-dark">
-          <article className="content">
-            <h1 className="title">Title</h1>
-            <p className="subtitle">Subtitle summarizing the content below.</p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-              ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas
-              non massa sem. Etiam finibus odio quis feugiat facilisis.
-            </p>
-          </article>
-        </div>
-
-        <div className="column is-6-widescreen" id="secondary-articles">
-          <div className="columns">
-            <div className="column has-background-dark">
-              <article className="content">
-                <h1 className="title">Title</h1>
-                <p className="subtitle">
-                  Subtitle summarizing the content below.
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-                  ornare magna eros, eu pellentesque tortor vestibulum ut.
-                  Maecenas non massa sem. Etiam finibus odio quis feugiat
-                  facilisis.
-                </p>
-              </article>
+        <div className="hero-body">
+          <div className="container">
+            <div className="columns has-background-info">
+              <div className="column is-12">
+                <div className="content">
+                  <h1
+                    className="title is-1-desktop is-3-touch is-5-mobile hero-title"
+                    style={{ pointerEvents: 'auto' }}
+                  >
+                    {RichText.asText(mainHeader)}
+                  </h1>
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="columns">
-            <div className="column has-background-dark">
-              <article className="content">
-                <h1 className="title">Title</h1>
-                <p className="subtitle">
-                  Subtitle summarizing the content below.
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-                  ornare magna eros, eu pellentesque tortor vestibulum ut.
-                  Maecenas non massa sem. Etiam finibus odio quis feugiat
-                  facilisis.
-                </p>
-              </article>
-            </div>
-            <div className="column has-background-dark">
-              <article className="content">
-                <h1 className="title">Title</h1>
-                <p className="subtitle">
-                  Subtitle summarizing the content below.
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-                  ornare magna eros, eu pellentesque tortor vestibulum ut.
-                  Maecenas non massa sem. Etiam finibus odio quis feugiat
-                  facilisis.
-                </p>
-              </article>
+            <div className="columns has-background-success">
+              <div
+                className="column is-6 has-background-dark"
+                style={{ height: '3.5rem' }}
+              ></div>
+              <div
+                className="column is-6 has-background-dark"
+                style={{ height: '3.5rem' }}
+              ></div>
             </div>
           </div>
         </div>
-      </section> */}
-
-      {/* Other Articles Section */}
-
-      {/* Lead Feature */}
-      {/* <LandingPageElement
-          pageElement={leadFeatureData}
-          layout={lfLayout}
-          imageAspectRatio={lfImageAspectRatio}
-        /> */}
-
-      {/* All other Features */}
-      {/* {allOtherFeatures.map((singleFeature, index) => (
-          <LandingPageElement
-            key={`Feature-#${index + 1}`}
-            pageElement={singleFeature}
-            layout={aofLayout}
-            imageAspectRatio={aofImageAspectRatio}
-          />
-        ))} */}
-
-      {/* <div className="column is-12">
-          <h1 className="title">leadFeatureData Data Object</h1>
-          <pre>{JSON.stringify(leadFeatureData, null, 2)}</pre>
-        </div>
-        <div className="column is-12">
-          <h1 className="title">allOtherFeatures Data Object</h1>
-          <pre>{JSON.stringify(allOtherFeatures, null, 2)}</pre>
-        </div> */}
+      </section>
     </main>
   )
+
+  // return (
+  //   <main className="container is-fluid black-bg-page">
+  //     <section className="columns is-multiline is-mobile">
+  //       <div className="column is-12">
+  //         <div className="content">
+  //           {/*
+  //             If string : using default value; use RichText.asText
+  //             Else      : content from Prismic, use RichText render
+  //           */}
+  //           {typeof featuresHeadline !== "string" ? (
+  //             <RichText
+  //               render={featuresHeadline}
+  //               htmlSerializer={htmlSerializer}
+  //             />
+  //           ) : (
+  //             <h1 className="title">{RichText.asText(featuresHeadline)}</h1>
+  //           )}
+  //           {typeof featuresSubheadline !== "string" ? (
+  //             <RichText
+  //               render={featuresSubheadline}
+  //               htmlSerializer={htmlSerializer}
+  //             />
+  //           ) : (
+  //             <h1 className="title">{RichText.asText(featuresSubheadline)}</h1>
+  //           )}
+
+  //           {/* <h1 className="title is-size-2-widescreen is-size-3-desktop is-size-4-touch">
+  //             Features
+  //           </h1>
+  //           <h4 className="subtitle is-size-6-touch">
+  //             Your reference for Prismic CMS, image guidelines, editorial
+  //             standards and more.
+  //           </h4> */}
+  //         </div>
+  //       </div>
+  //     </section>
+
+  //     {/* Featured Articles Section */}
+  //     <section className="tile is-ancestor has-background-primary">
+  //       <div className="tile is-parent is-6">
+  //         <FeatureArticleTile data={main_feature_article} />
+  //       </div>
+  //       <div className="tile is-vertical">
+  //         {/* LEFT 8 COLUMNS */}
+  //         <div className="tile is-parent">
+  //           <FeatureArticleTile
+  //             secondaryFeature={true}
+  //             data={top_right_feature}
+  //           />
+  //         </div>
+  //         <div className="tile is-parent">
+  //           <FeatureArticleTile
+  //             secondaryFeature={true}
+  //             data={bottom_right_feature}
+  //           />
+  //         </div>
+  //       </div>
+  //     </section>
+
+  //     <pre>
+  //       featuresHeaderData {JSON.stringify(featuresHeaderData, null, 2)}
+  //     </pre>
+  //     {/* <section
+  //       className="columns is-multiline is-mobile has-background-info"
+  //       id="featured-articles"
+  //     >
+  //       <div className="column is-6-widescreen has-background-dark">
+  //         <article className="content">
+  //           <h1 className="title">Title</h1>
+  //           <p className="subtitle">Subtitle summarizing the content below.</p>
+  //           <p>
+  //             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+  //             ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas
+  //             non massa sem. Etiam finibus odio quis feugiat facilisis.
+  //           </p>
+  //         </article>
+  //       </div>
+
+  //       <div className="column is-6-widescreen" id="secondary-articles">
+  //         <div className="columns">
+  //           <div className="column has-background-dark">
+  //             <article className="content">
+  //               <h1 className="title">Title</h1>
+  //               <p className="subtitle">
+  //                 Subtitle summarizing the content below.
+  //               </p>
+  //               <p>
+  //                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+  //                 ornare magna eros, eu pellentesque tortor vestibulum ut.
+  //                 Maecenas non massa sem. Etiam finibus odio quis feugiat
+  //                 facilisis.
+  //               </p>
+  //             </article>
+  //           </div>
+  //         </div>
+  //         <div className="columns">
+  //           <div className="column has-background-dark">
+  //             <article className="content">
+  //               <h1 className="title">Title</h1>
+  //               <p className="subtitle">
+  //                 Subtitle summarizing the content below.
+  //               </p>
+  //               <p>
+  //                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+  //                 ornare magna eros, eu pellentesque tortor vestibulum ut.
+  //                 Maecenas non massa sem. Etiam finibus odio quis feugiat
+  //                 facilisis.
+  //               </p>
+  //             </article>
+  //           </div>
+  //           <div className="column has-background-dark">
+  //             <article className="content">
+  //               <h1 className="title">Title</h1>
+  //               <p className="subtitle">
+  //                 Subtitle summarizing the content below.
+  //               </p>
+  //               <p>
+  //                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+  //                 ornare magna eros, eu pellentesque tortor vestibulum ut.
+  //                 Maecenas non massa sem. Etiam finibus odio quis feugiat
+  //                 facilisis.
+  //               </p>
+  //             </article>
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </section> */}
+
+  //     {/* Other Articles Section */}
+
+  //     {/* Lead Feature */}
+  //     {/* <LandingPageElement
+  //         pageElement={leadFeatureData}
+  //         layout={lfLayout}
+  //         imageAspectRatio={lfImageAspectRatio}
+  //       /> */}
+
+  //     {/* All other Features */}
+  //     {/* {allOtherFeatures.map((singleFeature, index) => (
+  //         <LandingPageElement
+  //           key={`Feature-#${index + 1}`}
+  //           pageElement={singleFeature}
+  //           layout={aofLayout}
+  //           imageAspectRatio={aofImageAspectRatio}
+  //         />
+  //       ))} */}
+
+  //     {/* <div className="column is-12">
+  //         <h1 className="title">leadFeatureData Data Object</h1>
+  //         <pre>{JSON.stringify(leadFeatureData, null, 2)}</pre>
+  //       </div>
+  //       <div className="column is-12">
+  //         <h1 className="title">allOtherFeatures Data Object</h1>
+  //         <pre>{JSON.stringify(allOtherFeatures, null, 2)}</pre>
+  //       </div> */}
+  //   </main>
+  // );
 }
 
 FeaturesIndex.propTypes = {

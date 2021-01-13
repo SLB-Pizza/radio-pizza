@@ -10,7 +10,7 @@
   right: 0;
   top: 0;
   z-index: 30;
-  background-color: black;
+  background-color: rgba($color: black, $alpha: 0.75);
   &.is-live {
     background: linear-gradient(to bottom, #000 80%, darken($primary, 1));
     background-size: 105% 105%;
@@ -187,7 +187,7 @@
 //==================================
 .navbar {
   border-top: 0.125rem solid white;
-  background-color: black;
+  background-color: rgba($color: black, $alpha: 0.75);
 
   a,
   span {

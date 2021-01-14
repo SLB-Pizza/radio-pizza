@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import {
+  MainFeatureArticle,
   FeatureArticleTile,
   LandingPageElement,
   StickyFeature,
@@ -62,7 +63,7 @@ function FeaturesIndex({ data }) {
   const aofImageAspectRatio = 'image is-16by9'
 
   return (
-    <main className="full-height-page">
+    <main className="full-height-page" id="features">
       <section
         className="hero homepage-hero"
         style={{
@@ -71,31 +72,37 @@ function FeaturesIndex({ data }) {
       >
         <div className="hero-body">
           <div className="container">
-            <div className="columns has-background-info">
-              <div className="column is-12">
+            <MainFeatureArticle articleData={main_feature_article} />
+            <div className="columns is-mobile secondary-features">
+              <div className="column is-6">
+                <figure className="image is-128x128">
+                  <img src="https://dummyimage.com/1000x1000/d645d6/000000.jpg" />
+                </figure>
                 <div className="content">
-                  <h1
-                    className="title is-1-desktop is-3-touch is-5-mobile hero-title"
-                    style={{ pointerEvents: 'auto' }}
-                  >
-                    {RichText.asText(mainHeader)}
-                  </h1>
+                  <p className="title is-5">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor
+                  </p>
                 </div>
               </div>
-            </div>
-            <div className="columns has-background-success">
-              <div
-                className="column is-6 has-background-dark"
-                style={{ height: '3.5rem' }}
-              ></div>
-              <div
-                className="column is-6 has-background-dark"
-                style={{ height: '3.5rem' }}
-              ></div>
+              <div className="column">
+                <figure className="image is-128x128">
+                  <img src="https://dummyimage.com/1000x1000/d645d6/000000.jpg" />
+                </figure>
+                <div className="content">
+                  <p className="title is-5">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
+      <pre>
+        main_feature_article {JSON.stringify(main_feature_article, null, 2)}
+      </pre>
     </main>
   )
 
@@ -309,6 +316,7 @@ export const query = graphql`
                     primary {
                       article_headline_img
                       article_headline
+                      article_category
                       article_subcategory
                       article_subtitle
                     }

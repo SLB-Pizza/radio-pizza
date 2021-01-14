@@ -58,7 +58,6 @@ function LandingPageElement({ pageElement, layout, imageAspectRatio }) {
       <Link to={linkResolver(linkTo)}>
         <div className="card">
           <div className="card-image">
-            $P
             <figure className={imageAspectRatio}>
               <ResponsiveImage
                 largestImg={fullSizeImg}

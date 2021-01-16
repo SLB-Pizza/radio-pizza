@@ -10,6 +10,8 @@ $pink: #f600ff;
 $primary: $pink;
 $body-background-color: black;
 $family-sans-serif: "Poppins", sans-serif;
+$transition-speed: 0.25sec ease-in-out;
+$border-radius: 0.75rem;
 //==================================
 // navbar variables
 //==================================
@@ -83,7 +85,7 @@ $card-radius: 0.75rem;
 //==================================
 // FONTS
 //==================================
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,700;0,900;1,300;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
 
 //==================================
 // GLOBAL STYLES
@@ -102,9 +104,21 @@ $card-radius: 0.75rem;
   min-height: 100vh;
 }
 
-p {
+p,
+button.button,
+.title,
+.display-text,
+.navbar-item,
+.tag,
+button p,
+li,
+.subtitle,
+.hero-title {
   font-family: "Poppins", sans-serif;
-  font-weight: 300;
+}
+
+p {
+  font-weight: 400;
 }
 
 button.button,
@@ -112,61 +126,43 @@ button.button,
 .display-text,
 .navbar-item,
 .tag {
-  font-family: "Poppins", sans-serif;
-  font-display: swap;
   font-weight: 700;
 }
 
 button p,
 li,
 .subtitle {
-  font-family: "Poppins", sans-serif;
   font-weight: 300;
-  font-display: swap;
 }
 
 button.button {
-  transition: 0.25s ease-in-out;
+  transition: $transition-speed;
   @include mobile {
     font-size: 0.625rem;
   }
   &.active {
-    transition: 0.25s ease-in-out;
     color: white;
     border-color: $primary;
   }
 }
 
-// Global Tag Buttons
-// .buttons.are-tags {
-//   @include touch {
-//     transform: scale(0.75);
-//   }
-//   flex: 0;
-//   display: flex;
-//   flex-direction: row;
-//   flex-wrap: wrap;
-//   align-items: flex-end;
-//   padding-top: 1rem;
-// }
-// .tags {
-//   flex: 0;
-//   display: flex;
-//   flex-direction: row;
-//   flex-wrap: wrap;
-//   align-items: flex-end;
-//   padding-top: 1rem;
-// }
-
-.tag {
-  border: 2px solid white;
-}
-
 .icon-color {
   color: white;
-  transition: 0.25s ease-in-out;
+  transition: $transition-speed;
   &:hover {
     color: $primary;
+  }
+}
+
+.border-color,
+.tag,
+.card {
+  border: 2px solid white;
+  border-radius: 0.75rem;
+
+  transition: $transition-speed;
+  &:hover {
+    border: 2px solid $primary;
   }
 }
 
@@ -272,8 +268,6 @@ figcaption {
 }
 
 .card {
-  border: 2px solid white;
-  border-radius: 0.75rem;
   margin: 0 0.125rem;
   transition: 0.5s ease;
 
@@ -291,8 +285,6 @@ figcaption {
   }
 
   &:hover {
-    border: 2px solid $primary;
-
     figure {
       border-top-left-radius: 0.6rem;
       border-top-right-radius: 0.6rem;

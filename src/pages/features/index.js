@@ -3,6 +3,7 @@ import { Link, graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import {
   MainFeatureArticle,
+  HighlightFeature,
   FeatureArticleTile,
   LandingPageElement,
   StickyFeature,
@@ -53,8 +54,6 @@ function FeaturesIndex({ data }) {
   const featuresSubheadline =
     features_page_subtitle ?? 'Your music, residents and more, in depth.'
 
-  const mainHeader =
-    main_feature_article.headline_block[0].primary.article_headline
   const lfLayout = 'column is-12 landing-page-element'
   const lfImageAspectRatio = 'image is-2by1'
 
@@ -72,30 +71,11 @@ function FeaturesIndex({ data }) {
       >
         <div className="hero-body">
           <div className="container">
+            <header className="title is-1 hero-title">features</header>
             <MainFeatureArticle articleData={main_feature_article} />
             <div className="columns is-mobile secondary-features">
-              <div className="column is-6">
-                <figure className="image is-128x128">
-                  <img src="https://dummyimage.com/1000x1000/d645d6/000000.jpg" />
-                </figure>
-                <div className="content">
-                  <p className="title is-5">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor
-                  </p>
-                </div>
-              </div>
-              <div className="column">
-                <figure className="image is-128x128">
-                  <img src="https://dummyimage.com/1000x1000/d645d6/000000.jpg" />
-                </figure>
-                <div className="content">
-                  <p className="title is-5">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor
-                  </p>
-                </div>
-              </div>
+              <HighlightFeature articleData={top_right_feature} />
+              <HighlightFeature articleData={bottom_right_feature} />
             </div>
           </div>
         </div>
@@ -279,27 +259,6 @@ export const query = graphql`
       allLandingpages {
         edges {
           node {
-            bottom_right_feature {
-              ... on PRISMIC_Feature {
-                _linkType
-                _meta {
-                  uid
-                  type
-                  lastPublicationDate
-                  firstPublicationDate
-                }
-                headline_block {
-                  ... on PRISMIC_FeatureHeadline_blockHeadline_block {
-                    primary {
-                      article_headline_img
-                      article_headline
-                      article_subcategory
-                      article_subtitle
-                    }
-                  }
-                }
-              }
-            }
             features_page_header
             features_page_subtitle
             main_feature_article {
@@ -338,7 +297,28 @@ export const query = graphql`
                     primary {
                       article_headline_img
                       article_headline
-                      article_subcategory
+                      article_category
+                      article_subtitle
+                    }
+                  }
+                }
+              }
+            }
+            bottom_right_feature {
+              ... on PRISMIC_Feature {
+                _linkType
+                _meta {
+                  uid
+                  type
+                  lastPublicationDate
+                  firstPublicationDate
+                }
+                headline_block {
+                  ... on PRISMIC_FeatureHeadline_blockHeadline_block {
+                    primary {
+                      article_headline_img
+                      article_headline
+                      article_category
                       article_subtitle
                     }
                   }

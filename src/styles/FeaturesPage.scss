@@ -5,6 +5,15 @@
   height: calc(0.9 * (100vh - 9.75rem));
   display: flex;
   flex-direction: column;
+
+  header {
+    flex: 0;
+  }
+}
+
+.lead-details,
+.highlight-details {
+  background-color: rgba($color: black, $alpha: 0.85);
 }
 
 // ================================
@@ -12,38 +21,61 @@
 // ================================
 .main-feature {
   flex: 1;
-  background-color: rgba($color: darkblue, $alpha: 0.5);
 
-  .feature-titling {
+  .column {
     display: inline-flex;
-    height: calc(100% - 1.625rem);
     flex-direction: column;
-    padding-top: 2.5rem;
-    padding-bottom: 5rem;
-    background-color: rgba($color: yellow, $alpha: 0.25);
+    justify-content: center;
+    height: calc(100% - 1.625rem);
   }
 
-  &-category {
+  .lead-details {
+    padding: 0.75rem;
+
+    span {
+      margin-bottom: 0.75rem;
+    }
   }
 }
 
 .secondary-features {
   flex: 0;
-  background-color: rgba($color: darkred, $alpha: 0.5);
 
   .column {
-    display: flex;
     height: 9.5rem;
-    background-color: rgba($color: green, $alpha: 0.5);
   }
+}
+
+// ================================
+// HighlightFeature.js
+// ================================
+article.highlight-feature {
+  display: flex;
+  border-radius: 0.75rem;
+  border: 2px solid white;
 
   figure {
     min-width: 128px;
+    object-fit: contain;
   }
 
+  img {
+    border-top-left-radius: 0.75rem;
+    border-bottom-left-radius: 0.75rem;
+  }
+}
+
+.highlight-details {
+  width: 100%;
+  border-top-right-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+
   .content {
-    border: 3px dashed white;
     padding: 1rem;
+
+    p.title {
+      padding-top: 0.5rem;
+    }
   }
 }
 // ================================

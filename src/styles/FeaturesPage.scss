@@ -5,6 +5,7 @@
   height: calc(0.9 * (100vh - 9.75rem));
   display: flex;
   flex-direction: column;
+  background-color: rgba($color: red, $alpha: 0.25);
 
   header {
     flex: 0;
@@ -12,8 +13,8 @@
 }
 
 .lead-details,
-.highlight-details {
-  background-color: rgba($color: black, $alpha: 0.85);
+.highlight-feature {
+  background-color: rgba($color: blue, $alpha: 0.5);
 }
 
 // ================================
@@ -21,29 +22,31 @@
 // ================================
 .main-feature {
   flex: 1;
+  background-color: chartreuse;
 
   .column {
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
-    height: calc(100% - 1.625rem);
+    height: 100%;
+    background-color: rgba($color: darkgreen, $alpha: 0.25);
+
+    @include mobile {
+      justify-content: flex-end;
+    }
   }
 
   .lead-details {
-    padding: 0.75rem;
+    padding: $border-radius;
 
     span {
-      margin-bottom: 0.75rem;
+      margin-bottom: $border-radius;
     }
   }
 }
 
 .secondary-features {
   flex: 0;
-
-  .column {
-    height: 9.5rem;
-  }
 }
 
 // ================================
@@ -51,30 +54,40 @@
 // ================================
 article.highlight-feature {
   display: flex;
-  border-radius: 0.75rem;
+  border-radius: $border-radius;
   border: 2px solid white;
+  height: 132px; // 128px image square + 2px each border top and bottom
+
+  @include mobile {
+    height: auto;
+  }
 
   figure {
     min-width: 128px;
-    object-fit: contain;
+
+    @include mobile {
+      max-width: 24px;
+    }
   }
 
   img {
-    border-top-left-radius: 0.75rem;
-    border-bottom-left-radius: 0.75rem;
+    border-top-left-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
   }
 }
 
 .highlight-details {
   width: 100%;
-  border-top-right-radius: 0.75rem;
-  border-bottom-right-radius: 0.75rem;
+  border-top-right-radius: $border-radius;
+  border-bottom-right-radius: $border-radius;
 
   .content {
-    padding: 1rem;
+    padding: 0.75rem;
 
-    p.title {
-      padding-top: 0.5rem;
+    @include tablet {
+      p.title {
+        padding-top: 0.5rem;
+      }
     }
   }
 }
@@ -84,7 +97,7 @@ article.highlight-feature {
 .all-features {
   img {
     border: 2px solid white;
-    border-radius: 0.75rem;
+    border-radius: $border-radius;
   }
 }
 
@@ -98,11 +111,11 @@ section.is-ancestor {
 
 #featured-articles {
   height: calc(100vh - 17.75rem); // - 9.75rem .homepage-hero reference
-  padding: 0.75rem;
+  padding: $border-radius;
 
   .column {
     border: 2px solid white;
-    border-radius: 0.75rem;
+    border-radius: $border-radius;
   }
 }
 
@@ -113,18 +126,18 @@ section.is-ancestor {
   .article-image {
     flex: 0;
     img {
-      border-top-left-radius: 0.75rem;
-      border-top-right-radius: 0.75rem;
+      border-top-left-radius: $border-radius;
+      border-top-right-radius: $border-radius;
     }
   }
   .article-content {
-    padding: 0.75rem;
+    padding: $border-radius;
     flex: 1;
   }
 }
 #secondary-articles {
   .columns {
     height: calc(0.475 * (100vh - 17.75rem));
-    padding: 0.75rem;
+    padding: $border-radius;
   }
 }

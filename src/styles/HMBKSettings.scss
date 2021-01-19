@@ -106,12 +106,12 @@ $card-radius: 0.75rem;
 
 p,
 button.button,
+button p,
+li,
 .title,
 .display-text,
 .navbar-item,
 .tag,
-button p,
-li,
 .subtitle,
 .hero-title {
   font-family: "Poppins", sans-serif;
@@ -158,7 +158,7 @@ button.button {
 .tag,
 .card {
   border: 2px solid white;
-  border-radius: 0.75rem;
+  border-radius: $border-radius;
 
   transition: $transition-speed;
   &:hover {
@@ -345,7 +345,7 @@ figcaption {
 
   iframe {
     border: 2px solid white;
-    border-radius: 0.75rem;
+    border-radius: $border-radius;
     transition: 0.5s ease;
 
     @include touch {

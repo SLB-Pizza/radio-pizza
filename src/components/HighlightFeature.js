@@ -23,25 +23,25 @@ function HighlightFeature({ articleData }) {
   const altText = image.alt ?? article_headline[0].text
 
   return (
-    <div className="column is-6">
+    <div className="column">
       <Link to={linkResolver(linkTo)}>
         <article className="highlight-feature border-color">
           <figure className="image is-128x128">
-            <img src={image.url} alt={altText} />
+            <img src={image.url} alt={altText} width={128} height={128} />
           </figure>
           <div className="highlight-details">
             <div className="content">
-              <span className="tag is-outlined is-rounded is-black">
+              <span className="tag is-outlined is-rounded is-black is-hidden-mobile">
                 {article_category}
               </span>
               <NanoClamp
-                className="title is-5"
+                className="title is-5 is-size-6-tablet is-size-7-mobile"
                 is="p"
                 lines={2}
                 text={RichText.asText(article_headline)}
               />
               <NanoClamp
-                className="subtitle is-7"
+                className="subtitle is-7 is-hidden-touch"
                 is="p"
                 lines={1}
                 text={RichText.asText(article_subtitle)}

@@ -50,6 +50,9 @@ function FeaturesIndex({ data }) {
     main_feature_article,
   } = featuresHeaderData
 
+  const backdropImgUrl =
+    main_feature_article.headline_block[0].primary.article_headline_img.url
+
   const featuresHeadline = features_page_header ?? 'Features'
   const featuresSubheadline =
     features_page_subtitle ?? 'Your music, residents and more, in depth.'
@@ -64,14 +67,16 @@ function FeaturesIndex({ data }) {
   return (
     <main className="full-height-page" id="features">
       <section
-        className="hero homepage-hero"
+        className="hero homepage-hero is-fullheight-with-navbar"
         style={{
-          backgroundImage: `url(${main_feature_article.headline_block[0].primary.article_headline_img.url})`,
+          backgroundImage: backdropImgUrl ? `url(${backdropImgUrl})` : null,
         }}
       >
         <div className="hero-body">
           <div className="container">
-            <header className="title is-1 hero-title">features</header>
+            <header className="title is-size-1 is-size-3-touch hero-title">
+              features
+            </header>
             <MainFeatureArticle articleData={main_feature_article} />
             <div className="columns is-mobile secondary-features">
               <HighlightFeature articleData={top_right_feature} />

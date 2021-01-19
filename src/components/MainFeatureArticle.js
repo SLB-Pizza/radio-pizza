@@ -18,11 +18,15 @@ function MainFeatureArticle({ articleData }) {
       <div className="column is-5">
         <Link to={linkResolver(linkTo)}>
           <div className="lead-details border-color">
-            <span className="tag is-outlined is-rounded is-black">
+            <span className="tag is-outlined is-rounded is-black is-hidden-mobile">
               {`${article_category} ‣ ${article_subcategory}`}
             </span>
-            <h1 className="title">{RichText.asText(article_headline)}</h1>
-            <h2 className="subtitle">{RichText.asText(article_subtitle)}</h2>
+            <h1 className="title is-size-5-touch">
+              {RichText.asText(article_headline)}
+            </h1>
+            <h2 className="subtitle is-size-7-touch">
+              {RichText.asText(article_subtitle)}
+            </h2>
           </div>
         </Link>
       </div>

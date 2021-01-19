@@ -67,7 +67,7 @@ function FeaturesIndex({ data }) {
   return (
     <main className="full-height-page" id="features">
       <section
-        className="hero homepage-hero is-fullheight-with-navbar"
+        className="hero homepage-hero"
         style={{
           backgroundImage: backdropImgUrl ? `url(${backdropImgUrl})` : null,
         }}

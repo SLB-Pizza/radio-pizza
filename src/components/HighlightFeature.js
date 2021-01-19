@@ -17,7 +17,7 @@ function HighlightFeature({ articleData }) {
   const linkTo = { type: _meta.type, uid: _meta.uid }
 
   // Grab the specific cropped image details
-  const image = article_headline_img.square_highlight
+  const image = article_headline_img.desktop
 
   // Use the article headline if the image doesn't have alt text
   const altText = image.alt ?? article_headline[0].text
@@ -25,17 +25,22 @@ function HighlightFeature({ articleData }) {
   return (
     <div className="column">
       <Link to={linkResolver(linkTo)}>
-        <article className="highlight-feature border-color">
-          <figure className="image is-128x128">
-            <img src={image.url} alt={altText} width={128} height={128} />
-          </figure>
+        <article
+          className="highlight-feature border-color"
+          style={{
+            backgroundImage: `url(${image.url})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
           <div className="highlight-details">
             <div className="content">
               <span className="tag is-outlined is-rounded is-black is-hidden-mobile">
                 {article_category}
               </span>
               <NanoClamp
-                className="title is-5 is-size-6-tablet is-size-7-mobile"
+                className="title is-5 is-size-6-touch is-size-7-mobile"
                 is="p"
                 lines={2}
                 text={RichText.asText(article_headline)}

@@ -10,7 +10,7 @@ import processPublicationDates from '../../utils/processPublicationDates'
  * @param {Object} metadata - data object from Prismic CMS that contains
  * @returns {jsx}
  */
-function HeadlineBlock({ slice, metadata }) {
+function HeadlineBlock({ headlineData, metadata }) {
   /**
    * @namespace
    * @memberof slice
@@ -23,13 +23,13 @@ function HeadlineBlock({ slice, metadata }) {
     article_subtitle,
     article_author_pic,
     article_author,
-  } = slice.primary
+  } = headlineData.primary
 
   const { firstPublicationDate, lastPublicationDate } = metadata
   const { hmbk_staff_name, hmbk_staff_position } = article_author
 
   /**
-   * Pass the metadaa to {@link processPublicationDates}.
+   * Pass the metadata to {@link processPublicationDates}.
    */
   const featureDateDetails = processPublicationDates(
     firstPublicationDate,

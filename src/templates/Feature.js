@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { SliceZone } from '../components'
-
+import { ArticleHeadline } from '../components/slices/'
 /**
  * @category Templates
  * @subcategory Feature
@@ -17,16 +17,17 @@ function FeatureTemplate({ data }) {
 
   // Grab the metadata for the feature and CMS slice data
   const featureMetadata = featuresData._meta
+  const featureHeadline = featuresData.headline_block[0]
   const featureSliceData = featuresData.body
 
   return (
     <main className="full-height-page">
       <article>
-        {/* HeadlineBlock only here */}
+        <ArticleHeadline
+          headlineData={featureHeadline}
+          metadata={featureMetadata}
+        />
         <SliceZone sliceZone={featureSliceData} metadata={featureMetadata} />
-        {/*
-          SliceZone Content Sections after the HeadlineBlock
-          <SliceZone sliceZone={guideSliceData} metadata={guideMetadata} /> */}
       </article>
     </main>
   )

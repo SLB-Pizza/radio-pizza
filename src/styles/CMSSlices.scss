@@ -9,6 +9,7 @@ article .container {
   }
 }
 
+// First feature slice after ArticleHeadline.js
 header.article-header + section.slice {
   margin-top: 2rem;
 }
@@ -124,16 +125,17 @@ section.sample-feature {
 header.article-header {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 10.5rem);
+
+  background-color: rgba($color: chartreuse, $alpha: 0.25);
   .hero-body {
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
+    padding: 0;
+    margin-top: -1rem;
     flex: 1;
   }
   .hero-foot {
     padding: 1rem 0 1rem;
     flex: 0;
+    background-color: rgba($color: slateblue, $alpha: 0.5);
   }
 
   img.is-rounded {

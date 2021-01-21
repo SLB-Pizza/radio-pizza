@@ -10,7 +10,7 @@ import { processPublicationDates } from '../../utils'
  * @param {Object} metadata - data object from Prismic CMS that contains the date publication for the HeadlineBlock slice
  * @returns {jsx}
  */
-function ArticleHeadline({ slice, metadata }) {
+function ArticleHeadline({ headlineData, metadata }) {
   const {
     article_headline_img,
     article_category,
@@ -19,7 +19,7 @@ function ArticleHeadline({ slice, metadata }) {
     article_subtitle,
     article_author_pic,
     article_author,
-  } = slice.primary
+  } = headlineData.primary
 
   const { firstPublicationDate, lastPublicationDate } = metadata
 
@@ -60,10 +60,14 @@ function ArticleHeadline({ slice, metadata }) {
       <div
         className="hero-body"
         aria-labelledby="article-headline-image"
-        style={{
-          backgroundImage: `url(${article_headline_img.url})`,
-        }}
-      />
+        // style={{
+        //   backgroundImage: `url(${})`,
+        // }}
+      >
+        <figure className="image">
+          <img src={article_headline_img.url} />
+        </figure>
+      </div>
       {headlinePhotoDetails}
       <div className="hero-foot">
         <div className="container article-info">

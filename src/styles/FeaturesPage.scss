@@ -1,12 +1,34 @@
 // ================================
 // /features index
 // ================================
-#features .hero-body {
-  background-color: rgba($color: green, $alpha: 0.25);
-  & .container {
-    display: flex;
-    flex-direction: column;
-    background-color: rgba($color: red, $alpha: 0.25);
+#features {
+  .hero.homepage-hero:after {
+    content: "";
+    position: fixed; /* stretch a fixed position to the whole screen */
+    top: 0;
+    height: 100vh; /* fix for mobile browser address bar appearing disappearing */
+    left: 0;
+    right: 0;
+    z-index: -1; /* needed to keep in the background */
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  .hero-body {
+    background-color: rgba($color: green, $alpha: 0.25);
+    & .container {
+      height: 100%;
+      @include touch {
+        height: 95%;
+      }
+
+      display: flex;
+      flex-direction: column;
+      background-color: rgba($color: red, $alpha: 0.25);
+    }
   }
 }
 
@@ -27,9 +49,6 @@ header,
 // ================================
 .main-feature {
   flex: 1;
-  @include touch {
-    height: calc(0.9 * (100vh - 20rem));
-  }
   // background-color: chartreuse;
 
   .column {

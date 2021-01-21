@@ -29,9 +29,6 @@ function HighlightFeature({ articleData }) {
           className="highlight-feature border-color"
           style={{
             backgroundImage: `url(${image.url})`,
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
           }}
         >
           <div className="highlight-details">

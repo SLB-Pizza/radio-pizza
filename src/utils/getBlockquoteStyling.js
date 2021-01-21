@@ -12,7 +12,7 @@
  * @function getBlockquoteStyling
  * @param {String} type
  * @param {Object} bgIMG
- * @property {String} bgIMG.url - the URL that would be passing into styling.imgStyle should the Blockquote be the type that has a background image
+ * @property {String} bgIMG.url - the URL that would be passed into styling.imgStyle should the Blockquote be the type that has a background image
  * @returns {Object}
  */
 
@@ -28,6 +28,11 @@ export default function getBlockquoteStyling(type, bgIMG) {
     blockClassNames: 'is-size-1-desktop is-size-3-tablet is-size-4-mobile',
     citeClassNames:
       'is-size-4-desktop is-size-5-tablet is-size-6-mobile has-text-right',
+  }
+
+  // Do a check to see that bgIMG is not null
+  if (!bgIMG) {
+    return styling
   }
 
   /**
@@ -55,7 +60,6 @@ export default function getBlockquoteStyling(type, bgIMG) {
     /**
      * Blockquote with dark color background image
      */
-
     case 'dark':
       styling.imgStyle = {
         backgroundImage: `url(${bgIMG.url})`,

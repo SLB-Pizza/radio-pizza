@@ -73,7 +73,7 @@ function FeaturesIndex({ data }) {
         }}
       >
         <div className="hero-body">
-          <div className="container">
+          <div className="container is-fluid">
             <header className="title is-size-1 is-size-3-touch hero-title">
               features
             </header>

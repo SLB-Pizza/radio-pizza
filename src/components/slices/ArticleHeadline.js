@@ -65,6 +65,7 @@ function ArticleHeadline({ headlineData, metadata }) {
         src={article_headline_img.url}
         alt={article_headline_img.alt}
       />
+      {headlinePhotoDetails}
       <div className="hero-foot">
         <div className="container is-fluid">
           <div className="columns is-mobile is-multiline is-vcentered">

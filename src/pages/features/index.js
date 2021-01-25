@@ -78,13 +78,15 @@ function FeaturesIndex({ data }) {
               features
             </header>
             <MainFeatureArticle articleData={main_feature_article} />
-            <div className="columns is-mobile secondary-features">
-              <HighlightFeature articleData={top_right_feature} />
-              <HighlightFeature articleData={bottom_right_feature} />
-            </div>
+            {/* <div className="columns is-mobile secondary-features">
+            </div> */}
           </div>
         </div>
       </header>
+      <section className="highlight-features">
+        <HighlightFeature articleData={top_right_feature} />
+        <HighlightFeature articleData={bottom_right_feature} />
+      </section>
       <pre>
         main_feature_article {JSON.stringify(main_feature_article, null, 2)}
       </pre>

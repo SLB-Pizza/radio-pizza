@@ -2,7 +2,7 @@ import React from 'react'
 import NanoClamp from 'nanoclamp'
 import { RichText } from 'prismic-reactjs'
 import { Link } from 'gatsby'
-import { linkResolver } from '../utils'
+import { htmlSerializer, linkResolver } from '../utils'
 
 function HighlightFeature({ articleData }) {
   const { _meta, headline_block } = articleData
@@ -23,37 +23,58 @@ function HighlightFeature({ articleData }) {
   const altText = image.alt ?? article_headline[0].text
 
   return (
-    <div className="column">
-      <Link to={linkResolver(linkTo)}>
-        <article
-          className="highlight-feature border-color"
-          style={{
-            backgroundImage: `url(${image.url})`,
-          }}
-        >
-          <div className="highlight-details">
-            <div className="content">
-              <span className="tag is-outlined is-rounded is-black is-hidden-mobile">
-                {article_category}
-              </span>
-              <NanoClamp
-                className="title is-5 is-size-6-touch is-size-7-mobile"
-                is="p"
-                lines={2}
-                text={RichText.asText(article_headline)}
-              />
-              <NanoClamp
-                className="subtitle is-7 is-hidden-touch"
-                is="p"
-                lines={1}
-                text={RichText.asText(article_subtitle)}
-              />
+    <article className="hero highlight-features has-background">
+      <img
+        className="hero-background"
+        src={article_headline_img.url}
+        alt={article_headline_img.alt}
+      />
+      <div className="hero-foot">
+        <div className="container is-fluid">
+          <div className="columns is-vcentered">
+            <div className="column">
+              <p className="title is-size-5-desktop is-size-6-touch">
+                {RichText.asText(article_headline)}
+              </p>
             </div>
           </div>
-        </article>
-      </Link>
-    </div>
+        </div>
+      </div>
+    </article>
   )
 }
 
+// Old in-hero version
+// return (
+//   <div className="column">
+//     <Link to={linkResolver(linkTo)}>
+//       <article
+//         className="highlight-feature border-color"
+//         style={{
+//           backgroundImage: `url(${image.url})`,
+//         }}
+//       >
+//         <div className="highlight-details">
+//           <div className="content">
+//             <span className="tag is-outlined is-rounded is-black is-hidden-mobile">
+//               {article_category}
+//             </span>
+//             <NanoClamp
+//               className="title is-5 is-size-6-touch is-size-7-mobile"
+//               is="p"
+//               lines={2}
+//               text={RichText.asText(article_headline)}
+//             />
+//             <NanoClamp
+//               className="subtitle is-7 is-hidden-touch"
+//               is="p"
+//               lines={1}
+//               text={RichText.asText(article_subtitle)}
+//             />
+//           </div>
+//         </div>
+//       </article>
+//     </Link>
+//   </div>
+// )
 export default HighlightFeature

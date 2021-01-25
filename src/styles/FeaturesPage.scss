@@ -15,6 +15,23 @@
   }
 }
 
+.hero {
+  // For ArticleHeadline.js
+  &.article-header,
+  &.highlight-features {
+    justify-content: flex-end;
+  }
+
+  // For HighlightFeature.js
+  &.highlight-features {
+    height: calc(0.375 * (100vh - 8.75rem));
+    .container {
+      background-color: rgba($color: black, $alpha: 0.75);
+      height: 4rem;
+    }
+  }
+}
+
 header,
 .secondary-features {
   flex: 0;
@@ -50,6 +67,15 @@ header,
     span {
       margin-bottom: $border-radius;
     }
+  }
+}
+
+section.highlight-features {
+  display: flex;
+  flex-direction: row;
+
+  article {
+    flex: 1;
   }
 }
 

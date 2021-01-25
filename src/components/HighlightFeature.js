@@ -23,7 +23,7 @@ function HighlightFeature({ articleData }) {
   const altText = image.alt ?? article_headline[0].text
 
   return (
-    <article className="hero highlight-features has-background">
+    <article className="hero highlight-feature has-background">
       <img
         className="hero-background"
         src={article_headline_img.url}

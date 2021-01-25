@@ -15,16 +15,26 @@
   }
 }
 
+section.highlight-features {
+  display: flex;
+  flex-direction: column;
+  height: calc((2 / 3) * (100vh - 9.75rem));
+
+  article {
+    flex: 1;
+  }
+}
+
 .hero {
   // For ArticleHeadline.js
   &.article-header,
-  &.highlight-features {
+  &.highlight-feature {
     justify-content: flex-end;
   }
 
   // For HighlightFeature.js
-  &.highlight-features {
-    height: calc(0.375 * (100vh - 8.75rem));
+  &.highlight-feature {
+    // Internal title container
     .container {
       background-color: rgba($color: black, $alpha: 0.75);
       height: 4rem;
@@ -70,57 +80,48 @@ header,
   }
 }
 
-section.highlight-features {
-  display: flex;
-  flex-direction: row;
-
-  article {
-    flex: 1;
-  }
-}
-
 // ================================
 // HighlightFeature.js
 // ================================
-article.highlight-feature {
-  display: flex;
-  border-radius: $border-radius;
-  border: 2px solid white;
-  height: 132px; // 128px image square + 2px each border top and bottom
+// article.highlight-feature {
+//   display: flex;
+//   border-radius: $border-radius;
+//   border: 2px solid white;
+//   height: 132px; // 128px image square + 2px each border top and bottom
 
-  @include mobile {
-    height: auto;
-  }
+//   @include mobile {
+//     height: auto;
+//   }
 
-  figure {
-    min-width: 128px;
+//   figure {
+//     min-width: 128px;
 
-    @include mobile {
-      max-width: 24px;
-    }
-  }
+//     @include mobile {
+//       max-width: 24px;
+//     }
+//   }
 
-  img {
-    border-top-left-radius: $border-radius;
-    border-bottom-left-radius: $border-radius;
-  }
-}
+//   img {
+//     border-top-left-radius: $border-radius;
+//     border-bottom-left-radius: $border-radius;
+//   }
+// }
 
-.highlight-details {
-  width: 100%;
-  background-color: rgba($color: black, $alpha: 0.5);
-  border-radius: $border-radius;
+// .highlight-details {
+//   width: 100%;
+//   background-color: rgba($color: black, $alpha: 0.5);
+//   border-radius: $border-radius;
 
-  .content {
-    padding: 0.75rem;
+//   .content {
+//     padding: 0.75rem;
 
-    @include tablet {
-      p.title {
-        padding-top: 0.5rem;
-      }
-    }
-  }
-}
+//     @include tablet {
+//       p.title {
+//         padding-top: 0.5rem;
+//       }
+//     }
+//   }
+// }
 // ================================
 // StickyFeature.js
 // ================================

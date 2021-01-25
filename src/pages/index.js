@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 
 import '../styles/index.scss'
-import { Hero, HomeMixes, HomeEvents, HomeNews } from '../components'
+import { Hero, HomeMixes, HomeEvents, HomeFeatures } from '../components'
 
 /**
  * @category Pages
@@ -52,7 +52,7 @@ function IndexPage({ data }) {
         homeEventsData={homeEventsData}
       />
       {/* <pre>homeFeaturesData {JSON.stringify(homeFeaturesData, null, 2)}</pre> */}
-      <HomeNews
+      <HomeFeatures
         headline={home_features_headline}
         blurb={home_features_blurb}
         homeFeaturesData={homeFeaturesData}

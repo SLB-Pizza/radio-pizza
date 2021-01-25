@@ -30,7 +30,7 @@ function HomeEvents({ blurb, headline, homeEventsData }) {
         </div>
         <div className="column is-9">
           <div className="columns is-multiline">
-            {homeEventsData &&
+            {homeEventsData.length &&
               homeEventsData.map(({ node }, index) => (
                 <SingleEventCard
                   key={`halfmoon-event-${index}`}
@@ -56,7 +56,7 @@ function HomeEvents({ blurb, headline, homeEventsData }) {
         </div>
       </div>
       <div className="columns is-mobile is-hidden-desktop mobile-single-items">
-        {homeEventsData &&
+        {homeEventsData.length &&
           homeEventsData.map(({ node }, index) => (
             <SingleEventCard
               key={`halfmoon-event-${index}`}

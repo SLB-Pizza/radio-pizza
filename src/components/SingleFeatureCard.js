@@ -3,7 +3,7 @@ import { RichText } from 'prismic-reactjs'
 import { Link } from 'gatsby'
 import { linkResolver } from '../utils'
 
-function HomeSingleNews({ metadata, body }) {
+function SingleFeatureCard({ metadata, body }) {
   const {
     article_headline_img,
     article_category,
@@ -46,4 +46,4 @@ function HomeSingleNews({ metadata, body }) {
   )
 }
 
-export default HomeSingleNews
+export default SingleFeatureCard

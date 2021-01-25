@@ -87,6 +87,13 @@ function FeaturesIndex({ data }) {
         <HighlightFeature articleData={top_right_feature} />
         <HighlightFeature articleData={bottom_right_feature} />
       </section>
+      <section className="container is-fluid">
+        <div className="columns is-mobile">
+          {/* {allFeaturesData.map(({node}, index) => (
+
+          ))} */}
+        </div>
+      </section>
       <pre>
         main_feature_article {JSON.stringify(main_feature_article, null, 2)}
       </pre>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
-import { HomeSingleNews } from './index'
+import { SingleFeatureCard } from './index'
 
 function HomeFeatures({ headline, blurb, homeFeaturesData }) {
   return (
@@ -28,7 +28,7 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
 
               return (
                 // <pre>node {JSON.stringify(singleFeature, null, 2)}</pre>
-                <HomeSingleNews
+                <SingleFeatureCard
                   key={`index-#${index}-home-feature`}
                   metadata={_meta}
                   body={headline_block}
@@ -60,7 +60,7 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
 
           return (
             // <pre>node{JSON.stringify(singleFeature, null, 2)}</pre>
-            <HomeSingleNews
+            <SingleFeatureCard
               key={`index-#${index}-home-feature`}
               metadata={_meta}
               body={headline_block}

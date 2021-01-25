@@ -51,7 +51,6 @@ function IndexPage({ data }) {
         blurb={home_events_blurb}
         homeEventsData={homeEventsData}
       />
-      {/* <pre>homeFeaturesData {JSON.stringify(homeFeaturesData, null, 2)}</pre> */}
       <HomeFeatures
         headline={home_features_headline}
         blurb={home_features_blurb}

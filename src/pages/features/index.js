@@ -7,6 +7,7 @@ import {
   FeatureArticleTile,
   LandingPageElement,
   StickyFeature,
+  SingleFeatureCard,
 } from '../../components'
 import { htmlSerializer } from '../../utils'
 import PropTypes from 'prop-types'
@@ -64,6 +65,8 @@ function FeaturesIndex({ data }) {
   const aofLayout = 'column is-6 landing-page-element'
   const aofImageAspectRatio = 'image is-16by9'
 
+  const featuresPageLayout = 'column is-12-mobile is-6-tablet is-4-desktop'
+
   return (
     <main className="full-height-page" id="features">
       <header className="hero has-background">
@@ -88,10 +91,15 @@ function FeaturesIndex({ data }) {
         <HighlightFeature articleData={bottom_right_feature} />
       </section>
       <section className="container is-fluid">
-        <div className="columns is-mobile">
-          {/* {allFeaturesData.map(({node}, index) => (
-
-          ))} */}
+        <div className="columns is-mobile is-multiline">
+          {allFeaturesData.length &&
+            allFeaturesData.map(({ node }, index) => (
+              <SingleFeatureCard
+                key={`halfmoon-feature-${index}`}
+                featureData={node}
+                featureColumnLayout={featuresPageLayout}
+              />
+            ))}
         </div>
       </section>
       <pre>

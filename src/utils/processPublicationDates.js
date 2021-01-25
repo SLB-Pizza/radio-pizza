@@ -22,7 +22,7 @@ export default function processPublicationDates(firstPubDate, lastPubDate) {
   /**
    * Determine if feature has been updated by comparing first and last publication dates.
    */
-  const updated = firstPubDate !== lastPubDate ? true : false
+  const updated = firstPubDate !== lastPubDate
 
   /**
    * Update the dateDetails object with the value of updated

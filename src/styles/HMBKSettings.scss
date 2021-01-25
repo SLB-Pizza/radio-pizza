@@ -357,3 +357,26 @@ figcaption {
     }
   }
 }
+
+// New Working Hero
+.hero {
+  height: calc(100vh - 8.75rem);
+
+  // ArticleHeadline.js specific
+  &.article-header {
+    justify-content: flex-end;
+  }
+
+  &.has-background {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &-background {
+    position: absolute;
+    object-fit: cover;
+    object-position: center center;
+    width: 100%;
+    height: 100%;
+  }
+}

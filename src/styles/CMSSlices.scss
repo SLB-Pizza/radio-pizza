@@ -126,9 +126,6 @@ header.article-header.hero {
   img.is-rounded {
     border: 2px solid white;
   }
-  .title {
-    font-family: "Poppins", sans-serif;
-  }
   .subtitle {
     font-weight: 300;
   }
@@ -136,28 +133,8 @@ header.article-header.hero {
   .hero-foot {
     .container {
       background-color: rgba($color: black, $alpha: 0.75);
-      margin-bottom: -1 * $gap;
+      margin-bottom: -1 * $gap; // pulls hero-foot to base of hero-body
       padding: $gap;
-    }
-  }
-}
-
-.hero {
-  height: calc(100vh - 8.75rem);
-  justify-content: flex-end;
-
-  &.has-background {
-    position: relative;
-    overflow: hidden;
-  }
-  &-background {
-    position: absolute;
-    object-fit: cover;
-    object-position: center center;
-    width: 100%;
-    height: 100%;
-    &.is-transparent {
-      opacity: 1;
     }
   }
 }
@@ -166,31 +143,31 @@ header.article-header.hero {
   font-weight: 700;
 }
 
-.headline-block {
-  height: 25rem;
-  background-size: cover;
-  background-position: center center;
-  .container > .columns {
-    padding: 1rem;
-    margin-top: 10rem;
-    background-color: rgba($color: black, $alpha: 0.85);
-    border: 2px solid white;
-    border-radius: 0.75rem;
-    margin-bottom: auto;
-  }
+// .headline-block {
+//   height: 25rem;
+//   background-size: cover;
+//   background-position: center center;
+//   .container > .columns {
+//     padding: 1rem;
+//     margin-top: 10rem;
+//     background-color: rgba($color: black, $alpha: 0.85);
+//     border: 2px solid white;
+//     border-radius: 0.75rem;
+//     margin-bottom: auto;
+//   }
 
-  .category {
-    padding-bottom: 1rem;
-  }
+//   .category {
+//     padding-bottom: 1rem;
+//   }
 
-  h3 {
-    font-weight: 300;
-  }
+//   h3 {
+//     font-weight: 300;
+//   }
 
-  .column.author {
-    border: 1px dotted red;
-  }
-}
+//   .column.author {
+//     border: 1px dotted red;
+//   }
+// }
 
 // ==================================
 // Layout Helper - ResponsiveImage

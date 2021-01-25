@@ -50,8 +50,8 @@ function FeaturesIndex({ data }) {
     main_feature_article,
   } = featuresHeaderData
 
-  const backdropImgUrl =
-    main_feature_article.headline_block[0].primary.article_headline_img.url
+  const backdropImg =
+    main_feature_article.headline_block[0].primary.article_headline_img ?? null
 
   const featuresHeadline = features_page_header ?? 'Features'
   const featuresSubheadline =
@@ -66,12 +66,12 @@ function FeaturesIndex({ data }) {
 
   return (
     <main className="full-height-page" id="features">
-      <section
-        className="hero homepage-hero"
-        style={{
-          backgroundImage: backdropImgUrl ? `url(${backdropImgUrl})` : null,
-        }}
-      >
+      <header className="hero has-background">
+        <img
+          className="hero-background"
+          src={backdropImg.url}
+          alt={backdropImg.alt}
+        />
         <div className="hero-body">
           <div className="container is-fluid">
             <header className="title is-size-1 is-size-3-touch hero-title">
@@ -84,12 +84,40 @@ function FeaturesIndex({ data }) {
             </div>
           </div>
         </div>
-      </section>
+      </header>
       <pre>
         main_feature_article {JSON.stringify(main_feature_article, null, 2)}
       </pre>
     </main>
   )
+
+  // Current state
+  // return (
+  //   <main className="full-height-page" id="features">
+  //     <section
+  //       className="hero homepage-hero"
+  //       style={{
+  //         backgroundImage: backdropImgUrl ? `url(${backdropImgUrl})` : null,
+  //       }}
+  //     >
+  //       <div className="hero-body">
+  //         <div className="container is-fluid">
+  //           <header className="title is-size-1 is-size-3-touch hero-title">
+  //             features
+  //           </header>
+  //           <MainFeatureArticle articleData={main_feature_article} />
+  //           <div className="columns is-mobile secondary-features">
+  //             <HighlightFeature articleData={top_right_feature} />
+  //             <HighlightFeature articleData={bottom_right_feature} />
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </section>
+  //     <pre>
+  //       main_feature_article {JSON.stringify(main_feature_article, null, 2)}
+  //     </pre>
+  //   </main>
+  // );
 
   // return (
   //   <main className="container is-fluid black-bg-page">

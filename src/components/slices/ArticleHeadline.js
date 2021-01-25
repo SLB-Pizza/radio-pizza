@@ -61,7 +61,7 @@ function ArticleHeadline({ headlineData, metadata }) {
       aria-labelledby="article-headline"
     >
       <img
-        className="hero-background is-transparent"
+        className="hero-background"
         src={article_headline_img.url}
         alt={article_headline_img.alt}
       />
@@ -82,9 +82,9 @@ function ArticleHeadline({ headlineData, metadata }) {
                   {RichText.asText(article_headline)}
                 </h1>
 
-                <h4 className="subtitle is-size-3-widescreen is-size-4-desktop is-size-6-touch">
+                <p className="subtitle is-size-3-widescreen is-size-4-desktop is-size-6-touch">
                   {RichText.asText(article_subtitle)}
-                </h4>
+                </p>
               </div>
             </div>
             {hasAuthorDetails && (
@@ -133,81 +133,3 @@ function ArticleHeadline({ headlineData, metadata }) {
 }
 
 export default ArticleHeadline
-
-// return (
-//   <header className="hero article-header" aria-labelledby="article-headline">
-//     <div
-//       className="hero-body"
-//       aria-labelledby="article-headline-image"
-//       // style={{
-//       //   backgroundImage: `url(${})`,
-//       // }}
-//     >
-//       <figure className="image">
-//         <img src={article_headline_img.url} />
-//       </figure>
-//     </div>
-//     {headlinePhotoDetails}
-//     <div className="hero-foot">
-//       <div className="container article-info">
-//         <div className="columns is-mobile is-multiline is-vcentered">
-//           <div className="column is-12">
-//             <p className="is-size-6-desktop is-size-7-touch">
-//               {allCapsCategory}
-//               <span>{" ‣ " + article_subcategory}</span>
-//             </p>
-//             <div className="content">
-//               <h1
-//                 id="article-headline"
-//                 className="title is-size-1-widescreen is-size-2-desktop is-size-4-touch"
-//               >
-//                 {RichText.asText(article_headline)}
-//               </h1>
-
-//               <h4 className="subtitle is-size-3-widescreen is-size-4-desktop is-size-6-touch">
-//                 {RichText.asText(article_subtitle)}
-//               </h4>
-//             </div>
-//           </div>
-//           {hasAuthorDetails && (
-//             <div className="column is-narrow">
-//               <figure
-//                 className="image is-32x32"
-//                 aria-label={`${article_author.hmbk_staff_name}, ${article_author.hmbk_staff_position}`}
-//               >
-//                 <img
-//                   className="is-rounded"
-//                   src={article_author_pic.url}
-//                   alt={`${article_author.hmbk_staff_name}, ${article_author.hmbk_staff_position}`}
-//                 />
-//               </figure>
-//             </div>
-//           )}
-//           {hasAuthorDetails && (
-//             <div className="column is-narrow-desktop">
-//               <p className="subtitle is-size-6-desktop is-size-7-touch">
-//                 {`${article_author.hmbk_staff_name}, ${article_author.hmbk_staff_position}`}
-//               </p>
-//             </div>
-//           )}
-//           <div className="column is-narrow-desktop">
-//             {featureDateDetails.hasBeenUpdated ? (
-//               <p className="subtitle is-size-6-desktop is-size-7-touch">
-//                 Updated{" "}
-//                 <time dateTime={lastPublicationDate}>
-//                   {featureDateDetails.pubDate}
-//                 </time>
-//               </p>
-//             ) : (
-//               <p className="subtitle is-size-6-desktop is-size-7-touch">
-//                 <time dateTime={firstPublicationDate}>
-//                   {featureDateDetails.pubDate}
-//                 </time>
-//               </p>
-//             )}
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   </header>
-// );

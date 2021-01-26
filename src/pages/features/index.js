@@ -1,14 +1,11 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import {
-  MainFeatureArticle,
+  LeadFeatureHero,
   HighlightFeatures,
-  FeatureArticleTile,
-  LandingPageElement,
   SingleFeatureCard,
 } from '../../components'
-import { htmlSerializer } from '../../utils'
 import PropTypes from 'prop-types'
 
 /**
@@ -49,7 +46,7 @@ function FeaturesIndex({ data }) {
   } = featuresHeaderData
 
   const backdropImg =
-    main_feature_article.headline_block[0].primary.article_headline_img ?? null
+    main_feature_article.headline_block[0].primary.article_headline_img
 
   const featuresHeadline = RichText.asText(features_page_header) ?? 'features'
   const featuresSubheadline =
@@ -66,28 +63,15 @@ function FeaturesIndex({ data }) {
 
   return (
     <main className="full-height-page" id="features">
-      <header className="hero has-background">
-        <img
-          className="hero-background"
-          src={backdropImg.url}
-          alt={backdropImg.alt}
-        />
-        <div className="hero-body">
-          <div className="container is-fluid">
-            <header className="title is-size-1 is-size-3-touch hero-title">
-              {featuresHeadline}
-            </header>
-            <MainFeatureArticle articleData={main_feature_article} />
-            {/* <div className="columns is-mobile secondary-features">
-            </div> */}
-          </div>
-        </div>
-      </header>
+      <LeadFeatureHero
+        leadFeatureData={main_feature_article}
+        leadFeatureBG={backdropImg}
+        pageTitling={featuresHeadline}
+      />
 
       {/* Component that houses secondary features */}
       <HighlightFeatures
         titling={featuresSubheadline}
-        leftFeature={top_right_feature}
         rightFeature={bottom_right_feature}
       />
 
@@ -108,192 +92,6 @@ function FeaturesIndex({ data }) {
       </pre>
     </main>
   )
-
-  // Current state
-  // return (
-  //   <main className="full-height-page" id="features">
-  //     <section
-  //       className="hero homepage-hero"
-  //       style={{
-  //         backgroundImage: backdropImgUrl ? `url(${backdropImgUrl})` : null,
-  //       }}
-  //     >
-  //       <div className="hero-body">
-  //         <div className="container is-fluid">
-  //           <header className="title is-size-1 is-size-3-touch hero-title">
-  //             features
-  //           </header>
-  //           <MainFeatureArticle articleData={main_feature_article} />
-  //           <div className="columns is-mobile secondary-features">
-  //             <HighlightFeature articleData={top_right_feature} />
-  //             <HighlightFeature articleData={bottom_right_feature} />
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </section>
-  //     <pre>
-  //       main_feature_article {JSON.stringify(main_feature_article, null, 2)}
-  //     </pre>
-  //   </main>
-  // );
-
-  // return (
-  //   <main className="container is-fluid black-bg-page">
-  //     <section className="columns is-multiline is-mobile">
-  //       <div className="column is-12">
-  //         <div className="content">
-  //           {/*
-  //             If string : using default value; use RichText.asText
-  //             Else      : content from Prismic, use RichText render
-  //           */}
-  //           {typeof featuresHeadline !== "string" ? (
-  //             <RichText
-  //               render={featuresHeadline}
-  //               htmlSerializer={htmlSerializer}
-  //             />
-  //           ) : (
-  //             <h1 className="title">{RichText.asText(featuresHeadline)}</h1>
-  //           )}
-  //           {typeof featuresSubheadline !== "string" ? (
-  //             <RichText
-  //               render={featuresSubheadline}
-  //               htmlSerializer={htmlSerializer}
-  //             />
-  //           ) : (
-  //             <h1 className="title">{RichText.asText(featuresSubheadline)}</h1>
-  //           )}
-
-  //           {/* <h1 className="title is-size-2-widescreen is-size-3-desktop is-size-4-touch">
-  //             Features
-  //           </h1>
-  //           <h4 className="subtitle is-size-6-touch">
-  //             Your reference for Prismic CMS, image guidelines, editorial
-  //             standards and more.
-  //           </h4> */}
-  //         </div>
-  //       </div>
-  //     </section>
-
-  //     {/* Featured Articles Section */}
-  //     <section className="tile is-ancestor has-background-primary">
-  //       <div className="tile is-parent is-6">
-  //         <FeatureArticleTile data={main_feature_article} />
-  //       </div>
-  //       <div className="tile is-vertical">
-  //         {/* LEFT 8 COLUMNS */}
-  //         <div className="tile is-parent">
-  //           <FeatureArticleTile
-  //             secondaryFeature={true}
-  //             data={top_right_feature}
-  //           />
-  //         </div>
-  //         <div className="tile is-parent">
-  //           <FeatureArticleTile
-  //             secondaryFeature={true}
-  //             data={bottom_right_feature}
-  //           />
-  //         </div>
-  //       </div>
-  //     </section>
-
-  //     <pre>
-  //       featuresHeaderData {JSON.stringify(featuresHeaderData, null, 2)}
-  //     </pre>
-  //     {/* <section
-  //       className="columns is-multiline is-mobile has-background-info"
-  //       id="featured-articles"
-  //     >
-  //       <div className="column is-6-widescreen has-background-dark">
-  //         <article className="content">
-  //           <h1 className="title">Title</h1>
-  //           <p className="subtitle">Subtitle summarizing the content below.</p>
-  //           <p>
-  //             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-  //             ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas
-  //             non massa sem. Etiam finibus odio quis feugiat facilisis.
-  //           </p>
-  //         </article>
-  //       </div>
-
-  //       <div className="column is-6-widescreen" id="secondary-articles">
-  //         <div className="columns">
-  //           <div className="column has-background-dark">
-  //             <article className="content">
-  //               <h1 className="title">Title</h1>
-  //               <p className="subtitle">
-  //                 Subtitle summarizing the content below.
-  //               </p>
-  //               <p>
-  //                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-  //                 ornare magna eros, eu pellentesque tortor vestibulum ut.
-  //                 Maecenas non massa sem. Etiam finibus odio quis feugiat
-  //                 facilisis.
-  //               </p>
-  //             </article>
-  //           </div>
-  //         </div>
-  //         <div className="columns">
-  //           <div className="column has-background-dark">
-  //             <article className="content">
-  //               <h1 className="title">Title</h1>
-  //               <p className="subtitle">
-  //                 Subtitle summarizing the content below.
-  //               </p>
-  //               <p>
-  //                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-  //                 ornare magna eros, eu pellentesque tortor vestibulum ut.
-  //                 Maecenas non massa sem. Etiam finibus odio quis feugiat
-  //                 facilisis.
-  //               </p>
-  //             </article>
-  //           </div>
-  //           <div className="column has-background-dark">
-  //             <article className="content">
-  //               <h1 className="title">Title</h1>
-  //               <p className="subtitle">
-  //                 Subtitle summarizing the content below.
-  //               </p>
-  //               <p>
-  //                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-  //                 ornare magna eros, eu pellentesque tortor vestibulum ut.
-  //                 Maecenas non massa sem. Etiam finibus odio quis feugiat
-  //                 facilisis.
-  //               </p>
-  //             </article>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </section> */}
-
-  //     {/* Other Articles Section */}
-
-  //     {/* Lead Feature */}
-  //     {/* <LandingPageElement
-  //         pageElement={leadFeatureData}
-  //         layout={lfLayout}
-  //         imageAspectRatio={lfImageAspectRatio}
-  //       /> */}
-
-  //     {/* All other Features */}
-  //     {/* {allOtherFeatures.map((singleFeature, index) => (
-  //         <LandingPageElement
-  //           key={`Feature-#${index + 1}`}
-  //           pageElement={singleFeature}
-  //           layout={aofLayout}
-  //           imageAspectRatio={aofImageAspectRatio}
-  //         />
-  //       ))} */}
-
-  //     {/* <div className="column is-12">
-  //         <h1 className="title">leadFeatureData Data Object</h1>
-  //         <pre>{JSON.stringify(leadFeatureData, null, 2)}</pre>
-  //       </div>
-  //       <div className="column is-12">
-  //         <h1 className="title">allOtherFeatures Data Object</h1>
-  //         <pre>{JSON.stringify(allOtherFeatures, null, 2)}</pre>
-  //       </div> */}
-  //   </main>
-  // );
 }
 
 FeaturesIndex.propTypes = {
@@ -405,36 +203,5 @@ export const query = graphql`
     }
   }
 `
-
-// export const query = graphql`
-//   query FeaturesIndexPage {
-//     prismic {
-//       allFeatures(sortBy: meta_firstPublicationDate_DESC) {
-//         edges {
-//           node {
-//             _meta {
-//               uid
-//               firstPublicationDate
-//               lastPublicationDate
-//               type
-//               tags
-//             }
-//             body {
-//               ... on PRISMIC_FeatureBodyHeadline_block {
-//                 type
-//                 primary {
-//                   article_headline
-//                   article_headline_img
-//                   article_subcategory
-//                   article_subtitle
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
 
 export default FeaturesIndex

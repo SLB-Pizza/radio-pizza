@@ -3,7 +3,13 @@ import { RichText } from 'prismic-reactjs'
 import { Link } from 'gatsby'
 import { formatDateTime, linkResolver } from '../utils'
 
-function SingleFeatureCard({ featureColumnLayout, featureData }) {
+/**
+ *
+ * @param {Object} featureData - the feature data object
+ * @param {String} featureColumnLayout - string dictating column
+ * @returns
+ */
+function SingleFeatureCard({ featureColumnLayout = 'column', featureData }) {
   const { headline_block, _meta } = featureData
 
   const { lastPublicationDate, type, uid } = _meta

@@ -3,7 +3,14 @@ import { RichText } from 'prismic-reactjs'
 import { Link } from 'gatsby'
 import { linkResolver } from '../utils'
 
-function MainFeatureArticle({ articleData }) {
+/**
+ * Returns the Lead Feature's headline, subtitle, category and subcategory in {@link @LeadFeatureHero}
+ * @category Layou tHelper
+ * @function LeadFeatureDetails
+ * @param {Object} articleData
+ * @returns {jsx}
+ */
+function LeadFeatureDetails({ articleData }) {
   const { _meta, headline_block } = articleData
   const {
     article_headline,
@@ -34,4 +41,4 @@ function MainFeatureArticle({ articleData }) {
   )
 }
 
-export default MainFeatureArticle
+export default LeadFeatureDetails

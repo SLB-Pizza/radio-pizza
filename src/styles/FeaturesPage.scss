@@ -17,18 +17,8 @@
 
 .hero {
   // For ArticleHeadline.js
-  &.article-header,
-  &.highlight-feature {
+  &.article-header {
     justify-content: flex-end;
-  }
-
-  // For HighlightFeature.js
-  &.highlight-feature {
-    // Internal title container
-    .container {
-      background-color: rgba($color: black, $alpha: 0.75);
-      height: 4rem;
-    }
   }
 }
 
@@ -44,7 +34,7 @@ header,
 }
 
 // ================================
-// MainFeatureArticle.js
+// LeadFeatureHero.js
 // ================================
 .main-feature {
   flex: 1;
@@ -70,94 +60,13 @@ header,
 }
 
 // ================================
-// HighlightFeature.js
+// HighlightFeatures.js
 // ================================
-// article.highlight-feature {
-//   display: flex;
-//   border-radius: $border-radius;
-//   border: 2px solid white;
-//   height: 132px; // 128px image square + 2px each border top and bottom
-
-//   @include mobile {
-//     height: auto;
-//   }
-
-//   figure {
-//     min-width: 128px;
-
-//     @include mobile {
-//       max-width: 24px;
-//     }
-//   }
-
-//   img {
-//     border-top-left-radius: $border-radius;
-//     border-bottom-left-radius: $border-radius;
-//   }
-// }
-
-// .highlight-details {
-//   width: 100%;
-//   background-color: rgba($color: black, $alpha: 0.5);
-//   border-radius: $border-radius;
-
-//   .content {
-//     padding: 0.75rem;
-
-//     @include tablet {
-//       p.title {
-//         padding-top: 0.5rem;
-//       }
-//     }
-//   }
-// }
-// ================================
-// StickyFeature.js
-// ================================
-.all-features {
-  img {
-    border: 2px solid white;
-    border-radius: $border-radius;
-  }
-}
-
-.other-features {
-  margin-top: 8.5rem;
-}
-
-section.is-ancestor {
-  height: calc(100vh - 17.75rem); // - 9.75rem .homepage-hero reference
-}
-
-#featured-articles {
-  height: calc(100vh - 17.75rem); // - 9.75rem .homepage-hero reference
-  padding: $border-radius;
-
-  .column {
-    border: 2px solid white;
-    border-radius: $border-radius;
-  }
-}
-
-.tile.is-child {
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  .article-image {
-    flex: 0;
-    img {
-      border-top-left-radius: $border-radius;
-      border-top-right-radius: $border-radius;
-    }
-  }
-  .article-content {
-    padding: $border-radius;
-    flex: 1;
-  }
-}
-#secondary-articles {
-  .columns {
-    height: calc(0.475 * (100vh - 17.75rem));
-    padding: $border-radius;
-  }
+.highlight-features {
+  background: repeating-linear-gradient(
+    45deg,
+    black,
+    transparent 1%,
+    darken($primary, 25) 30%
+  );
 }

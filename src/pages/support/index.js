@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Highlight, { defaultProps } from 'prism-react-renderer'
-import { StickyFeature, SliceZone } from '../../components'
+import { SliceZone } from '../../components'
 import { ParallaxHeadline } from '../../components/slices'
 import PropTypes from 'prop-types'
 
@@ -25,8 +25,6 @@ function SupportPage({ data }) {
   if (!prismicContent) return null
 
   /**
-   * Grab the first node object from the prismicContent array of nodes to pass as leadfeatureData prop to StickyFeature.
-   *
    * The data from the 'FeaturesIndexPage' query comes pre-sorted to show the most recent published feature, NOT the most recently updated.
    *
    * The remaining array of node objects can be mapped over normally using XYZ_Component.
@@ -45,7 +43,6 @@ function SupportPage({ data }) {
 
   return (
     <main className="full-height-page">
-      {/* <StickyFeature leadFeatureData={leadFeatureData} /> */}
       <ParallaxHeadline
         cta={supportHeader.cta}
         hook={supportHeader.hook}

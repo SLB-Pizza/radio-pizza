@@ -23,7 +23,7 @@ function SingleFeatureCard({ featureColumnLayout, featureData }) {
   const articleDate = formatDateTime(lastPublicationDate, 'year-month-day')
 
   return (
-    <div className={featureColumnLayout}>
+    <article className={featureColumnLayout}>
       <Link to={linkResolver(linkData)}>
         <div className="card">
           <div className="card-image">
@@ -48,7 +48,7 @@ function SingleFeatureCard({ featureColumnLayout, featureData }) {
           </div>
         </div>
       </Link>
-    </div>
+    </article>
   )
 }
 

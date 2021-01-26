@@ -3,10 +3,9 @@ import { Link, graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import {
   MainFeatureArticle,
-  HighlightFeature,
+  HighlightFeatures,
   FeatureArticleTile,
   LandingPageElement,
-  StickyFeature,
   SingleFeatureCard,
 } from '../../components'
 import { htmlSerializer } from '../../utils'
@@ -32,8 +31,6 @@ function FeaturesIndex({ data }) {
   if (!allFeaturesData || !featuresHeaderData) return null
 
   /**
-   * Grab the first node object from the allFeaturesData array of nodes to pass as leadfeatureData prop to StickyFeature.
-   *
    * The data from the 'FeaturesIndexPage' query comes pre-sorted to show the most recent published feature, NOT the most recently updated.
    *
    * The remaining array of node objects can be mapped over normally using XYZ_Component.
@@ -54,18 +51,18 @@ function FeaturesIndex({ data }) {
   const backdropImg =
     main_feature_article.headline_block[0].primary.article_headline_img ?? null
 
-  const featuresHeadline = features_page_header ?? 'Features'
+  const featuresHeadline = RichText.asText(features_page_header) ?? 'features'
   const featuresSubheadline =
-    features_page_subtitle ?? 'Your music, residents and more, in depth.'
+    RichText.asText(features_page_subtitle) ?? 'the hotlist'
 
-  const lfLayout = 'column is-12 landing-page-element'
-  const lfImageAspectRatio = 'image is-2by1'
+  // const lfLayout = "column is-12 landing-page-element";
+  // const lfImageAspectRatio = "image is-2by1";
 
-  const allOtherFeatures = allFeaturesData.slice(1)
-  const aofLayout = 'column is-6 landing-page-element'
-  const aofImageAspectRatio = 'image is-16by9'
+  // const allOtherFeatures = allFeaturesData.slice(1);
+  // const aofLayout = "column is-6 landing-page-element";
+  // const aofImageAspectRatio = "image is-16by9";
 
-  const featuresPageLayout = 'column is-12-mobile is-6-tablet is-4-desktop'
+  const individualFeatureLayout = 'column is-12-mobile is-6-tablet is-4-desktop'
 
   return (
     <main className="full-height-page" id="features">
@@ -78,7 +75,7 @@ function FeaturesIndex({ data }) {
         <div className="hero-body">
           <div className="container is-fluid">
             <header className="title is-size-1 is-size-3-touch hero-title">
-              features
+              {featuresHeadline}
             </header>
             <MainFeatureArticle articleData={main_feature_article} />
             {/* <div className="columns is-mobile secondary-features">
@@ -86,18 +83,22 @@ function FeaturesIndex({ data }) {
           </div>
         </div>
       </header>
-      <section className="highlight-features">
-        <HighlightFeature articleData={top_right_feature} />
-        <HighlightFeature articleData={bottom_right_feature} />
-      </section>
-      <section className="container is-fluid">
+
+      {/* Component that houses secondary features */}
+      <HighlightFeatures
+        titling={featuresSubheadline}
+        leftFeature={top_right_feature}
+        rightFeature={bottom_right_feature}
+      />
+
+      <section className="section container is-fluid">
         <div className="columns is-mobile is-multiline">
           {allFeaturesData.length &&
             allFeaturesData.map(({ node }, index) => (
               <SingleFeatureCard
                 key={`halfmoon-feature-${index}`}
                 featureData={node}
-                featureColumnLayout={featuresPageLayout}
+                featureColumnLayout={individualFeatureLayout}
               />
             ))}
         </div>

@@ -15,16 +15,6 @@
   }
 }
 
-section.highlight-features {
-  display: flex;
-  flex-direction: column;
-  height: calc((100vh - 9.75rem));
-
-  article {
-    flex: 1;
-  }
-}
-
 .hero {
   // For ArticleHeadline.js
   &.article-header,
@@ -50,7 +40,6 @@ header,
 
 .lead-details,
 .highlight-details {
-  // background-color: black;
   background-color: rgba($color: black, $alpha: 0.75);
 }
 

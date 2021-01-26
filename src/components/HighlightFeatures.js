@@ -2,45 +2,30 @@ import React from 'react'
 import NanoClamp from 'nanoclamp'
 import { RichText } from 'prismic-reactjs'
 import { Link } from 'gatsby'
+import { SingleFeatureCard } from '../components'
 import { htmlSerializer, linkResolver } from '../utils'
 
-function HighlightFeature({ articleData }) {
-  const { _meta, headline_block } = articleData
-  const {
-    article_headline_img,
-    article_headline,
-    article_category,
-    article_subtitle,
-  } = headline_block[0].primary
-
-  // Set up hyperlink url data
-  const linkTo = { type: _meta.type, uid: _meta.uid }
-
-  // Grab the specific cropped image details
-  const image = article_headline_img.desktop
-
-  // Use the article headline if the image doesn't have alt text
-  const altText = image.alt ?? article_headline[0].text
+function HighlightFeatures({ titling, leftFeature, rightFeature }) {
+  // Dictates SingleFeatureCard layout
+  const highlightFeatureLayout = 'column is-12-mobile is-6 tablet'
 
   return (
-    <article className="hero highlight-feature has-background">
-      <img
-        className="hero-background"
-        src={article_headline_img.url}
-        alt={article_headline_img.alt}
-      />
-      <div className="hero-foot">
-        <div className="container is-fluid">
-          <div className="columns is-vcentered">
-            <div className="column">
-              <p className="title is-size-5-desktop is-size-6-touch">
-                {RichText.asText(article_headline)}
-              </p>
-            </div>
-          </div>
-        </div>
+    <section
+      className="section container is-fluid highlight-features"
+      style={{ backgroundColor: '#f600ff' }}
+    >
+      <h2 className="title hero-title">{titling}</h2>
+      <div className="columns is-mobile">
+        <SingleFeatureCard
+          featureData={leftFeature}
+          featureColumnLayout={highlightFeatureLayout}
+        />
+        <SingleFeatureCard
+          featureData={rightFeature}
+          featureColumnLayout={highlightFeatureLayout}
+        />
       </div>
-    </article>
+    </section>
   )
 }
 
@@ -77,4 +62,4 @@ function HighlightFeature({ articleData }) {
 //     </Link>
 //   </div>
 // )
-export default HighlightFeature
+export default HighlightFeatures

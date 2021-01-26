@@ -228,14 +228,10 @@ function ResidentTemplate({ data }) {
           {/* RESIDENT Features */}
           {hasFeatures && isOpen === 'Features' ? (
             <div className="columns is-mobile is-multiline">
-              {featuresData.map((feature, index) => (
-                <LandingPageElement
-                  key={`resident-feature-#${index}`}
-                  pageElement={feature}
-                  imageAspectRatio="image is-16by9"
-                  columnLayout="column is-6 landing-page-element"
-                />
-              ))}
+              <div className="column">
+                <pre>featuresData {JSON.stringify(featuresData, null, 2)}</pre>
+              </div>
+
               {/* <pre>{JSON.stringify(resident_features, null, 2)}</pre> */}
             </div>
           ) : null}

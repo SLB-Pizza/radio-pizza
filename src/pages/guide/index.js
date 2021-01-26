@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { LandingPageElement } from '../../components'
 
 /**
  * @category Pages
@@ -30,14 +29,14 @@ function CMSGuideIndex({ data }) {
           </div>
         </div>
 
-        {cmsGuideData.map((guide, index) => (
+        {/* {cmsGuideData.map((guide, index) => (
           <LandingPageElement
             key={`CMS-Guide-#${index + 1}`}
             pageElement={guide}
             layout={cmsCardColumnLayout}
             imageAspectRatio={cmsImageAspectRatio}
           />
-        ))}
+        ))} */}
       </div>
     </main>
   )

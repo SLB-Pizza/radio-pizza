@@ -1,7 +1,11 @@
 import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
 import { RichText } from 'prismic-reactjs'
-import { ResidentSocialLinks, mappableDataFilter } from '../utils'
+import {
+  FallbackImage,
+  ResidentSocialLinks,
+  mappableDataFilter,
+} from '../utils'
 import NanoClamp from 'nanoclamp'
 
 /**
@@ -14,7 +18,7 @@ import NanoClamp from 'nanoclamp'
 function ResidentBio({ residentBioData }) {
   const [hasSocialMedia, setMediaData] = useState(false)
 
-  let {
+  const {
     resident_image,
     resident_name,
     resident_status,
@@ -47,12 +51,16 @@ function ResidentBio({ residentBioData }) {
     return bioDataCheck()
   }, [residentBioData, social_media])
 
+  // Fallback Image data
+  const image = resident_image ?? fallbackImage
+
   return (
     <div className="column is-3-desktop is-4-tablet is-12-mobile sticky-bio">
       <div className="columns is-multiline">
         <div className="column is-12">
           <figure className="image is-1by1">
-            <img src={resident_image.url} alt={resident_image.alt} />
+            <FallbackImage />
+            {/* <img src={image.url} alt={image.alt} /> */}
           </figure>
         </div>
         <div className="column is-12 content">

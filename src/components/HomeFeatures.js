@@ -4,6 +4,9 @@ import { RichText } from 'prismic-reactjs'
 import { SingleFeatureCard } from './index'
 
 function HomeFeatures({ headline, blurb, homeFeaturesData }) {
+
+  const featuresPageLayout = 'column is-12-mobile is-6-tablet is-4-desktop'
+
   return (
     <div className="container is-fluid" id="home-news">
       {/* DESKTOP */}
@@ -30,8 +33,9 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
                 // <pre>node {JSON.stringify(singleFeature, null, 2)}</pre>
                 <SingleFeatureCard
                   key={`index-#${index}-home-feature`}
+                  featureData={singleFeature.node}
+                  featureColumnLayout={featuresPageLayout}
                   metadata={_meta}
-                  body={headline_block}
                 />
               )
             })}
@@ -61,9 +65,10 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
           return (
             // <pre>node{JSON.stringify(singleFeature, null, 2)}</pre>
             <SingleFeatureCard
-              key={`index-#${index}-home-feature`}
-              metadata={_meta}
-              body={headline_block}
+                key={`index-#${index}-home-feature`}
+                featureData={singleFeature.node}
+                featureColumnLayout={featuresPageLayout}
+                metadata={_meta}
             />
           )
         })}

@@ -72,6 +72,7 @@ function FeaturesIndex({ data }) {
       {/* Component that houses secondary features */}
       <HighlightFeatures
         titling={featuresSubheadline}
+        leftFeature={top_right_feature}
         rightFeature={bottom_right_feature}
       />
 

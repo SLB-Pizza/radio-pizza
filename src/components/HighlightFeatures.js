@@ -6,22 +6,20 @@ function HighlightFeatures({
   leftFeature,
   rightFeature,
 }) {
-  // Dictates SingleFeatureCard layout
-  const leftFeatureLayout = 'column is-12-mobile is-6 tablet'
-  const rightFeatureLayout = 'column is-12-mobile is-6 tablet'
+  // Dictates SingleFeatureCard layout; could be overwritten by if-else's below
+  let leftFeatureLayout = 'column is-12-mobile is-6 tablet'
+  let rightFeatureLayout = 'column is-12-mobile is-6 tablet'
 
   // If BOTH the leftFeature and rightFeature haven't been designated in the CMS, do not render this component!
-  if (leftFeature === null && rightFeature === null) {
+  if (!leftFeature && !rightFeature) {
     return null
   }
-
   // Change the featureColumnLayout for rightFeature if there is no leftFeature
-  if (leftFeature === null) {
+  else if (!leftFeature) {
     rightFeatureLayout = 'column is-12'
   }
-
   // ...and vice versa
-  if (rightFeature === null) {
+  else if (!rightFeature) {
     leftFeatureLayout = 'column is-12'
   }
 
@@ -44,9 +42,9 @@ function HighlightFeatures({
             featureColumnLayout={rightFeatureLayout}
           />
         )}
-        <div className="column">
+        {/* <div className="column">
           <pre>{JSON.stringify(leftFeature, null, 2)}</pre>
-        </div>
+        </div> */}
       </div>
     </section>
   )

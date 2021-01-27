@@ -21,16 +21,16 @@ $shadow: 5;
   text-shadow: $text-shadow;
   text-stroke: 0.125rem black;
   -webkit-text-stroke: 0.125rem black;
+}
 
-  &.cta {
-    display: inline-block;
-    padding: 0.75rem 0.75rem 0.5rem;
-    border: 2px solid white;
-    border-radius: 0.75rem;
-    background-color: rgba($color: black, $alpha: 0.9);
-    &::after {
-      content: " \2023";
-    }
+.cta {
+  display: inline-block;
+  padding: 0.75rem 0.75rem 0.5rem;
+  border: 2px solid white;
+  border-radius: 0.75rem;
+  background-color: rgba($color: black, $alpha: 0.9);
+  &::after {
+    content: " \2023";
   }
 }
 

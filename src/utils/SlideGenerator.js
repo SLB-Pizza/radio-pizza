@@ -1,6 +1,7 @@
 import React from 'react'
 import { navigate } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
+import { FallbackImage } from '../utils'
 
 /**
  * @category Site Elements
@@ -15,42 +16,53 @@ import { RichText } from 'prismic-reactjs'
  * @returns {jsx} a complete layout fragment for use in the return statement, inside the <Slider> component
  */
 function SlideGenerator({ background, headline, link, cta }) {
+  const props = { className: 'hero-background' }
+
   return (
-    <section
-      className="hero is-fullheight-with-navbar homepage-hero"
+    <header
+      className="hero has-background homepage"
       style={{
         backgroundImage: `url(${background.url})`,
         pointerEvents: 'none',
       }}
     >
+      {background ? (
+        <img
+          className="hero-background"
+          src={background.url}
+          alt={background.alt}
+        />
+      ) : (
+        <FallbackImage {...props} />
+      )}
+
       <div
         className="hero-body"
-        style={{ position: 'relative', zIndex: 9999999 }}
         onClick={() => {
           navigate(`${link.url}`)
         }}
       >
-        <div className="container">
+        <div className="container is-fluid">
           <div className="columns">
-            <div className="column">
+            <div className="column is-narrow">
               <h1
-                className="title is-size-1-desktop is-size-3-touch is-size-5-mobile hero-title"
+                className="title is-size-1-desktop is-size-3-tablet is-size-5-mobile hero-title"
                 style={{ pointerEvents: 'auto' }}
               >
                 {RichText.asText(headline)}
               </h1>
-              <br />
-              <h2
-                className="subtitle is-size-5-desktop is-size-5-touch is-size-7-mobile hero-title cta"
+
+              <p
+                className="subtitle is-size-5-desktop is-size-6-tablet is-size-7-mobile cta"
                 style={{ pointerEvents: 'auto' }}
               >
                 {RichText.asText(cta)}
-              </h2>
+              </p>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </header>
   )
 }
 

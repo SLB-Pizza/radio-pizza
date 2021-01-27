@@ -16,7 +16,7 @@ import NanoClamp from 'nanoclamp'
  */
 
 function ResidentBio({ residentBioData }) {
-  const [hasSocialMedia, setMediaData] = useState(false)
+  const [socialMediaData, setMediaData] = useState([])
 
   const {
     resident_image,
@@ -27,7 +27,7 @@ function ResidentBio({ residentBioData }) {
   } = residentBioData
 
   /**
-   * Once residentBioData is receiveed, check mappable data subarrays with {@link mappableDataFilter}.
+   * Once residentBioData is received, check mappable data subarrays with {@link mappableDataFilter}.
    *
    * TL;DR
    * If the data subarray has no valid entries
@@ -38,29 +38,28 @@ function ResidentBio({ residentBioData }) {
   useEffect(() => {
     const bioDataCheck = () => {
       if (residentBioData) {
+        // A nested social_media object requires 2 key-value pairs to be valid
         const socialMediaCheck = mappableDataFilter(social_media, 2)
 
+        // setMediaData to result socialMediaCheck array if array has valid entries
         if (socialMediaCheck) {
-          // Assign social_media value of socialMediaCheck array
-          // Make hasMedia true
-          social_media = socialMediaCheck
-          setMediaData(true)
+          setMediaData(socialMediaCheck)
         }
       }
     }
     return bioDataCheck()
-  }, [residentBioData, social_media])
-
-  // Fallback Image data
-  const image = resident_image ?? fallbackImage
+  }, [residentBioData])
 
   return (
     <div className="column is-3-desktop is-4-tablet is-12-mobile sticky-bio">
       <div className="columns is-multiline">
         <div className="column is-12">
           <figure className="image is-1by1">
-            <FallbackImage />
-            {/* <img src={image.url} alt={image.alt} /> */}
+            {resident_image ? (
+              <img src={resident_image.url} alt={resident_image.alt} />
+            ) : (
+              <FallbackImage />
+            )}
           </figure>
         </div>
         <div className="column is-12 content">
@@ -77,7 +76,7 @@ function ResidentBio({ residentBioData }) {
           {RichText.render(resident_blurb)}
         </div>
       </div>
-      {hasSocialMedia ? (
+      {socialMediaData.length && (
         <div className="columns is-mobile is-multiline is-vcentered">
           {social_media.map(
             ({ resident_social_page, resident_social_link }, index) => (
@@ -89,7 +88,7 @@ function ResidentBio({ residentBioData }) {
             )
           )}
         </div>
-      ) : null}
+      )}
     </div>
   )
 }

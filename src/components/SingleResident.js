@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import Nanoclamp from 'nanoclamp'
-import { linkResolver, ResponsiveImage } from '../utils'
+import { FallbackImage, linkResolver, ResponsiveImage } from '../utils'
 
 /**
  * @category Layout Helper
@@ -23,7 +23,11 @@ function SingleResident({ resident }) {
         <div className="card">
           <div className="card-image">
             <figure className="image is-1by1">
-              <img src={resident_image.url} alt={resident_image.alt} />
+              {resident_image ? (
+                <img src={resident_image.url} alt={resident_image.alt} />
+              ) : (
+                <FallbackImage />
+              )}
             </figure>
           </div>
           <div className="card-content">

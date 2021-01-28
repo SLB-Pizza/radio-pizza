@@ -24,7 +24,7 @@ function LeadFeatureHero({
       />
       <div className="hero-body">
         <div className="container is-fluid">
-          <header className="title is-size-1 is-size-3-touch hero-title">
+          <header className="title is-1 is-size-2-touch hero-title">
             {pageTitling}
           </header>
           <LeadFeatureDetails articleData={leadFeatureData} />

@@ -62,11 +62,7 @@ header,
 // ================================
 // HighlightFeatures.js
 // ================================
-// .highlight-features {
-//   background: repeating-linear-gradient(
-//     45deg,
-//     black,
-//     transparent 40%,
-//     darken($primary, 55) 50%
-//   );
-// }
+.highlight-features {
+  border-top: 2px solid white;
+  background: (linear-gradient(to bottom, $primary 0%, black 100%));
+}

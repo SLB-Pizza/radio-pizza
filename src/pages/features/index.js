@@ -88,6 +88,7 @@ function FeaturesIndex({ data }) {
             ))}
         </div>
       </section>
+
       <pre>
         main_feature_article {JSON.stringify(main_feature_article, null, 2)}
       </pre>

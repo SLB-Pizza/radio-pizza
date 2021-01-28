@@ -7,8 +7,8 @@ function HighlightFeatures({
   rightFeature,
 }) {
   // Dictates SingleFeatureCard layout; could be overwritten by if-else's below
-  let leftFeatureLayout = 'column is-12-mobile is-6 tablet'
-  let rightFeatureLayout = 'column is-12-mobile is-6 tablet'
+  let leftFeatureLayout = 'column is-12-touch is-6-desktop'
+  let rightFeatureLayout = 'column is-12-touch is-6-desktop'
 
   // If BOTH the leftFeature and rightFeature haven't been designated in the CMS, do not render this component!
   if (!leftFeature && !rightFeature) {
@@ -24,12 +24,9 @@ function HighlightFeatures({
   }
 
   return (
-    <section
-      className="section container is-fluid highlight-features"
-      style={{ backgroundColor: '#f600ff' }}
-    >
-      <h2 className="title hero-title">{titling}</h2>
-      <div className="columns is-mobile">
+    <section className="section container is-fluid highlight-features">
+      <h2 className="title is-2 is-size-3-touch hero-title">{titling}</h2>
+      <div className="columns is-mobile is-multiline">
         {leftFeature && (
           <SingleFeatureCard
             featureData={leftFeature}

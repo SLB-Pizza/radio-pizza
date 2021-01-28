@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import {
   TopicPageHero,
+  TopicPageHighlightSection,
   LeadFeatureHero,
   HighlightFeatures,
   SingleFeatureCard,
@@ -47,9 +48,6 @@ function FeaturesIndex({ data }) {
     main_feature_article,
   } = featuresHeaderData
 
-  const featuresSubheadline =
-    RichText.asText(features_page_subtitle) ?? 'the hotlist'
-
   /**
    * Process main_feature_data to set up leadTopicHeroDetails props object for {@link TopicPageHeroDetails}
    */
@@ -76,21 +74,32 @@ function FeaturesIndex({ data }) {
     leadTopicSubcategory: subcategory,
   }
 
+  /**
+   * Create /features highlightItemsData object from leftFeature and rightFeature
+   */
+  const highlightsData = {
+    leftFeature: top_right_feature,
+    rightFeature: bottom_right_feature,
+  }
+
+  const featuresSubheadline =
+    RichText.asText(features_page_subtitle) ?? 'the hotlist'
+
   // Layout details for SingleFeatureCard
   const individualFeatureLayout = 'column is-12-mobile is-6-tablet is-4-desktop'
 
   return (
     <main className="full-height-page" id="features">
-      {/* <LeadFeatureHero
-        leadFeatureData={main_feature_article}
-        leadFeatureBG={backdropImg}
-        pageTitling={featuresHeadline}
-      /> */}
-
       <TopicPageHero
         leadTopicData={leadFeatureData}
         leadTopicBG={article_headline_img}
         topicPageTitling={featuresHeadline}
+      />
+
+      <TopicPageHighlightSection
+        layoutType="features"
+        highlightsData={highlightsData}
+        highlightSectionTitling={featuresSubheadline}
       />
 
       {/* Component that houses secondary features */}

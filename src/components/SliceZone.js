@@ -26,8 +26,7 @@ import {
  * </main>
  * ```
  *
- * Each CMS Slice returned by SliceZone is wrapped in a `<section>` element, so if we did, there would be unnecessary elements between `<main>` and the
- * `<section>`
+ * Each CMS Slice returned by SliceZone is wrapped in a `<section>` element, so if we did, there would be unnecessary elements between `<main>` and the `<section>`
  *
  * e.g.
  * ```html

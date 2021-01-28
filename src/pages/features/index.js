@@ -2,11 +2,13 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import {
+  TopicPageHero,
   LeadFeatureHero,
   HighlightFeatures,
   SingleFeatureCard,
 } from '../../components'
 import PropTypes from 'prop-types'
+import { getMainDefinition } from '@apollo/client/utilities'
 
 /**
  * @category Pages
@@ -45,36 +47,58 @@ function FeaturesIndex({ data }) {
     main_feature_article,
   } = featuresHeaderData
 
-  const backdropImg =
-    main_feature_article.headline_block[0].primary.article_headline_img
-
-  const featuresHeadline = RichText.asText(features_page_header) ?? 'features'
   const featuresSubheadline =
     RichText.asText(features_page_subtitle) ?? 'the hotlist'
 
-  // const lfLayout = "column is-12 landing-page-element";
-  // const lfImageAspectRatio = "image is-2by1";
+  /**
+   * Process main_feature_data to set up leadTopicHeroDetails props object for {@link TopicPageHeroDetails}
+   */
+  const featuresHeadline = RichText.asText(features_page_header) ?? 'features'
 
-  // const allOtherFeatures = allFeaturesData.slice(1);
-  // const aofLayout = "column is-6 landing-page-element";
-  // const aofImageAspectRatio = "image is-16by9";
+  const {
+    article_headline,
+    article_subtitle,
+    article_category,
+    article_subcategory,
+    article_headline_img,
+  } = main_feature_article.headline_block[0].primary
 
+  const title = RichText.asText(article_headline) ?? ''
+  const subtitle = RichText.asText(article_subtitle) ?? ''
+  const category = article_category ?? ''
+  const subcategory = article_subcategory ?? ''
+
+  const leadFeatureData = {
+    linkDetails: main_feature_article._meta,
+    leadTopicTitle: title,
+    leadTopicSubtitle: subtitle,
+    leadTopicCategory: category,
+    leadTopicSubcategory: subcategory,
+  }
+
+  // Layout details for SingleFeatureCard
   const individualFeatureLayout = 'column is-12-mobile is-6-tablet is-4-desktop'
 
   return (
     <main className="full-height-page" id="features">
-      <LeadFeatureHero
+      {/* <LeadFeatureHero
         leadFeatureData={main_feature_article}
         leadFeatureBG={backdropImg}
         pageTitling={featuresHeadline}
+      /> */}
+
+      <TopicPageHero
+        leadTopicData={leadFeatureData}
+        leadTopicBG={article_headline_img}
+        topicPageTitling={featuresHeadline}
       />
 
       {/* Component that houses secondary features */}
-      <HighlightFeatures
+      {/* <HighlightFeatures
         titling={featuresSubheadline}
         leftFeature={top_right_feature}
         rightFeature={bottom_right_feature}
-      />
+      /> */}
 
       <section className="section container is-fluid">
         <div className="columns is-mobile is-multiline">

@@ -5,7 +5,7 @@ import { linkResolver } from '../utils'
 
 /**
  * Returns the Lead Feature's headline, subtitle, category and subcategory in {@link @LeadFeatureHero}
- * @category Layou tHelper
+ * @category Layout Helper
  * @function LeadFeatureDetails
  * @param {Object} articleData
  * @returns {jsx}

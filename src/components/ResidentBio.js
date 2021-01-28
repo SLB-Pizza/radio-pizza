@@ -14,7 +14,6 @@ import NanoClamp from 'nanoclamp'
  * @param {object} residentBioData - the data object coming from Prismic CMS that contains all data needed to build the bio section of the individual `/residents/:uid`  page
  * @returns {jsx}
  */
-
 function ResidentBio({ residentBioData }) {
   const [socialMediaData, setMediaData] = useState([])
 
@@ -29,7 +28,6 @@ function ResidentBio({ residentBioData }) {
   /**
    * Once residentBioData is received, check mappable data subarrays with {@link mappableDataFilter}.
    *
-   * TL;DR
    * If the data subarray has no valid entries
    * --> returns 0
    * If the data subarray has valid entries

@@ -2,7 +2,11 @@ import React, { useEffect, useState, useRef } from 'react'
 import { getCursorFromDocumentIndex } from '@prismicio/gatsby-source-prismic-graphql'
 import { Link, graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
-import { SingleEventCard } from '../../components'
+import {
+  TopicPageHero,
+  TopicPageHighlightSection,
+  SingleEventCard,
+} from '../../components'
 import { linkResolver } from '../../utils'
 
 /**
@@ -12,13 +16,14 @@ import { linkResolver } from '../../utils'
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/features` landing page
  */
 function EventsIndexPage({ data, prismic }) {
-  // Initial useState is first query results
-  // loadNextMixes calls trigger the loadMoreEvents useEffect and add to mixesData
   const prismicContent = data.prismic.allEvents.edges
   if (!prismicContent) return null
+
+  // Initial useState is first query results
+  // loadNextEvents calls trigger the loadMoreEvents useEffect and add to mixesData
   const [eventsData, setEventsData] = useState(prismicContent)
 
-  // for loadMoreMixes useEffect and loadNextMixes function
+  // for loadMoreMixes useEffect and loadNextEvents function
   const eventsPerPage = 12
   const didMountRef = useRef(false)
   const [page, setPage] = useState(-1)
@@ -49,66 +54,69 @@ function EventsIndexPage({ data, prismic }) {
     return loadMoreEvents()
   }, [page])
 
+  // const leadEventData = {
+  //   linkDetails: main_feature_article._meta,
+  //   leadTopicTitle: title,
+  //   leadTopicSubtitle: subtitle,
+  //   leadTopicCategory: category,
+  //   leadTopicSubcategory: subcategory,
+  // };
+
+  // Column layout for SingleEventCard
   const eventPageLayout = 'column is-12-mobile is-6-tablet is-4-desktop'
 
   return (
-    <div className="container is-fluid black-bg-page" id="events-header">
-      <div className="columns is-mobile is-multiline">
-        <div className="column is-full content">
-          <h1 className="title">Halfmoon Events</h1>
+    <main className="full-height-page" id="events-header">
+      {/* <TopicPageHero leadTopicData={} leadTopicBG={} topicPageTitling={} /> */}
+
+      <div className="container is-fluid">
+        <div className="columns is-mobile is-multiline">
+          <div className="column is-full content">
+            <h1 className="title">Halfmoon Events</h1>
+          </div>
+          {eventsData.length &&
+            eventsData.map(({ node }, index) => (
+              <SingleEventCard
+                key={`halfmoon-event-${index}`}
+                eventData={node}
+                eventColumnLayout={eventPageLayout}
+              />
+            ))}
         </div>
-        {eventsData.length &&
-          eventsData.map(({ node }, index) => (
-            <SingleEventCard
-              key={`halfmoon-event-${index}`}
-              eventData={node}
-              eventColumnLayout={eventPageLayout}
-            />
-          ))}
-        {/* {eventsData.length &&
-          eventsData.map(({ node }, index) => (
-            <pre key={index}>node {JSON.stringify(node, null, 2)}</pre>
-          ))} */}
+        {hasMoreEvents ? (
+          <div className="columns is-mobile">
+            <div className="column">
+              <button
+                className="button is-fullwidth is-outlined is-rounded"
+                onClick={loadNextEvents}
+              >
+                More Events!
+              </button>
+            </div>
+            <div className="column is-narrow">
+              <a href="#events-header">
+                <button className="button is-fullwidth is-outlined is-rounded">
+                  Top
+                </button>
+              </a>
+            </div>
+          </div>
+        ) : (
+          <div className="columns is-mobile">
+            <div className="column is-offset-10 is-2">
+              <a href="#events-header">
+                <button className="button is-fullwidth is-outlined is-rounded">
+                  Top
+                </button>
+              </a>
+            </div>
+          </div>
+        )}
       </div>
-      {hasMoreEvents ? (
-        <div className="columns is-mobile">
-          <div className="column">
-            <button
-              className="button is-fullwidth is-outlined is-rounded"
-              onClick={loadNextEvents}
-            >
-              More Events!
-            </button>
-          </div>
-          <div className="column is-narrow">
-            <a href="#mixes-header">
-              <button className="button is-fullwidth is-outlined is-rounded">
-                Top
-              </button>
-            </a>
-          </div>
-        </div>
-      ) : (
-        <div className="columns is-mobile">
-          <div className="column is-offset-10 is-2">
-            <a href="#events-header">
-              <button className="button is-fullwidth is-outlined is-rounded">
-                Top
-              </button>
-            </a>
-          </div>
-        </div>
-      )}
-    </div>
+    </main>
   )
 }
 
-// <pre key={index}>node {JSON.stringify(node, null, 2)}</pre>
-// <SingleEventCard
-//   key={`halfmoon-event-${index}`}
-//   eventData={event}
-//   eventColumnLayout={eventPageLayout}
-// />
 export default EventsIndexPage
 
 export const query = graphql`

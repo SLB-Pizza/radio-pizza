@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { useContext } from 'react'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
+import { FallbackImage } from '../utils'
 import { GlobalDispatchContext } from '../context/GlobalContextProvider'
 
 /**
@@ -23,7 +24,7 @@ function MixPlayOverlay({
   url,
   title,
   residents,
-  img,
+  img = `img/halfmoon_white.png`,
   wrapperClassName,
   isCollection,
   collectionDetails,
@@ -38,7 +39,7 @@ function MixPlayOverlay({
         url,
         title,
         resident: residents,
-        img: img.now_playing.url,
+        img: nowPlayingImg,
       },
     })
   }
@@ -67,7 +68,7 @@ function MixPlayOverlay({
           Play This Mix
         </a>
         <figure className="image is-1by1">
-          <img src={img.url} alt={img.alt} />
+          {img ? <img src={img.url} alt={img.alt} /> : <FallbackImage />}
           <div className="play-btn-diffuser is-overlay">
             <Icon
               icon="play"

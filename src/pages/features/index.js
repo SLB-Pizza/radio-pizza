@@ -4,12 +4,9 @@ import { RichText } from 'prismic-reactjs'
 import {
   TopicPageHero,
   TopicPageHighlightSection,
-  LeadFeatureHero,
-  HighlightFeatures,
   SingleFeatureCard,
 } from '../../components'
 import PropTypes from 'prop-types'
-import { getMainDefinition } from '@apollo/client/utilities'
 
 /**
  * @category Pages
@@ -19,16 +16,16 @@ import { getMainDefinition } from '@apollo/client/utilities'
  */
 function FeaturesIndex({ data }) {
   /**
-   * Focus the node for the allFeaturesData check below.
+   * Focus the node for the otherFeaturesData check below.
    */
   const featuresHeaderData = data.prismic.allLandingpages.edges[0].node
-  const allFeaturesData = data.prismic.allFeatures.edges
+  const otherFeaturesData = data.prismic.allFeatures.edges
 
   /**
    * This line is here to prevent an error from occurring when you eventually deploy the site live. There is an issue with the preview functionality that requires this check on every page.
    * @see https://prismic.io/docs/gatsby/rendering/retrieve-the-document-object#21_0-adding-a-validation-check
    */
-  if (!allFeaturesData || !featuresHeaderData) return null
+  if (!otherFeaturesData || !featuresHeaderData) return null
 
   /**
    * The data from the 'FeaturesIndexPage' query comes pre-sorted to show the most recent published feature, NOT the most recently updated.
@@ -39,7 +36,6 @@ function FeaturesIndex({ data }) {
   /**
    * Break down featuresHeaderData for use
    */
-
   const {
     features_page_header,
     features_page_subtitle,
@@ -102,17 +98,10 @@ function FeaturesIndex({ data }) {
         highlightSectionTitling={featuresSubheadline}
       />
 
-      {/* Component that houses secondary features */}
-      {/* <HighlightFeatures
-        titling={featuresSubheadline}
-        leftFeature={top_right_feature}
-        rightFeature={bottom_right_feature}
-      /> */}
-
       <section className="section container is-fluid">
         <div className="columns is-mobile is-multiline">
-          {allFeaturesData.length &&
-            allFeaturesData.map(({ node }, index) => (
+          {otherFeaturesData.length &&
+            otherFeaturesData.map(({ node }, index) => (
               <SingleFeatureCard
                 key={`halfmoon-feature-${index}`}
                 featureData={node}

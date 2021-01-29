@@ -7,6 +7,7 @@ import {
   CuratedCollections,
   SingleMixCard,
   MixPlayOverlay,
+  TopicPageHero,
 } from '../../components/'
 
 /**
@@ -19,9 +20,11 @@ import {
 function MixesIndexPage({ data, prismic }) {
   // Initial useState is first query results
   // loadNextMixes calls trigger the loadMoreMixes useEffect and add to mixesData
-  const prismicContent = data.prismic.allMixs.edges
-  if (!prismicContent) return null
-  const [mixesData, setMixesData] = useState(prismicContent)
+  const mixesHeaderData = data.prismic.allLandingpages.edges[0].node
+  const otherMixesData = data.prismic.allMixs.edges
+  if (!otherMixesData || !mixesHeaderData) return null
+
+  const [mixesData, setMixesData] = useState(otherMixesData)
 
   // for loadMoreMixes useEffect and loadNextMixes function
   const mixesPerPage = 12
@@ -45,7 +48,7 @@ function MixesIndexPage({ data, prismic }) {
           // Spread the received mix objects into the existing mixesData array
           setMixesData([...mixesData, ...res.data.allMixs.edges])
           // If there are no further mixes to get, don't show the load button
-          console.log(res)
+          // console.log(res);
           // if (!res.data.allMixs.pageInfo.hasNextPage) {
           //   setHasMoreMixes(false);
           // }
@@ -59,9 +62,11 @@ function MixesIndexPage({ data, prismic }) {
     'column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen'
 
   return (
-    <main className="black-bg-page">
+    <main className="full-height-page">
+      {/* <TopicPageHero leadTopicData={} leadTopicBG={} topicPageTitling={} /> */}
+
       {/* FIRST SECTION - Header Section */}
-      <header className="container is-fluid" id="mixes-header">
+      {/* <header className="container is-fluid" id="mixes-header">
         <div className="columns is-mobile is-multiline">
           <div className="column is-12 content">
             <h1 className="title is-3-desktop is-4-touch">Recent Mixes</h1>
@@ -70,7 +75,10 @@ function MixesIndexPage({ data, prismic }) {
               can hover/touch and play them the same way. Try it!
             </p>
           </div>
-          {/*
+        </div>
+      </header> */}
+
+      {/*
           Inactive Search Bar!
           <div className="column is-9-widescreen is-8-tablet is-12-mobile">
             <div className="field">
@@ -107,8 +115,6 @@ function MixesIndexPage({ data, prismic }) {
               </div>
             </div>
           </div> */}
-        </div>
-      </header>
       {/* SECOND SECTION - Mix section */}
       <section className="container is-fluid">
         <div className="columns is-mobile is-multiline">
@@ -187,8 +193,6 @@ export const query = graphql`
           node {
             _meta {
               uid
-              lastPublicationDate
-              firstPublicationDate
               type
               tags
             }
@@ -200,9 +204,55 @@ export const query = graphql`
               mix_resident {
                 ... on PRISMIC_Resident {
                   resident_name
+                }
+              }
+            }
+          }
+        }
+      }
+      allLandingpages {
+        edges {
+          node {
+            radio_page_header
+            radio_highlights_subheader
+            lead_radio_mix {
+              ... on PRISMIC_Mix {
+                _meta {
+                  uid
+                  type
+                  tags
+                }
+                mix_date
+                mix_image
+                mix_link
+                mix_title
+                featured_residents {
+                  mix_resident {
+                    ... on PRISMIC_Resident {
+                      resident_name
+                    }
+                  }
+                }
+              }
+            }
+            highlight_mixes {
+              featured_mix {
+                ... on PRISMIC_Mix {
                   _meta {
                     uid
                     type
+                    tags
+                  }
+                  mix_date
+                  mix_image
+                  mix_link
+                  mix_title
+                  featured_residents {
+                    mix_resident {
+                      ... on PRISMIC_Resident {
+                        resident_name
+                      }
+                    }
                   }
                 }
               }

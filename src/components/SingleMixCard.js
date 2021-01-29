@@ -100,13 +100,6 @@ function SingleMixCard({ mixData, columnLayout, path }) {
                 </Link>
               </div>
             )}
-            {/* <pre>uid: {JSON.stringify(uid, null, 2)}</pre>
-            <pre>
-              filteredResidents: {JSON.stringify(filteredResidents, null, 2)}
-            </pre>
-            <pre>
-              mixResidentsString: {JSON.stringify(mixResidentsString, null, 2)}
-            </pre> */}
             <TagButtons tagsArray={tags} />
           </div>
         </div>

@@ -21,7 +21,7 @@ function TopicPageHighlightSection({
   const HighlightSectionLayout = highlightLayoutComponents[layoutType]
 
   return (
-    <section className="section container is-fluid highlight-features">
+    <section className="section container is-fluid highlight-items">
       <h2 className="title is-2 is-size-3-touch hero-title">
         {highlightSectionTitling}
       </h2>

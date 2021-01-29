@@ -5,6 +5,7 @@ import { FeaturesHighlightItems } from '../components'
  *
  * @param {String} highlightSectionTitling - defines the section titling; default values are set within the LayoutComponent
  * @param {String} layoutType - used to select the layout component to render the highlights data
+ * @param {String} highlightsData - the data to be rendered by HighlightSectionLayout once the layout component is selected
  * @return {jsx}
  */
 function TopicPageHighlightSection({
@@ -12,7 +13,7 @@ function TopicPageHighlightSection({
   layoutType,
   highlightsData,
 }) {
-  // Pull the Highlight Layout Components for use
+  // Pull in the Highlight Layout Components for use
   const highlightLayoutComponents = {
     features: FeaturesHighlightItems,
   }

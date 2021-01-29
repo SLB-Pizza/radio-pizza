@@ -23,10 +23,9 @@ function TopicPageHeroDetails({ leadTopicDetails }) {
   } = leadTopicDetails
 
   // Set span text
-  const spanText =
-    leadTopicSubcategory !== ''
-      ? `${leadTopicCategory} ‣ ${leadTopicSubcategory}`
-      : `${leadTopicCategory}`
+  const spanText = leadTopicSubcategory
+    ? `${leadTopicCategory} ‣ ${leadTopicSubcategory}`
+    : `${leadTopicCategory}`
 
   return (
     <div className="columns main-feature">

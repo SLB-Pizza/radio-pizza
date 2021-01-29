@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { getCursorFromDocumentIndex } from '@prismicio/gatsby-source-prismic-graphql'
 import { graphql } from 'gatsby'
-
+import { RichText } from 'prismic-reactjs'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import {
   CuratedCollections,
@@ -9,12 +9,14 @@ import {
   MixPlayOverlay,
   TopicPageHero,
 } from '../../components/'
+import { getResidentString } from '../../utils'
 
 /**
  * @category Pages
  * @subcategory Indexes
  * @function MixesIndexPage
- * @param {object} data - the data object coming from Prismic CMS that contains all data needed to display all mixes on `/mixes`
+ * @param {Object} data - the data object coming from Prismic CMS that contains all data needed to display all mixes on `/mixes`
+ * @param {Object} prismic - the data object containing Prismic follow up functions
  * @returns {jsx}
  */
 function MixesIndexPage({ data, prismic }) {
@@ -43,7 +45,11 @@ function MixesIndexPage({ data, prismic }) {
 
       // Grab the next 12 mixes
       prismic
-        .load({ variables: { after: getCursorFromDocumentIndex(page) } })
+        .load({
+          variables: {
+            after: getCursorFromDocumentIndex(page),
+          },
+        })
         .then(res => {
           // Spread the received mix objects into the existing mixesData array
           setMixesData([...mixesData, ...res.data.allMixs.edges])
@@ -58,13 +64,67 @@ function MixesIndexPage({ data, prismic }) {
     return loadMoreMixes()
   }, [page])
 
+  useEffect(() => {
+    /**
+     * Set up /mixes props object for {@link TopicPageHero}
+     *
+     * linkDetails: _meta object
+     * linkTopicTitle:
+     *    mix_title !== null : use mix_title
+     *    mix_title === null : format list of residents as mix_title
+     * linkTopicSubtitle:
+     *    mix_title !== null : getResidentString(list of residents)
+     *    mix_title === null :
+     *
+     */
+    const setHeroData = () => {
+      const {
+        radio_page_header,
+        radio_highlights_subheader,
+        lead_radio_mix,
+        highlight_mixes,
+      } = mixesHeaderData
+    }
+    return setHeroData()
+  }, [data])
+
+  const {
+    _meta,
+    mix_title,
+    mix_blurb,
+    mix_image,
+    featured_residents,
+  } = lead_radio_mix
+
+  const titling = radio_page_header ?? 'radio'
+
+  console.log('mix_title', mix_title)
+  const mixTitle =
+    mix_title !== null ? mix_title : getResidentString(featured_residents)
+  console.log('title used as props', mixTitle)
+
+  const leadSubtitle = mix_blurb ? RichText.asText(mix_blurb.slice(0, 1)) : ''
+
+  const leadMixData = {
+    linkDetails: _meta,
+    leadTopicTitle: mix_title,
+    leadTopicSubtitle: leadSubtitle,
+    leadTopicCategory: 'Mix',
+  }
+  const leadIMG = mix_image
+
   const mixListLayout =
     'column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen'
 
   return (
     <main className="full-height-page">
-      {/* <TopicPageHero leadTopicData={} leadTopicBG={} topicPageTitling={} /> */}
+      <TopicPageHero
+        leadTopicData={leadMixData}
+        leadTopicBG={leadIMG}
+        topicPageTitling={titling}
+      />
 
+      <pre>{JSON.stringify(mixesHeaderData.lead_radio_mix, null, 2)}</pre>
       {/* FIRST SECTION - Header Section */}
       {/* <header className="container is-fluid" id="mixes-header">
         <div className="columns is-mobile is-multiline">
@@ -226,6 +286,7 @@ export const query = graphql`
                 mix_image
                 mix_link
                 mix_title
+                mix_blurb
                 featured_residents {
                   mix_resident {
                     ... on PRISMIC_Resident {

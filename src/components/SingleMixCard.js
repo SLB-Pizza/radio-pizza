@@ -95,7 +95,7 @@ function SingleMixCard({ mixData, columnLayout, path }) {
                     className="title is-size-6"
                     is="p"
                     lines={2}
-                    text={mixResidentsString}
+                    text={`${mixResidentsString}`}
                   />
                 </Link>
               </div>

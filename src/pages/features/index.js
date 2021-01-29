@@ -45,7 +45,7 @@ function FeaturesIndex({ data }) {
   } = featuresHeaderData
 
   /**
-   * Process main_feature_data to set up leadTopicHeroDetails props object for {@link TopicPageHeroDetails}
+   * Process main_feature_data to set up leadTopicHeroDetails props object for {@link TopicPageHero}
    */
   const featuresHeadline = RichText.asText(features_page_header) ?? 'features'
 

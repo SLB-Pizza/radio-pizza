@@ -22,6 +22,14 @@ function TopicPageHeroDetails({ leadTopicDetails }) {
     leadTopicSubcategory,
   } = leadTopicDetails
 
+  /**
+   * Null case: lead_radio_mix undefined
+   * linkDetails should be an bject containing the keys "type" and "uid", each with String values. If linkDetails is a String, that means lead_radio_mix is undefined and we're using the default linkDetails String set in `defaultHeroData.json`
+   */
+
+  const linkTo =
+    typeof linkDetails === 'string' ? linkDetails : linkResolver(linkDetails)
+
   // Set span text
   const spanText = leadTopicSubcategory
     ? `${leadTopicCategory} ‣ ${leadTopicSubcategory}`
@@ -30,7 +38,7 @@ function TopicPageHeroDetails({ leadTopicDetails }) {
   return (
     <div className="columns main-feature">
       <div className="column is-5">
-        <Link to={linkResolver(linkDetails)}>
+        <Link to={linkTo}>
           <div className="lead-details border-color">
             <span className="tag is-outlined is-rounded is-black is-hidden-mobile">
               {spanText}

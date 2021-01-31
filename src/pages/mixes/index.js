@@ -10,6 +10,7 @@ import {
   TopicPageHero,
 } from '../../components/'
 import { getResidentString } from '../../utils'
+import defaultHeroData from '../defaultHeroData.json'
 
 /**
  * @category Pages
@@ -26,14 +27,86 @@ function MixesIndexPage({ data, prismic }) {
   const otherMixesData = data.prismic.allMixs.edges
   if (!otherMixesData || !mixesHeaderData) return null
 
-  const [mixesData, setMixesData] = useState(otherMixesData)
-
-  // for loadMoreMixes useEffect and loadNextMixes function
   const mixesPerPage = 12
   const didMountRef = useRef(false)
+  const mixListLayout =
+    'column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen'
+
+  // for loadMoreMixes useEffect and loadNextMixes function
   const [page, setPage] = useState(-1)
   const [hasMoreMixes, setHasMoreMixes] = useState(true)
+  const [mixHeroData, setHeroData] = useState(null)
+  const [mixHighlightsData, setHighlightsData] = useState(null)
+  const [mixesData, setMixesData] = useState(otherMixesData)
 
+  /**
+   * Set up /mixes props object for {@link TopicPageHero}
+   *
+   * linkDetails: _meta object
+   * linkTopicTitle:
+   *    mix_title !== null : use mix_title
+   *    mix_title === null : format list of residents as mix_title
+   * linkTopicSubtitle:
+   *    mix_title !== null : getResidentString(list of residents)
+   *    mix_title === null :
+   *
+   */
+  useEffect(() => {
+    const processMixesHeaderData = () => {
+      let heroData = {}
+      let highlightsData = {}
+
+      // Break down mixesHeaderData
+      let {
+        radio_page_header,
+        radio_highlights_subheader,
+        lead_radio_mix,
+        highlight_mixes,
+      } = mixesHeaderData
+
+      lead_radio_mix = null
+
+      /**
+       * lead_radio_mix AND/OR highlight_mixes are null
+       */
+      if (!lead_radio_mix) {
+        heroData = { data: defaultHeroData.mixes, titling: 'radio' }
+        setHeroData(heroData)
+      }
+
+      // Break down lead_radio_mix
+      // const {
+      //   _meta,
+      //   mix_title,
+      //   mix_blurb,
+      //   mix_image,
+      //   featured_residents,
+      // } = lead_radio_mix;
+
+      // const titling = radio_page_header ?? "radio";
+
+      // const mixTitle =
+      //   mix_title !== null ? mix_title : getResidentString(featured_residents);
+
+      // const leadSubtitle = mix_blurb
+      //   ? RichText.asText(mix_blurb.slice(0, 1))
+      //   : "";
+
+      // const leadMixData = {
+      //   linkDetails: _meta,
+      //   leadTopicTitle: mix_title,
+      //   leadTopicSubtitle: leadSubtitle,
+      //   leadTopicCategory: "Mix",
+      // };
+      // const leadIMG = mix_image;
+    }
+    return processMixesHeaderData()
+  }, [data])
+
+  /**
+   * Fetch more mixes when the 'More Music' button is clicked.
+   * Use the loadNextMixes function to call the useEffect.
+   */
   const loadNextMixes = () => setPage(page => page + mixesPerPage)
 
   useEffect(() => {
@@ -64,65 +137,16 @@ function MixesIndexPage({ data, prismic }) {
     return loadMoreMixes()
   }, [page])
 
-  useEffect(() => {
-    /**
-     * Set up /mixes props object for {@link TopicPageHero}
-     *
-     * linkDetails: _meta object
-     * linkTopicTitle:
-     *    mix_title !== null : use mix_title
-     *    mix_title === null : format list of residents as mix_title
-     * linkTopicSubtitle:
-     *    mix_title !== null : getResidentString(list of residents)
-     *    mix_title === null :
-     *
-     */
-    const setHeroData = () => {
-      const {
-        radio_page_header,
-        radio_highlights_subheader,
-        lead_radio_mix,
-        highlight_mixes,
-      } = mixesHeaderData
-    }
-    return setHeroData()
-  }, [data])
-
-  const {
-    _meta,
-    mix_title,
-    mix_blurb,
-    mix_image,
-    featured_residents,
-  } = lead_radio_mix
-
-  const titling = radio_page_header ?? 'radio'
-
-  console.log('mix_title', mix_title)
-  const mixTitle =
-    mix_title !== null ? mix_title : getResidentString(featured_residents)
-  console.log('title used as props', mixTitle)
-
-  const leadSubtitle = mix_blurb ? RichText.asText(mix_blurb.slice(0, 1)) : ''
-
-  const leadMixData = {
-    linkDetails: _meta,
-    leadTopicTitle: mix_title,
-    leadTopicSubtitle: leadSubtitle,
-    leadTopicCategory: 'Mix',
-  }
-  const leadIMG = mix_image
-
-  const mixListLayout =
-    'column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen'
-
   return (
     <main className="full-height-page">
-      <TopicPageHero
-        leadTopicData={leadMixData}
-        leadTopicBG={leadIMG}
-        topicPageTitling={titling}
-      />
+      {/* Show only when mixHeroData is processed */
+      mixHeroData && (
+        <TopicPageHero
+          leadTopicData={mixHeroData.data}
+          leadTopicBG={mixHeroData.bg}
+          topicPageTitling={mixHeroData.titling}
+        />
+      )}
 
       <pre>{JSON.stringify(mixesHeaderData.lead_radio_mix, null, 2)}</pre>
       {/* FIRST SECTION - Header Section */}

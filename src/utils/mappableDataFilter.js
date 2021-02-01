@@ -54,8 +54,7 @@
  *     },
  *     alt: "Thank You Scientist",
  *     copyright: null,
- *     url:
- *       "https://images.prismic.io/hmbk-cms/* 5004e5ad-418c-4046-b95f-2d978d251115_thank-you-scientist.webp?* auto=compress,format",
+ *     url: "https://images.prismic.io/the-cms-name-here/image_url.webp",
  *   },
  *   resident_name: "DJ ABC",
  *   resident_status: "Resident",

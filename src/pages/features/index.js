@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import {
@@ -7,6 +7,7 @@ import {
   SingleFeatureCard,
 } from '../../components'
 import PropTypes from 'prop-types'
+import { mixin } from 'lodash'
 
 /**
  * @category Pages
@@ -27,6 +28,10 @@ function FeaturesIndex({ data }) {
    */
   if (!otherFeaturesData || !featuresHeaderData) return null
 
+  const [featuresHeroData, setFeaturesHeroData] = useState(null)
+  const [featuresHighlights, setFeaturesHighlights] = useState(null)
+  const [featuresToMap, setFeaturesToMap] = useState(null)
+
   /**
    * The data from the 'FeaturesIndexPage' query comes pre-sorted to show the most recent published feature, NOT the most recently updated.
    *
@@ -34,74 +39,134 @@ function FeaturesIndex({ data }) {
    */
 
   /**
-   * Break down featuresHeaderData for use
+   * Break down featuresHeaderData for {@link TopicPageHero} and {@link TopicPageHighlightSection}
    */
-  const {
-    features_page_header,
-    features_page_subtitle,
-    bottom_right_feature,
-    top_right_feature,
-    main_feature_article,
-  } = featuresHeaderData
+  useEffect(() => {
+    const processFeaturesHeaderData = () => {
+      // objects to pass to useState after processing
+      let heroData = {}
+      let highlightsData = {}
 
-  /**
-   * Process main_feature_data to set up leadTopicHeroDetails props object for {@link TopicPageHero}
-   */
-  const featuresHeadline = RichText.asText(features_page_header) ?? 'features'
+      let {
+        features_page_header,
+        features_page_subtitle,
+        bottom_right_feature,
+        top_right_feature,
+        main_feature_article,
+      } = featuresHeaderData
 
-  const {
-    article_headline,
-    article_subtitle,
-    article_category,
-    article_subcategory,
-    article_headline_img,
-  } = main_feature_article.headline_block[0].primary
+      const titling = RichText.asText(features_page_header) ?? 'features'
 
-  const title = RichText.asText(article_headline) ?? ''
-  const subtitle = RichText.asText(article_subtitle) ?? ''
-  const category = article_category ?? ''
-  const subcategory = article_subcategory ?? ''
+      /**
+       * main_feature_article is null
+       * - Shift off the first article from `allOtherFeatures` to use as main_feature_article
+       */
+      const allOtherFeatures = otherFeaturesData
+      console.table(allOtherFeatures)
 
-  const leadFeatureData = {
-    linkDetails: main_feature_article._meta,
-    leadTopicTitle: title,
-    leadTopicSubtitle: subtitle,
-    leadTopicCategory: category,
-    leadTopicSubcategory: subcategory,
-  }
+      if (!main_feature_article) {
+        main_feature_article = allOtherFeatures.shift()
+      }
 
-  /**
-   * Create /features highlightItemsData object from leftFeature and rightFeature
-   */
-  const highlightsData = {
-    leftFeature: top_right_feature,
-    rightFeature: bottom_right_feature,
-  }
+      /**
+       * Break down main_feature_article to designate {@link TopicPageHero} props and subcomponent props
+       */
+      const {
+        article_headline,
+        article_subtitle,
+        article_category,
+        article_subcategory,
+        article_headline_img,
+      } = main_feature_article.headline_block[0].primary
 
-  const featuresSubheadline =
-    RichText.asText(features_page_subtitle) ?? 'the hotlist'
+      /**
+       * Assign default values if main_feature_article details unset
+       */
+      const title =
+        RichText.asText(article_headline) ?? 'The latest from HMBK...'
+      const subtitle = RichText.asText(article_subtitle) ?? ''
+      const category = article_category ?? 'Feature'
+      const subcategory = article_subcategory ?? ''
+
+      const leadFeatureData = {
+        linkDetails: main_feature_article._meta,
+        leadTopicTitle: title,
+        leadTopicSubtitle: subtitle,
+        leadTopicCategory: category,
+        leadTopicSubcategory: subcategory,
+      }
+
+      // Assign key-values to heroData from the processed main_feature_article
+      heroData = {
+        titling,
+        bg: article_headline_img,
+        data: leadFeatureData,
+      }
+
+      /**
+       * Create /features highlightItemsData object from leftFeature and rightFeature using features from allOtherFeatures if necessary
+       */
+
+      if (!top_right_feature) {
+        top_right_feature = allOtherFeatures.shift()
+      }
+      if (!bottom_right_feature) {
+        bottom_right_feature = allOtherFeatures.shift()
+      }
+
+      /**
+       * Build the highlightFeatures data object to pass to highlightsData
+       */
+      const highlightFeatures = {
+        leftFeature: top_right_feature,
+        rightFeature: bottom_right_feature,
+      }
+
+      const featuresSubheadline =
+        RichText.asText(features_page_subtitle) ?? 'the hotlist'
+
+      highlightsData = {
+        data: highlightFeatures,
+        titling: featuresSubheadline,
+      }
+
+      // Set featuresHeroData to the assembled heroData object
+      // Set featuresHighlight to the assembled highlightsData object
+      // Set featuresToMap to
+      setFeaturesHeroData(heroData)
+      setFeaturesHighlights(highlightsData)
+      setFeaturesToMap(allOtherFeatures)
+    }
+    return processFeaturesHeaderData()
+  }, [data])
 
   // Layout details for SingleFeatureCard
   const individualFeatureLayout = 'column is-12-mobile is-6-tablet is-4-desktop'
 
   return (
     <main className="full-height-page" id="features">
-      <TopicPageHero
-        leadTopicData={leadFeatureData}
-        leadTopicBG={article_headline_img}
-        topicPageTitling={featuresHeadline}
-      />
+      {/* Show only after featuresHeroData is processed by useEffect */
+      featuresHeroData && (
+        <TopicPageHero
+          leadTopicData={featuresHeroData.data}
+          leadTopicBG={featuresHeroData.bg}
+          topicPageTitling={featuresHeroData.titling}
+        />
+      )}
 
-      <TopicPageHighlightSection
-        layoutType="features"
-        highlightsData={highlightsData}
-        highlightTitling={featuresSubheadline}
-      />
+      {/* Show only after featuresHighlights is processed by useEffect */
+      featuresHighlights && (
+        <TopicPageHighlightSection
+          layoutType="features"
+          highlightsData={featuresHighlights.data}
+          highlightTitling={featuresHighlights.titling}
+        />
+      )}
 
       <section className="section container is-fluid">
         <div className="columns is-mobile is-multiline">
-          {otherFeaturesData.length &&
-            otherFeaturesData.map(({ node }, index) => (
+          {featuresToMap &&
+            featuresToMap.map(({ node }, index) => (
               <SingleFeatureCard
                 key={`halfmoon-feature-${index}`}
                 featureData={node}
@@ -110,10 +175,6 @@ function FeaturesIndex({ data }) {
             ))}
         </div>
       </section>
-
-      <pre>
-        main_feature_article {JSON.stringify(main_feature_article, null, 2)}
-      </pre>
     </main>
   )
 }

@@ -40,7 +40,7 @@ function MixesIndexPage({ data, prismic }) {
   const [mixesToMap, setMixesToMap] = useState(otherMixesData)
 
   /**
-   * Set up /mixes props object for {@link TopicPageHero} and {@link TopicPageHeroDetails}
+   * Set up /mixes props object for {@link TopicPageHero} and {@link TopicPageHighlightSection}
    */
   useEffect(() => {
     const processMixesHeaderData = () => {
@@ -85,27 +85,42 @@ function MixesIndexPage({ data, prismic }) {
         titling,
         data: {
           linkDetails: _meta,
-          leadTopicCategory: 'Mix',
+          leadTopicCategory: 'mix',
         },
       }
 
       /**
        * mix_title exists
-       *  linkTopicTitle    : use mix_title
-       *  linkTopicSubtitle : format list of residents as mix_title
+       *  linkTopicTitle : use mix_title
+       *    if mix_blurb exists as well
+       *      linkTopicSubtitle : use 1st paragraph of mix_blurb
+       *      linkTopicCategory : format list of residents
+       *    else
+       *      linkTopicSubtitle : format list of residents
+       *      linkTopicCategory : "mix" as set above
        */
       if (mix_title) {
         heroData.data.leadTopicTitle = mix_title
-        heroData.data.leadTopicSubtitle = getResidentString(featured_residents)
+
+        if (mix_blurb) {
+          heroData.data.leadTopicSubtitle = RichText.asText([mix_blurb[0]])
+          heroData.data.leadTopicCategory = getResidentString(
+            featured_residents
+          )
+        } else {
+          heroData.data.leadTopicSubtitle = getResidentString(
+            featured_residents
+          )
+        }
       } else {
         /**
          * mix_title === null
          *  linkTopicTitle    : format list of residents as mix_title
-         *  linkTopicSubtitle : if mix_blurb, take first paragraph, else ""
+         *  linkTopicSubtitle : if mix_blurb, 1st paragraph of mix_blurb, else ""
          */
         heroData.data.leadTopicTitle = getResidentString(featured_residents)
         heroData.data.leadTopicSubtitle = mix_blurb
-          ? RichText.asText(mix_blurb.slice(0, 1))
+          ? RichText.asText([mix_blurb[0]])
           : ''
       }
 
@@ -113,12 +128,13 @@ function MixesIndexPage({ data, prismic }) {
        * Check highlight_mixes for mappability and return the first 3 mixes of the resulting array. These three are the ones that'll be mapped by {@link TopicPageHighlightSection}. The slice is necessary because Prismic doesn't allow the setting of a max number of group field items.
        */
       let checkedHighlights = mappableDataFilter(highlight_mixes).slice(0, 4)
+      console.log(checkedHighlights)
 
       /**
        * Do an array length check; if there aren't three featured_mix objects in the array, shift from allOtherMixes to fill the gaps
        */
-      if (checkedHighlights.length !== 3) {
-        const difference = 3 - checkedHighlights.length
+      if (checkedHighlights.length !== 4) {
+        const difference = 4 - checkedHighlights.length
 
         for (let i = 1; i <= difference; i++) {
           const highlightMixToAdd = allOtherMixes.shift
@@ -133,7 +149,7 @@ function MixesIndexPage({ data, prismic }) {
 
       // Set mixesHeroData using the mix_title processed heroData object
       // Set highlightsData using the 3 featured_mix objects
-      // Set otherMixesData in case lead_radio_mix was originally defined
+      // Set allOtherMixes in case lead_radio_mix was originally defined
       setMixHeroData(heroData)
       setHighlightsData(highlightsData)
       setMixesToMap(allOtherMixes)
@@ -196,7 +212,7 @@ function MixesIndexPage({ data, prismic }) {
         />
       )}
 
-      <pre>{JSON.stringify(mixesHeaderData.highlight_mixes, null, 2)}</pre>
+      {/* <pre>{JSON.stringify(mixesHeaderData.highlight_mixes, null, 2)}</pre> */}
       {/* FIRST SECTION - Header Section */}
       {/* <header className="container is-fluid" id="mixes-header">
         <div className="columns is-mobile is-multiline">
@@ -247,8 +263,8 @@ function MixesIndexPage({ data, prismic }) {
               </div>
             </div>
           </div> */}
-      {/* SECOND SECTION - Mix section */}
-      <section className="container is-fluid" id="all-mixes">
+
+      <section className="section container is-fluid" id="all-mixes">
         <div className="columns is-mobile is-multiline">
           {/* All Mixs data in pulled correctly */}
           {mixesToMap.map(({ node }, index) => {

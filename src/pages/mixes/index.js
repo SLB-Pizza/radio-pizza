@@ -8,9 +8,9 @@ import {
   SingleMixCard,
   MixPlayOverlay,
   TopicPageHero,
+  TopicPageHighlightSection,
 } from '../../components/'
-import { getResidentString } from '../../utils'
-import defaultHeroData from '../defaultHeroData.json'
+import { getResidentString, mappableDataFilter } from '../../utils'
 
 /**
  * @category Pages
@@ -22,7 +22,7 @@ import defaultHeroData from '../defaultHeroData.json'
  */
 function MixesIndexPage({ data, prismic }) {
   // Initial useState is first query results
-  // loadNextMixes calls trigger the loadMoreMixes useEffect and add to mixesData
+  // loadNextMixes calls trigger the loadMoreMixes useEffect and add to mixesToMap
   const mixesHeaderData = data.prismic.allLandingpages.edges[0].node
   const otherMixesData = data.prismic.allMixs.edges
   if (!otherMixesData || !mixesHeaderData) return null
@@ -35,24 +35,16 @@ function MixesIndexPage({ data, prismic }) {
   // for loadMoreMixes useEffect and loadNextMixes function
   const [page, setPage] = useState(-1)
   const [hasMoreMixes, setHasMoreMixes] = useState(true)
-  const [mixHeroData, setHeroData] = useState(null)
+  const [mixHeroData, setMixHeroData] = useState(null)
   const [mixHighlightsData, setHighlightsData] = useState(null)
-  const [mixesData, setMixesData] = useState(otherMixesData)
+  const [mixesToMap, setMixesToMap] = useState(otherMixesData)
 
   /**
-   * Set up /mixes props object for {@link TopicPageHero}
-   *
-   * linkDetails: _meta object
-   * linkTopicTitle:
-   *    mix_title !== null : use mix_title
-   *    mix_title === null : format list of residents as mix_title
-   * linkTopicSubtitle:
-   *    mix_title !== null : getResidentString(list of residents)
-   *    mix_title === null :
-   *
+   * Set up /mixes props object for {@link TopicPageHero} and {@link TopicPageHeroDetails}
    */
   useEffect(() => {
     const processMixesHeaderData = () => {
+      // objects to pass to useState after processing
       let heroData = {}
       let highlightsData = {}
 
@@ -64,41 +56,87 @@ function MixesIndexPage({ data, prismic }) {
         highlight_mixes,
       } = mixesHeaderData
 
-      lead_radio_mix = null
-
+      const titling = radio_page_header ?? 'radio'
+      const subheader = radio_highlights_subheader ?? 'select sounds'
       /**
-       * lead_radio_mix AND/OR highlight_mixes are null
+       * lead_radio_mix is null
+       * - Shift off the first mix from `mixesToMap` to use as lead_radio_mix
        */
+      let allOtherMixes = mixesToMap
       if (!lead_radio_mix) {
-        heroData = { data: defaultHeroData.mixes, titling: 'radio' }
-        setHeroData(heroData)
+        lead_radio_mix = allOtherMixes.shift()
       }
 
       // Break down lead_radio_mix
-      // const {
-      //   _meta,
-      //   mix_title,
-      //   mix_blurb,
-      //   mix_image,
-      //   featured_residents,
-      // } = lead_radio_mix;
+      const {
+        _meta,
+        mix_title,
+        mix_blurb,
+        mix_image,
+        featured_residents,
+      } = lead_radio_mix
 
-      // const titling = radio_page_header ?? "radio";
+      /**
+       * Once lead_radio_mix exits we can set heroData's bg, titling and some of the data key-value pairs (ones independent of mix_title's existence)
+       */
 
-      // const mixTitle =
-      //   mix_title !== null ? mix_title : getResidentString(featured_residents);
+      heroData = {
+        bg: mix_image,
+        titling,
+        data: {
+          linkDetails: _meta,
+          leadTopicCategory: 'Mix',
+        },
+      }
 
-      // const leadSubtitle = mix_blurb
-      //   ? RichText.asText(mix_blurb.slice(0, 1))
-      //   : "";
+      /**
+       * mix_title exists
+       *  linkTopicTitle    : use mix_title
+       *  linkTopicSubtitle : format list of residents as mix_title
+       */
+      if (mix_title) {
+        heroData.data.leadTopicTitle = mix_title
+        heroData.data.leadTopicSubtitle = getResidentString(featured_residents)
+      } else {
+        /**
+         * mix_title === null
+         *  linkTopicTitle    : format list of residents as mix_title
+         *  linkTopicSubtitle : if mix_blurb, take first paragraph, else ""
+         */
+        heroData.data.leadTopicTitle = getResidentString(featured_residents)
+        heroData.data.leadTopicSubtitle = mix_blurb
+          ? RichText.asText(mix_blurb.slice(0, 1))
+          : ''
+      }
 
-      // const leadMixData = {
-      //   linkDetails: _meta,
-      //   leadTopicTitle: mix_title,
-      //   leadTopicSubtitle: leadSubtitle,
-      //   leadTopicCategory: "Mix",
-      // };
-      // const leadIMG = mix_image;
+      /**
+       * Check highlight_mixes for mappability and return the first 3 mixes of the resulting array. These three are the ones that'll be mapped by {@link TopicPageHighlightSection}. The slice is necessary because Prismic doesn't allow the setting of a max number of group field items.
+       */
+      let checkedHighlights = mappableDataFilter(highlight_mixes).slice(0, 4)
+
+      /**
+       * Do an array length check; if there aren't three featured_mix objects in the array, shift from allOtherMixes to fill the gaps
+       */
+      if (checkedHighlights.length !== 3) {
+        const difference = 3 - checkedHighlights.length
+
+        for (let i = 1; i <= difference; i++) {
+          const highlightMixToAdd = allOtherMixes.shift
+          checkedHighlights.push(highlightMixToAdd)
+        }
+      }
+
+      highlightsData = {
+        titling: subheader,
+        data: checkedHighlights,
+      }
+
+      // Set mixesHeroData using the mix_title processed heroData object
+      // Set highlightsData using the 3 featured_mix objects
+      // Set otherMixesData in case lead_radio_mix was originally defined
+      setMixHeroData(heroData)
+      setHighlightsData(highlightsData)
+      setMixesToMap(allOtherMixes)
     }
     return processMixesHeaderData()
   }, [data])
@@ -124,9 +162,10 @@ function MixesIndexPage({ data, prismic }) {
           },
         })
         .then(res => {
-          // Spread the received mix objects into the existing mixesData array
-          setMixesData([...mixesData, ...res.data.allMixs.edges])
+          // Spread the received mix objects into the existing mixesToMap array
+          setMixesToMap([...mixesToMap, ...res.data.allMixs.edges])
           // If there are no further mixes to get, don't show the load button
+          // undefined for some reason
           // console.log(res);
           // if (!res.data.allMixs.pageInfo.hasNextPage) {
           //   setHasMoreMixes(false);
@@ -139,7 +178,7 @@ function MixesIndexPage({ data, prismic }) {
 
   return (
     <main className="full-height-page">
-      {/* Show only when mixHeroData is processed */
+      {/* Show after mixHeroData is processed by useEffect */
       mixHeroData && (
         <TopicPageHero
           leadTopicData={mixHeroData.data}
@@ -148,7 +187,16 @@ function MixesIndexPage({ data, prismic }) {
         />
       )}
 
-      <pre>{JSON.stringify(mixesHeaderData.lead_radio_mix, null, 2)}</pre>
+      {/* Show after mixHighlightsData is processed by useEffect */
+      mixHighlightsData && (
+        <TopicPageHighlightSection
+          layoutType="mixes"
+          highlightsData={mixHighlightsData.data}
+          highlightTitling={mixHighlightsData.titling}
+        />
+      )}
+
+      <pre>{JSON.stringify(mixesHeaderData.highlight_mixes, null, 2)}</pre>
       {/* FIRST SECTION - Header Section */}
       {/* <header className="container is-fluid" id="mixes-header">
         <div className="columns is-mobile is-multiline">
@@ -200,10 +248,10 @@ function MixesIndexPage({ data, prismic }) {
             </div>
           </div> */}
       {/* SECOND SECTION - Mix section */}
-      <section className="container is-fluid">
+      <section className="container is-fluid" id="all-mixes">
         <div className="columns is-mobile is-multiline">
           {/* All Mixs data in pulled correctly */}
-          {mixesData.map(({ node }, index) => {
+          {mixesToMap.map(({ node }, index) => {
             return (
               <SingleMixCard
                 key={`mixes-page-#${index}`}
@@ -212,7 +260,7 @@ function MixesIndexPage({ data, prismic }) {
               />
             )
           })}
-          {/* {mixesData.map(({ node }, index) => {
+          {/* {mixesToMap.map(({ node }, index) => {
             return (
               <SingleMixCard
                 key={`mixes-page-#${index}`}
@@ -222,7 +270,7 @@ function MixesIndexPage({ data, prismic }) {
             );
           })} */}
           <hr />
-          {/* <pre>{JSON.stringify(mixesData, null, 2)}</pre> */}
+          {/* <pre>{JSON.stringify(mixesToMap, null, 2)}</pre> */}
         </div>
         {hasMoreMixes ? (
           <div className="columns is-mobile">
@@ -245,7 +293,7 @@ function MixesIndexPage({ data, prismic }) {
         ) : (
           <div className="columns is-mobile">
             <div className="column is-offset-10 is-2">
-              <a href="#mixes-header">
+              <a href="#all-mixes">
                 <button className="button is-fullwidth is-outlined is-rounded">
                   Top
                 </button>

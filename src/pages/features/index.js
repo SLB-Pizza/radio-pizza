@@ -95,7 +95,7 @@ function FeaturesIndex({ data }) {
       <TopicPageHighlightSection
         layoutType="features"
         highlightsData={highlightsData}
-        highlightSectionTitling={featuresSubheadline}
+        highlightTitling={featuresSubheadline}
       />
 
       <section className="section container is-fluid">

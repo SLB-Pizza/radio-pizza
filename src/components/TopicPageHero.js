@@ -7,7 +7,7 @@ import { FallbackImage } from '../utils'
  * @function TopicPageHero
  * @param {Object} leadTopicData
  * @param {Object} leadTopicBG
- * @param {Object} topicPageTitling - default value set on the page /index before passed into TopicPageHero
+ * @param {String} topicPageTitling - default value set on the page /index before passed into TopicPageHero
  * @return {jsx}
  */
 function TopicPageHero({ leadTopicData, leadTopicBG, topicPageTitling }) {

@@ -122,46 +122,57 @@ function ScheduleBar({ timeNow }) {
 
   // check if the Radio.co stream is live once upon bar mounting.
   // if so, set the globalState.live boolean to true.
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const streamResponse = await fetch(`https://public.radio.co/stations/s2857aa101/status`);
-  //     const streamData = await streamResponse.json();
-
-  //     console.log('streamData', streamData);
-  //     console.log('globalState.live:', globalState.live)
-  //     if(streamData.status === 'online') {
-  //       await dispatch({
-  //         type: 'SET_LIVE'
-  //       })
-  //     }
-  //   }
-  //   fetchData();
-  // }, [])
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const streamResponse = await fetch(`https://public.radio.co/stations/s2857aa101/status`);
+        const streamData = await streamResponse.json();
+        // console.log('streamData', streamData);
+        // console.log('globalState.live:', globalState.live)
+        if(streamData.status === 'online') {
+          await dispatch({
+            type: 'SET_LIVE'
+          })
+        } else {
+          await dispatch({
+            type: 'SET_NOT_LIVE',
+          })
+        }
+      } catch(error) {
+        console.log( 'Error while fetching stream status, error:', error)
+      }
+    }
+    fetchData();
+  }, [])
 
   // Repeats the check above every 60 seconds, but also doesn't dispatch a context update unless needed.
   // clears itself when unmounting.
   useEffect(() => {
     const interval = setInterval(async () => {
-      const streamResponse = await fetch(
-        `https://public.radio.co/stations/s2857aa101/status`
-      )
-      const streamData = await streamResponse.json()
-
-      console.log('setInterval streamData:', streamData)
-      console.log('setInterval globalState.live:', globalState.live)
-      // I think a live status is "online" as a not live status is "offline"
-      if (streamData.status === 'online' && globalState.live === false) {
-        await dispatch({
-          type: 'SET_LIVE',
-        })
-      } else if (streamData.status === 'offline' && globalState.live === true) {
-        await dispatch({
-          type: 'SET_NOT_LIVE',
-        })
-      } else {
-        await dispatch({
-          type: 'SET_NOT_LIVE',
-        })
+      try {
+        const streamResponse = await fetch(
+          `https://public.radio.co/stations/s2857aa101/status`
+        )
+        const streamData = await streamResponse.json()
+  
+        console.log('setInterval streamData:', streamData)
+        console.log('setInterval globalState.live:', globalState.live)
+        // I think a live status is "online" as a not live status is "offline"
+        if (streamData.status === 'online' && globalState.live === false) {
+          await dispatch({
+            type: 'SET_LIVE',
+          })
+        } else if (streamData.status === 'offline' && globalState.live === true) {
+          await dispatch({
+            type: 'SET_NOT_LIVE',
+          })
+        } else {
+          await dispatch({
+            type: 'SET_NOT_LIVE',
+          })
+        }
+      } catch(error) {
+        console.log( 'Error while interval fetching stream status, error:', error)
       }
     }, 60000)
     return () => clearInterval(interval)

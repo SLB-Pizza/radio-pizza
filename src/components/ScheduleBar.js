@@ -151,7 +151,7 @@ function ScheduleBar({ timeNow }) {
     const interval = setInterval(async () => {
       try {
         const streamResponse = await fetch(
-          `https://public.radio.co/stations/s2857aa101/status`
+          `https://public.radio.co/stations/s6f093248d/status`
         )
         const streamData = await streamResponse.json()
   
@@ -186,7 +186,7 @@ function ScheduleBar({ timeNow }) {
     await dispatch({
       type: 'CHANGE_URL',
       payload: {
-        url: 'https://streamer.radio.co/sa3c47c55b/listen',
+        url: 'https://streamer.radio.co/s6f093248d/listen',
         title: 'Halfmoon Radio',
       },
     })

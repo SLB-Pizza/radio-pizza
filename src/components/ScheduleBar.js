@@ -125,7 +125,7 @@ function ScheduleBar({ timeNow }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const streamResponse = await fetch(`https://public.radio.co/stations/s2857aa101/status`);
+        const streamResponse = await fetch(`https://public.radio.co/stations/s6f093248d/status`);
         const streamData = await streamResponse.json();
         // console.log('streamData', streamData);
         // console.log('globalState.live:', globalState.live)

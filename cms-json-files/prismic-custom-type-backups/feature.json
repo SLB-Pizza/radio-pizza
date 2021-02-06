@@ -1,12 +1,110 @@
 {
-  "Main": {
+  "Headline Block": {
     "uid": {
       "type": "UID",
       "config": {
         "label": "Feature Unique ID",
-        "placeholder": "Enter meaningful unique id (no spaces, hyphenate-words-like-this) >> example-feature-unique-id"
+        "placeholder": "Enter meaningful id (no spaces, hyphenate-words-like-this) >> example-feature-unique-id"
       }
     },
+    "headline_block": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {},
+        "choices": {
+          "headline_block": {
+            "type": "Slice",
+            "fieldset": "Headline Block",
+            "description": "A hero image and headline section to start your article.",
+            "icon": "subtitles",
+            "display": "list",
+            "non-repeat": {
+              "article_headline_img": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [
+                    {
+                      "name": "widescreen",
+                      "width": 1407,
+                      "height": null
+                    },
+                    {
+                      "name": "desktop",
+                      "width": 1215,
+                      "height": null
+                    },
+                    {
+                      "name": "tablet",
+                      "width": 1023,
+                      "height": null
+                    },
+                    {
+                      "name": "mobile",
+                      "width": 767,
+                      "height": null
+                    },
+                    {
+                      "name": "square_highlight",
+                      "width": 256,
+                      "height": 256
+                    },
+                    {
+                      "name": "lo_fi_placeholder",
+                      "width": 32,
+                      "height": null
+                    }
+                  ],
+                  "label": "Article Headline Image (REQUIRED)"
+                }
+              },
+              "article_category": {
+                "type": "Text",
+                "config": {
+                  "label": "Article Category (REQUIRED)",
+                  "placeholder": "(REQUIRED) Enter article category here..."
+                }
+              },
+              "article_subcategory": {
+                "type": "Text",
+                "config": {
+                  "label": "Article Subcategory (REQUIRED)",
+                  "placeholder": "(REQUIRED) Enter Article Subcategory here..."
+                }
+              },
+              "article_headline": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1",
+                  "label": "Article Headline (REQUIRED)",
+                  "placeholder": "(REQUIRED) Enter your headline here..."
+                }
+              },
+              "article_subtitle": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading4",
+                  "label": "Article Subtitle (REQUIRED)",
+                  "placeholder": "(REQUIRED) Enter the feature subtitle here..."
+                }
+              },
+              "article_author": {
+                "type": "Link",
+                "config": {
+                  "select": "document",
+                  "label": "Article Author",
+                  "placeholder": "Select the article author (Create Staff member first, if necessary)"
+                }
+              }
+            },
+            "repeat": {}
+          }
+        }
+      }
+    }
+  },
+  "Content": {
     "body": {
       "type": "Slices",
       "fieldset": "Slice zone",
@@ -291,100 +389,6 @@
                   "constraint": {},
                   "thumbnails": [],
                   "label": "Full Width Image"
-                }
-              }
-            },
-            "repeat": {}
-          },
-          "headline_block": {
-            "type": "Slice",
-            "fieldset": "Headline Block",
-            "description": "A hero image and headline section to start your article.",
-            "icon": "subtitles",
-            "display": "list",
-            "non-repeat": {
-              "article_headline_img": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [
-                    {
-                      "name": "widescreen",
-                      "width": 1407,
-                      "height": null
-                    },
-                    {
-                      "name": "desktop",
-                      "width": 1215,
-                      "height": null
-                    },
-                    {
-                      "name": "tablet",
-                      "width": 1023,
-                      "height": null
-                    },
-                    {
-                      "name": "mobile",
-                      "width": 767,
-                      "height": null
-                    },
-                    {
-                      "name": "lo_fi_placeholder",
-                      "width": 32,
-                      "height": null
-                    }
-                  ],
-                  "label": "Article Headline Image"
-                }
-              },
-              "article_category": {
-                "type": "Text",
-                "config": {
-                  "label": "Article Category",
-                  "placeholder": "Enter article category here..."
-                }
-              },
-              "article_subcategory": {
-                "type": "Text",
-                "config": {
-                  "label": "Article Subcategory",
-                  "placeholder": "Enter Article Subcategory here..."
-                }
-              },
-              "article_headline": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading1",
-                  "label": "Article Headline",
-                  "placeholder": "Enter your headline here..."
-                }
-              },
-              "article_subtitle": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading4",
-                  "label": "Article Subtitle",
-                  "placeholder": "Enter the feature subtitle here..."
-                }
-              },
-              "article_author": {
-                "type": "Link",
-                "config": {
-                  "select": "document",
-                  "customtypes": ["staff"],
-                  "label": "Article Author",
-                  "placeholder": "Select the article author..."
-                }
-              },
-              "article_author_pic": {
-                "type": "Image",
-                "config": {
-                  "constraint": {
-                    "width": 128,
-                    "height": 128
-                  },
-                  "thumbnails": [],
-                  "label": "Article Author Pic"
                 }
               }
             },

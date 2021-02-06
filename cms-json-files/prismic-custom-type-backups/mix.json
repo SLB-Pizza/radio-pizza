@@ -67,7 +67,7 @@
             "type": "Link",
             "config": {
               "select": "document",
-              "customtypes": ["resident", "restest2"],
+              "customtypes": ["resident"],
               "label": "Mix Resident",
               "placeholder": "Select a resident that features on this mix..."
             }

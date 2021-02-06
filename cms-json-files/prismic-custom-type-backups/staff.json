@@ -1,18 +1,50 @@
 {
-  "Main" : {
-    "hmbk_staff_name" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "HMBK Staff Name",
-        "placeholder" : "Enter Staff Member Name here..."
+  "Main": {
+    "hmbk_staff_name": {
+      "type": "Text",
+      "config": {
+        "label": "HMBK Staff Name",
+        "placeholder": "Enter Staff Member Name here..."
       }
     },
-    "hmbk_staff_position" : {
-      "type" : "Select",
-      "config" : {
-        "options" : [ "Writer", "Editor", "Editor-in-Chief", "Founder", "Super Developer", "Nobel Laureate" ],
-        "label" : "HMBK Staff Position",
-        "placeholder" : "Select staff position"
+    "hmbk_staff_position": {
+      "type": "Select",
+      "config": {
+        "options": [
+          "Writer",
+          "Editor",
+          "Editor-in-Chief",
+          "Founder",
+          "Super Developer",
+          "Nobel Laureate"
+        ],
+        "label": "HMBK Staff Position",
+        "placeholder": "Select staff position"
+      }
+    },
+    "hmbk_staff_photo": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [
+          {
+            "name": "profile",
+            "width": 750,
+            "height": 750
+          },
+          {
+            "name": "small",
+            "width": 300,
+            "height": 300
+          },
+          {
+            "name": "author",
+            "width": 64,
+            "height": 64
+          }
+        ],
+        "label": "HMBK Staff Photo"
       }
     }
   }
+}

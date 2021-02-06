@@ -10,7 +10,6 @@ import { formatDateTime } from '../utils'
  *
  * Determines what to display in {@link ScheduleBar} .up-next center column
  * @category Utilities
- * @subcategory Data Processing
  * @function formatNextShow
  * @param {Object} nextShowData - the schedule data object
  */

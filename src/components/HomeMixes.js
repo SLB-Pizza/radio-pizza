@@ -6,7 +6,6 @@ import { SingleMixCard } from './index'
 /**
  * Returns the Mixes content section of the Homepage, directly underneath the {@link Hero} section.
  * @category Site Elements
- * @subcategory Layout Section
  * @function HomeMixes
  * @param {Object} data - from HomeMixesQuery
  * @property {Object} data.prismic.allHomepages.edges[0] - data node object containing the RichText objects for the Home Mixes headline and blurb

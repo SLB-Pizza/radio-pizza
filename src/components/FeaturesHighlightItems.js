@@ -1,6 +1,14 @@
 import React from 'react'
 import { SingleFeatureCard } from '../components'
 
+/**
+ * Returns the /features highlight section layout
+ * @function FeaturesHighlightItems
+ * @param {Object} highlightItemsData
+ * @prop {Object} highlightItemsData.leftFeature - data object for left feature
+ * @prop {Object} highlightItemsData.rightFeature - data object for right feature
+ * @returns {jsx}
+ */
 function FeaturesHighlightItems({ highlightItemsData }) {
   /**
    * Deconstruct highlightItemsData from {@link TopicPageHighlightSection}

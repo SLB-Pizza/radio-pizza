@@ -1,7 +1,6 @@
 /**
  * Returns a `/path/to/page` for use by gatsby's `Link` or `navigate` (see {@link SlideGenerator}) based on the incoming link type.
  * @category Utilities
- * @subcategory Data Processing
  * @function linkResolver
  * @param {Object} linkObj - object type from the _meta of a HMBK Prismic data node
  * @property {String} link.type - Type of Prismic CMS link, corresponds to a CMS Custom Type

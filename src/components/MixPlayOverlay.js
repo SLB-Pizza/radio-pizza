@@ -7,7 +7,6 @@ import { GlobalDispatchContext } from '../context/GlobalContextProvider'
 /**
  * Creates a clickable play button that sends the selected mix to {@link RadioPlayer}
  * @category Site Elements
- * @subcategory Layout Helper
  * @function MixPlayOverlay
  * @param {String} url - URL of the mix to play
  * @param {String} title - title of the mix to play; shown in {@link RadioPlayer}
@@ -24,7 +23,7 @@ function MixPlayOverlay({
   url,
   title,
   residents,
-  img = `img/halfmoon_white.png`,
+  img,
   wrapperClassName,
   isCollection,
   collectionDetails,

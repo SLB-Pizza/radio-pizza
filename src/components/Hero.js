@@ -16,14 +16,23 @@ function HeroCarousel({ slides }) {
   const timePerSlide = 8000
 
   /**
-   * Style object for bullets to pass as props for <Slider>
+   * Custom bullet component for bullets to pass as props for <Slider>
+   * @see {@link https://github.com/farbenmeer/react-spring-slider#fully-customized|react-spring-slider Fully Customized}
    */
-  const heroBullets = {
-    backgroundColor: '#000',
-    border: '2px solid white',
-    width: '2rem',
-    height: '2rem',
-  }
+  const HeroBullets = ({ onClick, isActive }) => (
+    <li
+      style={{
+        backgroundColor: isActive ? 'white' : 'black',
+        borderRadius: '25%',
+        marginInlineStart: '.5rem',
+        border: isActive ? '2px solid #f600ff' : '2px solid white',
+        width: '32px',
+        height: '32px',
+        opacity: isActive ? '1' : '.5',
+      }}
+      onClick={onClick}
+    ></li>
+  )
 
   /**
    * Style object for arrows to pass as props for <Slider>
@@ -42,7 +51,7 @@ function HeroCarousel({ slides }) {
         hasArrows
         arrowStyle={heroArrows}
         hasBullets
-        bulletStyle={heroBullets}
+        BulletComponent={HeroBullets}
       >
         {slides.map((slide, index) => {
           const { slide_link, slide_bg, slide_headline, slide_cta } = slide

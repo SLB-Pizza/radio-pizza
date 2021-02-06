@@ -7,7 +7,6 @@ import PropTypes from 'prop-types'
 
 /**
  * @category Pages
- * @subcategory Indexes
  * @function SupportPage
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/features` landing page
  * @returns {jsx}

@@ -15,8 +15,6 @@ import {
 /**
  * Function that returns a column an icon that links to the resident's appropriate social media page.
  * @category Site Elements
- * @subcategory Layout Helper
- * @function
  * @function ResidentSocialLinks
  * @param {string} url - link to the resident's page on a platform e.g.bandcamp, soundcloud, mixcloud, etc.
  * @param {icon} platform - name of the corresponding FontAwesomeIcon

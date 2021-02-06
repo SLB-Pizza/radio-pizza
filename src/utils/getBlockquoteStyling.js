@@ -8,7 +8,6 @@
  *
  * The first word of each option matches a case in the switch statement below.
  * @category Utilities
- * @subcategory Slice Helpers
  * @function getBlockquoteStyling
  * @param {String} type
  * @param {Object} bgIMG

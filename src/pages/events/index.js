@@ -11,7 +11,6 @@ import { linkResolver } from '../../utils'
 
 /**
  * @category Pages
- * @subcategory Indexes
  * @function EventsIndexPage
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/features` landing page
  */

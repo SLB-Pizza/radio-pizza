@@ -4,7 +4,6 @@ import { SingleCollection } from '../../components'
 
 /**
  * @category Pages
- * @subcategory Indexes
  * @function CollectionsIndexPage
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to display all mixes on `/mixes`
  * @returns {jsx}

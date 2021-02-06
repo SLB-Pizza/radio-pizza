@@ -4,7 +4,6 @@ import { SingleResident } from '../../components'
 
 /**
  * @category Pages
- * @subcategory Indexes
  * @function ResidentIndex
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/residents` landing page
  * @returns {jsx}

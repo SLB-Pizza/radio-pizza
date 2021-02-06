@@ -5,7 +5,6 @@ dayjs.extend(utc)
 /**
  * Takes in a Date object or regular date string and returns strings formatted by dayjs
  * @category Utilities
- * @subcategory Data Processing
  * @function formatDateTime
  * @param {(Object|String)} time - a Date object or regular string containing datetime
  * @param {String} format - dictates how to format the incoming time

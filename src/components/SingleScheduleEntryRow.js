@@ -3,8 +3,8 @@ import { getResidentLinks } from '../utils'
 
 /**
  * @category Site Elements
- * @subcategory Layout Helper
- * @function
+
+ * @function SingleScheduleEntryRow
  * @param {Object} props
  * @returns {jsx}
  */

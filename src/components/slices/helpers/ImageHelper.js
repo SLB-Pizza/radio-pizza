@@ -3,7 +3,7 @@ import { ImageModal, ResponsiveImage } from '../../../utils'
 /**
  * Creates a JSX segment that CMS Slices call on to format images. Its text counterpart is {@link ContentHelper}. Called upon by {@link ResponsiveImage}
  * @category CMS
- * @subcategory Layout Helper
+
  * @param {?String} columnClassName - optional string prop dictating specific column layouts.
  *
  * **CMS Slices passing this prop**

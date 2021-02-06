@@ -5,7 +5,6 @@ import { linkResolver } from '../utils'
 /**
  * Returns a Gatsby Link element with the correctly resolved link path and label {@link SingleMixCard})
  * @category Utilities
- * @subcategory Data Processing
  * @function getResidentLinks
  * @param {Object[]} residentsArr - Array of resident objects, each containing their _meta data to create links to their page and the resident's name
  * @param {String} currentPath - path data; received only from {@link ResidentTemplate} so the mix cards generated on that resident's page dont have links to the resident page they're already on

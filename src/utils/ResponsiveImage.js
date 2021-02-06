@@ -6,8 +6,7 @@ import 'lazysizes/plugins/attrchange/ls.attrchange'
 /**
  * Creates a JSX `<picture>` element with responsive sources that {@link ImageHelper} calls upon.
  * @category CMS
- * @subcategory Layout Helper
- * @component
+ * @function ResponsiveImage
  * @param {String} mainUrl - the Imgix optimized Prismic image URL for the large image size; bulma "fullhd"
  * @param {Object} responsiveData - an object containing the Imgix optimized Prismic image URLs for the responsive sizes
  * @property {String} responsiveData.widescreen - data object to make the image for bulma "widescreen" breakpoint
@@ -26,17 +25,11 @@ function ResponsiveImage({ largestImg, responsiveData }) {
       {Object.keys(responsiveData).map((imgSize, index) => {
         /**
          * Pull breakpoint-specific image url from responsiveData
-         */
-        const url = responsiveData[imgSize].url
-
-        /**
          * Pull breakpoint-specific image width from responsiveData
-         */
-        const width = responsiveData[imgSize].dimensions.width
-
-        /**
          * Pull breakpoint-specific image height from responsiveData
          */
+        const url = responsiveData[imgSize].url
+        const width = responsiveData[imgSize].dimensions.width
         const height = responsiveData[imgSize].dimensions.height
 
         /**

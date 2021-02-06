@@ -4,7 +4,7 @@ import { processPublicationDates } from '../../utils'
 
 /**
  * @category CMS
- * @subcategory Slices
+ *  Slices
  * @function ArticleHeadline
  * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create the HeadlineBlock slice
  * @param {Object} metadata - data object from Prismic CMS that contains the date publication for the HeadlineBlock slice
@@ -75,18 +75,21 @@ function ArticleHeadline({ headlineData, metadata }) {
                 <span>{' ‣ ' + article_subcategory}</span>
               </p>
               <div className="content">
-                <h1
-                  id="article-headline"
-                  className="title is-size-1-widescreen is-size-2-desktop is-size-4-touch"
-                >
-                  {RichText.asText(article_headline)}
-                </h1>
-
-                <p className="subtitle is-size-3-widescreen is-size-4-desktop is-size-6-touch">
-                  {RichText.asText(article_subtitle)}
-                </p>
+                {article_headline && (
+                  <h1
+                    id="article-headline"
+                    className="title is-size-1-widescreen is-size-2-desktop is-size-4-touch"
+                  >
+                    {RichText.asText(article_headline)}
+                  </h1>
+                )}
+                {article_subtitle && (
+                  <p className="subtitle is-size-3-widescreen is-size-4-desktop is-size-6-touch">
+                    {RichText.asText(article_subtitle)}
+                  </p>
+                )}
               </div>
-            </div>
+              {/* </div>
             {hasAuthorDetails && (
               <div className="column is-narrow">
                 <figure
@@ -100,18 +103,18 @@ function ArticleHeadline({ headlineData, metadata }) {
                   />
                 </figure>
               </div>
-            )}
-            {hasAuthorDetails && (
+            )} */}
+              {/* {hasAuthorDetails && (
               <div className="column is-narrow-desktop">
                 <p className="subtitle is-size-6-desktop is-size-7-touch">
                   {`${article_author.hmbk_staff_name}, ${article_author.hmbk_staff_position}`}
                 </p>
               </div>
-            )}
-            <div className="column is-narrow-desktop">
+            )} */}
+              {/* <div className="column is-narrow-desktop">
               {featureDateDetails.hasBeenUpdated ? (
                 <p className="subtitle is-size-6-desktop is-size-7-touch">
-                  Updated{' '}
+                  Updated
                   <time dateTime={lastPublicationDate}>
                     {featureDateDetails.pubDate}
                   </time>
@@ -122,11 +125,10 @@ function ArticleHeadline({ headlineData, metadata }) {
                     {featureDateDetails.pubDate}
                   </time>
                 </p>
-              )}
+              )} */}
             </div>
           </div>
         </div>
-        ;
       </div>
     </header>
   )

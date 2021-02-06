@@ -2,7 +2,8 @@ import React from 'react'
 import { FeaturesHighlightItems, MixesHighlightItems } from '../components'
 
 /**
- *
+ * Layout wrapper for {@link HighlightSectionLayout}
+ * @function TopicPageHighlightSection
  * @param {String} highlightTitling - defines the section titling; default values are set within the LayoutComponent
  * @param {String} layoutType - used to select the layout component to render the highlights data
  * @param {String} highlightsData - the data to be rendered by HighlightSectionLayout once the layout component is selected
@@ -27,9 +28,9 @@ function TopicPageHighlightSection({
 
   return (
     <section className="section container is-fluid highlight-items">
-      <h2 className="title is-2 is-size-3-touch hero-title">
+      <h1 className="title is-2 is-size-3-touch hero-title">
         {highlightTitling}
-      </h2>
+      </h1>
       <HighlightSectionLayout highlightItemsData={highlightsData} />
     </section>
   )

@@ -1,0 +1,7 @@
+.card {
+  min-height: 10rem;
+  &.highlight-mix {
+    display: flex;
+    flex-direction: row;
+  }
+}

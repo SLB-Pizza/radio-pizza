@@ -4,7 +4,6 @@ import { SliceZone } from '../components'
 import { ArticleHeadline } from '../components/slices/'
 /**
  * @category Templates
- * @subcategory Feature
  * @function FeatureTemplate
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build features off of `/features/:uid`
  * @returns {jsx}
@@ -53,13 +52,13 @@ export const query = graphql`
                   article_headline_img
                   article_headline
                   article_category
-                  article_author_pic
-                  article_author {
-                    ... on PRISMIC_Staff {
-                      hmbk_staff_name
-                      hmbk_staff_position
-                    }
-                  }
+                  # article_author_pic
+                  # article_author {
+                  #   ... on PRISMIC_Staff {
+                  #     hmbk_staff_name
+                  #     hmbk_staff_position
+                  #   }
+                  # }
                 }
               }
             }

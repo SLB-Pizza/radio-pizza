@@ -7,7 +7,6 @@ import { Hero, HomeMixes, HomeEvents, HomeFeatures } from '../components'
 
 /**
  * @category Pages
- * @subcategory Homepage
  * @function IndexPage
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the index route, `/`
  * @returns {jsx}

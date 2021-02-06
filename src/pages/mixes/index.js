@@ -14,7 +14,6 @@ import { getResidentString, mappableDataFilter } from '../../utils'
 
 /**
  * @category Pages
- * @subcategory Indexes
  * @function MixesIndexPage
  * @param {Object} data - the data object coming from Prismic CMS that contains all data needed to display all mixes on `/mixes`
  * @param {Object} prismic - the data object containing Prismic follow up functions

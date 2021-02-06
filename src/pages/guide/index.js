@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 
 /**
  * @category Pages
- * @subcategory Indexes
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/guide` landing page
  */
 function CMSGuideIndex({ data }) {

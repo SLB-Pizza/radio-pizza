@@ -4,7 +4,7 @@ import { htmlSerializer, linkResolver } from '../../utils'
 
 /**
  * @category CMS
- * @subcategory Slices
+ *  Slices
  * @function
  * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create the HeadlineBlock slice
  * @returns {jsx}

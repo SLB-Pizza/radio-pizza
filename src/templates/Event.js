@@ -8,7 +8,6 @@ import dayjs from 'dayjs'
 
 /**
  * @category Templates
- * @subcategory Event
  * @function EventsTemplate
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/features` landing page
  */

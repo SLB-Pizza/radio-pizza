@@ -7,7 +7,6 @@ import NanoClamp from 'nanoclamp'
 
 /**
  * @category Templates
- * @subcategory Mix
  * @function MixTemplate
  * @param {object} data - Prismic CMS data object containing all data needed to build `/mixes/:uid`
  * @returns {jsx}

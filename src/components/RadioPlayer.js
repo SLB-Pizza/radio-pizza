@@ -11,9 +11,9 @@ import {
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
 /**
+ * Returns the Radio Player layout element
  * @category Site Elements
- * @subcategory Layout Helper
- * @function
+ * @function RadioPlayer
  * @returns {jsx}
  */
 function RadioPlayer() {

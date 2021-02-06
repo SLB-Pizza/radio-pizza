@@ -6,7 +6,6 @@ import { FallbackImage } from '../utils'
 /**
  * Returns a complete Hero layout for use in the return statement, inside the <Slider> component
  * @category Site Elements
- * @subcategory Layout Helper
  * @function SlideGenerator
  * @param {Object} background - Object containing the image's URL and alt data
  * @param {String} background.url - The URL from Prismic of that slide's background image. This can be a relative local path (e.g. "/static/something-local.jpg") or an external image link (e.g. "https://source.unsplash.com/1920x1080/daily?music"). Both work.
@@ -16,7 +15,7 @@ import { FallbackImage } from '../utils'
  * @prop {String} link.url - The link to navigate to onClick, This can either be an internal link (e.g. "/events"), or an external link (e.g. "https://www.instagram.com").
  * @returns {jsx}
  */
-function SlideGenerator({ background, headline, link, cta }) {
+function SlideGenerator({ background, headline, link = { url: '/' }, cta }) {
   return (
     <header
       className="hero has-background"
@@ -38,7 +37,7 @@ function SlideGenerator({ background, headline, link, cta }) {
       <div
         className="hero-body"
         onClick={() => {
-          navigate(`${link.url}`)
+          link && navigate(`${link.url}`)
         }}
       >
         <div className="container is-fluid">

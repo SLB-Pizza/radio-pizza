@@ -5,7 +5,6 @@ import { FallbackImage, linkResolver, ResponsiveImage } from '../utils'
 
 /**
  * @category Layout Helper
- * @subcategory Resident
  * @function SingleResident
  * @param {Object} resident - Prismic CMS data object containing all data needed to build resident cards that link out to a `/residents/:uid`
  * @property {Object} _meta - contains the uid and type for use with {@link linkResolver}

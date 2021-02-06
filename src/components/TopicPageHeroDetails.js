@@ -40,11 +40,17 @@ function TopicPageHeroDetails({ leadTopicDetails }) {
       <div className="column is-5">
         <Link to={linkTo}>
           <div className="lead-details border-color">
-            <span className="tag is-outlined is-rounded is-black is-hidden-mobile">
-              {spanText}
-            </span>
-            <h1 className="title is-size-5-touch">{leadTopicTitle}</h1>
-            <h2 className="subtitle is-size-7-touch">{leadTopicSubtitle}</h2>
+            {leadTopicCategory && (
+              <span className="tag is-outlined is-rounded is-black is-hidden-mobile">
+                {spanText}
+              </span>
+            )}
+            {leadTopicTitle && (
+              <h1 className="title is-size-5-touch">{leadTopicTitle}</h1>
+            )}
+            {leadTopicSubtitle && (
+              <h2 className="subtitle is-size-7-touch">{leadTopicSubtitle}</h2>
+            )}
           </div>
         </Link>
       </div>

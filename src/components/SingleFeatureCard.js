@@ -1,13 +1,15 @@
 import React from 'react'
 import { RichText } from 'prismic-reactjs'
 import { Link } from 'gatsby'
+import { FallbackImage } from '../utils'
 import { formatDateTime, linkResolver } from '../utils'
 
 /**
- *
+ * Returns a Feature card layout used on the homepage, single /resident focus page, and the /features landing page
+ * @function SingleFeatureCard
  * @param {Object} featureData - the feature data object
  * @param {String} featureColumnLayout - string dictating column
- * @returns
+ * @returns {jsx}
  */
 function SingleFeatureCard({ featureColumnLayout = 'column', featureData }) {
   const { headline_block, _meta } = featureData
@@ -34,23 +36,33 @@ function SingleFeatureCard({ featureColumnLayout = 'column', featureData }) {
         <div className="card">
           <div className="card-image">
             <figure className="image is-16by9">
-              <img
-                src={article_headline_img.tablet.url}
-                alt={article_headline_img.tablet.alt}
-              />
+              {article_headline_img ? (
+                <img
+                  src={article_headline_img.tablet.url}
+                  alt={article_headline_img.tablet.alt}
+                />
+              ) : (
+                <FallbackImage />
+              )}
             </figure>
           </div>
           <div className="card-content">
-            {/* <pre>{JSON.stringify(featureData, null, 2)}</pre> */}
             <p className="content-date text-truncate subtitle is-size-7">
-              {articleDate} | {article_subcategory}
+              {article_subcategory
+                ? `${articleDate} | ${article_subcategory}`
+                : articleDate}
             </p>
-            <p className="title is-size-6-mobile is-size-5-tablet is-size-4-fullhd">
-              {RichText.asText(article_headline)}
-            </p>
-            <p className="subtitle is-size-7-mobile is-size-6-tablet">
-              {RichText.asText(article_subtitle)}
-            </p>
+
+            {article_headline && (
+              <p className="title is-size-6-mobile is-size-5-tablet is-size-4-fullhd">
+                {RichText.asText(article_headline)}
+              </p>
+            )}
+            {article_subtitle && (
+              <p className="subtitle is-size-7-mobile is-size-6-tablet">
+                {RichText.asText(article_subtitle)}
+              </p>
+            )}
           </div>
         </div>
       </Link>

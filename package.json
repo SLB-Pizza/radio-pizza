@@ -106,7 +106,8 @@
     "screenshots": "node __test__/gatsby-puppeteer.js",
     "start": "npm run develop",
     "storybook": "start-storybook -p 6006",
-    "test": "NODE_ENV=test mocha -r @babel/register -r jsdom-global/register ./__test__/tests/*.test.js"
+    "test": "NODE_ENV=test mocha -r @babel/register -r jsdom-global/register ./__test__/tests/*.test.js",
+    "view-prod": "gatsby build && gatsby serve"
   },
   "husky": {
     "hooks": {

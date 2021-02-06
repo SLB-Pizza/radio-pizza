@@ -3,11 +3,11 @@ import Slider from '@farbenmeer/react-spring-slider'
 import SlideGenerator from '../utils/SlideGenerator'
 
 /**
+ * A complete single slide layout element. Genertated by {@link SlideGenerator}
  * @category Site Elements
- * @subcategory Layout Section
  * @function HeroCarousel
  * @param {Object[]} slides - An array containing data objects from the HomePage query to process and display as slides
- * @returns {jsx} the complete Slider element with slides created by {@link SlideGenerator}
+ * @returns {jsx}
  */
 function HeroCarousel({ slides }) {
   /**
@@ -18,7 +18,12 @@ function HeroCarousel({ slides }) {
   /**
    * Style object for bullets to pass as props for <Slider>
    */
-  const heroBullets = { backgroundColor: '#000', border: '2px solid white' }
+  const heroBullets = {
+    backgroundColor: '#000',
+    border: '2px solid white',
+    width: '2rem',
+    height: '2rem',
+  }
 
   /**
    * Style object for arrows to pass as props for <Slider>
@@ -31,7 +36,7 @@ function HeroCarousel({ slides }) {
   }
 
   return (
-    <div className="slider-sizing">
+    <main className="slider-sizing">
       <Slider
         auto={timePerSlide}
         hasArrows
@@ -53,7 +58,7 @@ function HeroCarousel({ slides }) {
           )
         })}
       </Slider>
-    </div>
+    </main>
   )
 }
 

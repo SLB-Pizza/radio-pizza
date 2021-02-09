@@ -76,11 +76,64 @@ export const query = graphql`
               slide_cta
               slide_headline
               slide_link {
-                _linkType
                 ... on PRISMIC__ExternalLink {
                   target
                   _linkType
                   url
+                }
+                ... on PRISMIC_Feature {
+                  _linkType
+                  _meta {
+                    uid
+                    type
+                  }
+                }
+                ... on PRISMIC_Support {
+                  support_cta
+                  _meta {
+                    uid
+                    type
+                  }
+                }
+                ... on PRISMIC_Schedule {
+                  schedule_date
+                  _linkType
+                  _meta {
+                    uid
+                    type
+                  }
+                }
+                ... on PRISMIC_Mix {
+                  mix_image
+                  mix_title
+                  _meta {
+                    uid
+                    type
+                  }
+                }
+                ... on PRISMIC_Landingpage {
+                  _meta {
+                    uid
+                    type
+                  }
+                }
+                ... on PRISMIC_Resident {
+                  _meta {
+                    uid
+                    type
+                  }
+                }
+                ... on PRISMIC_Event {
+                  _meta {
+                    uid
+                    type
+                  }
+                }
+                ... on PRISMIC_Homepage {
+                  _meta {
+                    uid
+                    type
+                  }
                 }
               }
             }

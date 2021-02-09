@@ -8,21 +8,21 @@ import { Hero, HomeMixes, HomeEvents, HomeFeatures } from '../components'
 /**
  * @category Pages
  * @function IndexPage
- * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the index route, `/`
+ * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the layout for index route, `/`
  * @returns {jsx}
  */
 function IndexPage({ data }) {
-  // Focus the node for the prismicContent check below.
-  const homepageData = data.prismic.allHomepages.edges[0]
-  const homeMixesData = data.prismic.allMixs.edges
-  const homeEventsData = data.prismic.allEvents.edges
-  const homeFeaturesData = data.prismic.allFeatures.edges
-
   /**
    * This line is here to prevent an error from occurring when you eventually deploy the site live. There is an issue with the preview functionality that requires this check on every page.
    * Details: https://prismic.io/docs/gatsby/rendering/retrieve-the-document-object#21_0-adding-a-validation-check
    */
-  if (!homepageData || !homeMixesData || !homeEventsData) return null
+  if (!data) return null
+
+  // Focus the node for the prismicContent check below.
+  const homepageData = data.prismic.allHomepages.edges[0]
+  // const homeMixesData = data.prismic.allMixs.edges;
+  const homeEventsData = data.prismic.allEvents.edges
+  const homeFeaturesData = data.prismic.allFeatures.edges
 
   /**
    * Create objects by pulling data values from carouselSlidesData to pass as props to components in return statement.
@@ -35,6 +35,8 @@ function IndexPage({ data }) {
     home_features_headline,
     home_features_blurb,
     homepage_carousel,
+    home_mixes,
+    editorials,
   } = homepageData.node
 
   return (
@@ -43,7 +45,7 @@ function IndexPage({ data }) {
       <HomeMixes
         headline={home_mixes_headline}
         blurb={home_mixes_blurb}
-        homeMixesData={homeMixesData}
+        homeMixesData={home_mixes}
       />
       <HomeEvents
         headline={home_events_headline}
@@ -137,34 +139,55 @@ export const query = graphql`
                 }
               }
             }
-          }
-        }
-      }
-      allMixs(sortBy: mix_date_DESC, first: 12) {
-        edges {
-          node {
-            _meta {
-              uid
-              lastPublicationDate
-              firstPublicationDate
-              type
-              tags
-            }
-            featured_residents {
-              mix_resident {
-                ... on PRISMIC_Resident {
+            editorials {
+              home_feature {
+                ... on PRISMIC_Feature {
+                  _linkType
+                  headline_block {
+                    ... on PRISMIC_FeatureHeadline_blockHeadline_block {
+                      primary {
+                        article_subtitle
+                        article_subcategory
+                        article_headline_img
+                        article_headline
+                        article_category
+                      }
+                    }
+                  }
                   _meta {
                     uid
                     type
+                    lastPublicationDate
                   }
-                  resident_name
                 }
               }
             }
-            mix_date
-            mix_image
-            mix_link
-            mix_title
+            home_mixes {
+              sound_select {
+                ... on PRISMIC_Mix {
+                  _meta {
+                    uid
+                    type
+                    tags
+                  }
+                  mix_date
+                  mix_image
+                  mix_link
+                  mix_title
+                  featured_residents {
+                    mix_resident {
+                      ... on PRISMIC_Resident {
+                        resident_name
+                        _meta {
+                          uid
+                          type
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -233,3 +256,32 @@ export default IndexPage
 
 // 1408 - 310
 // 1920 - 438
+
+// allMixs(sortBy: mix_date_DESC, first: 12) {
+//   edges {
+//     node {
+//       _meta {
+//         uid
+//         lastPublicationDate
+//         firstPublicationDate
+//         type
+//         tags
+//       }
+//       featured_residents {
+//         mix_resident {
+//           ... on PRISMIC_Resident {
+//             _meta {
+//               uid
+//               type
+//             }
+//             resident_name
+//           }
+//         }
+//       }
+//       mix_date
+//       mix_image
+//       mix_link
+//       mix_title
+//     }
+//   }
+// }

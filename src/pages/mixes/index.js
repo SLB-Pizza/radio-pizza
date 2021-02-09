@@ -193,15 +193,15 @@ function MixesIndexPage({ data, prismic }) {
 
   return (
     <main className="full-height-page">
-      {/* Show after mixHeroData is processed by useEffect */
+      /* Show after mixHeroData is processed by useEffect */
+      {/* {
       mixHeroData && (
         <TopicPageHero
           leadTopicData={mixHeroData.data}
           leadTopicBG={mixHeroData.bg}
           topicPageTitling={mixHeroData.titling}
         />
-      )}
-
+      )} */}
       {/* Show after mixHighlightsData is processed by useEffect */
       mixHighlightsData && (
         <TopicPageHighlightSection
@@ -210,7 +210,6 @@ function MixesIndexPage({ data, prismic }) {
           highlightTitling={mixHighlightsData.titling}
         />
       )}
-
       {/* <pre>{JSON.stringify(mixesHeaderData.highlight_mixes, null, 2)}</pre> */}
       {/* FIRST SECTION - Header Section */}
       {/* <header className="container is-fluid" id="mixes-header">
@@ -224,7 +223,6 @@ function MixesIndexPage({ data, prismic }) {
           </div>
         </div>
       </header> */}
-
       {/*
           Inactive Search Bar!
           <div className="column is-9-widescreen is-8-tablet is-12-mobile">
@@ -262,7 +260,6 @@ function MixesIndexPage({ data, prismic }) {
               </div>
             </div>
           </div> */}
-
       <section className="section container is-fluid" id="all-mixes">
         <div className="columns is-mobile is-multiline">
           {/* All Mixs data in pulled correctly */}

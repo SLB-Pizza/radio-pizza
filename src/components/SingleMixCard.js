@@ -43,13 +43,7 @@ function SingleMixCard({ mixData, columnLayout, path }) {
 
   const mixDate = formatDateTime(mix_date, 'year-month-day') ?? 'no date'
 
-  // Filter out bad linked Resident entries
-  const filteredResidents = mappableDataFilter(featured_residents)
-
-  // Check with pre tag to see if filter works
-  const mixResidentsString = Array.isArray(filteredResidents)
-    ? getResidentString(filteredResidents, path)
-    : 'HMBK Resident'
+  const mixResidentsString = getResidentString(featured_residents)
 
   return (
     <div className={columnLayout}>
@@ -84,13 +78,6 @@ function SingleMixCard({ mixData, columnLayout, path }) {
                     text={mix_title}
                   />
                 </Link>
-                <pre>
-                  featured_residents{' '}
-                  {JSON.stringify(featured_residents, null, 2)}
-                </pre>
-                <pre>
-                  filteredResidents {JSON.stringify(filteredResidents, null, 2)}
-                </pre>
               </div>
             ) : (
               <div className="mix-text">
@@ -103,13 +90,6 @@ function SingleMixCard({ mixData, columnLayout, path }) {
                     text={`${mixResidentsString}`}
                   />
                 </Link>
-                <pre>
-                  featured_residents{' '}
-                  {JSON.stringify(featured_residents, null, 2)}
-                </pre>
-                <pre>
-                  filteredResidents {JSON.stringify(filteredResidents, null, 2)}
-                </pre>
               </div>
             )}
             <TagButtons tagsArray={tags} />

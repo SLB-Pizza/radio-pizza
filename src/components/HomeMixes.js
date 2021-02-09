@@ -24,8 +24,8 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
       <div className="columns is-hidden-touch">
         <div className="column is-3">
           <div className="sticky-section-blurb content">
-            <p className="title">{RichText.asText(headline)}</p>
-            <p className="subtitle">{RichText.render(blurb)}</p>
+            {headline && <p className="title">{RichText.asText(headline)}</p>}
+            {blurb && <p className="subtitle">{RichText.render(blurb)}</p>}
             <Link to="/mixes">
               <button className="button is-outlined is-rounded">
                 All Mixes
@@ -35,23 +35,26 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
         </div>
         <div className="column is-9">
           <div className="columns is-multiline">
-            {homeMixesData.map(({ node }, index) => {
-              return (
-                <SingleMixCard
-                  key={`mixes-page-#${index}`}
-                  mixData={node}
-                  columnLayout={homeMixesLayout}
-                />
-              )
-            })}
+            {homeMixesData.length &&
+              homeMixesData.map(({ sound_select }, index) => {
+                return (
+                  <SingleMixCard
+                    key={`mixes-page-#${index}`}
+                    mixData={sound_select}
+                    columnLayout={homeMixesLayout}
+                  />
+                )
+              })}
           </div>
         </div>
       </div>
       {/* TOUCH */}
       <div className="columns is-mobile is-multiline is-vcentered is-hidden-desktop">
         <div className="column">
-          <p className="title is-4">{RichText.asText(headline)}</p>
-          <p className="subtitle is-6">{RichText.asText(blurb)}</p>
+          {headline && (
+            <p className="title is-4">{RichText.asText(headline)}</p>
+          )}
+          {blurb && <p className="subtitle is-6">{RichText.asText(blurb)}</p>}
         </div>
         <div className="column is-narrow">
           <Link to="/mixes">
@@ -60,23 +63,18 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
             </button>
           </Link>
         </div>
-        {/* <div className="column is-12 mobile-home-description">
-          <p className="subtitle is-size-6">
-            These dummy mixes are the same as the ones on the sample bio page.
-            You can hover/touch and play them the same way. Try it!
-          </p>
-        </div> */}
       </div>
       <div className="columns is-mobile is-hidden-desktop mobile-single-items">
-        {homeMixesData.map(({ node }, index) => {
-          return (
-            <SingleMixCard
-              key={`mixes-page-#${index}`}
-              mixData={node}
-              columnLayout={homeMixesLayout}
-            />
-          )
-        })}
+        {homeMixesData.length &&
+          homeMixesData.map(({ sound_select }, index) => {
+            return (
+              <SingleMixCard
+                key={`mixes-page-#${index}`}
+                mixData={sound_select}
+                columnLayout={homeMixesLayout}
+              />
+            )
+          })}
       </div>
     </div>
   )

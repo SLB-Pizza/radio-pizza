@@ -11,6 +11,8 @@ function getResidentString(residentsArr, useCase) {
   let residents = []
 
   /**
+   * Used by {@link uidValidator}
+   *
    * UID TRANSFORMATION STEPS (useCase === "uid")
    *
    * SINGLE RESIDENT CASE
@@ -22,28 +24,48 @@ function getResidentString(residentsArr, useCase) {
    * MULTIPLE RESIDENT CASE
    *  grab first word of each resident's name
    *  make resident name lowercase
-   *  replace all whitespaces with hyphens
    *  push to residents array
    *  join all residents with a hyphen
    */
   if (useCase === 'uid') {
+    // MULTIPLE RESIDENTS
     if (residentsArr.length > 1) {
-      // SINGLE RESIDENT
-      residentsArr.forEach(({ mix_resident }) => {
-        let residentNameWords = mix_resident.resident_name.split(' ')
-        let residentFirstWord = residentNameWords[0]
-        residents.push(residentFirstWord.toLowerCase().replace(/\s/g, '-'))
-      })
-      return residents.join('-')
+      for (let i = 0; i < residentsArr.length; i++) {
+        // grab current entry
+        let currentResident = residentsArr[i]
+
+        // null check of resident_name key
+        if (!currentResident.mix_resident) {
+          continue
+        }
+        // mix_resident exists, process it
+        else {
+          let currResFirstWord = currentResident.mix_resident
+            .toLowerCase()
+            .split(' ')[0]
+          residents.push(currResFirstWord)
+        }
+      }
     } else {
-      // MULTIPLE RESIDENTS
-      residentsArr.forEach(({ mix_resident }) => {
-        residents.push(
-          mix_resident.resident_name.toLowerCase().replace(/\s/g, '-')
-        )
-      })
-      return residents.join('-')
+      // SINGLE RESIDENT
+      for (let i = 0; i < residentsArr.length; i++) {
+        // grab current entry
+        let currentResident = residentsArr[i]
+
+        // null check of resident_name key
+        if (!currentResident.mix_resident) {
+          continue
+        }
+        // mix_resident exists, process it
+        else {
+          let residentNameWords = currentResident.mix_resident
+            .toLowerCase()
+            .split(' ')
+          residents.push(residentNameWords)
+        }
+      }
     }
+    return residents.join('-')
   }
 
   /**
@@ -51,9 +73,19 @@ function getResidentString(residentsArr, useCase) {
    * Used by:
    * - {@link SingleMixCard}
    */
-  residentsArr.forEach(({ mix_resident }) => {
-    residents.push(mix_resident.resident_name)
-  })
+
+  for (let i = 0; i < residentsArr.length; i++) {
+    const currentResident = residentsArr[i]
+
+    // mix_resident is null; no resident_name can be added
+    if (!currentResident.mix_resident) {
+      continue
+    }
+    // add the resident name to the residents array
+    else {
+      residents.push(currentResident.mix_resident.resident_name)
+    }
+  }
 
   return residents.join(', ')
 }

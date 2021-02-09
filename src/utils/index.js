@@ -21,15 +21,16 @@ export { default as getCMSEntryName } from './getCMSEntryName'
 export { default as getMixTitle } from './getMixTitle'
 export { default as getResidentLinks } from './getResidentLinks'
 export { default as getResidentString } from './getResidentString'
+export { default as HeroArrows } from './HeroArrows'
 export { default as linkStripper } from './linkStripper'
 export { default as mappableDataFilter } from './mappableDataFilter'
 export { default as makeCollectionDispatch } from './makeCollectionDispatch'
-export { default as prioritySetter } from './prioritySetter'
 export { default as playlistShuffle } from './playlistShuffle'
+export { default as prioritySetter } from './prioritySetter'
+export { default as processPublicationDates } from './processPublicationDates'
 export { default as testCaseMaker } from './testCaseMaker'
 export { default as uidAssembler } from './uidAssembler'
 export { default as uidValidator } from './uidValidator'
-export { default as processPublicationDates } from './processPublicationDates'
 
 /**
  * Utility Function - Layout Helpers

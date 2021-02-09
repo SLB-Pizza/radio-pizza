@@ -1,6 +1,7 @@
 import React from 'react'
 import Slider from '@farbenmeer/react-spring-slider'
 import SlideGenerator from '../utils/SlideGenerator'
+import { HeroArrows } from '../utils'
 
 /**
  * A complete single slide layout element. Genertated by {@link SlideGenerator}
@@ -31,26 +32,53 @@ function HeroCarousel({ slides }) {
         opacity: isActive ? '1' : '.5',
       }}
       onClick={onClick}
-    ></li>
+    />
   )
 
   /**
    * Style object for arrows to pass as props for <Slider>
    */
-  const heroArrows = {
-    border: 'solid white',
-    margin: 'auto 3rem auto 2rem',
-    borderWidth: '0 10px 10px 0',
-    color: 'black',
-  }
+  const HeroArrow = ({ onClick, direction }) => (
+    <HeroArrows onClick={onClick} direction={direction} />
+
+    // <div
+    //   style={{
+    //     width: "1.5rem",
+    //     height: "1.5rem",
+    //     borderTop: ".75rem solid #f600ff",
+    //     borderRight: ".75rem solid #f600ff",
+    //     marginLeft: "2rem",
+    //     marginRight: "3rem",
+    //     padding: "1em",
+    //     transform: direction === "left" ? "rotate(-135deg)" : "rotate(45deg)",
+    //   }}
+    //   onClick={onClick}
+    // />
+  )
+
+  // const heroArrows = {
+  //   width: 0,
+  //   height: 0,
+  //   borderTop: "2rem solid transparent",
+  //   borderLeft: "4rem solid blue",
+  //   borderBottom: "2rem solid transparent",
+  // };
+  // const heroArrows = {
+  //   outline: "1px solid red",
+  //   border: "solid white",
+  //   margin: "auto 3rem auto 2rem",
+  //   borderWidth: "0 2rem 2rem 0",
+  //   color: "black",
+  // };
 
   return (
     <main className="slider-sizing">
       <Slider
         auto={timePerSlide}
         hasArrows
-        arrowStyle={heroArrows}
         hasBullets
+        // arrowStyle={heroArrows}
+        ArrowComponent={HeroArrow}
         BulletComponent={HeroBullets}
       >
         {slides.map((slide, index) => {

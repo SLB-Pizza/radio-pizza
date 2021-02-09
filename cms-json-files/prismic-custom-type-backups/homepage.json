@@ -8,16 +8,47 @@
             "type": "Image",
             "config": {
               "constraint": {},
-              "thumbnails": [],
-              "label": "Slide Background Image"
+              "thumbnails": [
+                {
+                  "name": "fhd",
+                  "width": 1920,
+                  "height": null
+                },
+                {
+                  "name": "widescreen",
+                  "width": 1407,
+                  "height": null
+                },
+                {
+                  "name": "desktop",
+                  "width": 1215,
+                  "height": null
+                },
+                {
+                  "name": "tablet",
+                  "width": 1023,
+                  "height": null
+                },
+                {
+                  "name": "mobile",
+                  "width": 767,
+                  "height": null
+                },
+                {
+                  "name": "lo_fi",
+                  "width": 64,
+                  "height": 64
+                }
+              ],
+              "label": "(REQUIRED) Slide Background Image"
             }
           },
           "slide_headline": {
             "type": "StructuredText",
             "config": {
               "single": "heading1",
-              "label": "Slide Headline",
-              "placeholder": "Enter Slide Headline Here"
+              "label": "(REQUIRED) Slide Headline",
+              "placeholder": "Enter Slide Headline here..."
             }
           },
           "slide_cta": {
@@ -32,8 +63,8 @@
             "type": "Link",
             "config": {
               "allowTargetBlank": true,
-              "label": "Slide Link",
-              "placeholder": "Enter Content Link Here"
+              "label": "(REQUIRED) Slide Link",
+              "placeholder": "Enter the link to HMBK content or external link here..."
             }
           }
         },
@@ -41,7 +72,7 @@
       }
     }
   },
-  "Home Content": {
+  "Section Titles and Blurbs": {
     "home_mixes_headline": {
       "type": "StructuredText",
       "config": {
@@ -88,6 +119,44 @@
         "single": "paragraph, strong, em",
         "label": "Home Features Blurb",
         "placeholder": "Enter Home Features blurb here..."
+      }
+    }
+  },
+  "Sound Selects": {
+    "home_mixes": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "sound_select": {
+            "type": "Link",
+            "config": {
+              "customtypes": ["mix"],
+              "select": "document",
+              "label": "Sound Select",
+              "placeholder": "Select a Mix that will appear in the Sound Selects section..."
+            }
+          }
+        },
+        "label": "home_mixes"
+      }
+    }
+  },
+  "Editorials": {
+    "editorials": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "home_feature": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": ["feature"],
+              "label": "home_feature",
+              "placeholder": "Select a Feature that will appear in the Editorials section..."
+            }
+          }
+        },
+        "label": "Editorials"
       }
     }
   }

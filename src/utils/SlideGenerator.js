@@ -32,13 +32,7 @@ function SlideGenerator({ background, headline, link, cta }) {
   }
 
   return (
-    <header
-      className="hero has-background"
-      // style={{
-      //   pointerEvents: "none",
-      // }}
-    >
-      {/* {JSON.stringify(background, null, 2)} */}
+    <header className="hero has-background">
       {background ? (
         <img
           className="hero-background"

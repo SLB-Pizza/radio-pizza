@@ -9,7 +9,7 @@ function SvgComponent({ onClick, direction }) {
       viewBox="0 0 400 400"
       fill="black"
       stroke="white"
-      strokeWidth=".75rem"
+      strokeWidth="1.5rem"
       transform={direction === 'left' ? 'rotate(180)' : ''}
       onClick={onClick}
     >

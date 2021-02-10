@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import { gql, useQuery } from '@apollo/client'
+
 import { SingleMixCard } from './index'
 import { mappableDataFilter } from '../utils'
 
@@ -9,9 +10,9 @@ import { mappableDataFilter } from '../utils'
  * Returns the Mixes content section of the Homepage, directly underneath the {@link Hero} section.
  * @category Site Elements
  * @function HomeMixes
- * @param {Object} data - from HomeMixesQuery
- * @property {Object} data.prismic.allHomepages.edges[0] - data node object containing the RichText objects for the Home Mixes headline and blurb
- * @property {Object[]} data.prismic.allMixs.edges - Array of mix data objects to map the {@link SingleMixCard} component over
+ * @param {Array} headline - Prismic RichText object
+ * @param {Array} blurb - Prismic RichText object
+ * @param {Array[Object]} homeMixesData - Array of data from Prismic received from /index; original data set in Prismic Homepage document
  * @returns {jsx}
  */
 function HomeMixes({ headline, blurb, homeMixesData }) {
@@ -19,11 +20,11 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
 
   /**
    * Query for Prismic in the GraphQL syntax, NOT the Gatsby syntax!
-   * Similar procedure as in {@link ScheduleBar}
+   * Similar procedure as in {@link ScheduleBar}, {@link HomeEvents} and {@link HomeFeatures}
    * @see {@link https://hmbk-cms.prismic.io/graphql|HMBK's Prismic GraphQL API}
    */
   const FILL_HOME_MIXES = gql`
-    query fillHomeMixes($count: Int!) {
+    query FillHomeMixes($count: Int!) {
       allMixs(sortBy: mix_date_DESC, first: $count) {
         edges {
           node {
@@ -63,7 +64,7 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
   })
 
   useEffect(() => {
-    const gatherTwelveMixes = () => {
+    const fetchRemainingHomeMixes = () => {
       /**
        * Three scenarios:
        * 1) homeMixesData has more than 12 mix objects
@@ -73,7 +74,7 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
       if (filteredHomeMixes.length > 12) {
         /**
          * Scenario 1
-         * Grab only the first 12 twelve mixes
+         * Grab only the first 12 mixes
          */
         const mixesToMap = filteredHomeMixes.slice(0, 13)
         setTwelveMixes(mixesToMap)
@@ -100,7 +101,7 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
       }
     }
 
-    return gatherTwelveMixes()
+    return fetchRemainingHomeMixes()
   }, [homeMixesData, data])
 
   /**
@@ -109,7 +110,7 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
   const homeMixesLayout = 'column is-9-mobile is-two-fifths-tablet is-4-desktop'
 
   return (
-    <div className="section container is-fluid" id="home-mixes">
+    <section className="section container is-fluid" id="home-mixes">
       {/* DESKTOP */}
       <div className="columns is-hidden-touch">
         <div className="column is-3">
@@ -166,7 +167,7 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
             )
           })}
       </div>
-    </div>
+    </section>
   )
 }
 

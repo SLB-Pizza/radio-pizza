@@ -38,7 +38,7 @@ function MixPlayOverlay({
         url,
         title,
         resident: residents,
-        img: nowPlayingImg,
+        img: img.now_playing.url,
       },
     })
   }

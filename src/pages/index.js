@@ -20,12 +20,10 @@ function IndexPage({ data }) {
 
   // Focus the node for the prismicContent check below.
   const homepageData = data.prismic.allHomepages.edges[0]
-  // const homeMixesData = data.prismic.allMixs.edges;
   const homeEventsData = data.prismic.allEvents.edges
-  const homeFeaturesData = data.prismic.allFeatures.edges
 
   /**
-   * Create objects by pulling data values from carouselSlidesData to pass as props to components in return statement.
+   * Deconstruct homepageData to
    */
   const {
     home_mixes_headline,
@@ -55,7 +53,7 @@ function IndexPage({ data }) {
       <HomeFeatures
         headline={home_features_headline}
         blurb={home_features_blurb}
-        homeFeaturesData={homeFeaturesData}
+        homeFeaturesData={editorials}
       />
     </div>
   )
@@ -140,9 +138,8 @@ export const query = graphql`
               }
             }
             editorials {
-              home_feature {
+              node {
                 ... on PRISMIC_Feature {
-                  _linkType
                   headline_block {
                     ... on PRISMIC_FeatureHeadline_blockHeadline_block {
                       primary {
@@ -204,29 +201,6 @@ export const query = graphql`
             event_end
             event_start
             event_location
-          }
-        }
-      }
-      allFeatures(sortBy: meta_firstPublicationDate_DESC, first: 4) {
-        edges {
-          node {
-            _meta {
-              uid
-              type
-              firstPublicationDate
-              lastPublicationDate
-            }
-            headline_block {
-              ... on PRISMIC_FeatureHeadline_blockHeadline_block {
-                primary {
-                  article_category
-                  article_subcategory
-                  article_headline_img
-                  article_headline
-                  article_subtitle
-                }
-              }
-            }
           }
         }
       }

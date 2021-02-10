@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
+import { gql, useQuery } from '@apollo/client'
 import { SingleMixCard } from './index'
+import { mappableDataFilter } from '../utils'
 
 /**
  * Returns the Mixes content section of the Homepage, directly underneath the {@link Hero} section.
@@ -13,6 +15,94 @@ import { SingleMixCard } from './index'
  * @returns {jsx}
  */
 function HomeMixes({ headline, blurb, homeMixesData }) {
+  const [twelveMixes, setTwelveMixes] = useState(null)
+
+  /**
+   * Query for Prismic in the GraphQL syntax, NOT the Gatsby syntax!
+   * Similar procedure as in {@link ScheduleBar}
+   * @see {@link https://hmbk-cms.prismic.io/graphql|HMBK's Prismic GraphQL API}
+   */
+  const FILL_HOME_MIXES = gql`
+    query fillHomeMixes($count: Int!) {
+      allMixs(sortBy: mix_date_DESC, first: $count) {
+        edges {
+          node {
+            _meta {
+              uid
+              type
+              tags
+            }
+            mix_image
+            mix_title
+            mix_link
+            mix_date
+            featured_residents {
+              ... on MixFeatured_residents {
+                mix_resident {
+                  ... on Resident {
+                    _meta {
+                      uid
+                      type
+                    }
+                    resident_name
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `
+
+  const filteredHomeMixes = mappableDataFilter(homeMixesData)
+  const mixQueryCount = 12 - filteredHomeMixes.length
+
+  const { data, loading, error } = useQuery(FILL_HOME_MIXES, {
+    variables: { count: mixQueryCount },
+  })
+
+  useEffect(() => {
+    const gatherTwelveMixes = () => {
+      /**
+       * Three scenarios:
+       * 1) homeMixesData has more than 12 mix objects
+       * 2) homeMixesData has less than 12 mix objects
+       * 3) homeMixesData has exactly 12 mix objects
+       */
+      if (filteredHomeMixes.length > 12) {
+        /**
+         * Scenario 1
+         * Grab only the first 12 twelve mixes
+         */
+        const mixesToMap = filteredHomeMixes.slice(0, 13)
+        setTwelveMixes(mixesToMap)
+      } else if (filteredHomeMixes.length < 12) {
+        /**
+         * Scenario 2
+         * Subtract quantity of filteredHomeMixes from 12
+         * Query for that many of the most recent mixes
+         * Spread that data into the filteredHomeMixes array
+         * setTwelveMixes the new 12 mix filteredHomeMixes
+         */
+
+        if (data) {
+          const fetchedRecentMixes = data.allMixs.edges
+          const newTwelveMixes = [...filteredHomeMixes, ...fetchedRecentMixes]
+          setTwelveMixes(newTwelveMixes)
+        }
+      } else {
+        /**
+         * Scenario 3
+         * we have exactly 12 mixes; directly setTwelveMixes off it
+         */
+        setTwelveMixes(filteredHomeMixes)
+      }
+    }
+
+    return gatherTwelveMixes()
+  }, [homeMixesData, data])
+
   /**
    * The string passed into {@link SingleMixCard} that defines the column sizing for the mix cards in the Mixes section of the Homepage.
    */
@@ -35,12 +125,12 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
         </div>
         <div className="column is-9">
           <div className="columns is-multiline">
-            {homeMixesData.length &&
-              homeMixesData.map(({ sound_select }, index) => {
+            {twelveMixes &&
+              twelveMixes.map(({ node }, index) => {
                 return (
                   <SingleMixCard
                     key={`mixes-page-#${index}`}
-                    mixData={sound_select}
+                    mixData={node}
                     columnLayout={homeMixesLayout}
                   />
                 )
@@ -65,12 +155,12 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
         </div>
       </div>
       <div className="columns is-mobile is-hidden-desktop mobile-single-items">
-        {homeMixesData.length &&
-          homeMixesData.map(({ sound_select }, index) => {
+        {twelveMixes &&
+          twelveMixes.map(({ node }, index) => {
             return (
               <SingleMixCard
                 key={`mixes-page-#${index}`}
-                mixData={sound_select}
+                mixData={node}
                 columnLayout={homeMixesLayout}
               />
             )

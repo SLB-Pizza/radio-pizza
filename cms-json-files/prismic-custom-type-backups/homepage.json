@@ -127,11 +127,11 @@
       "type": "Group",
       "config": {
         "fields": {
-          "sound_select": {
+          "node": {
             "type": "Link",
             "config": {
-              "customtypes": ["mix"],
               "select": "document",
+              "customtypes": ["mix"],
               "label": "Sound Select",
               "placeholder": "Select a Mix that will appear in the Sound Selects section..."
             }

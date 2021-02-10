@@ -163,7 +163,7 @@ export const query = graphql`
               }
             }
             home_mixes {
-              sound_select {
+              node {
                 ... on PRISMIC_Mix {
                   _meta {
                     uid

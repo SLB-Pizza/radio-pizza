@@ -43,6 +43,7 @@ function ScheduleBar({ timeNow }) {
   /**
    * Query for Prismic in the GraphQL syntax, not the Gatsby syntax!
    * Retrieves the first available date after yesterday with scheduled show entries
+   * @see {@link https://hmbk-cms.prismic.io/graphql|HMBK's Prismic GraphQL API}
    * @see {@link https://prismic.io/docs/graphql/query-the-api/query-by-date| Prismic - GraphQL Query by Date}
    */
   const GET_NEXT_SHOW = gql`
@@ -125,24 +126,26 @@ function ScheduleBar({ timeNow }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const streamResponse = await fetch(`https://public.radio.co/stations/s6f093248d/status`);
-        const streamData = await streamResponse.json();
+        const streamResponse = await fetch(
+          `https://public.radio.co/stations/s6f093248d/status`
+        )
+        const streamData = await streamResponse.json()
         // console.log('streamData', streamData);
         // console.log('globalState.live:', globalState.live)
-        if(streamData.status === 'online') {
+        if (streamData.status === 'online') {
           await dispatch({
-            type: 'SET_LIVE'
+            type: 'SET_LIVE',
           })
         } else {
           await dispatch({
             type: 'SET_NOT_LIVE',
           })
         }
-      } catch(error) {
-        console.log( 'Error while fetching stream status, error:', error)
+      } catch (error) {
+        console.log('Error while fetching stream status, error:', error)
       }
     }
-    fetchData();
+    fetchData()
   }, [])
 
   // Repeats the check above every 60 seconds, but also doesn't dispatch a context update unless needed.
@@ -154,7 +157,7 @@ function ScheduleBar({ timeNow }) {
           `https://public.radio.co/stations/s6f093248d/status`
         )
         const streamData = await streamResponse.json()
-  
+
         console.log('setInterval streamData:', streamData)
         console.log('setInterval globalState.live:', globalState.live)
         // I think a live status is "online" as a not live status is "offline"
@@ -162,7 +165,10 @@ function ScheduleBar({ timeNow }) {
           await dispatch({
             type: 'SET_LIVE',
           })
-        } else if (streamData.status === 'offline' && globalState.live === true) {
+        } else if (
+          streamData.status === 'offline' &&
+          globalState.live === true
+        ) {
           await dispatch({
             type: 'SET_NOT_LIVE',
           })
@@ -171,8 +177,11 @@ function ScheduleBar({ timeNow }) {
             type: 'SET_NOT_LIVE',
           })
         }
-      } catch(error) {
-        console.log( 'Error while interval fetching stream status, error:', error)
+      } catch (error) {
+        console.log(
+          'Error while interval fetching stream status, error:',
+          error
+        )
       }
     }, 60000)
     return () => clearInterval(interval)

@@ -43,8 +43,8 @@ function ScheduleBar({ timeNow }) {
   /**
    * Query for Prismic in the GraphQL syntax, not the Gatsby syntax!
    * Retrieves the first available date after yesterday with scheduled show entries
-   * @see {@link https://hmbk-cms.prismic.io/graphql|HMBK's Prismic GraphQL API}
-   * @see {@link https://prismic.io/docs/graphql/query-the-api/query-by-date| Prismic - GraphQL Query by Date}
+   * @see {@link https://hmbk-cms.prismic.io/graphql | HMBK's Prismic GraphQL API}
+   * @see {@link https://prismic.io/docs/graphql/query-the-api/query-by-date | Prismic - GraphQL Query by Date}
    */
   const GET_NEXT_SHOW = gql`
     query getNextShow($yesterday: Date!) {
@@ -232,7 +232,7 @@ function ScheduleBar({ timeNow }) {
 
   /**
    * This globalState null return prevents ERROR #95313.
-   * @see {@link https://github.com/gatsbyjs/gatsby/issues/24264#issuecomment-631995753|Re: ERROR #95313 - To stop the error immediately, add a null check for the object}
+   * @see {@link https://github.com/gatsbyjs/gatsby/issues/24264#issuecomment-631995753 | Re: ERROR #95313 - To stop the error immediately, add a null check for the object}
    */
   if (!globalState) return null
 

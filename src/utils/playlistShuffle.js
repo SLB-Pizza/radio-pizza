@@ -1,7 +1,7 @@
 /**
  * Implementation of the Fisher-Yates In-Place Array shuffling algorithm.
  * Receives an array of collection mix objects from {@link makeCollectionDispatch}
- * @see {@link https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle|Fisher-Yates Shuffle - Wikipedia}
+ * @see {@link https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle |Fisher-Yates Shuffle - Wikipedia}
  * @function playlistShuffle
  * @param {Object[]} collectionPlaylist
  * @returns {Object[]} the shuffled playlist

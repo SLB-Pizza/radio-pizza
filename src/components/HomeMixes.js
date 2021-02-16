@@ -21,7 +21,7 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
   /**
    * Query for Prismic in the GraphQL syntax, NOT the Gatsby syntax!
    * Similar procedure as in {@link ScheduleBar}, {@link HomeEvents} and {@link HomeFeatures}
-   * @see {@link https://hmbk-cms.prismic.io/graphql|HMBK's Prismic GraphQL API}
+   * @see {@link https://hmbk-cms.prismic.io/graphql | HMBK's Prismic GraphQL API}
    */
   const FILL_HOME_MIXES = gql`
     query FillHomeMixes($count: Int!) {

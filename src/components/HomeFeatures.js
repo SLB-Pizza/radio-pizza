@@ -21,7 +21,7 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
   /**
    * Query for Prismic in the GraphQL syntax, NOT the Gatsby syntax!
    * Similar procedure as in {@link ScheduleBar}, {@link HomeMixes} and {@link HomeEvents}
-   * @see {@link https://hmbk-cms.prismic.io/graphql|HMBK's Prismic GraphQL API}
+   * @see {@link https://hmbk-cms.prismic.io/graphql | HMBK's Prismic GraphQL API}
    */
 
   const FILL_HOME_FEATURES = gql`

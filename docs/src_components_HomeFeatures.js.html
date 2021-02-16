@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> src/components/RadioPlayer.js</title>
+  <title> src/components/HomeFeatures.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -81,7 +81,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>src/components/RadioPlayer.js</h1>
+                    <h1>src/components/HomeFeatures.js</h1>
                 </header>
                 
 
@@ -90,336 +90,182 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React, { useContext, useRef, useState } from 'react'
-import ReactPlayer from 'react-player'
-import Ticker from 'react-ticker'
-import PageVisibility from 'react-page-visibility'
-import { hot } from 'react-hot-loader'
+            <pre class="prettyprint source linenums"><code>import React, { useEffect, useState } from "react";
+import { Link } from "gatsby";
+import { RichText } from "prismic-reactjs";
+import { gql, useQuery } from "@apollo/client";
 
-import {
-  GlobalDispatchContext,
-  GlobalStateContext,
-} from '../context/GlobalContextProvider'
-import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
+import { SingleFeatureCard } from "./index";
+import { mappableDataFilter } from "../utils";
 
 /**
- * Returns the Radio Player layout element
+ * Returns the HomeFeatures section
  * @category Site Elements
- * @function RadioPlayer
+ * @function HomeFeatures
+ * @param {Array} headline - Prismic RichText object
+ * @param {Array} blurb - Prismic RichText object
+ * @param {Object[]} homeFeaturesData - Array of data from Prismic received from /index; original data set in Prismic Homepage document
  * @returns {jsx}
  */
-function RadioPlayer() {
-  const dispatch = useContext(GlobalDispatchContext)
-  const globalState = useContext(GlobalStateContext)
-
-  const [localState, setLocalState] = useState({
-    url: null,
-    pip: false,
-    loading: false,
-    playing: false,
-    controls: false,
-    light: false,
-    volume: 0.25,
-    muted: false,
-    played: 0,
-    loaded: 0,
-    duration: 0,
-    playbackRate: 1.0,
-    loop: false,
-  })
+function HomeFeatures({ headline, blurb, homeFeaturesData }) {
+  const [twelveFeatures, setTwelveFeatures] = useState(null);
 
   /**
-   * Eliminate width and height = 0 errors by breaking ReactPlayer out of normal document flow and throwing it above the top of the page
+   * Query for Prismic in the GraphQL syntax, NOT the Gatsby syntax!
+   * Similar procedure as in {@link ScheduleBar}, {@link HomeMixes} and {@link HomeEvents}
+   * @see {@link https://hmbk-cms.prismic.io/graphql | HMBK's Prismic GraphQL API}
    */
-  const playerStyle = {
-    position: 'absolute',
-    top: '-1000px',
-    width: '1px',
-    height: '1px',
-    margin: '-1px',
-  }
 
-  // const [pageIsVisible, setPageIsVisible] = useState(true);
-
-  // const handleVisibilityChange = (isVisible) => {
-  //   setPageIsVisible(isVisible);
-  // };
-
-  const handlePlayPause = async () => {
-    await dispatch({ type: 'TOGGLE_PLAYING' })
-  }
-  const handlePlay = () => {
-    setLocalState({ ...localState, playing: true })
-  }
-
-  const handlePause = () => {
-    setLocalState({ ...localState, playing: false })
-  }
-
-  const handleMixReady = async () => {
-    await dispatch({ type: 'MIX_LOADED' })
-  }
-
-  const handleEnded = async () => {
-    console.log('onEnded')
-
-    // ADD check in case we are ending on a single track, not a playlist
-    if (globalState.playlist.length) {
-      // if list_curr_index from global state is less the current playlist's number of tracks, then dispatch func which increments it by one and plays next
-      if (globalState.playlist.length - 1 > globalState.list_curr_index) {
-        await dispatch({ type: 'PLAYLIST_PLAY_NEXT' })
-      } else {
-        await dispatch({ type: 'PLAYLIST_LOOP' })
+  const FILL_HOME_FEATURES = gql`
+    query FillHomeFeatures($count: Int!) {
+      allFeatures(sortBy: meta_firstPublicationDate_DESC, first: $count) {
+        edges {
+          node {
+            _meta {
+              uid
+              type
+              firstPublicationDate
+              lastPublicationDate
+            }
+            headline_block {
+              ... on FeatureHeadline_blockHeadline_block {
+                primary {
+                  article_headline_img
+                  article_category
+                  article_subcategory
+                  article_headline
+                  article_subtitle
+                }
+              }
+            }
+          }
+        }
       }
     }
+  `;
 
-    return
-  }
+  const filteredHomeFeatures = mappableDataFilter(homeFeaturesData);
+  const featureQueryCount = 4 - filteredHomeFeatures.length;
 
-  // const handleVolumeChange = (e) => {
-  //   let value = parseFloat(e.target.value);
-  //   console.log("current volume", value);
+  const { data, loading, error } = useQuery(FILL_HOME_FEATURES, {
+    variables: { count: featureQueryCount },
+  });
 
-  //   setLocalState({ volume: value });
-  // };
-
-  // const load = async (url) => {
-  //   await setLocalState({
-  //     ...localState,
-  //     url: url,
-  //     played: 0,
-  //     loaded: 0,
-  //     pip: false,
-  //   });
-  // };
-
-  // const renderLoadButton = (url, label) => {
-  //   return &lt;button onClick={() => this.load(url)}>{label}&lt;/button>;
-  // };
-
-  // const handleDuration = (duration) => {
-  //   setLocalState({ duration: duration });
-  // };
-
-  // const renderNowPlaying = (resident, title) => {
-  //   return (
-  //     &lt;Ticker mode="await" offset="run-in" speed={3}>
-  //       {() => (
-  //         &lt;div className="is-hidden-tablet" id="radioShowName">
-  //           &lt;p className="display-text is-size-6-mobile">
-  //             {resident} – {title}
-  //           &lt;/p>
-  //         &lt;/div>
-  //       )}
-  //     &lt;/Ticker>
-  //   );
-  // };
-
-  const player = useRef(ReactPlayer)
+  useEffect(() => {
+    const fetchRemainingHomeFeatures = () => {
+      /**
+       * Three scenarios:
+       * 1) homeFeaturesData has more than 4 Feature objects
+       * 2) homeFeaturesData has less than 4 Feature objects
+       * 3) homeFeaturesData has exactly 4 Feature objects
+       */
+      if (filteredHomeFeatures.length > 4) {
+        /**
+         * Scenario 1
+         * Grab only the first 4 features
+         */
+        const featuresToMap = filteredHomeFeatures.slice(0, 4);
+        setTwelveFeatures(featuresToMap);
+      } else if (filteredHomeFeatures.length &lt; 4) {
+        /**
+         * Scenario 2
+         * Subtract quantity of filteredHomeFeatures from 4
+         * Query for that many of the most recent mixes
+         * Spread that data into the filteredHomeFeatures array
+         * setTwelveMixes the new 12 mix filteredHomeFeatures
+         */
+        if (data) {
+          const fetchedRecentFeatures = data.allFeatures.edges;
+          const newTwelveFeatures = [
+            ...filteredHomeFeatures,
+            ...fetchedRecentFeatures,
+          ];
+          setTwelveFeatures(newTwelveFeatures);
+        } else {
+          /**
+           * Scenario 3
+           * We have exactly 4 features
+           */
+          setTwelveFeatures(filteredHomeFeatures);
+        }
+      }
+    };
+    return fetchRemainingHomeFeatures();
+  }, [homeFeaturesData, data]);
+  /**
+   * The string passed into {@link SingleFeatureCard} that defines the column sizing for the mix cards in the Editorial section of the Homepage.
+   */
+  const featuresPageLayout = "column is-12-mobile is-6-tablet";
 
   return (
-    &lt;>
-      &lt;div
-        className={
-          globalState.isLoading
-            ? 'column is-narrow mix-data'
-            : 'column is-narrow mix-data is-loaded'
-        }
-      >
-        {!globalState.playing ? (
-          &lt;Icon
-            icon="play"
-            className="icon-color"
-            onClick={handlePlayPause}
-            size="2x"
-          />
-        ) : (
-          &lt;Icon
-            icon="pause"
-            className="icon-color"
-            onClick={handlePlayPause}
-            size="2x"
-          />
-        )}
-      &lt;/div>
+    &lt;section className="container is-fluid" id="home-news">
+      {/* DESKTOP */}
+      &lt;div className="columns is-hidden-touch">
+        &lt;div className="column is-3">
+          &lt;div className="sticky-section-blurb content">
+            {headline &amp;&amp; &lt;p className="title">{RichText.asText(headline)}&lt;/p>}
+            {blurb &amp;&amp; &lt;p className="subtitle">{RichText.render(blurb)}&lt;/p>}
 
-      &lt;div
-        className={
-          globalState.isLoading
-            ? 'column is-narrow mix-data'
-            : 'column is-narrow mix-data is-loaded'
-        }
-      >
-        &lt;figure className="image is-48x48">
-          &lt;img src={`${globalState.img}`} alt="" />
-        &lt;/figure>
-      &lt;/div>
-
-      &lt;div
-        className={
-          globalState.isLoading
-            ? 'column text-truncate mix-data'
-            : 'column text-truncate mix-data is-loaded'
-        }
-        id="now-playing"
-      >
-        {globalState.title === null ? (
-          &lt;div id="now-playing-details">
-            &lt;p className="title is-size-6-tablet is-size-7-mobile">
-              {globalState.resident}
-            &lt;/p>
+            &lt;Link to="/features">
+              &lt;button className="button is-outlined is-rounded">
+                All Features
+              &lt;/button>
+            &lt;/Link>
           &lt;/div>
-        ) : (
-          &lt;div id="now-playing-details">
-            &lt;p className="title is-size-6-tablet is-size-7-mobile">
-              {globalState.title}
-            &lt;/p>
-            &lt;p className="subtitle is-size-7">{globalState.resident}&lt;/p>
+        &lt;/div>
+
+        &lt;div className="column is-9">
+          &lt;div className="columns is-multiline">
+            {twelveFeatures &amp;&amp;
+              twelveFeatures.map(({ node }, index) => {
+                return (
+                  &lt;SingleFeatureCard
+                    key={`${index}-home-feature-d`}
+                    featureData={node}
+                    featureColumnLayout={featuresPageLayout}
+                    metadata={node._meta}
+                  />
+                );
+              })}
           &lt;/div>
-        )}
+        &lt;/div>
       &lt;/div>
-
-      {/* &lt;div className="column">
-        &lt;input
-          type="range"
-          min="0"
-          max="1"
-          step="0.05"
-          value={localState.volume}
-          onChange={(e) => handleVolumeChange(e)}
-        />
-        &lt;p className="is-size-6">{localState.volume}&lt;/p>
-      &lt;/div> */}
-
-      {/* &lt;div className="column is-hidden-mobile" id="now-playing-img">
-        &lt;figure className="image is-48x48">
-          &lt;img src={`${globalState.img}`} alt="Current mix" />
-        &lt;/figure>
+      {/*
+      Touch Sizes
+      */}
+      &lt;div className="columns is-mobile is-multiline is-vcentered is-hidden-desktop">
+        &lt;div className="column">
+          {headline &amp;&amp; (
+            &lt;p className="title is-4">{RichText.asText(headline)}&lt;/p>
+          )}
+          {blurb &amp;&amp; &lt;p className="subtitle is-6">{RichText.asText(blurb)}&lt;/p>}
+        &lt;/div>
+        &lt;div className="column is-narrow">
+          &lt;Link to="/features">
+            &lt;button className="button is-small is-outlined is-rounded">
+              All Features
+            &lt;/button>
+          &lt;/Link>
+        &lt;/div>
       &lt;/div>
-
-      &lt;div className="column" id="now-play-details"> */}
-      {/* Static tablet and up currentTrackTitle */}
-      {/* &lt;p className="display-text is-size-7-tablet">{globalState.resident}&lt;/p>
-        &lt;p className="display-text is-size-6-tablet">{globalState.title}&lt;/p> */}
-
-      {/* &lt;div className="is-hidden-mobile" id="radioShowName">
-          &lt;p className="display-text is-size-6-tablet">
-            {globalState.resident} – {globalState.title}
-          &lt;/p>
-        &lt;/div> */}
-
-      {/* Dynamic mobile currentTrackTitle */}
-      {/* &lt;PageVisibility onChange={handleVisibilityChange}>
-          {pageIsVisible &amp;&amp;
-            renderNowPlaying(globalState.resident, globalState.title)}
-        &lt;/PageVisibility>
-      &lt;/div> */}
-
-      &lt;ReactPlayer
-        className="cloud-player"
-        id="react-player"
-        style={playerStyle}
-        url={globalState.url}
-        ref={player}
-        width="auto"
-        height="auto"
-        volume={localState.volume}
-        playing={globalState.playing}
-        loop={globalState.loop}
-        onPlay={handlePlay}
-        onPause={handlePause}
-        onError={error => console.log('ReactPlayer has an issue ↴\n', error)}
-        onReady={handleMixReady}
-        onStart={() => console.log(`PLAYING: ${globalState.title}`)}
-        onBuffer={() => console.log('onBuffer')}
-        // muted={globalState.muted}
-        // onDuration={handleDuration}
-        // onEnablePIP={this.handleEnablePIP}
-        // onDisablePIP={this.handleDisablePIP}
-        // onSeek={e => console.log('onSeek', e)}
-        onEnded={handleEnded}
-        // onProgress={this.handleProgress}
-      />
-    &lt;/>
-  )
+      &lt;div className="columns is-mobile is-hidden-desktop mobile-single-items">
+        {twelveFeatures &amp;&amp;
+          twelveFeatures.map(({ node }, index) => {
+            return (
+              &lt;SingleFeatureCard
+                key={`${index}-home-feature-m`}
+                featureData={node}
+                featureColumnLayout={featuresPageLayout}
+                metadata={node._meta}
+              />
+            );
+          })}
+      &lt;/div>
+    &lt;/section>
+  );
 }
 
-export default hot(module)(RadioPlayer)
-
-// export const handleStop = () => {
-//   this.setState({ url: null, playing: false });
-// };
-
-// export const handleToggleControls = () => {
-//   const url = this.state.url;
-//   this.setState(
-//     {
-//       controls: !this.state.controls,
-//       url: null,
-//     },
-//     () => this.load(url)
-//   );
-// };
-
-// export const handleToggleLight = () => {
-//   this.setState({ light: !this.state.light });
-// };
-
-// export const handleToggleLoop = () => {
-//   this.setState({ loop: !this.state.loop });
-// };
-
-// export const handleVolumeChange = e => {
-//   this.setState({ volume: parseFloat(e.target.value) });
-// };
-
-// export const handleSetPlaybackRate = e => {
-//   this.setState({ playbackRate: parseFloat(e.target.value) });
-// };
-
-// export const handleTogglePIP = () => {
-//   this.setState({ pip: !this.state.pip });
-// };
-
-// export const handleEnablePIP = () => {
-//   // console.log('onEnablePIP');
-//   this.setState({ pip: true });
-// };
-
-// export const handleDisablePIP = () => {
-//   // console.log('onDisablePIP');
-//   this.setState({ pip: false });
-// };
-
-// export const handleSeekMouseDown = e => {
-//   this.setState({ seeking: true });
-// };
-
-// export const handleSeekChange = e => {
-//   this.setState({ played: parseFloat(e.target.value) });
-// };
-
-// export const handleSeekMouseUp = e => {
-//   this.setState({ seeking: false });
-//   this.player.seekTo(parseFloat(e.target.value));
-// };
-
-// export const handleProgress = state => {
-//   // console.log('onProgress', state);
-//   // We only want to update time slider if we are not currently seeking
-//   if (!this.state.seeking) {
-//     this.setState(state);
-//   }
-// };
-
-// export const handleDuration = duration => {
-//   // console.log('onDuration', duration);
-//   this.setState({ duration });
-// };
-
-// export const handleClickFullscreen = () => {
-//   screenfull.request(findDOMNode(this.player));
-// };
+export default HomeFeatures;
 </code></pre>
         </article>
     </section>

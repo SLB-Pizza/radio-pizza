@@ -20,7 +20,7 @@ import {
  * @property {Object[]} props.residents - Array of data objects containing the mix's resident data
  * @property {Object} props.img - object containing the different sizes of a mix's image
  * @property {String[]} props.tags - the mix's tags
- * @property {String} props.columnLayout - string detailing the column layout across different responsive breakpoints @see {@link https://bulma.io/documentation/columns/sizes/|bulma.io column sizing}
+ * @property {String} props.columnLayout - string detailing the column layout across different responsive breakpoints @see {@link https://bulma.io/documentation/columns/sizes/ | bulma.io column sizing}
  * @property {?String} props.path - optional string passed down only by {@link ResidentTemplate} for use with {@link linkResolver}
  * @returns {jsx}
  */

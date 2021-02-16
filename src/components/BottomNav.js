@@ -34,8 +34,8 @@ function BottomNav() {
 
   /**
    * This globalState null return prevents ERROR #95313.
-   * @see {@link TopNav|Related globalState situation in TopNav}
-   * @see {@link https://github.com/gatsbyjs/gatsby/issues/24264#issuecomment-631995753|Re: ERROR #95313 - To stop the error immediately, add a null check for the object}
+   * @see {@link TopNav | Related globalState situation in TopNav}
+   * @see {@link https://github.com/gatsbyjs/gatsby/issues/24264#issuecomment-631995753 | Re: ERROR #95313 - To stop the error immediately, add a null check for the object}
    */
   if (!globalState) return null
   return (

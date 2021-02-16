@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> src/components/RadioPlayer.js</title>
+  <title> src/utils/validators/uidAnalyzer.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -81,7 +81,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>src/components/RadioPlayer.js</h1>
+                    <h1>src/utils/validators/uidAnalyzer.js</h1>
                 </header>
                 
 
@@ -90,336 +90,56 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React, { useContext, useRef, useState } from 'react'
-import ReactPlayer from 'react-player'
-import Ticker from 'react-ticker'
-import PageVisibility from 'react-page-visibility'
-import { hot } from 'react-hot-loader'
-
-import {
-  GlobalDispatchContext,
-  GlobalStateContext,
-} from '../context/GlobalContextProvider'
-import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
-
+            <pre class="prettyprint source linenums"><code>import { linkStripper } from '../index'
 /**
- * Returns the Radio Player layout element
- * @category Site Elements
- * @function RadioPlayer
- * @returns {jsx}
+ * Compares the assembled UID from {@link uidAssembler} with the CMS node's details based on type. Returns an object with a type, entry name, result and reason.
+ * @category Validation
+ * @function uidAnalyzer
+ * @param {String} assembledUID
+ * @param {String} entryName
+ * @param {Object} node
+ * @returns {Object.&lt;String, String>}
  */
-function RadioPlayer() {
-  const dispatch = useContext(GlobalDispatchContext)
-  const globalState = useContext(GlobalStateContext)
+function uidAnalyzer(assembledUID, entryName, node) {
+  let reason
 
-  const [localState, setLocalState] = useState({
-    url: null,
-    pip: false,
-    loading: false,
-    playing: false,
-    controls: false,
-    light: false,
-    volume: 0.25,
-    muted: false,
-    played: 0,
-    loaded: 0,
-    duration: 0,
-    playbackRate: 1.0,
-    loop: false,
-  })
+  const { _meta, ...rest } = node
+  const currentUID = _meta.uid
+  const entryType = _meta.type
 
   /**
-   * Eliminate width and height = 0 errors by breaking ReactPlayer out of normal document flow and throwing it above the top of the page
+   * This is where all the work done by {@link uidValidator} resolves.
+   * If the assembled and current UID match, no issues; process next node.
    */
-  const playerStyle = {
-    position: 'absolute',
-    top: '-1000px',
-    width: '1px',
-    height: '1px',
-    margin: '-1px',
+  if (assembledUID === currentUID) {
+    return 0
   }
 
-  // const [pageIsVisible, setPageIsVisible] = useState(true);
-
-  // const handleVisibilityChange = (isVisible) => {
-  //   setPageIsVisible(isVisible);
-  // };
-
-  const handlePlayPause = async () => {
-    await dispatch({ type: 'TOGGLE_PLAYING' })
+  /**
+   * Otherwise, generate an error object that can be mapped to display
+   */
+  switch (entryType) {
+    case 'mix':
+      /**
+       * Determine reason for Mix UID discrepancy
+       */
+      reason =
+        currentUID === linkStripper(rest.mix_link)
+          ? 'UID auto-created by Prismic from mix link.'
+          : 'UID does not follow suggested Mix UID structure.'
+      break
+    default:
+      return {}
   }
-  const handlePlay = () => {
-    setLocalState({ ...localState, playing: true })
+  return {
+    type: 'warning',
+    entry: entryName,
+    result: assembledUID,
+    reason,
   }
-
-  const handlePause = () => {
-    setLocalState({ ...localState, playing: false })
-  }
-
-  const handleMixReady = async () => {
-    await dispatch({ type: 'MIX_LOADED' })
-  }
-
-  const handleEnded = async () => {
-    console.log('onEnded')
-
-    // ADD check in case we are ending on a single track, not a playlist
-    if (globalState.playlist.length) {
-      // if list_curr_index from global state is less the current playlist's number of tracks, then dispatch func which increments it by one and plays next
-      if (globalState.playlist.length - 1 > globalState.list_curr_index) {
-        await dispatch({ type: 'PLAYLIST_PLAY_NEXT' })
-      } else {
-        await dispatch({ type: 'PLAYLIST_LOOP' })
-      }
-    }
-
-    return
-  }
-
-  // const handleVolumeChange = (e) => {
-  //   let value = parseFloat(e.target.value);
-  //   console.log("current volume", value);
-
-  //   setLocalState({ volume: value });
-  // };
-
-  // const load = async (url) => {
-  //   await setLocalState({
-  //     ...localState,
-  //     url: url,
-  //     played: 0,
-  //     loaded: 0,
-  //     pip: false,
-  //   });
-  // };
-
-  // const renderLoadButton = (url, label) => {
-  //   return &lt;button onClick={() => this.load(url)}>{label}&lt;/button>;
-  // };
-
-  // const handleDuration = (duration) => {
-  //   setLocalState({ duration: duration });
-  // };
-
-  // const renderNowPlaying = (resident, title) => {
-  //   return (
-  //     &lt;Ticker mode="await" offset="run-in" speed={3}>
-  //       {() => (
-  //         &lt;div className="is-hidden-tablet" id="radioShowName">
-  //           &lt;p className="display-text is-size-6-mobile">
-  //             {resident} – {title}
-  //           &lt;/p>
-  //         &lt;/div>
-  //       )}
-  //     &lt;/Ticker>
-  //   );
-  // };
-
-  const player = useRef(ReactPlayer)
-
-  return (
-    &lt;>
-      &lt;div
-        className={
-          globalState.isLoading
-            ? 'column is-narrow mix-data'
-            : 'column is-narrow mix-data is-loaded'
-        }
-      >
-        {!globalState.playing ? (
-          &lt;Icon
-            icon="play"
-            className="icon-color"
-            onClick={handlePlayPause}
-            size="2x"
-          />
-        ) : (
-          &lt;Icon
-            icon="pause"
-            className="icon-color"
-            onClick={handlePlayPause}
-            size="2x"
-          />
-        )}
-      &lt;/div>
-
-      &lt;div
-        className={
-          globalState.isLoading
-            ? 'column is-narrow mix-data'
-            : 'column is-narrow mix-data is-loaded'
-        }
-      >
-        &lt;figure className="image is-48x48">
-          &lt;img src={`${globalState.img}`} alt="" />
-        &lt;/figure>
-      &lt;/div>
-
-      &lt;div
-        className={
-          globalState.isLoading
-            ? 'column text-truncate mix-data'
-            : 'column text-truncate mix-data is-loaded'
-        }
-        id="now-playing"
-      >
-        {globalState.title === null ? (
-          &lt;div id="now-playing-details">
-            &lt;p className="title is-size-6-tablet is-size-7-mobile">
-              {globalState.resident}
-            &lt;/p>
-          &lt;/div>
-        ) : (
-          &lt;div id="now-playing-details">
-            &lt;p className="title is-size-6-tablet is-size-7-mobile">
-              {globalState.title}
-            &lt;/p>
-            &lt;p className="subtitle is-size-7">{globalState.resident}&lt;/p>
-          &lt;/div>
-        )}
-      &lt;/div>
-
-      {/* &lt;div className="column">
-        &lt;input
-          type="range"
-          min="0"
-          max="1"
-          step="0.05"
-          value={localState.volume}
-          onChange={(e) => handleVolumeChange(e)}
-        />
-        &lt;p className="is-size-6">{localState.volume}&lt;/p>
-      &lt;/div> */}
-
-      {/* &lt;div className="column is-hidden-mobile" id="now-playing-img">
-        &lt;figure className="image is-48x48">
-          &lt;img src={`${globalState.img}`} alt="Current mix" />
-        &lt;/figure>
-      &lt;/div>
-
-      &lt;div className="column" id="now-play-details"> */}
-      {/* Static tablet and up currentTrackTitle */}
-      {/* &lt;p className="display-text is-size-7-tablet">{globalState.resident}&lt;/p>
-        &lt;p className="display-text is-size-6-tablet">{globalState.title}&lt;/p> */}
-
-      {/* &lt;div className="is-hidden-mobile" id="radioShowName">
-          &lt;p className="display-text is-size-6-tablet">
-            {globalState.resident} – {globalState.title}
-          &lt;/p>
-        &lt;/div> */}
-
-      {/* Dynamic mobile currentTrackTitle */}
-      {/* &lt;PageVisibility onChange={handleVisibilityChange}>
-          {pageIsVisible &amp;&amp;
-            renderNowPlaying(globalState.resident, globalState.title)}
-        &lt;/PageVisibility>
-      &lt;/div> */}
-
-      &lt;ReactPlayer
-        className="cloud-player"
-        id="react-player"
-        style={playerStyle}
-        url={globalState.url}
-        ref={player}
-        width="auto"
-        height="auto"
-        volume={localState.volume}
-        playing={globalState.playing}
-        loop={globalState.loop}
-        onPlay={handlePlay}
-        onPause={handlePause}
-        onError={error => console.log('ReactPlayer has an issue ↴\n', error)}
-        onReady={handleMixReady}
-        onStart={() => console.log(`PLAYING: ${globalState.title}`)}
-        onBuffer={() => console.log('onBuffer')}
-        // muted={globalState.muted}
-        // onDuration={handleDuration}
-        // onEnablePIP={this.handleEnablePIP}
-        // onDisablePIP={this.handleDisablePIP}
-        // onSeek={e => console.log('onSeek', e)}
-        onEnded={handleEnded}
-        // onProgress={this.handleProgress}
-      />
-    &lt;/>
-  )
 }
 
-export default hot(module)(RadioPlayer)
-
-// export const handleStop = () => {
-//   this.setState({ url: null, playing: false });
-// };
-
-// export const handleToggleControls = () => {
-//   const url = this.state.url;
-//   this.setState(
-//     {
-//       controls: !this.state.controls,
-//       url: null,
-//     },
-//     () => this.load(url)
-//   );
-// };
-
-// export const handleToggleLight = () => {
-//   this.setState({ light: !this.state.light });
-// };
-
-// export const handleToggleLoop = () => {
-//   this.setState({ loop: !this.state.loop });
-// };
-
-// export const handleVolumeChange = e => {
-//   this.setState({ volume: parseFloat(e.target.value) });
-// };
-
-// export const handleSetPlaybackRate = e => {
-//   this.setState({ playbackRate: parseFloat(e.target.value) });
-// };
-
-// export const handleTogglePIP = () => {
-//   this.setState({ pip: !this.state.pip });
-// };
-
-// export const handleEnablePIP = () => {
-//   // console.log('onEnablePIP');
-//   this.setState({ pip: true });
-// };
-
-// export const handleDisablePIP = () => {
-//   // console.log('onDisablePIP');
-//   this.setState({ pip: false });
-// };
-
-// export const handleSeekMouseDown = e => {
-//   this.setState({ seeking: true });
-// };
-
-// export const handleSeekChange = e => {
-//   this.setState({ played: parseFloat(e.target.value) });
-// };
-
-// export const handleSeekMouseUp = e => {
-//   this.setState({ seeking: false });
-//   this.player.seekTo(parseFloat(e.target.value));
-// };
-
-// export const handleProgress = state => {
-//   // console.log('onProgress', state);
-//   // We only want to update time slider if we are not currently seeking
-//   if (!this.state.seeking) {
-//     this.setState(state);
-//   }
-// };
-
-// export const handleDuration = duration => {
-//   // console.log('onDuration', duration);
-//   this.setState({ duration });
-// };
-
-// export const handleClickFullscreen = () => {
-//   screenfull.request(findDOMNode(this.player));
-// };
+export default uidAnalyzer
 </code></pre>
         </article>
     </section>

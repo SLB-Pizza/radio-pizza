@@ -21,7 +21,7 @@ function EventMapEmbed({ description, address }) {
 
       /**
        * Prepping the query portion of the map embed src URL
-       * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent|encodeURIComponent()}
+       * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent | encodeURIComponent()}
        */
       const encodedDescription = encodeURIComponent(placeWithAddress)
       setDescription(encodedDescription)
@@ -50,13 +50,3 @@ function EventMapEmbed({ description, address }) {
 }
 
 export default EventMapEmbed
-
-{
-  /* <GoogleMapReact
-  bootstrapURLkeys={{ key: process.env.MAPS_EMBED_KEY }}
-  defaultCenter={center}
-  defaultZoom={17}
->
-  <LocationPin lat={center.lat} lng={center.lng} text={description} />
-</GoogleMapReact> */
-}

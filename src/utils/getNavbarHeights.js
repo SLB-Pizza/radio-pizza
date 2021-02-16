@@ -9,7 +9,7 @@ function getNavbarHeights() {
 
   /**
    * Using offsetHeight here because both topNav and bottomNav have borders to account for.
-   * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetHeight|HTMLElement.offsetHeight - MDN}
+   * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetHeight |HTMLElement.offsetHeight - MDN}
    */
   return topNav.offsetHeight + bottomNav.offsetHeight
 }

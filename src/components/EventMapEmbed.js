@@ -28,7 +28,6 @@ function EventMapEmbed({ description, address }) {
 
       const containerWidth =
         document.querySelector('#event-blurb').clientWidth - 48 // 3rem padding
-      console.log(containerWidth)
       setMapWidth(containerWidth)
     }
 
@@ -41,7 +40,7 @@ function EventMapEmbed({ description, address }) {
         width={mapWidth}
         height="600"
         frameBorder="0"
-        src={`https://www.google.com/maps/embed/v1/place?key=${process.env.MAPS_EMBED_KEY}&q=${processedDescription}&zoom=19`}
+        src={`https://www.google.com/maps/embed/v1/place?key=${process.env.GATSBY_MAPS_EMBED_KEY}&q=${processedDescription}&zoom=19`}
         allowFullScreen
       />
     )

@@ -2,42 +2,8 @@ import { expect } from 'chai'
 import { uidValidator } from '../../src/utils'
 import { validatorErrors } from '../../cms-json-files'
 import testData from '../uidValidatorTestData.json'
-import axios from 'axios'
 
 describe('uidValidator', () => {
-  // before(() => {
-  //   axios
-  //     .get("https://api.mockaroo.com/api/854b5590?count=1&key=86ac0700")
-  //     .then((response) => {
-  //       let test1 = response.data;
-  //     })
-  //     .catch((error) => {
-  //       if (error.response) {
-  //         // The request was made and the server responded with a status code
-  //         // that falls out of the range of 2xx
-  //         console.error(error.response.data);
-  //       } else if (error.request) {
-  //         // The request was made but no response was received
-  //         // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-  //         // http.ClientRequest in node.js
-  //         console.error(error.request);
-  //       } else {
-  //         // Something happened in setting up the request that triggered an Error
-  //         console.error(error.message);
-  //       }
-  //       console.error(error.config);
-  //     });
-  // });
-
-  // describe("returns 0", () => {
-  //   it("when the uid doesn't match the link", () => {
-  //     let uid = "abcdefg";
-  //     let nodeData = "123456";
-
-  //     expect(uidValidator(uid, nodeData)).to.equal(0);
-  //   });
-  // });
-
   describe('returns the correct message', () => {
     it('telling the user to check the CMS entry when _meta.type is undefined', () => {
       let nodeData = testData.no_meta

@@ -29,7 +29,7 @@ export { default as playlistShuffle } from './playlistShuffle'
 export { default as prioritySetter } from './prioritySetter'
 export { default as processPublicationDates } from './processPublicationDates'
 export { default as testCaseMaker } from './testCaseMaker'
-export { default as uidAssembler } from './uidAssembler'
+export { default as uidAssembler } from './validators/uidAssembler'
 export { default as uidValidator } from './uidValidator'
 
 /**

@@ -38,9 +38,9 @@ function getResidentString(residentsArr, useCase) {
         if (!currentResident.mix_resident) {
           continue
         }
-        // mix_resident exists, process it
+        // mix_resident exists, process resident_name
         else {
-          let currResFirstWord = currentResident.mix_resident
+          let currResFirstWord = currentResident.mix_resident.resident_name
             .toLowerCase()
             .split(' ')[0]
           residents.push(currResFirstWord)
@@ -55,16 +55,21 @@ function getResidentString(residentsArr, useCase) {
         // null check of resident_name key
         if (!currentResident.mix_resident) {
           continue
-        }
-        // mix_resident exists, process it
-        else {
-          let residentNameWords = currentResident.mix_resident
+        } else {
+          /*
+           * mix_resident exists, process resident_name
+           * make resident name lowercase
+           * split name on spaces
+           * spread that resulting array into the residents array
+           */
+          let residentNameWords = currentResident.mix_resident.resident_name
             .toLowerCase()
             .split(' ')
-          residents.push(residentNameWords)
+          residents.push(...residentNameWords)
         }
       }
     }
+    // Join the strings in the residents array with a hyphen
     return residents.join('-')
   }
 

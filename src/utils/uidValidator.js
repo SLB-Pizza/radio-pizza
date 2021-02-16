@@ -1,67 +1,30 @@
-import {
-  devEntryDetails,
-  getResidentString,
-  getMixTitle,
-  linkStripper,
-  uidAssembler,
-} from './index'
+import { mixValidator } from './validators'
 import { validatorErrors } from '../../cms-json-files/index'
 
 /**
- * @category Utilities
+ * Takes in a Prismic CMS data node and returns either:
+ * - an error object details the nature of any issue with the CMS node's UID
+ * - 0, if there are no issue with node's UID.
+ * @category Validation
  * @function uidValidator
- * @param {Object} cmsNode
- * @property {Object} cmsNode._meta - contains the UID, cmsNode type, firstPublicationData and lastPublicationDate
- * @property {String} cmsNode._meta.uid - the uid that's assigned to the current document
- * @param {String} nodeType - the type of Prismic CMS entry; pulled from the node by {@link cmsNodeValidator}
+ * @param {Object} cmsNode - the data object from Prismic CMS to analyze
+ * @return {Object|0}
  */
 function uidValidator(cmsNode) {
-  const { _meta, ...rest } = cmsNode
-
-  // If there's no _meta, something's wrong with the node that was passed in.
-  if (!_meta) {
+  /*
+   * If there's no _meta, something's wrong with the node that was passed in.
+   */
+  if (!cmsNode._meta) {
     return validatorErrors.uid.no_meta
   }
-  const nodeType = _meta.type
 
-  /**
-   * Development entries start with the prefix "dev-"
-   */
-  let endIdx = nodeType.length + 4 // "dev-" is 4
+  const nodeType = cmsNode._meta.type
 
   switch (nodeType) {
     case 'mix':
-      if (_meta.uid.substr(0, endIdx) === `dev-${nodeType}`) {
-        return devEntryDetails(cmsNode)
-      } else if (!rest.mix_title) {
-        const residentString = getResidentString(rest.featured_residents, 'uid')
-        const suggestedUID = uidAssembler(residentString, rest.mix_date)
-
-        return uidAnalyzer(suggestedUID, _meta.uid, rest.mix_link)
-      } else {
-        let lowercaseTitle = rest.mix_title.replace(/\s/g, '-').toLowerCase()
-        const suggestedUID = uidAssembler(lowercaseTitle, rest.mix_date)
-
-        return uidAnalyzer(suggestedUID, _meta.uid, rest.mix_title)
-      }
+      return mixValidator(cmsNode)
     default:
       return 0
-  }
-
-  function uidAnalyzer(assembledUID, currentUID, entryName) {
-    if (assembledUID === currentUID) {
-      return 0
-    }
-    const reason =
-      _meta.uid === linkStripper(rest.mix_link)
-        ? 'UID auto-created by Prismic from mix link.'
-        : 'UID does not follow suggested Mix UID structure.'
-    return {
-      type: 'warning',
-      entry: entryName,
-      result: assembledUID,
-      reason,
-    }
   }
 }
 

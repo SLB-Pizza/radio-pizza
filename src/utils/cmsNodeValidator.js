@@ -1,9 +1,4 @@
-import {
-  getMixTitle,
-  mappableDataFilter,
-  prioritySetter,
-  uidValidator,
-} from './index'
+import { getMixTitle, mappableDataFilter, prioritySetter } from './index'
 import {
   mixNode,
   residentNode,
@@ -15,16 +10,15 @@ import {
  * 1a. checkTemplate values are used for the default case if a key isn't checked for in templateFieldCheck
  * 2. Loop through checkTemplate's key-value pairs and call templateFieldChecker
  * 3.
+ * @category Validation
  * @function cmsNodeValidator
  * @param {Object} node - The single cms data node coming from the CMS from either a Page query or Template query
- * @return {0|Object} returns 0 when the node is issue free; returns the notices
+ * @return {0|Object} returns 0 when the node is issue free; returns the notices object
  */
 function cmsNodeValidator(node) {
   let checkTemplate
   let notices = { entryName: '', priority: '', errors: [] }
   let entryType = node._meta.type
-  // console.log(node);
-  // console.log("> ", entryType);
 
   // Determine the entryType of node and assign the correct checking template for use
   switch (entryType) {

@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { Link } from 'gatsby'
-import { gql, useQuery } from '@apollo/client'
+import { useQuery } from '@apollo/client'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import Ticker from 'react-ticker'
 import PageVisibility from 'react-page-visibility'
@@ -10,6 +10,7 @@ import {
 } from '../context/GlobalContextProvider'
 import { ScheduleDropdown, OutsideClick, UpcomingShow } from './index'
 import { formatDateTime } from '../utils'
+import { GET_NEXT_SHOW } from '../queries'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
@@ -41,49 +42,6 @@ function ScheduleBar({ timeNow }) {
   let yesterday = formatDateTime(currentTime, 'prismic-date-query', -1)
 
   /**
-   * Query for Prismic in the GraphQL syntax, not the Gatsby syntax!
-   * Retrieves the first available date after yesterday with scheduled show entries
-   * @see {@link https://hmbk-cms.prismic.io/graphql | HMBK's Prismic GraphQL API}
-   * @see {@link https://prismic.io/docs/graphql/query-the-api/query-by-date | Prismic - GraphQL Query by Date}
-   */
-  const GET_NEXT_SHOW = gql`
-    query getNextShow($yesterday: Date!) {
-      allSchedules(
-        where: { schedule_date_after: $yesterday }
-        sortBy: schedule_date_ASC
-        first: 1
-      ) {
-        edges {
-          node {
-            schedule_date
-            schedule_entries {
-              end_time
-              start_time
-              scheduled_show {
-                ... on Mix {
-                  mix_image
-                  mix_title
-                  featured_residents {
-                    mix_resident {
-                      ... on Resident {
-                        resident_name
-                        _meta {
-                          uid
-                          type
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `
-
-  /**
    * Run the query on load and poll every 120 seconds; 2 minutes.
    */
   const { loading, error, data } = useQuery(GET_NEXT_SHOW, {
@@ -99,22 +57,12 @@ function ScheduleBar({ timeNow }) {
    */
   useEffect(() => {
     const getNextShowData = () => {
-      if (loading) {
-        // console.log(
-        //   `Get next show request sent at ${formatDateTime(
-        //     currentTime,
-        //     "hour-minute"
-        //   )}`
-        // );
-      }
       if (error) {
         console.log(`Error: ${error.message}`)
       }
       if (data) {
-        // console.log("data received", data);
         const todayScheduleData = data.allSchedules.edges
         setTodaysSchedule(todayScheduleData)
-        // console.log(todaysSchedule);
       }
     }
 

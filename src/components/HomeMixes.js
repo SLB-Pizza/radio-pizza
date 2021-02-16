@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
-import { gql, useQuery } from '@apollo/client'
+import { useQuery } from '@apollo/client'
 
 import { SingleMixCard } from './index'
+import { FILL_HOME_MIXES } from '../queries'
 import { mappableDataFilter } from '../utils'
 
 /**
@@ -18,47 +19,12 @@ import { mappableDataFilter } from '../utils'
 function HomeMixes({ headline, blurb, homeMixesData }) {
   const [twelveMixes, setTwelveMixes] = useState(null)
 
-  /**
-   * Query for Prismic in the GraphQL syntax, NOT the Gatsby syntax!
-   * Similar procedure as in {@link ScheduleBar}, {@link HomeEvents} and {@link HomeFeatures}
-   * @see {@link https://hmbk-cms.prismic.io/graphql | HMBK's Prismic GraphQL API}
-   */
-  const FILL_HOME_MIXES = gql`
-    query FillHomeMixes($count: Int!) {
-      allMixs(sortBy: mix_date_DESC, first: $count) {
-        edges {
-          node {
-            _meta {
-              uid
-              type
-              tags
-            }
-            mix_image
-            mix_title
-            mix_link
-            mix_date
-            featured_residents {
-              ... on MixFeatured_residents {
-                mix_resident {
-                  ... on Resident {
-                    _meta {
-                      uid
-                      type
-                    }
-                    resident_name
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `
-
   const filteredHomeMixes = mappableDataFilter(homeMixesData)
   const mixQueryCount = 12 - filteredHomeMixes.length
 
+  /**
+   * Uses the query {@link FILL_HOME_MIXES}
+   */
   const { data, loading, error } = useQuery(FILL_HOME_MIXES, {
     variables: { count: mixQueryCount },
   })

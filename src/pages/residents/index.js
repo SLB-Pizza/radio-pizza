@@ -1,6 +1,12 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useRef, useState } from 'react'
 import { graphql } from 'gatsby'
+import { useQuery } from '@apollo/client'
 import { SingleResident } from '../../components'
+import {
+  GET_MORE_RESIDENTS,
+  GET_MORE_ALUMNI,
+  GET_MORE_GUESTS,
+} from '../../queries'
 
 /**
  * @category Pages
@@ -9,12 +15,18 @@ import { SingleResident } from '../../components'
  * @returns {jsx}
  */
 
-function ResidentsIndex({ data }) {
+function ResidentsIndex({ data, prismic }) {
   const [isOpen, setIsOpen] = useState('Residents')
+  const [categoryStatus, setCategoryStatus] = useState(null)
+
   const [residentsData, setResidentsData] = useState(null)
+  const [hasMoreRes, setHasMoreRes] = useState({
+    hasMore: null,
+    endCursor: null,
+  })
+
   const [alumniData, setAlumniData] = useState(null)
   const [guestsData, setGuestsData] = useState(null)
-  const [categoryStatus, setCategoryStatus] = useState(null)
 
   const prismicContent = data.prismic
   if (!prismicContent) return null
@@ -39,16 +51,24 @@ function ResidentsIndex({ data }) {
         {
           type: 'Residents',
           hasData: data.prismic.residents.edges.length,
+          count: data.prismic.residents.totalCount,
         },
         {
           type: 'Alumni',
           hasData: data.prismic.alumni.edges.length,
+          count: data.prismic.alumni.totalCount,
         },
         {
           type: 'Guests',
           hasData: data.prismic.guests.edges.length,
+          count: data.prismic.guests.totalCount,
         },
       ])
+
+      setHasMoreRes({
+        hasMore: data.prismic.residents.pageInfo.hasNextPage,
+        endCursor: data.prismic.residents.pageInfo.endCursor,
+      })
     }
 
     return setCategoryData()
@@ -70,7 +90,6 @@ function ResidentsIndex({ data }) {
             </h1>
           </div>
         </header>
-
         <section className="columns is-mobile is-variable is-2">
           {/* RESIDENT TYPE SELECTOR BUTTONS */}
           {categoryStatus &&
@@ -109,7 +128,6 @@ function ResidentsIndex({ data }) {
               ) : null
             )}
         </section>
-
         {/* CURRENT HMBK RESIDENTS */}
         {isOpen === 'Residents' ? (
           <div className="columns is-mobile is-multiline">
@@ -121,7 +139,6 @@ function ResidentsIndex({ data }) {
               })}
           </div>
         ) : null}
-
         {/* HMBK ALUMNI */}
         {isOpen === 'Alumni' ? (
           <div className="columns is-mobile is-multiline">
@@ -133,7 +150,6 @@ function ResidentsIndex({ data }) {
               })}
           </div>
         ) : null}
-
         {/* HMBK GUESTS */}
         {isOpen === 'Guests' ? (
           <div className="columns is-mobile is-multiline">
@@ -145,6 +161,34 @@ function ResidentsIndex({ data }) {
               })}
           </div>
         ) : null}
+
+        {hasMoreRes ? (
+          <div className="columns is-mobile">
+            <div className="column">
+              <button className="button is-fullwidth is-outlined is-rounded">
+                More Residents!
+              </button>
+            </div>
+            <div className="column is-narrow">
+              <a href="#mixes-header">
+                <button className="button is-fullwidth is-outlined is-rounded">
+                  Top
+                </button>
+              </a>
+            </div>
+          </div>
+        ) : (
+          <div className="columns is-mobile">
+            <div className="column is-offset-10 is-2">
+              <a href="#all-mixes">
+                <button className="button is-fullwidth is-outlined is-rounded">
+                  Top
+                </button>
+              </a>
+            </div>
+          </div>
+        )}
+
         {/* <pre>{JSON.stringify(data.prismic, null, 2)}</pre> */}
       </div>
     </main>
@@ -152,11 +196,20 @@ function ResidentsIndex({ data }) {
 }
 
 export const query = graphql`
-  query ResidentIndexPage {
+  query ResidentIndexPage(
+    $first: Int = 12
+    $last: Int
+    $after: String
+    $before: String
+  ) {
     prismic {
       residents: allResidents(
         sortBy: resident_name_ASC
         where: { resident_status: "Resident" }
+        first: $first
+        last: $last
+        after: $after
+        before: $before
       ) {
         edges {
           node {
@@ -166,13 +219,22 @@ export const query = graphql`
             }
             resident_name
             resident_image
-            resident_status
           }
+        }
+        totalCount
+        pageInfo {
+          hasNextPage
+          startCursor
+          endCursor
         }
       }
       alumni: allResidents(
         sortBy: resident_name_ASC
         where: { resident_status: "Alumni" }
+        first: $first
+        last: $last
+        after: $after
+        before: $before
       ) {
         edges {
           node {
@@ -182,13 +244,22 @@ export const query = graphql`
             }
             resident_name
             resident_image
-            resident_status
           }
+        }
+        totalCount
+        pageInfo {
+          hasNextPage
+          startCursor
+          endCursor
         }
       }
       guests: allResidents(
         sortBy: resident_name_ASC
         where: { resident_status: "Guest" }
+        first: $first
+        last: $last
+        after: $after
+        before: $before
       ) {
         edges {
           node {
@@ -198,8 +269,13 @@ export const query = graphql`
             }
             resident_name
             resident_image
-            resident_status
           }
+        }
+        totalCount
+        pageInfo {
+          hasNextPage
+          startCursor
+          endCursor
         }
       }
     }

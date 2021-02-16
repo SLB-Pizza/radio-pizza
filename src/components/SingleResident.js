@@ -17,7 +17,7 @@ function SingleResident({ resident }) {
   const { _meta, resident_name, resident_image } = resident
 
   return (
-    <div className="column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen resident-box">
+    <article className="column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen resident-box">
       <Link to={linkResolver(_meta)}>
         <div className="card">
           <div className="card-image">
@@ -39,7 +39,7 @@ function SingleResident({ resident }) {
           </div>
         </div>
       </Link>
-    </div>
+    </article>
   )
 }
 export default SingleResident

@@ -12,7 +12,7 @@ import { mappableDataFilter } from '../utils'
  * @function HomeFeatures
  * @param {Array} headline - Prismic RichText object
  * @param {Array} blurb - Prismic RichText object
- * @param {Array[Object]} homeFeaturesData - Array of data from Prismic received from /index; original data set in Prismic Homepage document
+ * @param {Object[]} homeFeaturesData - Array of data from Prismic received from /index; original data set in Prismic Homepage document
  * @returns {jsx}
  */
 function HomeFeatures({ headline, blurb, homeFeaturesData }) {

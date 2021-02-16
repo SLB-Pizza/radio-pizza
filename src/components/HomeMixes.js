@@ -12,7 +12,7 @@ import { mappableDataFilter } from '../utils'
  * @function HomeMixes
  * @param {Array} headline - Prismic RichText object
  * @param {Array} blurb - Prismic RichText object
- * @param {Array[Object]} homeMixesData - Array of data from Prismic received from /index; original data set in Prismic Homepage document
+ * @param {Object[]} homeMixesData - Array of data from Prismic received from /index; original data set in Prismic Homepage document
  * @returns {jsx}
  */
 function HomeMixes({ headline, blurb, homeMixesData }) {

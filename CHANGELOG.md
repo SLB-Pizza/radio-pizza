@@ -1,3 +1,6 @@
+### Version 1.2.1
+- fix(/residents): change "Alumni" to "Alumnus" in index & alumni query
+
 ### Version 1.2.0
 - [skip ci] Upload “/static/img/jessupload-e1548962937489-600x395.jpg”
 - [skip ci] Upload “/static/img/grey-long-sleeve-e1548963677856-600x400.jpg”

@@ -44,7 +44,7 @@ export const GET_MORE_ALUMNI = gql`
   query GetMoreAlumni($first: Int = 12, $after: String) {
     allResidents(
       sortBy: resident_name_ASC
-      where: { resident_status: "Alumni" }
+      where: { resident_status: "Alumnus" }
       first: $first
       after: $after
     ) {

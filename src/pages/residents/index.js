@@ -273,40 +273,40 @@ function ResidentsIndex({ data }) {
                   <SingleResident key={`Alumnus-${index}`} resident={node} />
                 )
               })}
-              {alumni?.hasMore ? (
-                <div className="columns is-mobile">
-                  <div className="column">
-                    <button
-                      className="button is-fullwidth is-outlined is-rounded"
-                      onClick={() =>
-                        getMoreAlumni({
-                          variables: { after: alumni.endCursor },
-                        })
-                      }
-                    >
-                      More Alumni
-                    </button>
-                  </div>
-                  <div className="column is-narrow">
-                    <a href="#mixes-header">
-                      <button className="button is-fullwidth is-outlined is-rounded">
-                        Top
-                      </button>
-                    </a>
-                  </div>
-                </div>
-              ) : (
-                <div className="columns is-mobile">
-                  <div className="column is-offset-10 is-2">
-                    <a href="#all-mixes">
-                      <button className="button is-fullwidth is-outlined is-rounded">
-                        Top
-                      </button>
-                    </a>
-                  </div>
-                </div>
-              )}
             </div>
+            {alumni?.hasMore ? (
+              <div className="columns is-mobile">
+                <div className="column">
+                  <button
+                    className="button is-fullwidth is-outlined is-rounded"
+                    onClick={() =>
+                      getMoreAlumni({
+                        variables: { after: alumni.endCursor },
+                      })
+                    }
+                  >
+                    More Alumni
+                  </button>
+                </div>
+                <div className="column is-narrow">
+                  <a href="#mixes-header">
+                    <button className="button is-fullwidth is-outlined is-rounded">
+                      Top
+                    </button>
+                  </a>
+                </div>
+              </div>
+            ) : (
+              <div className="columns is-mobile">
+                <div className="column is-offset-10 is-2">
+                  <a href="#all-mixes">
+                    <button className="button is-fullwidth is-outlined is-rounded">
+                      Top
+                    </button>
+                  </a>
+                </div>
+              </div>
+            )}
           </>
         ) : null}
 
@@ -355,35 +355,6 @@ function ResidentsIndex({ data }) {
             )}
           </>
         ) : null}
-
-        {/* {hasMoreRes ? (
-          <div className="columns is-mobile">
-            <div className="column">
-              <button className="button is-fullwidth is-outlined is-rounded">
-                More Residents!
-              </button>
-            </div>
-            <div className="column is-narrow">
-              <a href="#mixes-header">
-                <button className="button is-fullwidth is-outlined is-rounded">
-                  Top
-                </button>
-              </a>
-            </div>
-          </div>
-        ) : (
-          <div className="columns is-mobile">
-            <div className="column is-offset-10 is-2">
-              <a href="#all-mixes">
-                <button className="button is-fullwidth is-outlined is-rounded">
-                  Top
-                </button>
-              </a>
-            </div>
-          </div>
-        )} */}
-
-        {/* <pre>{JSON.stringify(data.prismic, null, 2)}</pre> */}
       </div>
     </main>
   )
@@ -424,7 +395,7 @@ export const query = graphql`
       }
       alumni: allResidents(
         sortBy: resident_name_ASC
-        where: { resident_status: "Alumni" }
+        where: { resident_status: "Alumnus" }
         first: $first
         last: $last
         after: $after
@@ -477,25 +448,3 @@ export const query = graphql`
 `
 
 export default ResidentsIndex
-
-// Resident Square Image sizes
-// --- MOBILE ---
-// --- CMS Size: 500
-// --- min-max avg:  513.5---
-// --- mean:  495.67---
-// 767  - 695
-
-// 768  - 218
-// 1023 - 307
-
-// --- DESKTOP ---
-// --- min-max avg:  350---
-// --- mean:  329.33---
-// 1024 - 222
-// 1215 - 269
-
-// 1216 - 270
-// 1407 - 318
-
-// 1408 - 318
-// 1920 - 446

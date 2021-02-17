@@ -1,15 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react'
-import axios from 'axios'
 import { Link } from 'gatsby'
 import Ticker from 'react-ticker'
-import { gql, useQuery } from '@apollo/client'
-// import { PrismicLink } from "apollo-link-prismic";
-import { formatDateTime, getResidentString } from '../utils'
+import { useQuery } from '@apollo/client'
 import { RadioPlayer } from './index'
+import { formatDateTime, getResidentString } from '../utils'
+import { GET_DEFAULT_MIX } from '../queries'
 import {
   GlobalDispatchContext,
   GlobalStateContext,
 } from '../context/GlobalContextProvider'
+
 import dayjs from 'dayjs'
 const utc = require('dayjs/plugin/utc')
 dayjs.extend(utc)
@@ -55,43 +55,12 @@ function RadioBar({ nycTime, laTime }) {
   //   );
   // };
 
-  const INITIAL_MIX = gql`
-    query DefaultMix {
-      allTopnavs {
-        edges {
-          node {
-            default_mix {
-              ... on Mix {
-                mix_image
-                mix_link
-                mix_title
-                featured_residents {
-                  mix_resident {
-                    ... on Resident {
-                      resident_image
-                      resident_name
-                      _meta {
-                        uid
-                        type
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `
-
-  const { loading, error, data } = useQuery(INITIAL_MIX)
+  const { loading, error, data } = useQuery(GET_DEFAULT_MIX)
 
   /**
    * Query the HMBK Prismic CMS to get the data for the initial mix data.
    * Grab the mix data object from the query result.
    * Destructure the mix data object and dispatch the mix data to appear in {@link RadioPlayer}
-   * @function
    */
   useEffect(() => {
     if (loading) {

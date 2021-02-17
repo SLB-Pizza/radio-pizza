@@ -10,22 +10,22 @@ module.exports = {
   plugins: [
     /**
      * Disables Font Awesome auto CSS insertion and instead inserts it at compile time. On the initial load, a page will jump because the icons load without styling. The problem is that Font Awesome inserts its styles in the frontend.
-     * @see {@link https://www.gatsbyjs.com/plugins/gatsby-plugin-fontawesome-css/ | gatsby-plugin-fontawesome-css}
+     * @see {@link https://www.gatsbyjs.com/plugins/gatsby-plugin-fontawesome-css/| gatsby-plugin-fontawesome-css}
      */
     'gatsby-plugin-fontawesome-css',
     /**
      * Provides drop-in support for server rendering data added with React Helmet
-     * @see {@link https://www.gatsbyjs.com/plugins/gatsby-plugin-react-helmet/?=helm/ | gatsby-plugin-react-helmet}
+     * @see {@link https://www.gatsbyjs.com/plugins/gatsby-plugin-react-helmet/?=helm/| gatsby-plugin-react-helmet}
      */
     'gatsby-plugin-react-helmet',
     /**
      * Provides drop-in support for Sass/SCSS stylesheets
-     * @see {@link https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sass | gatsby-plugin-sass}
+     * @see {@link https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sass| gatsby-plugin-sass}
      */
     'gatsby-plugin-sass',
     /**
      * A Gatsby source plugin for sourcing data into your Gatsby application from your local filesystem
-     * @see {@link https://www.gatsbyjs.com/plugins/gatsby-plugin-sass/?=file | gatsby-source-filesystem}
+     * @see {@link https://www.gatsbyjs.com/plugins/gatsby-plugin-sass/?=file| gatsby-source-filesystem}
      */
     {
       resolve: 'gatsby-source-filesystem',
@@ -50,7 +50,7 @@ module.exports = {
     },
     /**
      * A Gatsby theme for protecting apps and pages with password
-     * @see {@link https://www.gatsbyjs.com/plugins/@mkitio/gatsby-theme-password-protect/ | gatsby-theme-password-protect}
+     * @see {@link https://www.gatsbyjs.com/plugins/@mkitio/gatsby-theme-password-protect/| gatsby-theme-password-protect}
      */
     {
       resolve: '@mkitio/gatsby-theme-password-protect',
@@ -62,9 +62,9 @@ module.exports = {
     },
     /**
      * A Gatsby plugin for fetching source data from the Prismic headless CMS using Prismic’s beta GraphQL API
-     * @see {@link https://hmbk-cms.prismic.io/ | HMBK Prismic CMS}
-     * @see {@link https://www.gatsbyjs.com/plugins/@prismicio/gatsby-source-prismic-graphql/ | gatsby-source-prismic-graphql}
-     * @see {@link https://prismic.io/docs/gatsby/getting-started/prismic-gatsby-source-plugin | Prismic.io docs - Prismic Gatsby Plugin}
+     * @see {@link https://hmbk-cms.prismic.io/| HMBK Prismic CMS}
+     * @see {@link https://www.gatsbyjs.com/plugins/@prismicio/gatsby-source-prismic-graphql/| gatsby-source-prismic-graphql}
+     * @see {@link https://prismic.io/docs/gatsby/getting-started/prismic-gatsby-source-plugin| Prismic.io docs - Prismic Gatsby Plugin}
      */
     {
       resolve: '@prismicio/gatsby-source-prismic-graphql',

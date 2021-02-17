@@ -82,7 +82,7 @@ function EventHeader({
 
         /**
          * Using clientHeight here because neither eventImage nor eventHeader has a border to count.
-         * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/Element/clientHeight | Element.clientHeight - MDN}
+         * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/Element/clientHeight| Element.clientHeight - MDN}
          */
         setEventHeight(eventImage.clientHeight)
         setTimerHeight(eventHeader.clientHeight)
@@ -94,7 +94,7 @@ function EventHeader({
 
       /**
        * Using offsetHeight here because both topNav and bottomNav have borders to account for.
-       * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetHeight | HTMLElement.offsetHeight - MDN}
+       * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetHeight| HTMLElement.offsetHeight - MDN}
        */
       let topNavHeight = topNav.offsetHeight
       let bottomNavHeight = bottomNav.offsetHeight

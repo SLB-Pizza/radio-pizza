@@ -6,7 +6,7 @@ import { gql } from '@apollo/client'
  * @category Queries
  * @const FILL_HOME_FEATURES
  * Used in {@link HomeFeatures}
- * @see {@link https://hmbk-cms.prismic.io/graphql | HMBK's Prismic GraphQL API}
+ * @see {@link https://hmbk-cms.prismic.io/graphql| HMBK's Prismic GraphQL API}
  */
 
 export const FILL_HOME_FEATURES = gql`

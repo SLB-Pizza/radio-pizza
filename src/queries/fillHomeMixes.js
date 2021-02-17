@@ -6,7 +6,7 @@ import { gql } from '@apollo/client'
  * @category Queries
  * @const FILL_HOME_MIXES
  * Used in {@link HomeMixes}
- * @see {@link https://hmbk-cms.prismic.io/graphql | HMBK's Prismic GraphQL API}
+ * @see {@link https://hmbk-cms.prismic.io/graphql| HMBK's Prismic GraphQL API}
  */
 export const FILL_HOME_MIXES = gql`
   query FillHomeMixes($count: Int!) {

@@ -18,7 +18,7 @@ function HeroCarousel({ slides }) {
 
   /**
    * Custom bullet component for bullets to pass as props for <Slider>
-   * @see {@link https://github.com/farbenmeer/react-spring-slider#fully-customized | react-spring-slider Fully Customized}
+   * @see {@link https://github.com/farbenmeer/react-spring-slider#fully-customized| react-spring-slider Fully Customized}
    */
   const HeroBullets = ({ onClick, isActive }) => (
     <li

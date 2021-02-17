@@ -1,0 +1,2036 @@
+### Version 1.2.0
+- [skip ci] Upload “/static/img/jessupload-e1548962937489-600x395.jpg”
+- [skip ci] Upload “/static/img/grey-long-sleeve-e1548963677856-600x400.jpg”
+- [skip ci] Upload “/static/img/011519-merch-diandra-24-600x400.jpg”
+- Update Pages “products”
+- [skip ci] Upload “/static/img/halfmoon_white.png”
+- [skip ci] Upload “/static/img/halfmoon-3.png”
+- Update Pages “products”
+- Delete Blog “2017-01-04-a-beginners-guide-to-brewing-with-chemex”
+- Update Blog “2017-01-04-just-in-small-batch-of-jamaican-blue-mountain-in-store-next-week”
+- Delete Blog “2016-12-17-making-sense-of-the-scaas-new-flavor-wheel”
+- Update Pages “index”
+- testing local changes to CMS
+- changing fav icon
+- added halfmoon to backdrop
+- removing old images
+- restored two images
+- updated readme
+- updated gatsby-config.js
+- updated gatsby-config.js again
+- fixed og image
+- updated og image
+- adding in player module, and local state
+- [skip ci] Delete “static/img/meeting-space.png”
+- [skip ci] Delete “static/img/og-image.jpg.backup”
+- [skip ci] Delete “static/img/apple-touch-icon.png”
+- updated icons for touch
+- Create Blog “2019-12-12-say-it-again”
+- finally fixed touch fav icon
+- [skip ci] Delete “static/img/apple-touch-icon.png.backup”
+- updated pages
+- rolling back from dependancy error
+- Create Blog “2020-01-07-test”
+- adding dj editor in
+- Create djs “2020-01-07-test”
+- debugging cms additions
+- Create djs “2020-01-08-test-2”
+- Create djs “2020-01-08-test-3”
+- adding in dj page preview
+- trying to fix dj preview
+- trying to fix dj preview again
+- changing identifier field name
+- changing name to title for djs
+- removed config.yml from gitignore
+- removed config.yml from gitignore and reset config
+- named djs congif default field to djs
+- editing DjPagePreview to try to make preview appear
+- tried adding helmet back into dj preview
+- changed getIn calls in DjPagePreview.js
+- Update Djs “2020-01-07-test”
+- adding in djs as test
+- sorting djs
+- deleted bad dj conversions
+- adding two images to dj editor
+- initial adding of events to cms
+- corrected bugged frontmatter query in event-page.js
+- changed map widget to address string
+- removed broken npm gmaps widget package
+- adding in shows to cms and editor
+- added back package lock
+- corrected filename typo
+- fixing filename
+- moved ShowPagePreview to correct folder
+- blank
+- trying to replace ShowPagePreviews.js again!
+- debugging ShowPagePreview
+- experimenting with displayed associations from the CMS
+- added widget: 'relation' to shows editor
+- removed .map from show0page.js for now
+- adding evernt url to cms
+- added recent site images last 3 months
+- Add files via upload
+- Delete Djs “2020-01-07-test”
+- Delete Djs “2020-01-08-test-2”
+- Delete Djs “2020-01-08-test-3”
+- Create Djs “kala”
+- Update Djs “kala”
+- Create Shows “kala-btz-w-bastiengoat-and-h-b-i-c-2020-01-15”
+- removed requirement in shows editor
+- Add files via upload
+- Create Events “afro-punk-after-dark-2020-01-15”
+- [skip ci] Delete “static/img/D418E0C6-1AE6-4924-889D-A917B064D303.jpeg”
+- added Daily Mix Page to CMS
+- fixing duplicate showPage
+- fixed indentation issue
+- Add bulma sass files to src/styles
+- Move sass folder; test basic bulma layout on two-bar-layout
+- Add BottomNav component and working bulma sass imports
+- Add TopNav and Hero layout sample
+- Fix TwoBarLayout > Hero spacing issues via <div> to <body> element change
+- Add ChatSchedule test layout to TwoBarLayout
+- Add EditorialFeed test layout to TwoBarLayout
+- Change BottomNav bar container size to fluid
+- Add .alt-column test; Add two-bar-layout comments; Organize bottom bar
+- Add FontAwesome and icons to BottomNav
+- Fix TopNav; Add sample text place holders; Add BottomNav sample links
+- Add TopNav transparency comment
+- Add Radio Player component to TopNav; add alternating column colors for testing
+- Add moment-timezone to project; add currTime to TopNav
+- Add top-bar-logo to hero-test.scss
+- Add ShowDetails sample component to ChatSchedule
+- Pre-test branch test setup - test/addJestPuppeteer
+- Add gatsby-puppeteer screenshot command to project
+- Add more viewports to gatsby-puppeteer.js; Set daily picture source
+- Add Screenshot prompts
+- Begin separation of navbars from other content in components and scss
+- Add basic open/close toggle for schedule-bar
+- Add transition property to open/close toggle
+- Replace inner layout with columns; Prepare for toggle schedule views
+- Replace 2 show schedule layout with 1 show layout
+- Edit ScheduleBar columns to expand to is-open height: 7.5rem
+- Change ScheduleBar 'active' to 'open' for clarity; Add comments
+- Move screenshots to __tests__; Migrate to test/usingLayoutComp
+- Add .homepage-hero to HomePage.scss; fix alignment of section with schedule-bar
+- Create new section base for .homepage-hero
+- Restore broken imports and filenames
+- Add AboutPage base and files; pre-AddScheduleBar merge
+- Make demo layout for AboutPage
+- Add News Page prelim-layout; vertical mobile layout testing
+- styling player in top bar
+- Add NewsPage mobile accordion
+- Add NewsPage separation of mobile and desktop
+- Add four sections to mobile with basic items within
+- Add base layout to SchedulePage; hero with dates; time and show names section
+- Fix #scheduled-shows columns alignment to match hero dates section
+- Add SchedulePage non-functional wireframe
+- Change body to div in two-bar & schedule; debug schedule layout issue
+- Copy desktop section for mobile & add 'is-hidden-touch'
+- Make mobile date picker scrollable horizontally
+- Begin creating mobile/tablet layouts
+- Update Screenshots to take photos of the 1023 breakpoint; reorg some code
+- Update Screenshots to print comments about each screenshot
+- Update screenshots to print out filenames for searchability in folder
+- Reactivate screenshot function
+- Update page loading conditions; edit viewport comments
+- Update desktop time-date & time-slot CSS and JSX
+- Update HD Laptop to Low-res Laptop; include breakpoints in descriptions
+- Create NewsFeed with 4 scrolling columns; Create CategoryItem
+- Add CategoryItem to last push
+- Fix single-item layout to work down to 1024px wide
+- Rename feed and schedule; add borders to schedule; add version to screenshot file names
+- Add test-active id to desktop schedule; add clicker to schedule page
+- Re-enable shot function
+- Add ScheduleShowEntry
+- Add MixesPage layout based off NewsPage; uninstalled date-fns
+- Add base layout to mixes
+- Fix single-mix width, add spacing; add hover transition
+- Fix single-mix font sizes for touch
+- rolled back to prev, recreating class-based player comp
+- Create .in-progress class; apply to /schedule
+- basics of audio bar structure
+- play button connected to player embed
+- commit before checkout
+- changing -nav-height to hard coded 7.5rem
+- hard coded 7.5rem in  -nav-height in BothNavBars.scss
+- Expand screenshot questionnaire
+- Pre-script merging
+- Add parseViewports WIP code
+- Disable questionnaire code for now; re-enable old allDevices code
+- Add break condition to script from questionnaire
+- Rename two-bar-layout to home
+- Add HomeContent and HomeMixes WIP to /home; add scroll to screenshots
+- Begin HomeMixes two-column layout
+- Make home content section blurb sticky; begin mix layout
+- Add HomeEvents & HomeSingleEvent base files
+- Add layout to HomeEvents; add buttons to both content sections
+- Fix HomeMixes & HomeEvents layouts down to tablet
+- Add HomeNews & HomeSingleNews WIP code
+- Fix all layouts for HomeMixes, HomeEvents & HomeNews
+- Fix className issue in Hero; randomize HomeContent singles
+- Reorg and comment Screenshots code; change HomeSingleMix aspect ratio
+- Add tag details to Mixes; Resize card-content details
+- Add prelim HomeMixes & HomeSingleMix touch layout
+- Reorg touch content section headers and single-item code
+- Fix mobile HomeSingleMixes size; change HomeEvents button
+- Pull mobile 'More Section >' buttons to right of columns
+- Delete unused components and their exports
+- Add DatePicker WIP to ScheduleBar
+- Begin reorganizing schedule-bar into two-col layout
+- Undo two-col layout; it was dumb
+- Reorganize schedule-bar into more components
+- Setup desktop schedule bar; begin screenshot mobile testing
+- Add clickTarget to Screenshots; take prelim /home v4 pics
+- Begin fixed-height scrollable schedule section
+- Add modal for mobile & tablet; debug date-picker width tablet
+- Test modal schedule box-shadow; pre-component separation
+- Create ScheduleModal & ScheduleDropdown
+- Continue date-picker testing
+- rewritten player as func comp with local state and can read context state
+- adding more to global state still error on dispatch from index page
+- debugging index-page dispatch button
+- basic stream load button working
+- radio bar wrapping whole site
+- Add FontAwesome play/pause button toggle
+- Change play/pause button sizes
+- radio bar takes title from global state
+- Fix modal date picker width; now correct on touch & desktop
+- added mute func to icon, not yet working fully
+- added additional stream sources, debugging mute
+- added sources
+- successfully checking radio.co stream status but only on load
+- Successful merge - begin design migration
+- Added Hero & HomeContent to index-page.js; begin import two-bar > components folder
+- Change Schedule-bar up-next dummy text; remove status comment
+- Add changes from Mar 20 meeting
+- Change layout from tablet up to reflect 3 events and 2 features
+- Move test sources to Hero component
+- Migrate all two-bar components to src/components; fix imports
+- Migrate styles folder out of /src/components to /src
+- Fix inheritance issues in RadioBar & BottomNav
+- Change if statements in GlobalContext; fix mute icon behavior; add base icon
+- Fix RadioPlayer height and width errors through styling
+- Begin reorganization of top radio bar
+- Change RadioBar layout to columns; remove mute & time from mobile
+- Fix issue of modal AND dropdown appearing on mobile
+- Begin home content bg-image black overlay test
+- Reset player volume to max
+- Clean up some leftover ReactPlayer bits
+- Add ResidentPage base and ResidentAlpha start
+- Add SingleResident base
+- Add round portrait and single artist line
+- Push to share for debugging deploy
+- Reorganize single-resident layout and CSS
+- new branch
+- debugging .default in ssr
+- debugging gatsby-browser.js
+- debugging ssr
+- debugging srr vs broswer apis
+- Simplify residents layout; pre-layout merge
+- debugging srr vs broswer apis
+- restoring ssr and broswer api files
+- debugging ssr
+- disabling mobile layout of radio bar
+- changed radio abr color back
+- Refactor dual columns to single-column declaration
+- Merge fixed SSR and unified RadioBar
+- Set global player to false disabling autoplay
+- Add image-diffuser to HomeMixes bg image
+- Add diffuser to HomeEvents & HomeNews; change bg for home content sections
+- Fix HomeContent item sizing, fonts, bgs, and borders
+- Remove Layout, TopNav & BottomNav imports from pages
+- Adjust HomeContent mobile sections padding
+- Make schedule-bar fullwidth on touch; componentize schedule-bar modal and dropdown
+- Reorganize show-entries desktop to have scrollable show-entry list based on window height
+- Fix font issues on schedule-modal
+- Fix font-sizing and short-screen mixin for wider screens
+- Add bio page base and bring in single-mix from daily-mixes
+- Add tags group to bio/mixes section
+- Begin hover experimentation with front-page items; bring success to bio mixes
+- Add prelim hover effect to HomeSingleMix cards
+- Add test links to nav bar
+- Add navbar-end social icons base code
+- Lots of changes; list in full git log
+- Add BioSingleMix base code; add pagination base code
+- Recreate resident-mix on bio page; begin adding play btn overlay
+- Fix section height jittering when hovering
+- Add transition to BioSingleMix - :hover - translucent overlay w/ dummy play button
+- Create BioHorizItem base to better display mixes on /bio
+- Pass real YT music props to BioHorizItem successfully
+- Change BioHorizItem img src from background-image to nested figure; adjust onHover overlay
+- Connect onHover BioHorizItem overlay play button to the player
+- Test v2 BioHorizItem layout; improve testing mode and timeout error Screenshots code; install date-fns
+- Lots of changes - see full git log
+- Change tablet breakpoint from 769px to 768px so iPads act like tablets and not like HUGE mobile devices
+- Convert YT test links and set time to 0; add FFXV img, fix puppeteer timeout bug
+- Edit puppeteer device descriptions
+- Move pagination to BioPagination.js; add 2 more mixes to /bio
+- Adjust height of ScheduleDropdown show-entries container on short screens
+- Adjust offScreen player box; test RadioPlayer overflow
+- Add social links to BioImageBlurb, change Chatango icon; remove spans from RadioPlayer and apply color directly; begin Residents two-tab layout; add links to /bio to SingleResident
+- Migrate ResidentsPage.js to /pages/residents/index.js
+- Test bulma tabs v column selection; space out SingleResident entries
+- beginnings of a marquee
+- Delete ResidentsPage.js; make SingleResident take props; add margin to resident-selection; change margins per viewport
+- Add test source text to mixes on /bio; change audio sources away from YT
+- Fix broken marquee elements;
+- Set up for smarquee testing
+- Remove ResidentAlpha component
+- Make marquee visible on mobile only; set static title for tablet-up
+- Add pulsing light and LIVE text to RadioPlayer
+- Add top border to BottomNav
+- Delete BioPagination.js and imports; add Lighthouse audit of deploy branch
+- Add mobile specific mix-play icon; make BioHorizItem for mobile
+- Delete BioPagination.js and imports; add Lighthouse audit of deploy branch
+- Add mobile specific mix-play icon; make BioHorizItem for mobile
+- Fix broken Bio scss
+- Fix mixed up rebase code; unify touch font sizes; make images larger
+- added chatango link to chat icon
+- Add first react-audio-spectrum attempt
+- Unify radio and schedule bar color; and pink borders; add toggle to Residents
+- Make toggle columns solid color blocks; add 'is-active' CSS
+- Add HMBK pink hover color to radio bar icons
+- Make navbar links and icons white; pink onHover
+- Add space after resident-selection container; remove onHover white border
+- Add transition to single-mix on bio; change hover/active color
+- Make hover/active color of resident social icons to HMBK pink
+- Make hover/active color of 'bio' mix play button HMBK pink
+- Add toggle
+- Add togglePlayLive to reducer & RadioBar; add live layout base code; comment out AudioSpectrum base code in RadioPlayer; add togglePlayLive button to ScheduleBar
+- Merge chat into feat/addArtistPage
+- Change 'live' to '6PM' to hide button for now; change /residents bg image
+- Change homepage section dividers and card outline colors to HMBK pink; remove expanding transition
+- Add notes from Trello post
+- Add live bar to RadioBar; set live bar to globalState.live toggle
+- Add live-bar with prelim ticker and font
+- Fix margins of RadioBar for Live and not Live configs
+- Add ticker to Schedule Bar mobile; make space for live button
+- Remove audio-spectrum test code; move tickers to own divs in RadioPlayer
+- Switch title to Eurostile; change sizing of RadioBar
+- Import Titillium for testing
+- Remove p elements from tags on BioPage
+- Add IBM Plex Sans as primary body font
+- Change HomeMixes font sizes; make .tag, .card global styles; increase card border width
+- Change HomeEvents and HomeSingleEvent font sizes
+- Add padding to taglines on Home; change font sizes of HomeNews and ScheduleBar
+- displaying local and LA time for demo
+- updating clock every second
+- added seconds back to clocks
+- Merge time in
+- Fix font sizing on residents page
+- Fixes #2; will move slogan when on mobile too
+- Fixes #15; slogan now correctly placed based on viewport
+- Remove all images from HomePage; replace with solid color
+- Fixes #3; begin adding accessibility links to site
+- Fixes #4; menu burger now bolder than ever !
+- Bring in puppeteer changes
+- Remove image-diffuser from HomeContent sections; darken bg color; change mobile nav color
+- Fixes #16; nav-menu now closes on click
+- Hide nav bar social icons for screen readers; add labels to these links
+- Remove redundant HomeContent SCSS
+- Remove image-diffuser CSS and bg-image on Bio
+- Change single-resident layout to 16x9 img and text; add border w/hover
+- Add single-resident resident onHover bgChange
+- Add border brighten onHover to all cards; add bgChange onHover to HomeMixes; add 6 mixes to HomeMixes
+- Change single resident container code to standard card
+- Remove old format single resident code
+- Make navbar-menu bgColor black; dark purple when is-active
+- Combine root HMBK styles; add base HMBK bug report
+- Update issue templates
+- Organize more root HMBK styles
+- Remove close button from button of dropdown; move close button to schedule bar
+- Rewrite ScheduleDatePicker to map over array of fake date data
+- Change close schedule button text to 'Close ▲'
+- Update issue templates
+- Un-nest Dropdown & Modal styles from .schedule-bar
+- Fixes #26; schedule-bar layout when dropdown open now matches dropdown open
+- DateColumn works but is not connected to live data, starts progress on #19, #20
+- Closes #31; further styling changes must be made to dropdown and modal
+- Reorg schedule modal code with DatePicker & ShowEntry combination; Closes #22 - base color style adapted
+- Hide dropdown on mobile - modal is active
+- Make dropdown show entries only; make entries div mappable
+- Starts #33; remove ShowEntry from DatePicker; add schedule link to dropdown
+- Modify dropdown to pass showSchedLink prop; modify ShowEntry for reuse
+- Add prelim date and formatting to dropdown
+- Move schedule link to top of dropdown; begin styling dropdown
+- Add Oxygen to project; Closes #5
+- Missed issue; closes #6
+- Closes #18; added touch mixin to solve desktop navlink toggling
+- Missed issue; closes #17
+- Missed issue; closes #20 - no DatePicker present on modal
+- Delete hmbk_bug_report.md
+- Closes #34; Closes #44
+- Closes #41
+- Closes #46, Closes #48
+- Merge 'feat/activateSchedules' to close issues
+- Closes #50, closes #49, closes #52
+- Merge 'feat/activateSchedules' - more fixed issues
+- Remove md files from src/pages
+- closes #35 adds artist to global context and ainto render playbutton func on index-page
+- Begin #23; black overlay in place on Home
+- #23, #24, #66 - in progress
+- Closes #23, closes #24
+- Begin #70
+- #66 - HomeMixes & SingleMixCard updated
+- #66 - SingleCardMix implemented; still issues
+- Closes #54; SingleCardMix implemented and functional
+- Closes #66; dummy text removed; altText added
+- Moved logo from bottom bar for top bar
+- #68 start
+- #78 delete complete, #79 updated
+- #78 update
+- Update issue templates
+- Update issue templates
+- #78 updated
+- Closes #78
+- Begin #85
+- Remove search button from /search
+- #78 - layout modified
+- Icon css unified, search icon link added to TopNav
+- Begin #85; edit #78
+- #79 updated; #43 updated
+- Begin 82
+- Closes #53
+- feat (layout): ScheduleEntry reactive to show name
+- feat (layout): make card base border color white
+- fix: remove all .has-text-light classes
+- fix (layout): add bottom padding to Bio
+- feat(layout): add toggle to show search layout
+- fix(font): increase font size of currentlyPlaying
+- fix(layout): give cards/tags rounded borders
+- fix(layout): thin card borders and fix rounded thinning
+- fix(layout): remove chat link from bottom; move to top
+- fix(font): change title font to Aldrich; change body to Authentic
+- fix(layout): times removed from tablet layout; mix card font adjusted
+- fix(layout): home content id merged down one div
+- feat: add img to radio bar
+- style(layout): move now playing image to RadioPlayer
+- style(layout): thin existing borders and change to white
+- style(color): change all background colors to black
+- fix(layout): add mixins to mix card content-text & tags
+- refactor: convert in-file dummy data to json file imports
+- style(layout): make artist image on bio 6col
+- fix: make HomeMixes display only first 12 mixes
+- style(img): add mint jams album image
+- feat: make bottom nav slogan link to home
+- fix(layout): change min-height of resident name box
+- fix(layout): schedule dropdown closes onClick 'view full schedule'
+- style(layout): Play button now overlaid on mix img
+- style: revert radio bar play/pause to old style
+- fix(layout): fix home content bottom padding to match top padding
+- refactor(style): remove unused .sticky-link class
+- style: give all HomeContent buttons mix card outlined style
+- style: change BottomNav link colors to shade/HMBK pink
+- test: begin sticky bio layout
+- style: add multiline mixes to /sticky-bio
+- fix: update last incomplete commit
+- style: complete /sticky-bio layout
+- fix(layout): remove white inner curve on card hover
+- feat: add about page copy from Surf's text
+- fix: Edit incomplete about copy; add site credits for us
+- style: remove mix-img from mobile
+- style: add font details to schedule bar - Aldrich
+- style: add font details to schedule bar - Audiowide
+- fix(style): hide mix-img column on mobile
+- fix(font): reduce font sizes of schedule fonts; simplify layout
+- style(font): add Aldrich as title
+- style(refactor): remove .is-live from RadioBar and in BothNav
+- style: apply base button style to schedule bar
+- style(fix): up-next buttons and text centered in bar
+- style(fix): align open schedule dropdown with bottom of schedule bar
+- style(feat): make navbar-item Aldrich font; remove unneeded css
+- style(fix): fix font-size change on dropdown open
+- style(missed): remove schedule from BottomNav
+- style(feat): convert search select columns into buttons
+- style(feat): make search column buttons fullwidth
+- style(feat): make /residents 4 columns wide like homepage
+- style(feat): convert resident selection columns to buttons
+- update queries to static where neeeded, placeholder field data
+- style: add dividers to schedule dropdown
+- refactor(style): add /test to work out prelim page size sass
+- style(feat): homepage now uses global .site-page css
+- style(feat): residents page now uses global .site-page css
+- style(feat): /sticky-bio now uses global .site-page css
+- fix(style): /sticky-bio: bio column now scrolls when necessary
+- delete: /bio page and related old bio components
+- style(delete): remove remaining old .resident-bio css
+- feat: add schedule selector base to /schedule
+- feat: make DateSelectorButton a component; add ScheduleShowEntry
+- style: change faPlayCircle to faPlay icon; begin search bar change
+- style: apply HMBK pink styles and border widths to buttons and input
+- style: apply HMBK pink button styles to top nav and dropdown
+- style: update button and input styling on /mixes and /schedule
+- style: /mixes - make tags dropdown rounded
+- style: change HomeNews button style
+- style: unify front page button styles
+- test: add working tag to button conversion to /test
+- style: change mix image size; code formatting
+- style: change mix tags to buttons with HMBK styling; make tag-btns uniform in size
+- style(fix): change radio-bar, schedule-bar from 5rem,2.5rem to 4.5rem,3rem
+- style(fix): make radio-bar columns new 4rem height
+- refactor: un-nest RadioPlayer.js columns div
+- style(fix): remove breaking .radio-bar mobile padding-top
+- style(fix): make all sticky-bio links open in new tab
+- resource: add KOAN Sound - Silk Wave and img to sampleMixes.json
+- fix: add 'rel=noopener' to /bio social icon links
+- style: update TopNav and buttons font to Aldrich
+- style: make all home content buttons small
+- style(fix): make mobile-date-selector horizontally scrollable
+- style: restore black bgColor to TopNav and touch BottomNav
+- fix: repair broken gatsby version
+- fix: change /sticky-bio to /bio and shorter link text
+- fix: change /sticky-bio to /bio and shorter link text
+- test: ssh test
+- style(test): begin centered now-playing img and details
+- style: add centered now-playing layout
+- feat: add base /events layout with dummy events
+- feat: add /events link to bottom nav and home event section button
+- refactor: move test imgs from /static/img to /static/img/test
+- test: /events base layout now has 12 test events
+- deploy: fix bad graphQL error
+- fix: change radio bar img base paths; restore original tag sizes
+- fix: bring in deployed changes
+- style(fix): /mixes - add base 4col layout; needs breakpoint height tweaks
+- layout: /about - add new base layout
+- style(fix): /mixes - reduce size of mixes play btn from 7x to 5x
+- style(fix): /mixes - hard code size of playBtn from 7x to 5x
+- style(test): /test - add base duotone code to mix imgs
+- style(feat): apply duotone filter as mix img hover effect
+- style: mobile mix cards - reduce spacing between title and tags
+- cleanup: closes #100
+- style(fix): add paddings to .content-text & .btn-tag; adjust min height
+- add sunday weekly 24 hr blocks
+- pointed cms off master
+- style(feat): /events - begin adding text-overflow ellipsis
+- test(function): add globalState.live true/false string to next show
+- style(feat): make schedule-bar BGColor HMBK Pink shade when live
+- feat: BottomNav social media icon links now open in new tab
+- style(fix): add missing live-light to 'Listen Live' button when schedule is open
+- test: add calendar icon to radio-bar as prep for opening schedule w/global dispatch
+- test(feat): calendar icon in radio-bar now send schedule dispatch
+- style(test): radio-bar icons and functionality moved schedule-bar
+- style(feat): change pulsing live-light to broadcast tower; remove pulsing border
+- feat: add globalState ternary to Listen Live btn; needs functionality
+- feat(base): add starter homepage image carousel code
+- basic weekly schedule built using relations to Dj's (empty)
+- test(page): install react-responsive-carousel; create base /hero-test
+- fix(test): add base text to /hero-test
+- layout: /about - add new base layout
+- merge: bring fix/newAboutLayout in; remove btnSize from SingleMixCard.js
+- feat(test): install react-awesome-slider on /hero-test-2
+- test: add local images as test; try hero element modification via docs
+- feat: re-enable schedule dropdown for mobile; disable modal
+- style(feat): add mobile font size to schedule dropdown
+- style(fix): fix schedule-bar size stutter when changing from not live to live config
+- fix: changed key map value in ScheduleShowEntry to use show.hostInfo instead of show.showName
+- style(test): add base schedule-bar .is-live bottom-border pulse anim
+- feat(style): add pulsing bottom border to schedule-bar .is-live
+- style(feat): add small variable gaps to schedule bar; change pulse BPM to 145; reduce schedule-bar icon sizes to 1x
+- data: add Circadia & Letargo to sampleMixes.json
+- feat: add /schedule styling; regulate schedule dropdown max height
+- feat: schedule dropdown closes on 'Full Schedule' click
+- feat: begin text-truncate tests
+- feat: remove play button from SingleMixCard
+- feat: add working OutsideClick base code to ScheduleBar
+- feat: make dropdown schedule close onClick outside ScheduleBar
+- feat: convert OutsideClick internal HOC to independent component for use in BottomNav
+- feat: add react-spring: /hero-test-3; address bottomNav OutsideClick
+- WIP: remove OutsideClick from BottomNav; change 'live' pulse bpm to 128
+- feat: /residents is now automatically alphabetized A→Z; moreWIP
+- "fix: rename all mix.name SingleMixCard props"
+- "feat: /residents - auto-alphabetize residents"
+- test(style): add SoundCloud's text-truncate class to HMBKSettings
+- feat: make BottomNav use globalContext to open/close; refactor OutsideClick.js
+- feat: add working volume input slider; needs styling
+- restore: add play button to SingleMixCard; rename called params globally
+- img: add neurofunk image and entry to sampleMixes
+- style: add .play-icon to HMBKSettings; remove span from SingleMixCard
+- test: add Russian Hardbass mix with extra long test text
+- style: add Nanoclamp to mix cards; content-text height set
+- cleanup: closing unmarked completed issues
+- style: remove bg-colors from SingleCardMix
+- feat: add working slider with built-in links
+- feat: convert div layout to hero section; begin styling
+- style: add rounded boxes to slide headline and subtitle
+- style: change slider buttons to black w/white border
+- style: fix hero alignment; write classes in HomePage.scss; remove inline styles and commented code
+- feat: replace Hero.js content with /hero-test-4 index
+- delete: remove all /hero-test-# files; modify SingleMixCard calls and docs for clarity
+- debugging the cms djpage and pagequery
+- fix: make SingleMixCard map variables less ambiguous
+- added a weekly scheudle preview
+- added weekly schedule index page
+- fix: edit broken tablet /bio layout
+- style: Hero.js > add mobile font sizing
+- hotfix: removed btnSize={btnSize} from /mixes
+- hotfix: removed /pages/test.js
+- feat: add Nanoclamp to /events; remove bgColors
+- debugging cms
+- debugging cms again
+- feat: wrap SingleEventCard with eventColumnLayout; refactor /events, /search
+- feat: add pointer and grabbing cursors to <Slider> :hover and :active states
+- removed featured artist from dj page
+- removed featured artist field
+- style: /bio - increase size of bio sticky section
+- cleanup: /search - fix img import; close issues
+- style: added arrows and arrow style to <Slider>
+- merge: bringing in new content to old branch version
+- setup: base for PagePreviews
+- fix: change backend branch; fix indentation error
+- fix: add StaticQuery import to DailyMixPagePreview and AboutPagePreview
+- branch: last commit before trying to add prismic
+- feat: install base prismic setup; testing next commit
+- fix: rectify package dependencies errors; add linkResolver base
+- feat: create new /src/templates/index-page.js; renamed old
+- feat: '/' - add base Prismic query; pass slides as props to Hero
+- fix: uncomment dummySlides in Hero causing error
+- feat: add dummy slides from Prismic; external link does not blank
+- "fix: fix broken HomepageQuery; log data to console"
+- fix: change homepageCarousel -> homepage_carousel; reenable Hero
+- fix: fix broken sampleSlide imports; add base CMSGuide.scss
+- feat: update .cms-warning; add bgAlt check
+- feat: pull out CMSSlides as component; update help layout
+- feat: create Home Content section in Homepage type; pass that data down to HomeContent
+- style: change div to section
+- data: add infected band photo
+- feat: update g-config for Feature type; get Feature template working
+- style: make path from last commit visible
+- feat: add FeaturesQuery to Feature.js; display data object on /features/dev-text-feature-1
+- feat: /features/dev-test-feature-1 > updated SliceZone returns SliceTypes;
+- feat: begin adding slices to SliceZone; fix CMSHelp query
+- feat: move cms-help components to folder; add HomeContent to /cms-help
+- feat: add base FullWidthImage to /cms-help/sample-feature
+- feat: add base switch statement for FullWidthImage className
+- feat: add Poppins font; add base Blockquote slice
+- test: add /cms-help to ScheduleBar; make blockquote font-size responsive
+- feat: add Storybook to project; restructure slices/FWI props
+- feat: FWI displays, albeit wrongly; working to include SASS support
+- feat: add SASS support to gatsby; FWI now display correctly
+- feat: add Blockquote - two variations
+- feat: add Blockquote story; begin refactoring inline slice styles
+- feat: convert Blockquote to SASS classes; add viewports to Storybook
+- feat: add SampleFeature base to Storybook
+- style: rename Sample Feature section to Sample Layouts
+- feat: remake Blockquote in CMS; update Blockquote component; update Features query
+- feat: successfully bring in Blockquote to /features/dev-test-feature-1
+- feat: Blockquote - fix variable declarations and switch statement; now supports multi-paragraph quotes
+- feat: fix broken Storybook Blockquote props
+- feat: add long TwoParagraph story
+- feat: add base TwoImagesAndText layout to Storybook
+- feat: add base ContentHelper to /components/slices; create Blockquote helper function
+- refactor: move inline getBlockquoteStyling > /components/slices/utils
+- fix: repair Sample Feature story
+- refactor: move ContentHelper > /components/slices/helpers
+- docs: add jsdoc bases for Blockquote, TwoImagesAndText and getBlockquoteStyling
+- docs: generate first version of project docs
+- refactor: destructure slice in Blockquote to pass in individual params directly where needed
+- docs: update Blockquote and getBlockquoteStyling docs
+- fix: add updated slice definition to /cms-help/sample-feature
+- debug: create TIAT in slice in Prismic to fix render issue
+- feat: get TwoImagesAndText working with Prismic sourced data
+- feat: add base HeadlineBlock story
+- test: add blackBG parent div to HeadlineBlock; testing with figure img overlay
+- feat: creat sample HeadlineBlock; connect it to front-end
+- feat: make Staff custom type; add to HeadlineBlock; add updated publication check
+- feat: make HeadlineBlock process and display latest pub date properly
+- fix: update HeadlineBlock story with new slice and metadata objects
+- docs: add comment about {sliceZoneContent} being the way it is
+- docs(CMS): add SliceZone jsdoc info
+- style(CMS): begin converting inline HeadlineBlock
+- debug(CMS): split data objects for /dev-test-feature-1
+- refactor(utils): move processPublicationDates HeadlineBlock helper function to /slice/utils
+- docs(utils): update processPublicationDates docs
+- style(HeadlineBlock): update styles in CMSSlices
+- feat(features): add base /features/ query
+- feat(Feature): make base /pages/features layout
+- data(features): ready data for use as props
+- refactor: more all utils to /src/utils
+- data(features): update Story with data objects
+- fix(features): fix props StickyFeature & style
+- data(CMS): update Features query to include other slice fields
+- feat(slices): make TextBlock slice; set base style
+- style(features): add column and .feature class to features
+- style(features): add explicit dev-test-feature links for deploy
+- fix(features): import graphql via gatsby to address deploy warning
+- remove: uninstall three other unused react image sliders
+- docs(slices): update Blockquote and HeadlineBlock
+- docs: update jsdocs
+- refactor: move Hero's slideGenerator helper func to /utils; update docs
+- missed: add refactor files from last commit
+- docs(all): update template and begin categorizing
+- package(update): upgrade Storybook to 6.0.2
+- feat(slices): add base ParallaxHeadlineBlock v1
+- docs(slices): fix TextBlock, getBlockquoteStyling
+- feat(slices): create ParallaxHeadline base slice
+- feat(slices): add 'headline-block' class; dummy data
+- prep(meeting): remove Parallax from Feature template and more
+- refactor: save current Parallax as OldPHB
+- feat(/support): add base Support page; connect CMS
+- feat(/support): add prelim scroll fade layout
+- feat(/support): update storybook; change fade scroll speed
+- docs(all): update docs
+- feat(/support): connect OneImageAndText component
+- docs: add more documentation
+- feat(slices): make OIAT slice switch layout types
+- feat(storybook): add left and right OneImageAndText stories
+- feat(slice): TIAT - fix layout selector; add stories
+- feat(slice): add ImageRow slice base
+- docs(ImageHelper): add docs
+- feat(password): add base password protection for /cms-help
+- feat(protect): password-protect /cms-guide route
+- refactor(CMS-Guide): being SliceZone refactor
+- refactor(/support): clean up /support page index
+- docs(Indexes): update index page docs
+- refactor(slices): redefine TextBlock and HeadlineBlock slices to be more generic
+- fix(slices): resolve broken feature documents after Feature type reset
+- style(slices): remove 'sample-feature' and 'feature' CMSSlices classes
+- style(bulma): remove some element styles; replace with variables
+- refactor(slices): make body principal template element; nest main in article
+- docs(helpers): update ContentHelper, ImageHelper
+- style(Hero): change font to Poppins
+- style(ArticleHeadline): begin HeadlineBlock new layout rework
+- style(ArticleHeadline): space ArticleHeadline image and titling based on titling size
+- style(ArticleHeadline): implement new ArticleHeadline styling
+- feat(ImageHelper): add onClick image modal; move photo data to modal
+- feat(ImageHelper): add pointer cursor; img alt txt
+- style(ImageHelper): refactor modal to use columns; contain img
+- refactor(/mixes): rename old mix index; create new
+- feat(linkResolver): add 'resident' case; default
+- refactor(SMC): change resident prop to residents
+- feat(/mixes): show CMS mixes, res links resolve
+- feat(/index): augment IndexQuery; begin passing data to HomeMixes
+- feat(HomeMixes): pass and map homeMixesData correctly
+- feat(linkResolver): add 'feature' case
+- feat(HomeFeatures): pass and map homeFeaturesData correctly
+- fix(json): add dummy JSON data to fix /bio
+- feat(/residents): create WIP individual resident page
+- fix(getBlockquoteStyling): resolve error when bgImg is null
+- feat(resident): map sticky-bio of Resident updates #120
+- feat(Resident): map resident mixes to /resident/:uid
+- prune: remove unused components, pages, netlify-cms, templates
+- move: /templates/index-page.js → /pages/index.js
+- feat(FullWidthImage): add this slice to CMSGuide
+- refactor(slice): rewrite FWI slice to use CMS data
+- feat(/404): add base layout
+- story(ArticleHeadline): update data objects
+- style(ArticleHeadline): change parent CSS classes
+- prune(index.md): update #79 - remove file
+- feat(ImageHelper): convert img element to react-imgix
+- feat(ImageHelper): revert react-imgix components
+- refactor(ImageHelper): make ImageModal; add lo_fi update #122 - create ImageModal layout helper component, update ResponsiveImage docs and CSS
+- fix(ResponsiveImage): change width, height
+- prune(/bio): Resident.js working, removal prep
+- feat(/schedule): write base getSevenDays util updates #19 - nodes from the data array can now be selected seven days at a time
+- feat(/schedule): make date selection buttons functional
+- feat(/schedule): map node data correctly updates #19 - SingleScheduleEntryRow created and put to use
+- prune: ScheduleShowEntry, two SCSS files update #79 - ScheduleShowEntry refactored into SingleScheduleEntryRow SCSS removed NewsPage.scss and ScheduleDropdown.scss
+- data(schedule): update test json schema file
+- prune: #79 - remove SelectedColumn
+- fix(ImageRow): change group_image to row_image
+- style(ScheduleDropdown): rework CSS; column layout
+- feat(Apollo): add Apollo to project, base Schedule query works
+- fix(ImageRow): revert row_image to group_img
+- style(ScheduleBar): reduce bar height update#71 - ScheduleBar: expand .site-page, .slider ,and .homepage-hero
+- style(DateSelectorButton): consolidate styles update #79 - remove mobile-date-selector
+- refactor(formatDateTime): rework most dayjs calls make formatDateTime util func; fix getSevenDays function in /schedule index
+- fix(Dropdown): align .up-next & .dropdown fixes changes: 23e83f4 -  bar height is 2.5rem closed; 2,625rem open
+- refactor(SlideGenerator): make component; update params
+- chore(docs): update; all @component are @function
+- chore: update docs
+- feat(ApolloProvider): wrap root element
+- feat(RadioBar): set times in TopNav, pass as props to RadioBar Props update every second in TopNav and reflect the update in RadioBar
+- feat(ScheduleBar): use timeNow to query AllSchedules closes #25 - change issue title to reflect goal completion
+- refactor(mocha): rename __tests__ to test; add tests folder
+- style(Dropdown): add max height; overflow scroll
+- feat(ScheduleBar): process and show data in bar
+- feat(/resident): make resident links in their own mix cards plain text closes #39 - missed commit; resident data is live from CMS and mapped correctly closes #120 - only HalfmoonDivider left to address on page; cosmetic changes remain
+- fix(ApolloProvider): unwrap root element; only wrap TopNav
+- refactor(slices): fix OIAT and TIAT ImageHelper calls updates #122 - changes account for responsive image sizes; CMS Guide slices copied to Slice Library and reimported into Feature type
+- prune: remove console.logs from SliceZone, OIAT
+- refactor(PlayButton): convert to Component
+- fix(Apollo): unwrap ApolloProvider from TopNav
+- feat(RadioPlayer): pull and set initial mix data from query
+- style(RadioPlayer): add initial load animation
+- refactor(Apollo): rewrap root element with Apollo Technically a revert of the Apollo unwrap; difference here being that the useQuery functions are called in a useEffect instead of roaming free in the function
+- feat(Dropdown): pass show data to dropdown closes #19 - SSER component vcentering fixed via min-height adjustment Fix displays in dropdown and on /schedule
+- refactor(site-page): replace site-page classes with full-height-page /schedule and /events have the new class black-bg-page that gives that more top and bottom padding
+- feat(/events): unify card height; fix event image style
+- feat(CMSGuide): build landing page with cards updates #117 - /guide landing page base layout in place; images need responsive conversion
+- feat(/guide): add responsive images to CMS cards
+- feat(ImageRow): fix CMSGuide and Feature queries Update LandingPageElement cards to better display date and subcategory Update OIAT and TIAT to work with LandingPageElement closes #71 - missed commit; RadioBar has fade in on data load and text-truncate
+- feat(/schedule): add schedule_entries null option
+- feat(/feature): make event card height fix global
+- fix(errors): address Invariant error, gatsby 95313 error
+- fix(UpcomingShow): add undefined return condition
+- fix(deploy): fix duplicated Hero in TopNav
+- prune: remove gatsby plugins update #79
+- docs: update gatsby-config notes
+- feat(/residents): connect to Prismic; add guest option and selection
+- update(react-player): migrate to version 2
+- cleanup(issues): close some issues
+- feat(/mixes): add endless_mix part to query; bring into page
+- in slider: explicitly allow pointer events on select elements; disabled on all others in slider
+- prune(#79): clear gatsby-node of commented code
+- refactor(util): make getResidentString declarative
+- refactor(MixPlayOverlay): extract play button to re-use on /mixes
+- feat(Mix): create base template
+- feat(Mix): add gatsby-config and mixData display
+- feat(links): add /mixes case
+- feat(Mix): replace getResidentLinks with Link to Mix page
+- feat(Resident): add Mix _meta to link to Mix page
+- feat(Card): fix card height sizings; update play-icon hover effect #68, #97: mixes & events have CSS class-dictated min-height
+- refactor(SingleMixCard): destructure now in component, not in map Update dummy SearchResults SingleMixCard props for deploy
+- fix(/residents): import graphql from gatsby
+- prune: #79 - remove BioPage; consolidate with ResidentPage.scss
+- data(dummy): add alt field to JSON to fix SingleEvent mapping
+- feat(Resident): update query; display data on resident template page
+- feat(Dropdown): handle case where no shows are listed for today
+- feat(MixPlayOverlay): rework into card-image container; reorganize card styling
+- feat(TagButtons): make component for use outside card
+- feat(Mix) add and render mix_blurb with linkResolver
+- chore(docs): update SingleResident data
+- data(Mix): pull in related_events and display section on page
+- style(SMC): format date and place with resident string
+- style(/residents): truncate resident_name after two lines; adjust .card-content height
+- feat(Curated): pull Residents and Tags into sets for use
+- prune: remove console logs
+- feat(Curated): add docs; pass mixLinks array as MixPlayOverlay prop Source of #128
+- prune: remove lambda folder; hello dummy function updates #79
+- test: add travis base and cypress
+- style(Resident): fix column widths on tablet
+- feat: add htmlSerializer to project
+- feat(TextBlock): componentize RichText; pass htmlSerializer
+- feat(TextBlock): add linkResolver to component
+- feat(embeds): add .embed; fix touch sizing of iframes
+- feat(Inline Image): add figcaption; add key
+- fix(Guide): fix date sorting
+- test(Travis): add Slack notifications
+- set src_utils_playAudioButton.js fix rebase issue
+- active class names for residents and resident to active on toggle
+- feat(events): map event CMS data to SingleEventCard
+- test(travis-deploy): add netlify deploy script
+- test(travis dpl v2): test travis dpl script
+- test(travis dpl v2): modify auth and site travis dpl script
+- disable(RadioBar): useEffect was not reading b/c HMBK disabled their station
+- chore: update docs
+- fix(Travis): change Netlify site and auth token declarations
+- testing(nullDataCheck): write first false tests
+- testing(nullDataCheck): add more tests
+- test(Resident): trying setData checks
+- feat(cron): add a Github workflow cron job to project
+- fix(cron): rewrite with correct syntax
+- cron: update deploy times
+- fix(cron): try two cron commands
+- style(Resident): make Resident topic selectors sticky
+- chore(PropTypes): update PropTypes; add docs
+- feat(mappableDataCheck): write and test function to prevent unmappable data from being passed to LayoutComponents
+- fix(mappableDataCheck): change rejection return to 0 for falsiness; add final filteredArr length check
+- fix(ResidentSocialLinks): add Facebook case
+- fix(ResidentSocialLinks): reactivate link icons in bio
+- feat(Resident): use mappableDataCheck to only display columns with content
+- test(travis): test defining env variables
+- test(Travis): different Netlify env declarations
+- test(travis): define env variables; add <this syntax> to deploy
+- fix(travis): place env variables on same line; add <this syntax> to deploy
+- test(mappableDataCheck): add falsy values check; subarray check; add dynamic filtering test
+- prune: remove unused PlayAudioButton
+- temp: disable ResidentSocialLinks component
+- style(SingleMixCard): unify card heights on mobile
+- test(mappableDataCheck): expand function to account for multi-key objects
+- fix(ResidentBio): prevent ResidentSocialLinks breaking from incomplete media entry add mappableDataCheck; add social_media reassignment and hasMedia useState
+- feat(Resident): make mobile content selector sticky
+- style(SingleEventCard): Nanoclamp the date/location
+- feat(/mixes): begin Collections migration
+- feat(Collections): make base page for Collections
+- feat(/residents): change query sort to remove sort after status filtering
+- feat(Event): add base Event template; temp at /events/event-test
+- feat(Event): update queries for /events and Envent template
+- fix(dayjs): remove async from clock functions
+- feat(Event): pass data from template for EventCountdown
+- feat(GCP): add SET_CLOCK_TIME dispatch
+- fix(SingleMixCard): format date on title-less mixes
+- style(ArticleHeadline): simplify header class name
+- fix(Event): rename eventData deconstructions
+- feat(EventCountdown): set up base on scroll useEffect for once event-timer becomes sticky
+- feat(Event): add shrink effect to .event-timer on sticky
+- prune: remove netlify-cms admin folder updates #79
+- config(dotenv): test setup for .env files; add mapbox token
+- feat(Event): get mapbox working in some form; might just make it a button a google map link
+- refactor: remove EventMap; implement simpler link to gmap
+- feat(Countdown): add base countdown to Event
+- feat(Event): get countdown timer components displaying correctly
+- feat(EventCountdown): refactor into subcomponent add event date-time to EventHeader add base touch font sizings change formatDateTime case names
+- style(EventHeader): move CTA button to title bar
+- refactor(Event): rename Event component classes .event-header -> .event-image .event-timer -> .event-header
+- fix(Event): convert event times from UTC to EST before using through page
+- feat(EventHeader): pass in headerButtonText and headerButtonLink
+- added playlist cases to reducer and onEnded() to player
+- add playlost to PLAYLIST_PLAY_FIRST
+- modified CHANGE_URL to set playlist empty and loop false
+- removed unused PLAYLIST_END reducer case
+- fix(Event): adjust query, deconstructed variables and calls
+- format(Husky/Prettier): add Husky to run prettier pre-commit
+- prune: remove preinstall, dependent gatsby-source-prismic-graphql, and packages
+- travis: change node to v14; npm to 6.14.8
+- travis: remove npm declaration; gatsby and npm i before_install
+- travis: add os, dist, matrix; wrap deploy site and auth in quotes; secure slack token
+- travis: reformat tokens Slack notification token; netlify deploy credentials
+- travis: add missing before_deploy 'gatsby build' command
+- style(/residents): exchange is-hidden-markers for desktop/tablet and mobile selection buttons
+- style(Event): add base font-sizing; update travis deploy yml
+- travis: add prod-true; change build command
+- test(uidValidator): begin writing tests and function for use on /hmbk-admin
+- test(uidValidator): add cases catching dev entries, ignorable entries; restructure test cases
+- test(uidValidator): add bad_structure and auto-created mix cases; add reasons to returns
+- test(uidValidator): add reasons to validator; break into separate functions
+- refactor(uidValidator): restructure tests; function
+- refactor(hmbk-admin): break into component; adjust styles
+- prune: StickyBioBlurb, /bio index, gatsby-browser backup, old /mixes update #79
+- refactor(FontAwesome): add library to g-browser, g-ssr remove explicit imports
+- fix: add gatsby-plugin-fontawesome-css to stop icon size jumps at load
+- backup: add Prismic CMS Custom Type JSON files
+- style(/index): change HomeContent headline and blurb display
+- test: make run commands verbose for CI debuggin clarity
+- husky: resolve git pre-commit issue
+- feat(cmsNodeValidator): get invalid mix case working needs mappableDataCheck inputs
+- test(mappableDataFilter): update to accept nodeValidation Boolean when set to true, it returns the total number of bad entries will pass that number to cmsNodeValidator
+- test(nodeValidator): write and pass tests connecting mappableDataFilter returning number to include in nodeValidator error message
+- feat(/index): map and fix heights of HomeEvents
+- docs: HomeEvents details
+- style(navbar): add "Music" dropup; add /mixes; /collections links
+- refactor: add FontAwesome library to project root
+- refactor: add `tags` to /hmbk-admin query prevents eventIssues break
+- /collections: map base collections and data
+- feat(/collections): create Set to capture unique residents
+- test(/collections): rename playlistProcessor; write, pass tests
+- feat(/collection): extract playlist mapping to util function
+- feat(/mixes): implement onClick fetching from prismic
+- feat(/mixes): add button to fetch more mixes and go back to top
+- fix(/events): fix event location links boolean check
+- feat(/events): add map embeds to event pages
+- test: remove .only from collectionPlaylist func
+- prune: unused cypress files; fresh node_modules install
+- data(/mixes): change initial load to 12 mixes for even rows of content
+- test(/collections): write makeCollectionDispatch function; write/pass tests
+- feat(Feature): make article authors optional through short-circuit
+- refactor(Event): change EventMap width and nesting
+- test: reactivate all tests
+- feat(/collections): write playlistShuffle function; add to tests
+- test(/collections): add url and resident fields to makeCollectionDispatch; test
+- merge: reactivate all tests
+- /collections: begin connecting SingleCollection to MixPlayOverlay
+- feat(/collections): pass makeCollectionDispatch data to MixPlayOverlay; get first track playing
+- feat(/admin): make colored Issue message wrapper
+- github: test add create-issue-branch workflow
+- github: change CIB mode to chatops
+- test: refactor cmsNodeValidator function into chunks; begin mixes
+- test: update mix_image, add mix_date validations
+- test: update featured_resident case; clarify mappableDataFilter docs
+- test: complete mix entry cmsNodeValidator test suite
+- test: fix addErrorToNotices edge case
+- test: update resident entry tests and validator error messages
+- test: update resident entry tests and validator error messages
+- test: refactor and expand mappableDataFilter
+- test: add base UIDValidator error msgs; update first test with error msg
+- test: add console.logs /hmbk-admin; cmsNodeValidator
+- admin: refactor initial prismicContent processing into a useEffect; display pre blocks in admin body
+- fix(build): address breaking build by adding nullish value for mix_date
+- fix(#130): write closeDropUp function; add to BottomNav OutsideClick wrapper
+- admin: edit validator errors; add nodeName case for Resident, Mix
+- admin: begin mapping admin using new cmsNodeValidator notices object
+- ScheduleBar checks live stream status every 60 sec
+- refactored useEffects to not use promise chaining
+- Mix, /mixes: add filteredResidents condition check what filteredResidents is returning on both template and page work out SingleCollection
+- /admin: setup first maps of cmsNodeValidation
+- style(BottomNav): Change Bottom Nav 'Mixes' to 'Radio'
+- hotfix: disable admin query loading; collection rendering
+- fix(Blockquote): make attributions optional via short-circuit
+- fix(BottomNav): change toggleDropUp to closeDropUp
+- feat(/events): add load more button
+- feat(/Resident): sort Resident mixes from most recent date to least
+- test(displayCollection): add destructure of mix_resident
+- feat(/collections): restore SingleCollection display data
+- /features: add base tile layout; prep for LandingPage query
+- /features: destructure featuresHeaderData; create FeaturesArticleTile component
+- refactor(Features): separate HeadlineBlock slice for ease of landing page use
+- /features: new nested Hero layout in progress
+- layout(/features): add base desktop layouts
+- layout(/feature): add links, borders, titling for desktop
+- layout(/features): set up highlight features for overlay
+- style(/features): make highlight features overlays
+- fix(Blockquote): add bgIMG === null return condition; begin Feature HeadlineBlock remap
+- style(ArticleHeadline): begin refactor to fix height issue
+- refactor(ArticleHeadline): rework headline layout so background image fits
+- layout(Feature): add headlinePhotoDetails prune: remove HeadlineBlock slice file (#79)
+- refactor(/features): move new .hero to HMBKSettings; prune old solution CSS; comment HeadlineBlock CSS
+- WIP layout for HighlightFeature
+- prune (#79): remove unused HomeSingleEvent; update browserlist
+- prune (#79): rename HomeSingleNews to SingleFeatureCard rename HomeNews to HomeFeatures remove HomeContent component make highlight features stack (need to make horizontal on desktop)
+- layout(/features): map SingleFeatureCard; needs height adjust; Resident addition
+- debugged featureData in SingleFeatureCard calls
+- refactor(/features): make HighlightFeatures component prune (#79): StickyFeature, FeatureArticleTile,
+- feat(/feature): add left/right feature fallbacks make LeadFeatureHero, LeadFeatureDetails add default props to /features components prune (#79): MainFeatureArticle-> LeadFeatureDetails LandingPageElement /features commented returns HighlightFeature, StickyFeature css
+- layout(/features): begin testing FallbackImage component
+- feat(FallbackImage): add image component fallback to SingleResident; ResidentBio
+- refactor(slideGenerator): adapt new Feature hero styling fixes
+- feat(/features): set HighlightFeatures render conditions
+- style(/features): add highlight-features gradient; adjust section font sizing
+- feat(TopicPageHero): create TopicPageHero and TopicHeroPageDetails components to begin making landing pages generic
+- feat(TopicPageHighlightSection): make component that feeds in layout component to highlight section a la SliceZone
+- feat(SingleMixCard): add default img string and FallbackImage component
+- feat(/mixes): begin useEffect refactor for /mixes TopicHero
+- feat(/mixes): add lead_radio_mix null base case to useEffect
+- feat(/mixes): finish useEffect processing /mixes hero and highlight section data
+- refactor(/features): finish processFeaturesHeaderData useEffect
+- try/catch for stream status check
+- update radio.co stream url
+- updated other stream status URLs
+- fix(SingleFeatureCard): add short-circuits for null cases add FallbackImage
+- backup(Prismic): update mix, feature, staff custom types
+- refactor(Hero): adapt new Feature hero to front page
+- docs(all): remove all @subcategory tags; re-gen docs
+- Merge remote-tracking branch 'origin/master' into style/featurePageLayout
+- feat(Hero): add SVG HeroArrows component
+- feat(Hero): update IndexPageQuery to include document _meta; add link processing
+- backup(Prismic): update homepage custom type
+- feat(Hero): add HeroArrows component using SVGR remove pointerEvents: none from SlideGenerator
+- fix(getResidentString): refactor getResidentString change forEach for for loop to allow for continue statements where mix_resident is null refactor default mixResidentsString in SingleMixCard
+- feat(HomeMixes): add Sound Selects section to index update index query write useEffect to call recent mixes if sound selects total < 12
+- feat(HomeFeatures): add Editorials section to Prismic update IndexPageQuery
+- layout(/mixes): remove mixes Header and featured sections
+- feat(/residents): refactor resident type separation into useEffect; update query to allow base data fetch of each type
+- refactor(uidValidator): extracted helper functions and calls to their own files; validators folder created within /utils
+- fix(EventMapEmbed): update .env with GATSBY_ prefix; update component
+- docs: add whitespace after '|' in @see tags to fix broken external links; re-gen docs
+- feat(/queries): collect all load-time Apollo GQL queries in directory
+- gitignore: added docs folder to avoid future OS file name conflicts
+- docs: fix whitespace after `@see {@link}` external links
+- feat(queries): extract getDefaultMix query remove totalCount from resident index queries
+- docs(EventMapEmbed): add jsdoc
+- refactor(RadioBar): extract query
+- feat(/residents): attach queries to buttons process fetched data
+
+### Version 1.1.3
+- [skip ci] Upload “/static/img/jessupload-e1548962937489-600x395.jpg”
+- [skip ci] Upload “/static/img/grey-long-sleeve-e1548963677856-600x400.jpg”
+- [skip ci] Upload “/static/img/011519-merch-diandra-24-600x400.jpg”
+- Update Pages “products”
+- [skip ci] Upload “/static/img/halfmoon_white.png”
+- [skip ci] Upload “/static/img/halfmoon-3.png”
+- Update Pages “products”
+- Delete Blog “2017-01-04-a-beginners-guide-to-brewing-with-chemex”
+- Update Blog “2017-01-04-just-in-small-batch-of-jamaican-blue-mountain-in-store-next-week”
+- Delete Blog “2016-12-17-making-sense-of-the-scaas-new-flavor-wheel”
+- Update Pages “index”
+- testing local changes to CMS
+- changing fav icon
+- added halfmoon to backdrop
+- removing old images
+- restored two images
+- updated readme
+- updated gatsby-config.js
+- updated gatsby-config.js again
+- fixed og image
+- updated og image
+- adding in player module, and local state
+- [skip ci] Delete “static/img/meeting-space.png”
+- [skip ci] Delete “static/img/og-image.jpg.backup”
+- [skip ci] Delete “static/img/apple-touch-icon.png”
+- updated icons for touch
+- Create Blog “2019-12-12-say-it-again”
+- finally fixed touch fav icon
+- [skip ci] Delete “static/img/apple-touch-icon.png.backup”
+- updated pages
+- rolling back from dependancy error
+- Create Blog “2020-01-07-test”
+- adding dj editor in
+- Create djs “2020-01-07-test”
+- debugging cms additions
+- Create djs “2020-01-08-test-2”
+- Create djs “2020-01-08-test-3”
+- adding in dj page preview
+- trying to fix dj preview
+- trying to fix dj preview again
+- changing identifier field name
+- changing name to title for djs
+- removed config.yml from gitignore
+- removed config.yml from gitignore and reset config
+- named djs congif default field to djs
+- editing DjPagePreview to try to make preview appear
+- tried adding helmet back into dj preview
+- changed getIn calls in DjPagePreview.js
+- Update Djs “2020-01-07-test”
+- adding in djs as test
+- sorting djs
+- deleted bad dj conversions
+- adding two images to dj editor
+- initial adding of events to cms
+- corrected bugged frontmatter query in event-page.js
+- changed map widget to address string
+- removed broken npm gmaps widget package
+- adding in shows to cms and editor
+- added back package lock
+- corrected filename typo
+- fixing filename
+- moved ShowPagePreview to correct folder
+- blank
+- trying to replace ShowPagePreviews.js again!
+- debugging ShowPagePreview
+- experimenting with displayed associations from the CMS
+- added widget: 'relation' to shows editor
+- removed .map from show0page.js for now
+- adding evernt url to cms
+- added recent site images last 3 months
+- Add files via upload
+- Delete Djs “2020-01-07-test”
+- Delete Djs “2020-01-08-test-2”
+- Delete Djs “2020-01-08-test-3”
+- Create Djs “kala”
+- Update Djs “kala”
+- Create Shows “kala-btz-w-bastiengoat-and-h-b-i-c-2020-01-15”
+- removed requirement in shows editor
+- Add files via upload
+- Create Events “afro-punk-after-dark-2020-01-15”
+- [skip ci] Delete “static/img/D418E0C6-1AE6-4924-889D-A917B064D303.jpeg”
+- added Daily Mix Page to CMS
+- fixing duplicate showPage
+- fixed indentation issue
+- Add bulma sass files to src/styles
+- Move sass folder; test basic bulma layout on two-bar-layout
+- Add BottomNav component and working bulma sass imports
+- Add TopNav and Hero layout sample
+- Fix TwoBarLayout > Hero spacing issues via <div> to <body> element change
+- Add ChatSchedule test layout to TwoBarLayout
+- Add EditorialFeed test layout to TwoBarLayout
+- Change BottomNav bar container size to fluid
+- Add .alt-column test; Add two-bar-layout comments; Organize bottom bar
+- Add FontAwesome and icons to BottomNav
+- Fix TopNav; Add sample text place holders; Add BottomNav sample links
+- Add TopNav transparency comment
+- Add Radio Player component to TopNav; add alternating column colors for testing
+- Add moment-timezone to project; add currTime to TopNav
+- Add top-bar-logo to hero-test.scss
+- Add ShowDetails sample component to ChatSchedule
+- Pre-test branch test setup - test/addJestPuppeteer
+- Add gatsby-puppeteer screenshot command to project
+- Add more viewports to gatsby-puppeteer.js; Set daily picture source
+- Add Screenshot prompts
+- Begin separation of navbars from other content in components and scss
+- Add basic open/close toggle for schedule-bar
+- Add transition property to open/close toggle
+- Replace inner layout with columns; Prepare for toggle schedule views
+- Replace 2 show schedule layout with 1 show layout
+- Edit ScheduleBar columns to expand to is-open height: 7.5rem
+- Change ScheduleBar 'active' to 'open' for clarity; Add comments
+- Move screenshots to __tests__; Migrate to test/usingLayoutComp
+- Add .homepage-hero to HomePage.scss; fix alignment of section with schedule-bar
+- Create new section base for .homepage-hero
+- Restore broken imports and filenames
+- Add AboutPage base and files; pre-AddScheduleBar merge
+- Make demo layout for AboutPage
+- Add News Page prelim-layout; vertical mobile layout testing
+- styling player in top bar
+- Add NewsPage mobile accordion
+- Add NewsPage separation of mobile and desktop
+- Add four sections to mobile with basic items within
+- Add base layout to SchedulePage; hero with dates; time and show names section
+- Fix #scheduled-shows columns alignment to match hero dates section
+- Add SchedulePage non-functional wireframe
+- Change body to div in two-bar & schedule; debug schedule layout issue
+- Copy desktop section for mobile & add 'is-hidden-touch'
+- Make mobile date picker scrollable horizontally
+- Begin creating mobile/tablet layouts
+- Update Screenshots to take photos of the 1023 breakpoint; reorg some code
+- Update Screenshots to print comments about each screenshot
+- Update screenshots to print out filenames for searchability in folder
+- Reactivate screenshot function
+- Update page loading conditions; edit viewport comments
+- Update desktop time-date & time-slot CSS and JSX
+- Update HD Laptop to Low-res Laptop; include breakpoints in descriptions
+- Create NewsFeed with 4 scrolling columns; Create CategoryItem
+- Add CategoryItem to last push
+- Fix single-item layout to work down to 1024px wide
+- Rename feed and schedule; add borders to schedule; add version to screenshot file names
+- Add test-active id to desktop schedule; add clicker to schedule page
+- Re-enable shot function
+- Add ScheduleShowEntry
+- Add MixesPage layout based off NewsPage; uninstalled date-fns
+- Add base layout to mixes
+- Fix single-mix width, add spacing; add hover transition
+- Fix single-mix font sizes for touch
+- rolled back to prev, recreating class-based player comp
+- Create .in-progress class; apply to /schedule
+- basics of audio bar structure
+- play button connected to player embed
+- commit before checkout
+- changing -nav-height to hard coded 7.5rem
+- hard coded 7.5rem in  -nav-height in BothNavBars.scss
+- Expand screenshot questionnaire
+- Pre-script merging
+- Add parseViewports WIP code
+- Disable questionnaire code for now; re-enable old allDevices code
+- Add break condition to script from questionnaire
+- Rename two-bar-layout to home
+- Add HomeContent and HomeMixes WIP to /home; add scroll to screenshots
+- Begin HomeMixes two-column layout
+- Make home content section blurb sticky; begin mix layout
+- Add HomeEvents & HomeSingleEvent base files
+- Add layout to HomeEvents; add buttons to both content sections
+- Fix HomeMixes & HomeEvents layouts down to tablet
+- Add HomeNews & HomeSingleNews WIP code
+- Fix all layouts for HomeMixes, HomeEvents & HomeNews
+- Fix className issue in Hero; randomize HomeContent singles
+- Reorg and comment Screenshots code; change HomeSingleMix aspect ratio
+- Add tag details to Mixes; Resize card-content details
+- Add prelim HomeMixes & HomeSingleMix touch layout
+- Reorg touch content section headers and single-item code
+- Fix mobile HomeSingleMixes size; change HomeEvents button
+- Pull mobile 'More Section >' buttons to right of columns
+- Delete unused components and their exports
+- Add DatePicker WIP to ScheduleBar
+- Begin reorganizing schedule-bar into two-col layout
+- Undo two-col layout; it was dumb
+- Reorganize schedule-bar into more components
+- Setup desktop schedule bar; begin screenshot mobile testing
+- Add clickTarget to Screenshots; take prelim /home v4 pics
+- Begin fixed-height scrollable schedule section
+- Add modal for mobile & tablet; debug date-picker width tablet
+- Test modal schedule box-shadow; pre-component separation
+- Create ScheduleModal & ScheduleDropdown
+- Continue date-picker testing
+- rewritten player as func comp with local state and can read context state
+- adding more to global state still error on dispatch from index page
+- debugging index-page dispatch button
+- basic stream load button working
+- radio bar wrapping whole site
+- Add FontAwesome play/pause button toggle
+- Change play/pause button sizes
+- radio bar takes title from global state
+- Fix modal date picker width; now correct on touch & desktop
+- added mute func to icon, not yet working fully
+- added additional stream sources, debugging mute
+- added sources
+- successfully checking radio.co stream status but only on load
+- Successful merge - begin design migration
+- Added Hero & HomeContent to index-page.js; begin import two-bar > components folder
+- Change Schedule-bar up-next dummy text; remove status comment
+- Add changes from Mar 20 meeting
+- Change layout from tablet up to reflect 3 events and 2 features
+- Move test sources to Hero component
+- Migrate all two-bar components to src/components; fix imports
+- Migrate styles folder out of /src/components to /src
+- Fix inheritance issues in RadioBar & BottomNav
+- Change if statements in GlobalContext; fix mute icon behavior; add base icon
+- Fix RadioPlayer height and width errors through styling
+- Begin reorganization of top radio bar
+- Change RadioBar layout to columns; remove mute & time from mobile
+- Fix issue of modal AND dropdown appearing on mobile
+- Begin home content bg-image black overlay test
+- Reset player volume to max
+- Clean up some leftover ReactPlayer bits
+- Add ResidentPage base and ResidentAlpha start
+- Add SingleResident base
+- Add round portrait and single artist line
+- Push to share for debugging deploy
+- Reorganize single-resident layout and CSS
+- new branch
+- debugging .default in ssr
+- debugging gatsby-browser.js
+- debugging ssr
+- debugging srr vs broswer apis
+- Simplify residents layout; pre-layout merge
+- debugging srr vs broswer apis
+- restoring ssr and broswer api files
+- debugging ssr
+- disabling mobile layout of radio bar
+- changed radio abr color back
+- Refactor dual columns to single-column declaration
+- Merge fixed SSR and unified RadioBar
+- Set global player to false disabling autoplay
+- Add image-diffuser to HomeMixes bg image
+- Add diffuser to HomeEvents & HomeNews; change bg for home content sections
+- Fix HomeContent item sizing, fonts, bgs, and borders
+- Remove Layout, TopNav & BottomNav imports from pages
+- Adjust HomeContent mobile sections padding
+- Make schedule-bar fullwidth on touch; componentize schedule-bar modal and dropdown
+- Reorganize show-entries desktop to have scrollable show-entry list based on window height
+- Fix font issues on schedule-modal
+- Fix font-sizing and short-screen mixin for wider screens
+- Add bio page base and bring in single-mix from daily-mixes
+- Add tags group to bio/mixes section
+- Begin hover experimentation with front-page items; bring success to bio mixes
+- Add prelim hover effect to HomeSingleMix cards
+- Add test links to nav bar
+- Add navbar-end social icons base code
+- Lots of changes; list in full git log
+- Add BioSingleMix base code; add pagination base code
+- Recreate resident-mix on bio page; begin adding play btn overlay
+- Fix section height jittering when hovering
+- Add transition to BioSingleMix - :hover - translucent overlay w/ dummy play button
+- Create BioHorizItem base to better display mixes on /bio
+- Pass real YT music props to BioHorizItem successfully
+- Change BioHorizItem img src from background-image to nested figure; adjust onHover overlay
+- Connect onHover BioHorizItem overlay play button to the player
+- Test v2 BioHorizItem layout; improve testing mode and timeout error Screenshots code; install date-fns
+- Lots of changes - see full git log
+- Change tablet breakpoint from 769px to 768px so iPads act like tablets and not like HUGE mobile devices
+- Convert YT test links and set time to 0; add FFXV img, fix puppeteer timeout bug
+- Edit puppeteer device descriptions
+- Move pagination to BioPagination.js; add 2 more mixes to /bio
+- Adjust height of ScheduleDropdown show-entries container on short screens
+- Adjust offScreen player box; test RadioPlayer overflow
+- Add social links to BioImageBlurb, change Chatango icon; remove spans from RadioPlayer and apply color directly; begin Residents two-tab layout; add links to /bio to SingleResident
+- Migrate ResidentsPage.js to /pages/residents/index.js
+- Test bulma tabs v column selection; space out SingleResident entries
+- beginnings of a marquee
+- Delete ResidentsPage.js; make SingleResident take props; add margin to resident-selection; change margins per viewport
+- Add test source text to mixes on /bio; change audio sources away from YT
+- Fix broken marquee elements;
+- Set up for smarquee testing
+- Remove ResidentAlpha component
+- Make marquee visible on mobile only; set static title for tablet-up
+- Add pulsing light and LIVE text to RadioPlayer
+- Add top border to BottomNav
+- Delete BioPagination.js and imports; add Lighthouse audit of deploy branch
+- Add mobile specific mix-play icon; make BioHorizItem for mobile
+- Delete BioPagination.js and imports; add Lighthouse audit of deploy branch
+- Add mobile specific mix-play icon; make BioHorizItem for mobile
+- Fix broken Bio scss
+- Fix mixed up rebase code; unify touch font sizes; make images larger
+- added chatango link to chat icon
+- Add first react-audio-spectrum attempt
+- Unify radio and schedule bar color; and pink borders; add toggle to Residents
+- Make toggle columns solid color blocks; add 'is-active' CSS
+- Add HMBK pink hover color to radio bar icons
+- Make navbar links and icons white; pink onHover
+- Add space after resident-selection container; remove onHover white border
+- Add transition to single-mix on bio; change hover/active color
+- Make hover/active color of resident social icons to HMBK pink
+- Make hover/active color of 'bio' mix play button HMBK pink
+- Add toggle
+- Add togglePlayLive to reducer & RadioBar; add live layout base code; comment out AudioSpectrum base code in RadioPlayer; add togglePlayLive button to ScheduleBar
+- Merge chat into feat/addArtistPage
+- Change 'live' to '6PM' to hide button for now; change /residents bg image
+- Change homepage section dividers and card outline colors to HMBK pink; remove expanding transition
+- Add notes from Trello post
+- Add live bar to RadioBar; set live bar to globalState.live toggle
+- Add live-bar with prelim ticker and font
+- Fix margins of RadioBar for Live and not Live configs
+- Add ticker to Schedule Bar mobile; make space for live button
+- Remove audio-spectrum test code; move tickers to own divs in RadioPlayer
+- Switch title to Eurostile; change sizing of RadioBar
+- Import Titillium for testing
+- Remove p elements from tags on BioPage
+- Add IBM Plex Sans as primary body font
+- Change HomeMixes font sizes; make .tag, .card global styles; increase card border width
+- Change HomeEvents and HomeSingleEvent font sizes
+- Add padding to taglines on Home; change font sizes of HomeNews and ScheduleBar
+- displaying local and LA time for demo
+- updating clock every second
+- added seconds back to clocks
+- Merge time in
+- Fix font sizing on residents page
+- Fixes #2; will move slogan when on mobile too
+- Fixes #15; slogan now correctly placed based on viewport
+- Remove all images from HomePage; replace with solid color
+- Fixes #3; begin adding accessibility links to site
+- Fixes #4; menu burger now bolder than ever !
+- Bring in puppeteer changes
+- Remove image-diffuser from HomeContent sections; darken bg color; change mobile nav color
+- Fixes #16; nav-menu now closes on click
+- Hide nav bar social icons for screen readers; add labels to these links
+- Remove redundant HomeContent SCSS
+- Remove image-diffuser CSS and bg-image on Bio
+- Change single-resident layout to 16x9 img and text; add border w/hover
+- Add single-resident resident onHover bgChange
+- Add border brighten onHover to all cards; add bgChange onHover to HomeMixes; add 6 mixes to HomeMixes
+- Change single resident container code to standard card
+- Remove old format single resident code
+- Make navbar-menu bgColor black; dark purple when is-active
+- Combine root HMBK styles; add base HMBK bug report
+- Update issue templates
+- Organize more root HMBK styles
+- Remove close button from button of dropdown; move close button to schedule bar
+- Rewrite ScheduleDatePicker to map over array of fake date data
+- Change close schedule button text to 'Close ▲'
+- Update issue templates
+- Un-nest Dropdown & Modal styles from .schedule-bar
+- Fixes #26; schedule-bar layout when dropdown open now matches dropdown open
+- DateColumn works but is not connected to live data, starts progress on #19, #20
+- Closes #31; further styling changes must be made to dropdown and modal
+- Reorg schedule modal code with DatePicker & ShowEntry combination; Closes #22 - base color style adapted
+- Hide dropdown on mobile - modal is active
+- Make dropdown show entries only; make entries div mappable
+- Starts #33; remove ShowEntry from DatePicker; add schedule link to dropdown
+- Modify dropdown to pass showSchedLink prop; modify ShowEntry for reuse
+- Add prelim date and formatting to dropdown
+- Move schedule link to top of dropdown; begin styling dropdown
+- Add Oxygen to project; Closes #5
+- Missed issue; closes #6
+- Closes #18; added touch mixin to solve desktop navlink toggling
+- Missed issue; closes #17
+- Missed issue; closes #20 - no DatePicker present on modal
+- Delete hmbk_bug_report.md
+- Closes #34; Closes #44
+- Closes #41
+- Closes #46, Closes #48
+- Merge 'feat/activateSchedules' to close issues
+- Closes #50, closes #49, closes #52
+- Merge 'feat/activateSchedules' - more fixed issues
+- Remove md files from src/pages
+- closes #35 adds artist to global context and ainto render playbutton func on index-page
+- Begin #23; black overlay in place on Home
+- #23, #24, #66 - in progress
+- Closes #23, closes #24
+- Begin #70
+- #66 - HomeMixes & SingleMixCard updated
+- #66 - SingleCardMix implemented; still issues
+- Closes #54; SingleCardMix implemented and functional
+- Closes #66; dummy text removed; altText added
+- Moved logo from bottom bar for top bar
+- #68 start
+- #78 delete complete, #79 updated
+- #78 update
+- Update issue templates
+- Update issue templates
+- #78 updated
+- Closes #78
+- Begin #85
+- Remove search button from /search
+- #78 - layout modified
+- Icon css unified, search icon link added to TopNav
+- Begin #85; edit #78
+- #79 updated; #43 updated
+- Begin 82
+- Closes #53
+- feat (layout): ScheduleEntry reactive to show name
+- feat (layout): make card base border color white
+- fix: remove all .has-text-light classes
+- fix (layout): add bottom padding to Bio
+- feat(layout): add toggle to show search layout
+- fix(font): increase font size of currentlyPlaying
+- fix(layout): give cards/tags rounded borders
+- fix(layout): thin card borders and fix rounded thinning
+- fix(layout): remove chat link from bottom; move to top
+- fix(font): change title font to Aldrich; change body to Authentic
+- fix(layout): times removed from tablet layout; mix card font adjusted
+- fix(layout): home content id merged down one div
+- feat: add img to radio bar
+- style(layout): move now playing image to RadioPlayer
+- style(layout): thin existing borders and change to white
+- style(color): change all background colors to black
+- fix(layout): add mixins to mix card content-text & tags
+- refactor: convert in-file dummy data to json file imports
+- style(layout): make artist image on bio 6col
+- fix: make HomeMixes display only first 12 mixes
+- style(img): add mint jams album image
+- feat: make bottom nav slogan link to home
+- fix(layout): change min-height of resident name box
+- fix(layout): schedule dropdown closes onClick 'view full schedule'
+- style(layout): Play button now overlaid on mix img
+- style: revert radio bar play/pause to old style
+- fix(layout): fix home content bottom padding to match top padding
+- refactor(style): remove unused .sticky-link class
+- style: give all HomeContent buttons mix card outlined style
+- style: change BottomNav link colors to shade/HMBK pink
+- test: begin sticky bio layout
+- style: add multiline mixes to /sticky-bio
+- fix: update last incomplete commit
+- style: complete /sticky-bio layout
+- fix(layout): remove white inner curve on card hover
+- feat: add about page copy from Surf's text
+- fix: Edit incomplete about copy; add site credits for us
+- style: remove mix-img from mobile
+- style: add font details to schedule bar - Aldrich
+- style: add font details to schedule bar - Audiowide
+- fix(style): hide mix-img column on mobile
+- fix(font): reduce font sizes of schedule fonts; simplify layout
+- style(font): add Aldrich as title
+- style(refactor): remove .is-live from RadioBar and in BothNav
+- style: apply base button style to schedule bar
+- style(fix): up-next buttons and text centered in bar
+- style(fix): align open schedule dropdown with bottom of schedule bar
+- style(feat): make navbar-item Aldrich font; remove unneeded css
+- style(fix): fix font-size change on dropdown open
+- style(missed): remove schedule from BottomNav
+- style(feat): convert search select columns into buttons
+- style(feat): make search column buttons fullwidth
+- style(feat): make /residents 4 columns wide like homepage
+- style(feat): convert resident selection columns to buttons
+- update queries to static where neeeded, placeholder field data
+- style: add dividers to schedule dropdown
+- refactor(style): add /test to work out prelim page size sass
+- style(feat): homepage now uses global .site-page css
+- style(feat): residents page now uses global .site-page css
+- style(feat): /sticky-bio now uses global .site-page css
+- fix(style): /sticky-bio: bio column now scrolls when necessary
+- delete: /bio page and related old bio components
+- style(delete): remove remaining old .resident-bio css
+- feat: add schedule selector base to /schedule
+- feat: make DateSelectorButton a component; add ScheduleShowEntry
+- style: change faPlayCircle to faPlay icon; begin search bar change
+- style: apply HMBK pink styles and border widths to buttons and input
+- style: apply HMBK pink button styles to top nav and dropdown
+- style: update button and input styling on /mixes and /schedule
+- style: /mixes - make tags dropdown rounded
+- style: change HomeNews button style
+- style: unify front page button styles
+- test: add working tag to button conversion to /test
+- style: change mix image size; code formatting
+- style: change mix tags to buttons with HMBK styling; make tag-btns uniform in size
+- style(fix): change radio-bar, schedule-bar from 5rem,2.5rem to 4.5rem,3rem
+- style(fix): make radio-bar columns new 4rem height
+- refactor: un-nest RadioPlayer.js columns div
+- style(fix): remove breaking .radio-bar mobile padding-top
+- style(fix): make all sticky-bio links open in new tab
+- resource: add KOAN Sound - Silk Wave and img to sampleMixes.json
+- fix: add 'rel=noopener' to /bio social icon links
+- style: update TopNav and buttons font to Aldrich
+- style: make all home content buttons small
+- style(fix): make mobile-date-selector horizontally scrollable
+- style: restore black bgColor to TopNav and touch BottomNav
+- fix: repair broken gatsby version
+- fix: change /sticky-bio to /bio and shorter link text
+- fix: change /sticky-bio to /bio and shorter link text
+- test: ssh test
+- style(test): begin centered now-playing img and details
+- style: add centered now-playing layout
+- feat: add base /events layout with dummy events
+- feat: add /events link to bottom nav and home event section button
+- refactor: move test imgs from /static/img to /static/img/test
+- test: /events base layout now has 12 test events
+- deploy: fix bad graphQL error
+- fix: change radio bar img base paths; restore original tag sizes
+- fix: bring in deployed changes
+- style(fix): /mixes - add base 4col layout; needs breakpoint height tweaks
+- layout: /about - add new base layout
+- style(fix): /mixes - reduce size of mixes play btn from 7x to 5x
+- style(fix): /mixes - hard code size of playBtn from 7x to 5x
+- style(test): /test - add base duotone code to mix imgs
+- style(feat): apply duotone filter as mix img hover effect
+- style: mobile mix cards - reduce spacing between title and tags
+- cleanup: closes #100
+- style(fix): add paddings to .content-text & .btn-tag; adjust min height
+- add sunday weekly 24 hr blocks
+- pointed cms off master
+- style(feat): /events - begin adding text-overflow ellipsis
+- test(function): add globalState.live true/false string to next show
+- style(feat): make schedule-bar BGColor HMBK Pink shade when live
+- feat: BottomNav social media icon links now open in new tab
+- style(fix): add missing live-light to 'Listen Live' button when schedule is open
+- test: add calendar icon to radio-bar as prep for opening schedule w/global dispatch
+- test(feat): calendar icon in radio-bar now send schedule dispatch
+- style(test): radio-bar icons and functionality moved schedule-bar
+- style(feat): change pulsing live-light to broadcast tower; remove pulsing border
+- feat: add globalState ternary to Listen Live btn; needs functionality
+- feat(base): add starter homepage image carousel code
+- basic weekly schedule built using relations to Dj's (empty)
+- test(page): install react-responsive-carousel; create base /hero-test
+- fix(test): add base text to /hero-test
+- layout: /about - add new base layout
+- merge: bring fix/newAboutLayout in; remove btnSize from SingleMixCard.js
+- feat(test): install react-awesome-slider on /hero-test-2
+- test: add local images as test; try hero element modification via docs
+- feat: re-enable schedule dropdown for mobile; disable modal
+- style(feat): add mobile font size to schedule dropdown
+- style(fix): fix schedule-bar size stutter when changing from not live to live config
+- fix: changed key map value in ScheduleShowEntry to use show.hostInfo instead of show.showName
+- style(test): add base schedule-bar .is-live bottom-border pulse anim
+- feat(style): add pulsing bottom border to schedule-bar .is-live
+- style(feat): add small variable gaps to schedule bar; change pulse BPM to 145; reduce schedule-bar icon sizes to 1x
+- data: add Circadia & Letargo to sampleMixes.json
+- feat: add /schedule styling; regulate schedule dropdown max height
+- feat: schedule dropdown closes on 'Full Schedule' click
+- feat: begin text-truncate tests
+- feat: remove play button from SingleMixCard
+- feat: add working OutsideClick base code to ScheduleBar
+- feat: make dropdown schedule close onClick outside ScheduleBar
+- feat: convert OutsideClick internal HOC to independent component for use in BottomNav
+- feat: add react-spring: /hero-test-3; address bottomNav OutsideClick
+- WIP: remove OutsideClick from BottomNav; change 'live' pulse bpm to 128
+- feat: /residents is now automatically alphabetized A→Z; moreWIP
+- "fix: rename all mix.name SingleMixCard props"
+- "feat: /residents - auto-alphabetize residents"
+- test(style): add SoundCloud's text-truncate class to HMBKSettings
+- feat: make BottomNav use globalContext to open/close; refactor OutsideClick.js
+- feat: add working volume input slider; needs styling
+- restore: add play button to SingleMixCard; rename called params globally
+- img: add neurofunk image and entry to sampleMixes
+- style: add .play-icon to HMBKSettings; remove span from SingleMixCard
+- test: add Russian Hardbass mix with extra long test text
+- style: add Nanoclamp to mix cards; content-text height set
+- cleanup: closing unmarked completed issues
+- style: remove bg-colors from SingleCardMix
+- feat: add working slider with built-in links
+- feat: convert div layout to hero section; begin styling
+- style: add rounded boxes to slide headline and subtitle
+- style: change slider buttons to black w/white border
+- style: fix hero alignment; write classes in HomePage.scss; remove inline styles and commented code
+- feat: replace Hero.js content with /hero-test-4 index
+- delete: remove all /hero-test-# files; modify SingleMixCard calls and docs for clarity
+- debugging the cms djpage and pagequery
+- fix: make SingleMixCard map variables less ambiguous
+- added a weekly scheudle preview
+- added weekly schedule index page
+- fix: edit broken tablet /bio layout
+- style: Hero.js > add mobile font sizing
+- hotfix: removed btnSize={btnSize} from /mixes
+- hotfix: removed /pages/test.js
+- feat: add Nanoclamp to /events; remove bgColors
+- debugging cms
+- debugging cms again
+- feat: wrap SingleEventCard with eventColumnLayout; refactor /events, /search
+- feat: add pointer and grabbing cursors to <Slider> :hover and :active states
+- removed featured artist from dj page
+- removed featured artist field
+- style: /bio - increase size of bio sticky section
+- cleanup: /search - fix img import; close issues
+- style: added arrows and arrow style to <Slider>
+- merge: bringing in new content to old branch version
+- setup: base for PagePreviews
+- fix: change backend branch; fix indentation error
+- fix: add StaticQuery import to DailyMixPagePreview and AboutPagePreview
+- branch: last commit before trying to add prismic
+- feat: install base prismic setup; testing next commit
+- fix: rectify package dependencies errors; add linkResolver base
+- feat: create new /src/templates/index-page.js; renamed old
+- feat: '/' - add base Prismic query; pass slides as props to Hero
+- fix: uncomment dummySlides in Hero causing error
+- feat: add dummy slides from Prismic; external link does not blank
+- "fix: fix broken HomepageQuery; log data to console"
+- fix: change homepageCarousel -> homepage_carousel; reenable Hero
+- fix: fix broken sampleSlide imports; add base CMSGuide.scss
+- feat: update .cms-warning; add bgAlt check
+- feat: pull out CMSSlides as component; update help layout
+- feat: create Home Content section in Homepage type; pass that data down to HomeContent
+- style: change div to section
+- data: add infected band photo
+- feat: update g-config for Feature type; get Feature template working
+- style: make path from last commit visible
+- feat: add FeaturesQuery to Feature.js; display data object on /features/dev-text-feature-1
+- feat: /features/dev-test-feature-1 > updated SliceZone returns SliceTypes;
+- feat: begin adding slices to SliceZone; fix CMSHelp query
+- feat: move cms-help components to folder; add HomeContent to /cms-help
+- feat: add base FullWidthImage to /cms-help/sample-feature
+- feat: add base switch statement for FullWidthImage className
+- feat: add Poppins font; add base Blockquote slice
+- test: add /cms-help to ScheduleBar; make blockquote font-size responsive
+- feat: add Storybook to project; restructure slices/FWI props
+- feat: FWI displays, albeit wrongly; working to include SASS support
+- feat: add SASS support to gatsby; FWI now display correctly
+- feat: add Blockquote - two variations
+- feat: add Blockquote story; begin refactoring inline slice styles
+- feat: convert Blockquote to SASS classes; add viewports to Storybook
+- feat: add SampleFeature base to Storybook
+- style: rename Sample Feature section to Sample Layouts
+- feat: remake Blockquote in CMS; update Blockquote component; update Features query
+- feat: successfully bring in Blockquote to /features/dev-test-feature-1
+- feat: Blockquote - fix variable declarations and switch statement; now supports multi-paragraph quotes
+- feat: fix broken Storybook Blockquote props
+- feat: add long TwoParagraph story
+- feat: add base TwoImagesAndText layout to Storybook
+- feat: add base ContentHelper to /components/slices; create Blockquote helper function
+- refactor: move inline getBlockquoteStyling > /components/slices/utils
+- fix: repair Sample Feature story
+- refactor: move ContentHelper > /components/slices/helpers
+- docs: add jsdoc bases for Blockquote, TwoImagesAndText and getBlockquoteStyling
+- docs: generate first version of project docs
+- refactor: destructure slice in Blockquote to pass in individual params directly where needed
+- docs: update Blockquote and getBlockquoteStyling docs
+- fix: add updated slice definition to /cms-help/sample-feature
+- debug: create TIAT in slice in Prismic to fix render issue
+- feat: get TwoImagesAndText working with Prismic sourced data
+- feat: add base HeadlineBlock story
+- test: add blackBG parent div to HeadlineBlock; testing with figure img overlay
+- feat: creat sample HeadlineBlock; connect it to front-end
+- feat: make Staff custom type; add to HeadlineBlock; add updated publication check
+- feat: make HeadlineBlock process and display latest pub date properly
+- fix: update HeadlineBlock story with new slice and metadata objects
+- docs: add comment about {sliceZoneContent} being the way it is
+- docs(CMS): add SliceZone jsdoc info
+- style(CMS): begin converting inline HeadlineBlock
+- debug(CMS): split data objects for /dev-test-feature-1
+- refactor(utils): move processPublicationDates HeadlineBlock helper function to /slice/utils
+- docs(utils): update processPublicationDates docs
+- style(HeadlineBlock): update styles in CMSSlices
+- feat(features): add base /features/ query
+- feat(Feature): make base /pages/features layout
+- data(features): ready data for use as props
+- refactor: more all utils to /src/utils
+- data(features): update Story with data objects
+- fix(features): fix props StickyFeature & style
+- data(CMS): update Features query to include other slice fields
+- feat(slices): make TextBlock slice; set base style
+- style(features): add column and .feature class to features
+- style(features): add explicit dev-test-feature links for deploy
+- fix(features): import graphql via gatsby to address deploy warning
+- remove: uninstall three other unused react image sliders
+- docs(slices): update Blockquote and HeadlineBlock
+- docs: update jsdocs
+- refactor: move Hero's slideGenerator helper func to /utils; update docs
+- missed: add refactor files from last commit
+- docs(all): update template and begin categorizing
+- package(update): upgrade Storybook to 6.0.2
+- feat(slices): add base ParallaxHeadlineBlock v1
+- docs(slices): fix TextBlock, getBlockquoteStyling
+- feat(slices): create ParallaxHeadline base slice
+- feat(slices): add 'headline-block' class; dummy data
+- prep(meeting): remove Parallax from Feature template and more
+- refactor: save current Parallax as OldPHB
+- feat(/support): add base Support page; connect CMS
+- feat(/support): add prelim scroll fade layout
+- feat(/support): update storybook; change fade scroll speed
+- docs(all): update docs
+- feat(/support): connect OneImageAndText component
+- docs: add more documentation
+- feat(slices): make OIAT slice switch layout types
+- feat(storybook): add left and right OneImageAndText stories
+- feat(slice): TIAT - fix layout selector; add stories
+- feat(slice): add ImageRow slice base
+- docs(ImageHelper): add docs
+- feat(password): add base password protection for /cms-help
+- feat(protect): password-protect /cms-guide route
+- refactor(CMS-Guide): being SliceZone refactor
+- refactor(/support): clean up /support page index
+- docs(Indexes): update index page docs
+- refactor(slices): redefine TextBlock and HeadlineBlock slices to be more generic
+- fix(slices): resolve broken feature documents after Feature type reset
+- style(slices): remove 'sample-feature' and 'feature' CMSSlices classes
+- style(bulma): remove some element styles; replace with variables
+- refactor(slices): make body principal template element; nest main in article
+- docs(helpers): update ContentHelper, ImageHelper
+- style(Hero): change font to Poppins
+- style(ArticleHeadline): begin HeadlineBlock new layout rework
+- style(ArticleHeadline): space ArticleHeadline image and titling based on titling size
+- style(ArticleHeadline): implement new ArticleHeadline styling
+- feat(ImageHelper): add onClick image modal; move photo data to modal
+- feat(ImageHelper): add pointer cursor; img alt txt
+- style(ImageHelper): refactor modal to use columns; contain img
+- refactor(/mixes): rename old mix index; create new
+- feat(linkResolver): add 'resident' case; default
+- refactor(SMC): change resident prop to residents
+- feat(/mixes): show CMS mixes, res links resolve
+- feat(/index): augment IndexQuery; begin passing data to HomeMixes
+- feat(HomeMixes): pass and map homeMixesData correctly
+- feat(linkResolver): add 'feature' case
+- feat(HomeFeatures): pass and map homeFeaturesData correctly
+- fix(json): add dummy JSON data to fix /bio
+- feat(/residents): create WIP individual resident page
+- fix(getBlockquoteStyling): resolve error when bgImg is null
+- feat(resident): map sticky-bio of Resident updates #120
+- feat(Resident): map resident mixes to /resident/:uid
+- prune: remove unused components, pages, netlify-cms, templates
+- move: /templates/index-page.js → /pages/index.js
+- feat(FullWidthImage): add this slice to CMSGuide
+- refactor(slice): rewrite FWI slice to use CMS data
+- feat(/404): add base layout
+- story(ArticleHeadline): update data objects
+- style(ArticleHeadline): change parent CSS classes
+- prune(index.md): update #79 - remove file
+- feat(ImageHelper): convert img element to react-imgix
+- feat(ImageHelper): revert react-imgix components
+- refactor(ImageHelper): make ImageModal; add lo_fi update #122 - create ImageModal layout helper component, update ResponsiveImage docs and CSS
+- fix(ResponsiveImage): change width, height
+- prune(/bio): Resident.js working, removal prep
+- feat(/schedule): write base getSevenDays util updates #19 - nodes from the data array can now be selected seven days at a time
+- feat(/schedule): make date selection buttons functional
+- feat(/schedule): map node data correctly updates #19 - SingleScheduleEntryRow created and put to use
+- prune: ScheduleShowEntry, two SCSS files update #79 - ScheduleShowEntry refactored into SingleScheduleEntryRow SCSS removed NewsPage.scss and ScheduleDropdown.scss
+- data(schedule): update test json schema file
+- prune: #79 - remove SelectedColumn
+- fix(ImageRow): change group_image to row_image
+- style(ScheduleDropdown): rework CSS; column layout
+- feat(Apollo): add Apollo to project, base Schedule query works
+- fix(ImageRow): revert row_image to group_img
+- style(ScheduleBar): reduce bar height update#71 - ScheduleBar: expand .site-page, .slider ,and .homepage-hero
+- style(DateSelectorButton): consolidate styles update #79 - remove mobile-date-selector
+- refactor(formatDateTime): rework most dayjs calls make formatDateTime util func; fix getSevenDays function in /schedule index
+- fix(Dropdown): align .up-next & .dropdown fixes changes: 23e83f4 -  bar height is 2.5rem closed; 2,625rem open
+- refactor(SlideGenerator): make component; update params
+- chore(docs): update; all @component are @function
+- chore: update docs
+- feat(ApolloProvider): wrap root element
+- feat(RadioBar): set times in TopNav, pass as props to RadioBar Props update every second in TopNav and reflect the update in RadioBar
+- feat(ScheduleBar): use timeNow to query AllSchedules closes #25 - change issue title to reflect goal completion
+- refactor(mocha): rename __tests__ to test; add tests folder
+- style(Dropdown): add max height; overflow scroll
+- feat(ScheduleBar): process and show data in bar
+- feat(/resident): make resident links in their own mix cards plain text closes #39 - missed commit; resident data is live from CMS and mapped correctly closes #120 - only HalfmoonDivider left to address on page; cosmetic changes remain
+- fix(ApolloProvider): unwrap root element; only wrap TopNav
+- refactor(slices): fix OIAT and TIAT ImageHelper calls updates #122 - changes account for responsive image sizes; CMS Guide slices copied to Slice Library and reimported into Feature type
+- prune: remove console.logs from SliceZone, OIAT
+- refactor(PlayButton): convert to Component
+- fix(Apollo): unwrap ApolloProvider from TopNav
+- feat(RadioPlayer): pull and set initial mix data from query
+- style(RadioPlayer): add initial load animation
+- refactor(Apollo): rewrap root element with Apollo Technically a revert of the Apollo unwrap; difference here being that the useQuery functions are called in a useEffect instead of roaming free in the function
+- feat(Dropdown): pass show data to dropdown closes #19 - SSER component vcentering fixed via min-height adjustment Fix displays in dropdown and on /schedule
+- refactor(site-page): replace site-page classes with full-height-page /schedule and /events have the new class black-bg-page that gives that more top and bottom padding
+- feat(/events): unify card height; fix event image style
+- feat(CMSGuide): build landing page with cards updates #117 - /guide landing page base layout in place; images need responsive conversion
+- feat(/guide): add responsive images to CMS cards
+- feat(ImageRow): fix CMSGuide and Feature queries Update LandingPageElement cards to better display date and subcategory Update OIAT and TIAT to work with LandingPageElement closes #71 - missed commit; RadioBar has fade in on data load and text-truncate
+- feat(/schedule): add schedule_entries null option
+- feat(/feature): make event card height fix global
+- fix(errors): address Invariant error, gatsby 95313 error
+- fix(UpcomingShow): add undefined return condition
+- fix(deploy): fix duplicated Hero in TopNav
+- prune: remove gatsby plugins update #79
+- docs: update gatsby-config notes
+- feat(/residents): connect to Prismic; add guest option and selection
+- update(react-player): migrate to version 2
+- cleanup(issues): close some issues
+- feat(/mixes): add endless_mix part to query; bring into page
+- in slider: explicitly allow pointer events on select elements; disabled on all others in slider
+- prune(#79): clear gatsby-node of commented code
+- refactor(util): make getResidentString declarative
+- refactor(MixPlayOverlay): extract play button to re-use on /mixes
+- feat(Mix): create base template
+- feat(Mix): add gatsby-config and mixData display
+- feat(links): add /mixes case
+- feat(Mix): replace getResidentLinks with Link to Mix page
+- feat(Resident): add Mix _meta to link to Mix page
+- feat(Card): fix card height sizings; update play-icon hover effect #68, #97: mixes & events have CSS class-dictated min-height
+- refactor(SingleMixCard): destructure now in component, not in map Update dummy SearchResults SingleMixCard props for deploy
+- fix(/residents): import graphql from gatsby
+- prune: #79 - remove BioPage; consolidate with ResidentPage.scss
+- data(dummy): add alt field to JSON to fix SingleEvent mapping
+- feat(Resident): update query; display data on resident template page
+- feat(Dropdown): handle case where no shows are listed for today
+- feat(MixPlayOverlay): rework into card-image container; reorganize card styling
+- feat(TagButtons): make component for use outside card
+- feat(Mix) add and render mix_blurb with linkResolver
+- chore(docs): update SingleResident data
+- data(Mix): pull in related_events and display section on page
+- style(SMC): format date and place with resident string
+- style(/residents): truncate resident_name after two lines; adjust .card-content height
+- feat(Curated): pull Residents and Tags into sets for use
+- prune: remove console logs
+- feat(Curated): add docs; pass mixLinks array as MixPlayOverlay prop Source of #128
+- prune: remove lambda folder; hello dummy function updates #79
+- test: add travis base and cypress
+- style(Resident): fix column widths on tablet
+- feat: add htmlSerializer to project
+- feat(TextBlock): componentize RichText; pass htmlSerializer
+- feat(TextBlock): add linkResolver to component
+- feat(embeds): add .embed; fix touch sizing of iframes
+- feat(Inline Image): add figcaption; add key
+- fix(Guide): fix date sorting
+- test(Travis): add Slack notifications
+- set src_utils_playAudioButton.js fix rebase issue
+- active class names for residents and resident to active on toggle
+- feat(events): map event CMS data to SingleEventCard
+- test(travis-deploy): add netlify deploy script
+- test(travis dpl v2): test travis dpl script
+- test(travis dpl v2): modify auth and site travis dpl script
+- disable(RadioBar): useEffect was not reading b/c HMBK disabled their station
+- chore: update docs
+- fix(Travis): change Netlify site and auth token declarations
+- testing(nullDataCheck): write first false tests
+- testing(nullDataCheck): add more tests
+- test(Resident): trying setData checks
+- feat(cron): add a Github workflow cron job to project
+- fix(cron): rewrite with correct syntax
+- cron: update deploy times
+- fix(cron): try two cron commands
+- style(Resident): make Resident topic selectors sticky
+- chore(PropTypes): update PropTypes; add docs
+- feat(mappableDataCheck): write and test function to prevent unmappable data from being passed to LayoutComponents
+- fix(mappableDataCheck): change rejection return to 0 for falsiness; add final filteredArr length check
+- fix(ResidentSocialLinks): add Facebook case
+- fix(ResidentSocialLinks): reactivate link icons in bio
+- feat(Resident): use mappableDataCheck to only display columns with content
+- test(travis): test defining env variables
+- test(Travis): different Netlify env declarations
+- test(travis): define env variables; add <this syntax> to deploy
+- fix(travis): place env variables on same line; add <this syntax> to deploy
+- test(mappableDataCheck): add falsy values check; subarray check; add dynamic filtering test
+- prune: remove unused PlayAudioButton
+- temp: disable ResidentSocialLinks component
+- style(SingleMixCard): unify card heights on mobile
+- test(mappableDataCheck): expand function to account for multi-key objects
+- fix(ResidentBio): prevent ResidentSocialLinks breaking from incomplete media entry add mappableDataCheck; add social_media reassignment and hasMedia useState
+- feat(Resident): make mobile content selector sticky
+- style(SingleEventCard): Nanoclamp the date/location
+- feat(/mixes): begin Collections migration
+- feat(Collections): make base page for Collections
+- feat(/residents): change query sort to remove sort after status filtering
+- feat(Event): add base Event template; temp at /events/event-test
+- feat(Event): update queries for /events and Envent template
+- fix(dayjs): remove async from clock functions
+- feat(Event): pass data from template for EventCountdown
+- feat(GCP): add SET_CLOCK_TIME dispatch
+- fix(SingleMixCard): format date on title-less mixes
+- style(ArticleHeadline): simplify header class name
+- fix(Event): rename eventData deconstructions
+- feat(EventCountdown): set up base on scroll useEffect for once event-timer becomes sticky
+- feat(Event): add shrink effect to .event-timer on sticky
+- prune: remove netlify-cms admin folder updates #79
+- config(dotenv): test setup for .env files; add mapbox token
+- feat(Event): get mapbox working in some form; might just make it a button a google map link
+- refactor: remove EventMap; implement simpler link to gmap
+- feat(Countdown): add base countdown to Event
+- feat(Event): get countdown timer components displaying correctly
+- feat(EventCountdown): refactor into subcomponent add event date-time to EventHeader add base touch font sizings change formatDateTime case names
+- style(EventHeader): move CTA button to title bar
+- refactor(Event): rename Event component classes .event-header -> .event-image .event-timer -> .event-header
+- fix(Event): convert event times from UTC to EST before using through page
+- feat(EventHeader): pass in headerButtonText and headerButtonLink
+- added playlist cases to reducer and onEnded() to player
+- add playlost to PLAYLIST_PLAY_FIRST
+- modified CHANGE_URL to set playlist empty and loop false
+- removed unused PLAYLIST_END reducer case
+- fix(Event): adjust query, deconstructed variables and calls
+- format(Husky/Prettier): add Husky to run prettier pre-commit
+- prune: remove preinstall, dependent gatsby-source-prismic-graphql, and packages
+- travis: change node to v14; npm to 6.14.8
+- travis: remove npm declaration; gatsby and npm i before_install
+- travis: add os, dist, matrix; wrap deploy site and auth in quotes; secure slack token
+- travis: reformat tokens Slack notification token; netlify deploy credentials
+- travis: add missing before_deploy 'gatsby build' command
+- style(/residents): exchange is-hidden-markers for desktop/tablet and mobile selection buttons
+- style(Event): add base font-sizing; update travis deploy yml
+- travis: add prod-true; change build command
+- test(uidValidator): begin writing tests and function for use on /hmbk-admin
+- test(uidValidator): add cases catching dev entries, ignorable entries; restructure test cases
+- test(uidValidator): add bad_structure and auto-created mix cases; add reasons to returns
+- test(uidValidator): add reasons to validator; break into separate functions
+- refactor(uidValidator): restructure tests; function
+- refactor(hmbk-admin): break into component; adjust styles
+- prune: StickyBioBlurb, /bio index, gatsby-browser backup, old /mixes update #79
+- refactor(FontAwesome): add library to g-browser, g-ssr remove explicit imports
+- fix: add gatsby-plugin-fontawesome-css to stop icon size jumps at load
+- backup: add Prismic CMS Custom Type JSON files
+- style(/index): change HomeContent headline and blurb display
+- test: make run commands verbose for CI debuggin clarity
+- husky: resolve git pre-commit issue
+- feat(cmsNodeValidator): get invalid mix case working needs mappableDataCheck inputs
+- test(mappableDataFilter): update to accept nodeValidation Boolean when set to true, it returns the total number of bad entries will pass that number to cmsNodeValidator
+- test(nodeValidator): write and pass tests connecting mappableDataFilter returning number to include in nodeValidator error message
+- feat(/index): map and fix heights of HomeEvents
+- docs: HomeEvents details
+- style(navbar): add "Music" dropup; add /mixes; /collections links
+- refactor: add FontAwesome library to project root
+- refactor: add `tags` to /hmbk-admin query prevents eventIssues break
+- /collections: map base collections and data
+- feat(/collections): create Set to capture unique residents
+- test(/collections): rename playlistProcessor; write, pass tests
+- feat(/collection): extract playlist mapping to util function
+- feat(/mixes): implement onClick fetching from prismic
+- feat(/mixes): add button to fetch more mixes and go back to top
+- fix(/events): fix event location links boolean check
+- feat(/events): add map embeds to event pages
+- test: remove .only from collectionPlaylist func
+- prune: unused cypress files; fresh node_modules install
+- data(/mixes): change initial load to 12 mixes for even rows of content
+- test(/collections): write makeCollectionDispatch function; write/pass tests
+- feat(Feature): make article authors optional through short-circuit
+- refactor(Event): change EventMap width and nesting
+- test: reactivate all tests
+- feat(/collections): write playlistShuffle function; add to tests
+- test(/collections): add url and resident fields to makeCollectionDispatch; test
+- merge: reactivate all tests
+- /collections: begin connecting SingleCollection to MixPlayOverlay
+- feat(/collections): pass makeCollectionDispatch data to MixPlayOverlay; get first track playing
+- feat(/admin): make colored Issue message wrapper
+- github: test add create-issue-branch workflow
+- github: change CIB mode to chatops
+- test: refactor cmsNodeValidator function into chunks; begin mixes
+- test: update mix_image, add mix_date validations
+- test: update featured_resident case; clarify mappableDataFilter docs
+- test: complete mix entry cmsNodeValidator test suite
+- test: fix addErrorToNotices edge case
+- test: update resident entry tests and validator error messages
+- test: update resident entry tests and validator error messages
+- test: refactor and expand mappableDataFilter
+- test: add base UIDValidator error msgs; update first test with error msg
+- test: add console.logs /hmbk-admin; cmsNodeValidator
+- admin: refactor initial prismicContent processing into a useEffect; display pre blocks in admin body
+- fix(build): address breaking build by adding nullish value for mix_date
+- fix(#130): write closeDropUp function; add to BottomNav OutsideClick wrapper
+- admin: edit validator errors; add nodeName case for Resident, Mix
+- admin: begin mapping admin using new cmsNodeValidator notices object
+- ScheduleBar checks live stream status every 60 sec
+- refactored useEffects to not use promise chaining
+- Mix, /mixes: add filteredResidents condition check what filteredResidents is returning on both template and page work out SingleCollection
+- /admin: setup first maps of cmsNodeValidation
+- style(BottomNav): Change Bottom Nav 'Mixes' to 'Radio'
+- hotfix: disable admin query loading; collection rendering
+- fix(Blockquote): make attributions optional via short-circuit
+- fix(BottomNav): change toggleDropUp to closeDropUp
+- feat(/events): add load more button
+- feat(/Resident): sort Resident mixes from most recent date to least
+- test(displayCollection): add destructure of mix_resident
+- feat(/collections): restore SingleCollection display data
+- /features: add base tile layout; prep for LandingPage query
+- /features: destructure featuresHeaderData; create FeaturesArticleTile component
+- refactor(Features): separate HeadlineBlock slice for ease of landing page use
+- /features: new nested Hero layout in progress
+- layout(/features): add base desktop layouts
+- layout(/feature): add links, borders, titling for desktop
+- layout(/features): set up highlight features for overlay
+- style(/features): make highlight features overlays
+- fix(Blockquote): add bgIMG === null return condition; begin Feature HeadlineBlock remap
+- style(ArticleHeadline): begin refactor to fix height issue
+- refactor(ArticleHeadline): rework headline layout so background image fits
+- layout(Feature): add headlinePhotoDetails prune: remove HeadlineBlock slice file (#79)
+- refactor(/features): move new .hero to HMBKSettings; prune old solution CSS; comment HeadlineBlock CSS
+- WIP layout for HighlightFeature
+- prune (#79): remove unused HomeSingleEvent; update browserlist
+- prune (#79): rename HomeSingleNews to SingleFeatureCard rename HomeNews to HomeFeatures remove HomeContent component make highlight features stack (need to make horizontal on desktop)
+- layout(/features): map SingleFeatureCard; needs height adjust; Resident addition
+- debugged featureData in SingleFeatureCard calls
+- refactor(/features): make HighlightFeatures component prune (#79): StickyFeature, FeatureArticleTile,
+- feat(/feature): add left/right feature fallbacks make LeadFeatureHero, LeadFeatureDetails add default props to /features components prune (#79): MainFeatureArticle-> LeadFeatureDetails LandingPageElement /features commented returns HighlightFeature, StickyFeature css
+- layout(/features): begin testing FallbackImage component
+- feat(FallbackImage): add image component fallback to SingleResident; ResidentBio
+- refactor(slideGenerator): adapt new Feature hero styling fixes
+- feat(/features): set HighlightFeatures render conditions
+- style(/features): add highlight-features gradient; adjust section font sizing
+- feat(TopicPageHero): create TopicPageHero and TopicHeroPageDetails components to begin making landing pages generic
+- feat(TopicPageHighlightSection): make component that feeds in layout component to highlight section a la SliceZone
+- feat(SingleMixCard): add default img string and FallbackImage component
+- feat(/mixes): begin useEffect refactor for /mixes TopicHero
+- feat(/mixes): add lead_radio_mix null base case to useEffect
+- feat(/mixes): finish useEffect processing /mixes hero and highlight section data
+- refactor(/features): finish processFeaturesHeaderData useEffect
+- try/catch for stream status check
+- update radio.co stream url
+- updated other stream status URLs
+- fix(SingleFeatureCard): add short-circuits for null cases add FallbackImage
+- backup(Prismic): update mix, feature, staff custom types
+- refactor(Hero): adapt new Feature hero to front page
+- docs(all): remove all @subcategory tags; re-gen docs
+- Merge remote-tracking branch 'origin/master' into style/featurePageLayout
+- feat(Hero): add SVG HeroArrows component
+- feat(Hero): update IndexPageQuery to include document _meta; add link processing
+- backup(Prismic): update homepage custom type
+- feat(Hero): add HeroArrows component using SVGR remove pointerEvents: none from SlideGenerator
+- fix(getResidentString): refactor getResidentString change forEach for for loop to allow for continue statements where mix_resident is null refactor default mixResidentsString in SingleMixCard
+- feat(HomeMixes): add Sound Selects section to index update index query write useEffect to call recent mixes if sound selects total < 12
+- feat(HomeFeatures): add Editorials section to Prismic update IndexPageQuery
+- layout(/mixes): remove mixes Header and featured sections
+- feat(/residents): refactor resident type separation into useEffect; update query to allow base data fetch of each type
+- refactor(uidValidator): extracted helper functions and calls to their own files; validators folder created within /utils
+- fix(EventMapEmbed): update .env with GATSBY_ prefix; update component
+- docs: add whitespace after '|' in @see tags to fix broken external links; re-gen docs
+- feat(/queries): collect all load-time Apollo GQL queries in directory
+- gitignore: added docs folder to avoid future OS file name conflicts
+- docs: fix whitespace after `@see {@link}` external links
+- feat(queries): extract getDefaultMix query remove totalCount from resident index queries
+- docs(EventMapEmbed): add jsdoc
+- refactor(RadioBar): extract query
+- feat(/residents): attach queries to buttons process fetched data
+
+### Version 1.1.3
+- Create Blog “2019-12-12-test-title”
+
+### Version 4.2.2
+
+### Version 1.1.3
+- added linter/prettier
+- overwrite broken branch
+
+### Version 4.2.2
+- using new gatsby starter
+- initial commit

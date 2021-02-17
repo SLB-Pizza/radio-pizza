@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
-function LocationPin(text) {
-  return (
-    <div className="pin">
-      <Icon size="sm" icon="map-marker-alt" className="pin-icon">
-        <p className="pin-text">{text}</p>
-      </Icon>
-    </div>
-  )
-}
-
+/**
+ * Returns a Google Map embed on an event page, for those that have it added
+ * @category Site Elements
+ * @function EventMapEmbed
+ * @param {String} description
+ * @param {String} address
+ * @returns {jsx}
+ */
 function EventMapEmbed({ description, address }) {
   const [processedDescription, setDescription] = useState(null)
   const [mapWidth, setMapWidth] = useState(null)

@@ -25,7 +25,6 @@ export const GET_MORE_RESIDENTS = gql`
           resident_image
         }
       }
-      totalCount
       pageInfo {
         hasNextPage
         endCursor
@@ -59,7 +58,6 @@ export const GET_MORE_ALUMNI = gql`
           resident_image
         }
       }
-      totalCount
       pageInfo {
         hasNextPage
         endCursor
@@ -92,7 +90,6 @@ export const GET_MORE_GUESTS = gql`
           resident_image
         }
       }
-      totalCount
       pageInfo {
         hasNextPage
         endCursor

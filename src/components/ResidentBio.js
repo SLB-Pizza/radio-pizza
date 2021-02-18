@@ -61,22 +61,26 @@ function ResidentBio({ residentBioData }) {
           </figure>
         </div>
         <div className="column is-12 content">
-          <NanoClamp
-            className="title is-size-4-desktop is-size-5-touch"
-            is="p"
-            lines={2}
-            text={resident_name}
-          />
-          <p className="subtitle is-size-6-desktop is-size-7-touch">
-            {resident_status}
-          </p>
+          {resident_name && (
+            <NanoClamp
+              className="title is-size-4-desktop is-size-5-touch"
+              is="p"
+              lines={2}
+              text={resident_name}
+            />
+          )}
+          {resident_status && (
+            <p className="subtitle is-size-6-desktop is-size-7-touch">
+              {resident_status}
+            </p>
+          )}
           {/* <pre>{JSON.stringify(resident_blurb, null, 2)}</pre> */}
-          {RichText.render(resident_blurb)}
+          {resident_blurb && RichText.render(resident_blurb)}
         </div>
       </div>
       {socialMediaData.length && (
         <div className="columns is-mobile is-multiline is-vcentered">
-          {social_media.map(
+          {socialMediaData.map(
             ({ resident_social_page, resident_social_link }, index) => (
               <ResidentSocialLinks
                 key={`social-link-${index}-${resident_social_page}`}

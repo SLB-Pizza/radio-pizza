@@ -28,6 +28,11 @@ export { default as makeCollectionDispatch } from './makeCollectionDispatch'
 export { default as playlistShuffle } from './playlistShuffle'
 export { default as prioritySetter } from './prioritySetter'
 export { default as processPublicationDates } from './processPublicationDates'
+export {
+  mixDateSort,
+  eventDateSort,
+  featureDateSort,
+} from './singleResidentDateSorting'
 export { default as testCaseMaker } from './testCaseMaker'
 export { default as uidAssembler } from './validators/uidAssembler'
 export { default as uidValidator } from './uidValidator'

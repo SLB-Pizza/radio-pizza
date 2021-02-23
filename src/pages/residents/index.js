@@ -39,7 +39,7 @@ function ResidentsIndex({ data }) {
    * Use Apollo's useLazyQuery to allow for a query to run on button press.
    * One useLazyQuery per resident category
    * Each individual fetch update is fed to a useEffect
-   * @see {@link https://www.apollographql.com/docs/react/data/queries/#executing-queries-manually| Executing queries manually (useLazyQuery hook)}
+   * @see {@link https://www.apollographql.com/docs/react/data/queries/#executing-queries-manually Executing queries manually (useLazyQuery hook)}
    */
   const [
     getMoreResidents,

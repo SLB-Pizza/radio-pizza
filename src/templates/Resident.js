@@ -1,14 +1,18 @@
 import PropTypes from 'prop-types'
 import React, { Fragment, useState, useEffect } from 'react'
 import { graphql } from 'gatsby'
-import NanoClamp from 'nanoclamp'
 import {
   ResidentBio,
   SingleMixCard,
   SingleEventCard,
   SingleFeatureCard,
 } from '../components'
-import { formatDateTime, mappableDataFilter } from '../utils'
+import {
+  mixDateSort,
+  eventDateSort,
+  featureDateSort,
+  mappableDataFilter,
+} from '../utils'
 
 /**
  * @category Templates
@@ -22,21 +26,9 @@ function ResidentTemplate({ data }) {
   const [categoryLabels, setCategoryLabels] = useState(null)
   const [resBio, setResBio] = useState(null)
 
-  const [resMixes, setResMixes] = useState({
-    data: null,
-    hasMore: null,
-    endCursor: null,
-  })
-  const [resEvents, setResEvents] = useState({
-    data: null,
-    hasMore: null,
-    endCursor: null,
-  })
-  const [resFeatures, setResFeatures] = useState({
-    data: null,
-    hasMore: null,
-    endCursor: null,
-  })
+  const [resMixes, setResMixes] = useState(null)
+  const [resEvents, setResEvents] = useState(null)
+  const [resFeatures, setResFeatures] = useState(null)
 
   const prismicContent = data.prismic
   if (!prismicContent) return null
@@ -79,12 +71,9 @@ function ResidentTemplate({ data }) {
          *
          * We can then check mappability of each of the array's data nodes with {@link mappableDataFilter}
          *
-         * If both are truthy, set categoryData with object having these keys:
-         * - data: the data array from Gatsby containing the first 12 entries of that category
-         * - hasMore: boolean dictating whether there are more entries that can be fetched
-         * - endCursor: starting point for the next fetch of 12 category entries
-         * Finally push a label for that category to the labels array; setCategoryLabels at end of function
+         * If both are truthy, set that category's data with the data array containing ALL of the associated group data with it at once.
          *
+         * NB: The 20 data object limit doesn't apply here since there's only ONE `resident_{category}` array, NOT individual nodes under edges array! Proven by adding 24 events to group field on dev entry and getting them all in template query.
          */
 
         const buildQueryMixes = mixes.edges[0].node.resident_mixes
@@ -96,21 +85,20 @@ function ResidentTemplate({ data }) {
         const featureCheck = mappableDataFilter(buildQueryFeatures)
 
         /**
+         * Mixes, events and features come in unsorted as they're queried off a content relation. Sort using these field for these categories:
+         * - Mix: resident_mix.mix_date
+         * - Event: resident_event.event_start
+         * - Feature: resident_feature._meta.firstPublicationDate
+         * Convert these fields to Dates with {@link formatDateTime} and sort from most recent to least
+         * Passing only the mix_date string to {@link formatDateTime} parses it into a Date object
+         */
+
+        /**
          * Mix data set processing and label push
          */
         if (mixCheck) {
-          /**
-           * Mixes come in unsorted as they're queried off a content relation
-           * Convert the mix_date fields to Dates with {@link formatDateTime} and sort from most recent to least
-           * Passing only the mix_date string to {@link formatDateTime} parses it into a Date object
-           */
           const dateSortedMixes = mixDateSort(mixCheck)
-
-          setResMixes({
-            data: dateSortedMixes,
-            hasMore: mixes.pageInfo.hasNextPage,
-            endCursor: mixes.pageInfo.endCursor,
-          })
+          setResMixes(dateSortedMixes)
           labels.push('Mixes')
         }
 
@@ -119,12 +107,7 @@ function ResidentTemplate({ data }) {
          */
         if (eventCheck) {
           const dateSortedEvents = eventDateSort(eventCheck)
-
-          setResEvents({
-            data: dateSortedEvents,
-            hasMore: events.pageInfo.hasNextPage,
-            endCursor: events.pageInfo.endCursor,
-          })
+          setResEvents(dateSortedEvents)
           labels.push('Events')
         }
         /**
@@ -132,12 +115,7 @@ function ResidentTemplate({ data }) {
          */
         if (featureCheck) {
           const dateSortedFeatures = featureDateSort(featureCheck)
-
-          setResFeatures({
-            data: dateSortedFeatures,
-            hasMore: features.pageInfo.hasNextPage,
-            endCursor: features.pageInfo.endCursor,
-          })
+          setResFeatures(dateSortedFeatures)
           labels.push('Features')
         }
         /**
@@ -153,126 +131,101 @@ function ResidentTemplate({ data }) {
 
   /**
    * Helper functions
-   * Called by mappableDataCheck useEffect()
+   * Toggles the column selected based on the id of clicked/selected category
    */
-
-  const mixDateSort = mixesData =>
-    mixesData.sort(
-      (a, b) =>
-        formatDateTime(b.resident_mix.mix_date) -
-        formatDateTime(a.resident_mix.mix_date)
-    )
-
-  const eventDateSort = eventsData =>
-    eventsData.sort(
-      (a, b) =>
-        formatDateTime(b.resident_event.event_start) -
-        formatDateTime(a.resident_event.event_start)
-    )
-
-  const featureDateSort = featuresData =>
-    featuresData.sort(
-      (a, b) =>
-        formatDateTime(b.resident_feature._meta.firstPublicationDate) -
-        formatDateTime(a.resident_feature._meta.firstPublicationDate)
-    )
-
-  function toggleColumn(event) {
+  function toggleCateogry(event) {
     if (isOpen !== event.currentTarget.id) {
       setIsOpen(event.currentTarget.id)
     }
   }
 
-  const residentCardLayout = 'column is-12-mobile is-6-tablet is-4-widescreen'
+  const smallCardLayout =
+    'column is-12-mobile is-6-tablet is-4- is-4-widescreen'
+  const largeCardLayout = 'column is-6 is-4-widescreen'
 
   return (
-    <div className="container is-fluid full-height-page">
-      <div className="columns is-multiline">
-        {resBio && <ResidentBio residentBioData={resBio} />}
+    <main className="full-height-page">
+      <div className="container is-fluid">
+        <div className="columns is-multiline">
+          {resBio && <ResidentBio residentBioData={resBio} />}
 
-        {/* TABLET, DESKTOP CONTENT SELECTOR BUTTONS */}
-        <div className="column is-8-tablet is-9-desktop resident-content">
-          <div className="columns is-mobile selector is-hidden-mobile">
-            {categoryLabels?.map((type, index) => (
-              <Fragment key={`HMBK-${type}-category-${index}`}>
-                <div className="column is-hidden-mobile">
-                  <button
-                    className={
-                      isOpen === type
-                        ? 'button active is-fullwidth is-outlined is-rounded'
-                        : 'button is-fullwidth is-outlined is-rounded'
-                    }
-                    id={type}
-                    onClick={toggleColumn}
-                  >
-                    {type}
-                  </button>
-                </div>
-                <div className="column is-hidden-tablet">
-                  <button
-                    className={
-                      isOpen === type
-                        ? 'button is-small active is-fullwidth is-outlined is-rounded'
-                        : 'button is-small is-fullwidth is-outlined is-rounded'
-                    }
-                    id={type}
-                    onClick={toggleColumn}
-                  >
-                    {type}
-                  </button>
-                </div>
-              </Fragment>
-            ))}
+          {/* TABLET, DESKTOP CONTENT SELECTOR BUTTONS */}
+          <div className="column is-8-tablet is-9-desktop resident-content">
+            <div className="columns is-mobile selector is-hidden-mobile">
+              {categoryLabels?.map((type, index) => (
+                <Fragment key={`HMBK-${type}-category-${index}`}>
+                  <div className="column is-hidden-mobile">
+                    <button
+                      className={
+                        isOpen === type
+                          ? 'button active is-fullwidth is-outlined is-rounded'
+                          : 'button is-fullwidth is-outlined is-rounded'
+                      }
+                      id={type}
+                      onClick={toggleCateogry}
+                    >
+                      {type}
+                    </button>
+                  </div>
+                  <div className="column is-hidden-tablet">
+                    <button
+                      className={
+                        isOpen === type
+                          ? 'button is-small active is-fullwidth is-outlined is-rounded'
+                          : 'button is-small is-fullwidth is-outlined is-rounded'
+                      }
+                      id={type}
+                      onClick={toggleCateogry}
+                    >
+                      {type}
+                    </button>
+                  </div>
+                </Fragment>
+              ))}
+            </div>
+
+            {/* RESIDENT MIXES */}
+            {isOpen === 'Mixes' ? (
+              <div className="columns is-mobile is-multiline">
+                {resMixes?.map(({ resident_mix }, index) => (
+                  <SingleMixCard
+                    key={`resident-mix-#${index}`}
+                    mixData={resident_mix}
+                    columnLayout={smallCardLayout}
+                  />
+                ))}
+              </div>
+            ) : null}
+
+            {/* RESIDENT EVENTS */}
+            {isOpen === 'Events' ? (
+              <div className="columns is-mobile is-multiline">
+                {resEvents?.map(({ resident_event }, index) => (
+                  <SingleEventCard
+                    key={`resident-event-#${index}`}
+                    eventData={resident_event}
+                    eventColumnLayout={smallCardLayout}
+                  />
+                ))}
+              </div>
+            ) : null}
+
+            {/* RESIDENT FEATURES */}
+            {isOpen === 'Features' ? (
+              <div className="columns is-mobile is-multiline">
+                {resFeatures?.map(({ resident_feature }, index) => (
+                  <SingleFeatureCard
+                    key={`resident-feature-${index}`}
+                    featureData={resident_feature}
+                    featureColumnLayout={largeCardLayout}
+                  />
+                ))}
+              </div>
+            ) : null}
           </div>
-
-          {/* RESIDENT MIXES */}
-          {isOpen === 'Mixes' ? (
-            <div className="columns is-mobile is-multiline">
-              {resMixes && <pre>Mixes {JSON.stringify(resMixes, null, 2)}</pre>}
-              {/* {resMixes?.data?.map(({ resident_mix }, index) => (
-                <SingleMixCard
-                  key={`resident-mix-#${index}`}
-                  mixData={resident_mix}
-                  columnLayout={residentCardLayout}
-                />
-              ))} */}
-            </div>
-          ) : null}
-
-          {/* RESIDENT EVENTS */}
-          {isOpen === 'Events' ? (
-            <div className="columns is-mobile is-multiline">
-              {resEvents && (
-                <pre>Events {JSON.stringify(resEvents, null, 2)}</pre>
-              )}
-              {/* {resEvents?.data?.map(({ event }, index) => (
-                <SingleEventCard
-                  key={`resident-event-#${index}`}
-                  eventData={event}
-                  columnLayout={residentCardLayout}
-                />
-              ))} */}
-            </div>
-          ) : null}
-
-          {/* RESIDENT FEATURES */}
-          {isOpen === 'Features' ? (
-            <div className="columns is-mobile is-multiline">
-              {resFeatures && (
-                <pre>Features {JSON.stringify(resFeatures, null, 2)}</pre>
-              )}
-              {/* {resFeatures?.data?.map(({ node }, index) => (
-                <SingleFeatureCard
-                  key={`resident-feature-${index}`}
-                  featureData={node}
-                  featureColumnLayout={residentCardLayout}
-                />
-              ))} */}
-            </div>
-          ) : null}
         </div>
       </div>
-    </div>
+    </main>
   )
 }
 
@@ -351,6 +304,12 @@ export const query = graphql`
             resident_features {
               resident_feature {
                 ... on PRISMIC_Feature {
+                  _meta {
+                    uid
+                    type
+                    firstPublicationDate
+                    lastPublicationDate
+                  }
                   headline_block {
                     ... on PRISMIC_FeatureHeadline_blockHeadline_block {
                       primary {
@@ -360,12 +319,6 @@ export const query = graphql`
                         article_subcategory
                       }
                     }
-                  }
-                  _meta {
-                    uid
-                    type
-                    firstPublicationDate
-                    lastPublicationDate
                   }
                 }
               }
@@ -383,15 +336,16 @@ export const query = graphql`
             resident_events {
               resident_event {
                 ... on PRISMIC_Event {
-                  main_event_image
-                  event_name
                   _meta {
                     uid
                     type
                   }
+                  event_name
                   event_start
                   event_end
                   event_blurb
+                  event_location
+                  main_event_image
                 }
               }
             }

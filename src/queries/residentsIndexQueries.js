@@ -5,7 +5,7 @@ import { gql } from '@apollo/client'
  * @category Queries
  * @const GET_MORE_RESIDENTS
  * Used in {@link ResidentIndex}
- * @see {@link https://hmbk-cms.prismic.io/graphql| HMBK's Prismic GraphQL API}
+ * @see {@link https://hmbk-cms.prismic.io/graphql HMBK's Prismic GraphQL API}
  */
 export const GET_MORE_RESIDENTS = gql`
   query GetMoreResidents($first: Int = 12, $after: String) {
@@ -38,7 +38,7 @@ export const GET_MORE_RESIDENTS = gql`
  * @category Queries
  * @const GET_MORE_ALUMNI
  * Used in {@link ResidentIndex}
- * @see {@link https://hmbk-cms.prismic.io/graphql| HMBK's Prismic GraphQL API}
+ * @see {@link https://hmbk-cms.prismic.io/graphql HMBK's Prismic GraphQL API}
  */
 export const GET_MORE_ALUMNI = gql`
   query GetMoreAlumni($first: Int = 12, $after: String) {
@@ -70,7 +70,7 @@ export const GET_MORE_ALUMNI = gql`
  * @category Queries
  * @const GET_MORE_GUESTS
  * Used in {@link ResidentIndex}
- * @see {@link https://hmbk-cms.prismic.io/graphql| HMBK's Prismic GraphQL API}
+ * @see {@link https://hmbk-cms.prismic.io/graphql HMBK's Prismic GraphQL API}
  */
 export const GET_MORE_GUESTS = gql`
   query GetMoreGuests($first: Int = 12, $after: String) {

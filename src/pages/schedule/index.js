@@ -41,7 +41,7 @@ function ScheduleIndexPage({ data }) {
   // const weekAndADay = formatDateTime(timeNow, "prismic-date-query", 7);
   /**
    * Query for Prismic in the GraphQL syntax, not the Gatsby syntax!
-   * @see {@link https://prismic.io/docs/graphql/query-the-api/query-by-date| Prismic - GraphQL Query by Date}
+   * @see {@link https://prismic.io/docs/graphql/query-the-api/query-by-date Prismic - GraphQL Query by Date}
    */
   // const TODAYS_SCHEDULE = gql`
   //   query TodaysSchedule($yesterday: Date!, $weekAndADay: Date!) {

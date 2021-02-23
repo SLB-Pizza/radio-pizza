@@ -20,7 +20,7 @@ import {
  * @property {Object[]} props.residents - Array of data objects containing the mix's resident data
  * @property {Object} props.img - object containing the different sizes of a mix's image
  * @property {String[]} props.tags - the mix's tags
- * @property {String} props.columnLayout - string detailing the column layout across different responsive breakpoints @see {@link https://bulma.io/documentation/columns/sizes/| bulma.io column sizing}
+ * @property {String} props.columnLayout - string detailing the column layout across different responsive breakpoints @see {@link https://bulma.io/documentation/columns/sizes/ bulma.io column sizing}
  * @property {?String} props.path - optional string passed down only by {@link ResidentTemplate} for use with {@link linkResolver}
  * @returns {jsx}
  */
@@ -46,7 +46,7 @@ function SingleMixCard({ mixData, columnLayout, path }) {
   const mixResidentsString = getResidentString(featured_residents)
 
   return (
-    <div className={columnLayout}>
+    <article className={columnLayout}>
       <div className="card">
         <MixPlayOverlay
           url={mix_link}
@@ -69,7 +69,7 @@ function SingleMixCard({ mixData, columnLayout, path }) {
                     className="subtitle is-size-7 has-text-grey-lighter"
                     is="p"
                     lines={2}
-                    text={`${mixDate} | ${mixResidentsString}`}
+                    text={`${mixDate}  ${mixResidentsString}`}
                   />
                   <NanoClamp
                     className="title is-size-6"
@@ -96,7 +96,7 @@ function SingleMixCard({ mixData, columnLayout, path }) {
           </div>
         </div>
       </div>
-    </div>
+    </article>
   )
 }
 

@@ -6,8 +6,8 @@ import { gql } from '@apollo/client'
  * @category Queries
  * @const GET_NEXT_SHOW
  * Used in {@link ScheduleBar}
- * @see {@link https://hmbk-cms.prismic.io/graphql| HMBK's Prismic GraphQL API}
- * @see {@link https://prismic.io/docs/graphql/query-the-api/query-by-date| Prismic - GraphQL Query by Date}
+ * @see {@link https://hmbk-cms.prismic.io/graphql HMBK's Prismic GraphQL API}
+ * @see {@link https://prismic.io/docs/graphql/query-the-api/query-by-date Prismic - GraphQL Query by Date}
  */
 export const GET_NEXT_SHOW = gql`
   query getNextShow($yesterday: Date!) {

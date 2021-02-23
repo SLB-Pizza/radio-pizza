@@ -6,7 +6,7 @@ import { gql } from '@apollo/client'
  * @category Queries
  * @const GET_DEFAULT_MIX
  * Used in {@link RadioBar} -> passed to {@link RadioPlayer}
- * @see {@link https://hmbk-cms.prismic.io/graphql| HMBK's Prismic GraphQL API}
+ * @see {@link https://hmbk-cms.prismic.io/graphql HMBK's Prismic GraphQL API}
  */
 export const GET_DEFAULT_MIX = gql`
   query getDefaultMix {

@@ -2,36 +2,37 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 /**
- * Makes tag buttons.
- *
+ * Makes tag buttons. Returns null if tagsArray has length 0
  * Used in:
  * - {@link SingleMixCard}
  *
  * @category Layout Helper
  * @function TagButtons
  * @param {String[]} tagsArray - array of strings that are used to make the individual tag buttons
- * @returns {jsx} a button with the tag as the label
+ * @returns {jsx}
  */
-function TagButtons({ tagsArray }) {
-  return (
-    <div className="tags">
-      {tagsArray.map((tag, index) => {
-        const lowercaseTag = tag.toLowerCase()
+export default function TagButtons({ tagsArray }) {
+  if (tagsArray.length) {
+    return (
+      <div className="tags">
+        {tagsArray.map((tag, index) => {
+          const lowercaseTag = tag.toLowerCase()
 
-        return (
-          <span
-            key={`span-tag-#${index}`}
-            className="tag is-outlined is-rounded is-black"
-          >
-            {lowercaseTag}
-          </span>
-        )
-      })}
-    </div>
-  )
+          return (
+            <span
+              key={`span-tag-#${index}`}
+              className="tag is-outlined is-rounded is-black"
+            >
+              {lowercaseTag}
+            </span>
+          )
+        })}
+      </div>
+    )
+  } else {
+    return null
+  }
 }
-
-export default TagButtons
 
 TagButtons.propTypes = {
   tagsArray: PropTypes.arrayOf(PropTypes.string),

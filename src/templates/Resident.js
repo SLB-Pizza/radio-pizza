@@ -194,6 +194,7 @@ function ResidentTemplate({ data }) {
                     columnLayout={smallCardLayout}
                   />
                 ))}
+                <pre>{resMixes && JSON.stringify(resMixes, null, 2)}</pre>
               </div>
             ) : null}
 

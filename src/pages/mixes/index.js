@@ -22,9 +22,8 @@ import { getResidentString, mappableDataFilter } from '../../utils'
 function MixesIndexPage({ data, prismic }) {
   // Initial useState is first query results
   // loadNextMixes calls trigger the loadMoreMixes useEffect and add to mixesToMap
-  const mixesHeaderData = data.prismic.allLandingpages.edges[0].node
-  const otherMixesData = data.prismic.allMixs.edges
-  if (!otherMixesData || !mixesHeaderData) return null
+  const allMixData = data.prismic.allMixs.edges
+  if (!allMixData) return null
 
   const mixesPerPage = 12
   const didMountRef = useRef(false)
@@ -34,127 +33,7 @@ function MixesIndexPage({ data, prismic }) {
   // for loadMoreMixes useEffect and loadNextMixes function
   const [page, setPage] = useState(-1)
   const [hasMoreMixes, setHasMoreMixes] = useState(true)
-  const [mixHeroData, setMixHeroData] = useState(null)
-  const [mixHighlightsData, setHighlightsData] = useState(null)
-  const [mixesToMap, setMixesToMap] = useState(otherMixesData)
-
-  /**
-   * Set up /mixes props object for {@link TopicPageHero} and {@link TopicPageHighlightSection}
-   */
-  useEffect(() => {
-    const processMixesHeaderData = () => {
-      // objects to pass to useState after processing
-      let heroData = {}
-      let highlightsData = {}
-
-      // Break down mixesHeaderData
-      let {
-        radio_page_header,
-        radio_highlights_subheader,
-        lead_radio_mix,
-        highlight_mixes,
-      } = mixesHeaderData
-
-      const titling = radio_page_header ?? 'radio'
-      const subheader = radio_highlights_subheader ?? 'select sounds'
-      /**
-       * lead_radio_mix is null
-       * - Shift off the first mix from `mixesToMap` to use as lead_radio_mix
-       */
-      let allOtherMixes = mixesToMap
-      if (!lead_radio_mix) {
-        lead_radio_mix = allOtherMixes.shift()
-      }
-
-      // Break down lead_radio_mix
-      const {
-        _meta,
-        mix_title,
-        mix_blurb,
-        mix_image,
-        featured_residents,
-      } = lead_radio_mix
-
-      /**
-       * Once lead_radio_mix exits we can set heroData's bg, titling and some of the data key-value pairs (ones independent of mix_title's existence)
-       */
-
-      heroData = {
-        bg: mix_image,
-        titling,
-        data: {
-          linkDetails: _meta,
-          leadTopicCategory: 'mix',
-        },
-      }
-
-      /**
-       * mix_title exists
-       *  linkTopicTitle : use mix_title
-       *    if mix_blurb exists as well
-       *      linkTopicSubtitle : use 1st paragraph of mix_blurb
-       *      linkTopicCategory : format list of residents
-       *    else
-       *      linkTopicSubtitle : format list of residents
-       *      linkTopicCategory : "mix" as set above
-       */
-      if (mix_title) {
-        heroData.data.leadTopicTitle = mix_title
-
-        if (mix_blurb) {
-          heroData.data.leadTopicSubtitle = RichText.asText([mix_blurb[0]])
-          heroData.data.leadTopicCategory = getResidentString(
-            featured_residents
-          )
-        } else {
-          heroData.data.leadTopicSubtitle = getResidentString(
-            featured_residents
-          )
-        }
-      } else {
-        /**
-         * mix_title === null
-         *  linkTopicTitle    : format list of residents as mix_title
-         *  linkTopicSubtitle : if mix_blurb, 1st paragraph of mix_blurb, else ""
-         */
-        heroData.data.leadTopicTitle = getResidentString(featured_residents)
-        heroData.data.leadTopicSubtitle = mix_blurb
-          ? RichText.asText([mix_blurb[0]])
-          : ''
-      }
-
-      /**
-       * Check highlight_mixes for mappability and return the first 3 mixes of the resulting array. These three are the ones that'll be mapped by {@link TopicPageHighlightSection}. The slice is necessary because Prismic doesn't allow the setting of a max number of group field items.
-       */
-      let checkedHighlights = mappableDataFilter(highlight_mixes).slice(0, 4)
-      console.log(checkedHighlights)
-
-      /**
-       * Do an array length check; if there aren't three featured_mix objects in the array, shift from allOtherMixes to fill the gaps
-       */
-      if (checkedHighlights.length !== 4) {
-        const difference = 4 - checkedHighlights.length
-
-        for (let i = 1; i <= difference; i++) {
-          const highlightMixToAdd = allOtherMixes.shift
-          checkedHighlights.push(highlightMixToAdd)
-        }
-      }
-
-      highlightsData = {
-        titling: subheader,
-        data: checkedHighlights,
-      }
-
-      // Set mixesHeroData using the mix_title processed heroData object
-      // Set highlightsData using the 3 featured_mix objects
-      // Set allOtherMixes in case lead_radio_mix was originally defined
-      setMixHeroData(heroData)
-      setHighlightsData(highlightsData)
-      setMixesToMap(allOtherMixes)
-    }
-    return processMixesHeaderData()
-  }, [data])
+  const [mixesToMap, setMixesToMap] = useState(allMixData)
 
   /**
    * Fetch more mixes when the 'More Music' button is clicked.
@@ -181,10 +60,10 @@ function MixesIndexPage({ data, prismic }) {
           setMixesToMap([...mixesToMap, ...res.data.allMixs.edges])
           // If there are no further mixes to get, don't show the load button
           // undefined for some reason
-          // console.log(res);
-          // if (!res.data.allMixs.pageInfo.hasNextPage) {
-          //   setHasMoreMixes(false);
-          // }
+          console.log(res)
+          if (!res.data.allMixs.pageInfo.hasNextPage) {
+            setHasMoreMixes(false)
+          }
         })
     }
 
@@ -193,22 +72,7 @@ function MixesIndexPage({ data, prismic }) {
 
   return (
     <main className="full-height-page">
-      {/* {mixHeroData && (
-        <TopicPageHero
-          leadTopicData={mixHeroData.data}
-          leadTopicBG={mixHeroData.bg}
-          topicPageTitling={mixHeroData.titling}
-        />
-      )}
-      {mixHighlightsData && (
-        <TopicPageHighlightSection
-          layoutType="mixes"
-          highlightsData={mixHighlightsData.data}
-          highlightTitling={mixHighlightsData.titling}
-        />
-      )} */}
-      {/* <pre>{JSON.stringify(mixesHeaderData.highlight_mixes, null, 2)}</pre> */}
-      <header className="section container is-fluid" id="mixes-header">
+      <header className="container is-fluid" id="mixes-header">
         <div className="columns is-mobile is-multiline">
           <div className="column is-12 content">
             <h1 className="title is-3-desktop is-4-touch">Recent Mixes</h1>
@@ -259,7 +123,7 @@ function MixesIndexPage({ data, prismic }) {
       <section className="section container is-fluid" id="all-mixes">
         <div className="columns is-mobile is-multiline">
           {/* All Mixs data in pulled correctly */}
-          {mixesToMap.map(({ node }, index) => {
+          {mixesToMap?.map(({ node }, index) => {
             return (
               <SingleMixCard
                 key={`mixes-page-#${index}`}
@@ -349,56 +213,8 @@ export const query = graphql`
             }
           }
         }
-      }
-      allLandingpages {
-        edges {
-          node {
-            radio_page_header
-            radio_highlights_subheader
-            lead_radio_mix {
-              ... on PRISMIC_Mix {
-                _meta {
-                  uid
-                  type
-                  tags
-                }
-                mix_date
-                mix_image
-                mix_link
-                mix_title
-                mix_blurb
-                featured_residents {
-                  mix_resident {
-                    ... on PRISMIC_Resident {
-                      resident_name
-                    }
-                  }
-                }
-              }
-            }
-            highlight_mixes {
-              featured_mix {
-                ... on PRISMIC_Mix {
-                  _meta {
-                    uid
-                    type
-                    tags
-                  }
-                  mix_date
-                  mix_image
-                  mix_link
-                  mix_title
-                  featured_residents {
-                    mix_resident {
-                      ... on PRISMIC_Resident {
-                        resident_name
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
+        pageInfo {
+          hasNextPage
         }
       }
     }

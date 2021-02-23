@@ -185,7 +185,7 @@ function ResidentsIndex({ data }) {
           {/* RESIDENT TYPE SELECTOR BUTTONS */}
           {categoryLabels &&
             categoryLabels.map((type, index) => (
-              <Fragment key={`column-${index}-${type}`}>
+              <Fragment key={`HMBK-${type}-${index}`}>
                 {/* DESKTOP SIZED BUTTONS */}
                 <div className="column is-hidden-mobile">
                   <button
@@ -222,11 +222,9 @@ function ResidentsIndex({ data }) {
         {isOpen === 'Residents' ? (
           <>
             <div className="columns is-mobile is-multiline">
-              {residents?.data?.map(({ node }, index) => {
-                return (
-                  <SingleResident key={`Resident-${index}`} resident={node} />
-                )
-              })}
+              {residents?.data?.map(({ node }, index) => (
+                <SingleResident key={`Resident-${index}`} resident={node} />
+              ))}
             </div>
             {residents?.hasMore ? (
               <div className="columns is-mobile">
@@ -268,11 +266,9 @@ function ResidentsIndex({ data }) {
         {isOpen === 'Alumni' ? (
           <>
             <div className="columns is-mobile is-multiline">
-              {alumni?.data?.map(({ node }, index) => {
-                return (
-                  <SingleResident key={`Alumnus-${index}`} resident={node} />
-                )
-              })}
+              {alumni?.data?.map(({ node }, index) => (
+                <SingleResident key={`Alumnus-${index}`} resident={node} />
+              ))}
             </div>
             {alumni?.hasMore ? (
               <div className="columns is-mobile">
@@ -314,11 +310,9 @@ function ResidentsIndex({ data }) {
         {isOpen === 'Guests' ? (
           <>
             <div className="columns is-mobile is-multiline">
-              {guests?.data?.map(({ node }, index) => {
-                return (
-                  <SingleResident key={`Guests-${index}`} resident={node} />
-                )
-              })}
+              {guests?.data?.map(({ node }, index) => (
+                <SingleResident key={`Guests-${index}`} resident={node} />
+              ))}
             </div>
             {guests?.hasMore ? (
               <div className="columns is-mobile">
@@ -361,20 +355,12 @@ function ResidentsIndex({ data }) {
 }
 
 export const query = graphql`
-  query ResidentIndexPage(
-    $first: Int = 12
-    $last: Int
-    $after: String
-    $before: String
-  ) {
+  query ResidentIndexPage($first: Int = 12) {
     prismic {
       residents: allResidents(
         sortBy: resident_name_ASC
         where: { resident_status: "Resident" }
         first: $first
-        last: $last
-        after: $after
-        before: $before
       ) {
         edges {
           node {
@@ -389,7 +375,6 @@ export const query = graphql`
         totalCount
         pageInfo {
           hasNextPage
-          startCursor
           endCursor
         }
       }
@@ -397,9 +382,6 @@ export const query = graphql`
         sortBy: resident_name_ASC
         where: { resident_status: "Alumnus" }
         first: $first
-        last: $last
-        after: $after
-        before: $before
       ) {
         edges {
           node {
@@ -414,7 +396,6 @@ export const query = graphql`
         totalCount
         pageInfo {
           hasNextPage
-          startCursor
           endCursor
         }
       }
@@ -422,9 +403,6 @@ export const query = graphql`
         sortBy: resident_name_ASC
         where: { resident_status: "Guest" }
         first: $first
-        last: $last
-        after: $after
-        before: $before
       ) {
         edges {
           node {
@@ -439,7 +417,6 @@ export const query = graphql`
         totalCount
         pageInfo {
           hasNextPage
-          startCursor
           endCursor
         }
       }

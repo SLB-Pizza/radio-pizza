@@ -92,16 +92,13 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
         </div>
         <div className="column is-9">
           <div className="columns is-multiline">
-            {twelveMixes &&
-              twelveMixes.map(({ node }, index) => {
-                return (
-                  <SingleMixCard
-                    key={`mixes-page-#${index}`}
-                    mixData={node}
-                    columnLayout={homeMixesLayout}
-                  />
-                )
-              })}
+            {twelveMixes?.map(({ node }, index) => (
+              <SingleMixCard
+                key={`mixes-page-#${index}`}
+                mixData={node}
+                columnLayout={homeMixesLayout}
+              />
+            ))}
           </div>
         </div>
       </div>
@@ -122,16 +119,13 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
         </div>
       </div>
       <div className="columns is-mobile is-hidden-desktop mobile-single-items">
-        {twelveMixes &&
-          twelveMixes.map(({ node }, index) => {
-            return (
-              <SingleMixCard
-                key={`mixes-page-#${index}`}
-                mixData={node}
-                columnLayout={homeMixesLayout}
-              />
-            )
-          })}
+        {twelveMixes?.map(({ node }, index) => (
+          <SingleMixCard
+            key={`mixes-page-#${index}`}
+            mixData={node}
+            columnLayout={homeMixesLayout}
+          />
+        ))}
       </div>
     </section>
   )

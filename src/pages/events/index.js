@@ -2,11 +2,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import { getCursorFromDocumentIndex } from '@prismicio/gatsby-source-prismic-graphql'
 import { Link, graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
-import {
-  TopicPageHero,
-  TopicPageHighlightSection,
-  SingleEventCard,
-} from '../../components'
+import { SingleEventCard } from '../../components'
 import { linkResolver } from '../../utils'
 
 /**
@@ -66,22 +62,23 @@ function EventsIndexPage({ data, prismic }) {
 
   return (
     <main className="full-height-page" id="events-header">
-      {/* <TopicPageHero leadTopicData={} leadTopicBG={} topicPageTitling={} /> */}
-
       <div className="container is-fluid">
         <div className="columns is-mobile is-multiline">
           <div className="column is-full content">
             <h1 className="title">Halfmoon Events</h1>
           </div>
-          {eventsData.length &&
-            eventsData.map(({ node }, index) => (
-              <SingleEventCard
-                key={`halfmoon-event-${index}`}
-                eventData={node}
-                eventColumnLayout={eventPageLayout}
-              />
-            ))}
+
+          {/* MAPPING EVENT DATA TO CARDS */}
+          {eventsData?.map(({ node }, index) => (
+            <SingleEventCard
+              key={`halfmoon-event-${index}`}
+              eventData={node}
+              eventColumnLayout={eventPageLayout}
+            />
+          ))}
         </div>
+
+        {/* TERNARY TO RENDER FETCH MORE BUTTONS */}
         {hasMoreEvents ? (
           <div className="columns is-mobile">
             <div className="column">

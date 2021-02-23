@@ -1,8 +1,13 @@
 import PropTypes from 'prop-types'
-import React, { useState, useEffect } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import { graphql } from 'gatsby'
 import NanoClamp from 'nanoclamp'
-import { ResidentBio, SingleMixCard } from '../components'
+import {
+  ResidentBio,
+  SingleMixCard,
+  SingleEventCard,
+  SingleFeatureCard,
+} from '../components'
 import { formatDateTime, mappableDataFilter } from '../utils'
 
 /**
@@ -14,25 +19,163 @@ import { formatDateTime, mappableDataFilter } from '../utils'
  */
 function ResidentTemplate({ data }) {
   const [isOpen, setIsOpen] = useState('Mixes')
-  const [hasMixes, setHasMixes] = useState(false)
-  const [mixesData, setMixesData] = useState([])
-  const [hasEvents, setHasEvents] = useState(false)
-  const [eventsData, setEventsData] = useState([])
-  const [hasFeatures, setHasFeatures] = useState(false)
-  const [featuresData, setFeaturesData] = useState([])
+  const [categoryLabels, setCategoryLabels] = useState(null)
+  const [resBio, setResBio] = useState(null)
 
-  const prismicContent = data.prismic.allResidents.edges[0]
+  const [resMixes, setResMixes] = useState({
+    data: null,
+    hasMore: null,
+    endCursor: null,
+  })
+  const [resEvents, setResEvents] = useState({
+    data: null,
+    hasMore: null,
+    endCursor: null,
+  })
+  const [resFeatures, setResFeatures] = useState({
+    data: null,
+    hasMore: null,
+    endCursor: null,
+  })
+
+  const prismicContent = data.prismic
   if (!prismicContent) return null
-  const residentData = prismicContent.node
 
-  const {
-    resident_mixes,
-    resident_features,
-    resident_events,
-    ...rest
-  } = residentData
+  /**
+   * When Gatsby receives the Prismic data, perform a {@link mappableDataFilter} on the Resident's data object to determine which selection columns should be displayed to avoid having empty categories displayed.
+   */
+  useEffect(() => {
+    /**
+     * /resident/uid mappableDataCheck steps:
+     * 1. Destructure prismicContent.
+     * 2. Set resBio using single bio node-object
+     * 3. Extract relevant data arrays from each subdata object
+     * 4. Do mappableDataFilters on mixes, features, events
+     * 5. If a data set passes, sort the data set
+     * - mixes: by mix date, descending
+     * - events: by event start, descending
+     * - feature: by first publication date, descending
+     * 6. Set the correct useState
+     * - data: use the sorted data set
+     * - hasMore: off pageInfo sub object
+     * - endCursor: off pageInfo sub object
+     * 7. add data type string to labels array
+     * 8. Set categoryLabels
+     */
 
-  const residentCardLayout = 'column is-12-mobile is-6-tablet is-4-widescreen'
+    const mappableDataCheck = () => {
+      let labels = []
+
+      if (data) {
+        console.table(prismicContent)
+        const { bio, mixes, features, events } = prismicContent
+        /**
+         * Set prismicContent's single bio node-object to resBio
+         */
+        setResBio(bio.edges[0].node)
+
+        /**
+         * For each of the mix, event and feature data sets, we need to extract the pertinent data array from their query data object.
+         *
+         * We can then check mappability of each of the array's data nodes with {@link mappableDataFilter}
+         *
+         * If both are truthy, set categoryData with object having these keys:
+         * - data: the data array from Gatsby containing the first 12 entries of that category
+         * - hasMore: boolean dictating whether there are more entries that can be fetched
+         * - endCursor: starting point for the next fetch of 12 category entries
+         * Finally push a label for that category to the labels array; setCategoryLabels at end of function
+         *
+         */
+
+        const buildQueryMixes = mixes.edges[0].node.resident_mixes
+        const buildQueryEvents = events.edges[0].node.resident_events
+        const buildQueryFeatures = features.edges[0].node.resident_features
+
+        const mixCheck = mappableDataFilter(buildQueryMixes)
+        const eventCheck = mappableDataFilter(buildQueryEvents)
+        const featureCheck = mappableDataFilter(buildQueryFeatures)
+
+        /**
+         * Mix data set processing and label push
+         */
+        if (mixCheck) {
+          /**
+           * Mixes come in unsorted as they're queried off a content relation
+           * Convert the mix_date fields to Dates with {@link formatDateTime} and sort from most recent to least
+           * Passing only the mix_date string to {@link formatDateTime} parses it into a Date object
+           */
+          const dateSortedMixes = mixDateSort(mixCheck)
+
+          setResMixes({
+            data: dateSortedMixes,
+            hasMore: mixes.pageInfo.hasNextPage,
+            endCursor: mixes.pageInfo.endCursor,
+          })
+          labels.push('Mixes')
+        }
+
+        /**
+         * Event data set processing and label push
+         */
+        if (eventCheck) {
+          const dateSortedEvents = eventDateSort(eventCheck)
+
+          setResEvents({
+            data: dateSortedEvents,
+            hasMore: events.pageInfo.hasNextPage,
+            endCursor: events.pageInfo.endCursor,
+          })
+          labels.push('Events')
+        }
+        /**
+         * Feature data set processing and label push
+         */
+        if (featureCheck) {
+          const dateSortedFeatures = featureDateSort(featureCheck)
+
+          setResFeatures({
+            data: dateSortedFeatures,
+            hasMore: features.pageInfo.hasNextPage,
+            endCursor: features.pageInfo.endCursor,
+          })
+          labels.push('Features')
+        }
+        /**
+         * Set categoryLabels to all the categories in the array.
+         * - If none, is ok: defaults to null; won't render
+         * - Else, maps through available ones
+         */
+        setCategoryLabels(labels)
+      }
+    }
+    return mappableDataCheck()
+  }, [data])
+
+  /**
+   * Helper functions
+   * Called by mappableDataCheck useEffect()
+   */
+
+  const mixDateSort = mixesData =>
+    mixesData.sort(
+      (a, b) =>
+        formatDateTime(b.resident_mix.mix_date) -
+        formatDateTime(a.resident_mix.mix_date)
+    )
+
+  const eventDateSort = eventsData =>
+    eventsData.sort(
+      (a, b) =>
+        formatDateTime(b.resident_event.event_start) -
+        formatDateTime(a.resident_event.event_start)
+    )
+
+  const featureDateSort = featuresData =>
+    featuresData.sort(
+      (a, b) =>
+        formatDateTime(b.resident_feature._meta.firstPublicationDate) -
+        formatDateTime(a.resident_feature._meta.firstPublicationDate)
+    )
 
   function toggleColumn(event) {
     if (isOpen !== event.currentTarget.id) {
@@ -40,202 +183,93 @@ function ResidentTemplate({ data }) {
     }
   }
 
-  /**
-   * When Gatsby receives the Prismic data, perform a {@link mappableDataFilter} on the Resident's data object to determine which selection columns should be displayed to avoid having empty categories displayed.
-   */
-  useEffect(() => {
-    const dataCheck = () => {
-      if (data) {
-        const filteredMixes = mappableDataFilter(resident_mixes)
-        const filteredEvents = mappableDataFilter(resident_events)
-        const filteredFeatures = mappableDataFilter(resident_features)
-        if (filteredMixes) {
-          /**
-           * Convert the mix_date fields to Dates with {@link formatDateTime} and sort from most recent to least
-           * Passing only the mix_date string to {@link formatDateTime} parses it into a Date object
-           */
-          filteredMixes.sort((a, b) => {
-            return (
-              formatDateTime(b.resident_mix.mix_date) -
-              formatDateTime(a.resident_mix.mix_date)
-            )
-          })
-          setMixesData(filteredMixes)
-          setHasMixes(true)
-        }
-        if (filteredEvents) {
-          setEventsData(filteredEvents)
-          setHasEvents(true)
-        }
-        if (filteredFeatures) {
-          setFeaturesData(filteredFeatures)
-          setHasFeatures(true)
-        }
-      }
-    }
-    return dataCheck()
-  }, [data])
+  const residentCardLayout = 'column is-12-mobile is-6-tablet is-4-widescreen'
 
   return (
     <div className="container is-fluid full-height-page">
       <div className="columns is-multiline">
-        <ResidentBio residentBioData={rest} />
-        {/* RESIDENT MIX, EVENT, FEATURE SECTION */}
+        {resBio && <ResidentBio residentBioData={resBio} />}
+
+        {/* TABLET, DESKTOP CONTENT SELECTOR BUTTONS */}
         <div className="column is-8-tablet is-9-desktop resident-content">
-          {/* TABLET, DESKTOP CONTENT SELECTOR BUTTONS */}
           <div className="columns is-mobile selector is-hidden-mobile">
-            {hasMixes ? (
-              <div className="column">
-                {/* TABLET */}
-                <button
-                  className={
-                    isOpen === 'Mixes'
-                      ? 'button active is-fullwidth is-outlined is-rounded display-text'
-                      : 'button is-fullwidth is-outlined is-rounded display-text'
-                  }
-                  id="Mixes"
-                  onClick={toggleColumn}
-                >
-                  Mixes
-                </button>
-              </div>
-            ) : null}
-
-            {hasEvents ? (
-              <div className="column">
-                <button
-                  className={
-                    isOpen === 'Events'
-                      ? 'button active is-fullwidth is-outlined is-rounded display-text'
-                      : 'button is-fullwidth is-outlined is-rounded display-text'
-                  }
-                  id="Events"
-                  onClick={toggleColumn}
-                >
-                  Events
-                </button>
-              </div>
-            ) : null}
-
-            {hasFeatures ? (
-              <div className="column">
-                <button
-                  className={
-                    isOpen === 'Features'
-                      ? 'button active is-fullwidth is-outlined is-rounded display-text'
-                      : 'button is-fullwidth is-outlined is-rounded display-text'
-                  }
-                  id="Features"
-                  onClick={toggleColumn}
-                >
-                  Features
-                </button>
-              </div>
-            ) : null}
-          </div>
-
-          {/* MOBILE CONTENT SELECTOR BUTTONS */}
-          <div className="columns is-mobile is-multiline selector is-hidden-tablet">
-            <div className="column is-12">
-              <NanoClamp
-                className="title is-size-5"
-                is="p"
-                lines={2}
-                text={rest.resident_name}
-              />
-            </div>
-            {hasMixes ? (
-              <div className="column">
-                {/* TABLET */}
-                <button
-                  className={
-                    isOpen === 'Mixes'
-                      ? 'button is-small active is-fullwidth is-outlined is-rounded display-text'
-                      : 'button is-small is-fullwidth is-outlined is-rounded display-text'
-                  }
-                  id="Mixes"
-                  onClick={toggleColumn}
-                >
-                  Mixes
-                </button>
-              </div>
-            ) : null}
-
-            {hasEvents ? (
-              <div className="column">
-                <button
-                  className={
-                    isOpen === 'Events'
-                      ? 'button is-small active is-fullwidth is-outlined is-rounded display-text'
-                      : 'button is-small is-fullwidth is-outlined is-rounded display-text'
-                  }
-                  id="Events"
-                  onClick={toggleColumn}
-                >
-                  Events
-                </button>
-              </div>
-            ) : null}
-
-            {hasFeatures ? (
-              <div className="column">
-                <button
-                  className={
-                    isOpen === 'Features'
-                      ? 'button is-small active is-fullwidth is-outlined is-rounded display-text'
-                      : 'button is-small is-fullwidth is-outlined is-rounded display-text'
-                  }
-                  id="Features"
-                  onClick={toggleColumn}
-                >
-                  Features
-                </button>
-              </div>
-            ) : null}
+            {categoryLabels?.map((type, index) => (
+              <Fragment key={`HMBK-${type}-category-${index}`}>
+                <div className="column is-hidden-mobile">
+                  <button
+                    className={
+                      isOpen === type
+                        ? 'button active is-fullwidth is-outlined is-rounded'
+                        : 'button is-fullwidth is-outlined is-rounded'
+                    }
+                    id={type}
+                    onClick={toggleColumn}
+                  >
+                    {type}
+                  </button>
+                </div>
+                <div className="column is-hidden-tablet">
+                  <button
+                    className={
+                      isOpen === type
+                        ? 'button is-small active is-fullwidth is-outlined is-rounded'
+                        : 'button is-small is-fullwidth is-outlined is-rounded'
+                    }
+                    id={type}
+                    onClick={toggleColumn}
+                  >
+                    {type}
+                  </button>
+                </div>
+              </Fragment>
+            ))}
           </div>
 
           {/* RESIDENT MIXES */}
-          {hasMixes && isOpen === 'Mixes' ? (
+          {isOpen === 'Mixes' ? (
             <div className="columns is-mobile is-multiline">
-              {mixesData.map(({ resident_mix }, index) => (
+              {resMixes && <pre>Mixes {JSON.stringify(resMixes, null, 2)}</pre>}
+              {/* {resMixes?.data?.map(({ resident_mix }, index) => (
                 <SingleMixCard
                   key={`resident-mix-#${index}`}
                   mixData={resident_mix}
                   columnLayout={residentCardLayout}
                 />
-              ))}
-              {/* <pre>
-                Resident Mixes {JSON.stringify(resident_mixes, null, 2)}
-              </pre> */}
+              ))} */}
             </div>
           ) : null}
 
           {/* RESIDENT EVENTS */}
-          {hasEvents && isOpen === 'Events' ? (
+          {isOpen === 'Events' ? (
             <div className="columns is-mobile is-multiline">
-              {eventsData.map(({ event }, index) => (
+              {resEvents && (
+                <pre>Events {JSON.stringify(resEvents, null, 2)}</pre>
+              )}
+              {/* {resEvents?.data?.map(({ event }, index) => (
                 <SingleEventCard
                   key={`resident-event-#${index}`}
                   eventData={event}
                   columnLayout={residentCardLayout}
                 />
-              ))}
-              {/* <pre>{JSON.stringify(resident_events, null, 2)}</pre> */}
+              ))} */}
             </div>
           ) : null}
 
-          {/* RESIDENT Features */}
-          {hasFeatures && isOpen === 'Features' ? (
+          {/* RESIDENT FEATURES */}
+          {isOpen === 'Features' ? (
             <div className="columns is-mobile is-multiline">
-              <div className="column">
-                <pre>featuresData {JSON.stringify(featuresData, null, 2)}</pre>
-              </div>
-
-              {/* <pre>{JSON.stringify(resident_features, null, 2)}</pre> */}
+              {resFeatures && (
+                <pre>Features {JSON.stringify(resFeatures, null, 2)}</pre>
+              )}
+              {/* {resFeatures?.data?.map(({ node }, index) => (
+                <SingleFeatureCard
+                  key={`resident-feature-${index}`}
+                  featureData={node}
+                  featureColumnLayout={residentCardLayout}
+                />
+              ))} */}
             </div>
           ) : null}
-
-          <pre>All Resident Data {JSON.stringify(residentData, null, 2)}</pre>
         </div>
       </div>
     </div>
@@ -255,7 +289,7 @@ ResidentTemplate.propTypes = {
 export const query = graphql`
   query ResidentTemplateQuery($uid: String) {
     prismic {
-      allResidents(uid: $uid) {
+      bio: allResidents(uid: $uid) {
         edges {
           node {
             resident_image
@@ -272,6 +306,12 @@ export const query = graphql`
                 }
               }
             }
+          }
+        }
+      }
+      mixes: allResidents(uid: $uid, first: 6) {
+        edges {
+          node {
             resident_mixes {
               resident_mix {
                 ... on PRISMIC_Mix {
@@ -298,6 +338,16 @@ export const query = graphql`
                 }
               }
             }
+          }
+        }
+        pageInfo {
+          hasNextPage
+          endCursor
+        }
+      }
+      features: allResidents(uid: $uid, first: 2) {
+        edges {
+          node {
             resident_features {
               resident_feature {
                 ... on PRISMIC_Feature {
@@ -314,22 +364,42 @@ export const query = graphql`
                   _meta {
                     uid
                     type
+                    firstPublicationDate
                     lastPublicationDate
                   }
                 }
               }
             }
+          }
+        }
+        pageInfo {
+          hasNextPage
+          endCursor
+        }
+      }
+      events: allResidents(uid: $uid, first: 4) {
+        edges {
+          node {
             resident_events {
               resident_event {
                 ... on PRISMIC_Event {
+                  main_event_image
+                  event_name
                   _meta {
                     uid
                     type
                   }
+                  event_start
+                  event_end
+                  event_blurb
                 }
               }
             }
           }
+        }
+        pageInfo {
+          hasNextPage
+          endCursor
         }
       }
     }
@@ -337,46 +407,3 @@ export const query = graphql`
 `
 
 export default ResidentTemplate
-
-// Resident Template
-// Resident Img sizes (square)
-// --- MOBILE ---
-// --- min-max avg:  461---
-// --- mean:  403.33---
-// 767  - 703
-
-// 768  - 219
-// 1023 - 304
-
-// --- DESKTOP ---
-// --- min-max avg:  453.5---
-// --- mean:  417.67---
-// 1024 - 304
-// 1215 - 368
-
-// 1216 - 368
-// 1407 - 431
-
-// 1408 - 432
-// 1920 - 603
-
-// Mix Img sizes (square)
-// --- MOBILE ---
-// --- min-max avg:  574---
-// --- mean:  590.33---
-// 767  - 695
-
-// 768  - 453
-// 1023 - 623
-
-// --- DESKTOP ---
-// --- min-max avg:  307.5---
-// --- mean:  302.5---
-// 1024 - 296
-// 1215 - 360
-
-// 1216 - 229
-// 1407 - 272
-
-// 1408 - 272
-// 1920 - 386

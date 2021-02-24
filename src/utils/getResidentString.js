@@ -34,7 +34,7 @@ function getResidentString(residentsArr, useCase) {
         // grab current entry
         let currentResident = residentsArr[i]
 
-        // null check of resident_name key
+        // mix_resident is null; no resident_name can be added; continue to next
         if (!currentResident.mix_resident) {
           continue
         }

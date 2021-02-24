@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import NanoClamp from 'nanoclamp'
 import { MixPlayOverlay, TagButtons } from './index'
 import {
   getResidentString,
   formatDateTime,
-  mappableDataFilter,
+  IconMaker,
   linkResolver,
+  mixLinkIconInfo,
 } from '../utils'
 
 /**
@@ -25,6 +26,11 @@ import {
  * @returns {jsx}
  */
 function SingleMixCard({ mixData, columnLayout, path }) {
+  const [mixDateStr, setMixDateStr] = useState(null)
+  const [mixResidentStr, setMixResidentStr] = useState(null)
+  const [mixDateResStr, setMixDateResStr] = useState(null)
+  const [mixIconInfo, setMixIconInfo] = useState(null)
+
   const {
     _meta,
     mix_date,
@@ -41,8 +47,32 @@ function SingleMixCard({ mixData, columnLayout, path }) {
     uid,
   }
 
-  const mixDate = formatDateTime(mix_date, 'year-month-day') ?? 'no date'
-  const mixResidentsString = getResidentString(featured_residents)
+  useEffect(() => {
+    const processMixData = () => {
+      let dateResStr
+      /**
+       * If mix_date is null, return no_date; else return a formatted date str
+       */
+      const mixDateString = !mix_date
+        ? 'no date'
+        : formatDateTime(mix_date, 'year-month-day')
+
+      const mixResidentsString = getResidentString(featured_residents)
+      const mixIconDetails = mixLinkIconInfo(mix_link)
+
+      if (mixResidentsString === '') {
+        dateResStr = mixDateString
+      } else {
+        dateResStr = `${mixDateString} | ${mixResidentsString}`
+      }
+
+      setMixDateStr(mixDateString)
+      setMixResidentStr(mixResidentsString)
+      setMixDateResStr(dateResStr)
+      setMixIconInfo(mixIconDetails)
+    }
+    return processMixData()
+  }, [])
 
   return (
     <article className={columnLayout}>
@@ -50,60 +80,64 @@ function SingleMixCard({ mixData, columnLayout, path }) {
         <MixPlayOverlay
           url={mix_link}
           title={mix_title}
-          residents={mixResidentsString}
+          residents={mixResidentStr}
           img={mix_image}
           wrapperClassName="card-image"
         />
 
         <div className="card-content">
           <div className="mix-card-sizing">
-            {/**
-             * mix_title !== null : format mix_title under list of residents
-             * mix_title === null : format list of residents as mix_title
-             */
-            mix_title !== null ? (
-              <div className="mix-text">
-                <Link to={linkResolver(linkTo)}>
-                  {mixResidentsString !== '' ? (
-                    <NanoClamp
-                      className="subtitle is-size-7 has-text-grey-lighter"
-                      is="p"
-                      lines={2}
-                      text={`${mixDate} | ${mixResidentsString}`}
-                    />
-                  ) : (
-                    <NanoClamp
-                      className="subtitle is-size-7 has-text-grey-lighter"
-                      is="p"
-                      lines={2}
-                      text={`${mixDate}`}
-                    />
-                  )}
-                  {mix_title && (
-                    <NanoClamp
-                      className="title is-size-6"
-                      is="p"
-                      lines={2}
-                      text={mix_title}
-                    />
-                  )}
-                </Link>
-              </div>
-            ) : (
-              <div className="mix-text">
-                <Link to={linkResolver(linkTo)}>
-                  {mixDate && <p className="subtitle is-size-7">{mixDate}</p>}
-                  {mixResidentsString && (
-                    <NanoClamp
-                      className="title is-size-6"
-                      is="p"
-                      lines={2}
-                      text={`${mixResidentsString}`}
-                    />
-                  )}
-                </Link>
-              </div>
-            )}
+            <div className="mix-details">
+              {mixIconInfo && (
+                <IconMaker
+                  spanClass={'mix-icon icon is-medium'}
+                  {...mixIconInfo}
+                />
+              )}
+              {/**
+               * mix_title !== null : format mix_title under list of residents
+               * mix_title === null : format list of residents as mix_title
+               */
+              mix_title !== null ? (
+                <div className="mix-text">
+                  <Link to={linkResolver(linkTo)}>
+                    {mixDateResStr && (
+                      <NanoClamp
+                        className="subtitle is-size-7 has-text-grey-lighter"
+                        is="p"
+                        lines={2}
+                        text={mixDateResStr}
+                      />
+                    )}
+                    {mix_title && (
+                      <NanoClamp
+                        className="title is-size-6"
+                        is="p"
+                        lines={2}
+                        text={mix_title}
+                      />
+                    )}
+                  </Link>
+                </div>
+              ) : (
+                <div className="mix-text">
+                  <Link to={linkResolver(linkTo)}>
+                    {mixDateStr && (
+                      <p className="subtitle is-size-7">{mixDateStr}</p>
+                    )}
+                    {mixResidentStr && (
+                      <NanoClamp
+                        className="title is-size-6"
+                        is="p"
+                        lines={2}
+                        text={mixResidentStr}
+                      />
+                    )}
+                  </Link>
+                </div>
+              )}
+            </div>
+
             <TagButtons tagsArray={tags} />
           </div>
         </div>

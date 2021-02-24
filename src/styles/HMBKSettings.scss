@@ -249,8 +249,19 @@ figcaption {
     min-height: 12rem;
   }
 
-  .mix-text {
+  .mix-details {
     flex: 1;
+    display: flex;
+    flex-direction: row;
+
+    .mix-icon {
+      flex: 0;
+      padding-right: 0.75rem;
+    }
+
+    .mix-text {
+      flex: 1;
+    }
   }
 }
 

@@ -59,7 +59,6 @@ function ResidentTemplate({ data }) {
       let labels = []
 
       if (data) {
-        console.table(prismicContent)
         const { bio, mixes, features, events } = prismicContent
         /**
          * Set prismicContent's single bio node-object to resBio

@@ -1,16 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { getCursorFromDocumentIndex } from '@prismicio/gatsby-source-prismic-graphql'
 import { graphql } from 'gatsby'
-import { RichText } from 'prismic-reactjs'
-import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
-import {
-  CuratedCollections,
-  SingleMixCard,
-  MixPlayOverlay,
-  TopicPageHero,
-  TopicPageHighlightSection,
-} from '../../components/'
-import { getResidentString, mappableDataFilter } from '../../utils'
+
+import { SingleMixCard } from '../../components/'
 
 /**
  * @category Pages
@@ -59,8 +51,6 @@ function MixesIndexPage({ data, prismic }) {
           // Spread the received mix objects into the existing mixesToMap array
           setMixesToMap([...mixesToMap, ...res.data.allMixs.edges])
           // If there are no further mixes to get, don't show the load button
-          // undefined for some reason
-          console.log(res)
           if (!res.data.allMixs.pageInfo.hasNextPage) {
             setHasMoreMixes(false)
           }
@@ -123,26 +113,13 @@ function MixesIndexPage({ data, prismic }) {
       <section className="section container is-fluid" id="all-mixes">
         <div className="columns is-mobile is-multiline">
           {/* All Mixs data in pulled correctly */}
-          {mixesToMap?.map(({ node }, index) => {
-            return (
-              <SingleMixCard
-                key={`mixes-page-#${index}`}
-                mixData={node}
-                columnLayout={mixListLayout}
-              />
-            )
-          })}
-          {/* {mixesToMap.map(({ node }, index) => {
-            return (
-              <SingleMixCard
-                key={`mixes-page-#${index}`}
-                mixData={node}
-                columnLayout={mixListLayout}
-              />
-            );
-          })} */}
-          <hr />
-          {/* <pre>{JSON.stringify(mixesToMap, null, 2)}</pre> */}
+          {mixesToMap?.map(({ node }, index) => (
+            <SingleMixCard
+              key={`mixes-page-#${index}`}
+              mixData={node}
+              columnLayout={mixListLayout}
+            />
+          ))}
         </div>
         {hasMoreMixes ? (
           <div className="columns is-mobile">

@@ -1,16 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
-import {
-  faApple,
-  faBandcamp,
-  faFacebookSquare,
-  faInstagram,
-  faMixcloud,
-  faSoundcloud,
-  faSpotify,
-  faTwitter,
-} from '@fortawesome/free-brands-svg-icons'
+import { IconMaker } from './index'
 
 /**
  * Function that returns a column an icon that links to the resident's appropriate social media page.
@@ -19,6 +10,8 @@ import {
  * @param {string} url - link to the resident's page on a platform e.g.bandcamp, soundcloud, mixcloud, etc.
  * @param {icon} platform - name of the corresponding FontAwesomeIcon
  * @returns {jsx}
+ *
+ * @see {@link https://fontawesome.com/how-to-use/on-the-web/using-with/react#using Using Icons: Font Awesome Icons on the web}
  */
 function ResidentSocialLinks({ url, platform }) {
   /**
@@ -53,17 +46,16 @@ function ResidentSocialLinks({ url, platform }) {
     case 'Twitter':
       icon = ['fab', 'twitter']
       break
+    case 'Youtube':
+      icon = ['fab', 'youtube']
+      break
     default:
       return icon
   }
 
   return (
     <div className="column social-links">
-      <a href={url} rel="noopener" target="_blank">
-        <span className="icon">
-          <Icon icon={icon} size="lg" className="icon-color" />
-        </span>
-      </a>
+      <IconMaker iconDetails={icon} iconLink={url} />
     </div>
   )
 }

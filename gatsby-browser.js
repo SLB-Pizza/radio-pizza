@@ -15,6 +15,7 @@ import {
   faSoundcloud,
   faSpotify,
   faTwitter,
+  faYoutube,
 } from '@fortawesome/free-brands-svg-icons'
 import {
   faBroadcastTower,
@@ -56,7 +57,8 @@ library.add(
   faSearch,
   faTag,
   faSpotify,
-  faTwitter
+  faTwitter,
+  faYoutube
 )
 
 /**

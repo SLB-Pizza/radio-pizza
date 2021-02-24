@@ -12,26 +12,22 @@ import React from 'react'
  * @returns {jsx}
  */
 export default function TagButtons({ tagsArray }) {
-  if (tagsArray.length) {
-    return (
-      <div className="tags">
-        {tagsArray.map((tag, index) => {
-          const lowercaseTag = tag.toLowerCase()
+  return (
+    <div className="tags">
+      {tagsArray?.map((tag, index) => {
+        const lowercaseTag = tag.toLowerCase()
 
-          return (
-            <span
-              key={`span-tag-#${index}`}
-              className="tag is-outlined is-rounded is-black"
-            >
-              {lowercaseTag}
-            </span>
-          )
-        })}
-      </div>
-    )
-  } else {
-    return null
-  }
+        return (
+          <span
+            key={`span-tag-#${index}`}
+            className="tag is-outlined is-rounded is-black"
+          >
+            {lowercaseTag}
+          </span>
+        )
+      })}
+    </div>
+  )
 }
 
 TagButtons.propTypes = {

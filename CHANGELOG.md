@@ -1,3 +1,13 @@
+### Version 1.3.0
+- queries(Resident): refactor main query to pull in data by category
+- feat(Resident): process associated mix, event, and feature data arrays
+- refactor(MixCard): add short-circuits to SMC; TagButtons add more detail to getResString func
+- refactor(/mixes): remove TopicPageHeader useEffect and related query
+- feat(Icon): add Youtube icon create IconMaker component; call in ResidentSocialLinks
+- fix: add short-circuits to ResidentBio; TagButtons
+- fix(formatDateTime): address time === null case
+- feat(SingleMixCard): add mix icons that link out create mixLinkIconInfo add 'mix-icon' styling to HMBKSettings
+
 ### Version 1.2.1
 - fix(/residents): change "Alumni" to "Alumnus" in index & alumni query
 

@@ -41,6 +41,6 @@ export default function formatDateTime(time, format, number) {
     case 'long-form-date':
       return dayjs(time).format('MMMM D, YYYY')
     default:
-      return dayjs(time)
+      return dayjs()
   }
 }

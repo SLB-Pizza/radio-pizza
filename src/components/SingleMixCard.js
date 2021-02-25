@@ -12,22 +12,24 @@ import {
 } from '../utils'
 
 /**
- * @category Utilities
+ * Returns a Mix card with a clickable play button to start the mix in {@link RadioPlayer}, an icon made by {@link IconMaker} that links out to the original mix's page
+ * @category Layout Helper
  * @function SingleMixCard
  * @param {Object} mixData
- * @property {String} mixData.date - archived mix's date
- * @property {String} mixData.url - url of the archived mix to play
- * @property {?String} mixData.title - Mix titles are optional, string of residents will be used to label mix if not present
- * @property {Object[]} mixData.residents - Array of data objects containing the mix's resident data
- * @property {Object} mixData.img - object containing the different sizes of a mix's image
- * @property {String[]} mixData.tags - the mix's tags
- * @param {String} columnLayout - string detailing the column layout across different responsive breakpoints @see {@link https://bulma.io/documentation/columns/sizes/ bulma.io column sizing}
+ * @property {String} mixData.mix_date - archived mix's date
+ * @property {String} mixData.mix_link - url of the archived mix to play
+ * @property {?String} mixData.mix_title - Mix titles are optional, string of residents will be used to label mix if not present
+ * @property {Object[]} mixData.featured_residents - Array of data objects containing the mix's resident data
+ * @property {Object} mixData.mix_image - object containing the different sizes of a mix's image
+ * @property {String[]} mixData._meta.tags - the mix's tags
+ * @param {String} columnLayout - string detailing the column layout across different responsive breakpoints
  * @param {?String} path - optional string passed down only by {@link ResidentTemplate} for use with {@link linkResolver}
  * @returns {jsx}
+ * @see {@link https://bulma.io/documentation/columns/sizes/ bulma.io column sizing}
  */
 function SingleMixCard({ mixData, columnLayout, path }) {
   const [mixDateStr, setMixDateStr] = useState(null)
-  const [mixResidentStr, setMixResidentStr] = useState(null)
+  const [mixResidentsStr, setMixResidentsStr] = useState(null)
   const [mixDateResStr, setMixDateResStr] = useState(null)
   const [mixIconInfo, setMixIconInfo] = useState(null)
 
@@ -66,9 +68,24 @@ function SingleMixCard({ mixData, columnLayout, path }) {
         dateResStr = `${mixDateString} | ${mixResidentsString}`
       }
 
+      /**
+       * Used as details field when mix_title doesn't exist
+       */
       setMixDateStr(mixDateString)
-      setMixResidentStr(mixResidentsString)
+
+      /**
+       * Used as mix titling when mix_title doesn't exist
+       */
+      setMixResidentsStr(mixResidentsString)
+
+      /**
+       * Used as details when mix_title exists
+       */
       setMixDateResStr(dateResStr)
+
+      /**
+       * Value passed as props to {@link IconMaker} to make icons linking externally to mix pages
+       */
       setMixIconInfo(mixIconDetails)
     }
     return processMixData()
@@ -80,7 +97,7 @@ function SingleMixCard({ mixData, columnLayout, path }) {
         <MixPlayOverlay
           url={mix_link}
           title={mix_title}
-          residents={mixResidentStr}
+          residents={mixResidentsStr}
           img={mix_image}
           wrapperClassName="card-image"
         />
@@ -95,8 +112,12 @@ function SingleMixCard({ mixData, columnLayout, path }) {
                 />
               )}
               {/**
-               * mix_title !== null : format mix_title under list of residents
-               * mix_title === null : format list of residents as mix_title
+               * mix_title !== null :
+               *    Details: use combined date and resident str: mixDateResStr
+               *    Titling: mix_title
+               * mix_title === null :
+               *    Details: use formatted mix_date str: mixDateStr
+               *    Titling: format list of residents: mixResidentsStr
                */
               mix_title !== null ? (
                 <div className="mix-text">
@@ -125,12 +146,12 @@ function SingleMixCard({ mixData, columnLayout, path }) {
                     {mixDateStr && (
                       <p className="subtitle is-size-7">{mixDateStr}</p>
                     )}
-                    {mixResidentStr && (
+                    {mixResidentsStr && (
                       <NanoClamp
                         className="title is-size-6"
                         is="p"
                         lines={2}
-                        text={mixResidentStr}
+                        text={mixResidentsStr}
                       />
                     )}
                   </Link>
@@ -152,14 +173,7 @@ SingleMixCard.propTypes = {
     _meta: PropTypes.shape({
       tags: PropTypes.arrayOf(PropTypes.string),
       uid: PropTypes.string.isRequired,
-      type: PropTypes.oneOf([
-        'cms_guide',
-        'event',
-        'feature',
-        'mix',
-        'page',
-        'resident',
-      ]),
+      type: PropTypes.oneOf(['mix']),
     }),
     mix_date: PropTypes.string.isRequired,
     mix_title: PropTypes.string,

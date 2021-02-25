@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 
 function AboutIndexPage() {
   return (
@@ -38,3 +39,5 @@ function AboutIndexPage() {
 }
 
 export default AboutIndexPage
+
+// export const query = graphql``;

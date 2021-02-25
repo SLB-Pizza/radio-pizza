@@ -279,3 +279,105 @@ export const query = graphql`
     }
   }
 `
+
+// query HMBKAdminQuery(
+//     $first: Int = 20
+//     $last: Int
+//     $after: String
+//     $before: String
+//   ) {
+//     prismic {
+//       _allDocuments(
+//         sortBy: meta_lastPublicationDate_DESC
+//         first: $first
+//         last: $last
+//         after: $after
+//         before: $before
+//       ) {
+//         totalCount
+//         pageInfo {
+//           hasNextPage
+//           endCursor
+//         }
+//         edges {
+//           node {
+//             _meta {
+//               uid
+//               type
+//               tags
+//               lastPublicationDate
+//               firstPublicationDate
+//             }
+//             # ... on PRISMIC_Feature {
+//             #   body {
+//             #     ... on PRISMIC_FeatureBodyHeadline_block {
+//             #       primary {
+//             #         article_headline
+//             #       }
+//             #     }
+//             #   }
+//             # }
+//             ... on PRISMIC_Event {
+//               event_name
+//             }
+//             ... on PRISMIC_Cms_guide {
+//               body {
+//                 ... on PRISMIC_Cms_guideBodyHeadline_block {
+//                   type
+//                   primary {
+//                     article_headline
+//                   }
+//                 }
+//               }
+//             }
+//             ... on PRISMIC_Resident {
+//               resident_name
+//               resident_image
+//               resident_blurb
+//               social_media {
+//                 resident_social_link {
+//                   ... on PRISMIC__ExternalLink {
+//                     target
+//                     url
+//                   }
+//                 }
+//                 resident_social_page
+//               }
+//               resident_mixes {
+//                 resident_mix {
+//                   ... on PRISMIC_Mix {
+//                     mix_image
+//                     mix_title
+//                   }
+//                 }
+//               }
+//             }
+//             ... on PRISMIC_Endless_mix {
+//               collection_title
+//             }
+//             ... on PRISMIC_Gallery {
+//               gallery_title
+//             }
+//             ... on PRISMIC_Mix {
+//               mix_link
+//               mix_date
+//               mix_title
+//               featured_residents {
+//                 mix_resident {
+//                   ... on PRISMIC_Resident {
+//                     resident_name
+//                   }
+//                 }
+//               }
+//             }
+//             ... on PRISMIC_Schedule {
+//               schedule_date
+//             }
+//             ... on PRISMIC_Staff {
+//               hmbk_staff_name
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }

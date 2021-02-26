@@ -28,21 +28,29 @@ const initialState = {
   scheduleOpen: false,
   navMenuOpen: false,
   currentClockTime: '',
-  mixSearchTags: [],
+  mixSearchTags: null,
 }
 
 function reducer(state, action) {
   switch (action.type) {
     /**
-     * If the incoming tag isn't already in the mixSearchTags array, add it.
+     * If mixSearchTags isn't already an array with at least one tag, create the array and add the tag.
+     * Else, add the tag to the existing tag entries
      * Called by {@link TagButtons} inside {@link SingleMixCard}
      * @category Reducer Action
      * @name SELECT_MIX_SEARCH_TAG
      */
     case 'SELECT_MIX_SEARCH_TAG':
-      return {
-        ...state,
-        mixSearchTags: [...state.mixSearchTags, action.payload.mixTag],
+      if (!state.mixSearchTags) {
+        return {
+          ...state,
+          mixSearchTags: action.payload.mixTag,
+        }
+      } else {
+        return {
+          ...state,
+          mixSearchTags: [...state.mixSearchTags, action.payload.mixTag],
+        }
       }
 
     /**
@@ -67,7 +75,7 @@ function reducer(state, action) {
     case 'CLEAR_MIX_SEARCH_TAGS':
       return {
         ...state,
-        mixSearchTags: [],
+        mixSearchTags: null,
       }
 
     /**

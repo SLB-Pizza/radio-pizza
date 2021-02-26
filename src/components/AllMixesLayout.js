@@ -2,7 +2,8 @@ import React from 'react'
 import { SingleMixCard } from '../components'
 
 /**
- * Renders the mixes from {@link MixesIndexPage} page query and subsequent fetches by {@link loadMoreMixes}
+ * Layout for mixes from {@link MixesIndexPage} page query and subsequent fetches by {@link loadMoreMixes}.
+ * Renders when no tags are selected for a {@link fetchedMixes}
  * @category Layout Helper
  * @function AllMixesLayout
  * @param {Object[]} mixesDataToMap

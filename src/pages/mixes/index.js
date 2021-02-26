@@ -58,7 +58,7 @@ function MixesIndexPage({ data, prismic }) {
   ] = useLazyQuery(GET_SELECTED_TAGGED_MIXES)
 
   /**
-   * Fetch more mixes when the 'More Music' button is clicked.
+   * Fetch more mixes when the 'More Music' button is clicked in {@link AllMixesLayout} on {@link MixesIndexPage}.
    * Use the loadNextMixes function to call the useEffect.
    * @name loadNextMixes
    */
@@ -68,7 +68,7 @@ function MixesIndexPage({ data, prismic }) {
   }
 
   /**
-   * useEffect that fires off a Prismic fetch when "More Mixes" button on {@link MixesIndexPage} is clicked
+   * useEffect that fires off a Prismic fetch when "More Mixes" button on {@link MixesIndexPage} is clicked. Adds mixes from Prismic fetch to mixesToMap data array and updates hasMore and endCursor values.
    * @category useEffect
    * @name loadMoreMixes
    */
@@ -125,21 +125,25 @@ function MixesIndexPage({ data, prismic }) {
    */
   useEffect(() => {
     const executeTagSearch = () => {
-      console.log('globalState.mixSearchTags', globalState.mixSearchTags)
       if (selectedTags) {
-        console.log('selectedTags', selectedTags)
         fetchTaggedMixes({
-          variables: { tags: selectedTags },
+          variables: {
+            tags: selectedTags,
+          },
         })
       }
     }
     return executeTagSearch()
   }, [selectedTags])
 
+  /**
+   * Runs after {@link executeTagSearch} returns a fetchedMixes object. Sets receivedTagMixes using fetchedMixes. receivedTagMixes then triggers render of {@link DisplayFetchedTaggedMixes}.
+   * @category useEffect
+   * @name executeTagSearch
+   */
   useEffect(() => {
     const processFetchedMixes = () => {
       if (fetchedMixes) {
-        console.log('fetchedMixes useEffect', fetchedMixes)
         setReceivedTagMixes({
           data: [...fetchedMixes.allMixs.edges],
           hasMore: fetchedMixes.allMixs.pageInfo.hasNextPage,
@@ -170,7 +174,10 @@ function MixesIndexPage({ data, prismic }) {
         style={{ paddingBottom: 0 }}
       >
         {receivedTagMixes?.data ? (
-          <DisplayFetchedTaggedMixes tagMixes={receivedTagMixes.data} />
+          <DisplayFetchedTaggedMixes
+            tagMixes={receivedTagMixes.data}
+            selectedTags={selectedTags}
+          />
         ) : (
           <AllMixesLayout
             loadMixesFunc={loadNextMixes}

@@ -26,10 +26,13 @@ function TopicPageHighlightSection({
   if (!HighlightSectionLayout) return null
 
   return (
-    <section className="section container is-fluid highlight-items">
-      <h1 className="title is-2 is-size-3-touch hero-title">
-        {highlightTitling}
-      </h1>
+    <section className="section container is-fluid">
+      <div className="columns">
+        <div className="column is-full content">
+          <h1 className="title">Features</h1>
+          <p className="subtitle">{highlightTitling}</p>
+        </div>
+      </div>
       <HighlightSectionLayout highlightItemsData={highlightsData} />
     </section>
   )

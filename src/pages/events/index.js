@@ -49,14 +49,6 @@ function EventsIndexPage({ data, prismic }) {
     return loadMoreEvents()
   }, [page])
 
-  // const leadEventData = {
-  //   linkDetails: main_feature_article._meta,
-  //   leadTopicTitle: title,
-  //   leadTopicSubtitle: subtitle,
-  //   leadTopicCategory: category,
-  //   leadTopicSubcategory: subcategory,
-  // };
-
   // Column layout for SingleEventCard
   const eventPageLayout = 'column is-12-mobile is-6-tablet is-4-desktop'
 

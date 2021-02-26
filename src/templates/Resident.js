@@ -18,7 +18,7 @@ import {
  * @category Templates
  * @function ResidentTemplate
  * @param {object} data - Prismic CMS data object containing all data needed to build `/residents/:uid`
- * @param {object} path - the :uid of `/residents/:uid`; passed to {@link SingleMixCard} so that it can be used by {@link getResidentLink} to compare to the `featured_residents` _meta data
+ * @param {object} path - the complete path of `/residents/:uid`; passed to {@link SingleMixCard} so that it can be used by {@link getResidentLink} to compare to the `featured_residents` _meta data
  * @returns {jsx}
  */
 function ResidentTemplate({ data }) {

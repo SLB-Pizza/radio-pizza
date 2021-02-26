@@ -7,7 +7,7 @@ function AboutIndexPage() {
   const { title, description, siteUrl, twitterUsername } = useSiteMetadata()
   console.log('siteMetadata', useSiteMetadata())
   return (
-    <>
+    <main className="full-height-page">
       <Helmet>
         <html lang="en" />
         <title>About {title}</title>
@@ -23,7 +23,7 @@ function AboutIndexPage() {
         <meta name="twitter:site" content={twitterUsername} />
         <meta name="twitter:image" content={`/img/HalfMoon-3.png`} />
       </Helmet>
-      <div className="container is-fluid full-height-page">
+      <section className="section container is-fluid">
         <div className="columns is-mobile">
           <div className="column">
             <div className="content">
@@ -42,20 +42,36 @@ function AboutIndexPage() {
                 becomes timeless.
               </p>
 
-              <p className="display-text is-size-5">Team</p>
+              <p className="title is-size-5">Team</p>
               <p>Surf Allah – Owner & Founder</p>
               <p>Edrick Chu – Head of Marketing & Partnerships</p>
-              <p className="display-text is-size-5">Contact</p>
+              <p className="title is-size-5">Contact</p>
               <p>Business: business@halfmoonbk.com</p>
               <p>Info: info@halfmoonbk.com</p>
-              <p className="display-text is-size-5">Site</p>
-              <p>Designed by Christian Mejia</p>
-              <p>Programmed by Christian Mejia & Richard Dominguez</p>
             </div>
           </div>
         </div>
-      </div>
-    </>
+      </section>
+
+      <footer className="container is-fluid">
+        <div className="columns is-mobile">
+          <div className="column">
+            <div className="content">
+              <p className="title is-5">Design</p>
+              <p className="subtitle is-7">Christian Mejia</p>
+            </div>
+          </div>
+          <div className="column">
+            <div className="content">
+              <p className="title is-5">Programming</p>
+              <p className="subtitle is-7">
+                Christian Mejia & Richard Dominguez
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
   )
 }
 

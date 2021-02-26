@@ -9,6 +9,7 @@ import {
 import NanoClamp from 'nanoclamp'
 
 /**
+ * Resident Bio section for an individual resident. Called by {@link ResidentTemplate}.
  * @category Layout Helper
  * @function ResidentBio
  * @param {object} residentBioData - the data object coming from Prismic CMS that contains all data needed to build the bio section of the individual `/residents/:uid`  page
@@ -36,7 +37,9 @@ function ResidentBio({ residentBioData }) {
   useEffect(() => {
     const bioDataCheck = () => {
       if (residentBioData) {
-        // A nested social_media object requires 2 key-value pairs to be valid
+        /**
+         * A nested social_media object requires its 2 keys, `resident_social_page` and `resident_social_link`, to BOTH have values to be valid.
+         */
         const socialMediaCheck = mappableDataFilter(social_media, 2)
 
         // setMediaData to result socialMediaCheck array if array has valid entries

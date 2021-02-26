@@ -40,13 +40,10 @@ function FeaturesIndex({ data }) {
       let highlightsData = {}
 
       let {
-        features_page_header,
         features_page_subtitle,
         bottom_right_feature,
         top_right_feature,
       } = featuresHeaderData
-
-      const titling = RichText.asText(features_page_header) ?? 'features'
 
       /**
        * main_feature_article is null
@@ -93,7 +90,7 @@ function FeaturesIndex({ data }) {
   const individualFeatureLayout = 'column is-12-mobile is-6-tablet is-4-desktop'
 
   return (
-    <main className="full-height-page" id="features">
+    <main className="black-bg-page" id="features">
       {/* Show only after featuresHighlights is processed by useEffect */
       featuresHighlights && (
         <TopicPageHighlightSection
@@ -133,7 +130,6 @@ export const query = graphql`
       allLandingpages {
         edges {
           node {
-            features_page_header
             features_page_subtitle
             top_right_feature {
               ... on PRISMIC_Feature {

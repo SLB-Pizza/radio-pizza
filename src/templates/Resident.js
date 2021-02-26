@@ -13,6 +13,9 @@ import {
   featureDateSort,
   mappableDataFilter,
 } from '../utils'
+import { Helmet } from 'react-helmet'
+import useSiteMetadata from '../components/SiteMetadata'
+import { RichText } from 'prismic-reactjs'
 
 /**
  * @category Templates
@@ -21,7 +24,7 @@ import {
  * @param {object} path - the :uid of `/residents/:uid`; passed to {@link SingleMixCard} so that it can be used by {@link getResidentLink} to compare to the `featured_residents` _meta data
  * @returns {jsx}
  */
-function ResidentTemplate({ data }) {
+function ResidentTemplate({ data, path }) {
   const [isOpen, setIsOpen] = useState('Mixes')
   const [categoryLabels, setCategoryLabels] = useState(null)
   const [resBio, setResBio] = useState(null)
@@ -29,6 +32,8 @@ function ResidentTemplate({ data }) {
   const [resMixes, setResMixes] = useState(null)
   const [resEvents, setResEvents] = useState(null)
   const [resFeatures, setResFeatures] = useState(null)
+
+  const { title, description, siteUrl, twitterUsername } = useSiteMetadata()
 
   const prismicContent = data.prismic
   if (!prismicContent) return null
@@ -142,8 +147,30 @@ function ResidentTemplate({ data }) {
     'column is-12-mobile is-6-tablet is-4- is-4-widescreen'
   const largeCardLayout = 'column is-6 is-4-widescreen'
 
+
+  console.log( 'resbio', resBio)
+
   return (
     <main className="full-height-page">
+    <Helmet defer={false}>
+      <html lang="en" />
+        {resBio?.resident_name && <title>HalfMoon feat. {resBio.resident_name}</title> }
+        {resBio?.resident_blurb && <meta name="description" content={RichText.asText(resBio.resident_blurb)} /> }
+        <meta name="theme-color" content="#f600ff" />
+        <meta property="og:type" content="business.business" />
+        {resBio?.resident_name && <meta property="og:title" content={`HalfMoon feat. ${resBio.resident_name}`} /> }
+        <meta property="og:url" content={`${siteUrl}${path}`} />
+        <meta
+          property="og:image"
+          content={`/img/HalfMoon-3.png`}
+        />
+        <meta name="twitter:card" content="summary" />
+        {resBio?.resident_name && <meta name="twitter:title" content={`HalfMoon feat. ${resBio.resident_name}`} /> }
+        {resBio?.resident_blurb && <meta name="twitter:description" content={RichText.asText(resBio.resident_blurb)} /> }
+        <meta name="twitter:site" content={twitterUsername} />
+        {resBio?.social_media?.find( elem => elem.resident_social_page === "Twitter") &&  <meta name="twitter:creator" content={resBio?.social_media?.find( elem => elem.resident_social_page === "Twitter")?.resident_social_link?.url ?? siteUrl} /> }
+        <meta name="twitter:image" content={`/img/HalfMoon-3.png`} />
+    </Helmet>
       <div className="container is-fluid">
         <div className="columns is-multiline">
           {resBio && <ResidentBio residentBioData={resBio} />}

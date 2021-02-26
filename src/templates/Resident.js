@@ -178,6 +178,9 @@ function ResidentTemplate({ data, path }) {
             content={RichText.asText(resBio.resident_blurb)}
           />
         )}
+        {resBio?.resident_image && resBio?.resident_image?.url && (
+          <meta property="og:image:type" content="image/webp" />
+        )}
         <meta name="twitter:card" content="summary" />
         {resBio?.resident_name && (
           <meta

@@ -1,5 +1,5 @@
 import React from 'react'
-import { FeaturesHighlightItems, MixesHighlightItems } from '../components'
+import { FeaturesHighlightItems } from '../components'
 
 /**
  * Layout wrapper for {@link HighlightSectionLayout}
@@ -17,7 +17,6 @@ function TopicPageHighlightSection({
   // Pull in the Highlight Layout Components for use
   const highlightLayoutComponents = {
     features: FeaturesHighlightItems,
-    mixes: MixesHighlightItems,
   }
 
   // Select the correct layout component based on layoutType prop value

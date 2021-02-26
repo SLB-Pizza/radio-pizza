@@ -173,51 +173,58 @@ function ResidentsIndex({ data }) {
 
   return (
     <main className="black-bg-page">
-      <div className="container is-fluid">
-        <header className="columns is-mobile">
-          <div className="column is-full">
+      <header className="container is-fluid">
+        <div className="columns is-mobile">
+          <div className="column is-full content">
             <h1 className="title is-size-3-desktop is-size-5-touch">
               Halfmoon Residents
             </h1>
           </div>
-        </header>
-        <section className="columns is-mobile is-variable is-2">
-          {/* RESIDENT TYPE SELECTOR BUTTONS */}
-          {categoryLabels &&
-            categoryLabels.map((type, index) => (
-              <Fragment key={`HMBK-${type}-${index}`}>
-                {/* DESKTOP SIZED BUTTONS */}
-                <div className="column is-hidden-mobile">
-                  <button
-                    className={
-                      isOpen === type
-                        ? 'button active is-fullwidth is-outlined is-rounded'
-                        : 'button is-fullwidth is-outlined is-rounded'
-                    }
-                    id={type}
-                    onClick={toggleColumn}
-                  >
-                    {type}
-                  </button>
-                </div>
-                {/* TOUCH SIZED BUTTONS */}
-                <div className="column is-hidden-tablet">
-                  <button
-                    className={
-                      isOpen === type
-                        ? 'button is-small active is-fullwidth is-outlined is-rounded'
-                        : 'button is-small is-fullwidth is-outlined is-rounded'
-                    }
-                    id={type}
-                    onClick={toggleColumn}
-                  >
-                    {type}
-                  </button>
-                </div>
-              </Fragment>
-            ))}
-        </section>
+        </div>
+      </header>
 
+      <section className="container is-fluid">
+        <div className="columns is-mobile is-variable is-2">
+          {/* RESIDENT TYPE SELECTOR BUTTONS */}
+          {categoryLabels?.map((type, index) => (
+            <Fragment key={`HMBK-${type}-${index}`}>
+              {/* DESKTOP SIZED BUTTONS */}
+              <div className="column is-hidden-mobile">
+                <button
+                  className={
+                    isOpen === type
+                      ? 'button active is-fullwidth is-outlined is-rounded'
+                      : 'button is-fullwidth is-outlined is-rounded'
+                  }
+                  id={type}
+                  onClick={toggleColumn}
+                >
+                  {type}
+                </button>
+              </div>
+              {/* TOUCH SIZED BUTTONS */}
+              <div className="column is-hidden-tablet">
+                <button
+                  className={
+                    isOpen === type
+                      ? 'button is-small active is-fullwidth is-outlined is-rounded'
+                      : 'button is-small is-fullwidth is-outlined is-rounded'
+                  }
+                  id={type}
+                  onClick={toggleColumn}
+                >
+                  {type}
+                </button>
+              </div>
+            </Fragment>
+          ))}
+        </div>
+      </section>
+
+      <section
+        className="section container is-fluid"
+        style={{ paddingBottom: 0 }}
+      >
         {/* CURRENT HMBK RESIDENTS */}
         {isOpen === 'Residents' ? (
           <>
@@ -349,7 +356,7 @@ function ResidentsIndex({ data }) {
             )}
           </>
         ) : null}
-      </div>
+      </section>
     </main>
   )
 }

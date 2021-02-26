@@ -8,7 +8,7 @@ function AboutIndexPage() {
 
   return (
     <>
-      <Helmet>
+      <Helmet defer={false}>
         <html lang="en" />
           <title>About {title}</title>
           <meta name="description" content="HalfMoon Radio About Page" />

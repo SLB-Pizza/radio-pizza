@@ -6,6 +6,8 @@ module.exports = {
   siteMetadata: {
     title: 'HalfmoonBK',
     description: 'Ears to the concrete.',
+    siteUrl: `https://halfmoon-rebuild-wip-2020.netlify.app/`,
+    twitterUsername: '@halfmoonbk'
   },
   plugins: [
     /**

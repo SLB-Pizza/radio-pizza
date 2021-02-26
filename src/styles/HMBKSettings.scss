@@ -226,16 +226,18 @@ figcaption {
 }
 
 //==========================
-// SingleEventCard.js
+// SingleFeatureCard.js
 //==========================
+.feature-card-sizing,
 .event-card-sizing {
   display: flex;
   flex-direction: column;
-  min-height: 9rem;
+  min-height: 9.5rem;
 
   .details {
     flex: 1;
   }
+
   .blurb {
     flex: 0;
   }
@@ -251,7 +253,7 @@ figcaption {
     min-height: 11.5rem;
   }
   @include tablet {
-    min-height: 12rem;
+    min-height: 10rem;
   }
 
   .mix-details {

@@ -147,9 +147,6 @@ function ResidentTemplate({ data, path }) {
     'column is-12-mobile is-6-tablet is-4- is-4-widescreen'
   const largeCardLayout = 'column is-6 is-4-widescreen'
 
-
-  console.log( 'resbio', resBio)
-
   return (
     <main className="full-height-page">
     <Helmet defer={false}>

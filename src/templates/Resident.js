@@ -162,6 +162,7 @@ function ResidentTemplate({ data, path }) {
           content={resBio.resident_image.url}
           /> }
           {resBio?.resident_blurb && <meta name="og:description" content={RichText.asText(resBio.resident_blurb)} /> }
+          {resBio?.resident_image && resBio?.resident_image?.url && <meta property="og:image:type" content="image/webp" /> }
         <meta name="twitter:card" content="summary" />
         {resBio?.resident_name && <meta name="twitter:title" content={`HalfMoon feat. ${resBio.resident_name}`} /> }
         {resBio?.resident_blurb && <meta name="twitter:description" content={RichText.asText(resBio.resident_blurb)} /> }

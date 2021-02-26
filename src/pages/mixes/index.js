@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { getCursorFromDocumentIndex } from '@prismicio/gatsby-source-prismic-graphql'
 import { graphql } from 'gatsby'
-
 import { SingleMixCard } from '../../components/'
 
 /**
@@ -26,12 +25,16 @@ function MixesIndexPage({ data, prismic }) {
   const [page, setPage] = useState(-1)
   const [hasMoreMixes, setHasMoreMixes] = useState(true)
   const [mixesToMap, setMixesToMap] = useState(allMixData)
+  const [mixesLoading, setMixesLoading] = useState(false)
 
   /**
    * Fetch more mixes when the 'More Music' button is clicked.
    * Use the loadNextMixes function to call the useEffect.
    */
-  const loadNextMixes = () => setPage(page => page + mixesPerPage)
+  const loadNextMixes = () => {
+    setPage(page => page + mixesPerPage)
+    setMixesLoading(true)
+  }
 
   useEffect(() => {
     const loadMoreMixes = () => {
@@ -48,6 +51,8 @@ function MixesIndexPage({ data, prismic }) {
           },
         })
         .then(res => {
+          setMixesLoading(false)
+
           // Spread the received mix objects into the existing mixesToMap array
           setMixesToMap([...mixesToMap, ...res.data.allMixs.edges])
           // If there are no further mixes to get, don't show the load button
@@ -60,6 +65,7 @@ function MixesIndexPage({ data, prismic }) {
     return loadMoreMixes()
   }, [page])
 
+  console.log(mixesLoading)
   return (
     <main className="full-height-page">
       <header className="container is-fluid" id="mixes-header">
@@ -124,12 +130,18 @@ function MixesIndexPage({ data, prismic }) {
         {hasMoreMixes ? (
           <div className="columns is-mobile">
             <div className="column">
-              <button
-                className="button is-fullwidth is-outlined is-rounded"
-                onClick={loadNextMixes}
-              >
-                More Music!
-              </button>
+              {!mixesLoading ? (
+                <button
+                  className="button is-fullwidth is-outlined is-rounded"
+                  onClick={loadNextMixes}
+                >
+                  More Music!
+                </button>
+              ) : (
+                <progress className="progress is-medium is-primary" max="100">
+                  15%
+                </progress>
+              )}
             </div>
             <div className="column is-narrow">
               <a href="#mixes-header">

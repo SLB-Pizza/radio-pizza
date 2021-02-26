@@ -2,28 +2,29 @@ import React from 'react'
 import { SingleMixCard } from './index'
 
 /**
- * Renders the mixes fetched when a SingleMixCard button is clicked. On a boolean with {@link MixesIndexPage} mixesToMap when `selectedTags` is []
+ * Layout for the mixes fetched when a {@link TagButtons} is clicked.
+ * Renders on {@link MixesIndexPage} when `selectedTags` isn't null and {@link fetchTaggedMixes} has returned fetchedMixes results.
  * @category Layout Helper
  * @function DisplayFetchedTaggedMixes
- * @param {*} {}
+ * @param {Object[]} tagMixes - array received when a tag query initiates
  * @returns {jsx}
  */
-function DisplayFetchedTaggedMixes({ fetchedMixes }) {
+function DisplayFetchedTaggedMixes({ tagMixes }) {
   const mixListLayout =
     'column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen'
 
   return (
     <div className="columns is-mobile is-multiline">
-      <div className="column is-3">
-        <pre>{JSON.stringify(fetchedMixes, null, 2)}</pre>
-      </div>
-      {fetchedMixes?.map(({ node }, index) => (
+      {tagMixes?.map(({ node }, index) => (
         <SingleMixCard
           key={`tagged-mix-#${index}`}
           mixData={node}
           columnLayout={mixListLayout}
         />
       ))}
+      <div className="column">
+        <pre>{JSON.stringify(tagMixes, null, 2)}</pre>
+      </div>
     </div>
   )
 }

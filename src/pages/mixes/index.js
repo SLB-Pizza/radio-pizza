@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState, useRef } from 'react'
 import { getCursorFromDocumentIndex } from '@prismicio/gatsby-source-prismic-graphql'
 import { graphql } from 'gatsby'
 import { useLazyQuery } from '@apollo/client'
-import { SingleMixCard } from '../../components/'
+import { AllMixesLayout } from '../../components/'
 
 import { GET_SELECTED_TAGGED_MIXES } from '../../queries'
 import {
@@ -29,8 +29,6 @@ function MixesIndexPage({ data, prismic }) {
 
   const mixesPerPage = 12
   const didMountRef = useRef(false)
-  const mixListLayout =
-    'column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen'
 
   // for loadMoreMixes useEffect and loadNextMixes function
   const [page, setPage] = useState(-1)
@@ -42,11 +40,18 @@ function MixesIndexPage({ data, prismic }) {
   const [mixesLoading, setMixesLoading] = useState(false)
   const [selectedTags, setSelectedTags] = useState(null)
   const [receivedTagMixes, setReceivedTagMixes] = useState({
-    data: [],
+    data: null,
     hasMore: null,
     endCursor: null,
   })
 
+  /**
+   * useLazyQuery called by {@link executeTagSearch}.
+   * Passes {@link MixesIndexPage} local `selectedTags` as variable to query.
+   * Returns data as `fetchedMixes` and a loading state as `currentlyFetching`.
+   * @category useLazyQueries
+   * @name fetchTaggedMixes
+   */
   const [
     fetchTaggedMixes,
     { loading: currentlyFetching, data: fetchedMixes },
@@ -55,12 +60,18 @@ function MixesIndexPage({ data, prismic }) {
   /**
    * Fetch more mixes when the 'More Music' button is clicked.
    * Use the loadNextMixes function to call the useEffect.
+   * @name loadNextMixes
    */
   const loadNextMixes = () => {
     setPage(page => page + mixesPerPage)
     setMixesLoading(true)
   }
 
+  /**
+   * useEffect that fires off a Prismic fetch when "More Mixes" button on {@link MixesIndexPage} is clicked
+   * @category useEffect
+   * @name loadMoreMixes
+   */
   useEffect(() => {
     const loadMoreMixes = () => {
       if (!didMountRef.current) {
@@ -90,6 +101,12 @@ function MixesIndexPage({ data, prismic }) {
     return loadMoreMixes()
   }, [page])
 
+  /**
+   * Brings globalState.mixSearchTags to /mixes local useState.
+   * Runs when globalState is changed based off a click {@link TagButtons} on {@link MixesIndexPage}, dispatching {@link SELECT_MIX_SEARCH_TAG} to add the tag's text to `mixSearchTags`.
+   * @category useEffect
+   * @name addMixToTagSearchArr
+   */
   useEffect(() => {
     const addMixToTagSearchArr = () => {
       if (globalState.mixSearchTags) {
@@ -100,23 +117,38 @@ function MixesIndexPage({ data, prismic }) {
     return addMixToTagSearchArr()
   }, [globalState.mixSearchTags])
 
+  /**
+   * Runs when local selectedTags is changed.
+   * Triggers a fetch using {@link fetchTaggedMixes}.
+   * @category useEffect
+   * @name executeTagSearch
+   */
   useEffect(() => {
     const executeTagSearch = () => {
       console.log('globalState.mixSearchTags', globalState.mixSearchTags)
       if (selectedTags) {
+        console.log('selectedTags', selectedTags)
         fetchTaggedMixes({
           variables: { tags: selectedTags },
-        })
-
-        setFetchedMixesToMap({
-          data: [...fetchedMixes.data],
-          hasMore: fetchedMixes.pageInfo.hasNextPage,
-          endCursor: fetchedMixes.pageInfo.endCursor,
         })
       }
     }
     return executeTagSearch()
   }, [selectedTags])
+
+  useEffect(() => {
+    const processFetchedMixes = () => {
+      if (fetchedMixes) {
+        console.log('fetchedMixes useEffect', fetchedMixes)
+        setReceivedTagMixes({
+          data: [...fetchedMixes.allMixs.edges],
+          hasMore: fetchedMixes.allMixs.pageInfo.hasNextPage,
+          endCursor: fetchedMixes.allMixs.pageInfo.endCursor,
+        })
+      }
+    }
+    return processFetchedMixes()
+  }, [fetchedMixes])
 
   return (
     <main className="black-bg-page">
@@ -131,103 +163,20 @@ function MixesIndexPage({ data, prismic }) {
           </div>
         </div>
       </header>
-      {/*
-          Inactive Search Bar!
-          <div className="column is-9-widescreen is-8-tablet is-12-mobile">
-            <div className="field">
-              <div className="control is-expanded has-icons-left has-icons-right">
-                <div className="control is-expanded has-icons-left has-icons-right is-loading is-medium">
-                <input
-                  className="input is-rounded"
-                  type="text"
-                  placeholder="Search all mixes..."
-                />
-                <span className="icon is-left">
-                  <Icon icon="search" />
-                </span>
-              </div>
-            </div>
-          </div>
-          <div className="column is-3-widescreen is-4-tablet is-12-mobile">
-            <div className="field">
-              <div className="control is-expanded has-icons-left">
-                <div className="select is-fullwidth is-rounded">
-                  <select name="country">
-                    <option value="">--Country--</option>
-                    {dummyOptions.map(option => (
-                      <option key={option} value={option}>
-                        {option}
-                      </option>
-                    ))}
-                  </select>
-                </div>
 
-                <span className="icon is-left">
-                  <Icon icon="tag" />
-                </span>
-              </div>
-            </div>
-          </div> */}
       <section
         className="section container is-fluid"
         id="all-mixes"
         style={{ paddingBottom: 0 }}
       >
-        {receivedTagMixes?.setReceivedTagMixes ? (
-          <DisplayFetchedTaggedMixes
-            fetchedMixes={receivedTagMixes.setReceivedTagMixes}
-          />
+        {receivedTagMixes?.data ? (
+          <DisplayFetchedTaggedMixes tagMixes={receivedTagMixes.data} />
         ) : (
-          <>
-            <div className="columns is-mobile is-multiline">
-              {/* All Mixs data in pulled correctly */}
-              {mixesToMap?.data.map(({ node }, index) => (
-                <SingleMixCard
-                  key={`mixes-page-#${index}`}
-                  mixData={node}
-                  columnLayout={mixListLayout}
-                />
-              ))}
-            </div>
-            {mixesToMap?.hasMore ? (
-              <div className="columns is-mobile">
-                <div className="column">
-                  {!mixesLoading ? (
-                    <button
-                      className="button is-fullwidth is-outlined is-rounded"
-                      onClick={loadNextMixes}
-                    >
-                      More Music!
-                    </button>
-                  ) : (
-                    <progress
-                      className="progress is-medium is-primary"
-                      max="100"
-                    >
-                      15%
-                    </progress>
-                  )}
-                </div>
-                <div className="column is-narrow">
-                  <a href="#mixes-header">
-                    <button className="button is-fullwidth is-outlined is-rounded">
-                      Top
-                    </button>
-                  </a>
-                </div>
-              </div>
-            ) : (
-              <div className="columns is-mobile">
-                <div className="column is-offset-10 is-2">
-                  <a href="#all-mixes">
-                    <button className="button is-fullwidth is-outlined is-rounded">
-                      Top
-                    </button>
-                  </a>
-                </div>
-              </div>
-            )}
-          </>
+          <AllMixesLayout
+            loadMixesFunc={loadNextMixes}
+            mixesDataToMap={mixesToMap}
+            mixLoadState={mixesLoading}
+          />
         )}
       </section>
     </main>
@@ -300,3 +249,43 @@ export default MixesIndexPage
 
 // 1408 - 310
 // 1920 - 438
+
+{
+  /*
+          Inactive Search Bar!
+          <div className="column is-9-widescreen is-8-tablet is-12-mobile">
+            <div className="field">
+              <div className="control is-expanded has-icons-left has-icons-right">
+                <div className="control is-expanded has-icons-left has-icons-right is-loading is-medium">
+                <input
+                  className="input is-rounded"
+                  type="text"
+                  placeholder="Search all mixes..."
+                />
+                <span className="icon is-left">
+                  <Icon icon="search" />
+                </span>
+              </div>
+            </div>
+          </div>
+          <div className="column is-3-widescreen is-4-tablet is-12-mobile">
+            <div className="field">
+              <div className="control is-expanded has-icons-left">
+                <div className="select is-fullwidth is-rounded">
+                  <select name="country">
+                    <option value="">--Country--</option>
+                    {dummyOptions.map(option => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <span className="icon is-left">
+                  <Icon icon="tag" />
+                </span>
+              </div>
+            </div>
+          </div> */
+}

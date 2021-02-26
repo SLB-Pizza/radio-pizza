@@ -9,6 +9,7 @@ import {
   GlobalDispatchContext,
   GlobalStateContext,
 } from '../../context/GlobalContextProvider'
+import { DisplayFetchedTaggedMixes } from '../../components'
 
 /**
  * @category Pages
@@ -23,7 +24,7 @@ function MixesIndexPage({ data, prismic }) {
 
   // Initial useState is first query results
   // loadNextMixes calls trigger the loadMoreMixes useEffect and add to mixesToMap
-  const allMixData = data.prismic.allMixs.edges
+  const allMixData = data.prismic.allMixs
   if (!allMixData) return null
 
   const mixesPerPage = 12
@@ -33,15 +34,22 @@ function MixesIndexPage({ data, prismic }) {
 
   // for loadMoreMixes useEffect and loadNextMixes function
   const [page, setPage] = useState(-1)
-  const [hasMoreMixes, setHasMoreMixes] = useState(true)
-  const [mixesToMap, setMixesToMap] = useState(allMixData)
+  const [mixesToMap, setMixesToMap] = useState({
+    data: allMixData.edges,
+    hasMore: allMixData.pageInfo.hasNextPage,
+    endCursor: allMixData.pageInfo.endCursor,
+  })
   const [mixesLoading, setMixesLoading] = useState(false)
-  const [fetchingTaggedMixes, setFetchTaggedMixes] = useState(false)
-  const [taggedMixesToMap, setTaggedMixesToMap] = useState(null)
+  const [selectedTags, setSelectedTags] = useState(null)
+  const [receivedTagMixes, setReceivedTagMixes] = useState({
+    data: [],
+    hasMore: null,
+    endCursor: null,
+  })
 
   const [
     fetchTaggedMixes,
-    { loading: currentlyFetching, data: taggedMixes },
+    { loading: currentlyFetching, data: fetchedMixes },
   ] = useLazyQuery(GET_SELECTED_TAGGED_MIXES)
 
   /**
@@ -71,18 +79,44 @@ function MixesIndexPage({ data, prismic }) {
           setMixesLoading(false)
 
           // Spread the received mix objects into the existing mixesToMap array
-          setMixesToMap([...mixesToMap, ...res.data.allMixs.edges])
-          // If there are no further mixes to get, don't show the load button
-          if (!res.data.allMixs.pageInfo.hasNextPage) {
-            setHasMoreMixes(false)
-          }
+          setMixesToMap({
+            data: [...mixesToMap.data, ...res.data.allMixs.edges],
+            hasMore: res.data.allMixs.pageInfo.hasNextPage,
+            endCursor: res.data.allMixs.pageInfo.endCursor,
+          })
         })
     }
 
     return loadMoreMixes()
   }, [page])
 
-  console.log('mixSearchTags', globalState.mixSearchTags)
+  useEffect(() => {
+    const addMixToTagSearchArr = () => {
+      if (globalState.mixSearchTags) {
+        setSelectedTags(globalState.mixSearchTags)
+      }
+    }
+
+    return addMixToTagSearchArr()
+  }, [globalState.mixSearchTags])
+
+  useEffect(() => {
+    const executeTagSearch = () => {
+      console.log('globalState.mixSearchTags', globalState.mixSearchTags)
+      if (selectedTags) {
+        fetchTaggedMixes({
+          variables: { tags: selectedTags },
+        })
+
+        setFetchedMixesToMap({
+          data: [...fetchedMixes.data],
+          hasMore: fetchedMixes.pageInfo.hasNextPage,
+          endCursor: fetchedMixes.pageInfo.endCursor,
+        })
+      }
+    }
+    return executeTagSearch()
+  }, [selectedTags])
 
   return (
     <main className="black-bg-page">
@@ -139,50 +173,61 @@ function MixesIndexPage({ data, prismic }) {
         id="all-mixes"
         style={{ paddingBottom: 0 }}
       >
-        <div className="columns is-mobile is-multiline">
-          {/* All Mixs data in pulled correctly */}
-          {mixesToMap?.map(({ node }, index) => (
-            <SingleMixCard
-              key={`mixes-page-#${index}`}
-              mixData={node}
-              columnLayout={mixListLayout}
-            />
-          ))}
-        </div>
-        {hasMoreMixes ? (
-          <div className="columns is-mobile">
-            <div className="column">
-              {!mixesLoading ? (
-                <button
-                  className="button is-fullwidth is-outlined is-rounded"
-                  onClick={loadNextMixes}
-                >
-                  More Music!
-                </button>
-              ) : (
-                <progress className="progress is-medium is-primary" max="100">
-                  15%
-                </progress>
-              )}
-            </div>
-            <div className="column is-narrow">
-              <a href="#mixes-header">
-                <button className="button is-fullwidth is-outlined is-rounded">
-                  Top
-                </button>
-              </a>
-            </div>
-          </div>
+        {receivedTagMixes?.setReceivedTagMixes ? (
+          <DisplayFetchedTaggedMixes
+            fetchedMixes={receivedTagMixes.setReceivedTagMixes}
+          />
         ) : (
-          <div className="columns is-mobile">
-            <div className="column is-offset-10 is-2">
-              <a href="#all-mixes">
-                <button className="button is-fullwidth is-outlined is-rounded">
-                  Top
-                </button>
-              </a>
+          <>
+            <div className="columns is-mobile is-multiline">
+              {/* All Mixs data in pulled correctly */}
+              {mixesToMap?.data.map(({ node }, index) => (
+                <SingleMixCard
+                  key={`mixes-page-#${index}`}
+                  mixData={node}
+                  columnLayout={mixListLayout}
+                />
+              ))}
             </div>
-          </div>
+            {mixesToMap?.hasMore ? (
+              <div className="columns is-mobile">
+                <div className="column">
+                  {!mixesLoading ? (
+                    <button
+                      className="button is-fullwidth is-outlined is-rounded"
+                      onClick={loadNextMixes}
+                    >
+                      More Music!
+                    </button>
+                  ) : (
+                    <progress
+                      className="progress is-medium is-primary"
+                      max="100"
+                    >
+                      15%
+                    </progress>
+                  )}
+                </div>
+                <div className="column is-narrow">
+                  <a href="#mixes-header">
+                    <button className="button is-fullwidth is-outlined is-rounded">
+                      Top
+                    </button>
+                  </a>
+                </div>
+              </div>
+            ) : (
+              <div className="columns is-mobile">
+                <div className="column is-offset-10 is-2">
+                  <a href="#all-mixes">
+                    <button className="button is-fullwidth is-outlined is-rounded">
+                      Top
+                    </button>
+                  </a>
+                </div>
+              </div>
+            )}
+          </>
         )}
       </section>
     </main>

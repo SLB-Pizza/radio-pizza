@@ -37,9 +37,9 @@ function reducer(state, action) {
      * If the incoming tag isn't already in the mixSearchTags array, add it.
      * Called by {@link TagButtons} inside {@link SingleMixCard}
      * @category Reducer Action
-     * @name SELECT_MIX_SEARCH_TAGS
+     * @name SELECT_MIX_SEARCH_TAG
      */
-    case 'SELECT_MIX_SEARCH_TAGS':
+    case 'SELECT_MIX_SEARCH_TAG':
       return {
         ...state,
         mixSearchTags: [...state.mixSearchTags, action.payload.mixTag],

@@ -1,11 +1,14 @@
 import PropTypes from 'prop-types'
 import React, { Fragment, useState, useEffect } from 'react'
 import { graphql } from 'gatsby'
+import { Helmet } from 'react-helmet'
+import { RichText } from 'prismic-reactjs'
 import {
   ResidentBio,
   SingleMixCard,
   SingleEventCard,
   SingleFeatureCard,
+  useSiteMetadata,
 } from '../components'
 import {
   mixDateSort,
@@ -13,9 +16,6 @@ import {
   featureDateSort,
   mappableDataFilter,
 } from '../utils'
-import { Helmet } from 'react-helmet'
-import useSiteMetadata from '../components/SiteMetadata'
-import { RichText } from 'prismic-reactjs'
 
 /**
  * @category Templates

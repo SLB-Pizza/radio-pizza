@@ -20,6 +20,10 @@ export const GET_SELECTED_TAGGED_MIXES = gql`
       after: $after
       tags_in: $tags
     ) {
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
       edges {
         node {
           _meta {
@@ -45,10 +49,6 @@ export const GET_SELECTED_TAGGED_MIXES = gql`
             }
           }
         }
-      }
-      pageInfo {
-        hasNextPage
-        endCursor
       }
     }
   }

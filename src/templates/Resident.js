@@ -160,16 +160,16 @@ function ResidentTemplate({ data, path }) {
         <meta property="og:type" content="business.business" />
         {resBio?.resident_name && <meta property="og:title" content={`HalfMoon feat. ${resBio.resident_name}`} /> }
         <meta property="og:url" content={`${siteUrl}${path}`} />
-        <meta
+        {resBio?.resident_image && resBio?.resident_image?.url && <meta
           property="og:image"
-          content={`/img/HalfMoon-3.png`}
-        />
+          content={resBio.resident_image.url}
+        /> }
         <meta name="twitter:card" content="summary" />
         {resBio?.resident_name && <meta name="twitter:title" content={`HalfMoon feat. ${resBio.resident_name}`} /> }
         {resBio?.resident_blurb && <meta name="twitter:description" content={RichText.asText(resBio.resident_blurb)} /> }
         <meta name="twitter:site" content={twitterUsername} />
         {resBio?.social_media?.find( elem => elem.resident_social_page === "Twitter") &&  <meta name="twitter:creator" content={resBio?.social_media?.find( elem => elem.resident_social_page === "Twitter")?.resident_social_link?.url ?? siteUrl} /> }
-        <meta name="twitter:image" content={`/img/HalfMoon-3.png`} />
+        {resBio?.resident_image && resBio?.resident_image?.url && <meta name="twitter:image" content={resBio.resident_image.url} /> }
     </Helmet>
       <div className="container is-fluid">
         <div className="columns is-multiline">

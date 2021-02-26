@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import { MixPlayOverlay, TagButtons, SingleResident } from '../components'
+import { MixPlayOverlay, TagButtons, SingleResidentCard } from '../components'
 import { RichText } from 'prismic-reactjs'
 import { linkResolver, getResidentString, mappableDataFilter } from '../utils'
 import NanoClamp from 'nanoclamp'
@@ -89,7 +89,7 @@ function MixTemplate({ data }) {
           </div>
           {featured_residents.map(({ mix_resident }, index) => (
             <pre>{JSON.stringify(mix_resident, null, 2)}</pre>
-            // <SingleResident
+            // <SingleResidentCard
             //   key={`mix-resident-${index}`}
             //   resident={mix_resident}
             // />
@@ -106,7 +106,7 @@ function MixTemplate({ data }) {
             </div>
 
             {/* {featured_residents.map(({ mix_resident }, index) => (
-              <SingleResident
+              <SingleResidentCard
                 key={`mix-resident-${index}`}
                 resident={mix_resident}
               />
@@ -121,7 +121,7 @@ function MixTemplate({ data }) {
               </div>
             </div>
             {/* {featured_residents.map(({ mix_resident }, index) => (
-              <SingleResident
+              <SingleResidentCard
                 key={`mix-resident-${index}`}
                 resident={mix_resident}
               />

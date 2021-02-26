@@ -6,9 +6,9 @@ import { TopNav, BottomNav } from '../components'
 import '../styles/index.scss'
 
 const TemplateWrapper = ({ children }) => {
-  const { title, description } = useSiteMetadata()
+  const { title, description, siteUrl, twitterUsername } = useSiteMetadata()
   return (
-    <div>
+    <>
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
@@ -42,16 +42,25 @@ const TemplateWrapper = ({ children }) => {
 
         <meta property="og:type" content="business.business" />
         <meta property="og:title" content={title} />
-        <meta property="og:url" content="/" />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={siteUrl} />
         <meta
           property="og:image"
-          content={`${withPrefix('/')}img/HalfMoon-3.jpg`}
+          content={`${withPrefix('/')}img/HalfMoon-3.png`}
+        />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:site" content={twitterUsername} />
+        <meta
+          name="twitter:image"
+          content={`${withPrefix('/')}img/HalfMoon-3.png`}
         />
       </Helmet>
       <TopNav />
       {children}
       <BottomNav />
-    </div>
+    </>
   )
 }
 

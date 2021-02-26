@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useRef, useState } from 'react'
 import { graphql } from 'gatsby'
 import { useLazyQuery } from '@apollo/client'
-import { SingleResident } from '../../components'
+import { SingleResidentCard } from '../../components'
 import {
   GET_MORE_RESIDENTS,
   GET_MORE_ALUMNI,
@@ -223,7 +223,7 @@ function ResidentsIndex({ data }) {
           <>
             <div className="columns is-mobile is-multiline">
               {residents?.data?.map(({ node }, index) => (
-                <SingleResident key={`Resident-${index}`} resident={node} />
+                <SingleResidentCard key={`Resident-${index}`} resident={node} />
               ))}
             </div>
             {residents?.hasMore ? (
@@ -267,7 +267,7 @@ function ResidentsIndex({ data }) {
           <>
             <div className="columns is-mobile is-multiline">
               {alumni?.data?.map(({ node }, index) => (
-                <SingleResident key={`Alumnus-${index}`} resident={node} />
+                <SingleResidentCard key={`Alumnus-${index}`} resident={node} />
               ))}
             </div>
             {alumni?.hasMore ? (
@@ -311,7 +311,7 @@ function ResidentsIndex({ data }) {
           <>
             <div className="columns is-mobile is-multiline">
               {guests?.data?.map(({ node }, index) => (
-                <SingleResident key={`Guests-${index}`} resident={node} />
+                <SingleResidentCard key={`Guests-${index}`} resident={node} />
               ))}
             </div>
             {guests?.hasMore ? (

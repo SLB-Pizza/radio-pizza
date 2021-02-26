@@ -6,6 +6,7 @@ import { formatDateTime, linkResolver } from '../utils'
 
 /**
  * Returns a Feature card layout used on the homepage, single /resident focus page, and the /features landing page
+ * @category Layout Helper
  * @function SingleFeatureCard
  * @param {Object} featureData - the feature data object
  * @param {String} featureColumnLayout - string dictating column

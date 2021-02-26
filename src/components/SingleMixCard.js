@@ -15,13 +15,13 @@ import {
  * Returns a Mix card with a clickable play button to start the mix in {@link RadioPlayer}, an icon made by {@link IconMaker} that links out to the original mix's page
  * @category Layout Helper
  * @function SingleMixCard
- * @param {Object} mixData
- * @property {String} mixData.mix_date - archived mix's date
- * @property {String} mixData.mix_link - url of the archived mix to play
- * @property {?String} mixData.mix_title - Mix titles are optional, string of residents will be used to label mix if not present
+ * @param {Object} mixData - this mix's data from Prismic
+ * @property {String} mixData.mix_date - this mix's date
+ * @property {String} mixData.mix_link - this mix's URL; also used by {@link IconMaker} to generate the linking icon for the card
+ * @property {?String} mixData.mix_title - Mix titles are optional, string of residents will be used to label mix if not present; see `useEffect` and `render` comments
  * @property {Object[]} mixData.featured_residents - Array of data objects containing the mix's resident data
  * @property {Object} mixData.mix_image - object containing the different sizes of a mix's image
- * @property {String[]} mixData._meta.tags - the mix's tags
+ * @property {String[]} mixData._meta.tags - the mix's tags; allowed to be empty array
  * @param {String} columnLayout - string detailing the column layout across different responsive breakpoints
  * @param {?String} path - optional string passed down only by {@link ResidentTemplate} for use with {@link linkResolver}
  * @returns {jsx}

@@ -5,7 +5,7 @@ import { FallbackImage, linkResolver, ResponsiveImage } from '../utils'
 
 /**
  * @category Layout Helper
- * @function SingleResident
+ * @function SingleResidentCard
  * @param {Object} resident - Prismic CMS data object containing all data needed to build resident cards that link out to a `/residents/:uid`
  * @property {Object} _meta - contains the uid and type for use with {@link linkResolver}
  * @property {String} resident_name - the resident's name
@@ -13,7 +13,7 @@ import { FallbackImage, linkResolver, ResponsiveImage } from '../utils'
  * @property {String} resident_status - details the resident's status as being of the three: ["Resident", "Guest", "Alumnus"]
  * @returns {jsx}
  */
-function SingleResident({ resident }) {
+function SingleResidentCard({ resident }) {
   const { _meta, resident_name, resident_image } = resident
 
   return (
@@ -42,4 +42,4 @@ function SingleResident({ resident }) {
     </article>
   )
 }
-export default SingleResident
+export default SingleResidentCard

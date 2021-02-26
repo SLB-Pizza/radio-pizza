@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
-import {
-  TopicPageHero,
-  TopicPageHighlightSection,
-  SingleFeatureCard,
-} from '../../components'
+import { TopicPageHighlightSection, SingleFeatureCard } from '../../components'
 import PropTypes from 'prop-types'
-import { mixin } from 'lodash'
 
 /**
  * @category Pages
@@ -27,7 +22,6 @@ function FeaturesIndex({ data }) {
    */
   if (!otherFeaturesData || !featuresHeaderData) return null
 
-  const [featuresHeroData, setFeaturesHeroData] = useState(null)
   const [featuresHighlights, setFeaturesHighlights] = useState(null)
   const [featuresToMap, setFeaturesToMap] = useState(null)
 
@@ -43,7 +37,6 @@ function FeaturesIndex({ data }) {
   useEffect(() => {
     const processFeaturesHeaderData = () => {
       // objects to pass to useState after processing
-      let heroData = {}
       let highlightsData = {}
 
       let {
@@ -51,7 +44,6 @@ function FeaturesIndex({ data }) {
         features_page_subtitle,
         bottom_right_feature,
         top_right_feature,
-        main_feature_article,
       } = featuresHeaderData
 
       const titling = RichText.asText(features_page_header) ?? 'features'
@@ -61,46 +53,6 @@ function FeaturesIndex({ data }) {
        * - Shift off the first article from `allOtherFeatures` to use as main_feature_article
        */
       const allOtherFeatures = otherFeaturesData
-      console.table(allOtherFeatures)
-
-      if (!main_feature_article) {
-        main_feature_article = allOtherFeatures.shift()
-      }
-
-      /**
-       * Break down main_feature_article to designate {@link TopicPageHero} props and subcomponent props
-       */
-      const {
-        article_headline,
-        article_subtitle,
-        article_category,
-        article_subcategory,
-        article_headline_img,
-      } = main_feature_article.headline_block[0].primary
-
-      /**
-       * Assign default values if main_feature_article details unset
-       */
-      const title =
-        RichText.asText(article_headline) ?? 'The latest from HMBK...'
-      const subtitle = RichText.asText(article_subtitle) ?? ''
-      const category = article_category ?? 'Feature'
-      const subcategory = article_subcategory ?? ''
-
-      const leadFeatureData = {
-        linkDetails: main_feature_article._meta,
-        leadTopicTitle: title,
-        leadTopicSubtitle: subtitle,
-        leadTopicCategory: category,
-        leadTopicSubcategory: subcategory,
-      }
-
-      // Assign key-values to heroData from the processed main_feature_article
-      heroData = {
-        titling,
-        bg: article_headline_img,
-        data: leadFeatureData,
-      }
 
       /**
        * Create /features highlightItemsData object from leftFeature and rightFeature using features from allOtherFeatures if necessary
@@ -129,10 +81,8 @@ function FeaturesIndex({ data }) {
         titling: featuresSubheadline,
       }
 
-      // Set featuresHeroData to the assembled heroData object
       // Set featuresHighlight to the assembled highlightsData object
-      // Set featuresToMap to
-      setFeaturesHeroData(heroData)
+      // Set featuresToMap to allOtherFeatures
       setFeaturesHighlights(highlightsData)
       setFeaturesToMap(allOtherFeatures)
     }
@@ -144,15 +94,6 @@ function FeaturesIndex({ data }) {
 
   return (
     <main className="full-height-page" id="features">
-      {/* Show only after featuresHeroData is processed by useEffect */
-      featuresHeroData && (
-        <TopicPageHero
-          leadTopicData={featuresHeroData.data}
-          leadTopicBG={featuresHeroData.bg}
-          topicPageTitling={featuresHeroData.titling}
-        />
-      )}
-
       {/* Show only after featuresHighlights is processed by useEffect */
       featuresHighlights && (
         <TopicPageHighlightSection
@@ -194,28 +135,6 @@ export const query = graphql`
           node {
             features_page_header
             features_page_subtitle
-            main_feature_article {
-              ... on PRISMIC_Feature {
-                _linkType
-                _meta {
-                  uid
-                  type
-                  lastPublicationDate
-                  firstPublicationDate
-                }
-                headline_block {
-                  ... on PRISMIC_FeatureHeadline_blockHeadline_block {
-                    primary {
-                      article_headline_img
-                      article_headline
-                      article_category
-                      article_subcategory
-                      article_subtitle
-                    }
-                  }
-                }
-              }
-            }
             top_right_feature {
               ... on PRISMIC_Feature {
                 _meta {

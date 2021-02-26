@@ -66,7 +66,7 @@ function SingleEventCard({ eventColumnLayout, eventData }) {
                 )}
                 {event_name && (
                   <NanoClamp
-                    className="title is-size-6-touch is-size-6-desktop"
+                    className="title is-size-6"
                     is="p"
                     lines={2}
                     text={RichText.asText(event_name)}
@@ -75,7 +75,7 @@ function SingleEventCard({ eventColumnLayout, eventData }) {
               </div>
               {event_blurb && (
                 <NanoClamp
-                  className="blurb is-size-7 has-text-white"
+                  className="blurb is-size-6 has-text-white"
                   is="p"
                   lines={3}
                   ellipsis={'...'}

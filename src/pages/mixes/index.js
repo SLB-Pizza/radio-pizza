@@ -65,9 +65,8 @@ function MixesIndexPage({ data, prismic }) {
     return loadMoreMixes()
   }, [page])
 
-  console.log(mixesLoading)
   return (
-    <main className="full-height-page">
+    <main className="black-bg-page">
       <header className="container is-fluid" id="mixes-header">
         <div className="columns is-mobile is-multiline">
           <div className="column is-12 content">
@@ -116,7 +115,11 @@ function MixesIndexPage({ data, prismic }) {
               </div>
             </div>
           </div> */}
-      <section className="section container is-fluid" id="all-mixes">
+      <section
+        className="section container is-fluid"
+        id="all-mixes"
+        style={{ paddingBottom: 0 }}
+      >
         <div className="columns is-mobile is-multiline">
           {/* All Mixs data in pulled correctly */}
           {mixesToMap?.map(({ node }, index) => (

@@ -5,10 +5,9 @@ import useSiteMetadata from '../../components/SiteMetadata'
 
 function AboutIndexPage() {
   const { title, description, siteUrl, twitterUsername } = useSiteMetadata()
-  console.log('siteMetadata', useSiteMetadata())
   return (
     <main className="full-height-page">
-      <Helmet>
+      <Helmet defer={false}>
         <html lang="en" />
         <title>About {title}</title>
         <meta name="description" content="HalfMoon Radio About Page" />
@@ -19,7 +18,7 @@ function AboutIndexPage() {
         <meta property="og:image" content={`/img/HalfMoon-3.png`} />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
+        <meta name="twitter:description" content="HalfMoon Radio About Page" />
         <meta name="twitter:site" content={twitterUsername} />
         <meta name="twitter:image" content={`/img/HalfMoon-3.png`} />
       </Helmet>

@@ -1,7 +1,14 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useContext, useEffect, useState, useRef } from 'react'
 import { getCursorFromDocumentIndex } from '@prismicio/gatsby-source-prismic-graphql'
 import { graphql } from 'gatsby'
+import { useLazyQuery } from '@apollo/client'
 import { SingleMixCard } from '../../components/'
+
+import { GET_SELECTED_TAGGED_MIXES } from '../../queries'
+import {
+  GlobalDispatchContext,
+  GlobalStateContext,
+} from '../../context/GlobalContextProvider'
 
 /**
  * @category Pages
@@ -11,6 +18,9 @@ import { SingleMixCard } from '../../components/'
  * @returns {jsx}
  */
 function MixesIndexPage({ data, prismic }) {
+  const dispatch = useContext(GlobalDispatchContext)
+  const globalState = useContext(GlobalStateContext)
+
   // Initial useState is first query results
   // loadNextMixes calls trigger the loadMoreMixes useEffect and add to mixesToMap
   const allMixData = data.prismic.allMixs.edges
@@ -26,6 +36,13 @@ function MixesIndexPage({ data, prismic }) {
   const [hasMoreMixes, setHasMoreMixes] = useState(true)
   const [mixesToMap, setMixesToMap] = useState(allMixData)
   const [mixesLoading, setMixesLoading] = useState(false)
+  const [fetchingTaggedMixes, setFetchTaggedMixes] = useState(false)
+  const [taggedMixesToMap, setTaggedMixesToMap] = useState(null)
+
+  const [
+    fetchTaggedMixes,
+    { loading: currentlyFetching, data: taggedMixes },
+  ] = useLazyQuery(GET_SELECTED_TAGGED_MIXES)
 
   /**
    * Fetch more mixes when the 'More Music' button is clicked.
@@ -64,6 +81,8 @@ function MixesIndexPage({ data, prismic }) {
 
     return loadMoreMixes()
   }, [page])
+
+  console.log('mixSearchTags', globalState.mixSearchTags)
 
   return (
     <main className="black-bg-page">

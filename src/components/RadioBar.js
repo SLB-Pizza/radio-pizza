@@ -79,6 +79,7 @@ function RadioBar({ nycTime, laTime }) {
       } = mixDataObject
 
       const mixResidentsString = getResidentString(featured_residents)
+
       return dispatch({
         type: 'SET_INITIAL_MIX',
         payload: {

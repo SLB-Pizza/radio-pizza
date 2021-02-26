@@ -172,6 +172,12 @@ function ResidentTemplate({ data, path }) {
         {resBio?.resident_image && resBio?.resident_image?.url && (
           <meta property="og:image" content={resBio.resident_image.url} />
         )}
+        {resBio?.resident_blurb && (
+          <meta
+            name="og:description"
+            content={RichText.asText(resBio.resident_blurb)}
+          />
+        )}
         <meta name="twitter:card" content="summary" />
         {resBio?.resident_name && (
           <meta

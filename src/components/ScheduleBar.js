@@ -264,7 +264,7 @@ function ScheduleBar({ timeNow }) {
               onClick={() => toggleSchedule()}
             />
           </div>
-          <div className="column is-narrow">
+          {/* <div className="column is-narrow">
             <Link to="/search">
               <Icon
                 onClick={() => closeSchedule()}
@@ -273,7 +273,7 @@ function ScheduleBar({ timeNow }) {
                 className="icon-color"
               />
             </Link>
-          </div>
+          </div> */}
 
           <div className="column is-narrow">
             <a

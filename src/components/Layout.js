@@ -52,7 +52,7 @@ const TemplateWrapper = ({ children }) => {
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:site" content={twitterUsername} />
-        <meta name="twitter:image" content={`${withPrefix('/')}img/HalfMoon-3.jpg`} />
+        <meta name="twitter:image" content={`${withPrefix('/')}img/HalfMoon-3.png`} />
       </Helmet>
       <TopNav />
       {children}

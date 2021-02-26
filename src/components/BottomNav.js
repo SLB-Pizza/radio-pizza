@@ -93,7 +93,15 @@ function BottomNav() {
               Residents
             </Link>
 
-            <div
+            <Link
+              to="/mixes"
+              className="navbar-item"
+              onClick={() => toggleNavMenu()}
+            >
+              Radio
+            </Link>
+
+            {/* <div
               className={
                 dropUpOpen
                   ? 'navbar-item has-dropdown has-dropdown-up is-active'
@@ -120,7 +128,7 @@ function BottomNav() {
                   Collections
                 </Link>
               </div>
-            </div>
+            </div> */}
 
             <Link
               to="/events"

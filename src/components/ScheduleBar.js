@@ -186,9 +186,8 @@ function ScheduleBar({ timeNow }) {
 
   /**
    * globalState.scheduleOpen ? OPEN LAYOUT : CLOSED LAYOUT
-   *
-   * @see {@link BottomNav|Related globalState situation in BottomNav}
-   * @see {@link OutsideClick|Related OutsideClick situation in BottomNav}
+   * @see {@link BottomNav Related globalState situation in BottomNav}
+   * @see {@link OutsideClick Related OutsideClick situation in BottomNav}
    */
   return globalState.scheduleOpen ? (
     <OutsideClick id={'schedule-bar'} onClick={() => closeSchedule()}>
@@ -368,7 +367,7 @@ function ScheduleBar({ timeNow }) {
             className="icon-color"
           />
         </div>
-        <div className="column is-narrow">
+        {/* <div className="column is-narrow">
           <Link to="/search">
             <Icon
               onClick={() => closeSchedule()}
@@ -377,7 +376,7 @@ function ScheduleBar({ timeNow }) {
               className="icon-color"
             />
           </Link>
-        </div>
+        </div> */}
 
         <div className="column is-narrow">
           <a

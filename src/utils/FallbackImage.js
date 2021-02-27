@@ -8,11 +8,11 @@ import React from 'react'
  * @param {Object} rest - whatever other props the `<img>` needs
  * @return {jsx}
  */
-export default function FallbackImage({ styleName, ...rest }) {
+export default function FallbackImage({ styleName = '', ...rest }) {
   return (
     <img
-      src={`img/halfmoon_white.png`}
-      alt="Halfmoon BK"
+      src={`../../img/Halfmoon-3.png`}
+      alt="HalfmoonBK logo"
       className={styleName}
       {...rest}
     />

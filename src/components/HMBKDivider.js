@@ -1,21 +1,22 @@
 import React from 'react'
+import { FallbackImage } from '../utils'
 
 function HMBKDivider() {
   return (
-    <div className="columns is-mobile is-vcentered">
+    <>
       <div className="column">
         <hr />
       </div>
       <div className="column is-narrow">
         <figure className="image is-64x64">
-          <img src={`../../img/halfmoon-3.png`} alt="HalfmoonBK logo" />
+          <FallbackImage />
         </figure>
       </div>
 
       <div className="column">
         <hr />
       </div>
-    </div>
+    </>
   )
 }
 

@@ -13,7 +13,7 @@ import {
 
 /**
  * Returns a Mix card with a clickable play button to start the mix in {@link RadioPlayer}, an icon made by {@link IconMaker} that links out to the original mix's page
- * @category Layout Helper
+ * @category Media Card
  * @function SingleMixCard
  * @param {Object} mixData - this mix's data from Prismic
  * @property {String} mixData.mix_date - this mix's date
@@ -23,7 +23,7 @@ import {
  * @property {Object} mixData.mix_image - object containing the different sizes of a mix's image
  * @property {String[]} mixData._meta.tags - the mix's tags; allowed to be empty array
  * @param {String} columnLayout - string detailing the column layout across different responsive breakpoints
- * @param {?String} path - optional string passed down only by {@link ResidentTemplate} for use with {@link linkResolver}
+ * @param {?String} path - optional string passed down only by {@link ResidentTemplate} for use with {@link linkResolver}. Crucial to {@link TagButtons} dispatch func
  * @returns {jsx}
  * @see {@link https://bulma.io/documentation/columns/sizes/ bulma.io column sizing}
  */
@@ -159,7 +159,7 @@ function SingleMixCard({ mixData, columnLayout, path }) {
               )}
             </div>
 
-            <TagButtons tagsArray={tags} />
+            <TagButtons tagsArray={tags} path={path} />
           </div>
         </div>
       </div>

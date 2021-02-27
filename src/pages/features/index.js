@@ -5,9 +5,11 @@ import { TopicPageHighlightSection, SingleFeatureCard } from '../../components'
 import PropTypes from 'prop-types'
 
 /**
+ * Layout for /features landing page.
  * @category Pages
- * @function FeaturesIndex
+ * @function FeaturesIndexPage
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/features` landing page
+ * @returns {jsx}
  */
 function FeaturesIndex({ data }) {
   /**

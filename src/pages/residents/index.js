@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useRef, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
 import { useLazyQuery } from '@apollo/client'
 import { SingleResidentCard } from '../../components'
@@ -9,8 +9,9 @@ import {
 } from '../../queries'
 
 /**
+ * Layout for the /residents page.
  * @category Pages
- * @function ResidentIndex
+ * @function ResidentIndexPage
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/residents` landing page
  * @returns {jsx}
  */

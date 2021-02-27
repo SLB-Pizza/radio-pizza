@@ -2,16 +2,16 @@ import React, { useContext, useEffect, useState, useRef } from 'react'
 import { getCursorFromDocumentIndex } from '@prismicio/gatsby-source-prismic-graphql'
 import { graphql } from 'gatsby'
 import { useLazyQuery } from '@apollo/client'
-import { AllMixesLayout } from '../../components/'
 
 import { GET_SELECTED_TAGGED_MIXES } from '../../queries'
 import {
   GlobalDispatchContext,
   GlobalStateContext,
 } from '../../context/GlobalContextProvider'
-import { DisplayFetchedTaggedMixes } from '../../components'
+import { AllMixesLayout, DisplayFetchedTaggedMixes } from '../../components'
 
 /**
+ * Layout for /mixes landing page.
  * @category Pages
  * @function MixesIndexPage
  * @param {Object} data - the data object coming from Prismic CMS that contains all data needed to display all mixes on `/mixes`
@@ -37,7 +37,10 @@ function MixesIndexPage({ data, prismic }) {
     hasMore: allMixData.pageInfo.hasNextPage,
     endCursor: allMixData.pageInfo.endCursor,
   })
+  // manually set loading boolean for Prismic.load calls
   const [mixesLoading, setMixesLoading] = useState(false)
+
+  // useStates for tag selection and querying
   const [selectedTags, setSelectedTags] = useState(null)
   const [receivedTagMixes, setReceivedTagMixes] = useState({
     data: null,
@@ -48,13 +51,13 @@ function MixesIndexPage({ data, prismic }) {
   /**
    * useLazyQuery called by {@link executeTagSearch}.
    * Passes {@link MixesIndexPage} local `selectedTags` as variable to query.
-   * Returns data as `fetchedMixes` and a loading state as `currentlyFetching`.
+   * Returns data as `fetchedTagMixes` and a loading state as `isFetching`.
    * @category useLazyQueries
    * @name fetchTaggedMixes
    */
   const [
     fetchTaggedMixes,
-    { loading: currentlyFetching, data: fetchedMixes },
+    { loading: isFetching, data: fetchedTagMixes },
   ] = useLazyQuery(GET_SELECTED_TAGGED_MIXES)
 
   /**
@@ -125,34 +128,56 @@ function MixesIndexPage({ data, prismic }) {
    */
   useEffect(() => {
     const executeTagSearch = () => {
+      /**
+       * Only run fetchedTaggedMixes when selectedTags is defined.
+       */
       if (selectedTags) {
         fetchTaggedMixes({
           variables: {
             tags: selectedTags,
           },
         })
+
+        console.log('fetchedTagMixes', fetchedTagMixes)
+        if (fetchedTagMixes) {
+          console.log('fetchedTagMixes exists', fetchedTagMixes)
+          const currentCursor = fetchedTagMixes.allMixs.pageInfo.endCursor
+          console.log('currentCursor', currentCursor)
+
+          const currentFetchedMixes = [
+            ...receivedTagMixes.data,
+            ...fetchedTagMixes.allMixs.edges,
+          ]
+
+          setReceivedTagMixes({
+            data: currentFetchedMixes,
+            hasMore: fetchedTagMixes.allMixs.pageInfo.hasNextPage,
+            endCursor: fetchedTagMixes.allMixs.pageInfo.endCursor,
+          })
+        }
       }
     }
+
     return executeTagSearch()
   }, [selectedTags])
 
   /**
-   * Runs after {@link executeTagSearch} returns a fetchedMixes object. Sets receivedTagMixes using fetchedMixes. receivedTagMixes then triggers render of {@link DisplayFetchedTaggedMixes}.
+   * Runs after {@link executeTagSearch} returns a fetchedTagMixes object. Sets receivedTagMixes using fetchedTagMixes. receivedTagMixes then triggers render of {@link DisplayFetchedTaggedMixes}.
    * @category useEffect
    * @name executeTagSearch
    */
   useEffect(() => {
     const processFetchedMixes = () => {
-      if (fetchedMixes) {
+      if (fetchedTagMixes) {
         setReceivedTagMixes({
-          data: [...fetchedMixes.allMixs.edges],
-          hasMore: fetchedMixes.allMixs.pageInfo.hasNextPage,
-          endCursor: fetchedMixes.allMixs.pageInfo.endCursor,
+          data: [...fetchedTagMixes.allMixs.edges],
+          hasMore: fetchedTagMixes.allMixs.pageInfo.hasNextPage,
+          endCursor: fetchedTagMixes.allMixs.pageInfo.endCursor,
         })
       }
     }
     return processFetchedMixes()
-  }, [fetchedMixes])
+  }, [fetchedTagMixes])
 
   return (
     <main className="black-bg-page">
@@ -175,7 +200,8 @@ function MixesIndexPage({ data, prismic }) {
       >
         {receivedTagMixes?.data ? (
           <DisplayFetchedTaggedMixes
-            tagMixes={receivedTagMixes.data}
+            fetchedData={receivedTagMixes}
+            parentFetching={isFetching}
             selectedTags={selectedTags}
           />
         ) : (
@@ -296,3 +322,41 @@ export default MixesIndexPage
             </div>
           </div> */
 }
+
+// const executeTagSearch = useCallback((mixesArr = [], cursor = null) => {
+//   if (selectedTags) {
+//     fetchTaggedMixes({
+//       variables: {
+//         after: cursor,
+//         tags: selectedTags,
+//       },
+//     });
+
+//     console.log("fetchedTagMixes", fetchedTagMixes);
+//     if (fetchedTagMixes) {
+//       console.log("fetchedTagMixes exists", fetchedTagMixes);
+//       const currentCursor = fetchedTagMixes.allMixs.pageInfo.endCursor;
+//       console.log("currentCursor", currentCursor);
+
+//       const currentFetchedMixes = [
+//         ...mixesArr,
+//         ...fetchedTagMixes.allMixs.edges,
+//       ];
+//       console.log(
+//         "currFetchedMixes",
+//         currentFetchedMixes.length,
+//         currentFetchedMixes
+//       );
+
+//       if (fetchedTagMixes.allMixs.pageInfo.hasNextPage) {
+//         executeTagSearch(currentFetchedMixes, currentCursor);
+//       } else {
+//         setReceivedTagMixes({
+//           data: currentFetchedMixes,
+//           hasMore: fetchedTagMixes.allMixs.pageInfo.hasNextPage,
+//           endCursor: fetchedTagMixes.allMixs.pageInfo.endCursor,
+//         });
+//       }
+//     }
+//   }
+// });

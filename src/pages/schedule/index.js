@@ -11,6 +11,7 @@ dayjs.extend(utc)
 import scheduleDummyData from '../../../__test__/HMBK-schedule-page-query-test.json'
 
 /**
+ * Layout for the /schedule page.
  * @category Pages
  * @function ScheduleIndexPage
  * @param {Object} data - the data object coming from Prismic CMS that contains all data needed to display all mixes on `/schedule`

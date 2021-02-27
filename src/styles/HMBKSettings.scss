@@ -396,3 +396,121 @@ figcaption {
     }
   }
 }
+
+.divider {
+  &-left {
+    background: linear-gradient(135deg, #ffffff, #f600ff, #ffffff);
+    background-size: 600% 600%;
+
+    -webkit-animation: DividerAnim 1.25s ease infinite;
+    -moz-animation: DividerAnim 1.25s ease infinite;
+    -o-animation: DividerAnim 1.25s ease infinite;
+    animation: DividerAnim 1.25s ease infinite;
+  }
+  &-right {
+    background: linear-gradient(-135deg, #ffffff, #f600ff, #ffffff);
+    background-size: 600% 600%;
+
+    -webkit-animation: DividerAnim 1.25s ease infinite;
+    -moz-animation: DividerAnim 1.25s ease infinite;
+    -o-animation: DividerAnim 1.25s ease infinite;
+    animation: DividerAnim 1.25s ease infinite;
+  }
+
+  &-logo {
+    -webkit-animation: DividerLogoScaling 1.25s ease infinite;
+    -moz-animation: DividerLogoScaling 1.25s ease infinite;
+    -o-animation: DividerLogoScaling 1.25s ease infinite;
+    animation: DividerLogoScaling 1.25s ease infinite;
+  }
+}
+
+@-webkit-keyframes DividerAnim {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-moz-keyframes DividerAnim {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-o-keyframes DividerAnim {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes DividerAnim {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@-webkit-keyframes DividerLogoScaling {
+  0% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+@-moz-keyframes DividerLogoScaling {
+  0% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+@-o-keyframes DividerLogoScaling {
+  0% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+@keyframes DividerLogoScaling {
+  0% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}

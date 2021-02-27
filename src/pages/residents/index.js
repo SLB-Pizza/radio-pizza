@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
 import { useLazyQuery } from '@apollo/client'
-import { SingleResidentCard } from '../../components'
+import { HMBKDivider, SingleResidentCard } from '../../components'
 import {
   GET_MORE_RESIDENTS,
   GET_MORE_ALUMNI,
@@ -235,19 +235,23 @@ function ResidentsIndex({ data }) {
               ))}
             </div>
             {residents?.hasMore ? (
-              <div className="columns is-mobile">
-                <div className="column">
-                  <button
-                    className="button is-fullwidth is-outlined is-rounded"
-                    onClick={() =>
-                      getMoreResidents({
-                        variables: { after: residents.endCursor },
-                      })
-                    }
-                  >
-                    More Residents!
-                  </button>
-                </div>
+              <div className="columns is-mobile is-vcentered">
+                {!resLoad ? (
+                  <div className="column">
+                    <button
+                      className="button is-fullwidth is-outlined is-rounded"
+                      onClick={() =>
+                        getMoreResidents({
+                          variables: { after: residents.endCursor },
+                        })
+                      }
+                    >
+                      More Residents!
+                    </button>
+                  </div>
+                ) : (
+                  <HMBKDivider forLoading={true} />
+                )}
                 <div className="column is-narrow">
                   <a href="#mixes-header">
                     <button className="button is-fullwidth is-outlined is-rounded">
@@ -257,8 +261,9 @@ function ResidentsIndex({ data }) {
                 </div>
               </div>
             ) : (
-              <div className="columns is-mobile">
-                <div className="column is-offset-10 is-2">
+              <div className="columns is-mobile is-vcentered">
+                <HMBKDivider />
+                <div className="column is-narrow">
                   <a href="#all-mixes">
                     <button className="button is-fullwidth is-outlined is-rounded">
                       Top
@@ -280,18 +285,22 @@ function ResidentsIndex({ data }) {
             </div>
             {alumni?.hasMore ? (
               <div className="columns is-mobile">
-                <div className="column">
-                  <button
-                    className="button is-fullwidth is-outlined is-rounded"
-                    onClick={() =>
-                      getMoreAlumni({
-                        variables: { after: alumni.endCursor },
-                      })
-                    }
-                  >
-                    More Alumni
-                  </button>
-                </div>
+                {!alumLoad ? (
+                  <div className="column">
+                    <button
+                      className="button is-fullwidth is-outlined is-rounded"
+                      onClick={() =>
+                        getMoreAlumni({
+                          variables: { after: alumni.endCursor },
+                        })
+                      }
+                    >
+                      More Alumni
+                    </button>
+                  </div>
+                ) : (
+                  <HMBKDivider />
+                )}
                 <div className="column is-narrow">
                   <a href="#mixes-header">
                     <button className="button is-fullwidth is-outlined is-rounded">
@@ -324,18 +333,22 @@ function ResidentsIndex({ data }) {
             </div>
             {guests?.hasMore ? (
               <div className="columns is-mobile">
-                <div className="column">
-                  <button
-                    className="button is-fullwidth is-outlined is-rounded"
-                    onClick={() =>
-                      getMoreGuests({
-                        variables: { after: guests.endCursor },
-                      })
-                    }
-                  >
-                    More Guests
-                  </button>
-                </div>
+                {!guestLoad ? (
+                  <div className="column">
+                    <button
+                      className="button is-fullwidth is-outlined is-rounded"
+                      onClick={() =>
+                        getMoreGuests({
+                          variables: { after: guests.endCursor },
+                        })
+                      }
+                    >
+                      More Guests
+                    </button>
+                  </div>
+                ) : (
+                  <HMBKDivider forLoading={true} />
+                )}
                 <div className="column is-narrow">
                   <a href="#mixes-header">
                     <button className="button is-fullwidth is-outlined is-rounded">
@@ -345,8 +358,9 @@ function ResidentsIndex({ data }) {
                 </div>
               </div>
             ) : (
-              <div className="columns is-mobile">
-                <div className="column is-offset-10 is-2">
+              <div className="columns is-mobile is-vcentered">
+                <HMBKDivider />
+                <div className="column is-narrow">
                   <a href="#all-mixes">
                     <button className="button is-fullwidth is-outlined is-rounded">
                       Top

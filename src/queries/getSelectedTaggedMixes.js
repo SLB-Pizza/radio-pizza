@@ -9,17 +9,9 @@ import { gql } from '@apollo/client'
  * @see {@link https://hmbk-cms.prismic.io/graphql HMBK's Prismic GraphQL API}
  */
 export const GET_SELECTED_TAGGED_MIXES = gql`
-  query getSelectedTaggedMixes(
-    $first: Int = 12
-    $after: String
-    $tags: [String!]
-  ) {
-    allMixs(
-      sortBy: mix_date_DESC
-      first: $first
-      after: $after
-      tags_in: $tags
-    ) {
+  query getSelectedTaggedMixes($after: String, $tags: [String!]!) {
+    allMixs(sortBy: mix_date_DESC, after: $after, tags_in: $tags) {
+      totalCount
       pageInfo {
         hasNextPage
         endCursor

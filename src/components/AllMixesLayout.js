@@ -8,13 +8,16 @@ import { HMBKDivider, SingleMixCard } from '../components'
  * @function AllMixesLayout
  * @param {Object[]} mixesDataToMap
  * @param {Function} loadMixesFunc - {@link loadNextMixes} function
- * @param {Boolean} mixLoadState -
+ * @param {Boolean} mixLoadState - loading state of the Prismic allMixes page query triggered by {@link loadMoreMixes}
+ * @param {String} mixCardLayout - string defining the column sizing for {@link SingleMixCard}
  * @returns {jsx}
  */
-function AllMixesLayout({ loadMixesFunc, mixesDataToMap, mixLoadState }) {
-  const mixListLayout =
-    'column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen'
-
+function AllMixesLayout({
+  loadMixesFunc,
+  mixesDataToMap,
+  mixLoadState,
+  mixCardLayout,
+}) {
   return (
     <>
       <div className="columns is-mobile is-multiline">
@@ -22,7 +25,7 @@ function AllMixesLayout({ loadMixesFunc, mixesDataToMap, mixLoadState }) {
           <SingleMixCard
             key={`mixes-page-#${index}`}
             mixData={node}
-            columnLayout={mixListLayout}
+            columnLayout={mixCardLayout}
           />
         ))}
       </div>

@@ -46,6 +46,7 @@ function MixesIndexPage({ data, prismic }) {
     data: null,
     hasMore: null,
     endCursor: null,
+    totalCount: null,
   })
 
   /**
@@ -137,24 +138,6 @@ function MixesIndexPage({ data, prismic }) {
             tags: selectedTags,
           },
         })
-
-        console.log('fetchedTagMixes', fetchedTagMixes)
-        if (fetchedTagMixes) {
-          console.log('fetchedTagMixes exists', fetchedTagMixes)
-          const currentCursor = fetchedTagMixes.allMixs.pageInfo.endCursor
-          console.log('currentCursor', currentCursor)
-
-          const currentFetchedMixes = [
-            ...receivedTagMixes.data,
-            ...fetchedTagMixes.allMixs.edges,
-          ]
-
-          setReceivedTagMixes({
-            data: currentFetchedMixes,
-            hasMore: fetchedTagMixes.allMixs.pageInfo.hasNextPage,
-            endCursor: fetchedTagMixes.allMixs.pageInfo.endCursor,
-          })
-        }
       }
     }
 
@@ -169,15 +152,26 @@ function MixesIndexPage({ data, prismic }) {
   useEffect(() => {
     const processFetchedMixes = () => {
       if (fetchedTagMixes) {
+        const currentFetchedMixes =
+          receivedTagMixes.data === null
+            ? [...fetchedTagMixes.allMixs.edges]
+            : [...receivedTagMixes.data, ...fetchedTagMixes.allMixs.edges]
+
+        console.table(fetchedTagMixes)
+
         setReceivedTagMixes({
-          data: [...fetchedTagMixes.allMixs.edges],
+          data: currentFetchedMixes,
           hasMore: fetchedTagMixes.allMixs.pageInfo.hasNextPage,
           endCursor: fetchedTagMixes.allMixs.pageInfo.endCursor,
+          totalCount: fetchedTagMixes.allMixs.totalCount,
         })
       }
     }
     return processFetchedMixes()
   }, [fetchedTagMixes])
+
+  const mixListLayout =
+    'column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen'
 
   return (
     <main className="black-bg-page">
@@ -200,8 +194,9 @@ function MixesIndexPage({ data, prismic }) {
       >
         {receivedTagMixes?.data ? (
           <DisplayFetchedTaggedMixes
+            fetchFunc={fetchTaggedMixes}
             fetchedData={receivedTagMixes}
-            parentFetching={isFetching}
+            isFetching={isFetching}
             selectedTags={selectedTags}
           />
         ) : (
@@ -209,6 +204,7 @@ function MixesIndexPage({ data, prismic }) {
             loadMixesFunc={loadNextMixes}
             mixesDataToMap={mixesToMap}
             mixLoadState={mixesLoading}
+            mixCardLayout={mixListLayout}
           />
         )}
       </section>

@@ -19,7 +19,7 @@ function HomeEvents({ blurb, headline, homeEventsData }) {
       {/* DESKTOP */}
       <div className="columns is-hidden-touch">
         <div className="column is-3">
-          <div className="sticky-section-blurb content">
+          <div className="sticky-section content">
             <p className="title">{RichText.asText(headline)}</p>
             <p className="subtitle">{RichText.render(blurb)}</p>
             <Link to="/events">

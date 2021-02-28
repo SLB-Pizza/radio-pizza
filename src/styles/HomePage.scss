@@ -50,13 +50,15 @@ $shadow: 5;
 // <HomeContent />
 //==================================
 // Make each content sections' titles and taglines sticky
-.sticky-section-blurb {
+.sticky-section {
   position: -webkit-sticky;
   position: sticky;
   top: 8.25rem;
 
-  button {
-    top: 0.5rem;
+  &-blurb {
+    button {
+      top: 0.5rem;
+    }
   }
 }
 

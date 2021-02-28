@@ -80,7 +80,7 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
       {/* DESKTOP */}
       <div className="columns is-hidden-touch">
         <div className="column is-3">
-          <div className="sticky-section-blurb content">
+          <div className="sticky-section content">
             {headline && <p className="title">{RichText.asText(headline)}</p>}
             {blurb && <p className="subtitle">{RichText.render(blurb)}</p>}
             <Link to="/mixes">

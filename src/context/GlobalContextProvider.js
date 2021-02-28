@@ -61,7 +61,6 @@ function reducer(state, action) {
      * @name REMOVE_TAG_FROM_SEARCH_ARRAY
      */
     case 'REMOVE_TAG_FROM_SEARCH_ARRAY':
-      console.log('removing tag:', action.payload.tagToRemove)
       return {
         ...state,
         mixSearchTags: state.mixSearchTags.filter(
@@ -70,12 +69,11 @@ function reducer(state, action) {
       }
 
     /**
-     * Clear the mix search tags when navigating away from {@link MixesIndexPage}
+     * Clear the mix search tags when navigating away from {@link MixesIndexPage}. Dispatched by select links in {@link BottomNav} and home logo link in {@link RadioBar}.
      * @category Reducer Action
      * @name CLEAR_MIX_SEARCH_TAGS
      */
     case 'CLEAR_MIX_SEARCH_TAGS':
-      console.log('clearing all search tags')
       return {
         ...state,
         mixSearchTags: null,
@@ -87,7 +85,6 @@ function reducer(state, action) {
      * @name USING_SAME_TAGS_IN_MIX_QUERY
      */
     case 'USING_SAME_TAGS_IN_MIX_QUERY':
-      console.log('changing to true')
       return {
         ...state,
         sameTagsInQuery: true,
@@ -99,7 +96,6 @@ function reducer(state, action) {
      * @name NEW_TAGS_FOR_TAG_QUERY_SEARCH
      */
     case 'NEW_TAGS_FOR_TAG_QUERY_SEARCH':
-      console.log('changing to false')
       return {
         ...state,
         sameTagsInQuery: false,

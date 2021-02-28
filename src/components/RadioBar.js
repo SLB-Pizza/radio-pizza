@@ -23,6 +23,9 @@ function RadioBar({ nycTime, laTime }) {
   const [radioData, setRadioData] = useState({})
   const [pageIsVisible, setPageIsVisible] = useState(true)
 
+  const clearMixSearchTags = async () =>
+    await dispatch({ type: 'CLEAR_MIX_SEARCH_TAGS' })
+
   // const handleVisibilityChange = (isVisible) => {
   //   setPageIsVisible(isVisible);
   // };
@@ -118,7 +121,7 @@ function RadioBar({ nycTime, laTime }) {
 
       <div className="columns is-vcentered is-mobile">
         <div className="column is-narrow">
-          <Link to="/">
+          <Link to="/" onClick={() => clearMixSearchTags()}>
             <figure className="image is-48x48">
               <img
                 src={`../img/test/halfmoon-3.png`}

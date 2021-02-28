@@ -8,29 +8,26 @@ import {
 import { OutsideClick } from './index'
 
 /**
- *
+ * Returns the layout for the BottomNav.
+ * @category Site Element
  * @function BottomNav
+ * @returns {jsx}
  */
 function BottomNav() {
   const [dropUpOpen, setDropUpOpen] = useState(false)
   const dispatch = useContext(GlobalDispatchContext)
   const globalState = useContext(GlobalStateContext)
 
-  const closeDropUp = () => {
-    setDropUpOpen(false)
-  }
+  const closeDropUp = () => setDropUpOpen(false)
 
-  const toggleDropUp = () => {
-    setDropUpOpen(state => !state)
-  }
+  const toggleDropUp = () => setDropUpOpen(state => !state)
 
-  const closeNavMenu = async () => {
-    await dispatch({ type: 'CLOSE_NAVMENU' })
-  }
+  const closeNavMenu = async () => await dispatch({ type: 'CLOSE_NAVMENU' })
 
-  const toggleNavMenu = async () => {
-    await dispatch({ type: 'TOGGLE_NAVMENU' })
-  }
+  const toggleNavMenu = async () => await dispatch({ type: 'TOGGLE_NAVMENU' })
+
+  const clearMixSearchTags = async () =>
+    await dispatch({ type: 'CLEAR_MIX_SEARCH_TAGS' })
 
   /**
    * This globalState null return prevents ERROR #95313.
@@ -56,7 +53,10 @@ function BottomNav() {
           <Link
             to="/"
             className="navbar-item display-text"
-            onClick={() => closeNavMenu()}
+            onClick={() => {
+              closeNavMenu()
+              clearMixSearchTags()
+            }}
           >
             Ears to the concrete.
           </Link>
@@ -95,7 +95,10 @@ function BottomNav() {
             <Link
               to="/residents"
               className="navbar-item"
-              onClick={() => toggleNavMenu()}
+              onClick={() => {
+                toggleNavMenu()
+                clearMixSearchTags()
+              }}
             >
               Residents
             </Link>
@@ -132,21 +135,30 @@ function BottomNav() {
             <Link
               to="/events"
               className="navbar-item"
-              onClick={() => toggleNavMenu()}
+              onClick={() => {
+                toggleNavMenu()
+                clearMixSearchTags()
+              }}
             >
               Events
             </Link>
             <Link
               to="/features"
               className="navbar-item"
-              onClick={() => toggleNavMenu()}
+              onClick={() => {
+                toggleNavMenu()
+                clearMixSearchTags()
+              }}
             >
               Features
             </Link>
             <Link
               to="/about"
               className="navbar-item"
-              onClick={() => toggleNavMenu()}
+              onClick={() => {
+                toggleNavMenu()
+                clearMixSearchTags()
+              }}
             >
               About
             </Link>
@@ -155,7 +167,9 @@ function BottomNav() {
             <a
               href="https://www.mixcloud.com/HalfMoonbk/"
               className="navbar-item"
-              onClick={() => toggleNavMenu()}
+              onClick={() => {
+                toggleNavMenu()
+              }}
               aria-label="Halfmoon on Mixcloud"
               target="_blank"
               rel="noopener"
@@ -167,7 +181,9 @@ function BottomNav() {
             <a
               href="https://www.instagram.com/halfmoonbk/"
               className="navbar-item"
-              onClick={() => toggleNavMenu()}
+              onClick={() => {
+                toggleNavMenu()
+              }}
               aria-label="Halfmoon on Instagram"
               target="_blank"
               rel="noopener"

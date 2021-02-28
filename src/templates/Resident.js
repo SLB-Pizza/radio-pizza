@@ -20,8 +20,8 @@ import {
 /**
  * @category Templates
  * @function ResidentTemplate
- * @param {object} data - Prismic CMS data object containing all data needed to build `/residents/:uid`
- * @param {object} path - the complete path of `/residents/:uid`; passed to {@link SingleMixCard} so that it can be used by {@link getResidentLink} to compare to the `featured_residents` _meta data
+ * @param {Object} data - Prismic CMS data object containing all data needed to build `/residents/:uid`
+ * @param {Object} path - the complete path of `/residents/:uid`; passed to {@link SingleMixCard} so that it can be used by {@link getResidentLink} to compare to the `featured_residents` _meta data
  * @returns {jsx}
  */
 function ResidentTemplate({ data, path }) {
@@ -137,14 +137,13 @@ function ResidentTemplate({ data, path }) {
    * Helper functions
    * Toggles the column selected based on the id of clicked/selected category
    */
-  function toggleCateogry(event) {
+  function toggleCategory(event) {
     if (isOpen !== event.currentTarget.id) {
       setIsOpen(event.currentTarget.id)
     }
   }
 
-  const smallCardLayout =
-    'column is-12-mobile is-6-tablet is-4- is-4-widescreen'
+  const smallCardLayout = 'column is-12-mobile is-6-tablet is-4-widescreen'
   const largeCardLayout = 'column is-6 is-4-widescreen'
 
   return (
@@ -228,7 +227,7 @@ function ResidentTemplate({ data, path }) {
                           : 'button is-fullwidth is-outlined is-rounded'
                       }
                       id={type}
-                      onClick={toggleCateogry}
+                      onClick={toggleCategory}
                     >
                       {type}
                     </button>
@@ -241,7 +240,7 @@ function ResidentTemplate({ data, path }) {
                           : 'button is-small is-fullwidth is-outlined is-rounded'
                       }
                       id={type}
-                      onClick={toggleCateogry}
+                      onClick={toggleCategory}
                     >
                       {type}
                     </button>

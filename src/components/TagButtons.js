@@ -6,7 +6,7 @@ import {
 } from '../context/GlobalContextProvider'
 
 /**
- * Makes tag buttons. Returns null if tagsArray has length 0. Rendered by {@link SingleMixCard}. Dispatches {@link tagDispatch} onClick using the selected tag
+ * Makes tag buttons. Returns null if tagsArray has length 0. Rendered by {@link SingleMixCard}. Dispatches {@link addTagToSearchArray} onClick using the selected tag
  * @category Layout Helper
  * @function TagButtons
  * @param {String[]} tagsArray - array of strings that are used to make the individual tag buttons
@@ -17,22 +17,26 @@ export default function TagButtons({ tagsArray }) {
   const globalState = useContext(GlobalStateContext)
 
   /**
-   * Sends off {@link SELECT_MIX_SEARCH_TAG}
+   * Sends off {@link ADD_TAG_TO_MIX_SEARCH} and {@link NEW_TAGS_FOR_TAG_QUERY_SEARCH}.
    * Two Dispatch Scenarios:
    * 1. mixSearchTags hasn't been set yet (starts out `null`)
    * 2. mixSearchTags is an array with:
    *    - .length < 3
    *    - doesn't contain the current tag
    *
-   * 1 -> dispatch tag wrapped in an array e.g. `['tag']`
-   * 2 -> dispatch tag as a string e.g. `'tag'`
+   * 1 -> dispatch tag wrapped in an array e.g. `['tag']`.
+   * 2 -> dispatch tag as a string e.g. `'tag'`,.
    * @category Dispatch Function
-   * @name tagDispatch
+   * @function addTagToSearchArray
+   * @param {String} tag - the string that appears in a single mix tag
    */
-  const tagDispatch = async tag => {
+  const addTagToSearchArray = async tag => {
     if (!globalState.mixSearchTags) {
       await dispatch({
-        type: 'SELECT_MIX_SEARCH_TAG',
+        type: 'NEW_TAGS_FOR_TAG_QUERY_SEARCH',
+      })
+      await dispatch({
+        type: 'ADD_TAG_TO_MIX_SEARCH',
         payload: {
           mixTag: [tag],
         },
@@ -42,7 +46,10 @@ export default function TagButtons({ tagsArray }) {
       globalState.mixSearchTags.length < 3
     ) {
       await dispatch({
-        type: 'SELECT_MIX_SEARCH_TAG',
+        type: 'NEW_TAGS_FOR_TAG_QUERY_SEARCH',
+      })
+      await dispatch({
+        type: 'ADD_TAG_TO_MIX_SEARCH',
         payload: {
           mixTag: tag,
         },
@@ -58,7 +65,9 @@ export default function TagButtons({ tagsArray }) {
           <button
             key={`span-tag-#${index}`}
             className="tag is-outlined is-rounded is-black"
-            onClick={() => tagDispatch(lowercaseTag)}
+            onClick={() => {
+              addTagToSearchArray(lowercaseTag)
+            }}
           >
             {lowercaseTag}
           </button>

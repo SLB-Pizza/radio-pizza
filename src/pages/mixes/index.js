@@ -4,10 +4,7 @@ import { graphql } from 'gatsby'
 import { useLazyQuery } from '@apollo/client'
 
 import { GET_SELECTED_TAGGED_MIXES } from '../../queries'
-import {
-  GlobalDispatchContext,
-  GlobalStateContext,
-} from '../../context/GlobalContextProvider'
+import { GlobalStateContext } from '../../context/GlobalContextProvider'
 import { AllMixesLayout, DisplayFetchedTaggedMixes } from '../../components'
 
 /**
@@ -19,7 +16,6 @@ import { AllMixesLayout, DisplayFetchedTaggedMixes } from '../../components'
  * @returns {jsx}
  */
 function MixesIndexPage({ data, prismic }) {
-  const dispatch = useContext(GlobalDispatchContext)
   const globalState = useContext(GlobalStateContext)
 
   // Initial useState is first query results
@@ -40,7 +36,7 @@ function MixesIndexPage({ data, prismic }) {
   // manually set loading boolean for Prismic.load calls
   const [mixesLoading, setMixesLoading] = useState(false)
 
-  // useStates for tag selection and querying
+  // useStates for tag selection and querying with tags
   const [selectedTags, setSelectedTags] = useState(null)
   const [receivedTagMixes, setReceivedTagMixes] = useState({
     data: null,
@@ -106,15 +102,35 @@ function MixesIndexPage({ data, prismic }) {
   }, [page])
 
   /**
-   * Brings globalState.mixSearchTags to /mixes local useState.
-   * Runs when globalState is changed based off a click {@link TagButtons} on {@link MixesIndexPage}, dispatching {@link SELECT_MIX_SEARCH_TAG} to add the tag's text to `mixSearchTags`.
+   * When `globalState.mixSearchTags` is an array with tag values, sets `selectedTags` to those values.
+   *  When `globalState.mixSearchTags` is null, this nulls both local `selectedTags` and `receivedTagMixes`.
    * @category useEffect
    * @name addMixToTagSearchArr
    */
   useEffect(() => {
     const addMixToTagSearchArr = () => {
+      /**
+       * Scenario 1
+       *
+       * Brings globalState.mixSearchTags to /mixes local useState.
+       * Runs when globalState is changed based off a click {@link TagButtons} on {@link MixesIndexPage}, dispatching {@link ADD_TAG_TO_MIX_SEARCH} to add the tag's text to `mixSearchTags`.
+       */
       if (globalState.mixSearchTags) {
         setSelectedTags(globalState.mixSearchTags)
+      } else {
+        /**
+         * Scenario 2
+         *
+         * Resets both `selectedTags ` and `receivedTagMixes` to null states, removing {@link DisplayFetchedTaggedMixes} allowing {@link AllMixesLayout} to render
+         */
+        console.log('mixSearchTags', globalState.mixSearchTags)
+        setSelectedTags(null)
+        setReceivedTagMixes({
+          data: null,
+          hasMore: null,
+          endCursor: null,
+          totalCount: null,
+        })
       }
     }
 
@@ -130,7 +146,7 @@ function MixesIndexPage({ data, prismic }) {
   useEffect(() => {
     const executeTagSearch = () => {
       /**
-       * Only run fetchedTaggedMixes when selectedTags is defined.
+       * Only run {@link fetchedTaggedMixes} when selectedTags is defined.
        */
       if (selectedTags) {
         fetchTaggedMixes({
@@ -146,18 +162,46 @@ function MixesIndexPage({ data, prismic }) {
 
   /**
    * Runs after {@link executeTagSearch} returns a fetchedTagMixes object. Sets receivedTagMixes using fetchedTagMixes. receivedTagMixes then triggers render of {@link DisplayFetchedTaggedMixes}.
+   *
+   * Processes based on three scenarios:
+   * 1. If `receivedTagMixes.data` is null, use edges arr as currentFetchedMixes.
+   * 2. If `globalState.sameTagsInQuery` is true, {@link fetchTaggedMixes} was triggered to fetch MORE mixes using the same tags array as the last fetch by fetch more button in {@link DisplayFetchedTaggedMixes}.
+   * Combine the existed receivedTagMixes with the incoming fetchedTagMixes edges subarray.
+   * 3. `receivedTagMixes.data` has data.
+   * `globalState.sameTagsInQuery` is false.
+   * Source of query:
+   * - {@link TagButtons} or
+   * - {@link DisplayFetchedTaggedMixes} 'remove selected tag' buttons Overwrite current `receivedTagMixes` with the incoming `fetchedTagMixes` edges subarray.
    * @category useEffect
-   * @name executeTagSearch
+   * @name processFetchedMixes
    */
   useEffect(() => {
     const processFetchedMixes = () => {
       if (fetchedTagMixes) {
-        const currentFetchedMixes =
-          receivedTagMixes.data === null
-            ? [...fetchedTagMixes.allMixs.edges]
-            : [...receivedTagMixes.data, ...fetchedTagMixes.allMixs.edges]
+        // Set up a placeholder variable.
+        let currentFetchedMixes
 
-        console.table(fetchedTagMixes)
+        console.log('STIQ in fetchedTagMixes', globalState.sameTagsInQuery)
+
+        /**
+         * SCENARIO 1
+         */
+        if (receivedTagMixes.data === null) {
+          currentFetchedMixes = fetchedTagMixes.allMixs.edges
+        } else if (globalState.sameTagsInQuery) {
+          /**
+           * SCENARIO 2
+           */
+          currentFetchedMixes = [
+            ...receivedTagMixes.data,
+            ...fetchedTagMixes.allMixs.edges,
+          ]
+        } else {
+          /**
+           * SCENARIO 3
+           */
+          currentFetchedMixes = fetchedTagMixes.allMixs.edges
+        }
 
         setReceivedTagMixes({
           data: currentFetchedMixes,

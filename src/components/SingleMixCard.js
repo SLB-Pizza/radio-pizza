@@ -23,7 +23,7 @@ import {
  * @property {Object} mixData.mix_image - object containing the different sizes of a mix's image
  * @property {String[]} mixData._meta.tags - the mix's tags; allowed to be empty array
  * @param {String} columnLayout - string detailing the column layout across different responsive breakpoints
- * @param {?String} path - optional string passed down only by {@link ResidentTemplate} for use with {@link linkResolver}. Crucial to {@link TagButtons} dispatch func
+ * @param {?String} path - optional string passed down only by {@link ResidentTemplate} for use with {@link linkResolver}. Crucial to {@link TagButtons} dispatch function
  * @returns {jsx}
  * @see {@link https://bulma.io/documentation/columns/sizes/ bulma.io column sizing}
  */

@@ -29,6 +29,7 @@ const initialState = {
   navMenuOpen: false,
   currentClockTime: '',
   mixSearchTags: null,
+  sameTagsInQuery: false,
 }
 
 function reducer(state, action) {
@@ -36,11 +37,11 @@ function reducer(state, action) {
     /**
      * If mixSearchTags isn't already an array with at least one tag, create the array and add the tag.
      * Else, add the tag to the existing tag entries
-     * Called by {@link TagButtons} inside {@link SingleMixCard}
+     * Called by {@link addTagToSearchArray} inside {@link TagButtons}
      * @category Reducer Action
-     * @name SELECT_MIX_SEARCH_TAG
+     * @name ADD_TAG_TO_MIX_SEARCH
      */
-    case 'SELECT_MIX_SEARCH_TAG':
+    case 'ADD_TAG_TO_MIX_SEARCH':
       if (!state.mixSearchTags) {
         return {
           ...state,
@@ -57,13 +58,14 @@ function reducer(state, action) {
      * Remove the clicked 'selected' tag from the current mix search tags array
      * {@link MixesIndexPage}
      * @category Reducer Action
-     * @name UNSELECT_MIX_SEARCH_TAG
+     * @name REMOVE_TAG_FROM_SEARCH_ARRAY
      */
-    case 'UNSELECT_MIX_SEARCH_TAG':
+    case 'REMOVE_TAG_FROM_SEARCH_ARRAY':
+      console.log('removing tag:', action.payload.tagToRemove)
       return {
         ...state,
         mixSearchTags: state.mixSearchTags.filter(
-          tag => tag !== action.payload.mixTag
+          tag => tag !== action.payload.tagToRemove
         ),
       }
 
@@ -73,9 +75,34 @@ function reducer(state, action) {
      * @name CLEAR_MIX_SEARCH_TAGS
      */
     case 'CLEAR_MIX_SEARCH_TAGS':
+      console.log('clearing all search tags')
       return {
         ...state,
         mixSearchTags: null,
+      }
+
+    /**
+     * Used to tell {@link processFetchedMixes} to combine the existing `receivedTagMixes.data` on {@link MixesIndexPage} with the incoming {@link fetchTaggedMixes} data to map the next set of mixes in {@link DisplayFetchedTaggedMixes}.
+     * @category Reducer Action
+     * @name USING_SAME_TAGS_IN_MIX_QUERY
+     */
+    case 'USING_SAME_TAGS_IN_MIX_QUERY':
+      console.log('changing to true')
+      return {
+        ...state,
+        sameTagsInQuery: true,
+      }
+
+    /**
+     * Used to tell {@link processFetchedMixes} on {@link MixesIndexPage} to use the incoming {@link fetchTaggedMixes} data to for a fresh map of {@link DisplayFetchedTaggedMixes}.
+     * @category Reducer Action
+     * @name NEW_TAGS_FOR_TAG_QUERY_SEARCH
+     */
+    case 'NEW_TAGS_FOR_TAG_QUERY_SEARCH':
+      console.log('changing to false')
+      return {
+        ...state,
+        sameTagsInQuery: false,
       }
 
     /**

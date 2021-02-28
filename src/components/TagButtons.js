@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { Link, navigate } from 'gatsby'
 import PropTypes from 'prop-types'
 import {
   GlobalDispatchContext,
@@ -10,14 +11,15 @@ import {
  * @category Layout Helper
  * @function TagButtons
  * @param {String[]} tagsArray - array of strings that are used to make the individual tag buttons
+ * @param {?Boolean} onMixesPage - optional boolean for use with {@link tagNavigateAndDispatch} function. When `true`, tells that function to ignore the navigate portion of the function and just run {@link addTagToSearchArray}.
  * @returns {jsx}
  */
-export default function TagButtons({ tagsArray }) {
+export default function TagButtons({ tagsArray, onMixesPage }) {
   const dispatch = useContext(GlobalDispatchContext)
   const globalState = useContext(GlobalStateContext)
 
   /**
-   * Sends off {@link ADD_TAG_TO_MIX_SEARCH} and {@link NEW_TAGS_FOR_TAG_QUERY_SEARCH}.
+   * Dispatches {@link ADD_TAG_TO_MIX_SEARCH} or {@link NEW_TAGS_FOR_TAG_QUERY_SEARCH}.
    * Two Dispatch Scenarios:
    * 1. mixSearchTags hasn't been set yet (starts out `null`)
    * 2. mixSearchTags is an array with:
@@ -57,19 +59,36 @@ export default function TagButtons({ tagsArray }) {
     }
   }
 
+  /**
+   * Function that reads the current location and navigates to `/mixes` ({@link MixesIndexPage}) before firing off the {@link addTagToSearchArray} dispatch function. Reason being that if the dispatch function is allowed to fire before navigating to `/mixes`, the `globalState.mixSearchTags` array will update and not trigger the `useEffect` chain on {@link MixesIndexPage} to fire
+   *
+   * Pages and Templates that need to pass down the Gatsby's `location` prop through a {@link SingleMixCard} render into this {@link TagButtons} component:
+   * - {@link IndexPage}
+   * @category Utilities
+   * @function tagNavigateAndDispatch
+   * @param {String} currentLocation
+   * @param {String} tag
+   */
+  const tagNavigateAndDispatch = (onMixesPage, tag) => {
+    if (!onMixesPage) {
+      console.log('not on /mixes! Navigating now!')
+      navigate('/mixes')
+    }
+    addTagToSearchArray(tag)
+  }
+
   return (
     <div className="tags">
       {tagsArray?.map((tag, index) => {
-        const lowercaseTag = tag.toLowerCase()
         return (
           <button
             key={`span-tag-#${index}`}
             className="tag is-outlined is-rounded is-black"
             onClick={() => {
-              addTagToSearchArray(lowercaseTag)
+              tagNavigateAndDispatch(onMixesPage, tag)
             }}
           >
-            {lowercaseTag}
+            {tag}
           </button>
         )
       })}

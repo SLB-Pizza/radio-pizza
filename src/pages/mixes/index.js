@@ -8,7 +8,18 @@ import { GlobalStateContext } from '../../context/GlobalContextProvider'
 import { AllMixesLayout, DisplayFetchedTaggedMixes } from '../../components'
 
 /**
- * Layout for /mixes landing page.
+ * Layout for /mixes landing page. This is also the page layout where mix tag queries are fetched are rendered.
+ *
+ * How Tag Queries Happen and Render:
+ * 1. A {@link TagButtons} is clicked (e.g. "rap")
+ * 2. {@link tagNavigateAndDispatch} is called.
+ * - If current page is not `/mixes`: navigate to `/mixes`, then call {@link addTagToSearchArray}
+ * - If on "/mixes", just call {@link addTagToSearchArray}
+ * 3. {@link addTagToSearchArray} dispatches one of {@link ADD_TAG_TO_MIX_SEARCH} or {@link NEW_TAGS_FOR_TAG_QUERY_SEARCH}.
+ * 4. {@link addMixToTagSearchArr} `useEffect` detects the change to `globalState.mixSearchTags` and `setSelectedTags` to that array value or nulls both `selectedTags` and `setReceivedTagMixes`.
+ * 5. {@link executeTagSearch} `useEffect` detects the change to `selectedTags` and runs the {@link fetchTaggedMixes} only if `selectedTags` isn't null.
+ * 6. {@link processFetchedMixes} `useEffect` detects change in `taggedMixesData`, {@link fetchTaggedMixes} returned tag query data, and `setReceivedTagMixes` data object.
+ * 7. Now that `receivedTagMixes` is an object with queried data, {@link DisplayFetchedTaggedMixes} renders that data because of a `receivedTagMixes?.data` ternary.
  * @category Pages
  * @function MixesIndexPage
  * @param {Object} data - the data object coming from Prismic CMS that contains all data needed to display all mixes on `/mixes`
@@ -48,13 +59,13 @@ function MixesIndexPage({ data, prismic }) {
   /**
    * useLazyQuery called by {@link executeTagSearch}.
    * Passes {@link MixesIndexPage} local `selectedTags` as variable to query.
-   * Returns data as `fetchedTagMixes` and a loading state as `isFetching`.
+   * Returns data as `taggedMixesData` and a loading state as `isFetching`.
    * @category useLazyQueries
    * @name fetchTaggedMixes
    */
   const [
     fetchTaggedMixes,
-    { loading: isFetching, data: fetchedTagMixes },
+    { loading: isFetching, data: taggedMixesData },
   ] = useLazyQuery(GET_SELECTED_TAGGED_MIXES)
 
   /**
@@ -102,8 +113,10 @@ function MixesIndexPage({ data, prismic }) {
   }, [page])
 
   /**
-   * When `globalState.mixSearchTags` is an array with tag values, sets `selectedTags` to those values.
-   *  When `globalState.mixSearchTags` is null, this nulls both local `selectedTags` and `receivedTagMixes`.
+   * `globalState.mixSearchTags` is an array with tag values
+   * - set `selectedTags` to those values.
+   *  `globalState.mixSearchTags` is null,
+   * - nulls both local `selectedTags` and `receivedTagMixes`.
    * @category useEffect
    * @name addMixToTagSearchArr
    */
@@ -116,6 +129,7 @@ function MixesIndexPage({ data, prismic }) {
        * Runs when globalState is changed based off a click {@link TagButtons} on {@link MixesIndexPage}, dispatching {@link ADD_TAG_TO_MIX_SEARCH} to add the tag's text to `mixSearchTags`.
        */
       if (globalState.mixSearchTags) {
+        console.log('setting selectedTags:', globalState.mixSearchTags)
         setSelectedTags(globalState.mixSearchTags)
       } else {
         /**
@@ -123,7 +137,7 @@ function MixesIndexPage({ data, prismic }) {
          *
          * Resets both `selectedTags ` and `receivedTagMixes` to null states, removing {@link DisplayFetchedTaggedMixes} allowing {@link AllMixesLayout} to render
          */
-        console.log('mixSearchTags', globalState.mixSearchTags)
+        console.log('about to null selectedTags and receivedTagMixes')
         setSelectedTags(null)
         setReceivedTagMixes({
           data: null,
@@ -146,7 +160,7 @@ function MixesIndexPage({ data, prismic }) {
   useEffect(() => {
     const executeTagSearch = () => {
       /**
-       * Only run {@link fetchedTaggedMixes} when selectedTags is defined.
+       * Only run {@link fetchTaggedMixes} when selectedTags is defined.
        */
       if (selectedTags) {
         fetchTaggedMixes({
@@ -161,58 +175,57 @@ function MixesIndexPage({ data, prismic }) {
   }, [selectedTags])
 
   /**
-   * Runs after {@link executeTagSearch} returns a fetchedTagMixes object. Sets receivedTagMixes using fetchedTagMixes. receivedTagMixes then triggers render of {@link DisplayFetchedTaggedMixes}.
+   * Runs after {@link executeTagSearch} returns a `taggedMixesData` object. Sets `receivedTagMixes` using `taggedMixesData`. `receivedTagMixes` then triggers render of {@link DisplayFetchedTaggedMixes}.
    *
    * Processes based on three scenarios:
    * 1. If `receivedTagMixes.data` is null, use edges arr as currentFetchedMixes.
    * 2. If `globalState.sameTagsInQuery` is true, {@link fetchTaggedMixes} was triggered to fetch MORE mixes using the same tags array as the last fetch by fetch more button in {@link DisplayFetchedTaggedMixes}.
-   * Combine the existed receivedTagMixes with the incoming fetchedTagMixes edges subarray.
+   * Combine the existing `receivedTagMixes` with the incoming `taggedMixesData` edges subarray.
    * 3. `receivedTagMixes.data` has data.
    * `globalState.sameTagsInQuery` is false.
    * Source of query:
    * - {@link TagButtons} or
-   * - {@link DisplayFetchedTaggedMixes} 'remove selected tag' buttons Overwrite current `receivedTagMixes` with the incoming `fetchedTagMixes` edges subarray.
+   * - {@link DisplayFetchedTaggedMixes} 'remove selected tag' buttons Overwrite current `receivedTagMixes` with the incoming `taggedMixesData` edges subarray.
    * @category useEffect
    * @name processFetchedMixes
    */
   useEffect(() => {
     const processFetchedMixes = () => {
-      if (fetchedTagMixes) {
+      if (taggedMixesData) {
         // Set up a placeholder variable.
         let currentFetchedMixes
 
-        console.log('STIQ in fetchedTagMixes', globalState.sameTagsInQuery)
-
+        console.log('using same tags for query', globalState.sameTagsInQuery)
         /**
          * SCENARIO 1
          */
         if (receivedTagMixes.data === null) {
-          currentFetchedMixes = fetchedTagMixes.allMixs.edges
+          currentFetchedMixes = taggedMixesData.allMixs.edges
         } else if (globalState.sameTagsInQuery) {
           /**
            * SCENARIO 2
            */
           currentFetchedMixes = [
             ...receivedTagMixes.data,
-            ...fetchedTagMixes.allMixs.edges,
+            ...taggedMixesData.allMixs.edges,
           ]
         } else {
           /**
            * SCENARIO 3
            */
-          currentFetchedMixes = fetchedTagMixes.allMixs.edges
+          currentFetchedMixes = taggedMixesData.allMixs.edges
         }
 
         setReceivedTagMixes({
           data: currentFetchedMixes,
-          hasMore: fetchedTagMixes.allMixs.pageInfo.hasNextPage,
-          endCursor: fetchedTagMixes.allMixs.pageInfo.endCursor,
-          totalCount: fetchedTagMixes.allMixs.totalCount,
+          hasMore: taggedMixesData.allMixs.pageInfo.hasNextPage,
+          endCursor: taggedMixesData.allMixs.pageInfo.endCursor,
+          totalCount: taggedMixesData.allMixs.totalCount,
         })
       }
     }
     return processFetchedMixes()
-  }, [fetchedTagMixes])
+  }, [taggedMixesData])
 
   const mixListLayout =
     'column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen'
@@ -372,15 +385,15 @@ export default MixesIndexPage
 //       },
 //     });
 
-//     console.log("fetchedTagMixes", fetchedTagMixes);
-//     if (fetchedTagMixes) {
-//       console.log("fetchedTagMixes exists", fetchedTagMixes);
-//       const currentCursor = fetchedTagMixes.allMixs.pageInfo.endCursor;
+//     console.log("taggedMixesData", taggedMixesData);
+//     if (taggedMixesData) {
+//       console.log("taggedMixesData exists", taggedMixesData);
+//       const currentCursor = taggedMixesData.allMixs.pageInfo.endCursor;
 //       console.log("currentCursor", currentCursor);
 
 //       const currentFetchedMixes = [
 //         ...mixesArr,
-//         ...fetchedTagMixes.allMixs.edges,
+//         ...taggedMixesData.allMixs.edges,
 //       ];
 //       console.log(
 //         "currFetchedMixes",
@@ -388,13 +401,13 @@ export default MixesIndexPage
 //         currentFetchedMixes
 //       );
 
-//       if (fetchedTagMixes.allMixs.pageInfo.hasNextPage) {
+//       if (taggedMixesData.allMixs.pageInfo.hasNextPage) {
 //         executeTagSearch(currentFetchedMixes, currentCursor);
 //       } else {
 //         setReceivedTagMixes({
 //           data: currentFetchedMixes,
-//           hasMore: fetchedTagMixes.allMixs.pageInfo.hasNextPage,
-//           endCursor: fetchedTagMixes.allMixs.pageInfo.endCursor,
+//           hasMore: taggedMixesData.allMixs.pageInfo.hasNextPage,
+//           endCursor: taggedMixesData.allMixs.pageInfo.endCursor,
 //         });
 //       }
 //     }

@@ -23,11 +23,11 @@ import {
  * @property {Object} mixData.mix_image - object containing the different sizes of a mix's image
  * @property {String[]} mixData._meta.tags - the mix's tags; allowed to be empty array
  * @param {String} columnLayout - string detailing the column layout across different responsive breakpoints
- * @param {?String} path - optional string passed down only by {@link ResidentTemplate} for use with {@link linkResolver}. Crucial to {@link TagButtons} dispatch function
+ * @param {?Boolean} onMixesPage - optional boolean prop received as `true` from only two layout components: {@link DisplayFetchedTaggedMixes} and {@link AllMixesLayout}, both of which only render on {@link MixesIndexPage}. Passed to {@link TagButtons} for use with {@link tagNavigateAndDispatch}.
  * @returns {jsx}
  * @see {@link https://bulma.io/documentation/columns/sizes/ bulma.io column sizing}
  */
-function SingleMixCard({ mixData, columnLayout, path }) {
+function SingleMixCard({ mixData, columnLayout, onMixesPage }) {
   const [mixDateStr, setMixDateStr] = useState(null)
   const [mixResidentsStr, setMixResidentsStr] = useState(null)
   const [mixDateResStr, setMixDateResStr] = useState(null)
@@ -159,7 +159,7 @@ function SingleMixCard({ mixData, columnLayout, path }) {
               )}
             </div>
 
-            <TagButtons tagsArray={tags} path={path} />
+            <TagButtons tagsArray={tags} onMixesPage={onMixesPage} />
           </div>
         </div>
       </div>
@@ -191,7 +191,7 @@ SingleMixCard.propTypes = {
       featured_residents: PropTypes.arrayOf(PropTypes.object),
     }),
   }).isRequired,
-  path: PropTypes.string,
+  location: PropTypes.string,
 }
 
 export default SingleMixCard

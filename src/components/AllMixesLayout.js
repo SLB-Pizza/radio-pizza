@@ -2,14 +2,16 @@ import React from 'react'
 import { HMBKDivider, SingleMixCard } from '../components'
 
 /**
- * Layout for mixes from {@link MixesIndexPage} page query and subsequent fetches by {@link loadMoreMixes}.
- * Renders when no tags are selected for a {@link fetchedMixes}
+ * Layout for mixes from {@link MixesIndexPage} page query and subsequent fetches by {@link loadMoreMixes}. Renders when no tags are selected for a {@link fetchedMixes}.
+ *
+ * This component passes `onMixesPage = true` prop to {@link SingleMixCard} for use in {@link TagButtons}.
  * @category Layout Helper
  * @function AllMixesLayout
  * @param {Object[]} mixesDataToMap
  * @param {Function} loadMixesFunc - {@link loadNextMixes} function
  * @param {Boolean} mixLoadState - loading state of the Prismic allMixes page query triggered by {@link loadMoreMixes}
  * @param {String} mixCardLayout - string defining the column sizing for {@link SingleMixCard}
+ *
  * @returns {jsx}
  */
 function AllMixesLayout({
@@ -26,6 +28,7 @@ function AllMixesLayout({
             key={`mixes-page-#${index}`}
             mixData={node}
             columnLayout={mixCardLayout}
+            onMixesPage={true}
           />
         ))}
       </div>

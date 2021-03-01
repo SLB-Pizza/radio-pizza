@@ -71,7 +71,8 @@ function MixesIndexPage({ data, prismic }) {
   /**
    * Fetch more mixes when the 'More Music' button is clicked in {@link AllMixesLayout} on {@link MixesIndexPage}.
    * Use the loadNextMixes function to call the useEffect.
-   * @name loadNextMixes
+   * @category Fetch Trigger
+   * @function loadNextMixes
    */
   const loadNextMixes = () => {
     setPage(page => page + mixesPerPage)
@@ -245,9 +246,8 @@ function MixesIndexPage({ data, prismic }) {
       </header>
 
       <section
-        className="section container is-fluid"
+        className="section container is-fluid media-cards"
         id="all-mixes"
-        style={{ paddingBottom: 0 }}
       >
         {receivedTagMixes?.data ? (
           <DisplayFetchedTaggedMixes

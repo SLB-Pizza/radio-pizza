@@ -222,10 +222,7 @@ function ResidentsIndex({ data }) {
         </div>
       </section>
 
-      <section
-        className="section container is-fluid"
-        style={{ paddingBottom: 0 }}
-      >
+      <section className="section container is-fluid media-cards">
         {/* CURRENT HMBK RESIDENTS */}
         {isOpen === 'Residents' ? (
           <>

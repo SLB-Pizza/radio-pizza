@@ -219,6 +219,11 @@ figcaption {
 // Give the date of content items some space
 //================================================
 
+// Remove bottom padding from 'section' class
+.section.media-cards {
+  padding-bottom: 0;
+}
+
 // Prevents clipping of background color through the curved card border
 .card-content {
   border-bottom-left-radius: 0.75rem;

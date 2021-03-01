@@ -236,7 +236,7 @@ function MixesIndexPage({ data, prismic }) {
       <header className="container is-fluid" id="mixes-header">
         <div className="columns is-mobile is-multiline">
           <div className="column is-12 content">
-            <h1 className="title is-3-desktop is-4-touch">Recent Mixes</h1>
+            <h1 className="title is-3-desktop is-4-touch">radio mixes</h1>
             <p className="subtitle is-5-desktop is-6-touch">
               These dummy mixes are the same as the ones on the home page. You
               can hover/touch and play them the same way. Try it!

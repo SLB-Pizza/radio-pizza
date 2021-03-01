@@ -178,7 +178,7 @@ function ResidentsIndex({ data }) {
         <div className="columns is-mobile">
           <div className="column is-full content">
             <h1 className="title is-size-3-desktop is-size-5-touch">
-              Halfmoon Residents
+              residents
             </h1>
           </div>
         </div>

@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
+import { getCursorFromDocumentIndex } from '@prismicio/gatsby-source-prismic-graphql'
 import { graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
-import { TopicPageHighlightSection, SingleFeatureCard } from '../../components'
+import { FeaturesHighlightItems, SingleFeatureCard } from '../../components'
 import PropTypes from 'prop-types'
 
 /**
@@ -9,9 +10,10 @@ import PropTypes from 'prop-types'
  * @category Pages
  * @function FeaturesIndexPage
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/features` landing page
+ * @param {Object} prismic - the data object containing Prismic follow up functions
  * @returns {jsx}
  */
-function FeaturesIndex({ data }) {
+function FeaturesIndexPage({ data }) {
   /**
    * Focus the node for the otherFeaturesData check below.
    */
@@ -20,7 +22,7 @@ function FeaturesIndex({ data }) {
 
   /**
    * This line is here to prevent an error from occurring when you eventually deploy the site live. There is an issue with the preview functionality that requires this check on every page.
-   * @see https://prismic.io/docs/gatsby/rendering/retrieve-the-document-object#21_0-adding-a-validation-check
+   * @see {@link https://prismic.io/docs/gatsby/rendering/retrieve-the-document-object#21_0-adding-a-validation-check Retrieve the document object}
    */
   if (!otherFeaturesData || !featuresHeaderData) return null
 
@@ -28,13 +30,9 @@ function FeaturesIndex({ data }) {
   const [featuresToMap, setFeaturesToMap] = useState(null)
 
   /**
-   * The data from the 'FeaturesIndexPage' query comes pre-sorted to show the most recent published feature, NOT the most recently updated.
-   *
-   * The remaining array of node objects can be mapped over normally using XYZ_Component.
-   */
-
-  /**
-   * Break down featuresHeaderData for {@link TopicPageHero} and {@link TopicPageHighlightSection}
+   * Break down `featuresHeaderData` for {@link FeaturesHighlightItems}.
+   * @category useEffect
+   * @name processFeaturesHeaderData
    */
   useEffect(() => {
     const processFeaturesHeaderData = () => {
@@ -47,10 +45,6 @@ function FeaturesIndex({ data }) {
         top_right_feature,
       } = featuresHeaderData
 
-      /**
-       * main_feature_article is null
-       * - Shift off the first article from `allOtherFeatures` to use as main_feature_article
-       */
       const allOtherFeatures = otherFeaturesData
 
       /**
@@ -73,7 +67,9 @@ function FeaturesIndex({ data }) {
       }
 
       const featuresSubheadline =
-        RichText.asText(features_page_subtitle) ?? 'the hotlist'
+        features_page_subtitle === null
+          ? RichText.asText(features_page_subtitle)
+          : 'hot reads'
 
       highlightsData = {
         data: highlightFeatures,
@@ -93,14 +89,20 @@ function FeaturesIndex({ data }) {
 
   return (
     <main className="black-bg-page" id="features">
-      {/* Show only after featuresHighlights is processed by useEffect */
-      featuresHighlights && (
-        <TopicPageHighlightSection
-          layoutType="features"
-          highlightsData={featuresHighlights.data}
-          highlightTitling={featuresHighlights.titling}
-        />
-      )}
+      <header className="container is-fluid">
+        <div className="columns">
+          <div className="column is-full content">
+            <h1 className="title is-3-desktop is-4-touch">features</h1>
+          </div>
+        </div>
+        {/* Show only after featuresHighlights is processed by useEffect */
+        featuresHighlights && (
+          <FeaturesHighlightItems
+            highlightItemsData={featuresHighlights.data}
+            highlightTitling={featuresHighlights.titling}
+          />
+        )}
+      </header>
 
       <section className="section container is-fluid">
         <div className="columns is-mobile is-multiline">
@@ -118,7 +120,7 @@ function FeaturesIndex({ data }) {
   )
 }
 
-FeaturesIndex.propTypes = {
+FeaturesIndexPage.propTypes = {
   leadFeatureData: PropTypes.exact({
     _meta: PropTypes.object.isRequired,
     body: PropTypes.arrayOf(PropTypes.object),
@@ -127,7 +129,12 @@ FeaturesIndex.propTypes = {
 }
 
 export const query = graphql`
-  query FeaturesIndexPage {
+  query FeaturesIndexPage(
+    $first: Int = 12
+    $last: Int
+    $after: String
+    $before: String
+  ) {
     prismic {
       allLandingpages {
         edges {
@@ -178,7 +185,17 @@ export const query = graphql`
           }
         }
       }
-      allFeatures(sortBy: meta_firstPublicationDate_DESC) {
+      allFeatures(
+        sortBy: meta_firstPublicationDate_DESC
+        first: $first
+        last: $last
+        after: $after
+        before: $before
+      ) {
+        pageInfo {
+          hasNextPage
+          endCursor
+        }
         edges {
           node {
             _meta {
@@ -205,4 +222,4 @@ export const query = graphql`
   }
 `
 
-export default FeaturesIndex
+export default FeaturesIndexPage

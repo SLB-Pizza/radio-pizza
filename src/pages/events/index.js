@@ -9,6 +9,7 @@ import { HMBKDivider, SingleEventCard } from '../../components'
  * @function EventsIndexPage
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/features` landing page
  * @param {Object} prismic - the data object containing Prismic follow up functions
+ * @returns {jsx}
  */
 function EventsIndexPage({ data, prismic }) {
   const prismicContent = data.prismic.allEvents
@@ -21,7 +22,7 @@ function EventsIndexPage({ data, prismic }) {
   const didMountRef = useRef(false)
   const [page, setPage] = useState(-1)
 
-  const [eventsData, setEventsData] = useState({
+  const [eventsToMap, setEventsToMap] = useState({
     data: prismicContent.edges,
     hasMore: prismicContent.pageInfo.hasNextPage,
   })
@@ -60,8 +61,8 @@ function EventsIndexPage({ data, prismic }) {
         .then(res => {
           setEventsLoading(false)
 
-          setEventsData({
-            data: [...eventsData.data, ...res.data.allEvents.edges],
+          setEventsToMap({
+            data: [...eventsToMap.data, ...res.data.allEvents.edges],
             hasMore: res.data.allEvents.pageInfo.hasNextPage,
           })
         })
@@ -82,7 +83,7 @@ function EventsIndexPage({ data, prismic }) {
           </div>
 
           {/* MAPPING EVENT DATA TO CARDS */}
-          {eventsData?.data.map(({ node }, index) => (
+          {eventsToMap?.data.map(({ node }, index) => (
             <SingleEventCard
               key={`halfmoon-event-${index}`}
               eventData={node}
@@ -94,7 +95,7 @@ function EventsIndexPage({ data, prismic }) {
 
       <section className="section container is-fluid media-cards">
         {/* TERNARY TO RENDER FETCH MORE BUTTONS */}
-        {eventsData.hasMore ? (
+        {eventsToMap.hasMore ? (
           <div className="columns is-mobile is-vcentered">
             {!eventsLoading ? (
               <div className="column">

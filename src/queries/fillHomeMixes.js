@@ -2,10 +2,10 @@ import { gql } from '@apollo/client'
 
 /**
  * Query for Prismic in the GraphQL syntax, NOT the Gatsby syntax!
- * Similar procedure as in {@link ScheduleBar}, {@link HomeEvents} and {@link HomeFeatures}
+ * Similar procedure as in {@link ScheduleBar}, {@link HomeEvents} and {@link HomeFeatures}.
+ * Used in {@link HomeMixes}.
  * @category Queries
- * @const FILL_HOME_MIXES
- * Used in {@link HomeMixes}
+ * @name FILL_HOME_MIXES
  * @see {@link https://hmbk-cms.prismic.io/graphql HMBK's Prismic GraphQL API}
  */
 export const FILL_HOME_MIXES = gql`

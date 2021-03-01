@@ -7,8 +7,8 @@ import { HMBKDivider, SingleMixCard } from '../components'
  * This component passes `onMixesPage = true` prop to {@link SingleMixCard} for use in {@link TagButtons}.
  * @category Layout Helper
  * @function AllMixesLayout
- * @param {Object[]} mixesDataToMap
- * @param {Function} loadMixesFunc - {@link loadNextMixes} function
+ * @param {Object[]} mixesDataToMap - mixes array received from {@link MixesIndexPage}; sourced from its page query and subsequent fetches
+ * @param {Function} loadMixesFunc - {@link loadNextMixes} function from {@link MixesIndexPage}
  * @param {Boolean} mixLoadState - loading state of the Prismic allMixes page query triggered by {@link loadMoreMixes}
  * @param {String} mixCardLayout - string defining the column sizing for {@link SingleMixCard}
  *

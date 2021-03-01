@@ -8,7 +8,7 @@ import {
  * Layout for the mixes fetched when a {@link TagButtons} is clicked.
  * Renders on {@link MixesIndexPage} when `selectedTags` isn't null and {@link fetchTaggedMixes} has returned fetchedMixes results.
  *
- * This components passes `onMixesPage = true` prop to {@link SingleMixCard} for use in {@link TagButtons}.
+ * This component passes `onMixesPage = true` prop to {@link SingleMixCard} for use in {@link TagButtons}.
  * @category Layout Helper
  * @function DisplayFetchedTaggedMixes
  * @param {Function} fetchFunc - the function used onClick to trigger the {@link fetchTaggedMixes} useLazyQuery in {@link MixesIndexPage}

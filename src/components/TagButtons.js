@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Link, navigate } from 'gatsby'
+import { navigate } from 'gatsby'
 import PropTypes from 'prop-types'
 import {
   GlobalDispatchContext,
@@ -20,14 +20,15 @@ export default function TagButtons({ tagsArray, onMixesPage }) {
 
   /**
    * Dispatches {@link ADD_TAG_TO_MIX_SEARCH} or {@link NEW_TAGS_FOR_TAG_QUERY_SEARCH}.
-   * Two Dispatch Scenarios:
-   * 1. mixSearchTags hasn't been set yet (starts out `null`)
-   * 2. mixSearchTags is an array with:
-   *    - .length < 3
-   *    - doesn't contain the current tag
    *
-   * 1 -> dispatch tag wrapped in an array e.g. `['tag']`.
-   * 2 -> dispatch tag as a string e.g. `'tag'`,.
+   * **Two Dispatch Scenarios**
+   *
+   * 1. mixSearchTags hasn't been set yet (starts out `null`)
+   *    - dispatches tag wrapped in an array e.g. `['tag']`.
+   * 2. mixSearchTags is an array with:
+   *    - `.length < 3`
+   *    - doesn't contain the current tag
+   *      - dispatches tag as a string e.g. `'tag'`.
    * @category Dispatch Function
    * @function addTagToSearchArray
    * @param {String} tag - the string that appears in a single mix tag
@@ -71,7 +72,6 @@ export default function TagButtons({ tagsArray, onMixesPage }) {
    */
   const tagNavigateAndDispatch = (onMixesPage, tag) => {
     if (!onMixesPage) {
-      console.log('not on /mixes! Navigating now!')
       navigate('/mixes')
     }
     addTagToSearchArray(tag)

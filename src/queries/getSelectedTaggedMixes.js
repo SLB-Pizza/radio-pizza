@@ -5,7 +5,7 @@ import { gql } from '@apollo/client'
  * A query that's run `onClick` when a {@link TagButton} is clicked.
  * Used by all {@link SingleMixCard} site-wide.
  * @category Queries
- * @const GET_SELECTED_TAGGED_MIXES
+ * @name GET_SELECTED_TAGGED_MIXES
  * @see {@link https://hmbk-cms.prismic.io/graphql HMBK's Prismic GraphQL API}
  */
 export const GET_SELECTED_TAGGED_MIXES = gql`

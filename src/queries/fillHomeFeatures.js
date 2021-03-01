@@ -2,10 +2,10 @@ import { gql } from '@apollo/client'
 
 /**
  * Query for Prismic in the GraphQL syntax, NOT the Gatsby syntax!
- * Similar procedure as in {@link ScheduleBar}, {@link HomeMixes} and {@link HomeEvents}
+ * Similar procedure as in {@link ScheduleBar}, {@link HomeMixes} and {@link HomeEvents}.
+ * Used in {@link HomeFeatures}.
  * @category Queries
- * @const FILL_HOME_FEATURES
- * Used in {@link HomeFeatures}
+ * @name FILL_HOME_FEATURES
  * @see {@link https://hmbk-cms.prismic.io/graphql HMBK's Prismic GraphQL API}
  */
 

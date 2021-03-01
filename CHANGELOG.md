@@ -1,3 +1,24 @@
+### Version 1.4.0
+- add og:image:type
+- feat(SMC): add query, dispatch, and function to TagButtons add GET_SELECTED_TAGGED_MIXES query add tagDispatch function add base query set up for /mixes
+- feat(/mixes): add base DisplayFetchedTagMixes component in return off ternary; issues
+- feat(GCP): update SELECT_MIX_SEARCH_TAG action now handles mixSearchTags null, and exists as array cases
+- dispatch(TagButtons):extract dispatch creation logic moved from GCP reducer to within local dispatch function
+- feat(/mixes): fixes endless useEffect fetchTaggedMixes calls
+- feat(TaggedMixes): add selected mixes to component
+- feat(FallbackImage): fix local pathing to HMBK logo fixes HMBKDivider and FallbackImage
+- docs(all): add more details to pages, media cards regen docs
+- style(Divider): add forLoading bool to choose loading styles for divider applied to /residents, AllMixesLayout
+- style(sticky): refactor .sticky-section-blurb planned use in DisplayFetchedTaggedMixes
+- docs(Resident): update param type
+- feat(DFTM): remove duplicate useLazyQuery; fix 500 error pass fetch func, loading status as props address all fetch no callback onClick fetchFunc
+- feat(TagQueries): fix DFTM mix mapping, fetch more button; add 'remove tag from query' button
+- fix(TagQueries): processFetchedMixes now nulls local receivedTagMixes when all tags deselected fix enables AllMixesLayout to render when mixSearchTags is reset
+- feat(TagQueries): add clearMixSearchTags dispatch to RadioBar logo, select BottomNav links
+- docs(queries): update/fix docs relating to queries and tag query layouts
+- style(/events): add .media-cards css to level out media card map sections .media-cards class currently applies to /radio, /residents, /residents
+- refactor(/features): extract FeatureHighlightItems into /features index #79: remove TopicPageHighlightSection
+
 ### Version 1.3.0
 - queries(Resident): refactor main query to pull in data by category
 - feat(Resident): process associated mix, event, and feature data arrays

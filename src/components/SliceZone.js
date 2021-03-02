@@ -2,7 +2,6 @@ import React from 'react'
 import {
   ArticleHeadline,
   Blockquote,
-  HeadlineBlock,
   ImageRow,
   FullWidthImage,
   OneImageAndText,
@@ -28,7 +27,6 @@ import {
  *
  * Each CMS Slice returned by SliceZone is wrapped in a `<section>` element, so if we did, there would be unnecessary elements between `<main>` and the `<section>`
  *
- * e.g.
  * ```html
  * <main className="full-height-page">
  *    <div>
@@ -38,9 +36,8 @@ import {
  * ```
  *
  * @function sliceZone
- * @param {Object} props
- * @param {Object} props.sliceZone
- * @param {Object} props.metadata
+ * @param {Object} sliceZone
+ * @param {Object} metadata
  * @returns {jsx} Returns components selected by sliceComponents key that have been hydrated with data to create the given page's layout.
  */
 

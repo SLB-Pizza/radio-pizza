@@ -1,8 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { getCursorFromDocumentIndex } from '@prismicio/gatsby-source-prismic-graphql'
 import { graphql } from 'gatsby'
-import { RichText } from 'prismic-reactjs'
-import { FeaturesHighlightItems, SingleFeatureCard } from '../../components'
+import {
+  FeaturesHighlightItems,
+  LandingPageFetchAndLoading,
+  SingleFeatureCard,
+} from '../../components'
 import PropTypes from 'prop-types'
 
 /**
@@ -13,66 +16,94 @@ import PropTypes from 'prop-types'
  * @param {Object} prismic - the data object containing Prismic follow up functions
  * @returns {jsx}
  */
-function FeaturesIndexPage({ data }) {
-  /**
-   * Focus the node for the otherFeaturesData check below.
-   */
-  const featuresHeaderData = data.prismic.allLandingpages.edges[0].node
-  const otherFeaturesData = data.prismic.allFeatures.edges
-
+function FeaturesIndexPage({ data, prismic }) {
+  const prismicContent = data.prismic
   /**
    * This line is here to prevent an error from occurring when you eventually deploy the site live. There is an issue with the preview functionality that requires this check on every page.
    * @see {@link https://prismic.io/docs/gatsby/rendering/retrieve-the-document-object#21_0-adding-a-validation-check Retrieve the document object}
    */
-  if (!otherFeaturesData || !featuresHeaderData) return null
-
-  const [featuresHighlights, setFeaturesHighlights] = useState(null)
-  const [featuresToMap, setFeaturesToMap] = useState(null)
+  if (!prismicContent) return null
 
   /**
-   * Break down `featuresHeaderData` for {@link FeaturesHighlightItems}.
+   * Focus the node for the otherFeaturesData check below.
+   */
+
+  const [featuresHighlights, setFeaturesHighlights] = useState(null)
+
+  const featuresPerPage = 6
+  const didMountRef = useRef(false)
+  const [page, setPage] = useState(-1)
+  const [featuresToMap, setFeaturesToMap] = useState({
+    data: prismicContent.allFeatures.edges,
+    hasMore: prismicContent.allFeatures.hasNextPage,
+  })
+  const [featuresLoading, setFeaturesLoading] = useState(false)
+
+  /**
+   * Break down `prismicContent` to select `featuresHeaderData` for {@link FeaturesHighlightItems}.
    * @category useEffect
    * @name processFeaturesHeaderData
    */
   useEffect(() => {
     const processFeaturesHeaderData = () => {
-      // objects to pass to useState after processing
-      let highlightsData = {}
-
-      let { bottom_right_feature, top_right_feature } = featuresHeaderData
-
-      const allOtherFeatures = otherFeaturesData
+      // Select and deconstruct featuresHeaderData for use.
+      const featuresHeaderData = prismicContent.allLandingpages.edges[0].node
+      const { bottom_right_feature, top_right_feature } = featuresHeaderData
 
       /**
-       * Create /features highlightItemsData object from leftFeature and rightFeature using features from allOtherFeatures if necessary
+       * Build the highlightedFeatures data object; will be used as props for {@link FeaturesHighlightItems}.
        */
-
-      if (!top_right_feature) {
-        top_right_feature = allOtherFeatures.shift()
-      }
-      if (!bottom_right_feature) {
-        bottom_right_feature = allOtherFeatures.shift()
-      }
-
-      /**
-       * Build the highlightFeatures data object to pass to highlightsData
-       */
-      const highlightFeatures = {
+      const highlightedFeatures = {
         leftFeature: top_right_feature,
         rightFeature: bottom_right_feature,
       }
 
-      highlightsData = {
-        data: highlightFeatures,
-      }
-
-      // Set featuresHighlight to the assembled highlightsData object
-      // Set featuresToMap to allOtherFeatures
-      setFeaturesHighlights(highlightsData)
-      setFeaturesToMap(allOtherFeatures)
+      setFeaturesHighlights(highlightedFeatures)
     }
     return processFeaturesHeaderData()
   }, [data])
+
+  /**
+   * Changes `eventLoading` to true to render {@link HMBKDivider}, and the `page` value, triggering {@link loadMoreEvents}.
+   * @category Fetch Trigger
+   * @function loadNextFeatures
+   */
+  const loadNextFeatures = () => {
+    setFeaturesLoading(true)
+    setPage(page => page + featuresPerPage)
+  }
+
+  /**
+   * useEffect that fires off a Prismic fetch when the 'More Events' button is clicked and {@link loadNextFeatures} changes the `page` value. Adds events from Prismic fetch to eventsToMap data array and updates hasMore value.
+   * @category useEffect
+   * @name loadMoreFeatures
+   */
+  useEffect(() => {
+    const loadMoreFeatures = () => {
+      if (!didMountRef.current) {
+        didMountRef.current = true
+        return
+      }
+
+      // Grab the next 12 events
+      prismic
+        .load({
+          variables: {
+            after: getCursorFromDocumentIndex(page),
+          },
+        })
+        .then(res => {
+          setFeaturesLoading(false)
+
+          setFeaturesToMap({
+            data: [...featuresToMap.data, ...res.data.allFeatures.edges],
+            hasMore: res.data.allFeatures.pageInfo.hasNextPage,
+          })
+        })
+    }
+
+    return loadMoreFeatures()
+  }, [page])
 
   // Layout details for SingleFeatureCard
   const individualFeatureLayout = 'column is-12-mobile is-6-tablet is-4-desktop'
@@ -88,22 +119,28 @@ function FeaturesIndexPage({ data }) {
         {/* Show only after featuresHighlights is processed by useEffect */
         featuresHighlights && (
           <FeaturesHighlightItems
-            highlightItemsData={featuresHighlights.data}
+            leftFeature={featuresHighlights.leftFeature}
+            rightFeature={featuresHighlights.rightFeature}
           />
         )}
       </header>
 
-      <section className="section container is-fluid">
+      <section className="section container is-fluid media-cards">
         <div className="columns is-mobile is-multiline">
-          {featuresToMap &&
-            featuresToMap.map(({ node }, index) => (
-              <SingleFeatureCard
-                key={`halfmoon-feature-${index}`}
-                featureData={node}
-                featureColumnLayout={individualFeatureLayout}
-              />
-            ))}
+          {featuresToMap?.data.map(({ node }, index) => (
+            <SingleFeatureCard
+              key={`halfmoon-feature-${index}`}
+              featureData={node}
+              featureColumnLayout={individualFeatureLayout}
+            />
+          ))}
         </div>
+        <LandingPageFetchAndLoading
+          hasMore={featuresToMap.hasMore}
+          currentlyFetching={featuresLoading}
+          fetchMoreFunc={loadNextFeatures}
+          fetchMoreBtnTxt={'More Features'}
+        />
       </section>
     </main>
   )
@@ -119,7 +156,7 @@ FeaturesIndexPage.propTypes = {
 
 export const query = graphql`
   query FeaturesIndexPage(
-    $first: Int = 12
+    $first: Int = 6
     $last: Int
     $after: String
     $before: String
@@ -182,7 +219,6 @@ export const query = graphql`
       ) {
         pageInfo {
           hasNextPage
-          endCursor
         }
         edges {
           node {

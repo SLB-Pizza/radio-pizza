@@ -6,6 +6,7 @@ import { useLazyQuery } from '@apollo/client'
 import { GET_SELECTED_TAGGED_MIXES } from '../../queries'
 import { GlobalStateContext } from '../../context/GlobalContextProvider'
 import { AllMixesLayout, DisplayFetchedTaggedMixes } from '../../components'
+import { scrollToTop } from '../../utils'
 
 /**
  * Layout for /mixes landing page. This is also the page layout where mix tag queries are fetched are rendered.
@@ -42,7 +43,6 @@ function MixesIndexPage({ data, prismic }) {
   const [mixesToMap, setMixesToMap] = useState({
     data: allMixData.edges,
     hasMore: allMixData.pageInfo.hasNextPage,
-    endCursor: allMixData.pageInfo.endCursor,
   })
   // manually set loading boolean for Prismic.load calls
   const [mixesLoading, setMixesLoading] = useState(false)
@@ -105,7 +105,6 @@ function MixesIndexPage({ data, prismic }) {
           setMixesToMap({
             data: [...mixesToMap.data, ...res.data.allMixs.edges],
             hasMore: res.data.allMixs.pageInfo.hasNextPage,
-            endCursor: res.data.allMixs.pageInfo.endCursor,
           })
         })
     }
@@ -138,7 +137,6 @@ function MixesIndexPage({ data, prismic }) {
          *
          * Resets both `selectedTags ` and `receivedTagMixes` to null states, removing {@link DisplayFetchedTaggedMixes} allowing {@link AllMixesLayout} to render
          */
-        console.log('about to null selectedTags and receivedTagMixes')
         setSelectedTags(null)
         setReceivedTagMixes({
           data: null,
@@ -244,10 +242,7 @@ function MixesIndexPage({ data, prismic }) {
         </div>
       </header>
 
-      <section
-        className="section container is-fluid media-cards"
-        id="all-mixes"
-      >
+      <section className="section container is-fluid media-cards">
         {receivedTagMixes?.data ? (
           <DisplayFetchedTaggedMixes
             fetchFunc={fetchTaggedMixes}
@@ -283,6 +278,9 @@ export const query = graphql`
         after: $after
         before: $before
       ) {
+        pageInfo {
+          hasNextPage
+        }
         edges {
           node {
             _meta {
@@ -302,9 +300,6 @@ export const query = graphql`
               }
             }
           }
-        }
-        pageInfo {
-          hasNextPage
         }
       }
     }

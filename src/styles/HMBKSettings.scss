@@ -1,5 +1,3 @@
-// Please remember to remove test sass at bottom of this file!
-
 //==================================
 // BULMA VARIABLES
 //==================================
@@ -10,7 +8,7 @@ $pink: #f600ff;
 $primary: $pink;
 $body-background-color: black;
 $family-sans-serif: "Poppins", sans-serif;
-$transition-speed: 0.25sec ease-in-out;
+$transition-speed: 0.25s ease-in-out;
 $border-radius: 0.75rem;
 //==================================
 // navbar variables
@@ -47,16 +45,14 @@ $input-icon-active-color: $primary;
 //==================================
 // button element variables
 //==================================
-$button-border-width: 2px;
-$button-color: white;
-$button-background-color: black;
-$button-hover-color: darken(white, 10);
-$button-hover-border-color: $grey;
-$button-text-hover-background-color: $primary;
-$button-focus-color: $white;
+$button-background-color: transparent;
+$button-hover-color: white;
+$button-hover-border-color: $primary;
+$button-focus-color: white;
 $button-focus-border-color: $primary;
-$button-active-color: darken($primary, 15);
-$button-active-border-color: darken($primary, 15);
+$button-active-color: darken(white, 20);
+$button-active-border-color: darken($primary, 25);
+$button-border-width: 2px;
 
 //==================================
 // dropdown element variables
@@ -81,11 +77,6 @@ $dt-spacing: 1%;
 $card-content-background-color: black;
 $card-content-padding: 0.75rem;
 $card-radius: 0.75rem;
-
-//==================================
-// Progress Bar
-//==================================
-$progress-indeterminate-duration: 0.5s;
 
 //==================================
 // FONTS
@@ -134,7 +125,6 @@ button.button,
   font-weight: 700;
 }
 
-button p,
 li,
 .subtitle {
   font-weight: 300;
@@ -142,12 +132,15 @@ li,
 
 button.button {
   transition: $transition-speed;
-  @include mobile {
-    font-size: 0.625rem;
+  .cross {
+    transition: $transition-speed;
+    opacity: 0;
   }
-  &.active {
-    color: white;
-    border-color: $primary;
+
+  &:hover {
+    .cross {
+      opacity: 1;
+    }
   }
 }
 
@@ -205,7 +198,8 @@ figcaption {
     padding: 1rem;
     width: auto;
     background-color: darken($color: $primary, $amount: 40);
-    border: 0.25rem solid $primary;
+    border: 2px solid $primary;
+    border-radius: $border-radius;
     color: white;
     z-index: 999999;
   }
@@ -219,7 +213,7 @@ figcaption {
 // Give the date of content items some space
 //================================================
 
-// Remove bottom padding from 'section' class
+// Remove bottom padding from 'section' class for media card mappings
 .section.media-cards {
   padding-bottom: 0;
 }
@@ -234,46 +228,40 @@ figcaption {
 // SingleFeatureCard.js
 //==========================
 .feature-card-sizing,
-.event-card-sizing {
+.event-card-sizing,
+.mix-card-sizing {
   display: flex;
   flex-direction: column;
   min-height: 9.5rem;
+}
 
-  .details {
-    flex: 1;
-  }
+.details {
+  flex: 1;
+}
 
-  .blurb {
-    flex: 0;
-  }
+.blurb {
+  flex: 0;
 }
 
 //==========================
 // SingleMixCard.js
 //==========================
 .mix-card-sizing {
+  min-height: 11rem;
+}
+
+.mix-details {
+  flex: 1;
   display: flex;
-  flex-direction: column;
-  @include mobile {
-    min-height: 11.5rem;
-  }
-  @include tablet {
-    min-height: 10rem;
+  flex-direction: row;
+
+  .mix-icon {
+    flex: 0;
+    padding-right: 0.75rem;
   }
 
-  .mix-details {
+  .mix-text {
     flex: 1;
-    display: flex;
-    flex-direction: row;
-
-    .mix-icon {
-      flex: 0;
-      padding-right: 0.75rem;
-    }
-
-    .mix-text {
-      flex: 1;
-    }
   }
 }
 

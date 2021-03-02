@@ -61,14 +61,14 @@ export default function TagButtons({ tagsArray, onMixesPage }) {
   }
 
   /**
-   * Function that reads the current location and navigates to `/mixes` ({@link MixesIndexPage}) before firing off the {@link addTagToSearchArray} dispatch function. Reason being that if the dispatch function is allowed to fire before navigating to `/mixes`, the `globalState.mixSearchTags` array will update and not trigger the `useEffect` chain on {@link MixesIndexPage} to fire
+   * Function that reads the current location and navigates to `/mixes` ({@link MixesIndexPage}) before firing off the {@link addTagToSearchArray} dispatch function. Reason being that if the dispatch function is allowed to fire before navigating to `/mixes`, the `globalState.mixSearchTags` array will update and not trigger the `useEffect` chain on {@link MixesIndexPage}.
    *
-   * Pages and Templates that need to pass down the Gatsby's `location` prop through a {@link SingleMixCard} render into this {@link TagButtons} component:
+   * The param `onMixesPage = true` will only ever be passed by
    * - {@link IndexPage}
    * @category Utilities
    * @function tagNavigateAndDispatch
-   * @param {String} currentLocation
-   * @param {String} tag
+   * @param {?Boolean} onMixesPage - optional boolean only ever passed as `true` by {@link DisplayFetchedTaggedMixes} and {@link AllMixesLayout} for use in this function to ignore the `navigate()` portion
+   * @param {String} tag - single tag from `tagsArray` map
    */
   const tagNavigateAndDispatch = (onMixesPage, tag) => {
     if (!onMixesPage) {
@@ -78,12 +78,12 @@ export default function TagButtons({ tagsArray, onMixesPage }) {
   }
 
   return (
-    <div className="tags">
+    <div className="buttons are-small">
       {tagsArray?.map((tag, index) => {
         return (
           <button
             key={`span-tag-#${index}`}
-            className="tag is-outlined is-rounded is-black"
+            className="button is-outlined is-rounded mix-tag"
             onClick={() => {
               tagNavigateAndDispatch(onMixesPage, tag)
             }}

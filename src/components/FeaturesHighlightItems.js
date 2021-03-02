@@ -10,7 +10,7 @@ import { SingleFeatureCard } from '../components'
  * @param {String} highlightsData - the data to be rendered by HighlightSectionLayout once the layout component is selected
  * @returns {jsx}
  */
-function FeaturesHighlightItems({ highlightItemsData, highlightTitling }) {
+function FeaturesHighlightItems({ highlightItemsData }) {
   /**
    * Deconstruct highlightItemsData from {@link TopicPageHighlightSection}
    */
@@ -34,11 +34,6 @@ function FeaturesHighlightItems({ highlightItemsData, highlightTitling }) {
   }
   return (
     <div className="columns is-mobile is-multiline">
-      <div className="column is-12">
-        <p className="title is-size-4-desktop is-size-6-touch">
-          {highlightTitling}
-        </p>
-      </div>
       {leftFeature && (
         <SingleFeatureCard
           featureData={leftFeature}

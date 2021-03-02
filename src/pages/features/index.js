@@ -39,11 +39,7 @@ function FeaturesIndexPage({ data }) {
       // objects to pass to useState after processing
       let highlightsData = {}
 
-      let {
-        features_page_subtitle,
-        bottom_right_feature,
-        top_right_feature,
-      } = featuresHeaderData
+      let { bottom_right_feature, top_right_feature } = featuresHeaderData
 
       const allOtherFeatures = otherFeaturesData
 
@@ -66,14 +62,8 @@ function FeaturesIndexPage({ data }) {
         rightFeature: bottom_right_feature,
       }
 
-      const featuresSubheadline =
-        features_page_subtitle === null
-          ? RichText.asText(features_page_subtitle)
-          : 'hot reads'
-
       highlightsData = {
         data: highlightFeatures,
-        titling: featuresSubheadline,
       }
 
       // Set featuresHighlight to the assembled highlightsData object
@@ -99,7 +89,6 @@ function FeaturesIndexPage({ data }) {
         featuresHighlights && (
           <FeaturesHighlightItems
             highlightItemsData={featuresHighlights.data}
-            highlightTitling={featuresHighlights.titling}
           />
         )}
       </header>
@@ -139,7 +128,6 @@ export const query = graphql`
       allLandingpages {
         edges {
           node {
-            features_page_subtitle
             top_right_feature {
               ... on PRISMIC_Feature {
                 _meta {

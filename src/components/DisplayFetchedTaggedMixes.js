@@ -79,7 +79,7 @@ function DisplayFetchedTaggedMixes({
         removeTagFromSearchArray={removeTagFromSearchArray}
         sameTagsInQuery={sameTagsInQuery}
       />
-      <div className="column is-9">
+      <div className="column is-8-tablet is-9-desktop">
         <div className="columns is-mobile is-multiline">
           {fetchedData?.data.map(({ node }, index) => (
             <SingleMixCard

@@ -20,34 +20,36 @@ export default function FetchedTagStickySection({
   sameTagsInQuery,
 }) {
   return (
-    <div className="column is-3 is-hidden-mobile">
+    <div className="column is-hidden-mobile is-4-tablet is-3-desktop">
       <div className="sticky-section">
         <div className="content">
           <h1 className="title is-4-touch">{`${totalCount} mixes found`}</h1>
-          <p className="subtitle is-6-touch">Touch a tag to remove it. </p>
+          <p className="subtitle is-6-touch">Touch a tag to remove it.</p>
+        </div>
+        <div className="buttons">
           {selectedTags?.map((tag, index) => (
             <Fragment key={`remove-tag-#${index}`}>
               <button
-                className="button is-hidden-tablet-only is-fullwidth is-rounded is-inverted is-outlined is-primary"
+                className="button is-hidden-touch is-fullwidth is-rounded is-inverted is-outlined"
                 onClick={() => {
                   sameTagsInQuery(false)
                   removeTagFromSearchArray(tag)
                 }}
               >
                 <span>{tag}</span>
-                <span className="icon is-large cross">
+                <span className="icon cross">
                   <Icon icon="times" size="1x" />
                 </span>
               </button>
               <button
-                className="button is-hidden-desktop is-small is-fullwidth is-rounded is-inverted is-outlined is-primary"
+                className="button is-hidden-desktop is-small is-fullwidth is-rounded is-inverted is-outlined"
                 onClick={() => {
                   sameTagsInQuery(false)
                   removeTagFromSearchArray(tag)
                 }}
               >
                 <span>{tag}</span>
-                <span className="icon is-large cross">
+                <span className="icon cross">
                   <Icon icon="times" size="1x" />
                 </span>
               </button>

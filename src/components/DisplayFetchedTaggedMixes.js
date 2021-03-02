@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { HMBKDivider, SingleMixCard } from './index'
+import { FetchedTagStickySection, HMBKDivider, SingleMixCard } from './index'
 import {
   GlobalDispatchContext,
   GlobalStateContext,
@@ -73,26 +73,12 @@ function DisplayFetchedTaggedMixes({
 
   return (
     <div className="columns is-mobile">
-      <div className="column is-3">
-        <div className="sticky-section">
-          <div className="content">
-            <h1 className="title">{`${fetchedData.totalCount} mixes`}</h1>
-            <p className="subtitle">{`${fetchedData.data.length} length of data`}</p>
-            {selectedTags?.map((tag, index) => (
-              <button
-                key={`remove-tag-#${index}`}
-                className="button is-fullwidth is-outlined is-rounded"
-                onClick={() => {
-                  sameTagsInQuery(false)
-                  removeTagFromSearchArray(tag)
-                }}
-              >
-                {tag}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
+      <FetchedTagStickySection
+        selectedTags={selectedTags}
+        totalCount={fetchedData.totalCount}
+        removeTagFromSearchArray={removeTagFromSearchArray}
+        sameTagsInQuery={sameTagsInQuery}
+      />
       <div className="column is-9">
         <div className="columns is-mobile is-multiline">
           {fetchedData?.data.map(({ node }, index) => (

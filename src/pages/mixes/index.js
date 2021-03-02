@@ -178,50 +178,49 @@ function MixesIndexPage({ data, prismic }) {
   /**
    * Runs after {@link executeTagSearch} returns a `taggedMixesData` object. Sets `receivedTagMixes` using `taggedMixesData`. `receivedTagMixes` then triggers render of {@link DisplayFetchedTaggedMixes}.
    *
-   * Processes based on three scenarios:
-   * 1. If `receivedTagMixes.data` is null, use edges arr as currentFetchedMixes.
+   * **Two Processing Scenarios**
+   *
+   * 1. If `receivedTagMixes.data` is null OR `globalState.sameTagsInQuery` is false.
+   *    - Reset `receivedTagMixes` using `taggedMixesData` edges array.
+   *
+   *    Sources:
+   *    - {@link TagButtons}
+   *    - {@link DisplayFetchedTaggedMixes} 'remove selected tag' buttons
+   *
    * 2. If `globalState.sameTagsInQuery` is true, {@link fetchTaggedMixes} was triggered to fetch MORE mixes using the same tags array as the last fetch by fetch more button in {@link DisplayFetchedTaggedMixes}.
-   * Combine the existing `receivedTagMixes` with the incoming `taggedMixesData` edges subarray.
-   * 3. `receivedTagMixes.data` has data.
-   * `globalState.sameTagsInQuery` is false.
-   * Source of query:
-   * - {@link TagButtons} or
-   * - {@link DisplayFetchedTaggedMixes} 'remove selected tag' buttons Overwrite current `receivedTagMixes` with the incoming `taggedMixesData` edges subarray.
+   *    - Create a new array and spread in the existing `receivedTagMixes.data` and then spread the `taggedMixesData` edges subarray.
+   *
+   *    Sources:
+   *    - {@link DisplayFetchedTaggedMixes} 'fetch more' button
    * @category useEffect
    * @name processFetchedMixes
    */
   useEffect(() => {
     const processFetchedMixes = () => {
       if (taggedMixesData) {
+        // Deconstruct the fetched tagged mixes data object.
+        const { edges, pageInfo, totalCount } = taggedMixesData.allMixs
+
         // Set up a placeholder variable.
         let currentFetchedMixes
 
-        console.log('using same tags for query', globalState.sameTagsInQuery)
         /**
          * SCENARIO 1
          */
-        if (receivedTagMixes.data === null) {
-          currentFetchedMixes = taggedMixesData.allMixs.edges
-        } else if (globalState.sameTagsInQuery) {
+        if (receivedTagMixes.data === null || !globalState.sameTagsInQuery) {
+          currentFetchedMixes = edges
+        } else {
           /**
            * SCENARIO 2
            */
-          currentFetchedMixes = [
-            ...receivedTagMixes.data,
-            ...taggedMixesData.allMixs.edges,
-          ]
-        } else {
-          /**
-           * SCENARIO 3
-           */
-          currentFetchedMixes = taggedMixesData.allMixs.edges
+          currentFetchedMixes = [...receivedTagMixes.data, ...edges]
         }
 
         setReceivedTagMixes({
           data: currentFetchedMixes,
-          hasMore: taggedMixesData.allMixs.pageInfo.hasNextPage,
-          endCursor: taggedMixesData.allMixs.pageInfo.endCursor,
-          totalCount: taggedMixesData.allMixs.totalCount,
+          hasMore: pageInfo.hasNextPage,
+          endCursor: pageInfo.endCursor,
+          totalCount: totalCount,
         })
       }
     }
@@ -313,103 +312,3 @@ export const query = graphql`
 `
 
 export default MixesIndexPage
-
-// Mix img square sizes
-// --- MOBILE ---
-// --- CMS Size: 500
-// --- min-max avg:  513.5---
-// --- mean:  495.67---
-// 767  - 695
-
-// 768  - 332
-// 1023 - 460
-
-// --- DESKTOP ---
-// --- min-max avg:  350---
-// --- mean:  329.33---
-// 1024 - 296
-// 1215 - 360
-
-// 1216 - 262
-// 1407 - 310
-
-// 1408 - 310
-// 1920 - 438
-
-{
-  /*
-          Inactive Search Bar!
-          <div className="column is-9-widescreen is-8-tablet is-12-mobile">
-            <div className="field">
-              <div className="control is-expanded has-icons-left has-icons-right">
-                <div className="control is-expanded has-icons-left has-icons-right is-loading is-medium">
-                <input
-                  className="input is-rounded"
-                  type="text"
-                  placeholder="Search all mixes..."
-                />
-                <span className="icon is-left">
-                  <Icon icon="search" />
-                </span>
-              </div>
-            </div>
-          </div>
-          <div className="column is-3-widescreen is-4-tablet is-12-mobile">
-            <div className="field">
-              <div className="control is-expanded has-icons-left">
-                <div className="select is-fullwidth is-rounded">
-                  <select name="country">
-                    <option value="">--Country--</option>
-                    {dummyOptions.map(option => (
-                      <option key={option} value={option}>
-                        {option}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <span className="icon is-left">
-                  <Icon icon="tag" />
-                </span>
-              </div>
-            </div>
-          </div> */
-}
-
-// const executeTagSearch = useCallback((mixesArr = [], cursor = null) => {
-//   if (selectedTags) {
-//     fetchTaggedMixes({
-//       variables: {
-//         after: cursor,
-//         tags: selectedTags,
-//       },
-//     });
-
-//     console.log("taggedMixesData", taggedMixesData);
-//     if (taggedMixesData) {
-//       console.log("taggedMixesData exists", taggedMixesData);
-//       const currentCursor = taggedMixesData.allMixs.pageInfo.endCursor;
-//       console.log("currentCursor", currentCursor);
-
-//       const currentFetchedMixes = [
-//         ...mixesArr,
-//         ...taggedMixesData.allMixs.edges,
-//       ];
-//       console.log(
-//         "currFetchedMixes",
-//         currentFetchedMixes.length,
-//         currentFetchedMixes
-//       );
-
-//       if (taggedMixesData.allMixs.pageInfo.hasNextPage) {
-//         executeTagSearch(currentFetchedMixes, currentCursor);
-//       } else {
-//         setReceivedTagMixes({
-//           data: currentFetchedMixes,
-//           hasMore: taggedMixesData.allMixs.pageInfo.hasNextPage,
-//           endCursor: taggedMixesData.allMixs.pageInfo.endCursor,
-//         });
-//       }
-//     }
-//   }
-// });

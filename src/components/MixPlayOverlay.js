@@ -30,6 +30,11 @@ function MixPlayOverlay({
 }) {
   const dispatch = useContext(GlobalDispatchContext)
 
+  /**
+   * Dispatches CHANGE_URL to switch from whatever is in {@link RadioPlayer} to the selected mix.
+   * @category Dispatch Function
+   * @function playCollection
+   */
   const changeUrl = async () => {
     await dispatch({ type: 'SHOW_LOADING' })
     await dispatch({
@@ -44,7 +49,9 @@ function MixPlayOverlay({
   }
 
   /**
-   * Dispatch corresponds to "PLAYLIST_PLAY_FIRST"
+   * Dispatch corresponds to "PLAYLIST_PLAY_FIRST".
+   * @category Dispatch Function
+   * @function playCollection
    * @see {@link makeCollectionDispatch}
    */
   const playCollection = async () => {
@@ -60,11 +67,14 @@ function MixPlayOverlay({
       <div className="card-image">
         <a
           href="#"
-          className="sr-only display-text"
+          className="sr-only title is-6"
           tabIndex="0"
           onClick={() => dispatchFunc()}
         >
-          Play This Mix
+          <span className="icon">
+            <Icon icon="play" size="1x" />
+          </span>
+          <span>Play This Mix</span>
         </a>
         <figure className="image is-1by1">
           {img ? <img src={img.url} alt={img.alt} /> : <FallbackImage />}

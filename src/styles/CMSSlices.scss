@@ -10,14 +10,14 @@ article .container {
 }
 
 // First feature slice after ArticleHeadline.js
-header.article-header + section.slice {
-  margin-top: 2rem;
-}
+// header.article-header + section.slice {
+//   margin-top: 2rem;
+// }
 
 section.slice,
 article.landing-page-element {
-  margin-top: $gap;
-  margin-bottom: $gap;
+  // margin-top: $gap;
+  // margin-bottom: $gap;
   // ================================
   // Layout Helper - ImageModal.js
   // ================================
@@ -126,6 +126,10 @@ header.article-header {
   &.hero {
     height: calc(100vh - 9.75rem);
 
+    .is-overlay {
+      background: linear-gradient(to bottom, transparent 80%, black);
+    }
+
     h1 {
       font-weight: 900;
     }
@@ -139,7 +143,6 @@ header.article-header {
         .columns {
           margin: auto 0;
         }
-        // background-color: rgba($color: black, $alpha: .5);
       }
     }
   }

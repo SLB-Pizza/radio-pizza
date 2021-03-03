@@ -3,8 +3,7 @@ import { RichText } from 'prismic-reactjs'
 import { processPublicationDates } from '../../utils'
 
 /**
- * @category CMS
- *  Slices
+ * @category CMS Slices
  * @function ArticleHeadline
  * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create the HeadlineBlock slice
  * @param {Object} metadata - data object from Prismic CMS that contains the date publication for the HeadlineBlock slice
@@ -16,7 +15,6 @@ function ArticleHeadline({ headlineData, metadata }) {
     article_category,
     article_subcategory,
     article_headline,
-    article_subtitle,
     article_author_pic,
     article_author,
   } = headlineData.primary
@@ -77,9 +75,10 @@ function ArticleHeadline({ headlineData, metadata }) {
         src={article_headline_img.url}
         alt={article_headline_img.alt}
       />
+      <div className="is-overlay" />
       {headlinePhotoDetails}
       <div className="hero-foot">
-        <div className="container is-fluid">
+        <div className="container">
           <div className="columns is-mobile">
             <div className="column is-12">
               {categoryDetails && (
@@ -98,20 +97,7 @@ function ArticleHeadline({ headlineData, metadata }) {
                 )}
               </div>
               {/* </div>
-            {hasAuthorDetails && (
-              <div className="column is-narrow">
-                <figure
-                  className="image is-32x32"
-                  aria-label={`${article_author.hmbk_staff_name}, ${article_author.hmbk_staff_position}`}
-                >
-                  <img
-                    className="is-rounded"
-                    src={article_author_pic.url}
-                    alt={`${article_author.hmbk_staff_name}, ${article_author.hmbk_staff_position}`}
-                  />
-                </figure>
-              </div>
-            )} */}
+
               {/* {hasAuthorDetails && (
               <div className="column is-narrow-desktop">
                 <p className="subtitle is-size-6-desktop is-size-7-touch">

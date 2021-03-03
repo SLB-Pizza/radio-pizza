@@ -80,7 +80,7 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
       {/* DESKTOP */}
       <div className="columns is-hidden-touch">
         <div className="column is-3">
-          <div className="sticky-section-blurb content">
+          <div className="sticky-section content">
             {headline && <p className="title">{RichText.asText(headline)}</p>}
             {blurb && <p className="subtitle">{RichText.render(blurb)}</p>}
 
@@ -94,17 +94,13 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
 
         <div className="column is-9">
           <div className="columns is-multiline">
-            {twelveFeatures &&
-              twelveFeatures.map(({ node }, index) => {
-                return (
-                  <SingleFeatureCard
-                    key={`${index}-home-feature-d`}
-                    featureData={node}
-                    featureColumnLayout={featuresPageLayout}
-                    metadata={node._meta}
-                  />
-                )
-              })}
+            {twelveFeatures?.map(({ node }, index) => (
+              <SingleFeatureCard
+                key={`${index}-home-feature-d`}
+                featureData={node}
+                featureColumnLayout={featuresPageLayout}
+              />
+            ))}
           </div>
         </div>
       </div>
@@ -127,17 +123,13 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
         </div>
       </div>
       <div className="columns is-mobile is-hidden-desktop mobile-single-items">
-        {twelveFeatures &&
-          twelveFeatures.map(({ node }, index) => {
-            return (
-              <SingleFeatureCard
-                key={`${index}-home-feature-m`}
-                featureData={node}
-                featureColumnLayout={featuresPageLayout}
-                metadata={node._meta}
-              />
-            )
-          })}
+        {twelveFeatures?.map(({ node }, index) => (
+          <SingleFeatureCard
+            key={`${index}-home-feature-d`}
+            featureData={node}
+            featureColumnLayout={featuresPageLayout}
+          />
+        ))}
       </div>
     </section>
   )

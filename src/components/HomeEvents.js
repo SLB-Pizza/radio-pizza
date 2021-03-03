@@ -6,9 +6,10 @@ import { SingleEventCard } from './index'
 
 /**
  * The Events section featuring the 6 most recent events.
+ * @category Layout Section
  * @function HomeEvents
  * @param {*} { blurb, headline, homeEventsData }
- * @returns {JSX}
+ * @returns {jsx}
  */
 function HomeEvents({ blurb, headline, homeEventsData }) {
   const eventPageLayout = 'column is-9-mobile is-two-fifths-tablet is-4-desktop'
@@ -18,7 +19,7 @@ function HomeEvents({ blurb, headline, homeEventsData }) {
       {/* DESKTOP */}
       <div className="columns is-hidden-touch">
         <div className="column is-3">
-          <div className="sticky-section-blurb content">
+          <div className="sticky-section content">
             <p className="title">{RichText.asText(headline)}</p>
             <p className="subtitle">{RichText.render(blurb)}</p>
             <Link to="/events">
@@ -30,14 +31,13 @@ function HomeEvents({ blurb, headline, homeEventsData }) {
         </div>
         <div className="column is-9">
           <div className="columns is-multiline">
-            {homeEventsData.length &&
-              homeEventsData.map(({ node }, index) => (
-                <SingleEventCard
-                  key={`halfmoon-event-${index}`}
-                  eventData={node}
-                  eventColumnLayout={eventPageLayout}
-                />
-              ))}
+            {homeEventsData?.map(({ node }, index) => (
+              <SingleEventCard
+                key={`halfmoon-event-${index}`}
+                eventData={node}
+                eventColumnLayout={eventPageLayout}
+              />
+            ))}
           </div>
         </div>
       </div>
@@ -56,14 +56,13 @@ function HomeEvents({ blurb, headline, homeEventsData }) {
         </div>
       </div>
       <div className="columns is-mobile is-hidden-desktop mobile-single-items">
-        {homeEventsData.length &&
-          homeEventsData.map(({ node }, index) => (
-            <SingleEventCard
-              key={`halfmoon-event-${index}`}
-              eventData={node}
-              eventColumnLayout={eventPageLayout}
-            />
-          ))}
+        {homeEventsData?.map(({ node }, index) => (
+          <SingleEventCard
+            key={`halfmoon-event-${index}`}
+            eventData={node}
+            eventColumnLayout={eventPageLayout}
+          />
+        ))}
       </div>
     </div>
   )

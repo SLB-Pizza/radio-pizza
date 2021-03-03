@@ -6,24 +6,28 @@ import '../styles/index.scss'
 import { Hero, HomeMixes, HomeEvents, HomeFeatures } from '../components'
 
 /**
+ * Layout for the Index Page of the site.
  * @category Pages
  * @function IndexPage
- * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the layout for index route, `/`
+ * @param {Object} data - the data object coming from Prismic CMS that contains all data needed to build the layout for index route, `/`
+
  * @returns {jsx}
+
  */
 function IndexPage({ data }) {
   /**
    * This line is here to prevent an error from occurring when you eventually deploy the site live. There is an issue with the preview functionality that requires this check on every page.
-   * Details: https://prismic.io/docs/gatsby/rendering/retrieve-the-document-object#21_0-adding-a-validation-check
+   * @see {@link https://prismic.io/docs/gatsby/rendering/retrieve-the-document-object#21_0-adding-a-validation-check Retrieve the document object}
    */
-  if (!data) return null
+  const prismicContent = data.prismic
+  if (!prismicContent) return null
 
   // Focus the node for the prismicContent check below.
-  const homepageData = data.prismic.allHomepages.edges[0]
-  const homeEventsData = data.prismic.allEvents.edges
+  const homepageData = prismicContent.allHomepages.edges[0]
+  const homeEventsData = prismicContent.allEvents.edges
 
   /**
-   * Deconstruct homepageData to
+   * Deconstruct homepageData
    */
   const {
     home_mixes_headline,
@@ -38,7 +42,7 @@ function IndexPage({ data }) {
   } = homepageData.node
 
   return (
-    <div className="has-navbar-fixed-bottom full-height-page">
+    <main className="has-navbar-fixed-bottom full-height-page">
       <Hero slides={homepage_carousel} />
       <HomeMixes
         headline={home_mixes_headline}
@@ -55,7 +59,7 @@ function IndexPage({ data }) {
         blurb={home_features_blurb}
         homeFeaturesData={editorials}
       />
-    </div>
+    </main>
   )
 }
 
@@ -209,53 +213,3 @@ export const query = graphql`
 `
 
 export default IndexPage
-
-// Mix img square sizes
-// --- MOBILE ---
-// --- min-max avg:  513.5---
-// --- mean:  495.67---
-// 767  - 695
-
-// 768  - 332
-// 1023 - 460
-
-// --- DESKTOP ---
-// --- min-max avg:  350---
-// --- mean:  329.33---
-// 1024 - 296
-// 1215 - 360
-
-// 1216 - 262
-// 1407 - 310
-
-// 1408 - 310
-// 1920 - 438
-
-// allMixs(sortBy: mix_date_DESC, first: 12) {
-//   edges {
-//     node {
-//       _meta {
-//         uid
-//         lastPublicationDate
-//         firstPublicationDate
-//         type
-//         tags
-//       }
-//       featured_residents {
-//         mix_resident {
-//           ... on PRISMIC_Resident {
-//             _meta {
-//               uid
-//               type
-//             }
-//             resident_name
-//           }
-//         }
-//       }
-//       mix_date
-//       mix_image
-//       mix_link
-//       mix_title
-//     }
-//   }
-// }

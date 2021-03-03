@@ -1,5 +1,3 @@
-// Please remember to remove test sass at bottom of this file!
-
 //==================================
 // BULMA VARIABLES
 //==================================
@@ -10,7 +8,7 @@ $pink: #f600ff;
 $primary: $pink;
 $body-background-color: black;
 $family-sans-serif: "Poppins", sans-serif;
-$transition-speed: 0.25sec ease-in-out;
+$transition-speed: 0.25s ease-in-out;
 $border-radius: 0.75rem;
 //==================================
 // navbar variables
@@ -47,16 +45,14 @@ $input-icon-active-color: $primary;
 //==================================
 // button element variables
 //==================================
-$button-border-width: 2px;
-$button-color: white;
-$button-background-color: black;
-$button-hover-color: darken(white, 10);
-$button-hover-border-color: $grey;
-$button-text-hover-background-color: $primary;
-$button-focus-color: $white;
+$button-background-color: transparent;
+$button-hover-color: white;
+$button-hover-border-color: $primary;
+$button-focus-color: white;
 $button-focus-border-color: $primary;
-$button-active-color: darken($primary, 15);
-$button-active-border-color: darken($primary, 15);
+$button-active-color: darken(white, 20);
+$button-active-border-color: darken($primary, 25);
+$button-border-width: 2px;
 
 //==================================
 // dropdown element variables
@@ -92,7 +88,7 @@ $card-radius: 0.75rem;
 //==================================
 // To edges of available space between navbars
 .full-height-page {
-  padding-top: 5.625rem;
+  padding-top: 6.625rem;
   padding-bottom: 3.75rem;
   min-height: 100vh;
 }
@@ -129,7 +125,6 @@ button.button,
   font-weight: 700;
 }
 
-button p,
 li,
 .subtitle {
   font-weight: 300;
@@ -137,12 +132,15 @@ li,
 
 button.button {
   transition: $transition-speed;
-  @include mobile {
-    font-size: 0.625rem;
+  .cross {
+    transition: $transition-speed;
+    opacity: 0;
   }
-  &.active {
-    color: white;
-    border-color: $primary;
+
+  &:hover {
+    .cross {
+      opacity: 1;
+    }
   }
 }
 
@@ -200,7 +198,8 @@ figcaption {
     padding: 1rem;
     width: auto;
     background-color: darken($color: $primary, $amount: 40);
-    border: 0.25rem solid $primary;
+    border: 2px solid $primary;
+    border-radius: $border-radius;
     color: white;
     z-index: 999999;
   }
@@ -214,6 +213,11 @@ figcaption {
 // Give the date of content items some space
 //================================================
 
+// Remove bottom padding from 'section' class for media card mappings
+.section.media-cards {
+  padding-bottom: 0;
+}
+
 // Prevents clipping of background color through the curved card border
 .card-content {
   border-bottom-left-radius: 0.75rem;
@@ -221,32 +225,39 @@ figcaption {
 }
 
 //==========================
-// SingleEventCard.js
+// SingleFeatureCard.js
 //==========================
-.event-card-sizing {
+.feature-card-sizing,
+.event-card-sizing,
+.mix-card-sizing {
   display: flex;
   flex-direction: column;
-  min-height: 9rem;
+  min-height: 9.5rem;
+}
 
-  .details {
-    flex: 1;
-  }
-  .blurb {
-    flex: 0;
-  }
+.details {
+  flex: 1;
+}
+
+.blurb {
+  flex: 0;
 }
 
 //==========================
 // SingleMixCard.js
 //==========================
 .mix-card-sizing {
+  min-height: 11rem;
+}
+
+.mix-details {
+  flex: 1;
   display: flex;
-  flex-direction: column;
-  @include mobile {
-    min-height: 11.5rem;
-  }
-  @include tablet {
-    min-height: 12rem;
+  flex-direction: row;
+
+  .mix-icon {
+    flex: 0;
+    padding-right: 0.75rem;
   }
 
   .mix-text {
@@ -376,5 +387,131 @@ figcaption {
     &.is-transparent {
       opacity: 0.5;
     }
+  }
+
+  // For ArticleHeadline.js
+  &.article-header {
+    justify-content: flex-end;
+  }
+}
+
+//==========================
+// HMBKDivider.js - forLoading: true
+//==========================
+.divider {
+  &-left {
+    background: linear-gradient(135deg, #ffffff, #f600ff, #ffffff);
+    background-size: 600% 600%;
+
+    -webkit-animation: DividerAnim 1.25s ease infinite;
+    -moz-animation: DividerAnim 1.25s ease infinite;
+    -o-animation: DividerAnim 1.25s ease infinite;
+    animation: DividerAnim 1.25s ease infinite;
+  }
+  &-right {
+    background: linear-gradient(-135deg, #ffffff, #f600ff, #ffffff);
+    background-size: 600% 600%;
+
+    -webkit-animation: DividerAnim 1.25s ease infinite;
+    -moz-animation: DividerAnim 1.25s ease infinite;
+    -o-animation: DividerAnim 1.25s ease infinite;
+    animation: DividerAnim 1.25s ease infinite;
+  }
+
+  &-logo {
+    -webkit-animation: DividerLogoScaling 1.25s ease infinite;
+    -moz-animation: DividerLogoScaling 1.25s ease infinite;
+    -o-animation: DividerLogoScaling 1.25s ease infinite;
+    animation: DividerLogoScaling 1.25s ease infinite;
+  }
+}
+
+@-webkit-keyframes DividerAnim {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-moz-keyframes DividerAnim {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-o-keyframes DividerAnim {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes DividerAnim {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@-webkit-keyframes DividerLogoScaling {
+  0% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+@-moz-keyframes DividerLogoScaling {
+  0% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+@-o-keyframes DividerLogoScaling {
+  0% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+@keyframes DividerLogoScaling {
+  0% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(0.9);
   }
 }

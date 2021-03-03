@@ -8,34 +8,31 @@ import {
 import { OutsideClick } from './index'
 
 /**
- *
+ * Returns the layout for the BottomNav.
+ * @category Site Element
  * @function BottomNav
+ * @returns {jsx}
  */
 function BottomNav() {
   const [dropUpOpen, setDropUpOpen] = useState(false)
   const dispatch = useContext(GlobalDispatchContext)
   const globalState = useContext(GlobalStateContext)
 
-  const closeDropUp = () => {
-    setDropUpOpen(false)
-  }
+  const closeDropUp = () => setDropUpOpen(false)
 
-  const toggleDropUp = () => {
-    setDropUpOpen(state => !state)
-  }
+  const toggleDropUp = () => setDropUpOpen(state => !state)
 
-  const closeNavMenu = async () => {
-    await dispatch({ type: 'CLOSE_NAVMENU' })
-  }
+  const closeNavMenu = async () => await dispatch({ type: 'CLOSE_NAVMENU' })
 
-  const toggleNavMenu = async () => {
-    await dispatch({ type: 'TOGGLE_NAVMENU' })
-  }
+  const toggleNavMenu = async () => await dispatch({ type: 'TOGGLE_NAVMENU' })
+
+  const clearMixSearchTags = async () =>
+    await dispatch({ type: 'CLEAR_MIX_SEARCH_TAGS' })
 
   /**
    * This globalState null return prevents ERROR #95313.
-   * @see {@link TopNav| Related globalState situation in TopNav}
-   * @see {@link https://github.com/gatsbyjs/gatsby/issues/24264#issuecomment-631995753| Re: ERROR #95313 - To stop the error immediately, add a null check for the object}
+   * @see {@link TopNav Related globalState situation in TopNav}
+   * @see {@link https://github.com/gatsbyjs/gatsby/issues/24264#issuecomment-631995753 Re: ERROR #95313 - To stop the error immediately, add a null check for the object}
    */
   if (!globalState) return null
   return (
@@ -56,7 +53,10 @@ function BottomNav() {
           <Link
             to="/"
             className="navbar-item display-text"
-            onClick={() => closeNavMenu()}
+            onClick={() => {
+              closeNavMenu()
+              clearMixSearchTags()
+            }}
           >
             Ears to the concrete.
           </Link>
@@ -86,14 +86,24 @@ function BottomNav() {
         >
           <div className="navbar-start">
             <Link
-              to="/residents"
+              to="/mixes"
               className="navbar-item"
               onClick={() => toggleNavMenu()}
+            >
+              Radio
+            </Link>
+            <Link
+              to="/residents"
+              className="navbar-item"
+              onClick={() => {
+                toggleNavMenu()
+                clearMixSearchTags()
+              }}
             >
               Residents
             </Link>
 
-            <div
+            {/* <div
               className={
                 dropUpOpen
                   ? 'navbar-item has-dropdown has-dropdown-up is-active'
@@ -120,26 +130,35 @@ function BottomNav() {
                   Collections
                 </Link>
               </div>
-            </div>
+            </div> */}
 
             <Link
               to="/events"
               className="navbar-item"
-              onClick={() => toggleNavMenu()}
+              onClick={() => {
+                toggleNavMenu()
+                clearMixSearchTags()
+              }}
             >
               Events
             </Link>
             <Link
               to="/features"
               className="navbar-item"
-              onClick={() => toggleNavMenu()}
+              onClick={() => {
+                toggleNavMenu()
+                clearMixSearchTags()
+              }}
             >
               Features
             </Link>
             <Link
               to="/about"
               className="navbar-item"
-              onClick={() => toggleNavMenu()}
+              onClick={() => {
+                toggleNavMenu()
+                clearMixSearchTags()
+              }}
             >
               About
             </Link>
@@ -148,7 +167,9 @@ function BottomNav() {
             <a
               href="https://www.mixcloud.com/HalfMoonbk/"
               className="navbar-item"
-              onClick={() => toggleNavMenu()}
+              onClick={() => {
+                toggleNavMenu()
+              }}
               aria-label="Halfmoon on Mixcloud"
               target="_blank"
               rel="noopener"
@@ -160,7 +181,9 @@ function BottomNav() {
             <a
               href="https://www.instagram.com/halfmoonbk/"
               className="navbar-item"
-              onClick={() => toggleNavMenu()}
+              onClick={() => {
+                toggleNavMenu()
+              }}
               aria-label="Halfmoon on Instagram"
               target="_blank"
               rel="noopener"

@@ -9,6 +9,7 @@ import {
 import NanoClamp from 'nanoclamp'
 
 /**
+ * Resident Bio section for an individual resident. Called by {@link ResidentTemplate}.
  * @category Layout Helper
  * @function ResidentBio
  * @param {object} residentBioData - the data object coming from Prismic CMS that contains all data needed to build the bio section of the individual `/residents/:uid`  page
@@ -36,7 +37,9 @@ function ResidentBio({ residentBioData }) {
   useEffect(() => {
     const bioDataCheck = () => {
       if (residentBioData) {
-        // A nested social_media object requires 2 key-value pairs to be valid
+        /**
+         * A nested social_media object requires its 2 keys, `resident_social_page` and `resident_social_link`, to BOTH have values to be valid.
+         */
         const socialMediaCheck = mappableDataFilter(social_media, 2)
 
         // setMediaData to result socialMediaCheck array if array has valid entries
@@ -61,32 +64,35 @@ function ResidentBio({ residentBioData }) {
           </figure>
         </div>
         <div className="column is-12 content">
-          <NanoClamp
-            className="title is-size-4-desktop is-size-5-touch"
-            is="p"
-            lines={2}
-            text={resident_name}
-          />
-          <p className="subtitle is-size-6-desktop is-size-7-touch">
-            {resident_status}
-          </p>
+          {resident_name && (
+            <NanoClamp
+              className="title is-size-4-desktop is-size-5-touch"
+              is="p"
+              lines={2}
+              text={resident_name}
+            />
+          )}
+          {resident_status && (
+            <p className="subtitle is-size-6-desktop is-size-7-touch">
+              {resident_status}
+            </p>
+          )}
           {/* <pre>{JSON.stringify(resident_blurb, null, 2)}</pre> */}
-          {RichText.render(resident_blurb)}
+          {resident_blurb && RichText.render(resident_blurb)}
         </div>
       </div>
-      {socialMediaData.length && (
-        <div className="columns is-mobile is-multiline is-vcentered">
-          {social_media.map(
-            ({ resident_social_page, resident_social_link }, index) => (
-              <ResidentSocialLinks
-                key={`social-link-${index}-${resident_social_page}`}
-                url={resident_social_link.url}
-                platform={resident_social_page}
-              />
-            )
-          )}
-        </div>
-      )}
+
+      <div className="columns is-mobile is-multiline is-vcentered">
+        {socialMediaData?.map(
+          ({ resident_social_page, resident_social_link }, index) => (
+            <ResidentSocialLinks
+              key={`social-link-${index}-${resident_social_page}`}
+              url={resident_social_link.url}
+              platform={resident_social_page}
+            />
+          )
+        )}
+      </div>
     </div>
   )
 }

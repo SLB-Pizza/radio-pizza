@@ -2,10 +2,10 @@ import { gql } from '@apollo/client'
 
 /**
  * Query for Prismic in the GraphQL syntax, NOT the Gatsby syntax!
+ * Used in {@link ResidentIndexPage}.
  * @category Queries
- * @const GET_MORE_RESIDENTS
- * Used in {@link ResidentIndex}
- * @see {@link https://hmbk-cms.prismic.io/graphql| HMBK's Prismic GraphQL API}
+ * @name GET_MORE_RESIDENTS
+ * @see {@link https://hmbk-cms.prismic.io/graphql HMBK's Prismic GraphQL API}
  */
 export const GET_MORE_RESIDENTS = gql`
   query GetMoreResidents($first: Int = 12, $after: String) {
@@ -35,10 +35,10 @@ export const GET_MORE_RESIDENTS = gql`
 
 /**
  * Query for Prismic in the GraphQL syntax, NOT the Gatsby syntax!
+ * Used in {@link ResidentIndexPage}.
  * @category Queries
- * @const GET_MORE_ALUMNI
- * Used in {@link ResidentIndex}
- * @see {@link https://hmbk-cms.prismic.io/graphql| HMBK's Prismic GraphQL API}
+ * @name GET_MORE_ALUMNI
+ * @see {@link https://hmbk-cms.prismic.io/graphql HMBK's Prismic GraphQL API}
  */
 export const GET_MORE_ALUMNI = gql`
   query GetMoreAlumni($first: Int = 12, $after: String) {
@@ -67,10 +67,10 @@ export const GET_MORE_ALUMNI = gql`
 `
 /**
  * Query for Prismic in the GraphQL syntax, NOT the Gatsby syntax!
+ * Used in {@link ResidentIndexPage}.
  * @category Queries
- * @const GET_MORE_GUESTS
- * Used in {@link ResidentIndex}
- * @see {@link https://hmbk-cms.prismic.io/graphql| HMBK's Prismic GraphQL API}
+ * @name GET_MORE_GUESTS
+ * @see {@link https://hmbk-cms.prismic.io/graphql HMBK's Prismic GraphQL API}
  */
 export const GET_MORE_GUESTS = gql`
   query GetMoreGuests($first: Int = 12, $after: String) {

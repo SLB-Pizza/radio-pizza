@@ -1,36 +1,48 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { getCursorFromDocumentIndex } from '@prismicio/gatsby-source-prismic-graphql'
-import { Link, graphql } from 'gatsby'
-import { RichText } from 'prismic-reactjs'
-import {
-  TopicPageHero,
-  TopicPageHighlightSection,
-  SingleEventCard,
-} from '../../components'
-import { linkResolver } from '../../utils'
+import { graphql } from 'gatsby'
+import { LandingPageFetchAndLoading, SingleEventCard } from '../../components'
 
 /**
+ * Layout for the /events landing page.
  * @category Pages
  * @function EventsIndexPage
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/features` landing page
+ * @param {Object} prismic - the data object containing Prismic follow up functions
+ * @returns {jsx}
  */
 function EventsIndexPage({ data, prismic }) {
-  const prismicContent = data.prismic.allEvents.edges
+  const prismicContent = data.prismic.allEvents
   if (!prismicContent) return null
 
   // Initial useState is first query results
   // loadNextEvents calls trigger the loadMoreEvents useEffect and add to mixesData
-  const [eventsData, setEventsData] = useState(prismicContent)
 
-  // for loadMoreMixes useEffect and loadNextEvents function
   const eventsPerPage = 12
   const didMountRef = useRef(false)
   const [page, setPage] = useState(-1)
-  const [hasMoreEvents, setHasMoreEvents] = useState(true)
 
-  // The onClick function called when the
-  const loadNextEvents = () => setPage(page => page + eventsPerPage)
+  const [eventsToMap, setEventsToMap] = useState({
+    data: prismicContent.edges,
+    hasMore: prismicContent.pageInfo.hasNextPage,
+  })
+  const [eventsLoading, setEventsLoading] = useState(false)
 
+  /**
+   * Changes `eventLoading` to true to render {@link HMBKDivider}, and the `page` value, triggering {@link loadMoreEvents}.
+   * @category Fetch Trigger
+   * @function loadNextEvents
+   */
+  const loadNextEvents = () => {
+    setEventsLoading(true)
+    setPage(page => page + eventsPerPage)
+  }
+
+  /**
+   * useEffect that fires off a Prismic fetch when the 'More Events' button is clicked and {@link loadNextEvents} changes the `page` value. Adds events from Prismic fetch to eventsToMap data array and updates hasMore value.
+   * @category useEffect
+   * @name loadMoreEvents
+   */
   useEffect(() => {
     const loadMoreEvents = () => {
       if (!didMountRef.current) {
@@ -40,78 +52,53 @@ function EventsIndexPage({ data, prismic }) {
 
       // Grab the next 12 events
       prismic
-        .load({ variables: { after: getCursorFromDocumentIndex(page) } })
+        .load({
+          variables: {
+            after: getCursorFromDocumentIndex(page),
+          },
+        })
         .then(res => {
-          setEventsData([...eventsData, ...res.data.allEvents.edges])
+          setEventsLoading(false)
 
-          if (!res.data.allEvents.pageInfo.hasNextPage) {
-            setHasMoreEvents(false)
-          }
+          setEventsToMap({
+            data: [...eventsToMap.data, ...res.data.allEvents.edges],
+            hasMore: res.data.allEvents.pageInfo.hasNextPage,
+          })
         })
     }
 
     return loadMoreEvents()
   }, [page])
 
-  // const leadEventData = {
-  //   linkDetails: main_feature_article._meta,
-  //   leadTopicTitle: title,
-  //   leadTopicSubtitle: subtitle,
-  //   leadTopicCategory: category,
-  //   leadTopicSubcategory: subcategory,
-  // };
-
   // Column layout for SingleEventCard
   const eventPageLayout = 'column is-12-mobile is-6-tablet is-4-desktop'
 
   return (
-    <main className="full-height-page" id="events-header">
-      {/* <TopicPageHero leadTopicData={} leadTopicBG={} topicPageTitling={} /> */}
-
-      <div className="container is-fluid">
+    <main className="black-bg-page">
+      <header className="container is-fluid">
         <div className="columns is-mobile is-multiline">
           <div className="column is-full content">
             <h1 className="title">Halfmoon Events</h1>
           </div>
-          {eventsData.length &&
-            eventsData.map(({ node }, index) => (
-              <SingleEventCard
-                key={`halfmoon-event-${index}`}
-                eventData={node}
-                eventColumnLayout={eventPageLayout}
-              />
-            ))}
+
+          {/* MAPPING EVENT DATA TO CARDS */}
+          {eventsToMap?.data.map(({ node }, index) => (
+            <SingleEventCard
+              key={`halfmoon-event-${index}`}
+              eventData={node}
+              eventColumnLayout={eventPageLayout}
+            />
+          ))}
         </div>
-        {hasMoreEvents ? (
-          <div className="columns is-mobile">
-            <div className="column">
-              <button
-                className="button is-fullwidth is-outlined is-rounded"
-                onClick={loadNextEvents}
-              >
-                More Events!
-              </button>
-            </div>
-            <div className="column is-narrow">
-              <a href="#events-header">
-                <button className="button is-fullwidth is-outlined is-rounded">
-                  Top
-                </button>
-              </a>
-            </div>
-          </div>
-        ) : (
-          <div className="columns is-mobile">
-            <div className="column is-offset-10 is-2">
-              <a href="#events-header">
-                <button className="button is-fullwidth is-outlined is-rounded">
-                  Top
-                </button>
-              </a>
-            </div>
-          </div>
-        )}
-      </div>
+      </header>
+      <section className="section container is-fluid media-cards">
+        <LandingPageFetchAndLoading
+          hasMore={eventsToMap.hasMore}
+          currentlyFetching={eventsLoading}
+          fetchMoreFunc={loadNextEvents}
+          fetchMoreBtnTxt={'More Events'}
+        />
+      </section>
     </main>
   )
 }
@@ -133,6 +120,9 @@ export const query = graphql`
         after: $after
         before: $before
       ) {
+        pageInfo {
+          hasNextPage
+        }
         edges {
           node {
             _meta {
@@ -146,10 +136,6 @@ export const query = graphql`
             event_start
             event_location
           }
-        }
-        pageInfo {
-          hasNextPage
-          endCursor
         }
       }
     }

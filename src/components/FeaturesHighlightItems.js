@@ -3,18 +3,13 @@ import { SingleFeatureCard } from '../components'
 
 /**
  * Returns the /features highlight section layout
+ * @category Site Element
  * @function FeaturesHighlightItems
- * @param {Object} highlightItemsData
- * @prop {Object} highlightItemsData.leftFeature - data object for left feature
- * @prop {Object} highlightItemsData.rightFeature - data object for right feature
+ * @param {Object} leftFeature - data object for left feature
+ * @param {Object} rightFeature - data object for right feature
  * @returns {jsx}
  */
-function FeaturesHighlightItems({ highlightItemsData }) {
-  /**
-   * Deconstruct highlightItemsData from {@link TopicPageHighlightSection}
-   */
-  const { leftFeature, rightFeature } = highlightItemsData
-
+function FeaturesHighlightItems({ leftFeature, rightFeature }) {
   // Dictates SingleFeatureCard layout; could be overwritten by if-else's below
   let leftFeatureLayout = 'column is-12-touch is-6-desktop'
   let rightFeatureLayout = 'column is-12-touch is-6-desktop'

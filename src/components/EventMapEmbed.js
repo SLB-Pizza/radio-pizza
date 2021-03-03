@@ -18,7 +18,7 @@ function EventMapEmbed({ description, address }) {
 
       /**
        * Prepping the query portion of the map embed src URL
-       * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent| encodeURIComponent()}
+       * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent encodeURIComponent()}
        */
       const encodedDescription = encodeURIComponent(placeWithAddress)
       setDescription(encodedDescription)

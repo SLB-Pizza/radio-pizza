@@ -1,7 +1,7 @@
-import React, { Fragment, useEffect, useRef, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
 import { useLazyQuery } from '@apollo/client'
-import { SingleResident } from '../../components'
+import { HMBKDivider, SingleResidentCard } from '../../components'
 import {
   GET_MORE_RESIDENTS,
   GET_MORE_ALUMNI,
@@ -9,8 +9,9 @@ import {
 } from '../../queries'
 
 /**
+ * Layout for the /residents page.
  * @category Pages
- * @function ResidentIndex
+ * @function ResidentIndexPage
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/residents` landing page
  * @returns {jsx}
  */
@@ -39,7 +40,7 @@ function ResidentsIndex({ data }) {
    * Use Apollo's useLazyQuery to allow for a query to run on button press.
    * One useLazyQuery per resident category
    * Each individual fetch update is fed to a useEffect
-   * @see {@link https://www.apollographql.com/docs/react/data/queries/#executing-queries-manually| Executing queries manually (useLazyQuery hook)}
+   * @see {@link https://www.apollographql.com/docs/react/data/queries/#executing-queries-manually Executing queries manually (useLazyQuery hook)}
    */
   const [
     getMoreResidents,
@@ -173,75 +174,81 @@ function ResidentsIndex({ data }) {
 
   return (
     <main className="black-bg-page">
-      <div className="container is-fluid">
-        <header className="columns is-mobile">
-          <div className="column is-full">
+      <header className="container is-fluid">
+        <div className="columns is-mobile">
+          <div className="column is-full content">
             <h1 className="title is-size-3-desktop is-size-5-touch">
-              Halfmoon Residents
+              residents
             </h1>
           </div>
-        </header>
-        <section className="columns is-mobile is-variable is-2">
-          {/* RESIDENT TYPE SELECTOR BUTTONS */}
-          {categoryLabels &&
-            categoryLabels.map((type, index) => (
-              <Fragment key={`column-${index}-${type}`}>
-                {/* DESKTOP SIZED BUTTONS */}
-                <div className="column is-hidden-mobile">
-                  <button
-                    className={
-                      isOpen === type
-                        ? 'button active is-fullwidth is-outlined is-rounded'
-                        : 'button is-fullwidth is-outlined is-rounded'
-                    }
-                    id={type}
-                    onClick={toggleColumn}
-                  >
-                    {type}
-                  </button>
-                </div>
-                {/* TOUCH SIZED BUTTONS */}
-                <div className="column is-hidden-tablet">
-                  <button
-                    className={
-                      isOpen === type
-                        ? 'button is-small active is-fullwidth is-outlined is-rounded'
-                        : 'button is-small is-fullwidth is-outlined is-rounded'
-                    }
-                    id={type}
-                    onClick={toggleColumn}
-                  >
-                    {type}
-                  </button>
-                </div>
-              </Fragment>
-            ))}
-        </section>
+        </div>
+      </header>
 
+      <section className="container is-fluid">
+        <div className="columns is-mobile is-variable is-2">
+          {/* RESIDENT TYPE SELECTOR BUTTONS */}
+          {categoryLabels?.map((type, index) => (
+            <Fragment key={`HMBK-${type}-${index}`}>
+              {/* DESKTOP SIZED BUTTONS */}
+              <div className="column is-hidden-mobile">
+                <button
+                  className={
+                    isOpen === type
+                      ? 'button active is-fullwidth is-outlined is-rounded'
+                      : 'button is-fullwidth is-outlined is-rounded'
+                  }
+                  id={type}
+                  onClick={toggleColumn}
+                >
+                  {type}
+                </button>
+              </div>
+              {/* TOUCH SIZED BUTTONS */}
+              <div className="column is-hidden-tablet">
+                <button
+                  className={
+                    isOpen === type
+                      ? 'button is-small active is-fullwidth is-outlined is-rounded'
+                      : 'button is-small is-fullwidth is-outlined is-rounded'
+                  }
+                  id={type}
+                  onClick={toggleColumn}
+                >
+                  {type}
+                </button>
+              </div>
+            </Fragment>
+          ))}
+        </div>
+      </section>
+
+      <section className="section container is-fluid media-cards">
         {/* CURRENT HMBK RESIDENTS */}
         {isOpen === 'Residents' ? (
           <>
             <div className="columns is-mobile is-multiline">
-              {residents?.data?.map(({ node }, index) => {
-                return (
-                  <SingleResident key={`Resident-${index}`} resident={node} />
-                )
-              })}
+              {residents?.data?.map(({ node }, index) => (
+                <SingleResidentCard key={`Resident-${index}`} resident={node} />
+              ))}
             </div>
             {residents?.hasMore ? (
-              <div className="columns is-mobile">
-                <div className="column">
-                  <button
-                    className="button is-fullwidth is-outlined is-rounded"
-                    onClick={() =>
-                      getMoreResidents({
-                        variables: { after: residents.endCursor },
-                      })
-                    }
-                  >
-                    More Residents!
-                  </button>
-                </div>
+              <div className="columns is-mobile is-vcentered">
+                {!resLoad ? (
+                  <div className="column">
+                    <button
+                      className="button is-fullwidth is-outlined is-rounded"
+                      onClick={() =>
+                        getMoreResidents({
+                          variables: { after: residents.endCursor },
+                        })
+                      }
+                    >
+                      More Residents!
+                    </button>
+                  </div>
+                ) : (
+                  <HMBKDivider forLoading={true} />
+                )}
                 <div className="column is-narrow">
                   <a href="#mixes-header">
                     <button className="button is-fullwidth is-outlined is-rounded">
@@ -251,8 +258,9 @@ function ResidentsIndex({ data }) {
                 </div>
               </div>
             ) : (
-              <div className="columns is-mobile">
-                <div className="column is-offset-10 is-2">
+              <div className="columns is-mobile is-vcentered">
+                <HMBKDivider />
+                <div className="column is-narrow">
                   <a href="#all-mixes">
                     <button className="button is-fullwidth is-outlined is-rounded">
                       Top
@@ -268,26 +276,28 @@ function ResidentsIndex({ data }) {
         {isOpen === 'Alumni' ? (
           <>
             <div className="columns is-mobile is-multiline">
-              {alumni?.data?.map(({ node }, index) => {
-                return (
-                  <SingleResident key={`Alumnus-${index}`} resident={node} />
-                )
-              })}
+              {alumni?.data?.map(({ node }, index) => (
+                <SingleResidentCard key={`Alumnus-${index}`} resident={node} />
+              ))}
             </div>
             {alumni?.hasMore ? (
               <div className="columns is-mobile">
-                <div className="column">
-                  <button
-                    className="button is-fullwidth is-outlined is-rounded"
-                    onClick={() =>
-                      getMoreAlumni({
-                        variables: { after: alumni.endCursor },
-                      })
-                    }
-                  >
-                    More Alumni
-                  </button>
-                </div>
+                {!alumLoad ? (
+                  <div className="column">
+                    <button
+                      className="button is-fullwidth is-outlined is-rounded"
+                      onClick={() =>
+                        getMoreAlumni({
+                          variables: { after: alumni.endCursor },
+                        })
+                      }
+                    >
+                      More Alumni
+                    </button>
+                  </div>
+                ) : (
+                  <HMBKDivider />
+                )}
                 <div className="column is-narrow">
                   <a href="#mixes-header">
                     <button className="button is-fullwidth is-outlined is-rounded">
@@ -314,26 +324,28 @@ function ResidentsIndex({ data }) {
         {isOpen === 'Guests' ? (
           <>
             <div className="columns is-mobile is-multiline">
-              {guests?.data?.map(({ node }, index) => {
-                return (
-                  <SingleResident key={`Guests-${index}`} resident={node} />
-                )
-              })}
+              {guests?.data?.map(({ node }, index) => (
+                <SingleResidentCard key={`Guests-${index}`} resident={node} />
+              ))}
             </div>
             {guests?.hasMore ? (
               <div className="columns is-mobile">
-                <div className="column">
-                  <button
-                    className="button is-fullwidth is-outlined is-rounded"
-                    onClick={() =>
-                      getMoreGuests({
-                        variables: { after: guests.endCursor },
-                      })
-                    }
-                  >
-                    More Guests
-                  </button>
-                </div>
+                {!guestLoad ? (
+                  <div className="column">
+                    <button
+                      className="button is-fullwidth is-outlined is-rounded"
+                      onClick={() =>
+                        getMoreGuests({
+                          variables: { after: guests.endCursor },
+                        })
+                      }
+                    >
+                      More Guests
+                    </button>
+                  </div>
+                ) : (
+                  <HMBKDivider forLoading={true} />
+                )}
                 <div className="column is-narrow">
                   <a href="#mixes-header">
                     <button className="button is-fullwidth is-outlined is-rounded">
@@ -343,8 +355,9 @@ function ResidentsIndex({ data }) {
                 </div>
               </div>
             ) : (
-              <div className="columns is-mobile">
-                <div className="column is-offset-10 is-2">
+              <div className="columns is-mobile is-vcentered">
+                <HMBKDivider />
+                <div className="column is-narrow">
                   <a href="#all-mixes">
                     <button className="button is-fullwidth is-outlined is-rounded">
                       Top
@@ -355,26 +368,18 @@ function ResidentsIndex({ data }) {
             )}
           </>
         ) : null}
-      </div>
+      </section>
     </main>
   )
 }
 
 export const query = graphql`
-  query ResidentIndexPage(
-    $first: Int = 12
-    $last: Int
-    $after: String
-    $before: String
-  ) {
+  query ResidentIndexPage($first: Int = 12) {
     prismic {
       residents: allResidents(
         sortBy: resident_name_ASC
         where: { resident_status: "Resident" }
         first: $first
-        last: $last
-        after: $after
-        before: $before
       ) {
         edges {
           node {
@@ -389,7 +394,6 @@ export const query = graphql`
         totalCount
         pageInfo {
           hasNextPage
-          startCursor
           endCursor
         }
       }
@@ -397,9 +401,6 @@ export const query = graphql`
         sortBy: resident_name_ASC
         where: { resident_status: "Alumnus" }
         first: $first
-        last: $last
-        after: $after
-        before: $before
       ) {
         edges {
           node {
@@ -414,7 +415,6 @@ export const query = graphql`
         totalCount
         pageInfo {
           hasNextPage
-          startCursor
           endCursor
         }
       }
@@ -422,9 +422,6 @@ export const query = graphql`
         sortBy: resident_name_ASC
         where: { resident_status: "Guest" }
         first: $first
-        last: $last
-        after: $after
-        before: $before
       ) {
         edges {
           node {
@@ -439,7 +436,6 @@ export const query = graphql`
         totalCount
         pageInfo {
           hasNextPage
-          startCursor
           endCursor
         }
       }

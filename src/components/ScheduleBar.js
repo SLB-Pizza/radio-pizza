@@ -180,15 +180,14 @@ function ScheduleBar({ timeNow }) {
 
   /**
    * This globalState null return prevents ERROR #95313.
-   * @see {@link https://github.com/gatsbyjs/gatsby/issues/24264#issuecomment-631995753| Re: ERROR #95313 - To stop the error immediately, add a null check for the object}
+   * @see {@link https://github.com/gatsbyjs/gatsby/issues/24264#issuecomment-631995753 Re: ERROR #95313 - To stop the error immediately, add a null check for the object}
    */
   if (!globalState) return null
 
   /**
    * globalState.scheduleOpen ? OPEN LAYOUT : CLOSED LAYOUT
-   *
-   * @see {@link BottomNav|Related globalState situation in BottomNav}
-   * @see {@link OutsideClick|Related OutsideClick situation in BottomNav}
+   * @see {@link BottomNav Related globalState situation in BottomNav}
+   * @see {@link OutsideClick Related OutsideClick situation in BottomNav}
    */
   return globalState.scheduleOpen ? (
     <OutsideClick id={'schedule-bar'} onClick={() => closeSchedule()}>
@@ -265,7 +264,7 @@ function ScheduleBar({ timeNow }) {
               onClick={() => toggleSchedule()}
             />
           </div>
-          <div className="column is-narrow">
+          {/* <div className="column is-narrow">
             <Link to="/search">
               <Icon
                 onClick={() => closeSchedule()}
@@ -274,7 +273,7 @@ function ScheduleBar({ timeNow }) {
                 className="icon-color"
               />
             </Link>
-          </div>
+          </div> */}
 
           <div className="column is-narrow">
             <a
@@ -368,7 +367,7 @@ function ScheduleBar({ timeNow }) {
             className="icon-color"
           />
         </div>
-        <div className="column is-narrow">
+        {/* <div className="column is-narrow">
           <Link to="/search">
             <Icon
               onClick={() => closeSchedule()}
@@ -377,7 +376,7 @@ function ScheduleBar({ timeNow }) {
               className="icon-color"
             />
           </Link>
-        </div>
+        </div> */}
 
         <div className="column is-narrow">
           <a

@@ -15,6 +15,7 @@ import {
   faSoundcloud,
   faSpotify,
   faTwitter,
+  faYoutube,
 } from '@fortawesome/free-brands-svg-icons'
 import {
   faBroadcastTower,
@@ -30,10 +31,11 @@ import {
   faPause,
   faSearch,
   faTag,
+  faTimes,
 } from '@fortawesome/free-solid-svg-icons'
 
 /**
- * @see {@link https://github.com/FortAwesome/react-fontawesome#build-a-library-to-reference-icons-throughout-your-app-more-conveniently| Build a Library to Reference Icons Throughout Your App More Conveniently}
+ * @see {@link https://github.com/FortAwesome/react-fontawesome#build-a-library-to-reference-icons-throughout-your-app-more-conveniently Build a Library to Reference Icons Throughout Your App More Conveniently}
  */
 library.add(
   faApple,
@@ -55,15 +57,17 @@ library.add(
   faSoundcloud,
   faSearch,
   faTag,
+  faTimes,
   faSpotify,
-  faTwitter
+  faTwitter,
+  faYoutube
 )
 
 /**
  * Create the Apollo Client and give it our Prismic CMS graphql endpoint
  * @name ApolloPrismicClient
- * @see {@link https://www.apollographql.com/docs/react/get-started/#create-a-client| Create a Client}
- * @see {@link https://github.com/gatsbyjs/gatsby/issues/11225#issuecomment-457211628| Wrapping root element in gatsby-browser AND gatsby-ssr}
+ * @see {@link https://www.apollographql.com/docs/react/get-started/#create-a-client Create a Client}
+ * @see {@link https://github.com/gatsbyjs/gatsby/issues/11225#issuecomment-457211628 Wrapping root element in gatsby-browser AND gatsby-ssr}
  */
 const client = new ApolloClient({
   link: PrismicLink({
@@ -73,7 +77,7 @@ const client = new ApolloClient({
 })
 
 /**
- * @see {@link https://github.com/gatsbyjs/gatsby/issues/11225#issuecomment-457211628| Wrapping root element in gatsby-browser AND gatsby-ssr}
+ * @see {@link https://github.com/gatsbyjs/gatsby/issues/11225#issuecomment-457211628 Wrapping root element in gatsby-browser AND gatsby-ssr}
  */
 export const wrapRootElement = ({ element }) => {
   return (

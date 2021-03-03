@@ -40,6 +40,18 @@ function ArticleHeadline({ headlineData, metadata }) {
   const allCapsCategory = article_category.toUpperCase()
 
   /**
+   * Process article category details.
+   */
+  let categoryDetails
+  if (article_category) {
+    if (article_subcategory) {
+      categoryDetails = `${article_category} ‣ ${article_subcategory}`
+    } else {
+      categoryDetails = `${article_category}`
+    }
+  }
+
+  /**
    * If the image has copyright info (photo credit):
    *    Image alt text — photo credit
    * If the image doesn't have copyright info:
@@ -68,25 +80,21 @@ function ArticleHeadline({ headlineData, metadata }) {
       {headlinePhotoDetails}
       <div className="hero-foot">
         <div className="container is-fluid">
-          <div className="columns is-mobile is-multiline is-vcentered">
+          <div className="columns is-mobile">
             <div className="column is-12">
-              <p className="is-size-6-desktop is-size-7-touch">
-                {allCapsCategory}
-                <span>{' ‣ ' + article_subcategory}</span>
-              </p>
+              {categoryDetails && (
+                <p className="is-size-6-desktop is-size-7-touch article-category">
+                  {categoryDetails}
+                </p>
+              )}
               <div className="content">
                 {article_headline && (
                   <h1
                     id="article-headline"
-                    className="title is-size-1-widescreen is-size-2-desktop is-size-4-touch"
+                    className="title is-size-1-widescreen is-size-4-desktop is-size-5-touch hero-title"
                   >
                     {RichText.asText(article_headline)}
                   </h1>
-                )}
-                {article_subtitle && (
-                  <p className="subtitle is-size-3-widescreen is-size-4-desktop is-size-6-touch">
-                    {RichText.asText(article_subtitle)}
-                  </p>
                 )}
               </div>
               {/* </div>

@@ -8,12 +8,14 @@ dayjs.extend(utc)
  * @function formatDateTime
  * @param {(Object|String)} time - a Date object or regular string containing datetime
  * @param {String} format - dictates how to format the incoming time
- * @param {?Number} number - optional number to use when adding to the time param
+ * @param {?Number} number - optional number to use when adding to the time param, negative numbers allowed
  * @returns {String}
- * @see {@link https://day.js.org/docs/en/manipulate/add |dayjs docs - add}
- * @see {@link https://day.js.org/docs/en/display/format |dayjs docs - format}
+ *
+ * @see {@link https://day.js.org/docs/en/manipulate/add dayjs docs - add}
+ * @see {@link https://day.js.org/docs/en/display/format dayjs docs - format}
  */
-const formatDateTime = (time, format, number) => {
+
+export default function formatDateTime(time, format, number) {
   switch (format) {
     case 'add-days':
       return time.add(number, 'day').format('MM.DD')
@@ -39,8 +41,6 @@ const formatDateTime = (time, format, number) => {
     case 'long-form-date':
       return dayjs(time).format('MMMM D, YYYY')
     default:
-      return dayjs(time)
+      return dayjs()
   }
 }
-
-export default formatDateTime

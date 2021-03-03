@@ -2,15 +2,20 @@ import { gql } from '@apollo/client'
 
 /**
  * Query for Prismic in the GraphQL syntax, NOT the Gatsby syntax!
- * Similar procedure as in {@link ScheduleBar}, {@link HomeEvents} and {@link HomeFeatures}.
- * Used in {@link HomeMixes}.
+ * A query that's run `onClick` when a {@link TagButton} is clicked.
+ * Used by all {@link SingleMixCard} site-wide.
  * @category Queries
- * @name FILL_HOME_MIXES
+ * @name GET_SELECTED_TAGGED_MIXES
  * @see {@link https://hmbk-cms.prismic.io/graphql HMBK's Prismic GraphQL API}
  */
-export const FILL_HOME_MIXES = gql`
-  query FillHomeMixes($count: Int!) {
-    allMixs(sortBy: mix_date_DESC, first: $count) {
+export const GET_SELECTED_TAGGED_MIXES = gql`
+  query getSelectedTaggedMixes($after: String, $tags: [String!]!) {
+    allMixs(sortBy: mix_date_DESC, first: 12, after: $after, tags: $tags) {
+      totalCount
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
       edges {
         node {
           _meta {

@@ -2,12 +2,12 @@ import { gql } from '@apollo/client'
 
 /**
  * Query for Prismic in the GraphQL syntax, not the Gatsby syntax!
- * Retrieves the first available date after yesterday with scheduled show entries
+ * Retrieves the first available date after yesterday with scheduled show entries.
+ * Used in {@link ScheduleBar}.
  * @category Queries
- * @const GET_NEXT_SHOW
- * Used in {@link ScheduleBar}
- * @see {@link https://hmbk-cms.prismic.io/graphql| HMBK's Prismic GraphQL API}
- * @see {@link https://prismic.io/docs/graphql/query-the-api/query-by-date| Prismic - GraphQL Query by Date}
+ * @name GET_NEXT_SHOW
+ * @see {@link https://hmbk-cms.prismic.io/graphql HMBK's Prismic GraphQL API}
+ * @see {@link https://prismic.io/docs/graphql/query-the-api/query-by-date Prismic - GraphQL Query by Date}
  */
 export const GET_NEXT_SHOW = gql`
   query getNextShow($yesterday: Date!) {

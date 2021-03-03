@@ -23,7 +23,7 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
   const mixQueryCount = 12 - filteredHomeMixes.length
 
   /**
-   * Uses the query {@link FILL_HOME_MIXES}
+   * Uses the query {@link FILL_HOME_MIXES} to fetch `mixQueryCount` number of mixes to set twelvesMixes to map.
    */
   const { data, loading, error } = useQuery(FILL_HOME_MIXES, {
     variables: { count: mixQueryCount },
@@ -80,7 +80,7 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
       {/* DESKTOP */}
       <div className="columns is-hidden-touch">
         <div className="column is-3">
-          <div className="sticky-section-blurb content">
+          <div className="sticky-section content">
             {headline && <p className="title">{RichText.asText(headline)}</p>}
             {blurb && <p className="subtitle">{RichText.render(blurb)}</p>}
             <Link to="/mixes">
@@ -92,16 +92,13 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
         </div>
         <div className="column is-9">
           <div className="columns is-multiline">
-            {twelveMixes &&
-              twelveMixes.map(({ node }, index) => {
-                return (
-                  <SingleMixCard
-                    key={`mixes-page-#${index}`}
-                    mixData={node}
-                    columnLayout={homeMixesLayout}
-                  />
-                )
-              })}
+            {twelveMixes?.map(({ node }, index) => (
+              <SingleMixCard
+                key={`mixes-page-#${index}`}
+                mixData={node}
+                columnLayout={homeMixesLayout}
+              />
+            ))}
           </div>
         </div>
       </div>
@@ -122,16 +119,13 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
         </div>
       </div>
       <div className="columns is-mobile is-hidden-desktop mobile-single-items">
-        {twelveMixes &&
-          twelveMixes.map(({ node }, index) => {
-            return (
-              <SingleMixCard
-                key={`mixes-page-#${index}`}
-                mixData={node}
-                columnLayout={homeMixesLayout}
-              />
-            )
-          })}
+        {twelveMixes?.map(({ node }, index) => (
+          <SingleMixCard
+            key={`mixes-page-#${index}`}
+            mixData={node}
+            columnLayout={homeMixesLayout}
+          />
+        ))}
       </div>
     </section>
   )

@@ -1,5 +1,5 @@
 import React from 'react'
-import { SingleMixCard, SingleResident, SingleEventCard } from './index'
+import { SingleMixCard, SingleResidentCard, SingleEventCard } from './index'
 
 // Dummy data in __test__ folder
 import hmbkMixesResidents from '../../__test__/HMBK-mixes-with-residents.json'
@@ -27,7 +27,7 @@ function SearchResults(props) {
         : null}
       {props.isSelected === 'residents'
         ? dummyArtists.map(resident => (
-            <SingleResident
+            <SingleResidentCard
               key={resident.name}
               name={resident.name}
               img={'https://source.unsplash.com/1280x1280/daily?robot'}

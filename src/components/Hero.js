@@ -18,7 +18,7 @@ function HeroCarousel({ slides }) {
 
   /**
    * Custom bullet component for bullets to pass as props for <Slider>
-   * @see {@link https://github.com/farbenmeer/react-spring-slider#fully-customized| react-spring-slider Fully Customized}
+   * @see {@link https://github.com/farbenmeer/react-spring-slider#fully-customized react-spring-slider Fully Customized}
    */
   const HeroBullets = ({ onClick, isActive }) => (
     <li
@@ -72,12 +72,11 @@ function HeroCarousel({ slides }) {
   // };
 
   return (
-    <main className="slider-sizing">
+    <section className="slider-sizing">
       <Slider
         auto={timePerSlide}
         hasArrows
         hasBullets
-        // arrowStyle={heroArrows}
         ArrowComponent={HeroArrow}
         BulletComponent={HeroBullets}
       >
@@ -95,7 +94,7 @@ function HeroCarousel({ slides }) {
           )
         })}
       </Slider>
-    </main>
+    </section>
   )
 }
 

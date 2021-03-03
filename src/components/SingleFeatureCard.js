@@ -1,14 +1,17 @@
 import React from 'react'
 import { RichText } from 'prismic-reactjs'
 import { Link } from 'gatsby'
+import NanoClamp from 'nanoclamp'
+
 import { FallbackImage } from '../utils'
 import { formatDateTime, linkResolver } from '../utils'
 
 /**
  * Returns a Feature card layout used on the homepage, single /resident focus page, and the /features landing page
+ * @category Media Card
  * @function SingleFeatureCard
  * @param {Object} featureData - the feature data object
- * @param {String} featureColumnLayout - string dictating column
+ * @param {String} [featureColumnLayout=column] - string dictating column
  * @returns {jsx}
  */
 function SingleFeatureCard({ featureColumnLayout = 'column', featureData }) {
@@ -47,22 +50,41 @@ function SingleFeatureCard({ featureColumnLayout = 'column', featureData }) {
             </figure>
           </div>
           <div className="card-content">
-            <p className="content-date text-truncate subtitle is-size-7">
-              {article_subcategory
-                ? `${articleDate} | ${article_subcategory}`
-                : articleDate}
-            </p>
+            <div className="feature-card-sizing">
+              <div className="details">
+                {articleDate && (
+                  <NanoClamp
+                    className="subtitle is-size-7 has-text-grey-lighter"
+                    is="p"
+                    lines={1}
+                    text={
+                      article_subcategory
+                        ? `${articleDate} | ${article_subcategory}`
+                        : articleDate
+                    }
+                  />
+                )}
 
-            {article_headline && (
-              <p className="title is-size-6-mobile is-size-5-tablet is-size-4-fullhd">
-                {RichText.asText(article_headline)}
-              </p>
-            )}
-            {article_subtitle && (
-              <p className="subtitle is-size-7-mobile is-size-6-tablet">
-                {RichText.asText(article_subtitle)}
-              </p>
-            )}
+                {article_headline && (
+                  <NanoClamp
+                    className="title is-size-6"
+                    is="p"
+                    lines={2}
+                    text={RichText.asText(article_headline)}
+                  />
+                )}
+              </div>
+
+              {article_subtitle && (
+                <NanoClamp
+                  className="blurb is-size-6 has-text-white"
+                  is="p"
+                  lines={3}
+                  ellipsis={'...'}
+                  text={RichText.asText(article_subtitle)}
+                />
+              )}
+            </div>
           </div>
         </div>
       </Link>

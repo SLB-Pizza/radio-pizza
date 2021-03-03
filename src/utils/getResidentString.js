@@ -34,7 +34,7 @@ function getResidentString(residentsArr, useCase) {
         // grab current entry
         let currentResident = residentsArr[i]
 
-        // null check of resident_name key
+        // mix_resident is null; no resident_name can be added; continue to next
         if (!currentResident.mix_resident) {
           continue
         }
@@ -52,7 +52,7 @@ function getResidentString(residentsArr, useCase) {
         // grab current entry
         let currentResident = residentsArr[i]
 
-        // null check of resident_name key
+        // mix_resident is null; no resident_name can be added; continue to next
         if (!currentResident.mix_resident) {
           continue
         } else {
@@ -78,11 +78,10 @@ function getResidentString(residentsArr, useCase) {
    * Used by:
    * - {@link SingleMixCard}
    */
-
   for (let i = 0; i < residentsArr.length; i++) {
     const currentResident = residentsArr[i]
 
-    // mix_resident is null; no resident_name can be added
+    // mix_resident is null; no resident_name can be added; continue to next
     if (!currentResident.mix_resident) {
       continue
     }

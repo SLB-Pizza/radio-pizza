@@ -1,22 +1,28 @@
 import React from 'react'
+import { FallbackImage } from '../utils'
 
-function HMBKDivider() {
+/**
+ * Returns a fragment that is used at the end of mapped media card lists. HMBKDivider is meant to fill out all remaining space inside a `<div className="columns is-mobile is-vcentered">`.
+ * @category Layout Helper
+ * @function HMBKDivider
+ * @param {Boolean} forLoading - when true, applies loading styles to fragment
+ * @returns {jsx}
+ */
+export default function HMBKDivider({ forLoading }) {
   return (
-    <div className="columns is-mobile is-vcentered">
+    <>
       <div className="column">
-        <hr />
+        <hr className={forLoading ? 'divider-left' : ''} />
       </div>
       <div className="column is-narrow">
         <figure className="image is-64x64">
-          <img src={`../../img/halfmoon-3.png`} alt="HalfmoonBK logo" />
+          <FallbackImage styleName={forLoading ? 'divider-logo' : ''} />
         </figure>
       </div>
 
       <div className="column">
-        <hr />
+        <hr className={forLoading ? 'divider-right' : ''} />
       </div>
-    </div>
+    </>
   )
 }
-
-export default HMBKDivider

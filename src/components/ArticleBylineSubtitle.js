@@ -8,7 +8,7 @@ import { ArticleAuthorDetails, ArticleDateTime } from './slices/helpers'
  * @function ArticleByline
  * @param {Object[]} subtitle -  article_subtitle from the {@link FeatureTemplate} Gatsby query; Prismic RichText array
  * @param {Object} dates - dates from the Feature's metadata
- * @param {Object} authorDetails -
+ * @param {Object.<String, String|Object>} authorDetails - details from Prismic Staff about author
  * @returns {jsx}
  */
 function ArticleByline({ subtitle, dates, authorDetails }) {
@@ -23,17 +23,11 @@ function ArticleByline({ subtitle, dates, authorDetails }) {
           </div>
 
           {authorDetails && (
-            <div
-              className="column"
-              style={{ backgroundColor: 'darkSlateBlue' }}
-            >
+            <div className="column">
               <ArticleAuthorDetails authorDetails={authorDetails} />
             </div>
           )}
-          <div
-            className="column is-narrow"
-            style={{ backgroundColor: 'darkSlateGrey' }}
-          >
+          <div className="column is-narrow">
             {dates && <ArticleDateTime dates={dates} />}
           </div>
         </div>

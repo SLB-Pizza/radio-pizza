@@ -126,7 +126,7 @@ header.article-header {
   &.hero {
     height: calc(100vh - 9.75rem);
 
-    .is-overlay {
+    .footer-gradient.is-overlay {
       background: linear-gradient(to bottom, transparent 80%, black);
     }
 

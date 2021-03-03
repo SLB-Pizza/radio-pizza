@@ -1,36 +1,21 @@
 import React from 'react'
 import { RichText } from 'prismic-reactjs'
-import { processPublicationDates } from '../../utils'
+import { FallbackImage } from '../../utils'
 
 /**
+ * Renders the Article Headline layout made up of the lead image, feature category and subcategory, and headline.
  * @category CMS Slices
  * @function ArticleHeadline
- * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create the HeadlineBlock slice
- * @param {Object} metadata - data object from Prismic CMS that contains the date publication for the HeadlineBlock slice
+ * @param {Object} headlineData - data object from Prismic CMS that contains all content data needed to create the HeadlineBlock slice
  * @returns {jsx}
  */
-function ArticleHeadline({ headlineData, metadata }) {
+function ArticleHeadline({ headlineData }) {
   const {
     article_headline_img,
     article_category,
     article_subcategory,
     article_headline,
-    article_author_pic,
-    article_author,
   } = headlineData.primary
-
-  const { firstPublicationDate, lastPublicationDate } = metadata
-
-  // Boolean used to short circuit author details.
-  const hasAuthorDetails = article_author && article_author_pic
-
-  /**
-   * Pass the metadata to {@link processPublicationDates}.
-   */
-  const featureDateDetails = processPublicationDates(
-    firstPublicationDate,
-    lastPublicationDate
-  )
 
   /**
    * Process article category details.
@@ -56,8 +41,7 @@ function ArticleHeadline({ headlineData, metadata }) {
     </figcaption>
   ) : (
     <figcaption className="credit" id="article-headline-image">
-      {/* {article_headline_img.alt} */}
-      sample alt text here
+      {article_headline_img.alt}
     </figcaption>
   )
 
@@ -66,12 +50,16 @@ function ArticleHeadline({ headlineData, metadata }) {
       className="hero article-header has-background"
       aria-labelledby="article-headline"
     >
-      <img
-        className="hero-background"
-        src={article_headline_img.url}
-        alt={article_headline_img.alt}
-      />
-      <div className="is-overlay" />
+      {article_headline_img ? (
+        <img
+          className="hero-background"
+          src={article_headline_img.url}
+          alt={article_headline_img.alt}
+        />
+      ) : (
+        <FallbackImage styleName="hero-background" />
+      )}
+      <div className="footer-gradient is-overlay" />
       <div className="hero-foot">
         <div className="container">
           <div className="columns is-mobile">

@@ -5,7 +5,7 @@ import { ArticleHeadline } from '../components/slices/'
 import { ArticleBylineSubtitle } from '../components'
 
 /**
- * Renders a single Feature entry.
+ * Renders a single Feature entry. Components in `return` are not short-circuited here at the top-level; they're short circuited at the exact render location in the layout/slice subcomponent they're used.
  * @category Templates
  * @function FeatureTemplate
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build features off of `/features/:uid`
@@ -33,7 +33,7 @@ function FeatureTemplate({ data }) {
   return (
     <main className="full-height-page">
       <article>
-        <ArticleHeadline headlineData={headlineData} metadata={metadata} />
+        <ArticleHeadline headlineData={headlineData} />
 
         <ArticleBylineSubtitle
           subtitle={featureSubtitle}

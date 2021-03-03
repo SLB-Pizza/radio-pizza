@@ -122,52 +122,41 @@ section.sample-feature {
 // ================================
 // CMS Slice -- ArticleHeadline.js
 // ================================
-header.article-header.hero {
-  img.is-rounded {
-    border: 2px solid white;
-  }
-  .subtitle {
-    font-weight: 300;
-  }
-  // needs parent .container.is-fluid to work properly!
-  .hero-foot {
-    .container {
-      background-color: rgba($color: black, $alpha: 0.75);
-      margin-bottom: -1 * $gap; // pulls hero-foot to base of hero-body
-      padding: $gap;
+header.article-header {
+  &.hero {
+    height: calc(100vh - 9.75rem);
+
+    h1 {
+      font-weight: 900;
+    }
+
+    img.is-rounded {
+      border: 2px solid white;
+    }
+    // needs parent .container.is-fluid for background color bar to show properly
+    .hero-foot {
+      .container {
+        .columns {
+          margin: auto 0;
+        }
+        // background-color: rgba($color: black, $alpha: .5);
+      }
     }
   }
+}
+.article-category {
+  display: inline-block;
+  background-color: black;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border: 2px solid white;
+  border-radius: $border-radius;
+  margin-bottom: 0.5rem;
 }
 
 .category {
   font-weight: 700;
 }
-
-// .headline-block {
-//   height: 25rem;
-//   background-size: cover;
-//   background-position: center center;
-//   .container > .columns {
-//     padding: 1rem;
-//     margin-top: 10rem;
-//     background-color: rgba($color: black, $alpha: 0.85);
-//     border: 2px solid white;
-//     border-radius: 0.75rem;
-//     margin-bottom: auto;
-//   }
-
-//   .category {
-//     padding-bottom: 1rem;
-//   }
-
-//   h3 {
-//     font-weight: 300;
-//   }
-
-//   .column.author {
-//     border: 1px dotted red;
-//   }
-// }
 
 // ==================================
 // Layout Helper - ResponsiveImage

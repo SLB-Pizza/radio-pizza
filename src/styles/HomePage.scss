@@ -2,13 +2,12 @@
 // <Hero />
 //==================================
 .slider-sizing {
-  margin-top: -1rem;
   cursor: pointer;
   &:active {
     cursor: grabbing;
   }
   width: 100vw;
-  height: calc(100vh - 8.75rem);
+  height: calc(100vh - 9.75rem);
 }
 
 $shadow: 5;

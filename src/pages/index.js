@@ -42,7 +42,7 @@ function IndexPage({ data }) {
   } = homepageData.node
 
   return (
-    <div className="has-navbar-fixed-bottom full-height-page">
+    <main className="has-navbar-fixed-bottom full-height-page">
       <Hero slides={homepage_carousel} />
       <HomeMixes
         headline={home_mixes_headline}
@@ -59,7 +59,7 @@ function IndexPage({ data }) {
         blurb={home_features_blurb}
         homeFeaturesData={editorials}
       />
-    </div>
+    </main>
   )
 }
 

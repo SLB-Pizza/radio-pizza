@@ -1,3 +1,39 @@
+### Version 1.5.0
+- add og:image:type
+- feat(SMC): add query, dispatch, and function to TagButtons add GET_SELECTED_TAGGED_MIXES query add tagDispatch function add base query set up for /mixes
+- feat(/mixes): add base DisplayFetchedTagMixes component in return off ternary; issues
+- feat(GCP): update SELECT_MIX_SEARCH_TAG action now handles mixSearchTags null, and exists as array cases
+- dispatch(TagButtons):extract dispatch creation logic moved from GCP reducer to within local dispatch function
+- feat(/mixes): fixes endless useEffect fetchTaggedMixes calls
+- feat(TaggedMixes): add selected mixes to component
+- feat(FallbackImage): fix local pathing to HMBK logo fixes HMBKDivider and FallbackImage
+- docs(all): add more details to pages, media cards regen docs
+- style(Divider): add forLoading bool to choose loading styles for divider applied to /residents, AllMixesLayout
+- style(sticky): refactor .sticky-section-blurb planned use in DisplayFetchedTaggedMixes
+- docs(Resident): update param type
+- feat(DFTM): remove duplicate useLazyQuery; fix 500 error pass fetch func, loading status as props address all fetch no callback onClick fetchFunc
+- feat(TagQueries): fix DFTM mix mapping, fetch more button; add 'remove tag from query' button
+- fix(TagQueries): processFetchedMixes now nulls local receivedTagMixes when all tags deselected fix enables AllMixesLayout to render when mixSearchTags is reset
+- feat(TagQueries): add clearMixSearchTags dispatch to RadioBar logo, select BottomNav links
+- docs(queries): update/fix docs relating to queries and tag query layouts
+- style(/events): add .media-cards css to level out media card map sections .media-cards class currently applies to /radio, /residents, /residents
+- refactor(/features): extract FeatureHighlightItems into /features index #79: remove TopicPageHighlightSection
+- feat(DFTM): create mix tag search sticky report section add 'times' icon to library; call in sticky section
+- fix(button.sass): import fix from 0.9.2
+- cleanup(SliceZone): remove HeadlineBlock import; fix jsdoc
+- fix(dispatch): fixed data sent from SMC to MixPlayOverlay fixes non-render of RadioPlayer info and .sr-only text
+- refactor(TagButtons): changed mix tags to buttons now tab-accessible; changed global button styling
+- layout(DFTM): narrow tag button section on tablet wrap tag removal buttons in own section
+- refactor(/features): removed "hot reads" subtitle
+- refactor(LandingPageFetchButton): make component for bottom of main landing pages /mixes; /events added scrollToTop function added and implemented
+- feat(/features): add LPFetchAndLoading
+- disable(#79): Comment out previews; stop mix template generation
+- refactor(index): rename data null to prismicContent
+- refactor(IconMaker): add link and icon props expands use cases for IconMaker update MixPlayOverlay with new IconMaker
+- fix(Slider): 'slider-sizing' 1rem margin-top offset
+- prune(#79): remove TopicPageHero, TopicPageHeroDetails remove any related SCSS
+- feat(Hero, Feature): fix hero-sizing mismatch move article_subtitle from ArticleHeadline to own section reduce font size of Feature titling; add styling
+
 ### Version 1.3.0
 - queries(Resident): refactor main query to pull in data by category
 - feat(Resident): process associated mix, event, and feature data arrays

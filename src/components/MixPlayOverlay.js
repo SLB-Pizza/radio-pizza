@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types'
 import React, { useContext } from 'react'
-import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
-import { FallbackImage } from '../utils'
+import { FallbackImage, IconMaker } from '../utils'
 import { GlobalDispatchContext } from '../context/GlobalContextProvider'
 
 /**
- * Creates a clickable play button that sends the selected mix to {@link RadioPlayer}
+ * Creates a play icon that `onClick` dispatches the `SHOW_LOADING` and `CHANGE_URL` actions, playing the audio source through {@link RadioPlayer}.
  * @category Site Elements
  * @function MixPlayOverlay
  * @param {String} url - URL of the mix to play
@@ -17,7 +16,7 @@ import { GlobalDispatchContext } from '../context/GlobalContextProvider'
  * @param {?String} wrapperClassName - optional string detailing the overlay wrapper's class
  * @param {?Boolean} isCollection - optional boolean that triggers in how CHANGE_URL is prepared; comes from {@link SingleCollection}
  * @param {?Object} collectionDispatch - optional object containing the dispatch payload in collection format; passed from {@link SingleCollection}
- * @returns {jsx} A play icon that onClick dispatches the SHOW_LOADING and CHANGE_URL actions, playing the audio source through RadioPlayer.js
+ * @returns {jsx}
  */
 function MixPlayOverlay({
   url,
@@ -62,28 +61,33 @@ function MixPlayOverlay({
   // Determine which dispatch function to use based on isCollection boolean
   const dispatchFunc = isCollection === true ? playCollection : changeUrl
 
+  // Remove punctuation and white spaces in title string for use with the SR-only #play-mix-title href
+  const titleForSRHashURL = title.replace(/[.,\/#!$%\^&\*;:{}=\_`~()\s]/g, '-')
   return (
     <div className={wrapperClassName}>
       <div className="card-image">
-        <a
-          href="#"
-          className="sr-only title is-6"
-          tabIndex="0"
-          onClick={() => dispatchFunc()}
-        >
-          <span className="icon">
-            <Icon icon="play" size="1x" />
-          </span>
-          <span>Play This Mix</span>
-        </a>
+        <IconMaker
+          iconSize={'1x'}
+          iconToUse={'play'}
+          linkAddress={`#play-${titleForSRHashURL}`}
+          linkIsLocal={true}
+          linkClassName={'sr-only title is-6'}
+          linkOnClickFunc={() => dispatchFunc()}
+          linkProps={{
+            tabIndex: '0',
+          }}
+          textAfterIcon={'Play This Mix'}
+        />
+
         <figure className="image is-1by1">
           {img ? <img src={img.url} alt={img.alt} /> : <FallbackImage />}
           <div className="play-btn-diffuser is-overlay">
-            <Icon
-              icon="play"
-              size="5x"
-              className="play-icon"
-              onClick={() => dispatchFunc()}
+            <IconMaker
+              spanClass={'icon is-large'}
+              iconSize={'5x'}
+              iconToUse={'play'}
+              iconClass={'play-icon'}
+              iconOnClickFunc={() => dispatchFunc()}
             />
           </div>
         </figure>

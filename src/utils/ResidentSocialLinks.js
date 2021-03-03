@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import { IconMaker } from './index'
 
 /**
@@ -55,7 +54,7 @@ function ResidentSocialLinks({ url, platform }) {
 
   return (
     <div className="column social-links">
-      <IconMaker iconDetails={icon} iconLink={url} />
+      <IconMaker iconToUse={icon} iconLink={url} />
     </div>
   )
 }

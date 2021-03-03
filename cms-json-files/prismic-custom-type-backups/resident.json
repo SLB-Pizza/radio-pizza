@@ -56,7 +56,8 @@
                 "Soundcloud",
                 "Bandcamp",
                 "Facebook",
-                "Mixcloud"
+                "Mixcloud",
+                "Youtube"
               ],
               "default_value": "Personal Site",
               "label": "Resident Social Page"

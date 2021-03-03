@@ -23,7 +23,7 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
   const mixQueryCount = 12 - filteredHomeMixes.length
 
   /**
-   * Uses the query {@link FILL_HOME_MIXES}
+   * Uses the query {@link FILL_HOME_MIXES} to fetch `mixQueryCount` number of mixes to set twelvesMixes to map.
    */
   const { data, loading, error } = useQuery(FILL_HOME_MIXES, {
     variables: { count: mixQueryCount },

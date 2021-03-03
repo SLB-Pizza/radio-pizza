@@ -12,7 +12,7 @@ export default function mixLinkIconInfo(mixLink) {
    * Default details object to spread as props into {@link IconMaker} inside {@link SingleMixCard}
    */
   let details = {
-    iconDetails: 'globe',
+    iconToUse: 'globe',
     iconLink: mixLink,
   }
 
@@ -44,7 +44,7 @@ export default function mixLinkIconInfo(mixLink) {
    *    Second entry is the platform.
    * ELSE
    *    Somehow we got one entry OR more than 2; something went wrong.
-   *    Just use default platform to obtain icon info
+   *    Just use default platform to return default icon info
    */
   if (splitOnWWW.length === 2) {
     platform = splitOnWWW[1]
@@ -57,28 +57,28 @@ export default function mixLinkIconInfo(mixLink) {
    */
   switch (platform) {
     case 'bandcamp':
-      details.iconDetails = ['fab', 'bandcamp']
+      details.iconToUse = ['fab', 'bandcamp']
       return details
     case 'facebook':
-      details.iconDetails = ['fab', 'facebook-square']
+      details.iconToUse = ['fab', 'facebook-square']
       return details
     case 'instagram':
-      details.iconDetails = ['fab', 'instagram']
+      details.iconToUse = ['fab', 'instagram']
       return details
     case 'mixcloud':
-      details.iconDetails = ['fab', 'mixcloud']
+      details.iconToUse = ['fab', 'mixcloud']
       return details
     case 'soundcloud':
-      details.iconDetails = ['fab', 'soundcloud']
+      details.iconToUse = ['fab', 'soundcloud']
       return details
     case 'spotify':
-      details.iconDetails = ['fab', 'spotify']
+      details.iconToUse = ['fab', 'spotify']
       return details
     case 'twitter':
-      details.iconDetails = ['fab', 'twitter']
+      details.iconToUse = ['fab', 'twitter']
       return details
     case 'youtube':
-      details.iconDetails = ['fab', 'youtube']
+      details.iconToUse = ['fab', 'youtube']
       return details
     default:
       return details

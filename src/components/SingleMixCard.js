@@ -32,6 +32,7 @@ function SingleMixCard({ mixData, columnLayout, onMixesPage }) {
   const [mixResidentsStr, setMixResidentsStr] = useState(null)
   const [mixDateResStr, setMixDateResStr] = useState(null)
   const [mixIconInfo, setMixIconInfo] = useState(null)
+  const [radioPlayerInfo, setRadioPlayerInfo] = useState(null)
 
   const {
     _meta,
@@ -44,10 +45,11 @@ function SingleMixCard({ mixData, columnLayout, onMixesPage }) {
 
   const { uid, type, tags } = _meta
 
-  const linkTo = {
-    type,
-    uid,
-  }
+  // Disabled since MixTemplate is temp. disabled.
+  // const linkTo = {
+  //   type,
+  //   uid,
+  // };
 
   useEffect(() => {
     const processMixData = () => {
@@ -87,6 +89,27 @@ function SingleMixCard({ mixData, columnLayout, onMixesPage }) {
        * Value passed as props to {@link IconMaker} to make icons linking externally to mix pages
        */
       setMixIconInfo(mixIconDetails)
+
+      /**
+       * Same as render ternary.
+       * mix_title !== null :
+       *    Details: use combined date and resident str: dateResStr
+       *    Titling: mix_title
+       * mix_title === null :
+       *    Details: use formatted mix_date str: mixDateString
+       *    Titling: format list of residents: mixResidentsString
+       */
+      if (mix_title !== null) {
+        setRadioPlayerInfo({
+          details: dateResStr,
+          titling: mix_title,
+        })
+      } else {
+        setRadioPlayerInfo({
+          details: mixDateString,
+          titling: mixResidentsString,
+        })
+      }
     }
     return processMixData()
   }, [])
@@ -94,13 +117,15 @@ function SingleMixCard({ mixData, columnLayout, onMixesPage }) {
   return (
     <article className={columnLayout}>
       <div className="card">
-        <MixPlayOverlay
-          url={mix_link}
-          title={mix_title}
-          residents={mixResidentsStr}
-          img={mix_image}
-          wrapperClassName="card-image"
-        />
+        {radioPlayerInfo && (
+          <MixPlayOverlay
+            url={mix_link}
+            title={radioPlayerInfo.titling}
+            residents={radioPlayerInfo.details}
+            img={mix_image}
+            wrapperClassName="card-image"
+          />
+        )}
 
         <div className="card-content">
           <div className="mix-card-sizing">
@@ -121,40 +146,36 @@ function SingleMixCard({ mixData, columnLayout, onMixesPage }) {
                */
               mix_title !== null ? (
                 <div className="mix-text">
-                  <Link to={linkResolver(linkTo)}>
-                    {mixDateResStr && (
-                      <NanoClamp
-                        className="subtitle is-size-7 has-text-grey-lighter"
-                        is="p"
-                        lines={2}
-                        text={mixDateResStr}
-                      />
-                    )}
-                    {mix_title && (
-                      <NanoClamp
-                        className="title is-size-6"
-                        is="p"
-                        lines={2}
-                        text={mix_title}
-                      />
-                    )}
-                  </Link>
+                  {mixDateResStr && (
+                    <NanoClamp
+                      className="subtitle is-size-7 has-text-grey-lighter"
+                      is="p"
+                      lines={2}
+                      text={mixDateResStr}
+                    />
+                  )}
+                  {mix_title && (
+                    <NanoClamp
+                      className="title is-size-6"
+                      is="p"
+                      lines={2}
+                      text={mix_title}
+                    />
+                  )}
                 </div>
               ) : (
                 <div className="mix-text">
-                  <Link to={linkResolver(linkTo)}>
-                    {mixDateStr && (
-                      <p className="subtitle is-size-7">{mixDateStr}</p>
-                    )}
-                    {mixResidentsStr && (
-                      <NanoClamp
-                        className="title is-size-6"
-                        is="p"
-                        lines={2}
-                        text={mixResidentsStr}
-                      />
-                    )}
-                  </Link>
+                  {mixDateStr && (
+                    <p className="subtitle is-size-7">{mixDateStr}</p>
+                  )}
+                  {mixResidentsStr && (
+                    <NanoClamp
+                      className="title is-size-6"
+                      is="p"
+                      lines={2}
+                      text={mixResidentsStr}
+                    />
+                  )}
                 </div>
               )}
             </div>

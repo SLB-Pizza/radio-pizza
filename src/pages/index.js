@@ -19,14 +19,15 @@ function IndexPage({ data }) {
    * This line is here to prevent an error from occurring when you eventually deploy the site live. There is an issue with the preview functionality that requires this check on every page.
    * @see {@link https://prismic.io/docs/gatsby/rendering/retrieve-the-document-object#21_0-adding-a-validation-check Retrieve the document object}
    */
-  if (!data) return null
+  const prismicContent = data.prismic
+  if (!prismicContent) return null
 
   // Focus the node for the prismicContent check below.
-  const homepageData = data.prismic.allHomepages.edges[0]
-  const homeEventsData = data.prismic.allEvents.edges
+  const homepageData = prismicContent.allHomepages.edges[0]
+  const homeEventsData = prismicContent.allEvents.edges
 
   /**
-   * Deconstruct homepageData to
+   * Deconstruct homepageData
    */
   const {
     home_mixes_headline,
@@ -41,7 +42,7 @@ function IndexPage({ data }) {
   } = homepageData.node
 
   return (
-    <div className="has-navbar-fixed-bottom full-height-page">
+    <main className="has-navbar-fixed-bottom full-height-page">
       <Hero slides={homepage_carousel} />
       <HomeMixes
         headline={home_mixes_headline}
@@ -58,7 +59,7 @@ function IndexPage({ data }) {
         blurb={home_features_blurb}
         homeFeaturesData={editorials}
       />
-    </div>
+    </main>
   )
 }
 

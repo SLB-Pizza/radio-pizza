@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { getCursorFromDocumentIndex } from '@prismicio/gatsby-source-prismic-graphql'
 import { graphql } from 'gatsby'
-import { HMBKDivider, SingleEventCard } from '../../components'
+import { LandingPageFetchAndLoading, SingleEventCard } from '../../components'
 
 /**
  * Layout for the /events landing page.
@@ -39,8 +39,7 @@ function EventsIndexPage({ data, prismic }) {
   }
 
   /**
-   * useEffect that fires off a Prismic fetch when the 'More Events' button is clicked in {@link AllMixesLayout} on {@link MixesIndexPage}.
-   * Use the  function to call the useEffect.. Adds mixes from Prismic fetch to mixesToMap data array and updates hasMore and endCursor values.
+   * useEffect that fires off a Prismic fetch when the 'More Events' button is clicked and {@link loadNextEvents} changes the `page` value. Adds events from Prismic fetch to eventsToMap data array and updates hasMore value.
    * @category useEffect
    * @name loadMoreEvents
    */
@@ -75,7 +74,7 @@ function EventsIndexPage({ data, prismic }) {
   const eventPageLayout = 'column is-12-mobile is-6-tablet is-4-desktop'
 
   return (
-    <main className="black-bg-page" id="events-header">
+    <main className="black-bg-page">
       <header className="container is-fluid">
         <div className="columns is-mobile is-multiline">
           <div className="column is-full content">
@@ -92,43 +91,13 @@ function EventsIndexPage({ data, prismic }) {
           ))}
         </div>
       </header>
-
       <section className="section container is-fluid media-cards">
-        {/* TERNARY TO RENDER FETCH MORE BUTTONS */}
-        {eventsToMap.hasMore ? (
-          <div className="columns is-mobile is-vcentered">
-            {!eventsLoading ? (
-              <div className="column">
-                <button
-                  className="button is-fullwidth is-outlined is-rounded"
-                  onClick={loadNextEvents}
-                >
-                  More Events!
-                </button>
-              </div>
-            ) : (
-              <HMBKDivider forLoading={true} />
-            )}
-            <div className="column is-narrow">
-              <a href="#events-header">
-                <button className="button is-fullwidth is-outlined is-rounded">
-                  Top
-                </button>
-              </a>
-            </div>
-          </div>
-        ) : (
-          <div className="columns is-mobile is-vcentered">
-            <HMBKDivider />
-            <div className="column is-narrow">
-              <a href="#events-header">
-                <button className="button is-fullwidth is-outlined is-rounded">
-                  Top
-                </button>
-              </a>
-            </div>
-          </div>
-        )}
+        <LandingPageFetchAndLoading
+          hasMore={eventsToMap.hasMore}
+          currentlyFetching={eventsLoading}
+          fetchMoreFunc={loadNextEvents}
+          fetchMoreBtnTxt={'More Events'}
+        />
       </section>
     </main>
   )
@@ -153,7 +122,6 @@ export const query = graphql`
       ) {
         pageInfo {
           hasNextPage
-          endCursor
         }
         edges {
           node {

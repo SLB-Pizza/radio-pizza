@@ -1,5 +1,5 @@
 import React from 'react'
-import { HMBKDivider, SingleMixCard } from '../components'
+import { LandingPageFetchAndLoading, SingleMixCard } from '../components'
 
 /**
  * Layout for mixes from {@link MixesIndexPage} page query and subsequent fetches by {@link loadMoreMixes}. Renders when no tags are selected for a {@link fetchedMixes}.
@@ -32,40 +32,13 @@ function AllMixesLayout({
           />
         ))}
       </div>
-      {mixesDataToMap?.hasMore ? (
-        <div className="columns is-mobile is-vcentered">
-          {!mixLoadState ? (
-            <div className="column">
-              <button
-                className="button is-fullwidth is-outlined is-rounded"
-                onClick={loadMixesFunc}
-              >
-                More Music!
-              </button>
-            </div>
-          ) : (
-            <HMBKDivider forLoading={true} />
-          )}
-          <div className="column is-narrow">
-            <a href="#mixes-header">
-              <button className="button is-fullwidth is-outlined is-rounded">
-                Top
-              </button>
-            </a>
-          </div>
-        </div>
-      ) : (
-        <div className="columns is-mobile is-vcentered">
-          <HMBKDivider />
-          <div className="column is-narrow">
-            <a href="#all-mixes">
-              <button className="button is-fullwidth is-outlined is-rounded">
-                Top
-              </button>
-            </a>
-          </div>
-        </div>
-      )}
+
+      <LandingPageFetchAndLoading
+        hasMore={mixesDataToMap.hasMore}
+        currentlyFetching={mixLoadState}
+        fetchMoreFunc={loadMixesFunc}
+        fetchMoreBtnTxt={'More Mixes'}
+      />
     </>
   )
 }

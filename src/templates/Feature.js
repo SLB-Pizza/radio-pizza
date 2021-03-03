@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { RichText } from 'prismic-reactjs'
 import { SliceZone } from '../components'
 import { ArticleHeadline } from '../components/slices/'
 /**
@@ -19,6 +20,8 @@ function FeatureTemplate({ data }) {
   const featureHeadline = featuresData.headline_block[0]
   const featureSliceData = featuresData.body
 
+  const articleSubtitle = featureHeadline.primary.article_subtitle
+
   return (
     <main className="full-height-page">
       <article>
@@ -26,6 +29,19 @@ function FeatureTemplate({ data }) {
           headlineData={featureHeadline}
           metadata={featureMetadata}
         />
+
+        {articleSubtitle && (
+          <section className="section container">
+            <div className="columns">
+              <div className="column is-12 content">
+                <p className="subtitle is-size-3-widescreen is-size-4-desktop is-size-6-touch">
+                  {RichText.asText(articleSubtitle)}
+                </p>
+              </div>
+            </div>
+          </section>
+        )}
+
         <SliceZone sliceZone={featureSliceData} metadata={featureMetadata} />
       </article>
     </main>

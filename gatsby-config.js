@@ -64,8 +64,9 @@ module.exports = {
       },
     },
     /**
-     * A Gatsby plugin for fetching source data from the Prismic headless CMS using Prismic’s beta GraphQL API
+     * A Gatsby plugin for fetching source data from the Prismic headless CMS using Prismic’s beta GraphQL API. Previews have been disabled
      * @see {@link https://hmbk-cms.prismic.io/ HMBK Prismic CMS}
+     * @see {@link https://prismic.io/docs/technologies/migration-guide-gatsby Migrate to the recommended plugin: `gatsby-source-prismic`}
      * @see {@link https://www.gatsbyjs.com/plugins/@prismicio/gatsby-source-prismic-graphql/ gatsby-source-prismic-graphql}
      * @see {@link https://prismic.io/docs/gatsby/getting-started/prismic-gatsby-source-plugin Prismic.io docs - Prismic Gatsby Plugin}
      */
@@ -73,8 +74,8 @@ module.exports = {
       resolve: '@prismicio/gatsby-source-prismic-graphql',
       options: {
         repositoryName: 'hmbk-cms', //https://hmbk-cms.prismic.io/
-        previews: true,
-        path: '/preview',
+        // previews: true,
+        // path: "/preview",
         pages: [
           {
             type: 'Feature',
@@ -94,12 +95,12 @@ module.exports = {
             path: '/resident-preview/',
             component: require.resolve('./src/templates/Resident.js'),
           },
-          {
-            type: 'Mix',
-            match: '/mixes/:uid',
-            path: '/mix-preview/',
-            component: require.resolve('./src/templates/Mix.js'),
-          },
+          // {
+          //   type: 'Mix',
+          //   match: '/mixes/:uid',
+          //   path: '/mix-preview/',
+          //   component: require.resolve('./src/templates/Mix.js'),
+          // },
           {
             type: 'Event',
             match: '/events/:uid',

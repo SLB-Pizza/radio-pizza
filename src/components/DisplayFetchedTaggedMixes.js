@@ -1,9 +1,15 @@
 import React, { useContext } from 'react'
-import { HMBKDivider, SingleMixCard } from './index'
+import {
+  FetchedTagStickySection,
+  LandingPageFetchAndLoading,
+  SingleMixCard,
+} from './index'
 import {
   GlobalDispatchContext,
   GlobalStateContext,
 } from '../context/GlobalContextProvider'
+import { scrollToTop } from '../utils'
+
 /**
  * Layout for the mixes fetched when a {@link TagButtons} is clicked.
  * Renders on {@link MixesIndexPage} when `selectedTags` isn't null and {@link fetchTaggedMixes} has returned fetchedMixes results.
@@ -34,6 +40,7 @@ function DisplayFetchedTaggedMixes({
    */
   const removeTagFromSearchArray = async tag => {
     if (globalState.mixSearchTags.length >= 2) {
+      scrollToTop()
       await dispatch({
         type: 'REMOVE_TAG_FROM_SEARCH_ARRAY',
         payload: {
@@ -54,10 +61,10 @@ function DisplayFetchedTaggedMixes({
    * TRUE: internal fetch more button in this component.
    * FALSE: {@link TagButtons} or by the 'Selected Tag' buttons showing what tags were used for the current `fetchedData` data subarray.
    * @category Dispatch Function
-   * @function sameTagsInQuery
+   * @function markSameTagsInQuery
    * @param {Boolean} isSame - used to determine which type to dispatch
    */
-  const sameTagsInQuery = async isSame => {
+  const markSameTagsInQuery = async isSame => {
     if (isSame) {
       await dispatch({
         type: 'USING_SAME_TAGS_IN_MIX_QUERY',
@@ -66,34 +73,36 @@ function DisplayFetchedTaggedMixes({
       await dispatch({
         type: 'NEW_TAGS_FOR_TAG_QUERY_SEARCH',
       })
+      scrollToTop()
     }
+  }
+
+  /**
+   * Fires off both {@link markSameTagsInQuery} with a `true` value and the `fetchFunc` {@link fetchTaggedMixes}.
+   * @category Utility Function
+   * @function dispatchAndFetchTaggedMixes
+   */
+  const dispatchAndFetchTaggedMixes = () => {
+    markSameTagsInQuery(true)
+    fetchFunc({
+      variables: {
+        after: fetchedData.endCursor,
+        tags: selectedTags,
+      },
+    })
   }
 
   const mixCardLayout = 'column is-12-mobile is-6-tablet is-4-widescreen'
 
   return (
     <div className="columns is-mobile">
-      <div className="column is-3">
-        <div className="sticky-section">
-          <div className="content">
-            <h1 className="title">{`${fetchedData.totalCount} mixes`}</h1>
-            <p className="subtitle">{`${fetchedData.data.length} length of data`}</p>
-            {selectedTags?.map((tag, index) => (
-              <button
-                key={`remove-tag-#${index}`}
-                className="button is-fullwidth is-outlined is-rounded"
-                onClick={() => {
-                  sameTagsInQuery(false)
-                  removeTagFromSearchArray(tag)
-                }}
-              >
-                {tag}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-      <div className="column is-9">
+      <FetchedTagStickySection
+        selectedTags={selectedTags}
+        totalCount={fetchedData.totalCount}
+        removeTagFromSearchArray={removeTagFromSearchArray}
+        markSameTagsInQuery={markSameTagsInQuery}
+      />
+      <div className="column is-8-tablet is-9-desktop">
         <div className="columns is-mobile is-multiline">
           {fetchedData?.data.map(({ node }, index) => (
             <SingleMixCard
@@ -104,48 +113,13 @@ function DisplayFetchedTaggedMixes({
             />
           ))}
         </div>
-        {fetchedData.hasMore ? (
-          <div className="columns is-mobile is-vcentered">
-            {!isFetching ? (
-              <div className="column">
-                <button
-                  className="button is-fullwidth is-outlined is-rounded"
-                  onClick={() => {
-                    sameTagsInQuery(true)
-                    fetchFunc({
-                      variables: {
-                        after: fetchedData.endCursor,
-                        tags: selectedTags,
-                      },
-                    })
-                  }}
-                >
-                  More Mixes
-                </button>
-              </div>
-            ) : (
-              <HMBKDivider forLoading={true} />
-            )}
-            <div className="column is-narrow">
-              <a href="#mixes-header">
-                <button className="button is-fullwidth is-outlined is-rounded">
-                  Top
-                </button>
-              </a>
-            </div>
-          </div>
-        ) : (
-          <div className="columns is-mobile is-vcentered">
-            <HMBKDivider />
-            <div className="column is-narrow">
-              <a href="#all-mixes">
-                <button className="button is-fullwidth is-outlined is-rounded">
-                  Top
-                </button>
-              </a>
-            </div>
-          </div>
-        )}
+
+        <LandingPageFetchAndLoading
+          hasMore={fetchedData.hasMore}
+          currentlyFetching={isFetching}
+          fetchMoreFunc={dispatchAndFetchTaggedMixes}
+          fetchMoreBtnTxt={'More Mixes Like These'}
+        />
       </div>
     </div>
   )

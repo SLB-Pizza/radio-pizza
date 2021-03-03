@@ -31,6 +31,7 @@ import {
   faPause,
   faSearch,
   faTag,
+  faTimes,
 } from '@fortawesome/free-solid-svg-icons'
 
 /**
@@ -56,6 +57,7 @@ library.add(
   faSoundcloud,
   faSearch,
   faTag,
+  faTimes,
   faSpotify,
   faTwitter,
   faYoutube

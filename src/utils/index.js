@@ -35,6 +35,7 @@ export {
   eventDateSort,
   featureDateSort,
 } from './singleResidentDateSorting'
+export { scrollToTop } from './scrollToTop'
 export { default as testCaseMaker } from './testCaseMaker'
 export { default as uidAssembler } from './validators/uidAssembler'
 export { default as uidValidator } from './uidValidator'

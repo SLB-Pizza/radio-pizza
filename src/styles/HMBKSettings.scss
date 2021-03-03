@@ -388,6 +388,11 @@ figcaption {
       opacity: 0.5;
     }
   }
+
+  // For ArticleHeadline.js
+  &.article-header {
+    justify-content: flex-end;
+  }
 }
 
 //==========================

@@ -4,6 +4,7 @@ export { default as HomeContentSample } from './cms-help/HomeContentSample'
 
 //
 export { default as AllMixesLayout } from './AllMixesLayout'
+export { default as ArticleBylineSubtitle } from './ArticleBylineSubtitle'
 export { default as BottomNav } from './BottomNav'
 export { default as CMSIssueMessage } from './CMSIssueMessage'
 export { default as CMSIssueMessageType } from './CMSIssueMessageType'

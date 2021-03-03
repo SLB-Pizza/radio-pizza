@@ -1,48 +1,47 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { RichText } from 'prismic-reactjs'
 import { SliceZone } from '../components'
 import { ArticleHeadline } from '../components/slices/'
+import { ArticleBylineSubtitle } from '../components'
+
 /**
+ * Renders a single Feature entry.
  * @category Templates
  * @function FeatureTemplate
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build features off of `/features/:uid`
  * @returns {jsx}
  */
-
 function FeatureTemplate({ data }) {
-  const prismicContent = data.prismic.allFeatures.edges[0]
+  const prismicContent = data.prismic.allFeatures.edges[0].node
   if (!prismicContent) return null
-  const featuresData = prismicContent.node
 
   // Grab the metadata for the feature and CMS slice data
-  const featureMetadata = featuresData._meta
-  const featureHeadline = featuresData.headline_block[0]
-  const featureSliceData = featuresData.body
+  const metadata = prismicContent._meta
+  const headlineData = prismicContent.headline_block[0]
+  const sliceData = prismicContent.body
 
-  const articleSubtitle = featureHeadline.primary.article_subtitle
+  /**
+   * Grab props for {@link ArticleBylineSubtitle}.
+   */
+  const featureSubtitle = headlineData.primary.article_subtitle
+  const featureDates = {
+    first: metadata.firstPublicationDate,
+    last: metadata.lastPublicationDate,
+  }
+  const featureAuthor = headlineData.primary.article_author
 
   return (
     <main className="full-height-page">
       <article>
-        <ArticleHeadline
-          headlineData={featureHeadline}
-          metadata={featureMetadata}
+        <ArticleHeadline headlineData={headlineData} metadata={metadata} />
+
+        <ArticleBylineSubtitle
+          subtitle={featureSubtitle}
+          dates={featureDates}
+          authorDetails={featureAuthor}
         />
 
-        {articleSubtitle && (
-          <section className="section container">
-            <div className="columns">
-              <div className="column is-12 content">
-                <p className="subtitle is-size-3-widescreen is-size-4-desktop is-size-6-touch">
-                  {RichText.asText(articleSubtitle)}
-                </p>
-              </div>
-            </div>
-          </section>
-        )}
-
-        <SliceZone sliceZone={featureSliceData} metadata={featureMetadata} />
+        <SliceZone sliceZone={sliceData} metadata={metadata} />
       </article>
     </main>
   )
@@ -68,13 +67,13 @@ export const query = graphql`
                   article_headline_img
                   article_headline
                   article_category
-                  # article_author_pic
-                  # article_author {
-                  #   ... on PRISMIC_Staff {
-                  #     hmbk_staff_name
-                  #     hmbk_staff_position
-                  #   }
-                  # }
+                  article_author {
+                    ... on PRISMIC_Staff {
+                      hmbk_staff_name
+                      hmbk_staff_position
+                      hmbk_staff_photo
+                    }
+                  }
                 }
               }
             }

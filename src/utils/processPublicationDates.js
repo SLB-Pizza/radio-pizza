@@ -1,41 +1,21 @@
 import { formatDateTime } from '../utils'
-import dayjs from 'dayjs'
-const utc = require('dayjs/plugin/utc')
-dayjs.extend(utc)
 
 /**
+ * Examine `firstPubDate` and `lastPubDate` to determine if featured has been updated since publish.
+ *
+ * If the feature has been updated:
+ *    - format pubDate to include the time and calendar date of update, e.g. August 6, 2020 - 17:25
+ * If the feature has NOT been updated,
+ *    - format pubDate to show just the calendar date, e.g. August 2, 2020
+ * @category Utility Function
  * @function processPublicationDates
  * @param {String} firstPubDate - date of initial publish; comes from feature_metadata
  * @param {String} lastPubDate - date of most recent publish(update); comes from feature_metadata
- * @returns {Object} dateDetails
+ * @returns {Object} a date string formatted by {@link formatDateTime}
  */
 
 export default function processPublicationDates(firstPubDate, lastPubDate) {
-  /**
-   * Default dateDetails to firstPubDate and never updated
-   */
-  let dateDetails = {
-    pubDate: firstPubDate,
-    hasBeenUpdated: false,
-  }
-
-  /**
-   * Determine if feature has been updated by comparing first and last publication dates.
-   */
-  const updated = firstPubDate !== lastPubDate
-
-  /**
-   * Update the dateDetails object with the value of updated
-   */
-  dateDetails.hasBeenUpdated = updated
-
-  /**
-   * If the feature has been updated, format pubDate to include the time of update after the update's date e.g. August 6, 2020 - 17:25
-   * If the feature has NOT been update, format pubDate to show just the date of publication e.g. August 2, 2020
-   */
-  dateDetails.pubDate = updated
+  return firstPubDate !== lastPubDate
     ? formatDateTime(lastPubDate, 'long-form-date-time')
     : formatDateTime(firstPubDate, 'long-form-date')
-
-  return dateDetails
 }

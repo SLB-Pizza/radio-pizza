@@ -33,11 +33,6 @@ function ArticleHeadline({ headlineData, metadata }) {
   )
 
   /**
-   * Transform article_category for layout use.
-   */
-  const allCapsCategory = article_category.toUpperCase()
-
-  /**
    * Process article category details.
    */
   let categoryDetails
@@ -61,7 +56,8 @@ function ArticleHeadline({ headlineData, metadata }) {
     </figcaption>
   ) : (
     <figcaption className="credit" id="article-headline-image">
-      {article_headline_img.alt}
+      {/* {article_headline_img.alt} */}
+      sample alt text here
     </figcaption>
   )
 
@@ -76,7 +72,6 @@ function ArticleHeadline({ headlineData, metadata }) {
         alt={article_headline_img.alt}
       />
       <div className="is-overlay" />
-      {headlinePhotoDetails}
       <div className="hero-foot">
         <div className="container">
           <div className="columns is-mobile">
@@ -90,36 +85,13 @@ function ArticleHeadline({ headlineData, metadata }) {
                 {article_headline && (
                   <h1
                     id="article-headline"
-                    className="title is-size-1-widescreen is-size-4-desktop is-size-5-touch hero-title"
+                    className="title is-size-1-widescreen is-size-2-desktop is-size-3-touch hero-title"
                   >
                     {RichText.asText(article_headline)}
                   </h1>
                 )}
+                {headlinePhotoDetails}
               </div>
-              {/* </div>
-
-              {/* {hasAuthorDetails && (
-              <div className="column is-narrow-desktop">
-                <p className="subtitle is-size-6-desktop is-size-7-touch">
-                  {`${article_author.hmbk_staff_name}, ${article_author.hmbk_staff_position}`}
-                </p>
-              </div>
-            )} */}
-              {/* <div className="column is-narrow-desktop">
-              {featureDateDetails.hasBeenUpdated ? (
-                <p className="subtitle is-size-6-desktop is-size-7-touch">
-                  Updated
-                  <time dateTime={lastPublicationDate}>
-                    {featureDateDetails.pubDate}
-                  </time>
-                </p>
-              ) : (
-                <p className="subtitle is-size-6-desktop is-size-7-touch">
-                  <time dateTime={firstPublicationDate}>
-                    {featureDateDetails.pubDate}
-                  </time>
-                </p>
-              )} */}
             </div>
           </div>
         </div>

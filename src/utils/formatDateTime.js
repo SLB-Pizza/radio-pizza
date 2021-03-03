@@ -40,6 +40,8 @@ export default function formatDateTime(time, format, number) {
       return dayjs(time).format('MMMM D, YYYY - HH:mm')
     case 'long-form-date':
       return dayjs(time).format('MMMM D, YYYY')
+    case 'datetime-value':
+      return dayjs(time).format('YYYY-MM-DD HH:mm:ssZ')
     default:
       return dayjs()
   }

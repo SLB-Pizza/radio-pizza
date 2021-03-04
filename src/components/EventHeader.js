@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import _ from 'lodash'
+import NanoClamp from 'nanoclamp'
 import { RichText } from 'prismic-reactjs'
-import { EventCountdown } from '../components'
+import { EventDateTimeLocationInfo, EventCountdown } from '../components'
 import { formatDateTime } from '../utils'
 
 import dayjs from 'dayjs'
@@ -16,7 +17,12 @@ dayjs.extend(isSameOrBefore)
  * Component that renders the time remaining and relevant button for each event
  * @category Layout Helper
  * @function EventHeader
- * @param {*} { startDate, endDate, eventName }
+ * @param {*} startDate
+ * @param {*} startDate
+ * @param {*} startDate
+ * @param {*} startDate
+ * @param {*} startDate
+ * @param {*} startDate
  * @returns {jsx} a bar that appears after the event's image that sticks to the top on scroll
  */
 function EventHeader({
@@ -27,7 +33,9 @@ function EventHeader({
   headerButtonText,
   headerButtonLink,
 }) {
-  const [currentTime, setCurrentTime] = useState(dayjs().tz('America/New_York'))
+  const [currentTime, setCurrentTime] = useState(
+    formatDateTime(null, 'current-time')
+  )
   const [beforeEvent, setBeforeEvent] = useState(null)
   const [dayCount, setDayCount] = useState(null)
   const [hourCount, setHourCount] = useState(null)
@@ -37,12 +45,13 @@ function EventHeader({
   const [timerHeight, setTimerHeight] = useState(1)
   const [headerIsSticky, setHeaderIsSticky] = useState(false)
 
-  const startDateText = formatDateTime(startDate, 'long-form-date-time')
-  const endDateText = endDate ? formatDateTime(endDate, 'long-form-date') : null
-
-  //
+  /**
+   * Renders a countdown clock that tells you the amount of time remaining between now and `event_start`.
+   * @category useEffect
+   * @name eventCountdownClock
+   */
   useEffect(() => {
-    const countdownClock = setInterval(() => {
+    const eventCountdownClock = setInterval(() => {
       setCurrentTime(currentTime.add(1, 's'))
 
       // Check if currentTime is before or same as startDate
@@ -69,10 +78,15 @@ function EventHeader({
     }, 1000)
 
     return () => {
-      clearInterval(countdownClock)
+      clearInterval(eventCountdownClock)
     }
   }, [currentTime])
 
+  /**
+   * useEffect that listens to this event page to see if this component should be made sticky under the {@link ScheduleBar}.
+   * @category useEffect
+   * @name makeEventHeaderSticky
+   */
   useEffect(() => {
     const handleScroll = e => {
       // Set base values for the heights of the image and timer component
@@ -81,7 +95,7 @@ function EventHeader({
         let eventHeader = document.querySelector('.event-header')
 
         /**
-         * Using clientHeight here because neither eventImage nor eventHeader has a border to count.
+         * Using clientHeight here because neither eventImage nor eventHeader has a border to account for.
          * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/Element/clientHeight Element.clientHeight - MDN}
          */
         setEventHeight(eventImage.clientHeight)
@@ -113,12 +127,12 @@ function EventHeader({
     }
 
     // Limit checks to every 1/8 second, instead of on every pixel change
-    const throttledStickyCheck = _.throttle(handleScroll, 125)
+    const makeEventHeaderSticky = _.throttle(handleScroll, 125)
 
-    window.addEventListener('scroll', throttledStickyCheck)
+    window.addEventListener('scroll', makeEventHeaderSticky)
 
     return () => {
-      window.removeEventListener('scroll', throttledStickyCheck)
+      window.removeEventListener('scroll', makeEventHeaderSticky)
     }
   }, [eventHeight, timerHeight, headerIsSticky])
 
@@ -128,46 +142,15 @@ function EventHeader({
       style={headerIsSticky ? { minHeight: 'auto' } : null}
     >
       <div className="columns is-mobile is-multiline is-vcentered event-title">
-        <div
-          className={
-            headerButtonLink
-              ? 'column is-hidden-mobile'
-              : 'column is-12 is-hidden-mobile'
-          }
-        >
-          <div className="content">
-            <p
-              className={
-                headerIsSticky
-                  ? 'title is-size-5'
-                  : 'title is-size-4-tablet is-size-5-mobile'
-              }
-            >
-              {RichText.asText(eventName)}
-            </p>
-            <p
-              className={
-                headerIsSticky
-                  ? 'subtitle is-size-7'
-                  : 'subtitle is-size-6-tablet is-size-7-mobile'
-              }
-            >
-              {endDate
-                ? `${startDateText} to ${endDateText} | ${location}`
-                : `${startDateText} | ${location}`}
-            </p>
-          </div>
-        </div>
-        <div className="column is-12 is-hidden-tablet">
-          <div className="content">
-            <p className="title is-size-5">{RichText.asText(eventName)}</p>
-            <p className="subtitle is-size-7">
-              {endDate
-                ? `${startDateText} to ${endDateText} | ${location}`
-                : `${startDateText} | ${location}`}
-            </p>
-          </div>
-        </div>
+        <EventDateTimeLocationInfo
+          isSticky={headerIsSticky}
+          headerButtonLink={headerButtonLink}
+          eventName={eventName}
+          start={startDate}
+          end={endDate}
+          location={location}
+        />
+
         {beforeEvent && headerButtonLink ? (
           <>
             {/* TABLET AND DESKTOP BUTTON */}

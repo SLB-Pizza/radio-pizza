@@ -14,9 +14,6 @@ function CMSGuideIndex({ data }) {
   if (!prismicContent) return null
   const cmsGuideData = prismicContent
 
-  const cmsCardColumnLayout = 'column is-12 landing-page-element'
-  const cmsImageAspectRatio = 'image is-3by1'
-
   return (
     <main className="container is-fluid black-bg-page">
       <div className="columns is-multiline is-mobile">

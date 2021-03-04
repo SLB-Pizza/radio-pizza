@@ -1,0 +1,2982 @@
+{
+  "data": {
+    "prismic": {
+      "allFeatures": {
+        "edges": [
+          {
+            "node": {
+              "_meta": {
+                "uid": "get-to-know-yl",
+                "lastPublicationDate": "2021-01-14T23:55:41+0000",
+                "firstPublicationDate": "2020-11-11T23:55:15+0000",
+                "type": "feature"
+              },
+              "headline_block": [
+                {
+                  "primary": {
+                    "article_subtitle": [
+                      {
+                        "type": "heading4",
+                        "text": "A  first-generation New York rapper with Ecuadorian ancestry who has been  carving out his imprint in the city's underground Hip Hop scene.",
+                        "spans": []
+                      }
+                    ],
+                    "article_subcategory": "YL",
+                    "article_headline_img": {
+                      "dimensions": {
+                        "width": 5472,
+                        "height": 3648
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/bfa4aea4-4e29-483d-bd81-211bfc4eaf91_1771611D-B76E-47D4-BE4F-9BB8B75CAEAD.jpeg?auto=compress,format",
+                      "desktop": {
+                        "dimensions": {
+                          "width": 1215,
+                          "height": 810
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/bfa4aea4-4e29-483d-bd81-211bfc4eaf91_1771611D-B76E-47D4-BE4F-9BB8B75CAEAD.jpeg?auto=compress,format&rect=0,0,5472,3648&w=1215&h=810"
+                      },
+                      "tablet": {
+                        "dimensions": {
+                          "width": 1023,
+                          "height": 682
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/bfa4aea4-4e29-483d-bd81-211bfc4eaf91_1771611D-B76E-47D4-BE4F-9BB8B75CAEAD.jpeg?auto=compress,format&rect=0,0,5472,3648&w=1023&h=682"
+                      },
+                      "widescreen": {
+                        "dimensions": {
+                          "width": 1407,
+                          "height": 938
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/bfa4aea4-4e29-483d-bd81-211bfc4eaf91_1771611D-B76E-47D4-BE4F-9BB8B75CAEAD.jpeg?auto=compress,format&rect=0,0,5472,3648&w=1407&h=938"
+                      },
+                      "lo_fi_placeholder": {
+                        "dimensions": {
+                          "width": 32,
+                          "height": 21
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/bfa4aea4-4e29-483d-bd81-211bfc4eaf91_1771611D-B76E-47D4-BE4F-9BB8B75CAEAD.jpeg?auto=compress,format&rect=0,0,5472,3591&w=32&h=21"
+                      },
+                      "square_highlight": {
+                        "dimensions": {
+                          "width": 256,
+                          "height": 256
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/bfa4aea4-4e29-483d-bd81-211bfc4eaf91_1771611D-B76E-47D4-BE4F-9BB8B75CAEAD.jpeg?auto=compress,format&rect=912,0,3648,3648&w=256&h=256"
+                      },
+                      "mobile": {
+                        "dimensions": {
+                          "width": 767,
+                          "height": 511
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/bfa4aea4-4e29-483d-bd81-211bfc4eaf91_1771611D-B76E-47D4-BE4F-9BB8B75CAEAD.jpeg?auto=compress,format&rect=0,0,5472,3646&w=767&h=511"
+                      }
+                    },
+                    "article_headline": [
+                      {
+                        "type": "heading1",
+                        "text": "Get to Know: YL",
+                        "spans": []
+                      }
+                    ],
+                    "article_category": "Profile",
+                    "article_author": {
+                      "hmbk_staff_name": "Gabriel Garcia Marquez",
+                      "hmbk_staff_position": "Nobel Laureate",
+                      "hmbk_staff_photo": {
+                        "dimensions": {
+                          "width": 900,
+                          "height": 750
+                        },
+                        "alt": "Gabriel Garcia Marquez, famous Colombian author",
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/33e0177d-19d2-45f3-b30e-c666552c512e_gabriel-garcia-marquez-2.jpg?auto=compress,format",
+                        "profile": {
+                          "dimensions": {
+                            "width": 750,
+                            "height": 750
+                          },
+                          "alt": "Gabriel Garcia Marquez, famous Colombian author",
+                          "copyright": null,
+                          "url": "https://images.prismic.io/hmbk-cms/33e0177d-19d2-45f3-b30e-c666552c512e_gabriel-garcia-marquez-2.jpg?auto=compress,format&rect=75,0,750,750&w=750&h=750"
+                        },
+                        "small": {
+                          "dimensions": {
+                            "width": 300,
+                            "height": 300
+                          },
+                          "alt": "Gabriel Garcia Marquez, famous Colombian author",
+                          "copyright": null,
+                          "url": "https://images.prismic.io/hmbk-cms/33e0177d-19d2-45f3-b30e-c666552c512e_gabriel-garcia-marquez-2.jpg?auto=compress,format&rect=75,0,750,750&w=300&h=300"
+                        },
+                        "author": {
+                          "dimensions": {
+                            "width": 64,
+                            "height": 64
+                          },
+                          "alt": "Gabriel Garcia Marquez, famous Colombian author",
+                          "copyright": null,
+                          "url": "https://images.prismic.io/hmbk-cms/33e0177d-19d2-45f3-b30e-c666552c512e_gabriel-garcia-marquez-2.jpg?auto=compress,format&rect=70,0,750,750&w=64&h=64"
+                        }
+                      }
+                    }
+                  }
+                }
+              ],
+              "body": [
+                {
+                  "type": "text",
+                  "primary": {
+                    "set_first_letter": false,
+                    "body_text": [
+                      {
+                        "type": "paragraph",
+                        "text": "Who What and YL",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 15,
+                            "type": "em"
+                          },
+                          {
+                            "start": 0,
+                            "end": 15,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Enter: YL a first-generation New York rapper with Ecuadorian ancestry who has been carving out his imprint in the city's underground Hip Hop scene.YL has been hopping on beats for at least nine years, citing his first mixtape which dropped in 2011. His SoundCloud only goes back about five years though, and his Bandcamp tells an even shorter tale. Either way, he’s been on the steady up cline lately with a range of fire releases over the past few years. But his latest release Born Again (August 2020) is said to be his standout project. Produced by Zoomo -another city staple- the project is twelve tracks of smooth, soul-filled beats accompanied by YL’s effortlessly-styled bars. I meet with YL on a sunny day in the Chelsea neighbourhood of Manhattan. His bedroom walls are lined with records and classic New York rap echoes throughout his apartment, it’s obvious he is serious about his stuff. The 27-year-old emcee also produces beats, engineers, makes mixes for London’s infamous NTS Radio, and consistently works with his squad RRR (Real Recognise Real). He’s always moving and morphing within the music world, and if there’s anything you should know about New York rappers: the grind never stops.",
+                        "spans": [
+                          {
+                            "start": 479,
+                            "end": 490,
+                            "type": "hyperlink",
+                            "data": {
+                              "link_type": "Web",
+                              "url": "https://dontaskwhy.bandcamp.com/album/born-again",
+                              "target": "_blank"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "full_width_image",
+                  "label": null,
+                  "primary": {
+                    "full_width_image": {
+                      "dimensions": {
+                        "width": 5472,
+                        "height": 3648
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/0a1822b7-d92c-4138-ae0c-f667f4cd3bc1_ACD4AD65-B2FE-4CFD-8186-05B7482BC9F2.jpeg?auto=compress,format"
+                    },
+                    "fwi_height": "Fullheight",
+                    "fwi_titling": null
+                  }
+                },
+                {
+                  "type": "one_image_and_text1",
+                  "primary": {
+                    "oiat_img": {
+                      "dimensions": {
+                        "width": 3648,
+                        "height": 5472
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/e9121c40-f248-4b78-96ed-a7e941e3e00d_D99CF1A5-09FC-4611-9F55-C01404E303EC.jpeg?auto=compress,format",
+                      "desktop": {
+                        "dimensions": {
+                          "width": 1215,
+                          "height": 1822
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/e9121c40-f248-4b78-96ed-a7e941e3e00d_D99CF1A5-09FC-4611-9F55-C01404E303EC.jpeg?auto=compress,format&rect=0,0,3648,5470&w=1215&h=1822"
+                      },
+                      "tablet": {
+                        "dimensions": {
+                          "width": 1023,
+                          "height": 1534
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/e9121c40-f248-4b78-96ed-a7e941e3e00d_D99CF1A5-09FC-4611-9F55-C01404E303EC.jpeg?auto=compress,format&rect=0,0,3648,5470&w=1023&h=1534"
+                      },
+                      "widescreen": {
+                        "dimensions": {
+                          "width": 1407,
+                          "height": 2111
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/e9121c40-f248-4b78-96ed-a7e941e3e00d_D99CF1A5-09FC-4611-9F55-C01404E303EC.jpeg?auto=compress,format&rect=0,0,3647,5472&w=1407&h=2111"
+                      },
+                      "lo_fi_placeholder": {
+                        "dimensions": {
+                          "width": 32,
+                          "height": 48
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/e9121c40-f248-4b78-96ed-a7e941e3e00d_D99CF1A5-09FC-4611-9F55-C01404E303EC.jpeg?auto=compress,format&rect=0,0,3648,5472&w=32&h=48"
+                      },
+                      "mobile": {
+                        "dimensions": {
+                          "width": 767,
+                          "height": 1151
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/e9121c40-f248-4b78-96ed-a7e941e3e00d_D99CF1A5-09FC-4611-9F55-C01404E303EC.jpeg?auto=compress,format&rect=0,0,3646,5472&w=767&h=1151"
+                      }
+                    },
+                    "oiat_layout": "Left: Text-Image",
+                    "oiat_text": [
+                      {
+                        "type": "paragraph",
+                        "text": "For starters: your name. How did you settle with YL? ",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 53,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "YL: It’s not an acronym for anything. I think that’s what people probably think first, but it really doesn’t. It used to be part of a longer name when I first started rapping. It used to be “The YL,” which was a play on the first three letters of my name, “Dylan.” Over time I dropped the “The,” kept the “YL,” kept it short. That’s it. Doesn’t mean anything, but that’s everything.",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Before we get into your music, tell me more about who you are. Outside of music, who are you? ",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 94,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "I never really think about myself, I just do what I do. I’m a good friend, I’m a good son. I’m a brother. I engineer, make beats, produce. I’m not a DJ but I put mixes together for NTS. They’re an online radio station based in London. They also have a station in LA. It’s a big stable of DJ’s and artists that provide mixes every day, 24/7.  I do a bunch of shit. I know those all pertain to music, it’s just different factors.",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Where in New York did you grow up?",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 34,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "I grew up in Chelsea, I’m a city kid. We’re in my stomping grounds. I played in all these parks over here. I’ve had friends blocks away. Just on some growing up shit, I got friends everywhere. I used to be in Uptown, The Bronx going to parties. I’d be in Brooklyn a lot, you know those old loft parties and shit like that. I would just be all over. My friends were always like an eclectic group. We weren’t all from just one spot. I’d be out in Queens a lot, Jackson Heights and shit.",
+                        "spans": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "one_image_and_text1",
+                  "primary": {
+                    "oiat_img": {
+                      "dimensions": {
+                        "width": 1195,
+                        "height": 1792
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/4e09c62a-7630-4e05-9119-c22316ed4daf_9DFB231C-190C-4050-B094-E3B256E198AE.jpeg?auto=compress,format",
+                      "desktop": {
+                        "dimensions": {
+                          "width": 1215,
+                          "height": 1822
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/4e09c62a-7630-4e05-9119-c22316ed4daf_9DFB231C-190C-4050-B094-E3B256E198AE.jpeg?auto=compress,format&rect=0,0,1195,1792&w=1215&h=1822"
+                      },
+                      "tablet": {
+                        "dimensions": {
+                          "width": 1023,
+                          "height": 1534
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/4e09c62a-7630-4e05-9119-c22316ed4daf_9DFB231C-190C-4050-B094-E3B256E198AE.jpeg?auto=compress,format&rect=0,0,1195,1792&w=1023&h=1534"
+                      },
+                      "widescreen": {
+                        "dimensions": {
+                          "width": 1407,
+                          "height": 2110
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/4e09c62a-7630-4e05-9119-c22316ed4daf_9DFB231C-190C-4050-B094-E3B256E198AE.jpeg?auto=compress,format&rect=0,0,1195,1792&w=1407&h=2110"
+                      },
+                      "lo_fi_placeholder": {
+                        "dimensions": {
+                          "width": 32,
+                          "height": 48
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/4e09c62a-7630-4e05-9119-c22316ed4daf_9DFB231C-190C-4050-B094-E3B256E198AE.jpeg?auto=compress,format&rect=0,0,1195,1792&w=32&h=48"
+                      },
+                      "mobile": {
+                        "dimensions": {
+                          "width": 767,
+                          "height": 1150
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/4e09c62a-7630-4e05-9119-c22316ed4daf_9DFB231C-190C-4050-B094-E3B256E198AE.jpeg?auto=compress,format&rect=0,0,1195,1792&w=767&h=1150"
+                      }
+                    },
+                    "oiat_layout": "Right: Image-Text",
+                    "oiat_text": [
+                      {
+                        "type": "paragraph",
+                        "text": "I’m sure this has an obvious answer, but I must ask, did growing up in the city affect your music?",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 98,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "I think it’s definitely prominent in my music, because when I’m rapping, I’m thinking of my city. The setting is always my city unless I say otherwise. That’s why I feel a lot of people can resonate. A lot of my biggest influences are artists from New York City. People like AZ, Ghostface, Raekwon, Nas, Jada, Styles P, the classic shit. ",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "What sets you apart from other rappers in the city?",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 51,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "The music speaks for itself. The way I look speaks for itself. I look around, I don’t see anyone that looks like me. I like to think I’m doing it the right way.",
+                        "spans": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "blockquote",
+                  "primary": {
+                    "blockquote_type": "Light: light background image; black quote text",
+                    "blockquote_text": [
+                      {
+                        "type": "paragraph",
+                        "text": "There’s a lot of people putting out great music right now, I’ll be damned if I’m the weak link. I’ve never seen myself like that, don’t get it twisted, but I wanna keep my shit strong. I like undeniable shit.",
+                        "spans": []
+                      }
+                    ],
+                    "blockquote_attribution": null,
+                    "blockquote_bg_img": null
+                  }
+                },
+                {
+                  "type": "text",
+                  "primary": {
+                    "set_first_letter": false,
+                    "body_text": [
+                      {
+                        "type": "paragraph",
+                        "text": "Let’s get into Born Again. What is your reaction to the reception of your latest project with Zoomo?",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 100,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "I’m gonna look at Born Again as one of those breakthrough projects. Even though it just came out a month ago. A lot of people have been telling me, “This sounds like it’s your best project, you really delved in.” A lot of people look at [Born Again] as a standout. I think a lot of that is credited to doing the whole one rapper, one producer thing. It’s just me and my boy Zoomo. That’s really my guy, that’s my bro. It sounds like this project was bound to happen. It’s nothing for me to just pull up to his crib. He’s going through samples and I’m just chilling smoking, just talking shit. It’s so easy. I feel mad spoiled sometimes. I have an open pick to anything. Zoomo and I were in our bag. It only takes one joint, before you know it you have like four. We were just chillin at the crib. I gotta catch him when he just cooked up mad shit and then he just plays it. ",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "As a rapper, how did you make sure your lyrics complimented his beats?",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 70,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "I wouldn’t say I changed my process. I just wanted my shit to be as heavy as the beats. I wanted to carry my weight. I didn't want people to just be like, “Oh these beats are fire.” Now I’m into rewriting my shit. A year ago I wasn’t doing that. There’s a lot of people putting out great music right now, I’ll be damned if I’m the weak link. I’ve never seen myself like that, don’t get it twisted, but I wanna keep my shit strong. I like undeniable shit. ",
+                        "spans": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "full_width_image",
+                  "label": null,
+                  "primary": {
+                    "full_width_image": {
+                      "dimensions": {
+                        "width": 1195,
+                        "height": 1792
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/b2566fd6-861a-4a53-a5f3-475ea09cd9cd_788DA9CD-BE44-4491-894C-BDA99355A487.jpeg?auto=compress,format"
+                    },
+                    "fwi_height": "Fullheight",
+                    "fwi_titling": null
+                  }
+                },
+                {
+                  "type": "text",
+                  "primary": {
+                    "set_first_letter": false,
+                    "body_text": [
+                      {
+                        "type": "paragraph",
+                        "text": "You told me on the side that your next album will be coming out soon, titled Jesus Is My Homeboy. Are there any details you can give me about that? ",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 148,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "[My computer] says I have 16 joints. That’s been the working title for like two years. I’ve been pumping it, but I keep putting other things in front of it. This is a full-length with mad people on it. There’s a lot of people involved. I’m down to work with people. This is more hand-selected. I’ve done songs with people I don’t really know that well. I can make a verse tomorrow that I love more. There’s always more to say. There’s a lot of people I fuck with that I still haven’t worked with. Well if you could work with any artist, at any level, from anywhere, who would you work with? To be honest, I feel like I am working with my favorite people right now. Lemme just give a few shoutouts: Starker, he’s someone you should peep. Roper Williams, he’s a producer. Me and him have albums. You go on my Bandcamp, he’s done at least three of my projects, all him. Koncept Jack$on. Rbchmbrs, Theravada, Lord Jah-Monte Ogbon, Grimm Doza. My boy MID, he’s an artist from RRR, my camp. Alchemist, Madlib. I like Harry Fraud, Tony Seltzer. RIP J Dilla, that would’ve been fire.I’m sure someone’s got a stashed beat that’s unused. ",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "You mentioned this before, and I’ve seen it around on your Instagram page. What is RRR?",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 87,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "RRR is ‘Real Recognize Real.’ That’s the family, the squad. It consists of myself, Starker, MID, Zoomo. That’s what it is. That’s the home team, it’s what I rep. It’s something I’ve been repping for 10 years. If you’ve been following my shit for mad long, you could hear me shout out RRR on my very first mixtape from 2011. Shoutout to RRR",
+                        "spans": []
+                      },
+                      {
+                        "type": "heading3",
+                        "text": "The fourth quarter is underway. Fresh out of the in-game interview, YL is locked-in and ready to dominate. Catch up on first half highlights by heading to his Bandcamp.",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 168,
+                            "type": "strong"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "full_width_image",
+                  "label": null,
+                  "primary": {
+                    "full_width_image": {
+                      "dimensions": {
+                        "width": 3648,
+                        "height": 5472
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/cc86a07d-df9d-49a5-8cb5-3aee3b060ee1_52362021-0AA7-49CB-B802-798E7F8546FE.jpeg?auto=compress,format"
+                    },
+                    "fwi_height": "Fullheight",
+                    "fwi_titling": null
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "node": {
+              "_meta": {
+                "uid": "dev-feature-test-for-surf",
+                "lastPublicationDate": "2021-01-14T23:58:34+0000",
+                "firstPublicationDate": "2020-08-27T00:39:59+0000",
+                "type": "feature"
+              },
+              "headline_block": [
+                {
+                  "primary": {
+                    "article_subtitle": [
+                      {
+                        "type": "heading4",
+                        "text": "The hip-hop and drill artist making waves throughout the music community.",
+                        "spans": []
+                      }
+                    ],
+                    "article_subcategory": "Sheff G",
+                    "article_headline_img": {
+                      "dimensions": {
+                        "width": 2880,
+                        "height": 1800
+                      },
+                      "alt": "Oslo Subway Escalator long exposure",
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/450e3121-5d28-48eb-961c-937cfd5bd364_wallhaven-w8yxlr.jpg?auto=compress,format",
+                      "desktop": {
+                        "dimensions": {
+                          "width": 1215,
+                          "height": 759
+                        },
+                        "alt": "Oslo Subway Escalator long exposure",
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/450e3121-5d28-48eb-961c-937cfd5bd364_wallhaven-w8yxlr.jpg?auto=compress,format&rect=0,0,2880,1799&w=1215&h=759"
+                      },
+                      "tablet": {
+                        "dimensions": {
+                          "width": 1023,
+                          "height": 639
+                        },
+                        "alt": "Oslo Subway Escalator long exposure",
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/450e3121-5d28-48eb-961c-937cfd5bd364_wallhaven-w8yxlr.jpg?auto=compress,format&rect=0,0,2880,1799&w=1023&h=639"
+                      },
+                      "widescreen": {
+                        "dimensions": {
+                          "width": 1407,
+                          "height": 879
+                        },
+                        "alt": "Oslo Subway Escalator long exposure",
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/450e3121-5d28-48eb-961c-937cfd5bd364_wallhaven-w8yxlr.jpg?auto=compress,format&rect=0,0,2880,1799&w=1407&h=879"
+                      },
+                      "lo_fi_placeholder": {
+                        "dimensions": {
+                          "width": 32,
+                          "height": 20
+                        },
+                        "alt": "Oslo Subway Escalator long exposure",
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/450e3121-5d28-48eb-961c-937cfd5bd364_wallhaven-w8yxlr.jpg?auto=compress,format&rect=0,0,2880,1800&w=32&h=20"
+                      },
+                      "square_highlight": {
+                        "dimensions": {
+                          "width": 256,
+                          "height": 256
+                        },
+                        "alt": "Oslo Subway Escalator long exposure",
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/450e3121-5d28-48eb-961c-937cfd5bd364_wallhaven-w8yxlr.jpg?auto=compress,format&rect=480,0,1800,1800&w=256&h=256"
+                      },
+                      "mobile": {
+                        "dimensions": {
+                          "width": 767,
+                          "height": 479
+                        },
+                        "alt": "Oslo Subway Escalator long exposure",
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/450e3121-5d28-48eb-961c-937cfd5bd364_wallhaven-w8yxlr.jpg?auto=compress,format&rect=0,0,2880,1799&w=767&h=479"
+                      }
+                    },
+                    "article_headline": [
+                      {
+                        "type": "heading1",
+                        "text": "Sheff G: The New Kid on the Block",
+                        "spans": []
+                      }
+                    ],
+                    "article_category": "Profile",
+                    "article_author": {
+                      "hmbk_staff_name": "Christian Mejia",
+                      "hmbk_staff_position": "Super Developer",
+                      "hmbk_staff_photo": null
+                    }
+                  }
+                }
+              ],
+              "body": [
+                {
+                  "type": "text",
+                  "primary": {
+                    "set_first_letter": false,
+                    "body_text": [
+                      {
+                        "type": "paragraph",
+                        "text": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae  scelerisque elit, sed gravida nisi. Praesent at leo vel justo  ullamcorper pulvinar eget in nisl. Donec ac pulvinar eros. Curabitur  sagittis, sapien quis tempus euismod, mauris massa aliquam ligula, ac  suscipit sapien urna vitae magna. Integer tristique leo ac urna  porttitor viverra at quis est. Nullam gravida neque quis erat dictum  suscipit. Ut nisi eros, dapibus eget quam eu, ornare tincidunt tellus.  Integer pellentesque accumsan dui quis porttitor. Ut sed mi neque. ",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": " Phasellus semper ex id tortor laoreet, vitae ullamcorper lacus viverra.  Vestibulum vulputate nisi vitae nibh finibus, vel cursus dolor finibus.  Aenean non finibus quam. Vestibulum viverra iaculis aliquam. Praesent  tristique arcu eget nulla tincidunt, vel elementum tellus dapibus. Ut  blandit ultricies sem id convallis. Suspendisse ac eleifend risus. In  fringilla porttitor semper. Maecenas pulvinar egestas varius. Phasellus  consequat vel tellus nec suscipit. Sed porta maximus justo, eu pulvinar  nunc facilisis congue. Proin dignissim massa eu nisl vestibulum, sed  laoreet augue dictum. Duis ex massa, mollis sed mauris sit amet, auctor  elementum tortor. Integer tempor fermentum dapibus. ",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Test external link to reddit.com",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 32,
+                            "type": "hyperlink",
+                            "data": {
+                              "link_type": "Web",
+                              "url": "https://reddit.com",
+                              "target": "_blank"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Test internal link to Infected Mushroom resident page",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 53,
+                            "type": "hyperlink",
+                            "data": {
+                              "id": "XyZs-REAACQAB_CP",
+                              "type": "resident",
+                              "tags": [],
+                              "slug": "infected-mushroom",
+                              "lang": "en-us",
+                              "uid": "dev-resident-infected-mushroom",
+                              "link_type": "Document",
+                              "isBroken": false
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "image_group",
+                  "fields": [
+                    {
+                      "single_img": {
+                        "dimensions": {
+                          "width": 1920,
+                          "height": 1200
+                        },
+                        "alt": "Yellow Sunflower",
+                        "copyright": "Pixabay on Pexels",
+                        "url": "https://images.prismic.io/hmbk-cms/ee78fe33-57fb-4722-8da0-72afdeaeba27_pexels-pixabay-541484.jpg?auto=compress,format",
+                        "desktop": {
+                          "dimensions": {
+                            "width": 1215,
+                            "height": 759
+                          },
+                          "alt": "Yellow Sunflower",
+                          "copyright": "Pixabay on Pexels",
+                          "url": "https://images.prismic.io/hmbk-cms/ee78fe33-57fb-4722-8da0-72afdeaeba27_pexels-pixabay-541484.jpg?auto=compress,format&rect=0,0,1920,1199&w=1215&h=759"
+                        },
+                        "tablet": {
+                          "dimensions": {
+                            "width": 1023,
+                            "height": 639
+                          },
+                          "alt": "Yellow Sunflower",
+                          "copyright": "Pixabay on Pexels",
+                          "url": "https://images.prismic.io/hmbk-cms/ee78fe33-57fb-4722-8da0-72afdeaeba27_pexels-pixabay-541484.jpg?auto=compress,format&rect=0,0,1920,1199&w=1023&h=639"
+                        },
+                        "widescreen": {
+                          "dimensions": {
+                            "width": 1407,
+                            "height": 879
+                          },
+                          "alt": "Yellow Sunflower",
+                          "copyright": "Pixabay on Pexels",
+                          "url": "https://images.prismic.io/hmbk-cms/ee78fe33-57fb-4722-8da0-72afdeaeba27_pexels-pixabay-541484.jpg?auto=compress,format&rect=0,0,1920,1199&w=1407&h=879"
+                        },
+                        "lo_fi_placeholder": {
+                          "dimensions": {
+                            "width": 32,
+                            "height": 20
+                          },
+                          "alt": "Yellow Sunflower",
+                          "copyright": "Pixabay on Pexels",
+                          "url": "https://images.prismic.io/hmbk-cms/ee78fe33-57fb-4722-8da0-72afdeaeba27_pexels-pixabay-541484.jpg?auto=compress,format&rect=0,0,1920,1200&w=32&h=20"
+                        },
+                        "mobile": {
+                          "dimensions": {
+                            "width": 767,
+                            "height": 479
+                          },
+                          "alt": "Yellow Sunflower",
+                          "copyright": "Pixabay on Pexels",
+                          "url": "https://images.prismic.io/hmbk-cms/ee78fe33-57fb-4722-8da0-72afdeaeba27_pexels-pixabay-541484.jpg?auto=compress,format&rect=0,0,1920,1199&w=767&h=479"
+                        }
+                      }
+                    },
+                    {
+                      "single_img": {
+                        "dimensions": {
+                          "width": 1920,
+                          "height": 1200
+                        },
+                        "alt": "Black and White Turtle",
+                        "copyright": "Photo by Richard Segal from Pexels",
+                        "url": "https://images.prismic.io/hmbk-cms/4a1d841f-eabb-4a5b-8702-543499210694_pexels-richard-segal-1618606%281%29.jpg?auto=compress,format",
+                        "desktop": {
+                          "dimensions": {
+                            "width": 1215,
+                            "height": 759
+                          },
+                          "alt": "Black and White Turtle",
+                          "copyright": "Photo by Richard Segal from Pexels",
+                          "url": "https://images.prismic.io/hmbk-cms/4a1d841f-eabb-4a5b-8702-543499210694_pexels-richard-segal-1618606%281%29.jpg?auto=compress,format&rect=0,0,1920,1199&w=1215&h=759"
+                        },
+                        "tablet": {
+                          "dimensions": {
+                            "width": 1023,
+                            "height": 639
+                          },
+                          "alt": "Black and White Turtle",
+                          "copyright": "Photo by Richard Segal from Pexels",
+                          "url": "https://images.prismic.io/hmbk-cms/4a1d841f-eabb-4a5b-8702-543499210694_pexels-richard-segal-1618606%281%29.jpg?auto=compress,format&rect=0,0,1920,1199&w=1023&h=639"
+                        },
+                        "widescreen": {
+                          "dimensions": {
+                            "width": 1407,
+                            "height": 879
+                          },
+                          "alt": "Black and White Turtle",
+                          "copyright": "Photo by Richard Segal from Pexels",
+                          "url": "https://images.prismic.io/hmbk-cms/4a1d841f-eabb-4a5b-8702-543499210694_pexels-richard-segal-1618606%281%29.jpg?auto=compress,format&rect=0,0,1920,1199&w=1407&h=879"
+                        },
+                        "lo_fi_placeholder": {
+                          "dimensions": {
+                            "width": 32,
+                            "height": 20
+                          },
+                          "alt": "Black and White Turtle",
+                          "copyright": "Photo by Richard Segal from Pexels",
+                          "url": "https://images.prismic.io/hmbk-cms/4a1d841f-eabb-4a5b-8702-543499210694_pexels-richard-segal-1618606%281%29.jpg?auto=compress,format&rect=0,0,1920,1200&w=32&h=20"
+                        },
+                        "mobile": {
+                          "dimensions": {
+                            "width": 767,
+                            "height": 479
+                          },
+                          "alt": "Black and White Turtle",
+                          "copyright": "Photo by Richard Segal from Pexels",
+                          "url": "https://images.prismic.io/hmbk-cms/4a1d841f-eabb-4a5b-8702-543499210694_pexels-richard-segal-1618606%281%29.jpg?auto=compress,format&rect=0,0,1920,1199&w=767&h=479"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "primary": {
+                    "set_first_letter": false,
+                    "body_text": [
+                      {
+                        "type": "paragraph",
+                        "text": "Praesent lorem enim, luctus vitae sem quis, sollicitudin condimentum  quam. Sed eget fringilla ligula, quis pulvinar nibh. Aliquam varius quam  lacinia, bibendum tellus at, malesuada felis. Praesent euismod elit a  quam malesuada tincidunt. Aliquam porta urna ac nisl molestie dapibus.  Fusce vel mollis nisl. Nunc tincidunt ut ex vitae ultricies. Nulla et  interdum tortor. Donec porta vestibulum egestas. Sed risus felis,  scelerisque eget tincidunt ut, egestas sit amet nulla. ",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": " Integer lobortis mi purus, eget lobortis felis finibus ac. Sed malesuada  libero porttitor tincidunt eleifend. Donec vestibulum, tellus auctor  lobortis molestie, nibh ligula tincidunt mauris, id imperdiet neque odio  eu ante. Integer facilisis augue id turpis finibus, nec efficitur elit  rhoncus. Nullam ornare porttitor metus, sed pharetra augue elementum sit  amet. Phasellus ullamcorper maximus nibh et volutpat. Aliquam ultrices  dapibus sagittis. ",
+                        "spans": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "one_image_and_text1",
+                  "primary": {
+                    "oiat_img": {
+                      "dimensions": {
+                        "width": 1280,
+                        "height": 1920
+                      },
+                      "alt": "Man in red beanie wearing white headphones\n",
+                      "copyright": "Photo by Philip Boakye from Pexels",
+                      "url": "https://images.prismic.io/hmbk-cms/6e9f08fb-5ab2-4bec-802f-afed334349b3_pexels-philip-boakye-2614384.jpg?auto=compress,format",
+                      "desktop": {
+                        "dimensions": {
+                          "width": 1215,
+                          "height": 1823
+                        },
+                        "alt": "Man in red beanie wearing white headphones\n",
+                        "copyright": "Photo by Philip Boakye from Pexels",
+                        "url": "https://images.prismic.io/hmbk-cms/6e9f08fb-5ab2-4bec-802f-afed334349b3_pexels-philip-boakye-2614384.jpg?auto=compress,format&rect=0,0,1280,1920&w=1215&h=1823"
+                      },
+                      "tablet": {
+                        "dimensions": {
+                          "width": 1023,
+                          "height": 1535
+                        },
+                        "alt": "Man in red beanie wearing white headphones\n",
+                        "copyright": "Photo by Philip Boakye from Pexels",
+                        "url": "https://images.prismic.io/hmbk-cms/6e9f08fb-5ab2-4bec-802f-afed334349b3_pexels-philip-boakye-2614384.jpg?auto=compress,format&rect=0,0,1280,1920&w=1023&h=1535"
+                      },
+                      "widescreen": {
+                        "dimensions": {
+                          "width": 1407,
+                          "height": 2111
+                        },
+                        "alt": "Man in red beanie wearing white headphones\n",
+                        "copyright": "Photo by Philip Boakye from Pexels",
+                        "url": "https://images.prismic.io/hmbk-cms/6e9f08fb-5ab2-4bec-802f-afed334349b3_pexels-philip-boakye-2614384.jpg?auto=compress,format&rect=0,0,1280,1920&w=1407&h=2111"
+                      },
+                      "lo_fi_placeholder": {
+                        "dimensions": {
+                          "width": 32,
+                          "height": 48
+                        },
+                        "alt": "Man in red beanie wearing white headphones\n",
+                        "copyright": "Photo by Philip Boakye from Pexels",
+                        "url": "https://images.prismic.io/hmbk-cms/6e9f08fb-5ab2-4bec-802f-afed334349b3_pexels-philip-boakye-2614384.jpg?auto=compress,format&rect=0,0,1280,1920&w=32&h=48"
+                      },
+                      "mobile": {
+                        "dimensions": {
+                          "width": 767,
+                          "height": 1151
+                        },
+                        "alt": "Man in red beanie wearing white headphones\n",
+                        "copyright": "Photo by Philip Boakye from Pexels",
+                        "url": "https://images.prismic.io/hmbk-cms/6e9f08fb-5ab2-4bec-802f-afed334349b3_pexels-philip-boakye-2614384.jpg?auto=compress,format&rect=0,0,1279,1920&w=767&h=1151"
+                      }
+                    },
+                    "oiat_layout": "Left: Text-Image",
+                    "oiat_text": [
+                      {
+                        "type": "paragraph",
+                        "text": "Praesent euismod elit a quam malesuada tincidunt. Aliquam porta urna  ac nisl molestie dapibus. Fusce vel mollis nisl. Nunc tincidunt ut ex  vitae ultricies. Nulla et interdum tortor. Donec porta vestibulum  egestas. Sed risus felis, scelerisque eget tincidunt ut, egestas sit  amet nulla. ",
+                        "spans": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "text",
+                  "primary": {
+                    "set_first_letter": false,
+                    "body_text": [
+                      {
+                        "type": "paragraph",
+                        "text": "Integer lobortis mi purus, eget lobortis felis finibus ac. Sed malesuada  libero porttitor tincidunt eleifend. Donec vestibulum, tellus auctor  lobortis molestie, nibh ligula tincidunt mauris, id imperdiet neque odio  eu ante. Integer facilisis augue id turpis finibus, nec efficitur elit  rhoncus. Nullam ornare porttitor metus, sed pharetra augue elementum sit  amet. Phasellus ullamcorper maximus nibh et volutpat. Aliquam ultrices  dapibus sagittis. ",
+                        "spans": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "blockquote",
+                  "primary": {
+                    "blockquote_type": "None: no background image; white quote text on black",
+                    "blockquote_text": [
+                      {
+                        "type": "paragraph",
+                        "text": "I often think that the night is more alive and more richly colored than the day.",
+                        "spans": []
+                      }
+                    ],
+                    "blockquote_attribution": [
+                      {
+                        "type": "paragraph",
+                        "text": "Vincent Van Gogh",
+                        "spans": []
+                      }
+                    ],
+                    "blockquote_bg_img": null
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "node": {
+              "_meta": {
+                "uid": "dev-feature-purple-stadium",
+                "lastPublicationDate": "2021-01-14T23:59:33+0000",
+                "firstPublicationDate": "2020-08-09T20:00:36+0000",
+                "type": "feature"
+              },
+              "headline_block": [
+                {
+                  "primary": {
+                    "article_subtitle": [
+                      {
+                        "type": "heading4",
+                        "text": "Concert lit up by purple",
+                        "spans": []
+                      }
+                    ],
+                    "article_subcategory": "Concert",
+                    "article_headline_img": {
+                      "dimensions": {
+                        "width": 1920,
+                        "height": 1280
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/4c112f9b-c84f-408a-80f2-5891dbf3494a_wallhaven-oxyl99.jpg?auto=compress,format",
+                      "desktop": {
+                        "dimensions": {
+                          "width": 1215,
+                          "height": 810
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/4c112f9b-c84f-408a-80f2-5891dbf3494a_wallhaven-oxyl99.jpg?auto=compress,format&rect=0,0,1920,1280&w=1215&h=810"
+                      },
+                      "tablet": {
+                        "dimensions": {
+                          "width": 1023,
+                          "height": 682
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/4c112f9b-c84f-408a-80f2-5891dbf3494a_wallhaven-oxyl99.jpg?auto=compress,format&rect=0,0,1920,1280&w=1023&h=682"
+                      },
+                      "widescreen": {
+                        "dimensions": {
+                          "width": 1407,
+                          "height": 938
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/4c112f9b-c84f-408a-80f2-5891dbf3494a_wallhaven-oxyl99.jpg?auto=compress,format&rect=0,0,1920,1280&w=1407&h=938"
+                      },
+                      "lo_fi_placeholder": {
+                        "dimensions": {
+                          "width": 32,
+                          "height": 21
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/4c112f9b-c84f-408a-80f2-5891dbf3494a_wallhaven-oxyl99.jpg?auto=compress,format&rect=0,0,1920,1260&w=32&h=21"
+                      },
+                      "square_highlight": {
+                        "dimensions": {
+                          "width": 256,
+                          "height": 256
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/4c112f9b-c84f-408a-80f2-5891dbf3494a_wallhaven-oxyl99.jpg?auto=compress,format&rect=320,0,1280,1280&w=256&h=256"
+                      },
+                      "mobile": {
+                        "dimensions": {
+                          "width": 767,
+                          "height": 511
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/4c112f9b-c84f-408a-80f2-5891dbf3494a_wallhaven-oxyl99.jpg?auto=compress,format&rect=0,0,1920,1279&w=767&h=511"
+                      }
+                    },
+                    "article_headline": [
+                      {
+                        "type": "heading1",
+                        "text": "Short Feature Title",
+                        "spans": []
+                      }
+                    ],
+                    "article_category": "Report",
+                    "article_author": {
+                      "hmbk_staff_name": "Christian Mejia",
+                      "hmbk_staff_position": "Super Developer",
+                      "hmbk_staff_photo": null
+                    }
+                  }
+                }
+              ],
+              "body": [
+                {
+                  "type": "text",
+                  "primary": {
+                    "set_first_letter": false,
+                    "body_text": [
+                      {
+                        "type": "heading1",
+                        "text": "Newly updated text section",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "This is after the TextBlock update from slice.primary of \"body_text\" to just \"text\"",
+                        "spans": [
+                          {
+                            "start": 18,
+                            "end": 27,
+                            "type": "strong"
+                          },
+                          {
+                            "start": 40,
+                            "end": 53,
+                            "type": "strong"
+                          },
+                          {
+                            "start": 57,
+                            "end": 68,
+                            "type": "strong"
+                          },
+                          {
+                            "start": 77,
+                            "end": 83,
+                            "type": "strong"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "text",
+                  "primary": {
+                    "set_first_letter": true,
+                    "body_text": [
+                      {
+                        "type": "paragraph",
+                        "text": "Andromeda aries auriga camelopardalis cancer canes venatici centaurus  cepheus columba corona austrina eridanus hercules lacerta leo leo minor  lupus lyra norma octans ophiuchus pisces pyxis scorpius sculptor scutum  taurus tucana vela virgo. Andromeda cetus corona borealis cygnus  delphinus indus lepus ophiuchus pyxis sculptor tucana ursa major vela.  Caelum camelopardalis canes venatici canis major cassiopeia corona  borealis crater crux cygnus dorado gemini grus hydra hydrus leo lepus  lupus monoceros octans perseus puppis scorpius triangulum triangulum  australe.\n",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Aquila carina coma berenices dorado equuleus fornax  grus indus leo lyra mensa ophiuchus orion perseus pictor piscis  austrinus reticulum sagitta triangulum triangulum australe vulpecula.  Apus auriga cancer canes venatici canis major canis minor carina  centaurus chamaeleon circinus corona borealis crater delphinus grus  libra lupus mensa monoceros norma octans piscis austrinus puppis pyxis  reticulum tucana ursa major ursa minor virgo. Cancer capricornus  circinus crater leo mensa perseus reticulum scorpius telescopium volans.",
+                        "spans": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "two_images_and_text",
+                  "primary": {
+                    "tiat_is_gapless": false,
+                    "tiat_layout": "Left: Text-Image-Image",
+                    "tiat_left_img": {
+                      "dimensions": {
+                        "width": 1920,
+                        "height": 1281
+                      },
+                      "alt": "Selecting Silhouette of Tree Photo Among Other Photos",
+                      "copyright": "Photo by Lisa Fotios from Pexels",
+                      "url": "https://images.prismic.io/hmbk-cms/19549fdf-cf76-42bc-8651-b6e2b99854ba_pexels-lisa-fotios-3024996.jpg?auto=compress,format",
+                      "desktop": {
+                        "dimensions": {
+                          "width": 1215,
+                          "height": 811
+                        },
+                        "alt": "Selecting Silhouette of Tree Photo Among Other Photos",
+                        "copyright": "Photo by Lisa Fotios from Pexels",
+                        "url": "https://images.prismic.io/hmbk-cms/19549fdf-cf76-42bc-8651-b6e2b99854ba_pexels-lisa-fotios-3024996.jpg?auto=compress,format&rect=0,0,1919,1281&w=1215&h=811"
+                      },
+                      "tablet": {
+                        "dimensions": {
+                          "width": 1023,
+                          "height": 683
+                        },
+                        "alt": "Selecting Silhouette of Tree Photo Among Other Photos",
+                        "copyright": "Photo by Lisa Fotios from Pexels",
+                        "url": "https://images.prismic.io/hmbk-cms/19549fdf-cf76-42bc-8651-b6e2b99854ba_pexels-lisa-fotios-3024996.jpg?auto=compress,format&rect=0,0,1919,1281&w=1023&h=683"
+                      },
+                      "widescreen": {
+                        "dimensions": {
+                          "width": 1407,
+                          "height": 939
+                        },
+                        "alt": "Selecting Silhouette of Tree Photo Among Other Photos",
+                        "copyright": "Photo by Lisa Fotios from Pexels",
+                        "url": "https://images.prismic.io/hmbk-cms/19549fdf-cf76-42bc-8651-b6e2b99854ba_pexels-lisa-fotios-3024996.jpg?auto=compress,format&rect=0,0,1919,1281&w=1407&h=939"
+                      },
+                      "lo_fi_placeholder": {
+                        "dimensions": {
+                          "width": 32,
+                          "height": 21
+                        },
+                        "alt": "Selecting Silhouette of Tree Photo Among Other Photos",
+                        "copyright": "Photo by Lisa Fotios from Pexels",
+                        "url": "https://images.prismic.io/hmbk-cms/19549fdf-cf76-42bc-8651-b6e2b99854ba_pexels-lisa-fotios-3024996.jpg?auto=compress,format&rect=0,0,1920,1260&w=32&h=21"
+                      },
+                      "mobile": {
+                        "dimensions": {
+                          "width": 767,
+                          "height": 512
+                        },
+                        "alt": "Selecting Silhouette of Tree Photo Among Other Photos",
+                        "copyright": "Photo by Lisa Fotios from Pexels",
+                        "url": "https://images.prismic.io/hmbk-cms/19549fdf-cf76-42bc-8651-b6e2b99854ba_pexels-lisa-fotios-3024996.jpg?auto=compress,format&rect=0,0,1919,1281&w=767&h=512"
+                      }
+                    },
+                    "tiat_right_img": {
+                      "dimensions": {
+                        "width": 1920,
+                        "height": 1280
+                      },
+                      "alt": "Display of donuts and sweets",
+                      "copyright": "\nPhoto by Igor Ovsyannykov from Pexels\n",
+                      "url": "https://images.prismic.io/hmbk-cms/9d285a82-2d5e-4113-8547-ac7c52958b1a_pexels-igor-ovsyannykov-205961.jpg?auto=compress,format",
+                      "desktop": {
+                        "dimensions": {
+                          "width": 1215,
+                          "height": 810
+                        },
+                        "alt": "Display of donuts and sweets",
+                        "copyright": "\nPhoto by Igor Ovsyannykov from Pexels\n",
+                        "url": "https://images.prismic.io/hmbk-cms/9d285a82-2d5e-4113-8547-ac7c52958b1a_pexels-igor-ovsyannykov-205961.jpg?auto=compress,format&rect=0,0,1920,1280&w=1215&h=810"
+                      },
+                      "tablet": {
+                        "dimensions": {
+                          "width": 1023,
+                          "height": 682
+                        },
+                        "alt": "Display of donuts and sweets",
+                        "copyright": "\nPhoto by Igor Ovsyannykov from Pexels\n",
+                        "url": "https://images.prismic.io/hmbk-cms/9d285a82-2d5e-4113-8547-ac7c52958b1a_pexels-igor-ovsyannykov-205961.jpg?auto=compress,format&rect=0,0,1920,1280&w=1023&h=682"
+                      },
+                      "widescreen": {
+                        "dimensions": {
+                          "width": 1407,
+                          "height": 938
+                        },
+                        "alt": "Display of donuts and sweets",
+                        "copyright": "\nPhoto by Igor Ovsyannykov from Pexels\n",
+                        "url": "https://images.prismic.io/hmbk-cms/9d285a82-2d5e-4113-8547-ac7c52958b1a_pexels-igor-ovsyannykov-205961.jpg?auto=compress,format&rect=0,0,1920,1280&w=1407&h=938"
+                      },
+                      "lo_fi_placeholder": {
+                        "dimensions": {
+                          "width": 32,
+                          "height": 21
+                        },
+                        "alt": "Display of donuts and sweets",
+                        "copyright": "\nPhoto by Igor Ovsyannykov from Pexels\n",
+                        "url": "https://images.prismic.io/hmbk-cms/9d285a82-2d5e-4113-8547-ac7c52958b1a_pexels-igor-ovsyannykov-205961.jpg?auto=compress,format&rect=0,0,1920,1260&w=32&h=21"
+                      },
+                      "mobile": {
+                        "dimensions": {
+                          "width": 767,
+                          "height": 511
+                        },
+                        "alt": "Display of donuts and sweets",
+                        "copyright": "\nPhoto by Igor Ovsyannykov from Pexels\n",
+                        "url": "https://images.prismic.io/hmbk-cms/9d285a82-2d5e-4113-8547-ac7c52958b1a_pexels-igor-ovsyannykov-205961.jpg?auto=compress,format&rect=0,0,1920,1279&w=767&h=511"
+                      }
+                    },
+                    "tiat_text": [
+                      {
+                        "type": "paragraph",
+                        "text": "Praesent euismod elit a quam malesuada tincidunt. Aliquam porta urna  ac nisl molestie dapibus. Fusce vel mollis nisl. Nunc tincidunt ut ex  vitae ultricies. Nulla et interdum tortor. Donec porta vestibulum  egestas. Sed risus felis, scelerisque eget tincidunt ut, egestas sit  amet nulla. ",
+                        "spans": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "text",
+                  "primary": {
+                    "set_first_letter": false,
+                    "body_text": [
+                      {
+                        "type": "paragraph",
+                        "text": "Cetus corvus cygnus gemini hercules hydra lepus libra mensa  monoceros scorpius vulpecula. Antlia aquarius carina crater lynx  microscopium octans piscis austrinus triangulum australe virgo. Apus  aquila aries caelum canis major cassiopeia cepheus chamaeleon columba  coma berenices corvus delphinus leo leo minor norma ophiuchus pavo  perseus piscis austrinus. Antlia aquila auriga cancer canes venatici  canis minor cassiopeia crater cygnus equuleus lacerta lynx musca octans  orion phoenix puppis pyxis scorpius triangulum triangulum australe vela  volans.",
+                        "spans": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "blockquote",
+                  "primary": {
+                    "blockquote_type": "None: no background image; white quote text on black",
+                    "blockquote_text": [
+                      {
+                        "type": "paragraph",
+                        "text": "We are so obsessed with doing that we have no time and no imagination  left for being. As a result, men are valued not for what they are but  for what they do or what they have - for their usefulness.",
+                        "spans": []
+                      }
+                    ],
+                    "blockquote_attribution": [
+                      {
+                        "type": "paragraph",
+                        "text": "Thomas Merton",
+                        "spans": []
+                      }
+                    ],
+                    "blockquote_bg_img": {
+                      "dimensions": {
+                        "width": 1920,
+                        "height": 1200
+                      },
+                      "alt": "Close of dew of leaves",
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/bf894ab8-2288-4fa7-8636-20fddf457b71_wallhaven-dgw1dm_1920x1200.png?auto=compress,format"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "node": {
+              "_meta": {
+                "uid": "dev-feature-denali-fest",
+                "lastPublicationDate": "2021-01-15T00:00:24+0000",
+                "firstPublicationDate": "2020-08-02T17:45:25+0000",
+                "type": "feature"
+              },
+              "headline_block": [
+                {
+                  "primary": {
+                    "article_subtitle": [
+                      {
+                        "type": "heading4",
+                        "text": "Ten reasons why this might be the music festival of the decade.",
+                        "spans": []
+                      }
+                    ],
+                    "article_subcategory": "Denali Fest 2025",
+                    "article_headline_img": {
+                      "dimensions": {
+                        "width": 1920,
+                        "height": 1200
+                      },
+                      "alt": "picturesque mountain",
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/1f89b439-fa60-4b11-b3b1-1ad296c8721f_wallhaven-p8vj53_1920x1200.png?auto=compress,format",
+                      "desktop": {
+                        "dimensions": {
+                          "width": 1215,
+                          "height": 759
+                        },
+                        "alt": "picturesque mountain",
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/1f89b439-fa60-4b11-b3b1-1ad296c8721f_wallhaven-p8vj53_1920x1200.png?auto=compress,format&rect=0,0,1920,1199&w=1215&h=759"
+                      },
+                      "tablet": {
+                        "dimensions": {
+                          "width": 1023,
+                          "height": 639
+                        },
+                        "alt": "picturesque mountain",
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/1f89b439-fa60-4b11-b3b1-1ad296c8721f_wallhaven-p8vj53_1920x1200.png?auto=compress,format&rect=0,0,1920,1199&w=1023&h=639"
+                      },
+                      "widescreen": {
+                        "dimensions": {
+                          "width": 1407,
+                          "height": 879
+                        },
+                        "alt": "picturesque mountain",
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/1f89b439-fa60-4b11-b3b1-1ad296c8721f_wallhaven-p8vj53_1920x1200.png?auto=compress,format&rect=0,0,1920,1199&w=1407&h=879"
+                      },
+                      "lo_fi_placeholder": {
+                        "dimensions": {
+                          "width": 32,
+                          "height": 20
+                        },
+                        "alt": "picturesque mountain",
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/1f89b439-fa60-4b11-b3b1-1ad296c8721f_wallhaven-p8vj53_1920x1200.png?auto=compress,format&rect=0,0,1920,1200&w=32&h=20"
+                      },
+                      "square_highlight": {
+                        "dimensions": {
+                          "width": 256,
+                          "height": 256
+                        },
+                        "alt": "picturesque mountain",
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/1f89b439-fa60-4b11-b3b1-1ad296c8721f_wallhaven-p8vj53_1920x1200.png?auto=compress,format&rect=361,0,1200,1200&w=256&h=256"
+                      },
+                      "mobile": {
+                        "dimensions": {
+                          "width": 767,
+                          "height": 479
+                        },
+                        "alt": "picturesque mountain",
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/1f89b439-fa60-4b11-b3b1-1ad296c8721f_wallhaven-p8vj53_1920x1200.png?auto=compress,format&rect=0,0,1920,1199&w=767&h=479"
+                      }
+                    },
+                    "article_headline": [
+                      {
+                        "type": "heading1",
+                        "text": "Denali Fest 2025: The Alaska Mountaintop Frozen Festival We Didn't Know We Needed",
+                        "spans": []
+                      }
+                    ],
+                    "article_category": "Event",
+                    "article_author": {
+                      "hmbk_staff_name": "Gabriel Garcia Marquez",
+                      "hmbk_staff_position": "Nobel Laureate",
+                      "hmbk_staff_photo": {
+                        "dimensions": {
+                          "width": 900,
+                          "height": 750
+                        },
+                        "alt": "Gabriel Garcia Marquez, famous Colombian author",
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/33e0177d-19d2-45f3-b30e-c666552c512e_gabriel-garcia-marquez-2.jpg?auto=compress,format",
+                        "profile": {
+                          "dimensions": {
+                            "width": 750,
+                            "height": 750
+                          },
+                          "alt": "Gabriel Garcia Marquez, famous Colombian author",
+                          "copyright": null,
+                          "url": "https://images.prismic.io/hmbk-cms/33e0177d-19d2-45f3-b30e-c666552c512e_gabriel-garcia-marquez-2.jpg?auto=compress,format&rect=75,0,750,750&w=750&h=750"
+                        },
+                        "small": {
+                          "dimensions": {
+                            "width": 300,
+                            "height": 300
+                          },
+                          "alt": "Gabriel Garcia Marquez, famous Colombian author",
+                          "copyright": null,
+                          "url": "https://images.prismic.io/hmbk-cms/33e0177d-19d2-45f3-b30e-c666552c512e_gabriel-garcia-marquez-2.jpg?auto=compress,format&rect=75,0,750,750&w=300&h=300"
+                        },
+                        "author": {
+                          "dimensions": {
+                            "width": 64,
+                            "height": 64
+                          },
+                          "alt": "Gabriel Garcia Marquez, famous Colombian author",
+                          "copyright": null,
+                          "url": "https://images.prismic.io/hmbk-cms/33e0177d-19d2-45f3-b30e-c666552c512e_gabriel-garcia-marquez-2.jpg?auto=compress,format&rect=70,0,750,750&w=64&h=64"
+                        }
+                      }
+                    }
+                  }
+                }
+              ],
+              "body": [
+                {
+                  "type": "text",
+                  "primary": {
+                    "set_first_letter": true,
+                    "body_text": [
+                      {
+                        "type": "paragraph",
+                        "text": "Hac habitasse platea dictumst  quisque sagittis purus sit amet volutpat. Ultrices neque ornare aenean  euismod elementum nisi. Pharetra sit amet aliquam id diam maecenas ultricies mi eget. Ornare arcu odio ut sem. At erat pellentesque adipiscing commodo elit. Ipsum consequat nisl vel pretium lectus quam id leo in. Dolor sit amet consectetur adipiscing elit duis. Nec feugiat in fermentum posuere urna nec tincidunt praesent semper. Eget aliquet nibh  praesent tristique magna sit amet purus gravida.",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Id diam vel quam elementum pulvinar etiam non quam. Imperdiet sed  euismod nisi porta. Scelerisque eleifend donec pretium vulputate sapien  nec sagittis aliquam malesuada. At risus viverra adipiscing at in.  Magnis dis parturient montes nascetur ridiculus mus mauris. ",
+                        "spans": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "blockquote",
+                  "primary": {
+                    "blockquote_type": "Dark: dark background image; white quote text",
+                    "blockquote_text": [
+                      {
+                        "type": "paragraph",
+                        "text": "We are made of star stuff. ",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "We are a way for the cosmos to know itself.",
+                        "spans": []
+                      }
+                    ],
+                    "blockquote_attribution": [
+                      {
+                        "type": "paragraph",
+                        "text": "Carl Sagan, Cosmos",
+                        "spans": [
+                          {
+                            "start": 12,
+                            "end": 18,
+                            "type": "em"
+                          }
+                        ]
+                      }
+                    ],
+                    "blockquote_bg_img": {
+                      "dimensions": {
+                        "width": 1920,
+                        "height": 1200
+                      },
+                      "alt": "space nebula",
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/874d566f-66e0-491f-ab1c-3372019385f1_wallhaven-yjm67g_1920x1200.png?auto=compress,format"
+                    }
+                  }
+                },
+                {
+                  "type": "text",
+                  "primary": {
+                    "set_first_letter": false,
+                    "body_text": [
+                      {
+                        "type": "paragraph",
+                        "text": "Morbi et consectetur nulla, eu semper ligula. Aliquam ante lacus, cursus eget turpis nec, dapibus faucibus sem. ",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": " Aenean tincidunt tellus eu consequat varius. Donec nec pulvinar magna.  Praesent venenatis ultricies lorem, vel tempor felis tincidunt vel.  Aliquam ac blandit arcu. Proin nisi dolor, molestie a mauris at,  sollicitudin vulputate sem. Sed vel sem id tortor facilisis interdum  eget ac urna. Sed ac maximus diam. Proin sagittis suscipit enim, nec  pellentesque risus fermentum sed. Vivamus at libero volutpat elit  tincidunt mollis. Vestibulum eu egestas nunc, a maximus sapien. Integer  eleifend sem elit, id elementum libero gravida a. Etiam eget quam  tempus, pulvinar risus vel, rhoncus lorem. ",
+                        "spans": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "image_group",
+                  "fields": [
+                    {
+                      "single_img": null
+                    },
+                    {
+                      "single_img": null
+                    },
+                    {
+                      "single_img": null
+                    },
+                    {
+                      "single_img": null
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "primary": {
+                    "set_first_letter": false,
+                    "body_text": [
+                      {
+                        "type": "paragraph",
+                        "text": "Nunc sit amet nisl a orci congue mollis vitae id ex. Nullam non  blandit nulla. Proin finibus maximus velit, quis hendrerit lorem gravida  in. Phasellus dolor eros, egestas ut auctor ac, fringilla id tellus.  Donec sit amet viverra justo. Pellentesque rhoncus a dui ut sodales. ",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": " Vivamus a diam quis magna laoreet ornare ac condimentum ligula. Aliquam  mattis, sapien ut finibus rhoncus, metus libero vehicula est, eu rutrum  risus tellus quis elit. Maecenas vitae arcu vel tellus accumsan  condimentum. Quisque blandit ac felis sit amet maximus. Suspendisse  felis lorem, rutrum et pulvinar et, molestie quis velit. In hac  habitasse platea dictumst. Vestibulum quis arcu ut nulla tristique  fermentum ac in ante. ",
+                        "spans": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "one_image_and_text1",
+                  "primary": {
+                    "oiat_img": {
+                      "dimensions": {
+                        "width": 1920,
+                        "height": 1280
+                      },
+                      "alt": "Closeup of Brown brick wall",
+                      "copyright": "\nPhoto by ShonEjai from Pexels\n",
+                      "url": "https://images.prismic.io/hmbk-cms/a57a3c2c-dab2-442f-9c93-1392d3962dba_pexels-shonejai-1227511.jpg?auto=compress,format",
+                      "desktop": {
+                        "dimensions": {
+                          "width": 1215,
+                          "height": 810
+                        },
+                        "alt": "Closeup of Brown brick wall",
+                        "copyright": "\nPhoto by ShonEjai from Pexels\n",
+                        "url": "https://images.prismic.io/hmbk-cms/a57a3c2c-dab2-442f-9c93-1392d3962dba_pexels-shonejai-1227511.jpg?auto=compress,format&rect=0,0,1920,1280&w=1215&h=810"
+                      },
+                      "tablet": {
+                        "dimensions": {
+                          "width": 1023,
+                          "height": 682
+                        },
+                        "alt": "Closeup of Brown brick wall",
+                        "copyright": "\nPhoto by ShonEjai from Pexels\n",
+                        "url": "https://images.prismic.io/hmbk-cms/a57a3c2c-dab2-442f-9c93-1392d3962dba_pexels-shonejai-1227511.jpg?auto=compress,format&rect=0,0,1920,1280&w=1023&h=682"
+                      },
+                      "widescreen": {
+                        "dimensions": {
+                          "width": 1407,
+                          "height": 938
+                        },
+                        "alt": "Closeup of Brown brick wall",
+                        "copyright": "\nPhoto by ShonEjai from Pexels\n",
+                        "url": "https://images.prismic.io/hmbk-cms/a57a3c2c-dab2-442f-9c93-1392d3962dba_pexels-shonejai-1227511.jpg?auto=compress,format&rect=0,0,1920,1280&w=1407&h=938"
+                      },
+                      "lo_fi_placeholder": {
+                        "dimensions": {
+                          "width": 32,
+                          "height": 21
+                        },
+                        "alt": "Closeup of Brown brick wall",
+                        "copyright": "\nPhoto by ShonEjai from Pexels\n",
+                        "url": "https://images.prismic.io/hmbk-cms/a57a3c2c-dab2-442f-9c93-1392d3962dba_pexels-shonejai-1227511.jpg?auto=compress,format&rect=0,0,1920,1260&w=32&h=21"
+                      },
+                      "mobile": {
+                        "dimensions": {
+                          "width": 767,
+                          "height": 511
+                        },
+                        "alt": "Closeup of Brown brick wall",
+                        "copyright": "\nPhoto by ShonEjai from Pexels\n",
+                        "url": "https://images.prismic.io/hmbk-cms/a57a3c2c-dab2-442f-9c93-1392d3962dba_pexels-shonejai-1227511.jpg?auto=compress,format&rect=0,0,1920,1279&w=767&h=511"
+                      }
+                    },
+                    "oiat_layout": "Right: Image-Text",
+                    "oiat_text": [
+                      {
+                        "type": "paragraph",
+                        "text": "Praesent euismod elit a quam malesuada tincidunt. Aliquam porta urna  ac nisl molestie dapibus. Fusce vel mollis nisl. Nunc tincidunt ut ex  vitae ultricies. Nulla et interdum tortor. Donec porta vestibulum  egestas. Sed risus felis, scelerisque eget tincidunt ut, egestas sit  amet nulla. ",
+                        "spans": []
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "node": {
+              "_meta": {
+                "uid": "in-tune-with-dianna-lopez",
+                "lastPublicationDate": "2021-02-03T23:11:05+0000",
+                "firstPublicationDate": "2021-02-03T23:11:05+0000",
+                "type": "feature"
+              },
+              "headline_block": [
+                {
+                  "primary": {
+                    "article_subtitle": [
+                      {
+                        "type": "heading4",
+                        "text": "Rising star Dianna Lopez’ uses her sound to paint a picture of divinity, evolution, sensuality - and the strength",
+                        "spans": []
+                      }
+                    ],
+                    "article_subcategory": "Dianna Lopez",
+                    "article_headline_img": {
+                      "dimensions": {
+                        "width": 5472,
+                        "height": 3648
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/029fc689-46ba-43ef-85f8-4beb3b098e24_DSC00757.JPG?auto=compress,format",
+                      "desktop": {
+                        "dimensions": {
+                          "width": 1215,
+                          "height": 810
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/029fc689-46ba-43ef-85f8-4beb3b098e24_DSC00757.JPG?auto=compress,format&rect=0,0,5472,3648&w=1215&h=810"
+                      },
+                      "tablet": {
+                        "dimensions": {
+                          "width": 1023,
+                          "height": 682
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/029fc689-46ba-43ef-85f8-4beb3b098e24_DSC00757.JPG?auto=compress,format&rect=0,0,5472,3648&w=1023&h=682"
+                      },
+                      "widescreen": {
+                        "dimensions": {
+                          "width": 1407,
+                          "height": 938
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/029fc689-46ba-43ef-85f8-4beb3b098e24_DSC00757.JPG?auto=compress,format&rect=0,0,5472,3648&w=1407&h=938"
+                      },
+                      "lo_fi_placeholder": {
+                        "dimensions": {
+                          "width": 32,
+                          "height": 21
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/029fc689-46ba-43ef-85f8-4beb3b098e24_DSC00757.JPG?auto=compress,format&rect=0,0,5472,3591&w=32&h=21"
+                      },
+                      "square_highlight": {
+                        "dimensions": {
+                          "width": 256,
+                          "height": 256
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/029fc689-46ba-43ef-85f8-4beb3b098e24_DSC00757.JPG?auto=compress,format&rect=912,0,3648,3648&w=256&h=256"
+                      },
+                      "mobile": {
+                        "dimensions": {
+                          "width": 767,
+                          "height": 511
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/029fc689-46ba-43ef-85f8-4beb3b098e24_DSC00757.JPG?auto=compress,format&rect=0,0,5472,3646&w=767&h=511"
+                      }
+                    },
+                    "article_headline": [
+                      {
+                        "type": "heading1",
+                        "text": "In Tune with Dianna Lopez",
+                        "spans": []
+                      }
+                    ],
+                    "article_category": "Profile",
+                    "article_author": null
+                  }
+                }
+              ],
+              "body": [
+                {
+                  "type": "text",
+                  "primary": {
+                    "set_first_letter": true,
+                    "body_text": [
+                      {
+                        "type": "paragraph",
+                        "text": "In 2016, New York singer and songwriter Dianna Lopez began experimenting with music during her undergraduate days at SUNY Purchase. She was a theater major and had no interest in singing until she decided to make an album to help with her friend’s assignment. “Being in art school I was like, ‘I'm gonna make an album and we’ll do this for [the] showcase,’” she explained. “And it was all fun. People were just really supportive and down for it so I was like fuck, I guess I’ll do this forreal.”",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Since then, Lopez has released a handful of singles and two EPs. The latest of the latter, Shapeshifting, arrived back in April and is a six song project that showcases her whispery vocals and intimate aesthetic. Dubbed a “bedroom-born” artist by NPR and Adolescent, the rising artist combines elements of pop, r&b and rock to create one cohesive and trance-like sound. ",
+                        "spans": [
+                          {
+                            "start": 91,
+                            "end": 104,
+                            "type": "em"
+                          },
+                          {
+                            "start": 247,
+                            "end": 250,
+                            "type": "hyperlink",
+                            "data": {
+                              "link_type": "Web",
+                              "url": "https://www.npr.org/2019/01/24/687571972/meet-dianna-lopez-ambient-rock-star-in-the-making"
+                            }
+                          },
+                          {
+                            "start": 255,
+                            "end": 265,
+                            "type": "hyperlink",
+                            "data": {
+                              "link_type": "Web",
+                              "url": "https://www.adolescent.net/a/lessons-in-being-fluid-a-qa-with-dianna-lopez"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "“All I want is for it to be felt and just received as a tool or a source of healing in whatever form",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "that may show up for people.”",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Lopez is experiencing a new chapter within her life right now. She was living in Hawaii where she had been “soul",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "searching” and then she moved to New Orleans where she currently lives. She is finding her feet in another new",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "world again -and although she misses playing with her band- she has been dedicating time to focus on the intimate",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "aspects of music-making: like teaching herself how to play guitar and writing more songs.",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Lopez let’s us into the journey of her beginnings in music and how she’s been adapting to the pandemic’s effect on",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "her creative process.",
+                        "spans": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "full_width_image",
+                  "label": null,
+                  "primary": {
+                    "full_width_image": {
+                      "dimensions": {
+                        "width": 5472,
+                        "height": 3648
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/2708f57f-3e15-4698-9c3c-6fbe6f3fb52a_DSC00859.JPG?auto=compress,format"
+                    },
+                    "fwi_height": "Short",
+                    "fwi_titling": null
+                  }
+                },
+                {
+                  "type": "text",
+                  "primary": {
+                    "set_first_letter": true,
+                    "body_text": [
+                      {
+                        "type": "paragraph",
+                        "text": "Name, Age, Location, Pronouns.",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 30,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "My name is Dianna Lopez. I'm 25 and I'm currently in NOLA. My pronouns are she/her. ",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Where are you from?",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 19,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Originally, I'm from upstate New York, in a town called Rockland County.",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "How did you get your name?",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 26,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "So my dad named me ‘Dianna’ because it's Latin origin means ‘divine.’ And it’s two N’s because it's supposed to be pronounced ‘dee-ah-na.’ A lot of people say ‘Diana’ since I was young, so I just accept whatever. ",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "full_width_image",
+                  "label": null,
+                  "primary": {
+                    "full_width_image": {
+                      "dimensions": {
+                        "width": 5472,
+                        "height": 3648
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/90007806-fccf-42f2-abff-a0a061465bdc_DSC00862.JPG?auto=compress,format"
+                    },
+                    "fwi_height": "Short",
+                    "fwi_titling": null
+                  }
+                },
+                {
+                  "type": "text",
+                  "primary": {
+                    "set_first_letter": true,
+                    "body_text": [
+                      {
+                        "type": "paragraph",
+                        "text": "So what's your earliest memory of music?",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 40,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "My mom used to play this song called “Knock on Wood” by Amii Stewart, it’s this old song from the 80s. She used to play it whenever it would thunder outside, because the chorus is like “thunder, lightning.” She would play it to make us feel less afraid of the storm because we were young and scared of that sound. That's definitely, I think, my first memory. Just dancing around to this thunder and lightning song.",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "When did you realize you wanted to pursue music?",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 48,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Probably like 5 or 6 years ago in my senior year of college. I was going to school for theater, but I never wanted to be a singer. Actually, my manager, she was an arts management major at the time, and she needed to have a showcase. Being in art school I was like, ‘I'm gonna make an album and we’ll do this for your showcase.’ And it was all fun. People were just really supportive and down for it so I was like fuck, I guess I’ll do this forreal.",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "What was your creative process pre-pandemic and what is it now during the pandemic?",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 83,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "My creative process before the pandemic, I was constantly rehearsing with my band in Brooklyn. It was just super collective and my guitarist, his name is Aren, we would get together often and just jam off the head. I fucking miss that because now it’s totally different, we’re all separated. ",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Right now, it's slowly just focusing on the more intimate aspects of music-making. I dedicate my time to songwriting and teaching myself how to play the guitar, just so I can feel more musically free and be able to orchestrate what I would envision with the band, on my own.",
+                        "spans": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "full_width_image",
+                  "label": null,
+                  "primary": {
+                    "full_width_image": {
+                      "dimensions": {
+                        "width": 3648,
+                        "height": 5472
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/c197fc52-f9f9-484b-81d2-58bda9644a18_DSC00760.JPG?auto=compress,format"
+                    },
+                    "fwi_height": "Short",
+                    "fwi_titling": null
+                  }
+                },
+                {
+                  "type": "text",
+                  "primary": {
+                    "set_first_letter": true,
+                    "body_text": [
+                      {
+                        "type": "paragraph",
+                        "text": "What are you doing in New Orleans?",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 34,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "I was actually just living in Hawaii, and that was really a time of soul-searching and digging. I have a weird situation at home. I moved here to NOLA where I can live with a friend for free and just link up with some new musicians. And there's a studio here so I'm kind of just finding my way in a new world over here.",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Can you talk about your time in Hawaii? What sparked your decision to move there?",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 81,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "I was quarantining at home [and] it was horrible, I couldn’t take it anymore. And two of my friends who were living in Brooklyn, they couldn’t take it anymore either so we were just like ‘Yo, let’s go!’ and we just went to Hawaii. My plan was only to be there for like a month or two, but it just kept aligning. And the people there [are] so in alignment with the kind of things that I stand for with spirituality and holisticness, so I ended up staying there for six months.",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "What's the biggest challenge you face in your music career?",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 59,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "My biggest challenge is just to be patient with myself in the process of creating new material. It's just a process meeting like-minded producers and musicians to work with that fit in with the idea or direction you want to go in as an artist. The way I try to transmute that is just by becoming more skillful. Learning how to play the guitar and the bass. It's all learning for me right now. ",
+                        "spans": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "full_width_image",
+                  "label": null,
+                  "primary": {
+                    "full_width_image": {
+                      "dimensions": {
+                        "width": 5472,
+                        "height": 3648
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/bae9c341-302c-4ac1-8140-9ba545e83725_DSC00909.JPG?auto=compress,format"
+                    },
+                    "fwi_height": "Short",
+                    "fwi_titling": null
+                  }
+                },
+                {
+                  "type": "text",
+                  "primary": {
+                    "set_first_letter": true,
+                    "body_text": [
+                      {
+                        "type": "paragraph",
+                        "text": "How would you describe your sound in three emojis?",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 50,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "🦋 because of what the butterfly represents, like a constant metamorphosis. In a way, I feel like I'm constantly changing my sound or just feeling inspired by so many different things. ",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "🍄 because psychedelics! ",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "🌱 because I love nature.",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Who's in your rotation right now?",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 33,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Currently, I've been listening to this alternative indie band from Australia called Dope Lemon. It's really like, experimentally, psychedelically, rocky, so I've been listening to them. I've been listening to Moses Sumney, his old stuff is really good. I could go on and on. ",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Who are some of your influences and dream collaborators?",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 56,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Damn, I hate that question because so many people inspire me. I can't ever really just settle on listening to one artist for too long. I love discovering new artists and being inspired by something I haven't heard before. But definitely the people I just named are inspirations. I think Kelsey Lu, Willow Smith, Solange. All the alternative, indie Black girls I am here for. ",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "What are some of your hobbies or favorite things to do in your free time?",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 73,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "I became vegan like two years ago so I love experimenting with cooking. Discovering new books to read, practicing yoga, watching Netflix documentaries. I love all things like hippie and spiritual because it just feels so good to do, and being in nature. I just want to learn, soak up all the information I can about everything. ",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Are you into astrology? If so, what are your sun, moon and rising signs? ",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 73,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Yeah, I'm like overly obsessed with it. People kind of get annoyed with me because as soon as I meet someone new I'm like, ‘What your sign?!’ But I'm a Sagittarius, Gemini moon and Sagittarius rising.",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "What do you want your music to say to the world?",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 48,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "All I want is for it to be felt and just received as a tool or a source of healing in whatever form that may show up for people. ",
+                        "spans": []
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "node": {
+              "_meta": {
+                "uid": "like-that-records",
+                "lastPublicationDate": "2021-02-06T17:12:09+0000",
+                "firstPublicationDate": "2021-02-06T17:12:09+0000",
+                "type": "feature"
+              },
+              "headline_block": [
+                {
+                  "primary": {
+                    "article_subtitle": null,
+                    "article_subcategory": "Like That Records",
+                    "article_headline_img": {
+                      "dimensions": {
+                        "width": 3000,
+                        "height": 2003
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/0d3ce27b-0d17-43f5-b949-e4f6df18841d_IMG_2846.JPG?auto=compress,format",
+                      "desktop": {
+                        "dimensions": {
+                          "width": 1215,
+                          "height": 811
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/0d3ce27b-0d17-43f5-b949-e4f6df18841d_IMG_2846.JPG?auto=compress,format&rect=0,0,3000,2002&w=1215&h=811"
+                      },
+                      "tablet": {
+                        "dimensions": {
+                          "width": 1023,
+                          "height": 683
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/0d3ce27b-0d17-43f5-b949-e4f6df18841d_IMG_2846.JPG?auto=compress,format&rect=0,0,3000,2003&w=1023&h=683"
+                      },
+                      "widescreen": {
+                        "dimensions": {
+                          "width": 1407,
+                          "height": 939
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/0d3ce27b-0d17-43f5-b949-e4f6df18841d_IMG_2846.JPG?auto=compress,format&rect=0,0,3000,2002&w=1407&h=939"
+                      },
+                      "lo_fi_placeholder": {
+                        "dimensions": {
+                          "width": 32,
+                          "height": 21
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/0d3ce27b-0d17-43f5-b949-e4f6df18841d_IMG_2846.JPG?auto=compress,format&rect=0,0,3000,1969&w=32&h=21"
+                      },
+                      "square_highlight": {
+                        "dimensions": {
+                          "width": 256,
+                          "height": 256
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/0d3ce27b-0d17-43f5-b949-e4f6df18841d_IMG_2846.JPG?auto=compress,format&rect=501,0,2003,2003&w=256&h=256"
+                      },
+                      "mobile": {
+                        "dimensions": {
+                          "width": 767,
+                          "height": 512
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/0d3ce27b-0d17-43f5-b949-e4f6df18841d_IMG_2846.JPG?auto=compress,format&rect=0,0,3000,2003&w=767&h=512"
+                      }
+                    },
+                    "article_headline": [
+                      {
+                        "type": "heading1",
+                        "text": "Crew Love with Like That Records",
+                        "spans": []
+                      }
+                    ],
+                    "article_category": "Interview",
+                    "article_author": null
+                  }
+                }
+              ],
+              "body": [
+                {
+                  "type": "text",
+                  "primary": {
+                    "set_first_letter": true,
+                    "body_text": [
+                      {
+                        "type": "paragraph",
+                        "text": "Headline: Get To Know All About Independent Label, Like That Records",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 8,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Byline: Ebony Anderson-Brown",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 6,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Editor: Christian Hernandez",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 6,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Photography: Anthony Flores",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 11,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Like That Records is entering its sixth year running as an independent label for niche artists who aren’t afraid to bend the rules. Within that time, they have released at least seven projects and worked with over a dozen artists such as Magik, Rouge, El Blanco Niño, DJ Swisha, OSSX, AMEN The Producer, and many more. Between the label and radio show, there’s a plethora of obscure electronic music coming out of Like That, but how did they get to where they are today? ",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "In order to find out more about the story behind LTR, we sat down with the brains behind the collective breaking sonic barriers: Ase Manual, Marvelito, and HELLOTONES aka Tony. ",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Half Moon: Tell us about Like That and what the journey has been like so far.",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 9,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Ase Manual: We started Like That in 2015. One day, me and [Marv]elito were sitting on the floor… It was around the time Hot Actiion started winding down, [and there was] a lot of stuff going on with CLUBJERSEY that I wasn’t really happy with. We were just sitting down brainstorming. We spoke about flat ideas and what we want to do with music. You can say it was a real transitional period for us. I had this project and had like this idea to be a record label. So we started the label with my project “Gems.” I think Actiion135 started running some tunes–we started off with “Gems.”",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 10,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Marvelito: To add onto that, we were all doing our thing separately but together. That moment in time, in music and New York and Jersey, in general, it was an important time… especially once 2016 came around. We put our minds together and said we’re going to do this.",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 9,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Half Moon: How’s it been now that Tones has been on?",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 9,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "HELLOTONES aka Tony: I linked back up with Marv, we knew each other from high school and hadn’t seen each other in years. We ran into each other at H0L0. I was always a fan of what Marv was doing and always following his tapes and shit. And, you know, as these guys are, they’re natural teachers. As I came around, I learned how to DJ. I saw what they were doing and I thought that I could add to it, so I actually told them and was like “yo, I want to be a part of what you guys are doing here… . Here’s what I can bring to the table.” Initially, it was social media kind of things or tapping back into more evergreen stuff to bring a stronger presence to it online. They’re so receptive and they have such a vision that just quickly transformed into having my hands in all different parts of it, from the party planning to the radio…",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 19,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Ase: We needed Tony.",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 3,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Marv: Yo, forreal! Tones came through and brought his own vision to this. ",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 4,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Ase: And I felt like it was perfect timing too. That’s why I said we needed Tony, because it was only so many aspects the two of us were gonna do. Too many aspects we were going to touch on. Adding Tony to the mix added a big grounding effect to what it is we do. Creatively, me and Marv were all over the place. We have so many ideas, like we can sit down and write hundreds of ideas. With Tony, he made a lot of stuff that was going on direct and feasible. Like he’s a huge translator for us. That’s how I see Tony.",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 3,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "HM: What do you think makes you guys such a great team? ",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 2,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Tony: Ethos of why they even started it. Y’all were doing a bunch of shit and it was a bunch of fly shit. So like, why wouldn’t it be housed under one thing, right? That’s the ethos of Like That. And it was always open to all shit, you know? And that’s the difference. I feel like when I came to the table, everything that I brought forth they were open to . But that’s the quality we all share with each other. We’re just open to each other’s ideas, we always hear each other out, always put each other onto new shit. It’s our openness. ",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 4,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Ase: By nature, we all do the same thing but we’re all completely different people. I know for myself, personally, there’s a lot of shit that I probably would like. Tones probably has shit that I might like. Lito has, too, you know. We just fill the gaps in. A lot of shit that I do, they don’t even do. A lot of the shit that I be thinking about, they don’t even be thinking about. You can take that and apply it to each of us. I think that’s what makes us a dream team. ",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 3,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Each of us are so strong in the things that we do, it’s like the level of respect we have for each other is how we just get it to work and to grow because we want each other to be the best. It be like, “I see what you doing, I kinda understand what you got on, I know only you can see it, but I’m with you on this,” you know? And that energy, we never lost that, we carry that. You know, this day and age is different. People view things, people value different things, people have different importance. But that core is the shit that we value: like open to sharing, tangible things, shit you don’t get no where else. ",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "HM: How do you stay on top of everything between the label, radio show, etc.?",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 2,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "All: It’s love.",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 3,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Tony: It’s love and we’re always in communication. Things are always going to get done.",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 4,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Ase: It’s like love of music. You have to literally be like an insane person to just like do this thing the way we do it. I don’t think everybody is cut out to do it the way people like us do it. So we don’t ever think about staying on top of it, it’s just some shit that we do. It’s something we’re good at.",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 3,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Tony: It’s like second nature because we’ve been doing it for so long. It’s fun, we’re having a good time.",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 4,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "HM: What does your music submission process look like? What kind of music are you looking for?",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 2,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Tony: We have demo submissions, but the projects or releases are a pipeline from the demo submissions. A lot of it is just relationships we formed with artists and just the timing of it. We’d be like, “yo, we want you to do this sound, we want to work with you to do this sound or these kinds of sounds,” and the project takes form.",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 4,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "The last two projects that I can think of, “dream beach” and “Rogue,” are perfect examples of people who we’ve had relationships with and we’re just fans of the music. We have an idea for a dope ass project and it comes together.",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Ase: We’re also working with one of the best A&Rs in the city. Marv is so tapped in, he’ll buy music and try new music. Our early-on connections came from Marv being a mixtape DJ, like a thorough mixtape DJ, and just really tapping in with the artists. Now we’re on that level in the way we approach things. ",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 3,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "I’ve seen him put together so many different projects and I’ve worked on projects with him. I also understand what it’s like to put together a project with somebody else, from learning through him. I’m sure Tones as well, he’s making his mixtapes now; he’s doing Tony Tones and tapping in with new artists every time. We learned that from one of the best A&R’s in the city. He’s been that.",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Marv: We have like a real process with music when it comes to releasing. It could come from a demo, we definitely have put out music from someone sending music. We definitely work with people that we be with everyday. And we work with people that we never met in person too. And like I said before, everyone brings their own to the table. Like with Tones, the artists he brings around would be different from the artists I bring around, cause I have a different taste, he’s got his own taste, and Ase is known. He’ll be like, “I got someone or I know this person we can work with,” and then we each tap in with them. Without having it being written down, we have a process. Like, we putting out music that we’re mad excited about and know people are going to be playing it. That’s how I feel like it really is. ",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 4,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Tony: They way we keep up with all the music… it’s like, once you’re in this shit, the shit just comes to you honestly. You’re always just listening to music as a fan. You’re always going to find some obscure shit. You’ll end up in like a YouTube rabbit hole, or SoundCloud. You might have a bunch of places, you might not have no place at all. And just like from there, for me, I always make the effort to connect with artists,  new artists especially. Nobody is playing their shit, and I think their shit is dope as fuck, so it deserves a platform. And when I do that, a lot of those artists are like, “fuck, we thank you so much.” We build a relationship and then eventually I'm like, “yo, we should work on a project together.” I already planted a seed out of love just by supporting it. ",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 4,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Ase: Through the music that we put out, we kind of cultivate  a certain type of sound, it’s sonic. All the artists, if we come in contact with and just finding ways to [connect with] us, those are the ones we gravitate towards. Those are the ones that we reach out to… because we’re super conscious. Even early on, what the record label is and how a lot of this shit isn’t inherently set up for us. And we want Like That to be set up for us. And when I say us, I mean people like us. ",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 3,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Tony: We don’t have to play by the rules. We don’t have to follow the form or the shape of any other record label. We can do shit however we want. That’s the most fun part to me.",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 4,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "HM: What are your goals for this year or the next two years?",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 2,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Ase: Aww shit… Keep going. Just taking what we already do to new heights. Just showing more of ourselves. Because now that we’re more at home, and it’s the Internet, we don’t get to throw the Bounce Galleries. We don’t get to do all those different types of things. So like, to really share that vibe, we have to get creative in new ways. I’m sure that’s everybody’s goal right now, but that’s definitely on our like to-do list. As far as like music and all that stuff, you got to just enjoy the journey. We have so much music, we can binge our shit at this point now. And that is like super exciting. Fuck. Tapping into new waters with new people and them being able to see what the fuck we doing. Shit changing, this world is changing, and people are ready for obscure things that feels like it’s just for them.",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 3,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Marv: Real talk, everyone who loves this sound, loves us, loves all this shit you gonna get everything and more. For eternity. That’s how I feel like the goal is and what’s about to happen. More artists, more good music. And that’s what it’s going to be always. Especially this year, next year, more of that.",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 4,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "HM: Can each of you give one artist you’re excited about working with or giving a platform this year?",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 2,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Ase: No. Not that we can’t name a billion people, like we can shout out a bunch of people. The shit that we do, not for nothing, but we’re just so precious with our shit. I think that’s the most important thing. And I think that level of respect is something that’s missing in a world where shit is just a highway of information. Which is amazing at times, but it just kills everything. Like, it doesn’t kill everything, but it kills that vigorous feeling, like updoing it, of really working and no outside pressures, that’s where true art is at. When you start doing all those other things, it’s hard. You can create, like everybody makes good shit. But the shit I’m talking about, there’s no rules for that. ",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 3,
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Marv: People are going to enjoy some new artists this year from Like That, every year. And that’s what I was saying before. It’s going to happen, every year you’re going to be introduced to a new artist and it’s always going to be like that.",
+                        "spans": [
+                          {
+                            "start": 0,
+                            "end": 4,
+                            "type": "strong"
+                          },
+                          {
+                            "start": 231,
+                            "end": 240,
+                            "type": "em"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "You can expect to hear new music and see new artists from Like That Records this year and forevermore. Stay up to date with upcoming releases and projects by following them on Bandcamp or SoundCloud.",
+                        "spans": [
+                          {
+                            "start": 176,
+                            "end": 184,
+                            "type": "hyperlink",
+                            "data": {
+                              "link_type": "Web",
+                              "url": "https://likethatrecs.bandcamp.com"
+                            }
+                          },
+                          {
+                            "start": 188,
+                            "end": 198,
+                            "type": "hyperlink",
+                            "data": {
+                              "link_type": "Web",
+                              "url": "https://soundcloud.com/likethatrecords/"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "extensions": {}
+}

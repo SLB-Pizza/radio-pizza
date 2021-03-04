@@ -3,9 +3,9 @@ import { RichText } from 'prismic-reactjs'
 import { htmlSerializer, linkResolver } from '../../utils'
 
 /**
- * @category CMS
- *  Slices
- * @function
+ * Renders a Prismic RichText structured text object.
+ * @category CMS Slices
+ * @function TextBlock
  * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create the HeadlineBlock slice
  * @returns {jsx}
  */
@@ -16,7 +16,7 @@ function TextBlock({ slice }) {
   }
 
   return (
-    <section className="container slice">
+    <section className="section container slice">
       <div className="columns">
         <div className="column is-full">
           <div className="content">

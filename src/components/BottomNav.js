@@ -93,6 +93,16 @@ function BottomNav() {
               Radio
             </Link>
             <Link
+              to="/schedule"
+              className="navbar-item"
+              onClick={() => {
+                toggleNavMenu()
+                clearMixSearchTags()
+              }}
+            >
+              Schedule
+            </Link>
+            <Link
               to="/residents"
               className="navbar-item"
               onClick={() => {

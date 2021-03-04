@@ -4,8 +4,6 @@ import { RichText } from 'prismic-reactjs'
 import { EventHeader, EventMapEmbed } from '../components'
 import { formatDateTime, htmlSerializer, linkResolver } from '../utils'
 
-import dayjs from 'dayjs'
-
 /**
  * @category Templates
  * @function EventsTemplate
@@ -29,10 +27,6 @@ function EventTemplate({ data }) {
     event_header_button_link,
   } = eventData
 
-  const startTimeEST = formatDateTime(dayjs(event_start), 'UTC-to-EST')
-  const endTimeEST =
-    event_end !== null ? formatDateTime(dayjs(event_end), 'UTC-to-EST') : null
-
   /**
    * Boolean to ensure that BOTH location and location link data are present in order to render the link
    */
@@ -51,8 +45,8 @@ function EventTemplate({ data }) {
         </header>
 
         <EventHeader
-          startDate={startTimeEST}
-          endDate={endTimeEST}
+          startDate={event_start}
+          endDate={event_end}
           location={event_location}
           eventName={event_name}
           headerButtonText={event_header_button_text}
@@ -76,7 +70,7 @@ function EventTemplate({ data }) {
                     Getting to {event_location}
                   </p>
                   <EventMapEmbed
-                    description={event_location}
+                    locationName={event_location}
                     address={event_location_physical_address}
                   />
                 </>
@@ -84,16 +78,6 @@ function EventTemplate({ data }) {
             </div>
           </div>
         </section>
-
-        {/* <pre>{JSON.stringify(eventData, null, 2)}</pre> */}
-        {/* <section
-          className="container"
-          style={{ backgroundColor: 'darkred', height: '15rem' }}
-        ></section>
-        <section
-          className="container"
-          style={{ backgroundColor: 'darkgrey', height: '15rem' }}
-        ></section> */}
       </article>
     </main>
   )

@@ -1,20 +1,25 @@
 import React, { useState, useEffect } from 'react'
 
 /**
- * Returns a Google Map embed on an event page, for those that have it added
+ * Returns a Google Map embed on an event page, if `event_location` and `event_location_physical_address` both exist.
  * @category Site Elements
  * @function EventMapEmbed
- * @param {String} description
- * @param {String} address
+ * @param {String} locationName - the name of the event venue
+ * @param {String} address - the physical address of the event venue
  * @returns {jsx}
  */
-function EventMapEmbed({ description, address }) {
+function EventMapEmbed({ locationName, address }) {
   const [processedDescription, setDescription] = useState(null)
   const [mapWidth, setMapWidth] = useState(null)
 
+  /**
+   * Encode `locationName` and `address` to use as the map embed query.
+   * @category useEffect
+   * @name mapPreparation
+   */
   useEffect(() => {
     const mapPreparation = () => {
-      const placeWithAddress = `${description} ${address}`
+      const placeWithAddress = `${locationName} ${address}`
 
       /**
        * Prepping the query portion of the map embed src URL

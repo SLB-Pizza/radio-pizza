@@ -1,8 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import {
-  GlobalStateContext,
-  GlobalDispatchContext,
-} from '../context/GlobalContextProvider'
+import { GlobalStateContext } from '../context/GlobalContextProvider'
 import { RadioBar, ScheduleBar } from './index'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
@@ -11,7 +8,10 @@ dayjs.extend(utc)
 dayjs.extend(timezone)
 
 /**
+ * Renders the top navigation bar that contains {@link RadioBar} and {@link ScheduleBar}.
+ * @category Site Elements
  * @function TopNav
+ * @returns {jsx}
  */
 function TopNav() {
   const globalState = useContext(GlobalStateContext)
@@ -19,23 +19,29 @@ function TopNav() {
   const [nycTime, setNYCTime] = useState(dayjs().tz('America/New_York'))
   const [laTime, setLATime] = useState(dayjs().tz('America/Los_Angeles'))
 
+  /**
+   * Function that adds one second to the time values set in each `useState`.
+   * @category useEffect
+   * @name addOneSecondToClock
+   */
   useEffect(() => {
-    const clock = setInterval(() => {
+    const addOneSecondToClock = setInterval(() => {
       setNYCTime(nycTime.add(1, 's'))
       setLATime(laTime.add(1, 's'))
     }, 1000)
 
     return () => {
-      clearInterval(clock)
+      clearInterval(addOneSecondToClock)
     }
   })
 
   /**
-   * This globalState null return prevents ERROR #95313.
-   * @see {@link BottomNav|Related globalState situation in BottomNav}
+   * This `globalState` null return prevents ERROR #95313. Our render return depends on `globalState.live` to exist.
+   * @see {@link BottomNav Related globalState situation in BottomNav}
    * @see {@link https://github.com/gatsbyjs/gatsby/issues/24264#issuecomment-631995753 Re: ERROR #95313 - To stop the error immediately, add a null check for the object}
    */
   if (!globalState) return null
+
   return (
     <div
       className={

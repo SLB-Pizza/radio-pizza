@@ -1,6 +1,6 @@
 /**
  * Scrolls user back to top of page.
- * @category Utility Function
+ * @category Utilities
  * @function scrollToTop
  */
 export const scrollToTop = () =>

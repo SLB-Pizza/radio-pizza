@@ -22,7 +22,7 @@ export default function FetchedTagStickySection({
 }) {
   /**
    * Fires off {@link markSameTagsInQuery} with a `false` value, and the `fetchFunc` {@link removeTagFromSearchArray} dispatch function, and {@link scrollToTop} to reset page scroll, presenting newest data to user on fetch.
-   * @category Utility Function
+   * @category Utilities
    * @function resetQueryFetchNewData
    */
   const resetQueryFetchNewData = tag => {

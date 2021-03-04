@@ -79,7 +79,7 @@ function DisplayFetchedTaggedMixes({
 
   /**
    * Fires off both {@link markSameTagsInQuery} with a `true` value and the `fetchFunc` {@link fetchTaggedMixes}.
-   * @category Utility Function
+   * @category Utilities
    * @function dispatchAndFetchTaggedMixes
    */
   const dispatchAndFetchTaggedMixes = () => {

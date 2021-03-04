@@ -1,9 +1,13 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
+import { linkResolver } from '../../utils'
 
 /**
+ * Renders the `/guide` landing page.
  * @category Pages
- * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/guide` landing page
+ * @function CMSGuideIndex
+ * @param {Object} data - the data object coming from Prismic CMS that contains all data needed to build the `/guide` landing page
+ * @returns {jsx}
  */
 function CMSGuideIndex({ data }) {
   const prismicContent = data.prismic.allCms_guides.edges
@@ -28,14 +32,13 @@ function CMSGuideIndex({ data }) {
           </div>
         </div>
 
-        {/* {cmsGuideData.map((guide, index) => (
-          <LandingPageElement
-            key={`CMS-Guide-#${index + 1}`}
-            pageElement={guide}
-            layout={cmsCardColumnLayout}
-            imageAspectRatio={cmsImageAspectRatio}
-          />
-        ))} */}
+        {cmsGuideData.map(({ node }, index) => (
+          <div className="column is-12">
+            <Link to={linkResolver(node._meta)}>
+              <pre>{JSON.stringify(node, null, 2)}</pre>
+            </Link>
+          </div>
+        ))}
       </div>
     </main>
   )
@@ -54,17 +57,17 @@ export const query = graphql`
               type
             }
             cms_guide_category
-            body {
-              ... on PRISMIC_Cms_guideBodyHeadline_block {
-                type
-                primary {
-                  article_headline
-                  article_headline_img
-                  article_subcategory
-                  article_subtitle
-                }
-              }
-            }
+            # body {
+            #   ... on PRISMIC_Cms_guideBodyHeadline_block {
+            #     type
+            #     primary {
+            #       article_headline
+            #       article_headline_img
+            #       article_subcategory
+            #       article_subtitle
+            #     }
+            #   }
+            # }
           }
         }
       }

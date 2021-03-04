@@ -1,8 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { SliceZone } from '../components'
 import { ArticleHeadline } from '../components/slices/'
-import { ArticleBylineSubtitle } from '../components'
+import { ArticleBylineSubtitle, SliceZone } from '../components'
 
 /**
  * Renders a single Feature entry. Components in `return` are not short-circuited here at the top-level; they're short circuited at the exact render location in the layout/slice subcomponent they're used.
@@ -17,7 +16,7 @@ function FeatureTemplate({ data }) {
 
   // Grab the metadata for the feature and CMS slice data
   const metadata = prismicContent._meta
-  const headlineData = prismicContent.headline_block[0]
+  const headlineData = prismicContent.headline_block[0].primary
   const sliceData = prismicContent.body
 
   /**

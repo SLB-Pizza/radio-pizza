@@ -217,16 +217,16 @@ export const query = graphql`
             ... on PRISMIC_Event {
               event_name
             }
-            ... on PRISMIC_Cms_guide {
-              body {
-                ... on PRISMIC_Cms_guideBodyHeadline_block {
-                  type
-                  primary {
-                    article_headline
-                  }
-                }
-              }
-            }
+            # ... on PRISMIC_Cms_guide {
+            #   body {
+            #     ... on PRISMIC_Cms_guideBodyHeadline_block {
+            #       type
+            #       primary {
+            #         article_headline
+            #       }
+            #     }
+            #   }
+            # }
             ... on PRISMIC_Resident {
               resident_name
               resident_image

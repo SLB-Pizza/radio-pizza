@@ -1,5 +1,5 @@
 {
-  "Main": {
+  "Header and UID": {
     "uid": {
       "type": "UID",
       "config": {
@@ -14,23 +14,16 @@
         "placeholder": "What type of guide is this? e.g. CMS Slice, Editorial Standard, etc."
       }
     },
-    "body": {
+    "header": {
       "type": "Slices",
       "fieldset": "Slice zone",
       "config": {
-        "labels": {
-          "one_image_and_text": [],
-          "two_images___text": [],
-          "image_row": [],
-          "headline_block": [],
-          "full_width_image": [],
-          "hmbk_media": []
-        },
+        "labels": {},
         "choices": {
           "headline_block": {
             "type": "Slice",
             "fieldset": "Headline Block",
-            "description": "A hero image and headline section to start your article.",
+            "description": "An image, category and subcategory and headline to start your article.",
             "icon": "subtitles",
             "display": "list",
             "non-repeat": {
@@ -60,67 +53,77 @@
                       "height": null
                     },
                     {
+                      "name": "square_highlight",
+                      "width": 256,
+                      "height": 256
+                    },
+                    {
                       "name": "lo_fi_placeholder",
                       "width": 32,
                       "height": null
                     }
                   ],
-                  "label": "Article Headline Image"
+                  "label": "Headline Image (REQUIRED)"
                 }
               },
               "article_category": {
                 "type": "Text",
                 "config": {
-                  "label": "Article Category",
-                  "placeholder": "Enter article category here..."
+                  "label": "Category (REQUIRED)",
+                  "placeholder": "(REQUIRED) What type of guide is this? e.g. CMS Slice, Editorial Standard, etc."
                 }
               },
               "article_subcategory": {
                 "type": "Text",
                 "config": {
-                  "label": "Article Subcategory",
-                  "placeholder": "Enter Article Subcategory here..."
+                  "label": "Subcategory (REQUIRED)",
+                  "placeholder": "(REQUIRED)  What specific topic will be covered? e.g. Interview Set-up, Resident Rules of Engagement, Public Relation Guidelines, etc."
                 }
               },
               "article_headline": {
                 "type": "StructuredText",
                 "config": {
                   "single": "heading1",
-                  "label": "Article Headline",
-                  "placeholder": "Enter your headline here..."
+                  "label": "Headline (REQUIRED)",
+                  "placeholder": "(REQUIRED) Enter your guide's headline here..."
                 }
               },
               "article_subtitle": {
                 "type": "StructuredText",
                 "config": {
                   "single": "heading4",
-                  "label": "Article Subtitle",
-                  "placeholder": "Enter the feature subtitle here..."
+                  "label": "Subtitle (REQUIRED)",
+                  "placeholder": "(REQUIRED) Enter the guide's subtitle here..."
                 }
               },
               "article_author": {
                 "type": "Link",
                 "config": {
                   "select": "document",
-                  "customtypes": ["staff"],
-                  "label": "Article Author",
-                  "placeholder": "Select the article author..."
-                }
-              },
-              "article_author_pic": {
-                "type": "Image",
-                "config": {
-                  "constraint": {
-                    "width": 128,
-                    "height": 128
-                  },
-                  "thumbnails": [],
-                  "label": "Article Author Pic"
+                  "label": "Author",
+                  "placeholder": "Select the author (Create Staff member first, if necessary)"
                 }
               }
             },
             "repeat": {}
-          },
+          }
+        }
+      }
+    }
+  },
+  "Content": {
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "one_image_and_text": [],
+          "two_images___text": [],
+          "image_row": [],
+          "headline_block": [],
+          "image_group": []
+        },
+        "choices": {
           "text": {
             "type": "Slice",
             "fieldset": "Text",
@@ -139,7 +142,7 @@
               "body_text": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item",
+                  "multi": "paragraph, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
                   "allowTargetBlank": true,
                   "label": "Body Text",
                   "placeholder": "Write your body text section here..."
@@ -195,7 +198,7 @@
             },
             "repeat": {}
           },
-          "one_image_and_text": {
+          "one_image_and_text1": {
             "type": "Slice",
             "fieldset": "One Image and Text",
             "description": "One image and a text section on the left or right.",
@@ -256,7 +259,7 @@
             },
             "repeat": {}
           },
-          "two_images___text": {
+          "two_images_and_text": {
             "type": "Slice",
             "fieldset": "Two Images and Text",
             "description": "Two images with a text section on the left or right.",
@@ -398,7 +401,7 @@
             },
             "repeat": {}
           },
-          "row_of_images": {
+          "image_group": {
             "type": "Slice",
             "fieldset": "Row of Images",
             "description": "A group of 1-12 images to enrich your article.",

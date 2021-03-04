@@ -124,7 +124,7 @@ section.sample-feature {
 // ================================
 header.article-header {
   &.hero {
-    height: calc(100vh - 9.75rem);
+    height: calc(100vh - 9.625rem);
 
     .footer-gradient.is-overlay {
       background: linear-gradient(to bottom, transparent 80%, black);
@@ -137,9 +137,9 @@ header.article-header {
     img.is-rounded {
       border: 2px solid white;
     }
-    // needs parent .container.is-fluid for background color bar to show properly
     .hero-foot {
       .container {
+        padding-bottom: $gap;
         .columns {
           margin: auto 0;
         }
@@ -147,6 +147,7 @@ header.article-header {
     }
   }
 }
+
 .article-category {
   display: inline-block;
   background-color: black;

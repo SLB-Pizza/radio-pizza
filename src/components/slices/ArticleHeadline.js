@@ -15,7 +15,7 @@ function ArticleHeadline({ headlineData }) {
     article_category,
     article_subcategory,
     article_headline,
-  } = headlineData.primary
+  } = headlineData
 
   /**
    * Process article category details.
@@ -36,11 +36,11 @@ function ArticleHeadline({ headlineData }) {
    *    Image alt text
    */
   const headlinePhotoDetails = article_headline_img.copyright ? (
-    <figcaption className="credit" id="article-headline-image">
-      {`${article_headline_img.alt} — ${article_headline_img.copyright}`}
+    <figcaption className="subtitle credit" id="article-headline-image">
+      {`${article_headline_img.alt} by ${article_headline_img.copyright}`}
     </figcaption>
   ) : (
-    <figcaption className="credit" id="article-headline-image">
+    <figcaption className="subtitle credit" id="article-headline-image">
       {article_headline_img.alt}
     </figcaption>
   )
@@ -49,6 +49,7 @@ function ArticleHeadline({ headlineData }) {
     <header
       className="hero article-header has-background"
       aria-labelledby="article-headline"
+      style={{ borderBottom: '2px solid yellow' }}
     >
       {article_headline_img ? (
         <img

@@ -2,17 +2,25 @@ import React, { useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import { EventHeader, EventMapEmbed } from '../components'
-import { formatDateTime, htmlSerializer, linkResolver } from '../utils'
+import {
+  formatDateTime,
+  htmlSerializer,
+  linkResolver,
+  toggleColumn,
+} from '../utils'
 
 /**
+ * Render a single Event Prismic CMS entry.
  * @category Templates
  * @function EventsTemplate
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/features` landing page
  */
 function EventTemplate({ data }) {
-  const prismicContent = data.prismic.allEvents.edges[0]
+  const prismicContent = data.prismic.allEvents.edges[0].node
   if (!prismicContent) return null
-  const eventData = prismicContent.node
+
+  const [isOpen, setIsOpen] = useState('Info')
+  const [categoryLabels, setCategoryLabels] = useState(null)
 
   const {
     event_start,
@@ -25,7 +33,7 @@ function EventTemplate({ data }) {
     event_location_link,
     event_header_button_text,
     event_header_button_link,
-  } = eventData
+  } = prismicContent
 
   /**
    * Boolean to ensure that BOTH location and location link data are present in order to render the link

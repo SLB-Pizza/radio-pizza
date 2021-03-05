@@ -11,10 +11,11 @@ import {
   useSiteMetadata,
 } from '../components'
 import {
-  mixDateSort,
   eventDateSort,
   featureDateSort,
   mappableDataFilter,
+  mixDateSort,
+  toggleColumn,
 } from '../utils'
 
 /**
@@ -133,16 +134,6 @@ function ResidentTemplate({ data, path }) {
     return mappableDataCheck()
   }, [data])
 
-  /**
-   * Helper functions
-   * Toggles the column selected based on the id of clicked/selected category
-   */
-  function toggleCategory(event) {
-    if (isOpen !== event.currentTarget.id) {
-      setIsOpen(event.currentTarget.id)
-    }
-  }
-
   const smallCardLayout = 'column is-12-mobile is-6-tablet is-4-widescreen'
   const largeCardLayout = 'column is-6 is-4-widescreen'
 
@@ -227,7 +218,7 @@ function ResidentTemplate({ data, path }) {
                           : 'button is-fullwidth is-outlined is-rounded'
                       }
                       id={type}
-                      onClick={toggleCategory}
+                      onClick={() => toggleColumn(type, isOpen, setIsOpen)}
                     >
                       {type}
                     </button>
@@ -240,7 +231,7 @@ function ResidentTemplate({ data, path }) {
                           : 'button is-small is-fullwidth is-outlined is-rounded'
                       }
                       id={type}
-                      onClick={toggleCategory}
+                      onClick={() => toggleColumn(type, isOpen, setIsOpen)}
                     >
                       {type}
                     </button>

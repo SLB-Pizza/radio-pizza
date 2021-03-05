@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
 import { useLazyQuery } from '@apollo/client'
 import { HMBKDivider, SingleResidentCard } from '../../components'
+import { toggleColumn } from '../../utils'
 import {
   GET_MORE_RESIDENTS,
   GET_MORE_ALUMNI,
@@ -163,14 +164,17 @@ function ResidentsIndex({ data }) {
     return processFetchedData()
   }, [residentFetch, alumniFetch, guestFetch])
 
-  /**
-   * Helper function that toggles the currently display resident category by using the clicked resident category's id
-   */
-  function toggleColumn(event) {
-    if (isOpen !== event.currentTarget.id) {
-      setIsOpen(event.currentTarget.id)
-    }
-  }
+  // /**
+  //  * Helper function that toggles the currently display resident category by using the clicked resident category's id.
+  //  * @category Utilities
+  //  *
+  //  * @function toggleColumn
+  //  */
+  // function toggleColumn(event) {
+  //   if (isOpen !== event.currentTarget.id) {
+  //     setIsOpen(event.currentTarget.id)
+  //   }
+  // }
 
   return (
     <main className="black-bg-page">
@@ -198,7 +202,7 @@ function ResidentsIndex({ data }) {
                       : 'button is-fullwidth is-outlined is-rounded'
                   }
                   id={type}
-                  onClick={toggleColumn}
+                  onClick={() => toggleColumn(type, isOpen, setIsOpen)}
                 >
                   {type}
                 </button>
@@ -212,7 +216,7 @@ function ResidentsIndex({ data }) {
                       : 'button is-small is-fullwidth is-outlined is-rounded'
                   }
                   id={type}
-                  onClick={toggleColumn}
+                  onClick={() => toggleColumn(type, isOpen, setIsOpen)}
                 >
                   {type}
                 </button>

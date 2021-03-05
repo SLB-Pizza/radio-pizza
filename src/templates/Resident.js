@@ -141,9 +141,7 @@ function ResidentTemplate({ data, path }) {
     <main className="full-height-page">
       <Helmet defer={false}>
         <html lang="en" />
-        {resBio?.resident_name && (
-          <title>HalfMoon feat. {resBio.resident_name}</title>
-        )}
+        {resBio?.resident_name && <title>HMBK | {resBio.resident_name}</title>}
         {resBio?.resident_blurb && (
           <meta
             name="description"

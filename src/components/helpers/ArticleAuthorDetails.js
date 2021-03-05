@@ -1,5 +1,5 @@
 import React from 'react'
-import { FallbackImage } from '../../../utils'
+import { FallbackImage } from '../../utils'
 
 /**
  * Renders the article author pic and name for a given {@link FeatureTemplate}'s {@link ArticleBylineSubtitle}.

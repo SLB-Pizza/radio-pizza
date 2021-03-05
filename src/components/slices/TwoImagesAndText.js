@@ -1,5 +1,5 @@
 import React from 'react'
-import { ContentHelper, ImageHelper } from './index'
+import { ImageHelper, RichTextHelper } from '../helpers'
 
 /**
  * Creates a Slice Component that display two images and some text. The text section can be either on the left of the right.
@@ -11,7 +11,6 @@ import { ContentHelper, ImageHelper } from './index'
  */
 function TwoImagesAndText({ slice }) {
   const {
-    tiat_layout,
     tiat_is_gapless,
     tiat_text,
     tiat_left_img,
@@ -19,9 +18,14 @@ function TwoImagesAndText({ slice }) {
   } = slice.primary
 
   /**
-   * Derive layout type by processing tiat_layout. Same process followed as {@link getBlockquoteStyling}
+   * Derive layout type by processing `slice.label`.
+   * Will be selected by user in Prismic; two layout labels available:
+   * - Left: Image-Text
+   * - Right: Text-Image
+   *
+   * The layout label is received all lowercase and `: ` is converted to `__`; split on it to get direction.
    */
-  const layoutType = tiat_layout.split(':')[0]
+  const layoutType = slice.label.split('__')[0]
 
   const columnsClassName = tiat_is_gapless
     ? 'columns is-mobile is-multiline is-gapless'
@@ -35,9 +39,9 @@ function TwoImagesAndText({ slice }) {
       <div className={columnsClassName}>
         {layoutType === 'Left' ? (
           <>
-            <ContentHelper
-              text={tiat_text}
-              columnClassName={tiatContentClass}
+            <RichTextHelper
+              richText={tiat_text}
+              columnSizing={tiatContentClass}
             />
             <ImageHelper
               imageData={tiat_left_img}
@@ -60,9 +64,9 @@ function TwoImagesAndText({ slice }) {
               imageData={tiat_right_img}
               columnClassName={tiatImageClass}
             />
-            <ContentHelper
-              text={tiat_text}
-              columnClassName={tiatContentClass}
+            <RichTextHelper
+              richText={oiat_text}
+              columnSizing={tiatContentClass}
             />
           </>
         )}

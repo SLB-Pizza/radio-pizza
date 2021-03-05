@@ -1,6 +1,6 @@
 import React from 'react'
 import { RichText } from 'prismic-reactjs'
-import { ArticleAuthorDetails, ArticleDateTime } from './slices/helpers'
+import { ArticleAuthorDetails, ArticleDateTime } from './helpers'
 
 /**
  * Renders a single feature's subtitle, byline and date of first publication or last update.
@@ -13,7 +13,13 @@ import { ArticleAuthorDetails, ArticleDateTime } from './slices/helpers'
  */
 function ArticleByline({ subtitle, dates, authorDetails }) {
   return (
-    <section className="section container">
+    <section
+      className="section container"
+      style={{
+        borderTop: '2px solid chartreuse',
+        borderBottom: '2px solid red',
+      }}
+    >
       {subtitle && (
         <div className="columns is-multiline is-vcentered">
           <div className="column is-12 content">

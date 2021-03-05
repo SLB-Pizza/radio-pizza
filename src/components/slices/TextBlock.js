@@ -1,9 +1,8 @@
 import React from 'react'
-import { RichText } from 'prismic-reactjs'
-import { htmlSerializer, linkResolver } from '../../utils'
+import { RichTextHelper } from '../helpers'
 
 /**
- * Renders a Prismic RichText structured text object.
+ * Renders a Prismic RichText structured text object. One of the instances of `.text-block`, a class name that changes line height and link rendering.
  * @category CMS Slices
  * @function TextBlock
  * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create the HeadlineBlock slice
@@ -16,14 +15,16 @@ function TextBlock({ slice }) {
   }
 
   return (
-    <section className="section container slice">
+    <section
+      className="section container slice"
+      style={{
+        borderTop: '2px solid chartreuse',
+        borderBottom: '2px solid red',
+      }}
+    >
       <div className="columns">
         <div className="column is-full content text-block">
-          <RichText
-            render={body_text}
-            htmlSerializer={htmlSerializer}
-            linkResolver={linkResolver}
-          />
+          <RichTextHelper richText={body_text} />
         </div>
       </div>
     </section>

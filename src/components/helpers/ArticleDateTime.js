@@ -1,5 +1,5 @@
 import React from 'react'
-import { formatDateTime, processPublicationDates } from '../../../utils'
+import { formatDateTime, processPublicationDates } from '../../utils'
 
 /**
  * Renders the date-time for a given {@link FeatureTemplate}'s {@link ArticleBylineSubtitle}.

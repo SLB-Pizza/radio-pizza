@@ -102,6 +102,14 @@ export const query = graphql`
                   body_text
                 }
               }
+              ... on PRISMIC_Cms_guideBodyOne_image_and_text1 {
+                type
+                label
+                primary {
+                  oiat_img
+                  oiat_text
+                }
+              }
             }
           }
         }

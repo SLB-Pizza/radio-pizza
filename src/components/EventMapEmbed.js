@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 /**
- * Returns a Google Map embed on an event page, if `event_location` and `event_location_physical_address` both exist.
+ * Returns a Google Map embed on an event page, if `event_location` and `event_location_physical_address` both exist. Props are guaranteed to exists; component renders only if ` event_location && event_location_physical_address` is true; both exist.
  * @category Site Elements
  * @function EventMapEmbed
  * @param {String} locationName - the name of the event venue
@@ -29,15 +29,15 @@ function EventMapEmbed({ locationName, address }) {
       setDescription(encodedDescription)
 
       const containerWidth =
-        document.querySelector('#event-blurb').clientWidth - 48 // 3rem padding
+        document.querySelector('#map-section').clientWidth - 48 // 3rem padding
       setMapWidth(containerWidth)
     }
 
     return mapPreparation()
   }, [])
 
-  if (processedDescription && mapWidth) {
-    return (
+  return (
+    <figure className="image">
       <iframe
         width={mapWidth}
         height="600"
@@ -45,10 +45,8 @@ function EventMapEmbed({ locationName, address }) {
         src={`https://www.google.com/maps/embed/v1/place?key=${process.env.GATSBY_MAPS_EMBED_KEY}&q=${processedDescription}&zoom=19`}
         allowFullScreen
       />
-    )
-  }
-
-  return null
+    </figure>
+  )
 }
 
 export default EventMapEmbed

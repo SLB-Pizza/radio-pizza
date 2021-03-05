@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import { EventHeader, EventMapEmbed } from '../components'
@@ -36,9 +36,27 @@ function EventTemplate({ data }) {
   } = prismicContent
 
   /**
-   * Boolean to ensure that BOTH location and location link data are present in order to render the link
+   * @category useEffect
+   * @name setEventCategoryData
    */
-  const displayEventMap = event_location && event_location_physical_address
+  useEffect(() => {
+    const setEventCategoryData = () => {
+      if (data) {
+        let labels = ['Info']
+
+        /**
+         * Boolean to ensure that BOTH location and location link data are present in order to render the link
+         */
+        const displayEventMap =
+          event_location && event_location_physical_address
+        if (displayEventMap) {
+          labels.push('Map')
+        }
+        setCategoryLabels(labels)
+      }
+    }
+    return setEventCategoryData()
+  }, [data])
 
   return (
     <main className="full-height-page">
@@ -61,31 +79,75 @@ function EventTemplate({ data }) {
           headerButtonLink={event_header_button_link}
         />
 
-        <section className="section container" id="event-blurb">
+        <section className="section container">
           <div className="columns is-mobile">
-            <div className="column is-12">
-              <div className="content">
-                <RichText
-                  render={event_blurb}
-                  linkResolver={linkResolver}
-                  htmlSerializer={htmlSerializer}
-                />
-              </div>
-
-              {displayEventMap && (
-                <>
-                  <p className="title is-size-4-tablet is-size-5-mobile">
-                    Getting to {event_location}
-                  </p>
-                  <EventMapEmbed
-                    locationName={event_location}
-                    address={event_location_physical_address}
-                  />
-                </>
-              )}
-            </div>
+            {categoryLabels?.map((category, index) => (
+              <Fragment key={`HMBK-${category}-${index}`}>
+                {/* DESKTOP SIZED BUTTONS */}
+                <div className="column is-hidden-mobile">
+                  <button
+                    className={
+                      isOpen === category
+                        ? 'button active is-fullwidth is-outlined is-rounded'
+                        : 'button is-fullwidth is-outlined is-rounded'
+                    }
+                    id={category}
+                    onClick={() => {
+                      toggleColumn(category, isOpen, setIsOpen)
+                    }}
+                  >
+                    {category}
+                  </button>
+                </div>
+                {/* TOUCH SIZED BUTTONS */}
+                <div className="column is-hidden-tablet">
+                  <button
+                    className={
+                      isOpen === category
+                        ? 'button is-small active is-fullwidth is-outlined is-rounded'
+                        : 'button is-small is-fullwidth is-outlined is-rounded'
+                    }
+                    id={category}
+                    onClick={() => {
+                      toggleColumn(category, isOpen, setIsOpen)
+                    }}
+                  >
+                    {category}
+                  </button>
+                </div>
+              </Fragment>
+            ))}
           </div>
         </section>
+
+        {isOpen === 'Info' ? (
+          <section className="section container">
+            <div className="columns is-mobile">
+              <div className="column is-12">
+                <div className="content">
+                  <RichText
+                    render={event_blurb}
+                    linkResolver={linkResolver}
+                    htmlSerializer={htmlSerializer}
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+        ) : null}
+
+        {isOpen === 'Map' ? (
+          <section className="section container" id="map-section">
+            <div className="columns">
+              <div className="column is-12">
+                <EventMapEmbed
+                  locationName={event_location}
+                  address={event_location_physical_address}
+                />
+              </div>
+            </div>
+          </section>
+        ) : null}
       </article>
     </main>
   )

@@ -38,9 +38,9 @@ function ResidentsIndex({ data }) {
   })
 
   /**
-   * Use Apollo's useLazyQuery to allow for a query to run on button press.
-   * One useLazyQuery per resident category
-   * Each individual fetch update is fed to a useEffect
+   * Function that fetches more residents on {@link ResidentIndexPage} using {@link GET_MORE_RESIDENTS}.
+   * @category useLazyQuery
+   * @name getMoreResidents
    * @see {@link https://www.apollographql.com/docs/react/data/queries/#executing-queries-manually Executing queries manually (useLazyQuery hook)}
    */
   const [
@@ -48,11 +48,23 @@ function ResidentsIndex({ data }) {
     { loading: resLoad, data: residentFetch },
   ] = useLazyQuery(GET_MORE_RESIDENTS)
 
+  /**
+   * Function that fetches more alumni on {@link ResidentIndexPage} using {@link GET_MORE_ALUMNI}.
+   * @category useLazyQuery
+   * @name getMoreAlumni
+   * @see {@link https://www.apollographql.com/docs/react/data/queries/#executing-queries-manually Executing queries manually (useLazyQuery hook)}
+   */
   const [
     getMoreAlumni,
     { loading: alumLoad, data: alumniFetch },
   ] = useLazyQuery(GET_MORE_ALUMNI)
 
+  /**
+   * Function that fetches more guests on {@link ResidentIndexPage} using {@link GET_MORE_GUESTS}.
+   * @category useLazyQuery
+   * @name getMoreGuests
+   * @see {@link https://www.apollographql.com/docs/react/data/queries/#executing-queries-manually Executing queries manually (useLazyQuery hook)}
+   */
   const [
     getMoreGuests,
     { loading: guestLoad, data: guestFetch },
@@ -64,19 +76,24 @@ function ResidentsIndex({ data }) {
   const prismicContent = data.prismic
   if (!prismicContent) return null
 
+  /**
+   * Processes the incoming data from the initial (build) Gatsby page query to set initial resident category data and labels for page to render.
+   *
+   * There are three categories of resident: resident, alumni, guests.
+   * Use their totalCount from the Gatsby page query to see if they have data to `setState`; if they do set the corresponding resident's type state to an object with the following key-value pairs:
+   *
+   * - `data`: the data array from Gatsby containing the first 12 entries of that category
+   * - `hasMore`: boolean dictating whether there are more entries that can be fetched
+   * - `endCursor`: starting point for the next fetch of 12 category entries
+   * @category useEffect
+   * @name setResidentsCategoryData
+   */
   useEffect(() => {
-    /**
-     * There are three categories of resident: resident, alumni, guests.
-     * Use their totalCount from the Gatsby page query to see if they have data to render (as of writing there are ZERO "alumni" entries)
-     * - data: the data array from Gatsby containing the first 12 entries of that category
-     * - hasMore: boolean dictating whether there are more entries that can be fetched
-     * - endCursor: starting point for the next fetch of 12 category entries
-     */
-    const setCategoryData = () => {
+    const setResidentsCategoryData = () => {
       /**
        * Collect the labels of all the resident categories that have entries
-       * Set categoryName to categoryLabels
-       * categoryLabels mapped to make the resident type selection buttons
+       * Set `categoryName` to `categoryLabels`
+       * `categoryLabels` is then mapped to make the resident type selection buttons
        */
       let labels = []
 
@@ -119,11 +136,22 @@ function ResidentsIndex({ data }) {
       setCategoryLabels(labels)
     }
 
-    return setCategoryData()
+    return setResidentsCategoryData()
   }, [data])
 
+  /**
+   * Function that `setState` any data received by an `onClick` triggered `useLazyQuery` fetch function.
+   *
+   * | fetched data    | fetched by function      | state to update |
+   * |-----------------|--------------------------|-----------------|
+   * | `residentFetch` | {@link getMoreResidents} | `setResidents`  |
+   * | `alumniFetch`   | {@link getMoreAlumni}    | `setAlumni`     |
+   * | `guestFetch`    | {@link getMoreGuests}    | `setGuests`     |
+   * @category useEffect
+   * @name processFetchedResidentsData
+   */
   useEffect(() => {
-    const processFetchedData = () => {
+    const processFetchedResidentsData = () => {
       /**
        * Handle a residentFetch update
        */
@@ -142,7 +170,7 @@ function ResidentsIndex({ data }) {
       if (alumniFetch) {
         const { edges, pageInfo } = alumniFetch.allResidents
 
-        setResidents({
+        setAlumni({
           data: [...alumni.data, ...edges],
           hasMore: pageInfo.hasNextPage,
           endCursor: pageInfo.endCursor,
@@ -154,27 +182,15 @@ function ResidentsIndex({ data }) {
       if (guestFetch) {
         const { edges, pageInfo } = guestFetch.allResidents
 
-        setResidents({
+        setGuests({
           data: [...guests.data, ...edges],
           hasMore: pageInfo.hasNextPage,
           endCursor: pageInfo.endCursor,
         })
       }
     }
-    return processFetchedData()
+    return processFetchedResidentsData()
   }, [residentFetch, alumniFetch, guestFetch])
-
-  // /**
-  //  * Helper function that toggles the currently display resident category by using the clicked resident category's id.
-  //  * @category Utilities
-  //  *
-  //  * @function toggleColumn
-  //  */
-  // function toggleColumn(event) {
-  //   if (isOpen !== event.currentTarget.id) {
-  //     setIsOpen(event.currentTarget.id)
-  //   }
-  // }
 
   return (
     <main className="black-bg-page">
@@ -182,7 +198,7 @@ function ResidentsIndex({ data }) {
         <div className="columns is-mobile">
           <div className="column is-full content">
             <h1 className="title is-size-3-desktop is-size-5-touch">
-              residents
+              Halfmoon Residents
             </h1>
           </div>
         </div>
@@ -191,34 +207,34 @@ function ResidentsIndex({ data }) {
       <section className="container is-fluid">
         <div className="columns is-mobile is-variable is-2">
           {/* RESIDENT TYPE SELECTOR BUTTONS */}
-          {categoryLabels?.map((type, index) => (
-            <Fragment key={`HMBK-${type}-${index}`}>
+          {categoryLabels?.map((category, index) => (
+            <Fragment key={`HMBK-${category}-${index}`}>
               {/* DESKTOP SIZED BUTTONS */}
               <div className="column is-hidden-mobile">
                 <button
                   className={
-                    isOpen === type
+                    isOpen === category
                       ? 'button active is-fullwidth is-outlined is-rounded'
                       : 'button is-fullwidth is-outlined is-rounded'
                   }
-                  id={type}
-                  onClick={() => toggleColumn(type, isOpen, setIsOpen)}
+                  id={category}
+                  onClick={() => toggleColumn(category, isOpen, setIsOpen)}
                 >
-                  {type}
+                  {category}
                 </button>
               </div>
               {/* TOUCH SIZED BUTTONS */}
               <div className="column is-hidden-tablet">
                 <button
                   className={
-                    isOpen === type
+                    isOpen === category
                       ? 'button is-small active is-fullwidth is-outlined is-rounded'
                       : 'button is-small is-fullwidth is-outlined is-rounded'
                   }
-                  id={type}
-                  onClick={() => toggleColumn(type, isOpen, setIsOpen)}
+                  id={category}
+                  onClick={() => toggleColumn(category, isOpen, setIsOpen)}
                 >
-                  {type}
+                  {category}
                 </button>
               </div>
             </Fragment>
@@ -243,7 +259,9 @@ function ResidentsIndex({ data }) {
                       className="button is-fullwidth is-outlined is-rounded"
                       onClick={() =>
                         getMoreResidents({
-                          variables: { after: residents.endCursor },
+                          variables: {
+                            after: residents.endCursor,
+                          },
                         })
                       }
                     >
@@ -292,7 +310,9 @@ function ResidentsIndex({ data }) {
                       className="button is-fullwidth is-outlined is-rounded"
                       onClick={() =>
                         getMoreAlumni({
-                          variables: { after: alumni.endCursor },
+                          variables: {
+                            after: alumni.endCursor,
+                          },
                         })
                       }
                     >
@@ -340,7 +360,9 @@ function ResidentsIndex({ data }) {
                       className="button is-fullwidth is-outlined is-rounded"
                       onClick={() =>
                         getMoreGuests({
-                          variables: { after: guests.endCursor },
+                          variables: {
+                            after: guests.endCursor,
+                          },
                         })
                       }
                     >

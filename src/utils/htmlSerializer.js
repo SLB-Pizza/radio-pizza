@@ -11,11 +11,11 @@ const propsWithUniqueKey = function(props, key) {
 }
 
 /**
- * Customize the HTML output of a Rich Text Field by incorporating an HTML Serializer into your project. This allows you to do things like adding custom classes to certain elements or modifying the way an element will be displayed.
+ * Customize the HTML output of a Rich Text Field by incorporating an HTML Serializer into your project. This allows you to do things like adding custom classes to certain elements or modifying the way an element will be displayed. Called by `<RichText />` components and by CMS Slices like
  * @category Utilities
  * @function htmlSerializer
- * @see {@link https://prismic.io/docs/gatsby/misc-topics/html-serializer |HTML Serializer with Gatsby}
- * @returns {JSX} The customized JSX
+ * @see {@link https://prismic.io/docs/gatsby/misc-topics/html-serializer HTML Serializer with Gatsby}
+ * @returns {jsx} The customized JSX
  */
 const htmlSerializer = function(type, element, content, children, key) {
   var props = {}

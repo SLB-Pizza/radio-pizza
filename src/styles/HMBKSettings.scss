@@ -10,6 +10,9 @@ $body-background-color: black;
 $family-sans-serif: "Poppins", sans-serif;
 $transition-speed: 0.25s ease-in-out;
 $border-radius: 0.75rem;
+$link: lighten($primary, 25);
+$link-hover: white;
+$body-line-height: 1.6;
 //==================================
 // navbar variables
 //==================================
@@ -180,6 +183,16 @@ figcaption {
   }
 }
 
+.text-block a {
+  background: linear-gradient(to bottom, $primary 0%, darken($primary, 30) 0%);
+  background-position: 0% 100%;
+  background-repeat: repeat-x;
+  background-size: 2px 2px;
+  transition: 0.125s $easing;
+  &:hover {
+    background-size: 2px 1.5rem;
+  }
+}
 //===========================================
 // For screen-readers - bulma stuff was fussy
 //===========================================

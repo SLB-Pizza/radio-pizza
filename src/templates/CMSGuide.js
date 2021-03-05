@@ -39,7 +39,7 @@ function CMSGuideTemplate({ data }) {
           authorDetails={guideAuthor}
         />
 
-        {/* <SliceZone sliceZone={guideSliceData} metadata={guideMetadata} /> */}
+        <SliceZone sliceZone={sliceData} metadata={metadata} />
         <hr />
         <section className="container is-fluid">
           <div className="columns is-mobile is-multiline">
@@ -77,6 +77,7 @@ export const query = graphql`
             cms_guide_category
             header {
               ... on PRISMIC_Cms_guideHeaderHeadline_block {
+                type
                 primary {
                   article_author {
                     ... on PRISMIC_Staff {
@@ -91,7 +92,15 @@ export const query = graphql`
                   article_subcategory
                   article_subtitle
                 }
+              }
+            }
+            body {
+              ... on PRISMIC_Cms_guideBodyText {
                 type
+                label
+                primary {
+                  body_text
+                }
               }
             }
           }

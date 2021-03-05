@@ -18,14 +18,12 @@ function TextBlock({ slice }) {
   return (
     <section className="section container slice">
       <div className="columns">
-        <div className="column is-full">
-          <div className="content">
-            <RichText
-              render={body_text}
-              htmlSerializer={htmlSerializer}
-              linkResolver={linkResolver}
-            />
-          </div>
+        <div className="column is-full content text-block">
+          <RichText
+            render={body_text}
+            htmlSerializer={htmlSerializer}
+            linkResolver={linkResolver}
+          />
         </div>
       </div>
     </section>

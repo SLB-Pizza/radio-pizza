@@ -5,6 +5,7 @@ import {
   ImageRow,
   FullWidthImage,
   OneImageAndText,
+  SectionDivider,
   TwoImagesAndText,
   TextBlock,
 } from './slices'
@@ -16,29 +17,26 @@ import {
  *
  * The template that has the query for the data to pass as props into SliceZone returns a structure as follows:
  *
- * ```html
+ * ```jsx
  * <main className="full-height-page">
- *    <SliceZone
-        sliceZone={featureSliceData}
-        featureMetadata={featureMetadata}
-      />
+ *    <SliceZone sliceZone={sliceData} metadata={metadata} />
  * </main>
  * ```
  *
- * Each CMS Slice returned by SliceZone is wrapped in a `<section>` element, so if we did, there would be unnecessary elements between `<main>` and the `<section>`
+ * Each CMS Slice returned by SliceZone is wrapped in a `<section>` element, so if we did, there would be unnecessary elements between `<main>` and the `<section>`.
  *
- * ```html
+ * ```jsx
  * <main className="full-height-page">
  *    <div>
  *      <section>{slice layout here}</section>
  *    </div>
  * </main>
  * ```
- *
+ * @category CMS Slices
  * @function sliceZone
  * @param {Object} sliceZone
  * @param {Object} metadata
- * @returns {jsx} Returns components selected by sliceComponents key that have been hydrated with data to create the given page's layout.
+ * @returns {jsx} Returns components selected by `sliceComponents` key that have been hydrated with data to create the given page's layout.
  */
 
 function SliceZone({ sliceZone, metadata }) {
@@ -51,6 +49,7 @@ function SliceZone({ sliceZone, metadata }) {
     full_width_image: FullWidthImage,
     headline_block: ArticleHeadline,
     row_of_images: ImageRow,
+    slice_divider: SectionDivider,
     one_image_and_text1: OneImageAndText,
     two_images_and_text: TwoImagesAndText,
     text: TextBlock,

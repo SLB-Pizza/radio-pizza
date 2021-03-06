@@ -15,13 +15,7 @@ function TextBlock({ slice }) {
   }
 
   return (
-    <section
-      className="section container slice"
-      style={{
-        borderTop: '2px solid chartreuse',
-        borderBottom: '2px solid red',
-      }}
-    >
+    <section className="section container slice debug">
       <div className="columns">
         <div className="column is-full content text-block">
           <RichTextHelper richText={body_text} />

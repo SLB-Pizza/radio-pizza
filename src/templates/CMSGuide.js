@@ -110,6 +110,9 @@ export const query = graphql`
                   oiat_text
                 }
               }
+              ... on PRISMIC_Cms_guideBodySlice_divider {
+                type
+              }
             }
           }
         }

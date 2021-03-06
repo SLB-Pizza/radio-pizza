@@ -3,7 +3,7 @@ import { ResponsiveImage } from './index'
 
 /**
  * Creates an Image Modal; called by {@link ImageHelper}.
- * @category CMS
+ * @category Layout Helper
  * @function ImageModal
  * @param {?String} columnClassName - optional string prop dictating specific column layouts.
  *
@@ -20,6 +20,16 @@ import { ResponsiveImage } from './index'
  * @returns {jsx}
  */
 function ImageModal({ fullSizeImg, responsiveData, setImgModalOpen }) {
+  const { alt, photoCredit } = fullSizeImg
+
+  let photoDescription = ''
+  if (alt) {
+    photoDescription += alt
+    if (photoCredit) {
+      photoDescription += ` by ${photoCredit}`
+    }
+  }
+
   return (
     <div className="modal is-active">
       <div
@@ -28,26 +38,25 @@ function ImageModal({ fullSizeImg, responsiveData, setImgModalOpen }) {
       />
       <div
         className="modal-content"
-        aria-label={fullSizeImg.alt ? fullSizeImg.alt : fullSizeImg.photoCredit}
+        aria-label={photoDescription ? photoDescription : 'article image'}
       >
         <div className="columns">
-          <div className="column is-10 img-area">
+          <div className="column img-area">
             <figure className="image has-ratio">
               <ResponsiveImage
                 largestImg={fullSizeImg}
                 responsiveData={responsiveData}
               />
+              {photoDescription && (
+                <figcaption className="subtitle credit">
+                  {photoDescription}
+                </figcaption>
+              )}
             </figure>
           </div>
 
-          <div className="column is-2">
-            {fullSizeImg.alt ? (
-              <figcaption>{fullSizeImg.alt}</figcaption>
-            ) : null}
-            <figcaption className="credit">
-              {fullSizeImg.photoCredit}
-            </figcaption>
-          </div>
+          {/* <div className="column is-2">
+          </div> */}
           <button
             className="modal-close is-large"
             tabIndex="0"

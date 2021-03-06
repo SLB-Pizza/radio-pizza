@@ -45,9 +45,9 @@ function ImageHelper({ columnClassName, imageData }) {
   }
 
   return (
-    <div className={imageColumnClass}>
+    <div className={`${imageColumnClass}`}>
       <figure
-        className="image has-ratio"
+        className="image has-ratio feature-img"
         onClick={() => setImgModalOpen(true)}
         tabIndex="0"
         aria-labelledby={
@@ -58,6 +58,12 @@ function ImageHelper({ columnClassName, imageData }) {
           largestImg={fullSizeImg}
           responsiveData={responsiveSizes}
         />
+        {fullSizeImg.alt && (
+          <figcaption className="credit">{fullSizeImg.alt}</figcaption>
+        )}
+        {fullSizeImg.photoCredit && (
+          <figcaption className="credit">{fullSizeImg.photoCredit}</figcaption>
+        )}
       </figure>
 
       {imgModalOpen ? (

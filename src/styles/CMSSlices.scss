@@ -9,10 +9,17 @@ article .container {
   }
 }
 
-// First feature slice after ArticleHeadline.js
-// header.article-header + section.slice {
-//   margin-top: 2rem;
-// }
+.feature-img {
+  background: transparent;
+  transition: 0.25s $easing;
+
+  &:hover,
+  &:focus {
+    box-shadow: rgba($color: $primary, $alpha: 0.1) 0px 1px 0px,
+      rgba($color: $primary, $alpha: 0.1) 0px 8px 24px,
+      rgba($color: $primary, $alpha: 0.1) 0px 16px 48px;
+  }
+}
 
 section.slice,
 article.landing-page-element {
@@ -22,8 +29,8 @@ article.landing-page-element {
   // Layout Helper - ImageModal.js
   // ================================
   .modal-content {
-    min-width: 95vw;
-    padding: 2rem;
+    width: 85vw;
+    padding: $gap;
     background-color: black;
     border: 2px solid white;
     border-radius: 0.75rem;
@@ -50,7 +57,7 @@ section.hero p.has-text-centered,
 blockquote p,
 cite,
 .headline-block {
-  font-family: "Poppins", sans-serif;
+  font-family: $family-sans-serif;
 }
 
 blockquote p {

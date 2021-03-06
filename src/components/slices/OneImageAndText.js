@@ -9,45 +9,44 @@ import { ImageHelper, RichTextHelper } from '../helpers'
  * @returns {jsx}
  */
 function OneImageAndText({ slice }) {
-  const { oiat_text, oiat_img } = slice.primary
+  const { oiat_img, oiat_text, image_type, text_block_position } = slice.primary
+
+  let textClass, imageClass
+
+  // Split the image type string on the whitespace to obtain the layout type.
+  const layout = image_type.split(' ')[0]
 
   /**
-   * Derive layout type by processing `slice.label`.
-   * Will be selected by user in Prismic; two layout labels available:
-   * - Left: Image-Text
-   * - Right: Text-Image
-   *
-   * The layout label is received all lowercase and `: ` is converted to `__`; split on it to get direction.
+   * 1. Check to see if `oiat_img` exists.
+   * 2. Check to see if layout is "Tall".
+   * 3. Set class data for a "Wide" image layout.
    */
-  const layoutType = slice.label.split('__')[0]
-
-  const oiatContentClass = 'column is-two-thirds-tablet'
-  const oiatImageClass = 'column is-one-third-tablet is-full-mobile'
+  if (!oiat_img) {
+    textClass = 'column is-full'
+  } else if (layout === 'Tall') {
+    textClass = 'column is-two-thirds-tablet is-full-mobile'
+    imageClass = 'column is-one-third-tablet is-full-mobile'
+  } else {
+    textClass = 'column is-one-third-tablet is-full-mobile'
+    imageClass = 'column is-two-thirds-tablet is-full-mobile'
+  }
 
   return (
     <section className="section container slice debug">
       <div className="columns is-mobile is-multiline">
-        {layoutType === 'left' ? (
+        {!text_block_position ? (
           <>
-            <RichTextHelper
-              richText={oiat_text}
-              columnSizing={oiatContentClass}
-            />
-            <ImageHelper
-              imageData={oiat_img}
-              columnClassName={oiatImageClass}
-            />
+            <RichTextHelper richText={oiat_text} columnSizing={textClass} />
+            {oiat_img && (
+              <ImageHelper imageData={oiat_img} columnClassName={imageClass} />
+            )}
           </>
         ) : (
           <>
-            <ImageHelper
-              imageData={oiat_img}
-              columnClassName={oiatImageClass}
-            />
-            <RichTextHelper
-              richText={oiat_text}
-              columnSizing={oiatContentClass}
-            />
+            {oiat_img && (
+              <ImageHelper imageData={oiat_img} columnClassName={imageClass} />
+            )}
+            <RichTextHelper richText={oiat_text} columnSizing={textClass} />
           </>
         )}
       </div>

@@ -175,11 +175,11 @@ button.button {
 }
 
 figcaption {
-  font-size: $size-6;
   &.credit {
+    color: $grey-light;
     font-size: $size-7;
-    color: $grey;
     font-style: italic;
+    font-family: $family-sans-serif;
   }
 }
 
@@ -189,7 +189,8 @@ figcaption {
   background-repeat: repeat-x;
   background-size: 2px 2px;
   transition: 0.125s $easing;
-  &:hover {
+  &:hover,
+  &:focus {
     background-size: 2px 1.5rem;
   }
 }

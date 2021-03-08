@@ -104,7 +104,7 @@ export const query = graphql`
               }
               ... on PRISMIC_Cms_guideBodyOne_image_and_text1 {
                 type
-                label
+                # label
                 primary {
                   oiat_img
                   oiat_text
@@ -114,6 +114,15 @@ export const query = graphql`
               }
               ... on PRISMIC_Cms_guideBodySlice_divider {
                 type
+              }
+              ... on PRISMIC_Cms_guideBodyTwo_images_and_text {
+                label
+                type
+                primary {
+                  tiat_left_img
+                  tiat_right_img
+                  tiat_text
+                }
               }
             }
           }

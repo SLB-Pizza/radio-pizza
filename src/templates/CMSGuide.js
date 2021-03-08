@@ -104,7 +104,7 @@ export const query = graphql`
               }
               ... on PRISMIC_Cms_guideBodyOne_image_and_text1 {
                 type
-                # label
+                label
                 primary {
                   oiat_img
                   oiat_text
@@ -122,6 +122,16 @@ export const query = graphql`
                   tiat_left_img
                   tiat_right_img
                   tiat_text
+                }
+              }
+              ... on PRISMIC_Cms_guideBodyBlockquote {
+                type
+                label
+                primary {
+                  blockquote_type
+                  blockquote_text
+                  blockquote_bg_img
+                  blockquote_attribution
                 }
               }
             }

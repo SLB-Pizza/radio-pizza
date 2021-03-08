@@ -385,7 +385,15 @@ figcaption {
 
 // New Working Hero
 .hero {
-  height: calc(100vh - 8.75rem);
+  &.homepage {
+    height: calc(100vh - 8.75rem);
+  }
+
+  &.is-blockquote {
+    .hero-body {
+      min-height: initial;
+    }
+  }
 
   &.has-background {
     position: relative;

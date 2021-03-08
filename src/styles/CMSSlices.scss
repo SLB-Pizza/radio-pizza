@@ -21,8 +21,7 @@ article .container {
   }
 }
 
-section.slice,
-article.landing-page-element {
+section.slice {
   // margin-top: $gap;
   // margin-bottom: $gap;
   // ================================
@@ -60,28 +59,24 @@ cite,
   font-family: $family-sans-serif;
 }
 
-blockquote p {
-  font-weight: 900;
-  font-style: italic;
-  line-height: 1.15;
-  &.light-bg {
-    border-left: 5px solid black;
-    color: black;
+blockquote {
+  p {
+    font-weight: 900;
+    font-style: italic;
+    line-height: 1.25;
+    color: white;
+    &.light-bg {
+      border-left: 5px solid black;
+      color: black;
+    }
+    &.dark-bg {
+      border-left: 5px solid white;
+    }
   }
-  &.dark-bg {
-    border-left: 5px solid white;
-  }
-}
-
-h3.headline-block-subtitle {
-  font-weight: 300;
 }
 
 cite {
-  margin-top: -3rem;
   font-weight: 500;
-  padding: 1.25rem 1.5rem;
-  display: block;
   &:before {
     content: "\2014 \2009";
   }
@@ -188,6 +183,6 @@ header.article-header {
 }
 
 .debug {
-  // border-top: 2px solid chartreuse;
-  // border-bottom: 2px solid red;
+  border-top: 2px solid chartreuse;
+  border-bottom: 2px solid red;
 }

@@ -6,13 +6,13 @@ import { ImageHelper, RichTextHelper } from '../helpers'
  *
  * **Column `className` breakdown when both images exist**
  *
- * | Breakpoint | Text (`contentClass`) | Each Image (`imageClass`) | Notes |
- * |-|-|-|-|
- * | Mobile | `is-full` | `is-half` | Left layout -- Text above images; Right layout -- images above text |
- * | Tablet | `is-half` | `is-one-quarter` |  |
- * | Desktop | `is-half` | `is-one-quarter` |  |
- * | Widescreen | `is-half` | `is-one-quarter` |  |
- * | FullHD | `is-5` | `is-3` | Wrapper column className `is-centered is-fluid` in effect, total column width is 11 (5+3+3); one column removed from fluid.  |
+ * | Breakpoint | Text (`contentClass`) | Each Image (`imageClass`) | Notes                                                                                                                       |
+ * |------------|-----------------------|---------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+ * | Mobile     | `is-full`             | `is-half`                 | Left layout -- Text above images; Right layout -- images above text                                                         |
+ * | Tablet     | `is-half`             | `is-one-quarter`          |                                                                                                                             |
+ * | Desktop    | `is-half`             | `is-one-quarter`          |                                                                                                                             |
+ * | Widescreen | `is-half`             | `is-one-quarter`          |                                                                                                                             |
+ * | FullHD     | `is-5`                | `is-3`                    | Wrapper column className `is-centered is-fluid` in effect, total column width is 11 (5+3+3); one column removed from fluid. |
  * @category CMS Slices
  * @function TwoImagesAndText
  * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create the HeadlineBlock slice

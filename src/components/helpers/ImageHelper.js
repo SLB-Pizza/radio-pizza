@@ -4,7 +4,7 @@ import { ImageModal, ResponsiveImage } from '../../utils'
  * Creates a JSX segment that CMS Slices call on to format images. Its text counterpart is {@link RichTextHelper}. Called upon by {@link ResponsiveImage}
  * @category CMS
 
- * @param {?String} columnClassName - optional string prop dictating specific column layouts.
+ * @param {?String} columnSizing - optional string prop dictating specific column layouts.
  *
  * **CMS Slices passing this prop**
  * - {@link OneImageAndText}
@@ -18,16 +18,16 @@ import { ImageModal, ResponsiveImage } from '../../utils'
  * @param {String} fullSizeImg.photoCredit - contains image credit data; comes from Prismic CMS. Should be set when the image is **first uploaded** to the CMS Media Library
  * @returns {jsx}
  */
-function ImageHelper({ columnClassName, imageData }) {
+function ImageHelper({ columnSizing, imageData }) {
   const [imgModalOpen, setImgModalOpen] = useState(false)
 
   const defaultImageClass = 'column is-12-mobile'
 
   /**
-   * If a columnClassName prop was passed in, use that prop value.
+   * If a columnSizing prop was passed in, use that prop value.
    * Else, use the defaultImageClass defined above.
    */
-  const imageColumnClass = columnClassName ? columnClassName : defaultImageClass
+  const imageColumnClass = columnSizing ? columnSizing : defaultImageClass
 
   const fullSizeImg = {
     alt: imageData.alt,

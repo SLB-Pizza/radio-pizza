@@ -1,6 +1,5 @@
 import React from 'react'
 import { RichText } from 'prismic-reactjs'
-import getBlockquoteStyling from '../../utils/getBlockquoteStyling'
 
 /**
  * @category CMS Slices
@@ -23,7 +22,7 @@ function Blockquote({ slice }) {
     blockquote_bg_img,
   } = primary
 
-  console.log(label) // light__light-color_background_image__black_quote_text
+  // console.log(label) // light__light-color_background_image__black_quote_text
 
   let layoutType
   let blockquoteClass = 'is-size-1-desktop is-size-3-tablet is-size-4-mobile'

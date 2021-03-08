@@ -1,7 +1,5 @@
 // Main container
 
-$homepage-padding: calc(.5 * (100vh - 10.5rem))
-
 .hero
   align-items: stretch
   display: flex
@@ -98,14 +96,6 @@ $homepage-padding: calc(.5 * (100vh - 10.5rem))
     min-height: 50vh
   &.is-fullheight
     min-height: 100vh
-  // Custom size for front page here
-  // Each padding is half the total height of navbars (10.5rem)
-  //
-  &.is-homepage
-    +tablet
-      .hero-body
-        padding-top: $homepage-padding
-        padding-bottom: $homepage-padding
 
 // Components
 

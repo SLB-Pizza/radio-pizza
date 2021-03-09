@@ -121,7 +121,50 @@
           "two_images___text": [],
           "image_row": [],
           "headline_block": [],
-          "image_group": []
+          "image_group": [],
+          "one_image_and_text1": [
+            {
+              "name": "left__tall_image_--_text",
+              "display": "Left: Tall Image -- Text"
+            },
+            {
+              "name": "left__wide_image_--_text",
+              "display": "Left: Wide Image -- Text"
+            },
+            {
+              "name": "right__text_--_tall_image",
+              "display": "Right: Text -- Tall Image"
+            },
+            {
+              "name": "right__text_--_wide_image",
+              "display": "Right: Text -- Wide Image"
+            }
+          ],
+          "slice_divider": [],
+          "two_images_and_text": [
+            {
+              "name": "left__text_--_image_--_image",
+              "display": "Left: Text -- Image -- Image"
+            },
+            {
+              "name": "right__image_--_image_--_text",
+              "display": "Right: Image -- Image -- Text"
+            }
+          ],
+          "blockquote": [
+            {
+              "name": "none__solid_black_background__white_quote_text",
+              "display": "None: solid black background; white quote text"
+            },
+            {
+              "name": "light__light-color_background_image__black_quote_text",
+              "display": "Light: light-color background image; black quote text"
+            },
+            {
+              "name": "dark__dark_background_image__white_quote_text",
+              "display": "Dark: dark background image; white quote text"
+            }
+          ]
         },
         "choices": {
           "text": {
@@ -142,7 +185,7 @@
               "body_text": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
+                  "multi": "paragraph, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
                   "allowTargetBlank": true,
                   "label": "Body Text",
                   "placeholder": "Write your body text section here..."
@@ -155,7 +198,7 @@
           "blockquote": {
             "type": "Slice",
             "fieldset": "Blockquote",
-            "description": "Full-width large text quote with optional background image",
+            "description": "Fullwidth large text quote with optional background image.",
             "icon": "format_quote",
             "display": "list",
             "non-repeat": {
@@ -174,7 +217,7 @@
               "blockquote_text": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph",
+                  "multi": "paragraph, strong, em",
                   "label": "Blockquote Text",
                   "placeholder": "Enter blockquote text here..."
                 }
@@ -205,19 +248,11 @@
             "icon": "filter_1",
             "display": "list",
             "non-repeat": {
-              "oiat_layout": {
-                "type": "Select",
-                "config": {
-                  "options": ["Left: Text-Image", "Right: Image-Text"],
-                  "default_value": "Left: Text-Image",
-                  "label": "Which side is the text section on?",
-                  "placeholder": "Select the layout..."
-                }
-              },
               "oiat_text": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph, strong, em",
+                  "multi": "paragraph, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
+                  "allowTargetBlank": true,
                   "label": "Text Section",
                   "placeholder": "Enter the text that will appear alongside the image here..."
                 }
@@ -266,34 +301,13 @@
             "icon": "filter_2",
             "display": "list",
             "non-repeat": {
-              "tiat_layout": {
-                "type": "Select",
-                "config": {
-                  "options": [
-                    "Left: Text-Image-Image",
-                    "Right: Image-Image-Text"
-                  ],
-                  "default_value": "Left: Text-Image-Image",
-                  "label": "Is the text section on the left or the right?",
-                  "placeholder": "Select text section location..."
-                }
-              },
               "tiat_text": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
+                  "multi": "paragraph, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
                   "allowTargetBlank": true,
-                  "label": "Text Section Content",
-                  "placeholder": "Enter text caption here..."
-                }
-              },
-              "tiat_is_gapless": {
-                "type": "Boolean",
-                "config": {
-                  "placeholder_false": "Images are spaced apart",
-                  "placeholder_true": "Images touch each other",
-                  "default_value": false,
-                  "label": "Do you want the images to have a horizontal gap between them?"
+                  "label": "Text Section",
+                  "placeholder": "Enter the text that will appear alongside the images here..."
                 }
               },
               "tiat_left_img": {
@@ -452,6 +466,15 @@
             "fieldset": "HMBK Media",
             "description": "An embed for HMBK content (mixes, features, residents, etc)",
             "icon": "book",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {}
+          },
+          "slice_divider": {
+            "type": "Slice",
+            "fieldset": "Slice Divider",
+            "description": "A line that represents a change of scene, or shift of topic.",
+            "icon": "unfold_more",
             "display": "list",
             "non-repeat": {},
             "repeat": {}

@@ -108,8 +108,6 @@ export const query = graphql`
                 primary {
                   oiat_img
                   oiat_text
-                  image_type
-                  text_block_position
                 }
               }
               ... on PRISMIC_Cms_guideBodySlice_divider {

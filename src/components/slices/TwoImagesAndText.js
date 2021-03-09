@@ -50,7 +50,7 @@ function TwoImagesAndText({ slice }) {
   // tiat_text = null; // Styling works
 
   /**
-   * Determine the column `className` based on the available data.
+   * Determine the column `className` based on the available data. Similar process to {@link OneImageAndText}.
    *
    * **if `tiat_text` has value**
    * - Both images are `null`: make content "full" width; `is-11` FHD
@@ -76,9 +76,10 @@ function TwoImagesAndText({ slice }) {
     if (!leftImg && !rightImg) {
       imageClass = null
     } else if ((!leftImg && rightImg) || (leftImg && !rightImg)) {
-      imageClass = 'column is-four-fifths is-four-fifths-tablet is-half-mobile'
+      imageClass =
+        'column is-four-fifths-fullhd is-four-fifths-tablet is-half-mobile'
     } else {
-      imageClass = 'column is-two-fifths is-half-tablet is-half-mobile'
+      imageClass = 'column is-two-fifths-fullhd is-half-tablet is-half-mobile'
     }
   }
 
@@ -87,7 +88,7 @@ function TwoImagesAndText({ slice }) {
   // console.log("imageClass", imageClass);
 
   return (
-    <section className="section container is-fullhd is-fluid slice">
+    <section className="section container is-fullhd is-fluid slice debug">
       <div className="columns is-mobile is-centered is-multiline">
         {layoutType === 'left' ? (
           <>

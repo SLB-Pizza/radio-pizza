@@ -2,9 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 /**
- * @category CMS
- *  Slices
- * @function
+ * @category CMS Slices
+ * @function FullWidthImage
  * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create the HeadlineBlock slice
  * @param {Object} metadata - data object from Prismic CMS that contains
  * @returns {jsx}

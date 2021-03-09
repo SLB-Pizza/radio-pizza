@@ -1,0 +1,87 @@
+{
+  "article_author": {
+    "__typename": "PRISMIC_Staff",
+    "hmbk_staff_name": "Christian Mejia",
+    "hmbk_staff_position": "Super Developer",
+    "hmbk_staff_photo": null
+  },
+  "article_category": "Prismic Guide",
+  "article_headline": [
+    {
+      "type": "heading1",
+      "text": "The Kitchen Sink Feature Article",
+      "spans": []
+    }
+  ],
+  "article_headline_img": {
+    "dimensions": {
+      "width": 980,
+      "height": 517
+    },
+    "alt": "Tierra Patagonia",
+    "copyright": "Kevin Burg & Jamie Beck - cinemagraphs.com",
+    "url": "https://images.prismic.io/hmbk-cms/dc0eebd2-e9d8-423a-a617-92a7ed4548be_patagonia-cinemagraph.gif?auto=compress,format",
+    "desktop": {
+      "dimensions": {
+        "width": 1215,
+        "height": 641
+      },
+      "alt": "Tierra Patagonia",
+      "copyright": "Kevin Burg & Jamie Beck - cinemagraphs.com",
+      "url": "https://images.prismic.io/hmbk-cms/dc0eebd2-e9d8-423a-a617-92a7ed4548be_patagonia-cinemagraph.gif?auto=compress,format&rect=0,0,980,517&w=1215&h=641"
+    },
+    "tablet": {
+      "dimensions": {
+        "width": 1023,
+        "height": 540
+      },
+      "alt": "Tierra Patagonia",
+      "copyright": "Kevin Burg & Jamie Beck - cinemagraphs.com",
+      "url": "https://images.prismic.io/hmbk-cms/dc0eebd2-e9d8-423a-a617-92a7ed4548be_patagonia-cinemagraph.gif?auto=compress,format&rect=0,0,979,517&w=1023&h=540"
+    },
+    "widescreen": {
+      "dimensions": {
+        "width": 1407,
+        "height": 742
+      },
+      "alt": "Tierra Patagonia",
+      "copyright": "Kevin Burg & Jamie Beck - cinemagraphs.com",
+      "url": "https://images.prismic.io/hmbk-cms/dc0eebd2-e9d8-423a-a617-92a7ed4548be_patagonia-cinemagraph.gif?auto=compress,format&rect=0,0,980,517&w=1407&h=742"
+    },
+    "lo_fi_placeholder": {
+      "dimensions": {
+        "width": 32,
+        "height": 17
+      },
+      "alt": "Tierra Patagonia",
+      "copyright": "Kevin Burg & Jamie Beck - cinemagraphs.com",
+      "url": "https://images.prismic.io/hmbk-cms/dc0eebd2-e9d8-423a-a617-92a7ed4548be_patagonia-cinemagraph.gif?auto=compress,format&rect=0,0,973,517&w=32&h=17"
+    },
+    "square_highlight": {
+      "dimensions": {
+        "width": 256,
+        "height": 256
+      },
+      "alt": "Tierra Patagonia",
+      "copyright": "Kevin Burg & Jamie Beck - cinemagraphs.com",
+      "url": "https://images.prismic.io/hmbk-cms/dc0eebd2-e9d8-423a-a617-92a7ed4548be_patagonia-cinemagraph.gif?auto=compress,format&rect=232,0,517,517&w=256&h=256"
+    },
+    "mobile": {
+      "dimensions": {
+        "width": 767,
+        "height": 405
+      },
+      "alt": "Tierra Patagonia",
+      "copyright": "Kevin Burg & Jamie Beck - cinemagraphs.com",
+      "url": "https://images.prismic.io/hmbk-cms/dc0eebd2-e9d8-423a-a617-92a7ed4548be_patagonia-cinemagraph.gif?auto=compress,format&rect=0,0,979,517&w=767&h=405"
+    }
+  },
+  "article_subcategory": "Slice Layouts",
+  "article_subtitle": [
+    {
+      "type": "heading4",
+      "text": "The all-in-one feature article showcasing every single slice layout, in every variation, with all the details you need to know to create pieces like this.",
+      "spans": []
+    }
+  ]
+}

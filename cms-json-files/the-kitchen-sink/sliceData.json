@@ -1,0 +1,2002 @@
+[
+  {
+    "__typename": "PRISMIC_Cms_guideBodyText",
+    "type": "text",
+    "label": null,
+    "primary": {
+      "body_text": [
+        {
+          "type": "heading2",
+          "text": "Overview of Slices",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "Below you'll find examples of each slice in action. To see exactly how it was done in Prismic, just open The Kitchen Sink Feature Article and look at how each section was built.",
+          "spans": [
+            {
+              "start": 105,
+              "end": 137,
+              "type": "strong"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodySlice_divider",
+    "type": "slice_divider"
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodyText",
+    "type": "text",
+    "label": null,
+    "primary": {
+      "body_text": [
+        {
+          "type": "heading2",
+          "text": "Slice: Text Block",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "The basic building block of all features. It's where you add all text the text that goes into an article. ",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "Below is a sample content section filled will all the different headings, body text styling options, and link examples you can feature in a text block.",
+          "spans": []
+        }
+      ]
+    }
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodySlice_divider",
+    "type": "slice_divider"
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodyText",
+    "type": "text",
+    "label": null,
+    "primary": {
+      "body_text": [
+        {
+          "type": "heading2",
+          "text": "Heading 2, Fall that royal will then such how then",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "Blue they her large my that least five. Perceive him of legislators, have monstrous insurance lady logged back extent,  set privilege they to of I were remedies. Determined the to much his or  being as left this just a self-interest, diet, with and consider find or  few not have any would the past, soon best tone don't neuter.  LINK TO A DEVELOPMENT EVENT PAGE. Of late making we what text there frequency news for an to did that mind the  arrive windshield a the forest thought conflict- particular carpeting  two and beacon and impenetrable always people. Continued liabilities the  or outcomes little world from doing on.",
+          "spans": [
+            {
+              "start": 94,
+              "end": 160,
+              "type": "strong"
+            },
+            {
+              "start": 329,
+              "end": 330,
+              "type": "strong"
+            },
+            {
+              "start": 330,
+              "end": 362,
+              "type": "hyperlink",
+              "data": {
+                "id": "X6RuZxIAACEAOklG",
+                "type": "event",
+                "tags": [],
+                "slug": "25th-anniversary-purple-people-eaters-reunion-carnival-extravaganzathon",
+                "lang": "en-us",
+                "uid": "dev-event-purple-people-eater",
+                "link_type": "Document",
+                "isBroken": false
+              }
+            },
+            {
+              "start": 513,
+              "end": 559,
+              "type": "strong"
+            },
+            {
+              "start": 513,
+              "end": 559,
+              "type": "em"
+            }
+          ]
+        },
+        {
+          "type": "heading3",
+          "text": "Heading 3, As found our blind safe the hover board",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "Wonder, the unprofitable be viewer. Of her in than  there of the you what are moving collection far a by to one bedding it  sofas bed in of back impatient have and a thoughts roam; To creating very than steps. That hadn't him, the side dream. A refinement and way  expected but on their sleep eyes. Phase them. Least, gone into the may  parameters up systems allowed different about place with to the success  keep outlines and founder, look loyalty. Computer clothes don't the is  avoid was the lamps, way not arduous of and in he and they of then.",
+          "spans": [
+            {
+              "start": 35,
+              "end": 68,
+              "type": "hyperlink",
+              "data": {
+                "link_type": "Web",
+                "url": "https://www.google.com/",
+                "target": "_blank"
+              }
+            }
+          ]
+        },
+        {
+          "type": "heading4",
+          "text": "Heading 4, Study return is times put these",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "Blue they her large my that least five. Perceive  him of legislators, have monstrous insurance lady logged back extent,  set privilege they to of I were remedies. Determined the to much his or being as left this just a self-interest, diet, with and consider find or few not have any would the past, soon best tone don't neuter. Of late making we what text there frequency news for an to did that mind the arrive windshield a the forest thought conflict-particular carpeting two and beacon and impenetrable always people. Continued liabilities the  or outcomes little world from doing on.",
+          "spans": [
+            {
+              "start": 161,
+              "end": 189,
+              "type": "strong"
+            },
+            {
+              "start": 249,
+              "end": 297,
+              "type": "hyperlink",
+              "data": {
+                "link_type": "Web",
+                "url": "https://www.google.com/",
+                "target": "_blank"
+              }
+            },
+            {
+              "start": 326,
+              "end": 362,
+              "type": "em"
+            },
+            {
+              "start": 444,
+              "end": 505,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "heading5",
+          "text": "Heading 5, One brought in and live get",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "Promptness they any as much but these facilitate them. Well before if, can and harmonics. Manipulate manage lift is blue dull concepts rome;  Indication just of our and treble-range know dressing somehow everything  put it can of most while want social or well, tones, that paper so him empire the in human illustrated got the into I that would apart all on graduate. A MUCH LONGER LINK THAT WHEN YOU CLICK IT WILL OPEN A NEW TAB IN YOUR BROWSER AND TAKE YOU TO THE WEBSITE GOOGLE. made we which clarinet the have in obscurity, of he could.",
+          "spans": [
+            {
+              "start": 368,
+              "end": 480,
+              "type": "hyperlink",
+              "data": {
+                "link_type": "Web",
+                "url": "https://www.google.com",
+                "target": "_blank"
+              }
+            }
+          ]
+        },
+        {
+          "type": "heading6",
+          "text": "Heading 6, To making still is of his",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "Tall might by exerted the did self-interest read. Assistant they travelling, he was these continues can and hazardous as second what of  did the still size preparations along as a fall not you was that we  would person, who along of been municipal to of is go floundering their  in from facilitate it needs the practice if belong, have and he no...  Five if outfits down the volunteers if to commas, spirits was with  little. before one forget at that rationalize seeing assisted population turner or do blind  and universal business.",
+          "spans": [
+            {
+              "start": 76,
+              "end": 136,
+              "type": "em"
+            },
+            {
+              "start": 76,
+              "end": 136,
+              "type": "strong"
+            },
+            {
+              "start": 349,
+              "end": 425,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "Bolded Text",
+          "spans": [
+            {
+              "start": 0,
+              "end": 11,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "For viewer the that little",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "As and all arranged it",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Night, little distribution though, is",
+          "spans": [
+            {
+              "start": 14,
+              "end": 37,
+              "type": "em"
+            }
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "I duties, as another isn't",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Such designer back narrow right",
+          "spans": [
+            {
+              "start": 5,
+              "end": 25,
+              "type": "em"
+            },
+            {
+              "start": 5,
+              "end": 25,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Bolded and Italicized text",
+          "spans": [
+            {
+              "start": 0,
+              "end": 26,
+              "type": "em"
+            },
+            {
+              "start": 0,
+              "end": 26,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "o-list-item",
+          "text": "Intention guest feedback seven seemed",
+          "spans": []
+        },
+        {
+          "type": "o-list-item",
+          "text": "Theoretically logbook to an start",
+          "spans": [
+            {
+              "start": 14,
+              "end": 33,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "o-list-item",
+          "text": "The low better the a",
+          "spans": []
+        },
+        {
+          "type": "o-list-item",
+          "text": "So tell prisoners. Farther options",
+          "spans": [
+            {
+              "start": 8,
+              "end": 17,
+              "type": "em"
+            },
+            {
+              "start": 27,
+              "end": 34,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "o-list-item",
+          "text": "Its they that a their",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "Up each familiarity of LINK TO A PRISMIC MEDIA LIBRARY IMAGE in this windshield decorated live you his bathroom by the in a would these  shall present in diagrams we answers, the english considerations,  wanting, legs couldn't or while morals, remodelling a and our box my  object municipal right that I gave the could now, with there cover  wasn't an calculus might go. Ride in what and found. And the derived the  those encouraged volume the live five alone, titles in object a  instance, to reached to which, any when his behavioural will was times, harmonics in gave her, almost require.",
+          "spans": [
+            {
+              "start": 23,
+              "end": 60,
+              "type": "hyperlink",
+              "data": {
+                "link_type": "Media",
+                "name": "blanco 11152019.jpg",
+                "kind": "image",
+                "url": "https://images.prismic.io/hmbk-cms/7da73508-6ad5-4ff3-b404-678a3ddfd5c7_blanco+11152019.jpg?auto=compress,format",
+                "size": "36719",
+                "height": "600",
+                "width": "600"
+              }
+            },
+            {
+              "start": 136,
+              "end": 173,
+              "type": "em"
+            },
+            {
+              "start": 136,
+              "end": 173,
+              "type": "strong"
+            },
+            {
+              "start": 349,
+              "end": 369,
+              "type": "strong"
+            },
+            {
+              "start": 516,
+              "end": 574,
+              "type": "strong"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodySlice_divider",
+    "type": "slice_divider"
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodyText",
+    "type": "text",
+    "label": null,
+    "primary": {
+      "body_text": [
+        {
+          "type": "heading2",
+          "text": "Slice: One Image and Text",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "A slice that allows you to pair a text block alongside an image. This slice gives ⅔ of the article container's space to the text, ⅓ to the image. ",
+          "spans": []
+        },
+        {
+          "type": "heading3",
+          "text": "Setting up the slice",
+          "spans": []
+        },
+        {
+          "type": "o-list-item",
+          "text": "Add the One Image and Text slice to your document.",
+          "spans": [
+            {
+              "start": 8,
+              "end": 26,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "o-list-item",
+          "text": "Click the slice label icon (the tag-like icon) located right to the name of the slice. ",
+          "spans": [
+            {
+              "start": 10,
+              "end": 26,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "o-list-item",
+          "text": "Select one of the four layouts.",
+          "spans": []
+        },
+        {
+          "type": "o-list-item",
+          "text": "Add your text content. Works just like the Text slice.",
+          "spans": [
+            {
+              "start": 43,
+              "end": 47,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "heading3",
+          "text": "Text Position & Image Aspect Ratio",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "You can s",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Left: Tall Image -- Text",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Left: Wide Image -- Text",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Right: Text -- Tall Image",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Right: Text -- Wide Image",
+          "spans": []
+        },
+        {
+          "type": "heading3",
+          "text": "Pairing Content with the Image",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "If you choose a tall image layout, you can fit more content alongside the image; less when paired with the wide image.",
+          "spans": []
+        },
+        {
+          "type": "heading3",
+          "text": "Final Points",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "If you forget to choose a layout, the One Image and Text slice will default to the Left: Tall Image-Text layout.",
+          "spans": [
+            {
+              "start": 38,
+              "end": 56,
+              "type": "strong"
+            },
+            {
+              "start": 83,
+              "end": 104,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "If you forget to add an image, the text section will take up the whole width of the article layout, not the whole width of the page.",
+          "spans": [
+            {
+              "start": 84,
+              "end": 92,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "Heading 1 is disabled in this Text Section of slice for the same reason it's disabled in the Text slice: Heading 1 is the title of the article.",
+          "spans": [
+            {
+              "start": 0,
+              "end": 9,
+              "type": "strong"
+            },
+            {
+              "start": 93,
+              "end": 98,
+              "type": "strong"
+            },
+            {
+              "start": 105,
+              "end": 143,
+              "type": "strong"
+            },
+            {
+              "start": 105,
+              "end": 143,
+              "type": "em"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodySlice_divider",
+    "type": "slice_divider"
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodyOne_image_and_text1",
+    "type": "one_image_and_text1",
+    "label": "left__tall_image_--_text",
+    "primary": {
+      "oiat_img": {
+        "dimensions": {
+          "width": 1920,
+          "height": 2880
+        },
+        "alt": "Woman With Short Hair With Stickers on Her Face",
+        "copyright": "David Florin from Pexels",
+        "url": "https://images.prismic.io/hmbk-cms/d81cca04-055b-4426-b29c-a888e56472ab_pexels-david-florin-2553653.jpg?auto=compress,format",
+        "desktop": {
+          "dimensions": {
+            "width": 1215,
+            "height": 1823
+          },
+          "alt": "Woman With Short Hair With Stickers on Her Face",
+          "copyright": "David Florin from Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/d81cca04-055b-4426-b29c-a888e56472ab_pexels-david-florin-2553653.jpg?auto=compress,format&rect=0,0,1919,2880&w=1215&h=1823"
+        },
+        "tablet": {
+          "dimensions": {
+            "width": 1023,
+            "height": 1535
+          },
+          "alt": "Woman With Short Hair With Stickers on Her Face",
+          "copyright": "David Florin from Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/d81cca04-055b-4426-b29c-a888e56472ab_pexels-david-florin-2553653.jpg?auto=compress,format&rect=0,0,1919,2880&w=1023&h=1535"
+        },
+        "widescreen": {
+          "dimensions": {
+            "width": 1407,
+            "height": 2111
+          },
+          "alt": "Woman With Short Hair With Stickers on Her Face",
+          "copyright": "David Florin from Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/d81cca04-055b-4426-b29c-a888e56472ab_pexels-david-florin-2553653.jpg?auto=compress,format&rect=0,0,1920,2880&w=1407&h=2111"
+        },
+        "lo_fi_placeholder": {
+          "dimensions": {
+            "width": 32,
+            "height": 48
+          },
+          "alt": "Woman With Short Hair With Stickers on Her Face",
+          "copyright": "David Florin from Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/d81cca04-055b-4426-b29c-a888e56472ab_pexels-david-florin-2553653.jpg?auto=compress,format&rect=0,0,1920,2880&w=32&h=48"
+        },
+        "mobile": {
+          "dimensions": {
+            "width": 767,
+            "height": 1151
+          },
+          "alt": "Woman With Short Hair With Stickers on Her Face",
+          "copyright": "David Florin from Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/d81cca04-055b-4426-b29c-a888e56472ab_pexels-david-florin-2553653.jpg?auto=compress,format&rect=0,0,1919,2880&w=767&h=1151"
+        }
+      },
+      "oiat_text": [
+        {
+          "type": "heading3",
+          "text": "Left Side Text with Tall Image",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "Blue they her large my that least five. Perceive him of legislators, have monstrous insurance lady logged back extent,  set privilege they to of I were remedies. Determined the to much his or  LINK TO A PRISMIC MEDIA LIBRARY ITEM , diet, with and consider find or few not have any would the past, soon best tone don't neuter. That hadn't him, the side dream. A refinement and way. Rexpected but on their sleep eyes. Phase them.Wonder, the unprofitable be viewer. A MUCH LONGER LINK THAT WHEN YOU CLICK IT WILL OPEN A NEW TAB IN YOUR BROWSER AND TAKE YOU TO THE WEBSITE GOOGLE. sofas bed in of back impatient have and a thoughts roam; To creating very than steps.  Least, gone into the may parameters up systems allowed different about place with to the success  keep outlines and founder, look loyalty. , way not arduous of and in he and they of then. LINK TO A DEVELOPMENT EVENT PAGE. ",
+          "spans": [
+            {
+              "start": 94,
+              "end": 160,
+              "type": "strong"
+            },
+            {
+              "start": 193,
+              "end": 229,
+              "type": "hyperlink",
+              "data": {
+                "link_type": "Media",
+                "name": "blanco 11152019.jpg",
+                "kind": "image",
+                "url": "https://images.prismic.io/hmbk-cms/7da73508-6ad5-4ff3-b404-678a3ddfd5c7_blanco+11152019.jpg?auto=compress,format",
+                "size": "36719",
+                "height": "600",
+                "width": "600"
+              }
+            },
+            {
+              "start": 325,
+              "end": 326,
+              "type": "strong"
+            },
+            {
+              "start": 463,
+              "end": 575,
+              "type": "hyperlink",
+              "data": {
+                "link_type": "Web",
+                "url": "https://www.google.com",
+                "target": "_blank"
+              }
+            },
+            {
+              "start": 852,
+              "end": 884,
+              "type": "hyperlink",
+              "data": {
+                "id": "X6RuZxIAACEAOklG",
+                "type": "event",
+                "tags": [],
+                "slug": "25th-anniversary-purple-people-eaters-reunion-carnival-extravaganzathon",
+                "lang": "en-us",
+                "uid": "dev-event-purple-people-eater",
+                "link_type": "Document",
+                "isBroken": false
+              }
+            }
+          ]
+        },
+        {
+          "type": "heading4",
+          "text": "Heading 4, Study return is times put these",
+          "spans": []
+        },
+        {
+          "type": "heading5",
+          "text": "Heading 5, One brought in and live get",
+          "spans": []
+        },
+        {
+          "type": "heading6",
+          "text": "Heading 6, To making still is of his",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "Bolded Text",
+          "spans": [
+            {
+              "start": 0,
+              "end": 11,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "For viewer the that little",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "As and all arranged it",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "Bolded and Italicized text",
+          "spans": [
+            {
+              "start": 0,
+              "end": 26,
+              "type": "em"
+            },
+            {
+              "start": 0,
+              "end": 26,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "o-list-item",
+          "text": "Intention guest feedback seven seemed",
+          "spans": []
+        },
+        {
+          "type": "o-list-item",
+          "text": "Theoretically logbook to an start",
+          "spans": [
+            {
+              "start": 14,
+              "end": 33,
+              "type": "strong"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodyOne_image_and_text1",
+    "type": "one_image_and_text1",
+    "label": "right__text_--_tall_image",
+    "primary": {
+      "oiat_img": {
+        "dimensions": {
+          "width": 946,
+          "height": 1202
+        },
+        "alt": "Jazzabella",
+        "copyright": null,
+        "url": "https://images.prismic.io/hmbk-cms/bf2f1ce1-c980-421c-a75b-4432baacc27b_jazzabella.png?auto=compress,format",
+        "desktop": {
+          "dimensions": {
+            "width": 1215,
+            "height": 1544
+          },
+          "alt": null,
+          "copyright": null,
+          "url": "https://images.prismic.io/hmbk-cms/bf2f1ce1-c980-421c-a75b-4432baacc27b_jazzabella.png?auto=compress,format&rect=0,0,946,1202&w=1215&h=1544"
+        },
+        "tablet": {
+          "dimensions": {
+            "width": 1023,
+            "height": 1300
+          },
+          "alt": null,
+          "copyright": null,
+          "url": "https://images.prismic.io/hmbk-cms/bf2f1ce1-c980-421c-a75b-4432baacc27b_jazzabella.png?auto=compress,format&rect=0,0,946,1202&w=1023&h=1300"
+        },
+        "widescreen": {
+          "dimensions": {
+            "width": 1407,
+            "height": 1788
+          },
+          "alt": null,
+          "copyright": null,
+          "url": "https://images.prismic.io/hmbk-cms/bf2f1ce1-c980-421c-a75b-4432baacc27b_jazzabella.png?auto=compress,format&rect=0,0,946,1202&w=1407&h=1788"
+        },
+        "lo_fi_placeholder": {
+          "dimensions": {
+            "width": 32,
+            "height": 41
+          },
+          "alt": null,
+          "copyright": null,
+          "url": "https://images.prismic.io/hmbk-cms/bf2f1ce1-c980-421c-a75b-4432baacc27b_jazzabella.png?auto=compress,format&rect=0,0,938,1202&w=32&h=41"
+        },
+        "mobile": {
+          "dimensions": {
+            "width": 767,
+            "height": 975
+          },
+          "alt": null,
+          "copyright": null,
+          "url": "https://images.prismic.io/hmbk-cms/bf2f1ce1-c980-421c-a75b-4432baacc27b_jazzabella.png?auto=compress,format&rect=0,0,946,1202&w=767&h=975"
+        }
+      },
+      "oiat_text": [
+        {
+          "type": "heading2",
+          "text": "Right Side Text with Tall Image",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "Blue they her large my that least five. Perceive  him of legislators, have monstrous insurance lady logged back extent, set privilege they to of I were remedies. Determined the to much his or LINK TO A PRISMIC MEDIA LIBRARY ITEM , diet, with and consider find or few not have any would the past, soon best tone don't neuter. That hadn't him, the side dream. A refinement and way  expected but on their sleep eyes. Phase them.Wonder, the unprofitable be viewer. A MUCH LONGER LINK THAT WHEN YOU CLICK IT WILL OPEN A NEW TAB AND TAKE YOU TO THE WEBSITE GOOGLE sofas bed in of back impatient have and a thoughts roam; To creating very than steps.  Least, gone into the may parameters up systems allowed different about place with to the success  keep outlines and founder, look loyalty. , way not arduous of and in he and they of then. LINK TO A DEVELOPMENT EVENT PAGE. ",
+          "spans": [
+            {
+              "start": 95,
+              "end": 160,
+              "type": "strong"
+            },
+            {
+              "start": 192,
+              "end": 228,
+              "type": "hyperlink",
+              "data": {
+                "link_type": "Media",
+                "name": "blanco 11152019.jpg",
+                "kind": "image",
+                "url": "https://images.prismic.io/hmbk-cms/7da73508-6ad5-4ff3-b404-678a3ddfd5c7_blanco+11152019.jpg?auto=compress,format",
+                "size": "36719",
+                "height": "600",
+                "width": "600"
+              }
+            },
+            {
+              "start": 324,
+              "end": 325,
+              "type": "strong"
+            },
+            {
+              "start": 461,
+              "end": 557,
+              "type": "hyperlink",
+              "data": {
+                "link_type": "Web",
+                "url": "https://www.google.com",
+                "target": "_blank"
+              }
+            },
+            {
+              "start": 833,
+              "end": 865,
+              "type": "hyperlink",
+              "data": {
+                "id": "X6RuZxIAACEAOklG",
+                "type": "event",
+                "tags": [],
+                "slug": "25th-anniversary-purple-people-eaters-reunion-carnival-extravaganzathon",
+                "lang": "en-us",
+                "uid": "dev-event-purple-people-eater",
+                "link_type": "Document",
+                "isBroken": false
+              }
+            }
+          ]
+        },
+        {
+          "type": "heading3",
+          "text": "Heading 3, As found our blind safe the",
+          "spans": []
+        },
+        {
+          "type": "heading4",
+          "text": "Heading 4, Study return is times put these",
+          "spans": []
+        },
+        {
+          "type": "heading5",
+          "text": "Heading 5, One brought in and live get",
+          "spans": []
+        },
+        {
+          "type": "heading6",
+          "text": "Heading 6, To making still is of his",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "Bolded Text",
+          "spans": [
+            {
+              "start": 0,
+              "end": 11,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "For viewer the that little",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "As and all arranged it",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "Bolded and Italicized text",
+          "spans": [
+            {
+              "start": 0,
+              "end": 26,
+              "type": "em"
+            },
+            {
+              "start": 0,
+              "end": 26,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "o-list-item",
+          "text": "Intention guest feedback seven seemed",
+          "spans": []
+        },
+        {
+          "type": "o-list-item",
+          "text": "Theoretically logbook to an start",
+          "spans": [
+            {
+              "start": 14,
+              "end": 33,
+              "type": "strong"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodyOne_image_and_text1",
+    "type": "one_image_and_text1",
+    "label": "left__wide_image_--_text",
+    "primary": {
+      "oiat_img": {
+        "dimensions": {
+          "width": 1920,
+          "height": 1200
+        },
+        "alt": "mountain valley town at dusk",
+        "copyright": null,
+        "url": "https://images.prismic.io/hmbk-cms/34aec71e-de36-4aac-81a4-4375b8d5ed0c_wallhaven-r2edgq_1920x1200.png?auto=compress,format",
+        "desktop": {
+          "dimensions": {
+            "width": 1215,
+            "height": 759
+          },
+          "alt": "mountain valley town at dusk",
+          "copyright": null,
+          "url": "https://images.prismic.io/hmbk-cms/34aec71e-de36-4aac-81a4-4375b8d5ed0c_wallhaven-r2edgq_1920x1200.png?auto=compress,format&rect=0,0,1920,1199&w=1215&h=759"
+        },
+        "tablet": {
+          "dimensions": {
+            "width": 1023,
+            "height": 639
+          },
+          "alt": "mountain valley town at dusk",
+          "copyright": null,
+          "url": "https://images.prismic.io/hmbk-cms/34aec71e-de36-4aac-81a4-4375b8d5ed0c_wallhaven-r2edgq_1920x1200.png?auto=compress,format&rect=0,0,1920,1199&w=1023&h=639"
+        },
+        "widescreen": {
+          "dimensions": {
+            "width": 1407,
+            "height": 879
+          },
+          "alt": "mountain valley town at dusk",
+          "copyright": null,
+          "url": "https://images.prismic.io/hmbk-cms/34aec71e-de36-4aac-81a4-4375b8d5ed0c_wallhaven-r2edgq_1920x1200.png?auto=compress,format&rect=0,0,1920,1199&w=1407&h=879"
+        },
+        "lo_fi_placeholder": {
+          "dimensions": {
+            "width": 32,
+            "height": 20
+          },
+          "alt": "mountain valley town at dusk",
+          "copyright": null,
+          "url": "https://images.prismic.io/hmbk-cms/34aec71e-de36-4aac-81a4-4375b8d5ed0c_wallhaven-r2edgq_1920x1200.png?auto=compress,format&rect=0,0,1920,1200&w=32&h=20"
+        },
+        "mobile": {
+          "dimensions": {
+            "width": 767,
+            "height": 479
+          },
+          "alt": "mountain valley town at dusk",
+          "copyright": null,
+          "url": "https://images.prismic.io/hmbk-cms/34aec71e-de36-4aac-81a4-4375b8d5ed0c_wallhaven-r2edgq_1920x1200.png?auto=compress,format&rect=0,0,1920,1199&w=767&h=479"
+        }
+      },
+      "oiat_text": [
+        {
+          "type": "heading2",
+          "text": "Left Side Text with Wide Image",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "Blue they her large my that least five. Perceive him of legislators, have monstrous insurance lady logged back extent, set privilege they to of I were remedies. Determined the to much his or diet, with. Wonder, the unprofitable be viewer. sofas bed in of back impatient link to amazon; To creating very than steps. Least, gone into the may parameters up systems allowed different about place with to the success, keep outlines and founder, look loyalty. way not arduous of and in he and they of then. ",
+          "spans": [
+            {
+              "start": 94,
+              "end": 159,
+              "type": "strong"
+            },
+            {
+              "start": 270,
+              "end": 284,
+              "type": "hyperlink",
+              "data": {
+                "link_type": "Web",
+                "url": "https://amazon.com",
+                "target": "_blank"
+              }
+            },
+            {
+              "start": 340,
+              "end": 411,
+              "type": "em"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodyOne_image_and_text1",
+    "type": "one_image_and_text1",
+    "label": "right__text_--_wide_image",
+    "primary": {
+      "oiat_img": {
+        "dimensions": {
+          "width": 1920,
+          "height": 1280
+        },
+        "alt": "Man Wearing White Shirt and Pants on Tunnel",
+        "copyright": "\nPhoto by sergio souza from Pexels",
+        "url": "https://images.prismic.io/hmbk-cms/f382224f-aa79-4f95-b422-6229a36b602e_pexels-sergio-souza-952274.jpg?auto=compress,format",
+        "desktop": {
+          "dimensions": {
+            "width": 1215,
+            "height": 810
+          },
+          "alt": "Man Wearing White Shirt and Pants on Tunnel",
+          "copyright": "\nPhoto by sergio souza from Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/f382224f-aa79-4f95-b422-6229a36b602e_pexels-sergio-souza-952274.jpg?auto=compress,format&rect=0,0,1920,1280&w=1215&h=810"
+        },
+        "tablet": {
+          "dimensions": {
+            "width": 1023,
+            "height": 682
+          },
+          "alt": "Man Wearing White Shirt and Pants on Tunnel",
+          "copyright": "\nPhoto by sergio souza from Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/f382224f-aa79-4f95-b422-6229a36b602e_pexels-sergio-souza-952274.jpg?auto=compress,format&rect=0,0,1920,1280&w=1023&h=682"
+        },
+        "widescreen": {
+          "dimensions": {
+            "width": 1407,
+            "height": 938
+          },
+          "alt": "Man Wearing White Shirt and Pants on Tunnel",
+          "copyright": "\nPhoto by sergio souza from Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/f382224f-aa79-4f95-b422-6229a36b602e_pexels-sergio-souza-952274.jpg?auto=compress,format&rect=0,0,1920,1280&w=1407&h=938"
+        },
+        "lo_fi_placeholder": {
+          "dimensions": {
+            "width": 32,
+            "height": 21
+          },
+          "alt": "Man Wearing White Shirt and Pants on Tunnel",
+          "copyright": "\nPhoto by sergio souza from Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/f382224f-aa79-4f95-b422-6229a36b602e_pexels-sergio-souza-952274.jpg?auto=compress,format&rect=0,0,1920,1260&w=32&h=21"
+        },
+        "mobile": {
+          "dimensions": {
+            "width": 767,
+            "height": 511
+          },
+          "alt": "Man Wearing White Shirt and Pants on Tunnel",
+          "copyright": "\nPhoto by sergio souza from Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/f382224f-aa79-4f95-b422-6229a36b602e_pexels-sergio-souza-952274.jpg?auto=compress,format&rect=0,0,1920,1279&w=767&h=511"
+        }
+      },
+      "oiat_text": [
+        {
+          "type": "heading2",
+          "text": "Right Side Text with Wide Image",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "Blue they her large my that least five. Perceive him of legislators, have monstrous insurance lady logged back extent, set privilege they to of I were remedies. Determined the to much his or diet, with. Wonder, the unprofitable be viewer. sofas bed in of back impatient link to amazon; To creating very than steps. Least, gone into the may parameters up systems allowed different about place with to the success, keep outlines and founder, look loyalty. way not arduous of and in he and they of then. ",
+          "spans": [
+            {
+              "start": 94,
+              "end": 159,
+              "type": "strong"
+            },
+            {
+              "start": 270,
+              "end": 284,
+              "type": "hyperlink",
+              "data": {
+                "link_type": "Web",
+                "url": "https://amazon.com",
+                "target": "_blank"
+              }
+            },
+            {
+              "start": 340,
+              "end": 411,
+              "type": "em"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodySlice_divider",
+    "type": "slice_divider"
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodyText",
+    "type": "text",
+    "label": null,
+    "primary": {
+      "body_text": [
+        {
+          "type": "heading2",
+          "text": "Slice: Two Images and Text",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "A slice that allows you to pair a text block alongside an image. This slice gives ½ of the article container's space to the text, ¼ to the image. ",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "This particular One Image and Text slice uses the 'Left: Wide Image -- Text' layout.",
+          "spans": [
+            {
+              "start": 16,
+              "end": 35,
+              "type": "strong"
+            },
+            {
+              "start": 51,
+              "end": 75,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "heading3",
+          "text": "Setting up the slice",
+          "spans": []
+        },
+        {
+          "type": "o-list-item",
+          "text": "Add the One Image and Text slice to your document.",
+          "spans": [
+            {
+              "start": 8,
+              "end": 26,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "o-list-item",
+          "text": "Click the slice label icon (the tag-like icon) located right to the name of the slice. ",
+          "spans": [
+            {
+              "start": 10,
+              "end": 26,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "o-list-item",
+          "text": "Select one of the two layouts.",
+          "spans": []
+        },
+        {
+          "type": "o-list-item",
+          "text": "Add your text content. Works just like the Text slice.",
+          "spans": [
+            {
+              "start": 43,
+              "end": 47,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "heading3",
+          "text": "Text Position & Image Aspect Ratio",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "You can s",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Left: Tall Image -- Text",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Left: Wide Image -- Text",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Right: Text -- Tall Image",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Right: Text -- Wide Image",
+          "spans": []
+        },
+        {
+          "type": "heading3",
+          "text": "Pairing Content with the Image",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "If you choose a tall image layout, you can fit more content alongside the image; less when paired with the wide image.",
+          "spans": []
+        },
+        {
+          "type": "heading3",
+          "text": "Final Points",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "If you forget to choose a layout, the One Image and Text slice will default to the Left: Tall Image-Text layout.",
+          "spans": [
+            {
+              "start": 38,
+              "end": 56,
+              "type": "strong"
+            },
+            {
+              "start": 83,
+              "end": 104,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "If you forget to add an image, the text section will take up the whole width of the article layout, not the whole width of the page.",
+          "spans": [
+            {
+              "start": 84,
+              "end": 92,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "Heading 1 is disabled in this Text Section of slice for the same reason it's disabled in the Text slice: Heading 1 is the title of the article.",
+          "spans": [
+            {
+              "start": 0,
+              "end": 9,
+              "type": "strong"
+            },
+            {
+              "start": 93,
+              "end": 98,
+              "type": "strong"
+            },
+            {
+              "start": 105,
+              "end": 143,
+              "type": "strong"
+            },
+            {
+              "start": 105,
+              "end": 143,
+              "type": "em"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodySlice_divider",
+    "type": "slice_divider"
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodyTwo_images_and_text",
+    "label": "left__text_--_image_--_image",
+    "type": "two_images_and_text",
+    "primary": {
+      "tiat_left_img": {
+        "dimensions": {
+          "width": 1280,
+          "height": 1280
+        },
+        "alt": "Golden Retriever Puppy on Green Grass Field",
+        "copyright": "kira schwarz // Pexels\n",
+        "url": "https://images.prismic.io/hmbk-cms/3b52c06c-eeca-4b3d-9939-491353d27539_pexels-kira-schwarz-6869090.jpg?auto=compress,format",
+        "desktop": {
+          "dimensions": {
+            "width": 1215,
+            "height": 1215
+          },
+          "alt": "Golden Retriever Puppy on Green Grass Field",
+          "copyright": "kira schwarz // Pexels\n",
+          "url": "https://images.prismic.io/hmbk-cms/3b52c06c-eeca-4b3d-9939-491353d27539_pexels-kira-schwarz-6869090.jpg?auto=compress,format&rect=0,0,1280,1280&w=1215&h=1215"
+        },
+        "tablet": {
+          "dimensions": {
+            "width": 1023,
+            "height": 1023
+          },
+          "alt": "Golden Retriever Puppy on Green Grass Field",
+          "copyright": "kira schwarz // Pexels\n",
+          "url": "https://images.prismic.io/hmbk-cms/3b52c06c-eeca-4b3d-9939-491353d27539_pexels-kira-schwarz-6869090.jpg?auto=compress,format&rect=0,0,1280,1280&w=1023&h=1023"
+        },
+        "widescreen": {
+          "dimensions": {
+            "width": 1407,
+            "height": 1407
+          },
+          "alt": "Golden Retriever Puppy on Green Grass Field",
+          "copyright": "kira schwarz // Pexels\n",
+          "url": "https://images.prismic.io/hmbk-cms/3b52c06c-eeca-4b3d-9939-491353d27539_pexels-kira-schwarz-6869090.jpg?auto=compress,format&rect=0,0,1280,1280&w=1407&h=1407"
+        },
+        "lo_fi_placeholder": {
+          "dimensions": {
+            "width": 32,
+            "height": 32
+          },
+          "alt": "Golden Retriever Puppy on Green Grass Field",
+          "copyright": "kira schwarz // Pexels\n",
+          "url": "https://images.prismic.io/hmbk-cms/3b52c06c-eeca-4b3d-9939-491353d27539_pexels-kira-schwarz-6869090.jpg?auto=compress,format&rect=0,0,1280,1280&w=32&h=32"
+        },
+        "mobile": {
+          "dimensions": {
+            "width": 767,
+            "height": 767
+          },
+          "alt": "Golden Retriever Puppy on Green Grass Field",
+          "copyright": "kira schwarz // Pexels\n",
+          "url": "https://images.prismic.io/hmbk-cms/3b52c06c-eeca-4b3d-9939-491353d27539_pexels-kira-schwarz-6869090.jpg?auto=compress,format&rect=0,0,1280,1280&w=767&h=767"
+        }
+      },
+      "tiat_right_img": {
+        "dimensions": {
+          "width": 740,
+          "height": 740
+        },
+        "alt": "Terraformer - Thank You Scientist",
+        "copyright": null,
+        "url": "https://images.prismic.io/hmbk-cms/167b8552-3bce-4f0e-8a4f-37354a9ef99c_terraformer.jpg?auto=compress,format",
+        "desktop": {
+          "dimensions": {
+            "width": 1215,
+            "height": 1215
+          },
+          "alt": "Terraformer - Thank You Scientist",
+          "copyright": null,
+          "url": "https://images.prismic.io/hmbk-cms/167b8552-3bce-4f0e-8a4f-37354a9ef99c_terraformer.jpg?auto=compress,format&rect=0,0,740,740&w=1215&h=1215"
+        },
+        "tablet": {
+          "dimensions": {
+            "width": 1023,
+            "height": 1023
+          },
+          "alt": "Terraformer - Thank You Scientist",
+          "copyright": null,
+          "url": "https://images.prismic.io/hmbk-cms/167b8552-3bce-4f0e-8a4f-37354a9ef99c_terraformer.jpg?auto=compress,format&rect=0,0,740,740&w=1023&h=1023"
+        },
+        "widescreen": {
+          "dimensions": {
+            "width": 1407,
+            "height": 1407
+          },
+          "alt": "Terraformer - Thank You Scientist",
+          "copyright": null,
+          "url": "https://images.prismic.io/hmbk-cms/167b8552-3bce-4f0e-8a4f-37354a9ef99c_terraformer.jpg?auto=compress,format&rect=0,0,740,740&w=1407&h=1407"
+        },
+        "lo_fi_placeholder": {
+          "dimensions": {
+            "width": 32,
+            "height": 32
+          },
+          "alt": "Terraformer - Thank You Scientist",
+          "copyright": null,
+          "url": "https://images.prismic.io/hmbk-cms/167b8552-3bce-4f0e-8a4f-37354a9ef99c_terraformer.jpg?auto=compress,format&rect=0,0,740,740&w=32&h=32"
+        },
+        "mobile": {
+          "dimensions": {
+            "width": 767,
+            "height": 767
+          },
+          "alt": "Terraformer - Thank You Scientist",
+          "copyright": null,
+          "url": "https://images.prismic.io/hmbk-cms/167b8552-3bce-4f0e-8a4f-37354a9ef99c_terraformer.jpg?auto=compress,format&rect=0,0,740,740&w=767&h=767"
+        }
+      },
+      "tiat_text": [
+        {
+          "type": "heading2",
+          "text": "Left Text with Two Square Images",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "Blue they her large my that least five. Perceive him of legislators, have monstrous insurance lady logged back extent, set privilege they to of I were remedies. Determined the to much his or diet, with. Wonder, the unprofitable be viewer. sofas bed in of back impatient link to amazon; To creating very than steps.  Least, gone into the may parameters up systems allowed different about place with to the success, keep outlines and founder, look loyalty. way not arduous of and in he and they of then. ",
+          "spans": [
+            {
+              "start": 94,
+              "end": 159,
+              "type": "strong"
+            },
+            {
+              "start": 270,
+              "end": 284,
+              "type": "hyperlink",
+              "data": {
+                "link_type": "Web",
+                "url": "https://amazon.com",
+                "target": "_blank"
+              }
+            },
+            {
+              "start": 341,
+              "end": 412,
+              "type": "em"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodyTwo_images_and_text",
+    "label": "right__image_--_image_--_text",
+    "type": "two_images_and_text",
+    "primary": {
+      "tiat_left_img": {
+        "dimensions": {
+          "width": 1280,
+          "height": 1920
+        },
+        "alt": "Man in red beanie wearing white headphones\n",
+        "copyright": "Photo by Philip Boakye from Pexels",
+        "url": "https://images.prismic.io/hmbk-cms/6e9f08fb-5ab2-4bec-802f-afed334349b3_pexels-philip-boakye-2614384.jpg?auto=compress,format",
+        "desktop": {
+          "dimensions": {
+            "width": 1215,
+            "height": 1823
+          },
+          "alt": "Man in red beanie wearing white headphones\n",
+          "copyright": "Photo by Philip Boakye from Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/6e9f08fb-5ab2-4bec-802f-afed334349b3_pexels-philip-boakye-2614384.jpg?auto=compress,format&rect=0,0,1280,1920&w=1215&h=1823"
+        },
+        "tablet": {
+          "dimensions": {
+            "width": 1023,
+            "height": 1535
+          },
+          "alt": "Man in red beanie wearing white headphones\n",
+          "copyright": "Photo by Philip Boakye from Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/6e9f08fb-5ab2-4bec-802f-afed334349b3_pexels-philip-boakye-2614384.jpg?auto=compress,format&rect=0,0,1280,1920&w=1023&h=1535"
+        },
+        "widescreen": {
+          "dimensions": {
+            "width": 1407,
+            "height": 2111
+          },
+          "alt": "Man in red beanie wearing white headphones\n",
+          "copyright": "Photo by Philip Boakye from Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/6e9f08fb-5ab2-4bec-802f-afed334349b3_pexels-philip-boakye-2614384.jpg?auto=compress,format&rect=0,0,1280,1920&w=1407&h=2111"
+        },
+        "lo_fi_placeholder": {
+          "dimensions": {
+            "width": 32,
+            "height": 48
+          },
+          "alt": "Man in red beanie wearing white headphones\n",
+          "copyright": "Photo by Philip Boakye from Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/6e9f08fb-5ab2-4bec-802f-afed334349b3_pexels-philip-boakye-2614384.jpg?auto=compress,format&rect=0,0,1280,1920&w=32&h=48"
+        },
+        "mobile": {
+          "dimensions": {
+            "width": 767,
+            "height": 1151
+          },
+          "alt": "Man in red beanie wearing white headphones\n",
+          "copyright": "Photo by Philip Boakye from Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/6e9f08fb-5ab2-4bec-802f-afed334349b3_pexels-philip-boakye-2614384.jpg?auto=compress,format&rect=0,0,1279,1920&w=767&h=1151"
+        }
+      },
+      "tiat_right_img": {
+        "dimensions": {
+          "width": 1280,
+          "height": 1920
+        },
+        "alt": " Man Drinking Coconut ",
+        "copyright": "Alex Azabache // Pexels",
+        "url": "https://images.prismic.io/hmbk-cms/a6d0b860-c2aa-4b60-9540-8d0e2b7f117a_pexels-alex-azabache-3214957.jpg?auto=compress,format",
+        "desktop": {
+          "dimensions": {
+            "width": 1215,
+            "height": 1823
+          },
+          "alt": " Man Drinking Coconut ",
+          "copyright": "Alex Azabache // Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/a6d0b860-c2aa-4b60-9540-8d0e2b7f117a_pexels-alex-azabache-3214957.jpg?auto=compress,format&rect=0,0,1280,1920&w=1215&h=1823"
+        },
+        "tablet": {
+          "dimensions": {
+            "width": 1023,
+            "height": 1535
+          },
+          "alt": " Man Drinking Coconut ",
+          "copyright": "Alex Azabache // Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/a6d0b860-c2aa-4b60-9540-8d0e2b7f117a_pexels-alex-azabache-3214957.jpg?auto=compress,format&rect=0,0,1280,1920&w=1023&h=1535"
+        },
+        "widescreen": {
+          "dimensions": {
+            "width": 1407,
+            "height": 2111
+          },
+          "alt": " Man Drinking Coconut ",
+          "copyright": "Alex Azabache // Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/a6d0b860-c2aa-4b60-9540-8d0e2b7f117a_pexels-alex-azabache-3214957.jpg?auto=compress,format&rect=0,0,1280,1920&w=1407&h=2111"
+        },
+        "lo_fi_placeholder": {
+          "dimensions": {
+            "width": 32,
+            "height": 48
+          },
+          "alt": " Man Drinking Coconut ",
+          "copyright": "Alex Azabache // Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/a6d0b860-c2aa-4b60-9540-8d0e2b7f117a_pexels-alex-azabache-3214957.jpg?auto=compress,format&rect=0,0,1280,1920&w=32&h=48"
+        },
+        "mobile": {
+          "dimensions": {
+            "width": 767,
+            "height": 1151
+          },
+          "alt": " Man Drinking Coconut ",
+          "copyright": "Alex Azabache // Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/a6d0b860-c2aa-4b60-9540-8d0e2b7f117a_pexels-alex-azabache-3214957.jpg?auto=compress,format&rect=0,0,1279,1920&w=767&h=1151"
+        }
+      },
+      "tiat_text": [
+        {
+          "type": "heading2",
+          "text": "Right Text with Two Tall Images",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "Blue they her large my that least five. Perceive him of legislators, have monstrous insurance lady logged back extent, set privilege they to of I were remedies. Determined the to much his or diet, with. Wonder, the unprofitable be viewer. sofas bed in of back impatient link to amazon; To creating very than steps.  Least, gone into the may parameters up systems allowed different about place with to the success, keep outlines and founder, look loyalty. way not arduous of and in he and they of then. ",
+          "spans": [
+            {
+              "start": 94,
+              "end": 159,
+              "type": "strong"
+            },
+            {
+              "start": 270,
+              "end": 284,
+              "type": "hyperlink",
+              "data": {
+                "link_type": "Web",
+                "url": "https://amazon.com",
+                "target": "_blank"
+              }
+            },
+            {
+              "start": 341,
+              "end": 412,
+              "type": "em"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodyTwo_images_and_text",
+    "label": "left__text_--_image_--_image",
+    "type": "two_images_and_text",
+    "primary": {
+      "tiat_left_img": {
+        "dimensions": {
+          "width": 1920,
+          "height": 1200
+        },
+        "alt": "picturesque mountain",
+        "copyright": null,
+        "url": "https://images.prismic.io/hmbk-cms/1f89b439-fa60-4b11-b3b1-1ad296c8721f_wallhaven-p8vj53_1920x1200.png?auto=compress,format",
+        "desktop": {
+          "dimensions": {
+            "width": 1215,
+            "height": 759
+          },
+          "alt": "picturesque mountain",
+          "copyright": null,
+          "url": "https://images.prismic.io/hmbk-cms/1f89b439-fa60-4b11-b3b1-1ad296c8721f_wallhaven-p8vj53_1920x1200.png?auto=compress,format&rect=0,0,1920,1199&w=1215&h=759"
+        },
+        "tablet": {
+          "dimensions": {
+            "width": 1023,
+            "height": 639
+          },
+          "alt": "picturesque mountain",
+          "copyright": null,
+          "url": "https://images.prismic.io/hmbk-cms/1f89b439-fa60-4b11-b3b1-1ad296c8721f_wallhaven-p8vj53_1920x1200.png?auto=compress,format&rect=0,0,1920,1199&w=1023&h=639"
+        },
+        "widescreen": {
+          "dimensions": {
+            "width": 1407,
+            "height": 879
+          },
+          "alt": "picturesque mountain",
+          "copyright": null,
+          "url": "https://images.prismic.io/hmbk-cms/1f89b439-fa60-4b11-b3b1-1ad296c8721f_wallhaven-p8vj53_1920x1200.png?auto=compress,format&rect=0,0,1920,1199&w=1407&h=879"
+        },
+        "lo_fi_placeholder": {
+          "dimensions": {
+            "width": 32,
+            "height": 20
+          },
+          "alt": "picturesque mountain",
+          "copyright": null,
+          "url": "https://images.prismic.io/hmbk-cms/1f89b439-fa60-4b11-b3b1-1ad296c8721f_wallhaven-p8vj53_1920x1200.png?auto=compress,format&rect=0,0,1920,1200&w=32&h=20"
+        },
+        "mobile": {
+          "dimensions": {
+            "width": 767,
+            "height": 479
+          },
+          "alt": "picturesque mountain",
+          "copyright": null,
+          "url": "https://images.prismic.io/hmbk-cms/1f89b439-fa60-4b11-b3b1-1ad296c8721f_wallhaven-p8vj53_1920x1200.png?auto=compress,format&rect=0,0,1920,1199&w=767&h=479"
+        }
+      },
+      "tiat_right_img": {
+        "dimensions": {
+          "width": 1280,
+          "height": 1920
+        },
+        "alt": "Active soundboard monitoring\n",
+        "copyright": "Photo by Benjamin Lehman from Pexels",
+        "url": "https://images.prismic.io/hmbk-cms/658e4b63-62ac-4dd7-b632-1e76698c15b4_pexels-benjamin-lehman-1436141.jpg?auto=compress,format",
+        "desktop": {
+          "dimensions": {
+            "width": 1215,
+            "height": 1823
+          },
+          "alt": "Active soundboard monitoring\n",
+          "copyright": "Photo by Benjamin Lehman from Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/658e4b63-62ac-4dd7-b632-1e76698c15b4_pexels-benjamin-lehman-1436141.jpg?auto=compress,format&rect=0,0,1280,1920&w=1215&h=1823"
+        },
+        "tablet": {
+          "dimensions": {
+            "width": 1023,
+            "height": 1535
+          },
+          "alt": "Active soundboard monitoring\n",
+          "copyright": "Photo by Benjamin Lehman from Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/658e4b63-62ac-4dd7-b632-1e76698c15b4_pexels-benjamin-lehman-1436141.jpg?auto=compress,format&rect=0,0,1280,1920&w=1023&h=1535"
+        },
+        "widescreen": {
+          "dimensions": {
+            "width": 1407,
+            "height": 2111
+          },
+          "alt": "Active soundboard monitoring\n",
+          "copyright": "Photo by Benjamin Lehman from Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/658e4b63-62ac-4dd7-b632-1e76698c15b4_pexels-benjamin-lehman-1436141.jpg?auto=compress,format&rect=0,0,1280,1920&w=1407&h=2111"
+        },
+        "lo_fi_placeholder": {
+          "dimensions": {
+            "width": 32,
+            "height": 48
+          },
+          "alt": "Active soundboard monitoring\n",
+          "copyright": "Photo by Benjamin Lehman from Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/658e4b63-62ac-4dd7-b632-1e76698c15b4_pexels-benjamin-lehman-1436141.jpg?auto=compress,format&rect=0,0,1280,1920&w=32&h=48"
+        },
+        "mobile": {
+          "dimensions": {
+            "width": 767,
+            "height": 1151
+          },
+          "alt": "Active soundboard monitoring\n",
+          "copyright": "Photo by Benjamin Lehman from Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/658e4b63-62ac-4dd7-b632-1e76698c15b4_pexels-benjamin-lehman-1436141.jpg?auto=compress,format&rect=0,0,1279,1920&w=767&h=1151"
+        }
+      },
+      "tiat_text": [
+        {
+          "type": "heading2",
+          "text": "Left Text with Two Mixed Aspect-Ratio Images",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "Blue they her large my that least five. Perceive him of legislators, have monstrous insurance lady logged back extent, set privilege they to of I were remedies. Determined the to much his or diet, with. Wonder, the unprofitable be viewer. sofas bed in of back impatient link to amazon; To creating very than steps.  Least, gone into the may parameters up systems allowed different about place with to the success, keep outlines and founder, look loyalty. way not arduous of and in he and they of then. ",
+          "spans": [
+            {
+              "start": 94,
+              "end": 159,
+              "type": "strong"
+            },
+            {
+              "start": 270,
+              "end": 284,
+              "type": "hyperlink",
+              "data": {
+                "link_type": "Web",
+                "url": "https://amazon.com",
+                "target": "_blank"
+              }
+            },
+            {
+              "start": 341,
+              "end": 412,
+              "type": "em"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodySlice_divider",
+    "type": "slice_divider"
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodyText",
+    "type": "text",
+    "label": null,
+    "primary": {
+      "body_text": [
+        {
+          "type": "heading2",
+          "text": "Slice: Blockquote",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "A slice that showcases a quote in big styled text.",
+          "spans": []
+        },
+        {
+          "type": "heading3",
+          "text": "Setting up the slice",
+          "spans": []
+        },
+        {
+          "type": "o-list-item",
+          "text": "Add the Blockquote slice to your document.",
+          "spans": [
+            {
+              "start": 8,
+              "end": 19,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "o-list-item",
+          "text": "Click the slice label icon (the tag-like icon) located right to the name of the slice. ",
+          "spans": [
+            {
+              "start": 10,
+              "end": 26,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "o-list-item",
+          "text": "Select one of the three layouts.",
+          "spans": []
+        },
+        {
+          "type": "o-list-item",
+          "text": "Add your quote and attribution (who said it, what context)",
+          "spans": []
+        },
+        {
+          "type": "heading3",
+          "text": "Layout Options",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "You can select from three available styles:",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "None: solid black background; white quote text",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Light: light-color background image; black quote text",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Dark: dark background image; white quote text",
+          "spans": []
+        },
+        {
+          "type": "heading3",
+          "text": "Pairing Content with the Image",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "If you choose a tall image layout, you can fit more content alongside the image; less when paired with the wide image.",
+          "spans": []
+        },
+        {
+          "type": "heading3",
+          "text": "Final Points",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "If you forget to choose a layout, the One Image and Text slice will default to the Left: Tall Image-Text layout.",
+          "spans": [
+            {
+              "start": 38,
+              "end": 56,
+              "type": "strong"
+            },
+            {
+              "start": 83,
+              "end": 104,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "If you forget to add an image, the text section will take up the whole width of the article layout, not the whole width of the page.",
+          "spans": [
+            {
+              "start": 84,
+              "end": 92,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "Heading 1 is disabled in this Text Section of slice for the same reason it's disabled in the Text slice: Heading 1 is the title of the article.",
+          "spans": [
+            {
+              "start": 0,
+              "end": 9,
+              "type": "strong"
+            },
+            {
+              "start": 93,
+              "end": 98,
+              "type": "strong"
+            },
+            {
+              "start": 105,
+              "end": 143,
+              "type": "strong"
+            },
+            {
+              "start": 105,
+              "end": 143,
+              "type": "em"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodySlice_divider",
+    "type": "slice_divider"
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodyBlockquote",
+    "type": "blockquote",
+    "label": "none__solid_black_background__white_quote_text",
+    "primary": {
+      "blockquote_text": [
+        {
+          "type": "paragraph",
+          "text": "Exploration is in our nature. We began as wanderers, and we are  wanderers still. We have lingered long enough on the shores of the  cosmic ocean. We are ready at last to set sail for the stars.",
+          "spans": []
+        }
+      ],
+      "blockquote_bg_img": {
+        "dimensions": {
+          "width": 1920,
+          "height": 1200
+        },
+        "alt": "Green Nebula in Outer Space",
+        "copyright": "wallhaven-yjm67g",
+        "url": "https://images.prismic.io/hmbk-cms/874d566f-66e0-491f-ab1c-3372019385f1_wallhaven-yjm67g_1920x1200.png?auto=compress,format"
+      },
+      "blockquote_attribution": [
+        {
+          "type": "paragraph",
+          "text": "Carl Sagan, Cosmos",
+          "spans": []
+        }
+      ]
+    }
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodyBlockquote",
+    "type": "blockquote",
+    "label": "light__light-color_background_image__black_quote_text",
+    "primary": {
+      "blockquote_text": [
+        {
+          "type": "paragraph",
+          "text": "You have brains in your head. You have feet in your shoes. You can steer yourself any direction you choose.",
+          "spans": []
+        }
+      ],
+      "blockquote_bg_img": {
+        "dimensions": {
+          "width": 1024,
+          "height": 640
+        },
+        "alt": "Cat in the Hat Wallpaper",
+        "copyright": "Inspired by Dr.Seuss",
+        "url": "https://images.prismic.io/hmbk-cms/40e067e3-c2da-46be-a4c4-bac8442105bc_dr-seuss-wallpaper-luxury-free-dr-seuss-desktop-wallpaper-wallpapersafari-for-you-of-dr-seuss-wallpaper.jpg?auto=compress,format"
+      },
+      "blockquote_attribution": [
+        {
+          "type": "paragraph",
+          "text": "Dr. Seuss",
+          "spans": []
+        }
+      ]
+    }
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodyBlockquote",
+    "type": "blockquote",
+    "label": "dark__dark_background_image__white_quote_text",
+    "primary": {
+      "blockquote_text": [
+        {
+          "type": "paragraph",
+          "text": "Books are the quietest and most constant of friends; they are the most accessible and wisest of counselors, and the most patient of teachers.",
+          "spans": []
+        }
+      ],
+      "blockquote_bg_img": {
+        "dimensions": {
+          "width": 1920,
+          "height": 1080
+        },
+        "alt": "Trinity College Library",
+        "copyright": "kejsirajbek // wallhaven.cc",
+        "url": "https://images.prismic.io/hmbk-cms/b4e74d5f-a428-459e-bc23-7c19f33b34f5_wallhaven-4yz55d.jpg?auto=compress,format"
+      },
+      "blockquote_attribution": [
+        {
+          "type": "paragraph",
+          "text": "Charles W. Eliot ",
+          "spans": []
+        }
+      ]
+    }
+  }
+]

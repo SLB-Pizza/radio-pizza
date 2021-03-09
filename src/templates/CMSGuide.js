@@ -126,7 +126,6 @@ export const query = graphql`
                 type
                 label
                 primary {
-                  blockquote_type
                   blockquote_text
                   blockquote_bg_img
                   blockquote_attribution

@@ -9,15 +9,16 @@ import 'lazysizes/plugins/attrchange/ls.attrchange'
  * @function ResponsiveImage
  * @param {String} mainUrl - the Imgix optimized Prismic image URL for the large image size; bulma "fullhd"
  * @param {Object} responsiveData - an object containing the Imgix optimized Prismic image URLs for the responsive sizes
- * @property {String} responsiveData.widescreen - data object to make the image for bulma "widescreen" breakpoint
- * @property {String} responsiveData.desktop - data object to make the image for bulma "desktop" breakpoint
- * @property {String} responsiveData.tablet - data object to make the image for bulma "tablet" breakpoint
- * @property {String} responsiveData.mobile - data object to make the image for bulma "mobile" breakpoint
- * @property {String} responsiveData.lo_fi - data object to make the low quality image placeholder (LQIP)
- * @see {@link https://bulma.io/documentation/overview/responsiveness/#breakpoints |Bulma Breakpoints}
- * @see {@link https://afarkas.github.io/lazysizes/index.html |lazySizes & LQIP}
- * @see {@link https://github.com/aFarkas/lazysizes/tree/gh-pages/plugins/parent-fit |lazySizes parent fit extension}
+ * @prop {String} responsiveData.widescreen - data object to make the image for bulma "widescreen" breakpoint
+ * @prop {String} responsiveData.desktop - data object to make the image for bulma "desktop" breakpoint
+ * @prop {String} responsiveData.tablet - data object to make the image for bulma "tablet" breakpoint
+ * @prop {String} responsiveData.mobile - data object to make the image for bulma "mobile" breakpoint
+ * @prop {String} responsiveData.lo_fi - data object to make the low quality image placeholder (LQIP)
  * @returns {jsx}
+ * @see {@link https://bulma.io/documentation/overview/responsiveness/#breakpoints Bulma Breakpoints}
+ * @see {@link https://afarkas.github.io/lazysizes/index.html lazySizes & LQIP}
+ * @see {@link https://github.com/aFarkas/lazysizes/tree/gh-pages/plugins/parent-fit lazySizes parent fit extension}
+ * @see {@link https://elad.medium.com/a-complete-guide-for-responsive-images-b13db359c6c7 Complete Guide to Responsive Images!}
  */
 function ResponsiveImage({ largestImg, responsiveData }) {
   return (
@@ -33,13 +34,13 @@ function ResponsiveImage({ largestImg, responsiveData }) {
         const height = responsiveData[imgSize].dimensions.height
 
         /**
-         * Used with imgSize to get the Source's media query data
+         * Used with size to get the Source's media query data
          */
         const breakpoints = {
           mobile: '(max-width: 767px)',
-          tablet: '(max-width: 1023px)',
-          desktop: '(max-width: 1215px)',
-          widescreen: '(max-width: 1407px)',
+          tablet: '(min-width: 768px) and (max-width: 1023px)',
+          desktop: '(min-width: 1024px) and (max-width: 1215px)',
+          widescreen: '(min-width: 1216px) and (max-width: 1407px)',
         }
 
         return (

@@ -1,29 +1,40 @@
 import React from 'react'
 import { ImageHelper } from '../helpers'
+import { mappableDataFilter } from '../../utils'
 
 /**
- * Creates a Slice Component that display two images and some text. The text section can be either on the left of the right.
- * @category CMS
- *  Slices
- * @function
- * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create the HeadlineBlock slice
+ * Render a row of same-width images, regardless of aspect ratios; {@link ImageHelper} handles that. Wraps to a new line after 12 images because there are more than 12 columns.
+ * @category CMS Slices
+ * @function ImageRow
+ * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create the ImageRow slice
  * @returns {jsx}
  */
 function ImageRow({ slice }) {
-  return (
-    <section className="container slice">
-      <div className="columns is-mobile is-multiline">
-        {slice.fields.map(({ single_img }, index) => {
-          return (
-            <ImageHelper
-              key={`img-#${index}-${single_img.alt}`}
-              imageData={single_img}
-            />
-          )
-        })}
-      </div>
-    </section>
-  )
+  const { fields } = slice
+
+  const filteredFields = mappableDataFilter(fields)
+
+  if (filteredFields) {
+    return (
+      <section className="section container is-fluid slice debug">
+        <div className="columns is-mobile is-centered">
+          <div className="column is-11">
+            <div className="columns is-mobile is-multiline">
+              {filteredFields.map(({ single_img }, index) => {
+                return (
+                  <ImageHelper
+                    key={`img-#${index}-${single_img.alt || 'row'}`}
+                    imageData={single_img}
+                  />
+                )
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
+  return null
 }
 
 export default ImageRow

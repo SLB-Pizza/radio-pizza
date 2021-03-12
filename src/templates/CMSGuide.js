@@ -131,6 +131,20 @@ export const query = graphql`
                   blockquote_attribution
                 }
               }
+              ... on PRISMIC_Cms_guideBodyFull_width_image {
+                type
+                label
+                primary {
+                  full_width_image
+                  fwi_titling
+                }
+              }
+              ... on PRISMIC_Cms_guideBodyImage_group {
+                type
+                fields {
+                  single_img
+                }
+              }
             }
           }
         }

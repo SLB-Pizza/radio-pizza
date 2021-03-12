@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { RichText } from 'prismic-reactjs'
 
 /**
  * @category CMS Slices
@@ -7,44 +8,62 @@ import PropTypes from 'prop-types'
  * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create the HeadlineBlock slice
  * @param {Object} metadata - data object from Prismic CMS that contains
  * @returns {jsx}
- */ function FullWidthImage({ slice }) {
-  const { full_width_image, fwi_titling, fwi_height } = slice.primary
+ */
+function FullWidthImage({ slice }) {
+  const { label, primary } = slice
+  const { full_width_image, fwi_titling } = primary
 
-  let imgStyle = {
-    backgroundImage: `url(${full_width_image.url})`,
+  let layoutType, heroClassName, imgURL
+
+  if (!label) {
+    layoutType = 'medium'
+  } else {
+    layoutType = label
   }
 
-  let heroClassName = ''
-  switch (fwi_height) {
-    case 'Short':
-      heroClassName = 'hero slice'
+  switch (layoutType) {
+    case 'medium':
+      heroClassName = 'hero has-background is-fwi is-medium slice debug'
+      imgURL = full_width_image.medium.url
       break
-    case 'Medium':
-      heroClassName = 'hero is-medium slice'
+    case 'halfpage':
+      heroClassName = 'hero has-background is-fwi-halfpage slice debug'
+      imgURL = full_width_image.halfheight.url
       break
-    case 'Tall':
-      heroClassName = 'hero is-large slice'
-      break
-    case 'Fullheight':
-      heroClassName = 'hero homepage-hero slice'
+    case 'fullpage':
+      heroClassName = 'hero has-background is-fwi-fullpage slice debug'
+      imgURL = full_width_image.url
       break
     default:
-      heroClassName = 'hero slice'
+      heroClassName = 'hero is-medium slice debug'
   }
 
-  return (
-    <section className={heroClassName} style={imgStyle}>
-      <div className="hero-body container">
-        {fwi_titling ? <h1 className="title is-size-3">{data}</h1> : null}
+  return imgURL ? (
+    <section className={heroClassName}>
+      <img
+        className="hero-background"
+        src={imgURL}
+        alt={full_width_image.alt}
+      />
+      <div className="hero-body">
+        {fwi_titling && (
+          <div className="container">
+            <div className="columns">
+              <div className="column is-full">
+                <div className="content">
+                  {
+                    <p className="title hero-title is-1">
+                      {RichText.asText(fwi_titling)}
+                    </p>
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
-  )
+  ) : null
 }
-
-// FullWidthImage.propTypes = {
-//   type: PropTypes.oneOf(["short", "medium", "tall"]),
-//   data: PropTypes.string.isRequired,
-//   full_width_image.url: PropTypes.string.isRequired,
-// };
 
 export default FullWidthImage

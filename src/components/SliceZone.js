@@ -32,11 +32,12 @@ import {
  *    </div>
  * </main>
  * ```
+ * Returns components selected by `sliceComponents` key that have been hydrated with data to create the given page's layout.
  * @category CMS Slices
- * @function sliceZone
+ * @function SliceZone
  * @param {Object} sliceZone
  * @param {Object} metadata
- * @returns {jsx} Returns components selected by `sliceComponents` key that have been hydrated with data to create the given page's layout.
+ * @returns {jsx}
  */
 
 function SliceZone({ sliceZone, metadata }) {
@@ -49,6 +50,7 @@ function SliceZone({ sliceZone, metadata }) {
     full_width_image: FullWidthImage,
     headline_block: ArticleHeadline,
     row_of_images: ImageRow,
+    image_group: ImageRow,
     slice_divider: SectionDivider,
     one_image_and_text1: OneImageAndText,
     two_images_and_text: TwoImagesAndText,

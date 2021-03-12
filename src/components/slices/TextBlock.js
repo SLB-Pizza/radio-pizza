@@ -17,9 +17,7 @@ function TextBlock({ slice }) {
   return (
     <section className="section container slice debug">
       <div className="columns">
-        <div className="column is-full content text-block">
-          <RichTextHelper richText={body_text} />
-        </div>
+        <RichTextHelper richText={body_text} />
       </div>
     </section>
   )

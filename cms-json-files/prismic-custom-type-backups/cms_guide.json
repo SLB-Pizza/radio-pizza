@@ -164,6 +164,20 @@
               "name": "dark__dark_background_image__white_quote_text",
               "display": "Dark: dark background image; white quote text"
             }
+          ],
+          "full_width_image": [
+            {
+              "name": "medium",
+              "display": "Medium"
+            },
+            {
+              "name": "halfpage",
+              "display": "Halfpage"
+            },
+            {
+              "name": "fullpage",
+              "display": "Fullpage"
+            }
           ]
         },
         "choices": {
@@ -202,23 +216,11 @@
             "icon": "format_quote",
             "display": "list",
             "non-repeat": {
-              "blockquote_type": {
-                "type": "Select",
-                "config": {
-                  "options": [
-                    "None: no background image; white quote text on black",
-                    "Light: light background image; black quote text",
-                    "Dark: dark background image; white quote text"
-                  ],
-                  "label": "Blockquote Type",
-                  "placeholder": "Select blockquote variation..."
-                }
-              },
               "blockquote_text": {
                 "type": "StructuredText",
                 "config": {
                   "multi": "paragraph, strong, em",
-                  "label": "Blockquote Text",
+                  "label": "(REQUIRED) Blockquote Text",
                   "placeholder": "Enter blockquote text here..."
                 }
               },
@@ -388,18 +390,10 @@
             "icon": "video_label",
             "display": "list",
             "non-repeat": {
-              "fwi_height": {
-                "type": "Select",
-                "config": {
-                  "options": ["Short", "Medium", "Tall", "Fullheight"],
-                  "default_value": "Short",
-                  "label": "Full Width Image Height"
-                }
-              },
               "fwi_titling": {
                 "type": "StructuredText",
                 "config": {
-                  "single": "heading1",
+                  "single": "heading2",
                   "label": "Full Width Image Titling",
                   "placeholder": "(Optional) Enter text to overlay the full width image here..."
                 }
@@ -408,7 +402,23 @@
                 "type": "Image",
                 "config": {
                   "constraint": {},
-                  "thumbnails": [],
+                  "thumbnails": [
+                    {
+                      "name": "halfheight",
+                      "width": 1600,
+                      "height": 1200
+                    },
+                    {
+                      "name": "medium",
+                      "width": 1600,
+                      "height": 600
+                    },
+                    {
+                      "name": "small",
+                      "width": 1600,
+                      "height": 300
+                    }
+                  ],
                   "label": "Full Width Image"
                 }
               }

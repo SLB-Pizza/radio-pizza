@@ -43,7 +43,9 @@ export default function formatDateTime(time, format, number) {
   )
 
   /**
-   * In the cases we need to format a datetime string in some way, we first need to convert it from UTC to EST.  This value will not always be used; notes made where such cases apply.
+   * In the cases we need to format a datetime string in some way,
+   * we first need to convert it from UTC to EST.
+   * This value will not always be used; notes made where such cases apply.
    * @see {@link https://day.js.org/docs/en/plugin/custom-parse-format dayjs - customParseFormat}
    */
   if (userTimezone === 'America/New_York') {

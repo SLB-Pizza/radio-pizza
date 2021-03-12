@@ -8,6 +8,7 @@ import {
   SectionDivider,
   TwoImagesAndText,
   TextBlock,
+  TextColumns,
 } from './slices'
 
 /**
@@ -55,6 +56,7 @@ function SliceZone({ sliceZone, metadata }) {
     one_image_and_text1: OneImageAndText,
     two_images_and_text: TwoImagesAndText,
     text: TextBlock,
+    text_columns: TextColumns,
   }
 
   const sliceZoneContent = sliceZone.map((slice, index) => {

@@ -145,6 +145,16 @@ export const query = graphql`
                   single_img
                 }
               }
+              ... on PRISMIC_Cms_guideBodyText_columns {
+                type
+                fields {
+                  text_column
+                }
+                primary {
+                  text_columns_header
+                  text_columns_footer
+                }
+              }
             }
           }
         }

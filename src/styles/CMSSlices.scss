@@ -149,6 +149,29 @@ header.article-header {
   }
 }
 
+// ================================
+// CMS Slice -- TextColumns.js
+// ================================
+.text-columns {
+  &__header {
+    padding-bottom: $gap;
+  }
+
+  &__footer {
+    padding-top: $gap;
+  }
+
+  &__main {
+    .text-column {
+      padding: $gap;
+
+      &:not(:last-of-type) {
+        border-right: 2px solid white;
+      }
+    }
+  }
+}
+
 .article-category {
   display: inline-block;
   background-color: black;

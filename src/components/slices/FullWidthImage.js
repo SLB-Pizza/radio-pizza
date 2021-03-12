@@ -6,7 +6,7 @@ import { RichText } from 'prismic-reactjs'
  * @category CMS Slices
  * @function FullWidthImage
  * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create the HeadlineBlock slice
- * @param {Object} metadata - data object from Prismic CMS that contains
+ * @param {Object} metadata - data object from Prismic CMS that contains all content data needed to create this slice
  * @returns {jsx}
  */
 function FullWidthImage({ slice }) {
@@ -23,19 +23,19 @@ function FullWidthImage({ slice }) {
 
   switch (layoutType) {
     case 'medium':
-      heroClassName = 'hero has-background is-fwi is-medium slice debug'
+      heroClassName = 'hero has-background is-fwi is-medium slice'
       imgURL = full_width_image.medium.url
       break
     case 'halfpage':
-      heroClassName = 'hero has-background is-fwi-halfpage slice debug'
+      heroClassName = 'hero has-background is-fwi-halfpage slice'
       imgURL = full_width_image.halfheight.url
       break
     case 'fullpage':
-      heroClassName = 'hero has-background is-fwi-fullpage slice debug'
+      heroClassName = 'hero has-background is-fwi-fullpage slice'
       imgURL = full_width_image.url
       break
     default:
-      heroClassName = 'hero is-medium slice debug'
+      heroClassName = 'hero is-medium slice'
   }
 
   return imgURL ? (

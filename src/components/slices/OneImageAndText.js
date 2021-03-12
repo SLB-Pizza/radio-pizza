@@ -6,14 +6,14 @@ import { ImageHelper, RichTextHelper } from '../helpers'
  * Creates a Slice Component that display two images and some text. The image can be placed either on the left of the right in Prismic.
  * @category CMS Slice
  * @function OneImageAndText
- * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create the HeadlineBlock slice
+ * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create this slice
  * @returns {jsx}
  */
 function OneImageAndText({ slice }) {
   const { label, primary } = slice
-  let { oiat_img, oiat_text } = primary
+  let { oiat_img: image, oiat_text: text } = primary
 
-  let layoutSide, textClass, imageClass, imageSize
+  let layoutSide, textClass, imageClass, imageSize, layoutDetails
 
   /**
    * Derive layout type by processing `slice.label`.
@@ -28,7 +28,6 @@ function OneImageAndText({ slice }) {
    *
    * The layout label is received all lowercase and `: ` is converted to `__`; split on it to get direction.
    */
-  let layoutDetails
 
   if (!label) {
     layoutSide = left
@@ -55,8 +54,8 @@ function OneImageAndText({ slice }) {
    * - `oiat_img` is `null`: section renders with no content
    * - `oiat_img` exists: image 11 FHD; full tablet and mobile
    */
-  if (oiat_text) {
-    if (!oiat_img) {
+  if (text) {
+    if (!image) {
       textClass = 'column is-11-fullhd is-full-tablet is-full-mobile'
     } else if (imageSize === 'tall_image') {
       textClass = 'column is-7-fullhd is-8-tablet is-full-mobile'
@@ -66,7 +65,7 @@ function OneImageAndText({ slice }) {
       imageClass = 'column is-7-fullhd is-8-tablet is-full-mobile'
     }
   } else {
-    if (!oiat_img) {
+    if (!image) {
       imageClass = null
     } else {
       imageClass = 'column is-11-fullhd is-full-tablet is-full-mobile'
@@ -80,24 +79,24 @@ function OneImageAndText({ slice }) {
   // console.log("===========================\n");
 
   return (
-    <section className="section container is-fullhd is-fluid slice debug">
+    <section className="section container is-fullhd is-fluid slice">
       <div className="columns is-mobile is-centered is-multiline">
         {layoutSide === 'left' ? (
           <>
-            {oiat_text && (
-              <RichTextHelper richText={oiat_text} columnSizing={textClass} />
+            {text && (
+              <RichTextHelper richText={text} columnSizing={textClass} />
             )}
-            {oiat_img && (
-              <ImageHelper imageData={oiat_img} columnSizing={imageClass} />
+            {image && (
+              <ImageHelper imageData={image} columnSizing={imageClass} />
             )}
           </>
         ) : (
           <>
-            {oiat_img && (
-              <ImageHelper imageData={oiat_img} columnSizing={imageClass} />
+            {image && (
+              <ImageHelper imageData={image} columnSizing={imageClass} />
             )}
-            {oiat_text && (
-              <RichTextHelper richText={oiat_text} columnSizing={textClass} />
+            {text && (
+              <RichTextHelper richText={text} columnSizing={textClass} />
             )}
           </>
         )}

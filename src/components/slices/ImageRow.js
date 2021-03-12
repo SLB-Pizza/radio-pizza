@@ -16,7 +16,7 @@ function ImageRow({ slice }) {
 
   if (filteredFields) {
     return (
-      <section className="section container is-fluid slice debug">
+      <section className="section container is-fluid slice">
         <div className="columns is-mobile is-centered">
           <div className="column is-11">
             <div className="columns is-mobile is-multiline">

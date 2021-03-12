@@ -49,7 +49,6 @@ function ArticleHeadline({ headlineData }) {
     <header
       className="hero article-header has-background"
       aria-labelledby="article-headline"
-      style={{ borderBottom: '2px solid yellow' }}
     >
       {article_headline_img ? (
         <img

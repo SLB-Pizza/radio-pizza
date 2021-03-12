@@ -15,13 +15,17 @@ import { ImageHelper, RichTextHelper } from '../helpers'
  * | FullHD     | `is-5`                | `is-3`                    | Wrapper column className `is-centered is-fluid` in effect, total column width is 11 (5+3+3); one column removed from fluid. |
  * @category CMS Slices
  * @function TwoImagesAndText
- * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create the HeadlineBlock slice
+ * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create this
  * @returns {jsx}
  */
 function TwoImagesAndText({ slice }) {
   const { label, primary } = slice
 
-  let { tiat_text, tiat_left_img: leftImg, tiat_right_img: rightImg } = primary
+  let {
+    tiat_text: text,
+    tiat_left_img: leftImg,
+    tiat_right_img: rightImg,
+  } = primary
 
   /**
    * Create placeholder variables for layout and className conditionals.
@@ -47,22 +51,22 @@ function TwoImagesAndText({ slice }) {
 
   // leftImg = null; // Styling works
   // rightImg = null; // Styling works
-  // tiat_text = null; // Styling works
+  // text = null; // Styling works
 
   /**
    * Determine the column `className` based on the available data. Similar process to {@link OneImageAndText}.
    *
-   * **if `tiat_text` has value**
+   * **if `text` has value**
    * - Both images are `null`: make content "full" width; `is-11` FHD
    * - One of the images is `null`: expand available image size, 6:5 columns FHD
    * - Both images have values - render as normal
    *
-   * **else: `tiat_text === null`**
+   * **else: `text === null`**
    * - Both images are `null`: section renders with no content
    * - One of the images is `null`: expand available image size, 6:5 columns FHD
    * - Both images have values - render as normal
    */
-  if (tiat_text) {
+  if (text) {
     if (!leftImg && !rightImg) {
       contentClass = 'column is-11-fullhd is-full-tablet is-full-mobile'
     } else if ((!leftImg && rightImg) || (leftImg && !rightImg)) {
@@ -88,15 +92,12 @@ function TwoImagesAndText({ slice }) {
   // console.log("imageClass", imageClass);
 
   return (
-    <section className="section container is-fullhd is-fluid slice debug">
+    <section className="section container is-fullhd is-fluid slice">
       <div className="columns is-mobile is-centered is-multiline">
         {layoutType === 'left' ? (
           <>
-            {tiat_text && (
-              <RichTextHelper
-                richText={tiat_text}
-                columnSizing={contentClass}
-              />
+            {text && (
+              <RichTextHelper richText={text} columnSizing={contentClass} />
             )}
             {leftImg && (
               <ImageHelper imageData={leftImg} columnSizing={imageClass} />
@@ -114,11 +115,8 @@ function TwoImagesAndText({ slice }) {
             {rightImg && (
               <ImageHelper imageData={rightImg} columnSizing={imageClass} />
             )}
-            {tiat_text && (
-              <RichTextHelper
-                richText={tiat_text}
-                columnSizing={contentClass}
-              />
+            {text && (
+              <RichTextHelper richText={text} columnSizing={contentClass} />
             )}
           </>
         )}

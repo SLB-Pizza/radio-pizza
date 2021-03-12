@@ -4,7 +4,7 @@ import { ArticleAuthorDetails, ArticleDateTime } from './helpers'
 
 /**
  * Renders a single feature's subtitle, byline and date of first publication or last update.
- * @category Site Element
+ * @category Layout Helper
  * @function ArticleByline
  * @param {Object[]} subtitle -  article_subtitle from the {@link FeatureTemplate} Gatsby query; Prismic RichText array
  * @param {Object} dates - dates from the Feature's metadata
@@ -13,13 +13,7 @@ import { ArticleAuthorDetails, ArticleDateTime } from './helpers'
  */
 function ArticleByline({ subtitle, dates, authorDetails }) {
   return (
-    <section
-      className="section container"
-      style={{
-        borderTop: '2px solid chartreuse',
-        borderBottom: '2px solid red',
-      }}
-    >
+    <section className="section container">
       {subtitle && (
         <div className="columns is-multiline is-vcentered">
           <div className="column is-12 content">

@@ -15,12 +15,14 @@ import { RichText } from 'prismic-reactjs'
 
 function Blockquote({ slice }) {
   const { label, primary } = slice
-  let { blockquote_text, blockquote_attribution, blockquote_bg_img } = primary
-
-  // console.log(label) // light__light-color_background_image__black_quote_text
+  let {
+    blockquote_text: text,
+    blockquote_attribution: attribution,
+    blockquote_bg_img: image,
+  } = primary
 
   let layoutType
-  let heroClass = 'hero is-medium is-blockquote debug'
+  let heroClass = 'hero is-medium is-blockquote'
   let blockquoteClass = 'is-size-1-desktop is-size-3-tablet is-size-4-mobile'
   let citeClass =
     'is-size-4-desktop is-size-5-tablet is-size-6-mobile has-text-right'
@@ -51,18 +53,10 @@ function Blockquote({ slice }) {
       citeClass = ''
   }
 
-  // console.log(layoutType);
-  // console.log(blockquote_text);
-  // console.log(blockquote_bg_img);
-
   return (
     <section className={heroClass}>
-      {layoutType !== 'none' && blockquote_bg_img && (
-        <img
-          className="hero-background"
-          src={blockquote_bg_img.url}
-          alt={blockquote_bg_img.alt}
-        />
+      {layoutType !== 'none' && image && (
+        <img className="hero-background" src={image.url} alt={image.alt} />
       )}
 
       <div className="hero-body">
@@ -70,14 +64,14 @@ function Blockquote({ slice }) {
           <div className="columns">
             <div className="column is-full">
               <div className="content">
-                {blockquote_text && (
+                {text && (
                   <blockquote className={blockquoteClass}>
-                    {RichText.render(blockquote_text)}
+                    {RichText.render(text)}
                   </blockquote>
                 )}
-                {blockquote_attribution && (
+                {attribution && (
                   <cite className={citeClass}>
-                    {RichText.asText(blockquote_attribution)}
+                    {RichText.asText(attribution)}
                   </cite>
                 )}
               </div>

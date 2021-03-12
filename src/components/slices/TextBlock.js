@@ -5,7 +5,7 @@ import { RichTextHelper } from '../helpers'
  * Renders a Prismic RichText structured text object. One of the instances of `.text-block`, a class name that changes line height and link rendering.
  * @category CMS Slices
  * @function TextBlock
- * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create the HeadlineBlock slice
+ * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create this slice
  * @returns {jsx}
  */
 function TextBlock({ slice }) {
@@ -15,7 +15,7 @@ function TextBlock({ slice }) {
   }
 
   return (
-    <section className="section container slice debug">
+    <section className="section container slice">
       <div className="columns">
         <RichTextHelper richText={body_text} />
       </div>

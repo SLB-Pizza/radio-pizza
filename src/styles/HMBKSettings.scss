@@ -3,12 +3,13 @@
 //==================================
 @import "../../node_modules/bulma/bulma.sass";
 
+$tablet: 768px;
 $border: white;
 $pink: #f600ff;
 $primary: $pink;
 $body-background-color: black;
 $family-sans-serif: "Poppins", sans-serif;
-$transition-speed: 0.25s ease-in-out;
+$transition-speed: 0.25s $easing;
 $border-radius: 0.75rem;
 $link: lighten($primary, 25);
 $link-hover: white;
@@ -49,6 +50,7 @@ $input-icon-active-color: $primary;
 //==================================
 // button element variables
 //==================================
+$button-color: white;
 $button-background-color: transparent;
 $button-hover-color: white;
 $button-hover-border-color: $primary;
@@ -67,7 +69,7 @@ $button-border-width: 2px;
 //==================================
 // Duotone variables - SingleMixCard
 //==================================
-$dt-base: #f600ff;
+$dt-base: darken($primary, 15);
 $dt-bg-blend: multiply;
 $dt-blur: 0px;
 $dt-fg-blend: lighten;
@@ -75,17 +77,18 @@ $dt-foreground: #16006f;
 $dt-opacity: 1;
 $dt-spacing: 1%;
 
+// <blend-mode>where <blend-mode> = normal | multiply | screen | overlay | darken | lighten | color-dodge | color-burn | hard-light | soft-light | difference | exclusion | hue | saturation | color | luminosity
 //==================================
 // Content Cards - All Cards
 //==================================
-$card-content-background-color: transparent;
+// $card-content-background-color: transparent;
+$card-content-background-color: black;
 $card-content-padding: 0.75rem;
 $card-radius: 0.75rem;
 
 //==================================
 // HERO
 //==================================
-$card-content-background-color: black;
 //==================================
 // FONTS
 //==================================
@@ -288,29 +291,26 @@ figcaption {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: ease-in-out 0.5s;
+  transition: 0.25s $easing;
 
   .play-icon {
     color: transparent;
     border: 2px solid transparent;
-    transition: ease-in-out 0.5s;
+    transition: 0.25s $easing;
   }
 }
 
 .card {
   margin: 0 0.125rem;
-  transition: 0.5s ease;
+  transition: 0.25s $easing;
 
-  .card-image {
-    background-color: black;
-  }
-
+  .card-image,
   figure,
   img,
   .play-btn-diffuser {
     border-top-left-radius: 0.75rem;
     border-top-right-radius: 0.75rem;
-    transition: 0.5s ease;
+    transition: 0.25s $easing;
   }
 
   img {
@@ -319,17 +319,13 @@ figcaption {
   }
 
   &:hover {
-    .card-image {
-      background-color: black;
-    }
-
     figure {
-      border-top-left-radius: 0.6rem;
-      border-top-right-radius: 0.6rem;
+      border-top-left-radius: 0.75rem;
+      border-top-right-radius: 0.75rem;
       background-color: $dt-base;
 
       img {
-        filter: grayscale(100%) contrast(1) blur(3px);
+        filter: grayscale(100%) contrast(1) blur(2px);
         mix-blend-mode: $dt-bg-blend;
         opacity: $dt-opacity;
         object-fit: cover;
@@ -344,14 +340,14 @@ figcaption {
     }
 
     .play-btn-diffuser {
-      border-top-left-radius: 0.6rem;
-      border-top-right-radius: 0.6rem;
+      border-top-left-radius: 0.75em;
+      border-top-right-radius: 0.75em;
       cursor: pointer;
     }
 
     .card-content {
-      border-bottom-left-radius: 0.6rem;
-      border-bottom-right-radius: 0.6rem;
+      border-bottom-left-radius: 0.75em;
+      border-bottom-right-radius: 0.75em;
     }
 
     .play-btn-diffuser {
@@ -365,7 +361,7 @@ figcaption {
         // Button gets lost in color
         &:hover {
           filter: drop-shadow(0.75rem 0.75rem 0.75rem black);
-          transform: scale(1.1);
+          transform: scale(1.2);
         }
         &:active {
           color: $primary;

@@ -1,7 +1,7 @@
 //==================================
 // BULMA VARIABLES
 //==================================
-@import "./bulma.sass";
+@import "../../node_modules/bulma/bulma.sass";
 
 $border: white;
 $pink: #f600ff;
@@ -78,7 +78,7 @@ $dt-spacing: 1%;
 //==================================
 // Content Cards - All Cards
 //==================================
-$card-content-background-color: black;
+$card-content-background-color: transparent;
 $card-content-padding: 0.75rem;
 $card-radius: 0.75rem;
 
@@ -118,7 +118,7 @@ li,
 .tag,
 .subtitle,
 .hero-title {
-  font-family: "Poppins", sans-serif;
+  font-family: $family-sans-serif;
 }
 
 p {

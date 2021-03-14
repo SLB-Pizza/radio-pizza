@@ -4,6 +4,7 @@
 @import "../../node_modules/bulma/bulma.sass";
 
 $tablet: 768px;
+$strong-color: white;
 $border: white;
 $pink: #f600ff;
 $primary: $pink;
@@ -374,22 +375,29 @@ figcaption {
 }
 
 // Article embeds
-.embed {
-  margin-bottom: 1.25rem;
+// .embed {
+//   margin-bottom: 1.25rem;
 
-  iframe {
-    border: 2px solid white;
-    border-radius: $border-radius;
-    transition: 0.5s ease;
+//   iframe {
+//     border: 2px solid white;
+//     border-radius: $border-radius;
+//     transition: 0.5s ease;
 
-    @include touch {
-      width: fit-content;
-      height: fit-content;
-      &:hover {
-        border: 2px solid $primary;
-      }
-    }
-  }
+//     @include touch {
+//       width: fit-content;
+//       height: fit-content;
+//       &:hover {
+//         border: 2px solid $primary;
+//       }
+//     }
+//   }
+// }
+
+iframe {
+  width: 100%;
+  min-height: min-content;
+  margin: $gap;
+  border: 2px solid white;
 }
 
 // New Working Hero

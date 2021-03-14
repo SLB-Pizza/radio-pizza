@@ -3,6 +3,7 @@ import { Elements } from 'prismic-richtext'
 import { linkResolver } from './index'
 import { Link as PrismicLink } from 'prismic-reactjs'
 import { Link } from 'gatsby'
+import { HMBKIFrame } from '../components'
 
 // -- Function to add unique key to props
 const propsWithUniqueKey = function(props, key) {
@@ -101,7 +102,7 @@ const htmlSerializer = function(type, element, content, children, key) {
      * For inline images, pull the image right and wrap it according to bulma CSS conventions. Make sure the whole thing is wrapped in a React fragment so we don't add `<div>` to
      *
      * Result:
-     * ```
+     * ```jsx
      * <>
      *  <figure className="is-pulled-right is-clearfix">
      *    <img className="has-ratio" />
@@ -152,18 +153,50 @@ const htmlSerializer = function(type, element, content, children, key) {
 
     // DEFAULT EMBED
     case Elements.embed: // Embed
+      const { label, oembed } = element
+      console.table(oembed)
+
       props = Object.assign(
         {
-          'data-oembed': element.oembed.embed_url,
-          'data-oembed-type': element.oembed.type,
-          'data-oembed-provider': element.oembed.provider_name,
-          className: 'has-ratio embed',
-          dangerouslySetInnerHTML: { __html: element.oembed.html },
+          'data-oembed': oembed.embed_url,
+          'data-oembed-type': oembed.type,
+          'data-oembed-provider': oembed.provider_name,
+          dangerouslySetInnerHTML: {
+            __html: oembed.html,
+          },
         },
-        element.label ? { className: element.label } : {}
+        label ? { className: label } : {}
       )
 
-      return React.createElement('div', propsWithUniqueKey(props, key), null)
+      /**
+       * Customize the `iframe` to fit based on `oembed.provider_name`.
+       */
+      switch (oembed.provider_name) {
+        case 'YouTube':
+          return <HMBKIFrame oembedData={oembed} />
+        default:
+          /**
+           * All other providers use the `oembed.html` set DANGEROUSLY.
+           * - SoundCloud
+           */
+          return React.createElement(
+            'div',
+            propsWithUniqueKey(props, key),
+            null
+          )
+      }
+    // ORIGINAL
+    // props = Object.assign(
+    //   {
+    //     "data-oembed": element.oembed.embed_url,
+    //     "data-oembed-type": element.oembed.type,
+    //     "data-oembed-provider": element.oembed.provider_name,
+    //     className: "has-ratio",
+    //     dangerouslySetInnerHTML: { __html: element.oembed.html },
+    //   },
+    //   element.label ? { className: element.label } : {}
+    // );
+    //
 
     case Elements.hyperlink: // Hyperlinks
       let result = ''

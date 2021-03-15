@@ -156,6 +156,7 @@ const htmlSerializer = function(type, element, content, children, key) {
     // DEFAULT EMBED
     case Elements.embed: // Embed
       const { label, oembed } = element
+      console.log(oembed.provider_name)
 
       /**
        * Create props for embeds that use that will use their own html
@@ -174,10 +175,18 @@ const htmlSerializer = function(type, element, content, children, key) {
 
       /**
        * Customize the `iframe` to fit based on `oembed.provider_name`.
+       *
+       *=========================================
+       * NB: 'Bandcamp' is not a `provider_name`
+       * It's `song` or `album`.
+       *=========================================
        */
       switch (oembed.provider_name) {
         case 'YouTube':
         case 'Facebook':
+          /**
+           * Use for RichText embeds.
+           */
           if (oembed.provider_name === 'Facebook' && oembed.type !== 'video') {
             return React.createElement(
               'figure',
@@ -185,6 +194,11 @@ const htmlSerializer = function(type, element, content, children, key) {
               null
             )
           } else {
+            /**
+             * Use for:
+             * - Facebook Videos
+             * - YouTube videos
+             */
             return (
               <HMBKIFrame
                 oembedData={oembed}
@@ -212,19 +226,48 @@ const htmlSerializer = function(type, element, content, children, key) {
         //     key={`text-block-segment-${key}`}
         //   />
         // );
+        case 'song':
+        case 'album':
+          /**
+           * OnClick, the Bandcamp embed takes you away from the Halfmoon site
+           * instead of opening it in a new tab. Fix this by:
+           * 1. Splitting internal HTML string right after anchor tag start; `<a`
+           * 2. Splicing in a `target="_blank"`.
+           * 3. Putting it all back together.
+           */
+          const internalHTML = oembed.html.split('<a')
+          const bandcampHead = internalHTML[0]
+          const bandcampTail = internalHTML[1]
+          const newBandcampInnerHTML = `${bandcampHead}<a target=\"blank\" ${bandcampTail}`
+
+          const newProps = Object.assign(
+            {
+              'data-oembed': oembed.embed_url,
+              'data-oembed-type': oembed.type,
+              'data-oembed-provider': oembed.provider_name,
+              dangerouslySetInnerHTML: {
+                __html: newBandcampInnerHTML,
+              },
+            },
+            label ? { className: label } : {}
+          )
+
+          return React.createElement(
+            'figure',
+            propsWithUniqueKey(newProps, key),
+            null
+          )
 
         default:
           /**
            * All other providers use the `oembed.html` set DANGEROUSLY.
            * - SoundCloud
            */
-          const someHTML = React.createElement(
+          return React.createElement(
             'figure',
             propsWithUniqueKey(props, key),
             null
           )
-
-          return someHTML
       }
     // ORIGINAL
     // props = Object.assign(

@@ -2,6 +2,8 @@ import React from 'react'
 import { Elements } from 'prismic-richtext'
 import { linkResolver } from './index'
 import { Link as PrismicLink } from 'prismic-reactjs'
+import Embed from 'react-embed'
+import { Tweet } from 'react-twitter-widgets'
 import { Link } from 'gatsby'
 import { HMBKIFrame } from '../components'
 
@@ -154,8 +156,10 @@ const htmlSerializer = function(type, element, content, children, key) {
     // DEFAULT EMBED
     case Elements.embed: // Embed
       const { label, oembed } = element
-      console.table(oembed)
 
+      /**
+       * Create props for embeds that use that will use their own html
+       */
       props = Object.assign(
         {
           'data-oembed': oembed.embed_url,
@@ -173,17 +177,56 @@ const htmlSerializer = function(type, element, content, children, key) {
        */
       switch (oembed.provider_name) {
         case 'YouTube':
-          return <HMBKIFrame oembedData={oembed} />
+        case 'Facebook':
+          if (oembed.provider_name === 'Facebook' && oembed.type !== 'video') {
+            return React.createElement(
+              'figure',
+              propsWithUniqueKey(props, key),
+              null
+            )
+          } else {
+            return (
+              <HMBKIFrame
+                oembedData={oembed}
+                key={`text-block-segment-${key}`}
+              />
+            )
+          }
+        case 'Twitter':
+          const splitOnSlashes = oembed.embed_url.split('/')
+          const tweetID = splitOnSlashes[splitOnSlashes.length - 1]
+          console.log('tweetID', tweetID)
+
+          return (
+            <Tweet
+              tweetId={tweetID}
+              options={{ theme: 'dark' }}
+              key={`text-block-segment-${key}`}
+            />
+          )
+
+        // ALSO WORKS
+        // return (
+        //   <Embed
+        //     isDark
+        //     url={oembed.embed_url}
+        //     key={`text-block-segment-${key}`}
+        //   />
+        // );
+
         default:
+          console.log(oembed.provider_name, oembed.type)
           /**
            * All other providers use the `oembed.html` set DANGEROUSLY.
            * - SoundCloud
            */
-          return React.createElement(
-            'div',
+          const someHTML = React.createElement(
+            'figure',
             propsWithUniqueKey(props, key),
             null
           )
+
+          return someHTML
       }
     // ORIGINAL
     // props = Object.assign(

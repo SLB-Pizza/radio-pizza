@@ -195,12 +195,11 @@ const htmlSerializer = function(type, element, content, children, key) {
         case 'Twitter':
           const splitOnSlashes = oembed.embed_url.split('/')
           const tweetID = splitOnSlashes[splitOnSlashes.length - 1]
-          console.log('tweetID', tweetID)
 
           return (
             <Tweet
               tweetId={tweetID}
-              options={{ theme: 'dark' }}
+              options={{ theme: 'dark', align: 'center' }}
               key={`text-block-segment-${key}`}
             />
           )
@@ -215,7 +214,6 @@ const htmlSerializer = function(type, element, content, children, key) {
         // );
 
         default:
-          console.log(oembed.provider_name, oembed.type)
           /**
            * All other providers use the `oembed.html` set DANGEROUSLY.
            * - SoundCloud

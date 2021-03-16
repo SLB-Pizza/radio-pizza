@@ -182,40 +182,61 @@ const htmlSerializer = function(type, element, content, children, key) {
        */
       switch (oembed.provider_name) {
         case 'YouTube':
-        case 'Facebook':
-          /**
-           * Use for RichText embeds.
-           */
-          if (oembed.provider_name === 'Facebook' && oembed.type !== 'video') {
-            return React.createElement(
-              'figure',
-              propsWithUniqueKey(props, key),
-              null
-            )
-          } else {
-            /**
-             * Use for:
-             * - Facebook Videos
-             * - YouTube videos
-             */
-            return (
-              <HMBKIFrame
-                oembedData={oembed}
-                key={`text-block-segment-${key}`}
-              />
-            )
-          }
-        case 'Twitter':
-          const splitOnSlashes = oembed.embed_url.split('/')
-          const tweetID = splitOnSlashes[splitOnSlashes.length - 1]
-
+          // case 'Facebook':
+          // /**
+          //  * Use for RichText embeds.
+          //  */
+          // if (oembed.provider_name === 'Facebook' && oembed.type !== 'video') {
+          //   return React.createElement(
+          //     'figure',
+          //     propsWithUniqueKey(props, key),
+          //     null
+          //   )
+          // } else {
+          //   /**
+          //    * Use for:
+          //    * - Facebook Videos
+          //    * - YouTube videos
+          //    */
           return (
-            <Tweet
-              tweetId={tweetID}
-              options={{ theme: 'dark', align: 'center' }}
-              key={`text-block-segment-${key}`}
-            />
+            <HMBKIFrame oembedData={oembed} key={`text-block-segment-${key}`} />
           )
+        // }
+        case 'Twitter':
+          const newTWInnerHTML = oembed.html.replace(
+            '<a',
+            '<a target="_blank" '
+          )
+
+          const newTWProps = Object.assign(
+            {
+              'data-oembed': oembed.embed_url,
+              'data-oembed-type': oembed.type,
+              'data-oembed-provider': oembed.provider_name,
+              dangerouslySetInnerHTML: {
+                __html: newTWInnerHTML,
+              },
+            },
+            label ? { className: label } : {}
+          )
+
+          return React.createElement(
+            'figure',
+            propsWithUniqueKey(newTWProps, key),
+            null
+          )
+
+        // Doesn't render because of a necessary script; CSP?
+        // const splitOnSlashes = oembed.embed_url.split("/");
+        // const tweetID = splitOnSlashes[splitOnSlashes.length - 1];
+
+        // return (
+        //   <Tweet
+        //     tweetId={tweetID}
+        //     options={{ theme: "dark", align: "center" }}
+        //     key={`text-block-segment-${key}`}
+        //   />
+        // );
 
         // ALSO WORKS
         // return (
@@ -234,10 +255,7 @@ const htmlSerializer = function(type, element, content, children, key) {
            * 2. Splicing in a `target="_blank"`.
            * 3. Putting it all back together.
            */
-          const innerBandcamp = oembed.html.split('<a')
-          const bandcampHead = innerBandcamp[0]
-          const bandcampTail = innerBandcamp[1]
-          const newBandcampInnerHTML = `${bandcampHead}<a target=\"blank\" ${bandcampTail}`
+          const newBCInnerHTML = oembed.html.replace('<a', '<a target="blank" ')
 
           const newBCProps = Object.assign(
             {
@@ -245,7 +263,7 @@ const htmlSerializer = function(type, element, content, children, key) {
               'data-oembed-type': oembed.type,
               'data-oembed-provider': oembed.provider_name,
               dangerouslySetInnerHTML: {
-                __html: newBandcampInnerHTML,
+                __html: newBCInnerHTML,
               },
             },
             label ? { className: label } : {}
@@ -256,6 +274,35 @@ const htmlSerializer = function(type, element, content, children, key) {
             propsWithUniqueKey(newBCProps, key),
             null
           )
+
+        case 'Facebook':
+          /**
+           * Using `oembed.html` with changes to the included `<a>` tags.
+           * `target="_blank"` needs to be spliced in.
+           */
+          const newFBInnerHTML = oembed.html.replace(
+            '<a',
+            '<a target="_blank" '
+          )
+
+          const newFBProps = Object.assign(
+            {
+              'data-oembed': oembed.embed_url,
+              'data-oembed-type': oembed.type,
+              'data-oembed-provider': oembed.provider_name,
+              dangerouslySetInnerHTML: {
+                __html: newFBInnerHTML,
+              },
+            },
+            label ? { className: label } : {}
+          )
+
+          return React.createElement(
+            'figure',
+            propsWithUniqueKey(newFBProps, key),
+            null
+          )
+
         case 'Instagram':
           /**
            * The script at the end of the internal HTML doesn't properly include the `http:` before the `src` tag.
@@ -269,7 +316,7 @@ const htmlSerializer = function(type, element, content, children, key) {
            *
            * @see {@link https://stackoverflow.com/a/37447799/8239335 Why is instagram embed code only showing an instagram icon, not the image? ("View this post on instrgram")}
            */
-          const innerInstagram = oembed.html.replace(
+          const newIGInnerHTML = oembed.html.replace(
             '//platform.',
             'http://platform.'
           )
@@ -280,7 +327,7 @@ const htmlSerializer = function(type, element, content, children, key) {
               'data-oembed-type': oembed.type,
               'data-oembed-provider': oembed.provider_name,
               dangerouslySetInnerHTML: {
-                __html: innerInstagram,
+                __html: newIGInnerHTML,
               },
             },
             label ? { className: label } : {}

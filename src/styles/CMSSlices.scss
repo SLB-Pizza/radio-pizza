@@ -59,20 +59,54 @@ cite,
   font-family: $family-sans-serif;
 }
 
-blockquote {
-  p {
-    font-weight: 900;
-    font-style: italic;
-    line-height: 1.25;
-    color: white;
-    &.light-bg {
-      border-left: 5px solid black;
-    }
-    &.dark-bg {
-      border-left: 5px solid white;
+section.is-blockquote {
+  blockquote {
+    p {
+      font-weight: 900;
+      font-style: italic;
+      line-height: 1.25;
+      color: white;
+      &.light-bg {
+        border-left: 5px solid black;
+      }
+      &.dark-bg {
+        border-left: 5px solid white;
+      }
     }
   }
 }
+// Facebook Embed
+blockquote.fb-xfbml-parse-ignore,
+blockquote.twitter-tweet {
+  font-family: $family-sans-serif;
+  line-height: 1.25;
+  font-weight: 700;
+  color: white;
+
+  @include mobile {
+    font-size: $size-6;
+  }
+  @include tablet {
+    font-size: $size-5;
+  }
+
+  a,
+  p {
+    font-weight: 700;
+    @include mobile {
+      font-size: $size-6;
+    }
+    @include tablet {
+      font-size: $size-5;
+    }
+  }
+  // The RichText content
+  p {
+    margin-top: $gap;
+  }
+}
+
+// Make text in FB RichText blockquote and link same sizes.
 
 cite {
   font-weight: 500;

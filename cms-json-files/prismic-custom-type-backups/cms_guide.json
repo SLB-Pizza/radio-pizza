@@ -178,6 +178,17 @@
               "name": "fullpage",
               "display": "Fullpage"
             }
+          ],
+          "text_columns": [],
+          "one_item_and_text": [
+            {
+              "name": "left__card_--_text",
+              "display": "Left: Card -- Text"
+            },
+            {
+              "name": "right__text_--_card",
+              "display": "Right: Text -- Card"
+            }
           ]
         },
         "choices": {
@@ -199,7 +210,7 @@
               "body_text": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
+                  "multi": "paragraph, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item",
                   "allowTargetBlank": true,
                   "label": "Body Text",
                   "placeholder": "Write your body text section here..."
@@ -208,6 +219,15 @@
             },
             "repeat": {},
             "display": "list"
+          },
+          "slice_divider": {
+            "type": "Slice",
+            "fieldset": "Section Divider",
+            "description": "A line that represents a change of scene, or shift of topic.",
+            "icon": "unfold_more",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {}
           },
           "blockquote": {
             "type": "Slice",
@@ -291,6 +311,34 @@
                     }
                   ],
                   "label": "Select your image..."
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "hmbk_item_and_text": {
+            "type": "Slice",
+            "fieldset": "HMBK Item and Text",
+            "description": "One HMBK Media card and text block on the left or right.",
+            "icon": "filter_1",
+            "display": "list",
+            "non-repeat": {
+              "oiat_text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "Text Section",
+                  "placeholder": "Enter the text that will appear alongside the image here..."
+                }
+              },
+              "hmbk_item": {
+                "type": "Link",
+                "config": {
+                  "select": "document",
+                  "customtypes": ["event", "resident", "mix", "feature"],
+                  "label": "HMBK Item",
+                  "placeholder": "Select a Mix, Feature, Event, or Resident..."
                 }
               }
             },
@@ -383,48 +431,6 @@
             },
             "repeat": {}
           },
-          "full_width_image": {
-            "type": "Slice",
-            "fieldset": "Full Width Image",
-            "description": "A full width image with optional text within.",
-            "icon": "video_label",
-            "display": "list",
-            "non-repeat": {
-              "fwi_titling": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading2",
-                  "label": "Full Width Image Titling",
-                  "placeholder": "(Optional) Enter text to overlay the full width image here..."
-                }
-              },
-              "full_width_image": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [
-                    {
-                      "name": "halfheight",
-                      "width": 1600,
-                      "height": 1200
-                    },
-                    {
-                      "name": "medium",
-                      "width": 1600,
-                      "height": 600
-                    },
-                    {
-                      "name": "small",
-                      "width": 1600,
-                      "height": 300
-                    }
-                  ],
-                  "label": "Full Width Image"
-                }
-              }
-            },
-            "repeat": {}
-          },
           "image_group": {
             "type": "Slice",
             "fieldset": "Row of Images",
@@ -471,6 +477,48 @@
               }
             }
           },
+          "full_width_image": {
+            "type": "Slice",
+            "fieldset": "Full Width Image",
+            "description": "A full width image with optional text within.",
+            "icon": "video_label",
+            "display": "list",
+            "non-repeat": {
+              "fwi_titling": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2",
+                  "label": "Full Width Image Titling",
+                  "placeholder": "(Optional) Enter text to overlay the full width image here..."
+                }
+              },
+              "full_width_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [
+                    {
+                      "name": "halfheight",
+                      "width": 1600,
+                      "height": 1200
+                    },
+                    {
+                      "name": "medium",
+                      "width": 1600,
+                      "height": 600
+                    },
+                    {
+                      "name": "small",
+                      "width": 1600,
+                      "height": 300
+                    }
+                  ],
+                  "label": "Full Width Image"
+                }
+              }
+            },
+            "repeat": {}
+          },
           "hmbk_media": {
             "type": "Slice",
             "fieldset": "HMBK Media",
@@ -480,14 +528,43 @@
             "non-repeat": {},
             "repeat": {}
           },
-          "slice_divider": {
+          "text_columns": {
             "type": "Slice",
-            "fieldset": "Slice Divider",
-            "description": "A line that represents a change of scene, or shift of topic.",
-            "icon": "unfold_more",
+            "fieldset": "Text Columns",
+            "description": "Up to 5 columns of text with optional header and footer.",
+            "icon": "view_column",
             "display": "list",
-            "non-repeat": {},
-            "repeat": {}
+            "non-repeat": {
+              "text_columns_header": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "(OPTIONAL) Text Columns Header",
+                  "placeholder": "Add header text for the columns..."
+                }
+              },
+              "text_columns_footer": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "(OPTIONAL) Text Columns Footer",
+                  "placeholder": "Add footer text for the columns..."
+                }
+              }
+            },
+            "repeat": {
+              "text_column": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "Text Column",
+                  "placeholder": "Add the text for a column..."
+                }
+              }
+            }
           }
         }
       }

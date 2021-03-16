@@ -13,7 +13,7 @@ export default function mixLinkIconInfo(mixLink) {
    */
   let details = {
     iconToUse: 'globe',
-    iconLink: mixLink,
+    linkAddress: mixLink,
   }
 
   /**

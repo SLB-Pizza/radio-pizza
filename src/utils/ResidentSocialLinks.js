@@ -53,7 +53,7 @@ function ResidentSocialLinks({ url, platform }) {
   }
 
   return (
-    <div className="column social-links">
+    <div className="column resident-links__icon">
       <IconMaker iconToUse={icon} linkAddress={url} />
     </div>
   )

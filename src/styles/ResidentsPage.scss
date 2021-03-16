@@ -11,8 +11,20 @@
   padding-bottom: 2rem;
 }
 
-.sticky-bio {
-  padding-top: 2rem;
+// Resident Content Type Selector
+.selector {
+  position: sticky;
+  position: -webkit-sticky;
+  background-color: black;
+  z-index: 9;
+  top: 6.625rem;
+  @include tablet {
+    margin-top: -1.25rem;
+  }
+}
+
+.resident-bio {
+  padding-top: $gap;
 
   @include tablet {
     padding-bottom: 2rem;
@@ -24,18 +36,10 @@
   }
 }
 
-.social-links {
-  display: flex;
-  justify-content: center;
-}
-
-.selector {
-  position: sticky;
-  position: -webkit-sticky;
-  background-color: black;
-  z-index: 9;
-  top: 6.625rem;
-  @include tablet {
-    margin-top: -1.25rem;
+.resident-links {
+  padding-bottom: $gap;
+  &__icon {
+    display: flex;
+    justify-content: center;
   }
 }

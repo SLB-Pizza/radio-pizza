@@ -52,7 +52,7 @@ function ResidentBio({ residentBioData }) {
   }, [residentBioData])
 
   return (
-    <div className="column is-3-desktop is-4-tablet is-12-mobile sticky-bio">
+    <div className="column is-3-desktop is-4-tablet is-12-mobile resident-bio">
       <div className="columns is-multiline">
         <div className="column is-12">
           <figure className="image is-1by1">
@@ -63,7 +63,7 @@ function ResidentBio({ residentBioData }) {
             )}
           </figure>
         </div>
-        <div className="column is-12 content">
+        <div className="column is-12 content text-block">
           {resident_name && (
             <NanoClamp
               className="title is-size-4-desktop is-size-5-touch"
@@ -82,7 +82,7 @@ function ResidentBio({ residentBioData }) {
         </div>
       </div>
 
-      <div className="columns is-mobile is-multiline is-vcentered">
+      <div className="columns is-mobile is-multiline is-vcentered resident-links">
         {socialMediaData?.map(
           ({ resident_social_page, resident_social_link }, index) => (
             <ResidentSocialLinks

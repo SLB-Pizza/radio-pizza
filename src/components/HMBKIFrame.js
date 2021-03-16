@@ -1,11 +1,9 @@
 import React from 'react'
-import Embed from 'react-embed'
+// import Embed from "react-embed";
 
 function HMBKIFrame({ oembedData }) {
-  console.log('inside HMBKIFrame')
   const { embed_url, provider_name, type, ...rest } = oembedData
   let embedSrc
-  // console.table(oembedData);
 
   /**
    * Create the iframe `src` string based on the oembed provider

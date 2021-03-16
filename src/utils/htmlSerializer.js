@@ -156,7 +156,6 @@ const htmlSerializer = function(type, element, content, children, key) {
     // DEFAULT EMBED
     case Elements.embed: // Embed
       const { label, oembed } = element
-      console.log(oembed.provider_name)
 
       /**
        * Create props for embeds that use that will use their own html
@@ -235,12 +234,12 @@ const htmlSerializer = function(type, element, content, children, key) {
            * 2. Splicing in a `target="_blank"`.
            * 3. Putting it all back together.
            */
-          const internalHTML = oembed.html.split('<a')
-          const bandcampHead = internalHTML[0]
-          const bandcampTail = internalHTML[1]
+          const innerBandcamp = oembed.html.split('<a')
+          const bandcampHead = innerBandcamp[0]
+          const bandcampTail = innerBandcamp[1]
           const newBandcampInnerHTML = `${bandcampHead}<a target=\"blank\" ${bandcampTail}`
 
-          const newProps = Object.assign(
+          const newBCProps = Object.assign(
             {
               'data-oembed': oembed.embed_url,
               'data-oembed-type': oembed.type,
@@ -254,15 +253,51 @@ const htmlSerializer = function(type, element, content, children, key) {
 
           return React.createElement(
             'figure',
-            propsWithUniqueKey(newProps, key),
+            propsWithUniqueKey(newBCProps, key),
+            null
+          )
+        case 'Instagram':
+          /**
+           * The script at the end of the internal HTML doesn't properly include the `http:` before the `src` tag.
+           *
+           * End of oEmbed HTML script:
+           * ```js
+           * '<script async src="//platform.instagram.com/en_US/embeds.js"></script>'
+           * ```
+           *
+           * We need to re-add this script with the `http`; then remake props.
+           *
+           * @see {@link https://stackoverflow.com/a/37447799/8239335 Why is instagram embed code only showing an instagram icon, not the image? ("View this post on instrgram")}
+           */
+          const innerInstagram = oembed.html.replace(
+            '//platform.',
+            'http://platform.'
+          )
+
+          const newIGProps = Object.assign(
+            {
+              'data-oembed': oembed.embed_url,
+              'data-oembed-type': oembed.type,
+              'data-oembed-provider': oembed.provider_name,
+              dangerouslySetInnerHTML: {
+                __html: innerInstagram,
+              },
+            },
+            label ? { className: label } : {}
+          )
+
+          return React.createElement(
+            'figure',
+            propsWithUniqueKey(newIGProps, key),
             null
           )
 
         default:
           /**
-           * All other providers use the `oembed.html` set DANGEROUSLY.
+           * All other providers use the unedited `oembed.html` set DANGEROUSLY.
            * - SoundCloud
            */
+
           return React.createElement(
             'figure',
             propsWithUniqueKey(props, key),

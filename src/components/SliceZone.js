@@ -2,6 +2,7 @@ import React from 'react'
 import {
   ArticleHeadline,
   Blockquote,
+  HMBKItemAndText,
   ImageRow,
   FullWidthImage,
   OneImageAndText,
@@ -50,6 +51,7 @@ function SliceZone({ sliceZone, metadata }) {
     blockquote: Blockquote,
     full_width_image: FullWidthImage,
     headline_block: ArticleHeadline,
+    hmbk_item_and_text: HMBKItemAndText,
     row_of_images: ImageRow,
     image_group: ImageRow,
     slice_divider: SectionDivider,
@@ -64,6 +66,8 @@ function SliceZone({ sliceZone, metadata }) {
      * Grab the CMS Slice by using slice.type as the key for sliceComponents
      */
     const SliceComponent = sliceComponents[slice.type]
+
+    console.log('slice type', slice.type)
 
     if (SliceComponent) {
       return (

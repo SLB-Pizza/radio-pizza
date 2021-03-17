@@ -1,4 +1,3 @@
-import { left } from 'inquirer/lib/utils/readline'
 import React from 'react'
 import { ImageHelper, RichTextHelper } from '../helpers'
 
@@ -45,14 +44,14 @@ function OneImageAndText({ slice }) {
   /**
    * Determine the column `className` based on the available data. Similar process to {@link TwoImagesAndText}.
    *
-   * **if `oiat_text` has value**
-   * - `oiat_text` is `null`: make content "full" width; `is-11` FHD
+   * **if `text` has value**
+   * - `text` is `null`: make content "full" width; `is-11` FHD
    * - `imageSize` is `tall_image`: content 7 -- image 4 FHD; 8+4 tablet; mobile full
    * - `imageSize` is `wide_image`: content 4 -- image 7 FHD; 8+4 tablet; mobile full
    *
-   * **else: `0iat_text === null`**
-   * - `oiat_img` is `null`: section renders with no content
-   * - `oiat_img` exists: image 11 FHD; full tablet and mobile
+   * **else: `oiat_text === null`**
+   * - `image` is `null`: section renders with no content
+   * - `image` exists: image 11 FHD; full tablet and mobile
    */
   if (text) {
     if (!image) {

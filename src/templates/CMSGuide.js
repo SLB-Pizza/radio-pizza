@@ -132,7 +132,6 @@ export const query = graphql`
                 }
               }
               ... on PRISMIC_Cms_guideBodyFull_width_image {
-                type
                 label
                 primary {
                   full_width_image
@@ -153,6 +152,53 @@ export const query = graphql`
                 primary {
                   text_columns_header
                   text_columns_footer
+                }
+              }
+              ... on PRISMIC_Cms_guideBodyHmbk_item_and_text {
+                type
+                label
+                primary {
+                  hmbk_item {
+                    ... on PRISMIC_Event {
+                      _meta {
+                        uid
+                        type
+                      }
+                      event_blurb
+                      main_event_image
+                      event_name
+                      event_end
+                      event_start
+                      event_location
+                    }
+                    ... on PRISMIC_Resident {
+                      _meta {
+                        uid
+                        type
+                      }
+                      resident_name
+                      resident_image
+                    }
+                    ... on PRISMIC_Mix {
+                      _meta {
+                        uid
+                        type
+                        tags
+                      }
+                      mix_date
+                      mix_image
+                      mix_link
+                      mix_title
+                      featured_residents {
+                        mix_resident {
+                          ... on PRISMIC_Resident {
+                            resident_name
+                          }
+                        }
+                      }
+                    }
+                  }
+                  oiat_text
                 }
               }
             }

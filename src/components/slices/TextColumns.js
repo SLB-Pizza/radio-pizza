@@ -20,7 +20,6 @@ function TextColumns({ slice }) {
       {header && (
         <div className="container">
           <div className="columns text-columns__header">
-            return
             <RichTextHelper richText={header} />
           </div>
         </div>

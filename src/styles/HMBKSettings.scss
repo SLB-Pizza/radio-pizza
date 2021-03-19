@@ -38,6 +38,7 @@ $content-blockquote-border-left: 5px solid white;
 //==================================
 // /search page stuff
 //==================================
+$label-color: white;
 $input-color: white;
 $input-background-color: black;
 $input-border-color: white;
@@ -52,7 +53,7 @@ $input-icon-active-color: $primary;
 // button element variables
 //==================================
 $button-color: white;
-$button-background-color: transparent;
+$button-background-color: black;
 $button-hover-color: white;
 $button-hover-border-color: $primary;
 $button-focus-color: white;
@@ -82,7 +83,6 @@ $dt-spacing: 1%;
 //==================================
 // Content Cards - All Cards
 //==================================
-// $card-content-background-color: transparent;
 $card-content-background-color: black;
 $card-content-padding: 0.75rem;
 $card-radius: 0.75rem;
@@ -374,45 +374,6 @@ figcaption {
   }
 }
 
-// Article embeds
-// .embed {
-//   margin-bottom: 1.25rem;
-
-//   iframe {
-//     border: 2px solid white;
-//     border-radius: $border-radius;
-//     transition: 0.5s ease;
-
-//     @include touch {
-//       width: fit-content;
-//       height: fit-content;
-//       &:hover {
-//         border: 2px solid $primary;
-//       }
-//     }
-//   }
-// }
-
-// figure > iframe {
-//   min-height: 100%;
-//   &.fb {
-//     &-video {
-//     }
-//   }
-// }
-
-// iframe {
-//   width: 100%;
-//   margin: $gap;
-//   border: 2px solid white;
-// }
-// iframe {
-//   width: 100%;
-//   min-height: min-content;
-//   margin: $gap;
-//   border: 2px solid white;
-// }
-
 // New Working Hero
 .hero {
   &.homepage {
@@ -436,6 +397,10 @@ figcaption {
     }
   }
 
+  &.is-password {
+    height: calc(100vh - 9.75rem);
+  }
+
   &.has-background {
     position: relative;
     overflow: hidden;
@@ -457,6 +422,67 @@ figcaption {
     justify-content: flex-end;
   }
 }
+
+//==========================
+// For /guide/ route
+//==========================
+.column.password {
+  height: calc(100vh - 16.5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+input.input {
+  border: 2px solid white;
+
+  &::placeholder,
+  &::-moz-placeholder,
+  &::-webkit-input-placeholder {
+    font-family: $family-sans-serif;
+    color: $grey-lighter;
+  }
+}
+
+// @function multiple-box-shadow($n) {
+//   $value: "#{random(2000)}px #{random(2000)}px #fff";
+//   @for $i from 25 through $n {
+//     $value: "#{$value}, #{random(2000)}px #{random(2000)}px #fff";
+//   }
+//   @return unquote($value);
+// }
+
+// $shadows-small: multiple-box-shadow(700);
+// $shadows-medium: multiple-box-shadow(200);
+// $shadows-big: multiple-box-shadow(100);
+
+// #stars {
+//   width: 1px;
+//   height: 1px;
+//   background: transparent;
+//   box-shadow: $shadows-small;
+//   animation: animStar 50s linear infinite;
+
+//   &:after {
+//     content: " ";
+//     position: absolute;
+//     top: 2000px;
+//     width: 1px;
+//     height: 1px;
+//     background: transparent;
+//     box-shadow: $shadows-small;
+//   }
+// }
+
+// @keyframes animStar {
+//   from {
+//     transform: translateY(0px);
+//   }
+//   to {
+//     transform: translateY(-2000px);
+//   }
+// }
 
 //==========================
 // HMBKDivider.js - forLoading: true

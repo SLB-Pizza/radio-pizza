@@ -380,25 +380,36 @@ figcaption {
     height: calc(100vh - 8.75rem);
   }
 
-  &.is-blockquote,
-  &.is-fwi {
+  &.is-blockquote {
     .hero-body {
       min-height: initial;
     }
   }
 
+  &.is-halfheight {
+    height: calc(0.5 * (100vh - 15rem));
+    & .hero-body {
+      padding: initial;
+      height: calc(0.5 * (100vh - 15rem));
+    }
+  }
+
   &.is-fwi {
+    &-quarterpage {
+      height: calc(0.25 * (100vh - 9.75rem));
+    }
     &-halfpage {
-      height: calc(0.5 * (100vh - 8.75rem));
+      height: calc(0.5 * (100vh - 9.75rem));
     }
 
     &-fullpage {
-      height: calc(100vh - 9rem);
+      height: calc(100vh - 9.75rem); // Correct full screen image
     }
   }
 
   &.is-password {
-    height: calc(100vh - 9.75rem);
+    @extend .is-halfheight;
+    min-height: calc(100vh - 9.75rem);
   }
 
   &.has-background {

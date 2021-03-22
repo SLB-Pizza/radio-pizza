@@ -132,6 +132,7 @@ export const query = graphql`
                 }
               }
               ... on PRISMIC_Cms_guideBodyFull_width_image {
+                type
                 label
                 primary {
                   full_width_image

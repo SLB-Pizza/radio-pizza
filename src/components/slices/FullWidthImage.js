@@ -1,17 +1,14 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { RichText } from 'prismic-reactjs'
 
 /**
  * @category CMS Slices
  * @function FullWidthImage
  * @param {Object} slice - data object from Prismic CMS that contains all content data needed to create the HeadlineBlock slice
- * @param {Object} metadata - data object from Prismic CMS that contains all content data needed to create this slice
  * @returns {jsx}
  */
 function FullWidthImage({ slice }) {
   const { label, primary } = slice
-  const { full_width_image, fwi_titling } = primary
+  let { full_width_image } = primary
 
   let layoutType, heroClassName, imgURL
 
@@ -23,19 +20,19 @@ function FullWidthImage({ slice }) {
 
   switch (layoutType) {
     case 'medium':
-      heroClassName = 'hero has-background is-fwi is-medium slice'
-      imgURL = full_width_image.medium.url
+      heroClassName = 'hero has-background is-fwi-quarterpage'
+      imgURL = full_width_image.small.url
       break
     case 'halfpage':
-      heroClassName = 'hero has-background is-fwi-halfpage slice'
-      imgURL = full_width_image.halfheight.url
+      heroClassName = 'hero has-background is-fwi-halfpage'
+      imgURL = full_width_image.medium.url
       break
     case 'fullpage':
-      heroClassName = 'hero has-background is-fwi-fullpage slice'
+      heroClassName = 'hero has-background is-fwi-fullpage'
       imgURL = full_width_image.url
       break
     default:
-      heroClassName = 'hero is-medium slice'
+      heroClassName = 'hero has-background is-fwi-quarterpage'
   }
 
   return imgURL ? (
@@ -45,23 +42,6 @@ function FullWidthImage({ slice }) {
         src={imgURL}
         alt={full_width_image.alt}
       />
-      <div className="hero-body">
-        {fwi_titling && (
-          <div className="container">
-            <div className="columns">
-              <div className="column is-full">
-                <div className="content">
-                  {
-                    <p className="title hero-title is-1">
-                      {RichText.asText(fwi_titling)}
-                    </p>
-                  }
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
     </section>
   ) : null
 }

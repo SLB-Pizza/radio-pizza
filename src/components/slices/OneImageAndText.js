@@ -57,11 +57,11 @@ function OneImageAndText({ slice }) {
     if (!image) {
       textClass = 'column is-11-fullhd is-full-tablet is-full-mobile'
     } else if (imageSize === 'tall_image') {
-      textClass = 'column is-7-fullhd is-8-tablet is-full-mobile'
-      imageClass = 'column is-4-fullhd is-4-tablet is-full-mobile'
+      textClass = 'column is-7-fullhd is-8-desktop is-7-tablet is-full-mobile'
+      imageClass = 'column is-4-fullhd is-4-desktop is-5-tablet is-full-mobile'
     } else {
-      textClass = 'column is-4-fullhd is-4-tablet is-full-mobile'
-      imageClass = 'column is-7-fullhd is-8-tablet is-full-mobile'
+      textClass = 'column is-4-fullhd is-4-desktop is-5-tablet is-full-mobile'
+      imageClass = 'column is-7-fullhd is-8-desktop is-7-tablet is-full-mobile'
     }
   } else {
     if (!image) {

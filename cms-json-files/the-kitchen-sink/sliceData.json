@@ -482,13 +482,7 @@
         {
           "type": "heading3",
           "text": "⚠️ Embeds should be placed in between paragraphs, NOT in between lines of a paragraph.",
-          "spans": [
-            {
-              "start": 0,
-              "end": 86,
-              "type": "strong"
-            }
-          ]
+          "spans": []
         }
       ]
     }
@@ -511,16 +505,16 @@
         },
         {
           "type": "paragraph",
-          "text": "EMBED IS PLACED HERE",
+          "text": "YOUR EMBED IS PLACED HERE IN BETWEEN PARAGRAPHS",
           "spans": [
             {
               "start": 0,
-              "end": 20,
+              "end": 47,
               "type": "em"
             },
             {
               "start": 0,
-              "end": 20,
+              "end": 47,
               "type": "strong"
             }
           ]
@@ -586,18 +580,18 @@
         {
           "type": "embed",
           "oembed": {
-            "type": "video",
-            "embed_url": "https://www.youtube.com/watch?v=JH_BAwSFKwM",
-            "title": "Ultrawide Screensaver for Cinema Displays 21:9 Aquarium Video Ultra HD",
-            "provider_name": "YouTube",
-            "thumbnail_url": "https://i.ytimg.com/vi/JH_BAwSFKwM/hqdefault.jpg",
             "height": 113,
             "width": 200,
+            "embed_url": "https://www.youtube.com/watch?v=JH_BAwSFKwM",
+            "type": "video",
             "version": "1.0",
+            "title": "Ultrawide Screensaver for Cinema Displays 21:9 Aquarium Video Ultra HD",
             "author_name": "Uscenes relaxing videos",
             "author_url": "https://www.youtube.com/user/uscenes",
+            "provider_name": "YouTube",
             "provider_url": "https://www.youtube.com/",
             "cache_age": null,
+            "thumbnail_url": "https://i.ytimg.com/vi/JH_BAwSFKwM/hqdefault.jpg",
             "thumbnail_width": 480,
             "thumbnail_height": 360,
             "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/JH_BAwSFKwM?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
@@ -606,18 +600,18 @@
         {
           "type": "embed",
           "oembed": {
-            "type": "video",
-            "embed_url": "https://www.youtube.com/watch?v=KRntP-q_R9s",
-            "title": "Billie Eilish - bad guy (Vertical Video)",
-            "provider_name": "YouTube",
-            "thumbnail_url": "https://i.ytimg.com/vi/KRntP-q_R9s/hqdefault.jpg",
             "height": 113,
             "width": 200,
+            "embed_url": "https://www.youtube.com/watch?v=KRntP-q_R9s",
+            "type": "video",
             "version": "1.0",
+            "title": "Billie Eilish - bad guy (Vertical Video)",
             "author_name": "Billie Eilish",
             "author_url": "https://www.youtube.com/channel/UCiGm_E4ZwYSHV3bcW1pnSeQ",
+            "provider_name": "YouTube",
             "provider_url": "https://www.youtube.com/",
             "cache_age": null,
+            "thumbnail_url": "https://i.ytimg.com/vi/KRntP-q_R9s/hqdefault.jpg",
             "thumbnail_width": 480,
             "thumbnail_height": 360,
             "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/KRntP-q_R9s?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
@@ -626,18 +620,18 @@
         {
           "type": "embed",
           "oembed": {
-            "type": "video",
-            "embed_url": "https://www.youtube.com/watch?v=pUVx13nBIhI",
-            "title": "Umphrey's McGee \"Puppet String\" - Live At Red Rocks",
-            "provider_name": "YouTube",
-            "thumbnail_url": "https://i.ytimg.com/vi/pUVx13nBIhI/hqdefault.jpg",
             "height": 113,
             "width": 200,
+            "embed_url": "https://www.youtube.com/watch?v=pUVx13nBIhI",
+            "type": "video",
             "version": "1.0",
+            "title": "Umphrey's McGee \"Puppet String\" - Live At Red Rocks",
             "author_name": "Umphrey's McGee",
             "author_url": "https://www.youtube.com/user/umvideo",
+            "provider_name": "YouTube",
             "provider_url": "https://www.youtube.com/",
             "cache_age": null,
+            "thumbnail_url": "https://i.ytimg.com/vi/pUVx13nBIhI/hqdefault.jpg",
             "thumbnail_width": 480,
             "thumbnail_height": 360,
             "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/pUVx13nBIhI?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
@@ -662,19 +656,19 @@
         {
           "type": "embed",
           "oembed": {
-            "type": "rich",
-            "embed_url": "https://soundcloud.com/sephrasparadox/sunset-dynamic",
-            "title": "Sunset Dynamic by Sephra's Paradox",
-            "provider_name": "SoundCloud",
-            "thumbnail_url": "https://soundcloud.com/images/fb_placeholder.png",
             "height": 400,
             "width": "100%",
             "description": "Free download!",
+            "embed_url": "https://soundcloud.com/sephrasparadox/sunset-dynamic",
+            "type": "rich",
             "version": "1",
+            "title": "Sunset Dynamic by Sephra's Paradox",
             "author_name": "Sephra's Paradox",
             "author_url": "https://soundcloud.com/sephrasparadox",
+            "provider_name": "SoundCloud",
             "provider_url": "https://soundcloud.com",
             "cache_age": null,
+            "thumbnail_url": "https://soundcloud.com/images/fb_placeholder.png",
             "thumbnail_width": null,
             "thumbnail_height": null,
             "html": "<iframe width=\"100%\" height=\"400\" scrolling=\"no\" frameborder=\"no\" src=\"https://w.soundcloud.com/player/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F314491243&show_artwork=true\"></iframe>"
@@ -694,19 +688,19 @@
         {
           "type": "embed",
           "oembed": {
-            "type": "rich",
-            "embed_url": "https://soundcloud.com/monstercat/sets/infected-mushroom-more-than",
-            "title": "Infected Mushroom - More than Just a Name by Monstercat",
-            "provider_name": "SoundCloud",
-            "thumbnail_url": "https://i1.sndcdn.com/artworks-h5eYRJbF2pNGXQDo-ULNG3g-t500x500.jpg",
             "height": 450,
             "width": "100%",
             "description": "🎧 Support on all platforms: https://monster.cat/morethanjustaname \n\n▼ Follow Monstercat\nSpotify: https://monster.cat/2biZbkd\nApple: https://apple.co/2xiKWTO\nFacebook: https://facebook.com/monstercat\nTwitter: https://twitter.com/monstercat\nInstagram: https://instagram.com/monstercat\n\n▼ Follow Infected Mushroom\nSoundCloud: https://soundcloud.com/infectedmushroom\nInstagram: https://instagram.com/infectedmushroom\nFacebook: https://facebook.com/infectedmushroom\nTwitter: https://twitter.com/infected\n\nGenre: #Psytrance\n\n▼ Want some new Merchandise?\nhttps://monster.cat/MonstercatShop\n\n▼ Download with Gold!\nhttps://monster.cat/goldyt\n\n▼ Submit to Monstercat!\nhttp://monster.cat/demo-submissions",
+            "embed_url": "https://soundcloud.com/monstercat/sets/infected-mushroom-more-than",
+            "type": "rich",
             "version": "1",
+            "title": "Infected Mushroom - More than Just a Name by Monstercat",
             "author_name": "Monstercat",
             "author_url": "https://soundcloud.com/monstercat",
+            "provider_name": "SoundCloud",
             "provider_url": "https://soundcloud.com",
             "cache_age": null,
+            "thumbnail_url": "https://i1.sndcdn.com/artworks-h5eYRJbF2pNGXQDo-ULNG3g-t500x500.jpg",
             "thumbnail_width": null,
             "thumbnail_height": null,
             "html": "<iframe width=\"100%\" height=\"450\" scrolling=\"no\" frameborder=\"no\" src=\"https://w.soundcloud.com/player/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Fplaylists%2F1017348979&show_artwork=true\"></iframe>"
@@ -731,17 +725,17 @@
         {
           "type": "embed",
           "oembed": {
-            "type": "link",
-            "embed_url": "https://clevergirl.bandcamp.com/track/elm",
-            "title": "Elm, by Clever Girl",
-            "provider_name": "song",
-            "thumbnail_url": "https://f4.bcbits.com/img/a1102744964_5.jpg",
             "url": "https://clevergirl.bandcamp.com/track/elm",
+            "embed_url": "https://clevergirl.bandcamp.com/track/elm",
+            "type": "link",
             "version": "1.0",
+            "title": "Elm, by Clever Girl",
             "author_name": null,
             "author_url": null,
+            "provider_name": "song",
             "provider_url": null,
             "cache_age": null,
+            "thumbnail_url": "https://f4.bcbits.com/img/a1102744964_5.jpg",
             "thumbnail_width": null,
             "thumbnail_height": null,
             "html": "<div data-type=\"song\"><a href=\"https://clevergirl.bandcamp.com/track/elm\"><h1>Elm, by Clever Girl</h1><img src=\"https://f4.bcbits.com/img/a1102744964_5.jpg\"><p> from the album No Drum and Bass in the Jazz Room </p></a></div>"
@@ -761,17 +755,17 @@
         {
           "type": "embed",
           "oembed": {
-            "type": "link",
-            "embed_url": "https://clevergirl.bandcamp.com/album/no-drum-and-bass-in-the-jazz-room",
-            "title": "No Drum and Bass in the Jazz Room, by Clever Girl",
-            "provider_name": "album",
-            "thumbnail_url": "https://f4.bcbits.com/img/a1102744964_5.jpg",
             "url": "https://clevergirl.bandcamp.com/album/no-drum-and-bass-in-the-jazz-room",
+            "embed_url": "https://clevergirl.bandcamp.com/album/no-drum-and-bass-in-the-jazz-room",
+            "type": "link",
             "version": "1.0",
+            "title": "No Drum and Bass in the Jazz Room, by Clever Girl",
             "author_name": null,
             "author_url": null,
+            "provider_name": "album",
             "provider_url": null,
             "cache_age": null,
+            "thumbnail_url": "https://f4.bcbits.com/img/a1102744964_5.jpg",
             "thumbnail_width": null,
             "thumbnail_height": null,
             "html": "<div data-type=\"album\"><a href=\"https://clevergirl.bandcamp.com/album/no-drum-and-bass-in-the-jazz-room\"><h1>No Drum and Bass in the Jazz Room, by Clever Girl</h1><img src=\"https://f4.bcbits.com/img/a1102744964_5.jpg\"><p>4 track album</p></a></div>"
@@ -796,17 +790,17 @@
         {
           "type": "embed",
           "oembed": {
-            "type": "rich",
-            "embed_url": "https://www.instagram.com/p/CMZ7qXaFLoK/",
-            "title": null,
-            "provider_name": "Instagram",
-            "thumbnail_url": "https://scontent.cdninstagram.com/v/t51.2885-15/e35/s480x480/160283098_159909842622419_5074041360667559217_n.jpg?tp=1&_nc_ht=scontent.cdninstagram.com&_nc_cat=111&_nc_ohc=n9y5fxZRsIoAX-S9AD5&oh=e36afab03d8fbba7ae2f4309e1afd790&oe=60775E66",
             "width": 658,
+            "embed_url": "https://www.instagram.com/p/CMZ7qXaFLoK/",
+            "type": "rich",
             "version": "1.0",
+            "title": null,
             "author_name": "halfmoonbk",
             "author_url": null,
+            "provider_name": "Instagram",
             "provider_url": "https://www.instagram.com/",
             "cache_age": null,
+            "thumbnail_url": "https://scontent.cdninstagram.com/v/t51.2885-15/e35/s480x480/160283098_159909842622419_5074041360667559217_n.jpg?tp=1&_nc_ht=scontent.cdninstagram.com&_nc_cat=111&_nc_ohc=n9y5fxZRsIoAX-S9AD5&oh=e36afab03d8fbba7ae2f4309e1afd790&oe=60775E66",
             "thumbnail_width": 480,
             "thumbnail_height": 480,
             "html": "<blockquote class=\"instagram-media\" data-instgrm-captioned data-instgrm-permalink=\"https://www.instagram.com/p/CMZ7qXaFLoK/?utm_source=ig_embed&amp;utm_campaign=loading\" data-instgrm-version=\"13\" style=\" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);\"><div style=\"padding:16px;\"> <a href=\"https://www.instagram.com/p/CMZ7qXaFLoK/?utm_source=ig_embed&amp;utm_campaign=loading\" style=\" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;\" target=\"_blank\"> <div style=\" display: flex; flex-direction: row; align-items: center;\"> <div style=\"background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;\"></div> <div style=\"display: flex; flex-direction: column; flex-grow: 1; justify-content: center;\"> <div style=\" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;\"></div> <div style=\" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;\"></div></div></div><div style=\"padding: 19% 0;\"></div> <div style=\"display:block; height:50px; margin:0 auto 12px; width:50px;\"><svg width=\"50px\" height=\"50px\" viewBox=\"0 0 60 60\" version=\"1.1\" xmlns=\"https://www.w3.org/2000/svg\" xmlns:xlink=\"https://www.w3.org/1999/xlink\"><g stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\"><g transform=\"translate(-511.000000, -20.000000)\" fill=\"#000000\"><g><path d=\"M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631\"></path></g></g></g></svg></div><div style=\"padding-top: 8px;\"> <div style=\" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;\"> View this post on Instagram</div></div><div style=\"padding: 12.5% 0;\"></div> <div style=\"display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;\"><div> <div style=\"background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);\"></div> <div style=\"background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;\"></div> <div style=\"background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);\"></div></div><div style=\"margin-left: 8px;\"> <div style=\" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;\"></div> <div style=\" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)\"></div></div><div style=\"margin-left: auto;\"> <div style=\" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);\"></div> <div style=\" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);\"></div> <div style=\" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);\"></div></div></div> <div style=\"display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;\"> <div style=\" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;\"></div> <div style=\" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;\"></div></div></a><p style=\" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;\"><a href=\"https://www.instagram.com/p/CMZ7qXaFLoK/?utm_source=ig_embed&amp;utm_campaign=loading\" style=\" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;\" target=\"_blank\">A post shared by Half Moon (@halfmoonbk)</a></p></div></blockquote>\n<script async src=\"//platform.instagram.com/en_US/embeds.js\"></script>"
@@ -826,17 +820,17 @@
         {
           "type": "embed",
           "oembed": {
-            "type": "rich",
-            "embed_url": "https://www.instagram.com/p/CMVbjEbM1XW/",
-            "title": null,
-            "provider_name": "Instagram",
-            "thumbnail_url": "https://scontent.cdninstagram.com/v/t51.2885-15/e35/p480x480/160618113_1106472196488942_3651149980727009427_n.jpg?tp=1&_nc_ht=scontent.cdninstagram.com&_nc_cat=1&_nc_ohc=TezUj_1aeh4AX9sdtFR&oh=e691c22420dc60e9874cd6de7e453d41&oe=6078BA65",
             "width": 658,
+            "embed_url": "https://www.instagram.com/p/CMVbjEbM1XW/",
+            "type": "rich",
             "version": "1.0",
+            "title": null,
             "author_name": "instagram",
             "author_url": null,
+            "provider_name": "Instagram",
             "provider_url": "https://www.instagram.com/",
             "cache_age": null,
+            "thumbnail_url": "https://scontent.cdninstagram.com/v/t51.2885-15/e35/p480x480/160618113_1106472196488942_3651149980727009427_n.jpg?tp=1&_nc_ht=scontent.cdninstagram.com&_nc_cat=1&_nc_ohc=TezUj_1aeh4AX9sdtFR&oh=e691c22420dc60e9874cd6de7e453d41&oe=6078BA65",
             "thumbnail_width": 480,
             "thumbnail_height": 600,
             "html": "<blockquote class=\"instagram-media\" data-instgrm-captioned data-instgrm-permalink=\"https://www.instagram.com/p/CMVbjEbM1XW/?utm_source=ig_embed&amp;utm_campaign=loading\" data-instgrm-version=\"13\" style=\" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);\"><div style=\"padding:16px;\"> <a href=\"https://www.instagram.com/p/CMVbjEbM1XW/?utm_source=ig_embed&amp;utm_campaign=loading\" style=\" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;\" target=\"_blank\"> <div style=\" display: flex; flex-direction: row; align-items: center;\"> <div style=\"background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;\"></div> <div style=\"display: flex; flex-direction: column; flex-grow: 1; justify-content: center;\"> <div style=\" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;\"></div> <div style=\" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;\"></div></div></div><div style=\"padding: 19% 0;\"></div> <div style=\"display:block; height:50px; margin:0 auto 12px; width:50px;\"><svg width=\"50px\" height=\"50px\" viewBox=\"0 0 60 60\" version=\"1.1\" xmlns=\"https://www.w3.org/2000/svg\" xmlns:xlink=\"https://www.w3.org/1999/xlink\"><g stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\"><g transform=\"translate(-511.000000, -20.000000)\" fill=\"#000000\"><g><path d=\"M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631\"></path></g></g></g></svg></div><div style=\"padding-top: 8px;\"> <div style=\" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;\"> View this post on Instagram</div></div><div style=\"padding: 12.5% 0;\"></div> <div style=\"display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;\"><div> <div style=\"background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);\"></div> <div style=\"background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;\"></div> <div style=\"background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);\"></div></div><div style=\"margin-left: 8px;\"> <div style=\" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;\"></div> <div style=\" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)\"></div></div><div style=\"margin-left: auto;\"> <div style=\" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);\"></div> <div style=\" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);\"></div> <div style=\" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);\"></div></div></div> <div style=\"display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;\"> <div style=\" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;\"></div> <div style=\" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;\"></div></div></a><p style=\" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;\"><a href=\"https://www.instagram.com/p/CMVbjEbM1XW/?utm_source=ig_embed&amp;utm_campaign=loading\" style=\" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;\" target=\"_blank\">A post shared by Instagram (@instagram)</a></p></div></blockquote>\n<script async src=\"//platform.instagram.com/en_US/embeds.js\"></script>"
@@ -856,17 +850,17 @@
         {
           "type": "embed",
           "oembed": {
-            "type": "rich",
-            "embed_url": "https://www.instagram.com/p/CMXdC8ijs6y/",
-            "title": null,
-            "provider_name": "Instagram",
-            "thumbnail_url": "https://scontent.cdninstagram.com/v/t51.2885-15/sh0.08/e35/p640x640/159538071_767895670771795_7637348776396590752_n.jpg?tp=1&_nc_ht=scontent.cdninstagram.com&_nc_cat=1&_nc_ohc=Jw9RVmqo3TwAX_M_QCW&oh=82c1b91de8d224ba30031665d1a9fc7a&oe=60510959",
             "width": 658,
+            "embed_url": "https://www.instagram.com/p/CMXdC8ijs6y/",
+            "type": "rich",
             "version": "1.0",
+            "title": null,
             "author_name": "instagram",
             "author_url": null,
+            "provider_name": "Instagram",
             "provider_url": "https://www.instagram.com/",
             "cache_age": null,
+            "thumbnail_url": "https://scontent.cdninstagram.com/v/t51.2885-15/sh0.08/e35/p640x640/159538071_767895670771795_7637348776396590752_n.jpg?tp=1&_nc_ht=scontent.cdninstagram.com&_nc_cat=1&_nc_ohc=Jw9RVmqo3TwAX_M_QCW&oh=82c1b91de8d224ba30031665d1a9fc7a&oe=60510959",
             "thumbnail_width": 640,
             "thumbnail_height": 1137,
             "html": "<blockquote class=\"instagram-media\" data-instgrm-captioned data-instgrm-permalink=\"https://www.instagram.com/reel/CMXdC8ijs6y/?utm_source=ig_embed&amp;utm_campaign=loading\" data-instgrm-version=\"13\" style=\" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);\"><div style=\"padding:16px;\"> <a href=\"https://www.instagram.com/reel/CMXdC8ijs6y/?utm_source=ig_embed&amp;utm_campaign=loading\" style=\" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;\" target=\"_blank\"> <div style=\" display: flex; flex-direction: row; align-items: center;\"> <div style=\"background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;\"></div> <div style=\"display: flex; flex-direction: column; flex-grow: 1; justify-content: center;\"> <div style=\" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;\"></div> <div style=\" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;\"></div></div></div><div style=\"padding: 19% 0;\"></div> <div style=\"display:block; height:50px; margin:0 auto 12px; width:50px;\"><svg width=\"50px\" height=\"50px\" viewBox=\"0 0 60 60\" version=\"1.1\" xmlns=\"https://www.w3.org/2000/svg\" xmlns:xlink=\"https://www.w3.org/1999/xlink\"><g stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\"><g transform=\"translate(-511.000000, -20.000000)\" fill=\"#000000\"><g><path d=\"M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631\"></path></g></g></g></svg></div><div style=\"padding-top: 8px;\"> <div style=\" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;\"> View this post on Instagram</div></div><div style=\"padding: 12.5% 0;\"></div> <div style=\"display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;\"><div> <div style=\"background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);\"></div> <div style=\"background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;\"></div> <div style=\"background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);\"></div></div><div style=\"margin-left: 8px;\"> <div style=\" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;\"></div> <div style=\" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)\"></div></div><div style=\"margin-left: auto;\"> <div style=\" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);\"></div> <div style=\" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);\"></div> <div style=\" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);\"></div></div></div> <div style=\"display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;\"> <div style=\" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;\"></div> <div style=\" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;\"></div></div></a><p style=\" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;\"><a href=\"https://www.instagram.com/reel/CMXdC8ijs6y/?utm_source=ig_embed&amp;utm_campaign=loading\" style=\" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;\" target=\"_blank\">A post shared by Instagram (@instagram)</a></p></div></blockquote>\n<script async src=\"//platform.instagram.com/en_US/embeds.js\"></script>"
@@ -891,18 +885,18 @@
         {
           "type": "embed",
           "oembed": {
-            "type": "video",
-            "embed_url": "https://fb.watch/4ebOmGacif/",
-            "title": null,
-            "provider_name": "Facebook",
-            "thumbnail_url": null,
             "height": 280,
             "width": 500,
+            "embed_url": "https://fb.watch/4ebOmGacif/",
+            "type": "video",
             "version": "1.0",
+            "title": null,
             "author_name": "Liverpool FC",
             "author_url": "https://www.facebook.com/67920382572",
+            "provider_name": "Facebook",
             "provider_url": "https://www.facebook.com",
             "cache_age": null,
+            "thumbnail_url": null,
             "thumbnail_width": null,
             "thumbnail_height": null,
             "html": "<div id=\"fb-root\"></div>\n<script async=\"1\" defer=\"1\" crossorigin=\"anonymous\" src=\"https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v10.0\" nonce=\"P0aBaPlw\"></script><div class=\"fb-video\" data-href=\"https://fb.watch/4ebOmGacif/\"><blockquote cite=\"https://www.facebook.com/LiverpoolFC/videos/2983480191939007/\" class=\"fb-xfbml-parse-ignore\"><a href=\"https://www.facebook.com/LiverpoolFC/videos/2983480191939007/\">Wolves 1 - 2 Liverpool: Extended highlights 🔥</a><p>A boss header from the skipper and a dramatic late winner from Bobby ⚽️\n\nLast season against Wolverhampton Wanderers FC ⏪</p>Posted by <a href=\"https://www.facebook.com/67920382572\">Liverpool FC</a> on Friday, March 12, 2021</blockquote></div>"
@@ -922,17 +916,17 @@
         {
           "type": "embed",
           "oembed": {
-            "type": "rich",
-            "embed_url": "https://www.facebook.com/LiverpoolFC/posts/10160304586157573",
-            "title": null,
-            "provider_name": "Facebook",
-            "thumbnail_url": null,
             "width": 552,
+            "embed_url": "https://www.facebook.com/LiverpoolFC/posts/10160304586157573",
+            "type": "rich",
             "version": "1.0",
+            "title": null,
             "author_name": "Liverpool FC",
             "author_url": "https://www.facebook.com/67920382572",
+            "provider_name": "Facebook",
             "provider_url": "https://www.facebook.com",
             "cache_age": null,
+            "thumbnail_url": null,
             "thumbnail_width": null,
             "thumbnail_height": null,
             "html": "<div id=\"fb-root\"></div>\n<script async=\"1\" defer=\"1\" crossorigin=\"anonymous\" src=\"https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v10.0\" nonce=\"NhOrBk89\"></script><div class=\"fb-post\" data-href=\"https://www.facebook.com/LiverpoolFC/posts/10160304586157573\" data-width=\"552\"><blockquote cite=\"https://graph.facebook.com/67920382572/posts/10160304586157573/\" class=\"fb-xfbml-parse-ignore\"><p>Good vibes ✌️</p>Posted by <a href=\"https://www.facebook.com/67920382572\">Liverpool FC</a> on&nbsp;<a href=\"https://graph.facebook.com/67920382572/posts/10160304586157573/\">Saturday, March 13, 2021</a></blockquote></div>"
@@ -946,19 +940,19 @@
         {
           "type": "embed",
           "oembed": {
-            "type": "rich",
-            "embed_url": "https://twitter.com/halfmoonbk/status/1301216440725495809",
-            "title": null,
-            "provider_name": "Twitter",
-            "thumbnail_url": null,
             "url": "https://twitter.com/halfmoonbk/status/1301216440725495809",
             "width": 550,
             "height": null,
+            "embed_url": "https://twitter.com/halfmoonbk/status/1301216440725495809",
+            "type": "rich",
             "version": "1.0",
+            "title": null,
             "author_name": "Half Moon",
             "author_url": "https://twitter.com/halfmoonbk",
+            "provider_name": "Twitter",
             "provider_url": "https://twitter.com",
             "cache_age": 3153600000,
+            "thumbnail_url": null,
             "thumbnail_width": null,
             "thumbnail_height": null,
             "html": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">Our collab with <a href=\"https://twitter.com/keephushuk?ref_src=twsrc%5Etfw\">@keephushuk</a> ’s new artist Merch platform is up!<br><br>The “I Want You to Danse” tee pays homage to the nightlife, rave, and club roots that make Half Moon what it is today.<br><br>Order here: <a href=\"https://t.co/eResMj4RBn\">https://t.co/eResMj4RBn</a> <a href=\"https://t.co/UPJvfmAQtm\">pic.twitter.com/UPJvfmAQtm</a></p>&mdash; Half Moon (@halfmoonbk) <a href=\"https://twitter.com/halfmoonbk/status/1301216440725495809?ref_src=twsrc%5Etfw\">September 2, 2020</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n"
@@ -983,18 +977,18 @@
         {
           "type": "embed",
           "oembed": {
-            "type": "rich",
-            "embed_url": "https://open.spotify.com/track/7MAibcTli4IisCtbHKrGMh?si=i1JJXulQSRys9PIKOuLY1g",
-            "title": "Leave The Door Open",
-            "provider_name": "Spotify",
-            "thumbnail_url": "https://i.scdn.co/image/ab67616d00001e026f9e6abbd6fa43ac3cdbeee0",
             "width": 300,
             "height": 380,
+            "embed_url": "https://open.spotify.com/track/7MAibcTli4IisCtbHKrGMh?si=i1JJXulQSRys9PIKOuLY1g",
+            "type": "rich",
             "version": "1.0",
+            "title": "Leave The Door Open",
             "author_name": null,
             "author_url": null,
+            "provider_name": "Spotify",
             "provider_url": "https://spotify.com",
             "cache_age": null,
+            "thumbnail_url": "https://i.scdn.co/image/ab67616d00001e026f9e6abbd6fa43ac3cdbeee0",
             "thumbnail_width": 300,
             "thumbnail_height": 300,
             "html": "<iframe width=\"300\" height=\"380\" allowtransparency=\"true\" frameborder=\"0\" allow=\"encrypted-media\" title=\"Spotify Embed: Leave The Door Open\" src=\"https://open.spotify.com/embed/track/7MAibcTli4IisCtbHKrGMh?si=i1JJXulQSRys9PIKOuLY1g\"></iframe>"
@@ -1014,24 +1008,1822 @@
         {
           "type": "embed",
           "oembed": {
-            "type": "rich",
-            "embed_url": "https://open.spotify.com/playlist/1fcjhHmQvgoFLAiK4e8oqK?si=AXzPDf_DST66XU9Ke602LQ",
-            "title": "no ichika nito before 5am",
-            "provider_name": "Spotify",
-            "thumbnail_url": "https://mosaic.scdn.co/300/ab67616d0000b273089406fe991a26eba443287eab67616d0000b27330364f851bb9229be7b1ae1eab67616d0000b2734b3e37faee2b3952f8a25c7cab67616d0000b273a5d64955c718aa0232607253",
             "width": 300,
             "height": 380,
+            "embed_url": "https://open.spotify.com/playlist/1fcjhHmQvgoFLAiK4e8oqK?si=AXzPDf_DST66XU9Ke602LQ",
+            "type": "rich",
             "version": "1.0",
+            "title": "no ichika nito before 5am",
             "author_name": null,
             "author_url": null,
+            "provider_name": "Spotify",
             "provider_url": "https://spotify.com",
             "cache_age": null,
+            "thumbnail_url": "https://mosaic.scdn.co/300/ab67616d0000b273089406fe991a26eba443287eab67616d0000b27330364f851bb9229be7b1ae1eab67616d0000b2734b3e37faee2b3952f8a25c7cab67616d0000b273a5d64955c718aa0232607253",
             "thumbnail_width": 300,
             "thumbnail_height": 300,
             "html": "<iframe width=\"300\" height=\"380\" allowtransparency=\"true\" frameborder=\"0\" allow=\"encrypted-media\" title=\"Spotify Embed: no ichika nito before 5am\" src=\"https://open.spotify.com/embed/playlist/1fcjhHmQvgoFLAiK4e8oqK?si=AXzPDf_DST66XU9Ke602LQ\"></iframe>"
           }
         }
       ]
+    }
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodySlice_divider",
+    "type": "slice_divider"
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodyText_columns",
+    "type": "text_columns",
+    "fields": [
+      {
+        "text_column": [
+          {
+            "type": "heading4",
+            "text": "Mobile",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Each Text Column block is stacked on top of each vertically and fills the width of the article container.  ",
+            "spans": [
+              {
+                "start": 5,
+                "end": 16,
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Appearance order is first column to last.",
+            "spans": []
+          }
+        ]
+      },
+      {
+        "text_column": [
+          {
+            "type": "heading4",
+            "text": "Tablet",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Text Column blocks appear 2-on-a-row, with additional rows wrapping to a new section underneath the previous two.",
+            "spans": [
+              {
+                "start": 0,
+                "end": 12,
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Appearance order is first column to last.",
+            "spans": []
+          }
+        ]
+      },
+      {
+        "text_column": [
+          {
+            "type": "heading4",
+            "text": "Small Desktop Screen",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Each Text Column takes up an equal amount of space in the article container.",
+            "spans": [
+              {
+                "start": 5,
+                "end": 16,
+                "type": "strong"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text_column": [
+          {
+            "type": "heading4",
+            "text": "Fullsize HD Screen",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Each Text Column takes up an equal amount of space in the article container.",
+            "spans": [
+              {
+                "start": 5,
+                "end": 16,
+                "type": "strong"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "primary": {
+      "text_columns_header": [
+        {
+          "type": "heading2",
+          "text": "Slice: Text Columns",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "A slice that creates up to 5 columns of Text Block slices.",
+          "spans": [
+            {
+              "start": 40,
+              "end": 51,
+              "type": "strong"
+            }
+          ]
+        }
+      ],
+      "text_columns_footer": [
+        {
+          "type": "heading3",
+          "text": "Setting up the slice",
+          "spans": []
+        },
+        {
+          "type": "o-list-item",
+          "text": "Add the One Image and Text slice to your document.",
+          "spans": [
+            {
+              "start": 8,
+              "end": 26,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "o-list-item",
+          "text": "(OPTIONAL) Add text details to the Text Columns header section.",
+          "spans": [
+            {
+              "start": 35,
+              "end": 48,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "o-list-item",
+          "text": "(OPTIONAL) Add text details to the Text Columns footer section.",
+          "spans": [
+            {
+              "start": 35,
+              "end": 48,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "o-list-item",
+          "text": "Add your content to the Text Column in the Repeatable Zone.",
+          "spans": [
+            {
+              "start": 24,
+              "end": 36,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "o-list-item",
+          "text": "Add as many columns as needed, up to a maximum of 5.",
+          "spans": []
+        },
+        {
+          "type": "heading3",
+          "text": "Text Columns in Action",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "One Column to Four Column example layouts: shown below.",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "Five Columns: See the Image Row slice, Multiple Images, Mixed Aspect Ratios section of the article for a real-life example of a five-column layout and how it can be used.",
+          "spans": [
+            {
+              "start": 22,
+              "end": 31,
+              "type": "strong"
+            },
+            {
+              "start": 39,
+              "end": 75,
+              "type": "em"
+            }
+          ]
+        },
+        {
+          "type": "heading3",
+          "text": "Final Points",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Heading 1 is disabled in this Text Section of slice for the same reason it's disabled in the Text slice: Heading 1 is the title of the article.",
+          "spans": [
+            {
+              "start": 0,
+              "end": 9,
+              "type": "strong"
+            },
+            {
+              "start": 93,
+              "end": 98,
+              "type": "strong"
+            },
+            {
+              "start": 105,
+              "end": 143,
+              "type": "strong"
+            },
+            {
+              "start": 105,
+              "end": 143,
+              "type": "em"
+            }
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "If no content is added to a Text Column in the Repeatable Zone, the entire slice will not appear in the article (prevents broken layouts).",
+          "spans": [
+            {
+              "start": 28,
+              "end": 39,
+              "type": "strong"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodySlice_divider",
+    "type": "slice_divider"
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodyText_columns",
+    "type": "text_columns",
+    "fields": [
+      {
+        "text_column": [
+          {
+            "type": "heading2",
+            "text": "One Text Column Appears as a Regular Text Block",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Blue they her large my that least five. Perceive him of legislators, have monstrous insurance lady logged back extent,  set privilege they to of I were remedies. Determined the to much his or  LINK TO A PRISMIC MEDIA LIBRARY ITEM , diet, with and consider find or few not have any would the past, soon best tone don't neuter. That hadn't him, the side dream. A refinement and way. Rexpected but on their sleep eyes. Phase them.Wonder, the unprofitable be viewer. A MUCH LONGER LINK THAT WHEN YOU CLICK IT WILL OPEN A NEW TAB IN YOUR BROWSER AND TAKE YOU TO THE WEBSITE GOOGLE. sofas bed in of back impatient have and a thoughts roam; To creating very than steps.  Least, gone into the may parameters up systems allowed different about place with to the success  keep outlines and founder, look loyalty. , way not arduous of and in he and they of then. LINK TO A DEVELOPMENT EVENT PAGE. ",
+            "spans": [
+              {
+                "start": 94,
+                "end": 160,
+                "type": "strong"
+              },
+              {
+                "start": 193,
+                "end": 229,
+                "type": "hyperlink",
+                "data": {
+                  "link_type": "Media",
+                  "name": "blanco 11152019.jpg",
+                  "kind": "image",
+                  "url": "https://images.prismic.io/hmbk-cms/7da73508-6ad5-4ff3-b404-678a3ddfd5c7_blanco+11152019.jpg?auto=compress,format",
+                  "size": "36719",
+                  "height": "600",
+                  "width": "600"
+                }
+              },
+              {
+                "start": 325,
+                "end": 326,
+                "type": "strong"
+              },
+              {
+                "start": 463,
+                "end": 575,
+                "type": "hyperlink",
+                "data": {
+                  "link_type": "Web",
+                  "url": "https://www.google.com",
+                  "target": "_blank"
+                }
+              },
+              {
+                "start": 852,
+                "end": 884,
+                "type": "hyperlink",
+                "data": {
+                  "id": "X6RuZxIAACEAOklG",
+                  "type": "event",
+                  "tags": [],
+                  "slug": "25th-anniversary-purple-people-eaters-reunion-carnival-extravaganzathon",
+                  "lang": "en-us",
+                  "uid": "dev-event-purple-people-eater",
+                  "link_type": "Document",
+                  "isBroken": false
+                }
+              }
+            ]
+          },
+          {
+            "type": "heading3",
+            "text": "Heading 3, If but then what how this that",
+            "spans": []
+          },
+          {
+            "type": "heading4",
+            "text": "Heading 4, Study return is times put these",
+            "spans": []
+          },
+          {
+            "type": "heading5",
+            "text": "Heading 5, One brought in and live get",
+            "spans": []
+          },
+          {
+            "type": "heading6",
+            "text": "Heading 6, To making still is of his",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Bolded Text",
+            "spans": [
+              {
+                "start": 0,
+                "end": 11,
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "list-item",
+            "text": "For viewer the that little",
+            "spans": []
+          },
+          {
+            "type": "list-item",
+            "text": "As and all arranged it",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Bolded and Italicized text",
+            "spans": [
+              {
+                "start": 0,
+                "end": 26,
+                "type": "em"
+              },
+              {
+                "start": 0,
+                "end": 26,
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "o-list-item",
+            "text": "Intention guest feedback seven seemed",
+            "spans": []
+          },
+          {
+            "type": "o-list-item",
+            "text": "Theoretically logbook to an start",
+            "spans": [
+              {
+                "start": 14,
+                "end": 33,
+                "type": "strong"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "primary": {
+      "text_columns_header": [
+        {
+          "type": "heading2",
+          "text": "Text Columns Header (Optional)",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "The header section is optional and appears above the text columns. ",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "You can use it to explain the content in the Text Columns that will follow.",
+          "spans": [
+            {
+              "start": 45,
+              "end": 57,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "heading3",
+          "text": "Example Usage",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "You can see the Text Columns slice in action in the description ",
+          "spans": [
+            {
+              "start": 16,
+              "end": 28,
+              "type": "strong"
+            }
+          ]
+        }
+      ],
+      "text_columns_footer": [
+        {
+          "type": "heading2",
+          "text": "Text Columns Footer (Optional)",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "The footer section is optional and appears above the text columns. ",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "You can use it to add any final details to the Text Columns data that was just presented.",
+          "spans": [
+            {
+              "start": 47,
+              "end": 60,
+              "type": "strong"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodySlice_divider",
+    "type": "slice_divider"
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodyText_columns",
+    "type": "text_columns",
+    "fields": [
+      {
+        "text_column": [
+          {
+            "type": "heading2",
+            "text": "Heading 2, Banana forged newspaper water",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Blue they her large my that least five. Perceive him of legislators, have monstrous insurance lady logged back extent,  set privilege they to of I were remedies. Determined the to much his or  LINK TO A PRISMIC MEDIA LIBRARY ITEM , diet, with and consider find or few not have any would the past, soon best tone don't neuter. That hadn't him, the side dream. A refinement and way. Rexpected but on their sleep eyes. Phase them.Wonder, the unprofitable be viewer. A MUCH LONGER LINK THAT WHEN YOU CLICK IT WILL OPEN A NEW TAB IN YOUR BROWSER AND TAKE YOU TO THE WEBSITE GOOGLE. sofas bed in of back impatient have and a thoughts roam; To creating very than steps.  Least, gone into the may parameters up systems allowed different about place with to the success  keep outlines and founder, look loyalty. , way not arduous of and in he and they of then. LINK TO A DEVELOPMENT EVENT PAGE. ",
+            "spans": [
+              {
+                "start": 94,
+                "end": 160,
+                "type": "strong"
+              },
+              {
+                "start": 193,
+                "end": 229,
+                "type": "hyperlink",
+                "data": {
+                  "link_type": "Media",
+                  "name": "blanco 11152019.jpg",
+                  "kind": "image",
+                  "url": "https://images.prismic.io/hmbk-cms/7da73508-6ad5-4ff3-b404-678a3ddfd5c7_blanco+11152019.jpg?auto=compress,format",
+                  "size": "36719",
+                  "height": "600",
+                  "width": "600"
+                }
+              },
+              {
+                "start": 325,
+                "end": 326,
+                "type": "strong"
+              },
+              {
+                "start": 463,
+                "end": 575,
+                "type": "hyperlink",
+                "data": {
+                  "link_type": "Web",
+                  "url": "https://www.google.com",
+                  "target": "_blank"
+                }
+              },
+              {
+                "start": 852,
+                "end": 884,
+                "type": "hyperlink",
+                "data": {
+                  "id": "X6RuZxIAACEAOklG",
+                  "type": "event",
+                  "tags": [],
+                  "slug": "25th-anniversary-purple-people-eaters-reunion-carnival-extravaganzathon",
+                  "lang": "en-us",
+                  "uid": "dev-event-purple-people-eater",
+                  "link_type": "Document",
+                  "isBroken": false
+                }
+              }
+            ]
+          },
+          {
+            "type": "heading3",
+            "text": "Heading 3, If but then what how this that",
+            "spans": []
+          },
+          {
+            "type": "heading4",
+            "text": "Heading 4, Study return is times put these",
+            "spans": []
+          },
+          {
+            "type": "heading5",
+            "text": "Heading 5, One brought in and live get",
+            "spans": []
+          },
+          {
+            "type": "heading6",
+            "text": "Heading 6, To making still is of his",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Bolded Text",
+            "spans": [
+              {
+                "start": 0,
+                "end": 11,
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "list-item",
+            "text": "For viewer the that little",
+            "spans": []
+          },
+          {
+            "type": "list-item",
+            "text": "As and all arranged it",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Bolded and Italicized text",
+            "spans": [
+              {
+                "start": 0,
+                "end": 26,
+                "type": "em"
+              },
+              {
+                "start": 0,
+                "end": 26,
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "o-list-item",
+            "text": "Intention guest feedback seven seemed",
+            "spans": []
+          },
+          {
+            "type": "o-list-item",
+            "text": "Theoretically logbook to an start",
+            "spans": [
+              {
+                "start": 14,
+                "end": 33,
+                "type": "strong"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text_column": [
+          {
+            "type": "heading2",
+            "text": "Heading 2, Banana forged newspaper water",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Blue they her large my that least five. Perceive him of legislators, have monstrous insurance lady logged back extent,  set privilege they to of I were remedies. Determined the to much his or  LINK TO A PRISMIC MEDIA LIBRARY ITEM , diet, with and consider find or few not have any would the past, soon best tone don't neuter. That hadn't him, the side dream. A refinement and way. Rexpected but on their sleep eyes. Phase them.Wonder, the unprofitable be viewer. A MUCH LONGER LINK THAT WHEN YOU CLICK IT WILL OPEN A NEW TAB IN YOUR BROWSER AND TAKE YOU TO THE WEBSITE GOOGLE. sofas bed in of back impatient have and a thoughts roam; To creating very than steps.  Least, gone into the may parameters up systems allowed different about place with to the success  keep outlines and founder, look loyalty. , way not arduous of and in he and they of then. LINK TO A DEVELOPMENT EVENT PAGE. ",
+            "spans": [
+              {
+                "start": 94,
+                "end": 160,
+                "type": "strong"
+              },
+              {
+                "start": 193,
+                "end": 229,
+                "type": "hyperlink",
+                "data": {
+                  "link_type": "Media",
+                  "name": "blanco 11152019.jpg",
+                  "kind": "image",
+                  "url": "https://images.prismic.io/hmbk-cms/7da73508-6ad5-4ff3-b404-678a3ddfd5c7_blanco+11152019.jpg?auto=compress,format",
+                  "size": "36719",
+                  "height": "600",
+                  "width": "600"
+                }
+              },
+              {
+                "start": 325,
+                "end": 326,
+                "type": "strong"
+              },
+              {
+                "start": 463,
+                "end": 575,
+                "type": "hyperlink",
+                "data": {
+                  "link_type": "Web",
+                  "url": "https://www.google.com",
+                  "target": "_blank"
+                }
+              },
+              {
+                "start": 852,
+                "end": 884,
+                "type": "hyperlink",
+                "data": {
+                  "id": "X6RuZxIAACEAOklG",
+                  "type": "event",
+                  "tags": [],
+                  "slug": "25th-anniversary-purple-people-eaters-reunion-carnival-extravaganzathon",
+                  "lang": "en-us",
+                  "uid": "dev-event-purple-people-eater",
+                  "link_type": "Document",
+                  "isBroken": false
+                }
+              }
+            ]
+          },
+          {
+            "type": "heading3",
+            "text": "Heading 3, If but then what how this that",
+            "spans": []
+          },
+          {
+            "type": "heading4",
+            "text": "Heading 4, Study return is times put these",
+            "spans": []
+          },
+          {
+            "type": "heading5",
+            "text": "Heading 5, One brought in and live get",
+            "spans": []
+          },
+          {
+            "type": "heading6",
+            "text": "Heading 6, To making still is of his",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Bolded Text",
+            "spans": [
+              {
+                "start": 0,
+                "end": 11,
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "list-item",
+            "text": "For viewer the that little",
+            "spans": []
+          },
+          {
+            "type": "list-item",
+            "text": "As and all arranged it",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Bolded and Italicized text",
+            "spans": [
+              {
+                "start": 0,
+                "end": 26,
+                "type": "em"
+              },
+              {
+                "start": 0,
+                "end": 26,
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "o-list-item",
+            "text": "Intention guest feedback seven seemed",
+            "spans": []
+          },
+          {
+            "type": "o-list-item",
+            "text": "Theoretically logbook to an start",
+            "spans": [
+              {
+                "start": 14,
+                "end": 33,
+                "type": "strong"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "primary": {
+      "text_columns_header": [
+        {
+          "type": "heading2",
+          "text": "Two Columns",
+          "spans": []
+        }
+      ],
+      "text_columns_footer": null
+    }
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodySlice_divider",
+    "type": "slice_divider"
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodyText_columns",
+    "type": "text_columns",
+    "fields": [
+      {
+        "text_column": [
+          {
+            "type": "heading2",
+            "text": "Heading 2, Banana forged newspaper water",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Blue they her large my that least five. Perceive him of legislators, have monstrous insurance lady logged back extent,  set privilege they to of I were remedies. Determined the to much his or  LINK TO A PRISMIC MEDIA LIBRARY ITEM , diet, with and consider find or few not have any would the past, soon best tone don't neuter. That hadn't him, the side dream. A refinement and way. Rexpected but on their sleep eyes. Phase them.Wonder, the unprofitable be viewer. A MUCH LONGER LINK THAT WHEN YOU CLICK IT WILL OPEN A NEW TAB IN YOUR BROWSER AND TAKE YOU TO THE WEBSITE GOOGLE. sofas bed in of back impatient have and a thoughts roam; To creating very than steps.  Least, gone into the may parameters up systems allowed different about place with to the success  keep outlines and founder, look loyalty. , way not arduous of and in he and they of then. LINK TO A DEVELOPMENT EVENT PAGE. ",
+            "spans": [
+              {
+                "start": 94,
+                "end": 160,
+                "type": "strong"
+              },
+              {
+                "start": 193,
+                "end": 229,
+                "type": "hyperlink",
+                "data": {
+                  "link_type": "Media",
+                  "name": "blanco 11152019.jpg",
+                  "kind": "image",
+                  "url": "https://images.prismic.io/hmbk-cms/7da73508-6ad5-4ff3-b404-678a3ddfd5c7_blanco+11152019.jpg?auto=compress,format",
+                  "size": "36719",
+                  "height": "600",
+                  "width": "600"
+                }
+              },
+              {
+                "start": 325,
+                "end": 326,
+                "type": "strong"
+              },
+              {
+                "start": 463,
+                "end": 575,
+                "type": "hyperlink",
+                "data": {
+                  "link_type": "Web",
+                  "url": "https://www.google.com",
+                  "target": "_blank"
+                }
+              },
+              {
+                "start": 852,
+                "end": 884,
+                "type": "hyperlink",
+                "data": {
+                  "id": "X6RuZxIAACEAOklG",
+                  "type": "event",
+                  "tags": [],
+                  "slug": "25th-anniversary-purple-people-eaters-reunion-carnival-extravaganzathon",
+                  "lang": "en-us",
+                  "uid": "dev-event-purple-people-eater",
+                  "link_type": "Document",
+                  "isBroken": false
+                }
+              }
+            ]
+          },
+          {
+            "type": "heading3",
+            "text": "Heading 3, If but then what how this that",
+            "spans": []
+          },
+          {
+            "type": "heading4",
+            "text": "Heading 4, Study return is times put these",
+            "spans": []
+          },
+          {
+            "type": "heading5",
+            "text": "Heading 5, One brought in and live get",
+            "spans": []
+          },
+          {
+            "type": "heading6",
+            "text": "Heading 6, To making still is of his",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Bolded Text",
+            "spans": [
+              {
+                "start": 0,
+                "end": 11,
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "list-item",
+            "text": "For viewer the that little",
+            "spans": []
+          },
+          {
+            "type": "list-item",
+            "text": "As and all arranged it",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Bolded and Italicized text",
+            "spans": [
+              {
+                "start": 0,
+                "end": 26,
+                "type": "em"
+              },
+              {
+                "start": 0,
+                "end": 26,
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "o-list-item",
+            "text": "Intention guest feedback seven seemed",
+            "spans": []
+          },
+          {
+            "type": "o-list-item",
+            "text": "Theoretically logbook to an start",
+            "spans": [
+              {
+                "start": 14,
+                "end": 33,
+                "type": "strong"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text_column": [
+          {
+            "type": "heading2",
+            "text": "Heading 2, Banana forged newspaper water",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Blue they her large my that least five. Perceive him of legislators, have monstrous insurance lady logged back extent,  set privilege they to of I were remedies. Determined the to much his or  LINK TO A PRISMIC MEDIA LIBRARY ITEM , diet, with and consider find or few not have any would the past, soon best tone don't neuter. That hadn't him, the side dream. A refinement and way. Rexpected but on their sleep eyes. Phase them.Wonder, the unprofitable be viewer. A MUCH LONGER LINK THAT WHEN YOU CLICK IT WILL OPEN A NEW TAB IN YOUR BROWSER AND TAKE YOU TO THE WEBSITE GOOGLE. sofas bed in of back impatient have and a thoughts roam; To creating very than steps.  Least, gone into the may parameters up systems allowed different about place with to the success  keep outlines and founder, look loyalty. , way not arduous of and in he and they of then. LINK TO A DEVELOPMENT EVENT PAGE. ",
+            "spans": [
+              {
+                "start": 94,
+                "end": 160,
+                "type": "strong"
+              },
+              {
+                "start": 193,
+                "end": 229,
+                "type": "hyperlink",
+                "data": {
+                  "link_type": "Media",
+                  "name": "blanco 11152019.jpg",
+                  "kind": "image",
+                  "url": "https://images.prismic.io/hmbk-cms/7da73508-6ad5-4ff3-b404-678a3ddfd5c7_blanco+11152019.jpg?auto=compress,format",
+                  "size": "36719",
+                  "height": "600",
+                  "width": "600"
+                }
+              },
+              {
+                "start": 325,
+                "end": 326,
+                "type": "strong"
+              },
+              {
+                "start": 463,
+                "end": 575,
+                "type": "hyperlink",
+                "data": {
+                  "link_type": "Web",
+                  "url": "https://www.google.com",
+                  "target": "_blank"
+                }
+              },
+              {
+                "start": 852,
+                "end": 884,
+                "type": "hyperlink",
+                "data": {
+                  "id": "X6RuZxIAACEAOklG",
+                  "type": "event",
+                  "tags": [],
+                  "slug": "25th-anniversary-purple-people-eaters-reunion-carnival-extravaganzathon",
+                  "lang": "en-us",
+                  "uid": "dev-event-purple-people-eater",
+                  "link_type": "Document",
+                  "isBroken": false
+                }
+              }
+            ]
+          },
+          {
+            "type": "heading3",
+            "text": "Heading 3, If but then what how this that",
+            "spans": []
+          },
+          {
+            "type": "heading4",
+            "text": "Heading 4, Study return is times put these",
+            "spans": []
+          },
+          {
+            "type": "heading5",
+            "text": "Heading 5, One brought in and live get",
+            "spans": []
+          },
+          {
+            "type": "heading6",
+            "text": "Heading 6, To making still is of his",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Bolded Text",
+            "spans": [
+              {
+                "start": 0,
+                "end": 11,
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "list-item",
+            "text": "For viewer the that little",
+            "spans": []
+          },
+          {
+            "type": "list-item",
+            "text": "As and all arranged it",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Bolded and Italicized text",
+            "spans": [
+              {
+                "start": 0,
+                "end": 26,
+                "type": "em"
+              },
+              {
+                "start": 0,
+                "end": 26,
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "o-list-item",
+            "text": "Intention guest feedback seven seemed",
+            "spans": []
+          },
+          {
+            "type": "o-list-item",
+            "text": "Theoretically logbook to an start",
+            "spans": [
+              {
+                "start": 14,
+                "end": 33,
+                "type": "strong"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text_column": [
+          {
+            "type": "heading2",
+            "text": "Heading 2, Banana forged newspaper water",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Blue they her large my that least five. Perceive him of legislators, have monstrous insurance lady logged back extent,  set privilege they to of I were remedies. Determined the to much his or  LINK TO A PRISMIC MEDIA LIBRARY ITEM , diet, with and consider find or few not have any would the past, soon best tone don't neuter. That hadn't him, the side dream. A refinement and way. Rexpected but on their sleep eyes. Phase them.Wonder, the unprofitable be viewer. A MUCH LONGER LINK THAT WHEN YOU CLICK IT WILL OPEN A NEW TAB IN YOUR BROWSER AND TAKE YOU TO THE WEBSITE GOOGLE. sofas bed in of back impatient have and a thoughts roam; To creating very than steps.  Least, gone into the may parameters up systems allowed different about place with to the success  keep outlines and founder, look loyalty. , way not arduous of and in he and they of then. LINK TO A DEVELOPMENT EVENT PAGE. ",
+            "spans": [
+              {
+                "start": 94,
+                "end": 160,
+                "type": "strong"
+              },
+              {
+                "start": 193,
+                "end": 229,
+                "type": "hyperlink",
+                "data": {
+                  "link_type": "Media",
+                  "name": "blanco 11152019.jpg",
+                  "kind": "image",
+                  "url": "https://images.prismic.io/hmbk-cms/7da73508-6ad5-4ff3-b404-678a3ddfd5c7_blanco+11152019.jpg?auto=compress,format",
+                  "size": "36719",
+                  "height": "600",
+                  "width": "600"
+                }
+              },
+              {
+                "start": 325,
+                "end": 326,
+                "type": "strong"
+              },
+              {
+                "start": 463,
+                "end": 575,
+                "type": "hyperlink",
+                "data": {
+                  "link_type": "Web",
+                  "url": "https://www.google.com",
+                  "target": "_blank"
+                }
+              },
+              {
+                "start": 852,
+                "end": 884,
+                "type": "hyperlink",
+                "data": {
+                  "id": "X6RuZxIAACEAOklG",
+                  "type": "event",
+                  "tags": [],
+                  "slug": "25th-anniversary-purple-people-eaters-reunion-carnival-extravaganzathon",
+                  "lang": "en-us",
+                  "uid": "dev-event-purple-people-eater",
+                  "link_type": "Document",
+                  "isBroken": false
+                }
+              }
+            ]
+          },
+          {
+            "type": "heading3",
+            "text": "Heading 3, If but then what how this that",
+            "spans": []
+          },
+          {
+            "type": "heading4",
+            "text": "Heading 4, Study return is times put these",
+            "spans": []
+          },
+          {
+            "type": "heading5",
+            "text": "Heading 5, One brought in and live get",
+            "spans": []
+          },
+          {
+            "type": "heading6",
+            "text": "Heading 6, To making still is of his",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Bolded Text",
+            "spans": [
+              {
+                "start": 0,
+                "end": 11,
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "list-item",
+            "text": "For viewer the that little",
+            "spans": []
+          },
+          {
+            "type": "list-item",
+            "text": "As and all arranged it",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Bolded and Italicized text",
+            "spans": [
+              {
+                "start": 0,
+                "end": 26,
+                "type": "em"
+              },
+              {
+                "start": 0,
+                "end": 26,
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "o-list-item",
+            "text": "Intention guest feedback seven seemed",
+            "spans": []
+          },
+          {
+            "type": "o-list-item",
+            "text": "Theoretically logbook to an start",
+            "spans": [
+              {
+                "start": 14,
+                "end": 33,
+                "type": "strong"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "primary": {
+      "text_columns_header": [
+        {
+          "type": "heading2",
+          "text": "Three Columns",
+          "spans": []
+        }
+      ],
+      "text_columns_footer": null
+    }
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodySlice_divider",
+    "type": "slice_divider"
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodyText_columns",
+    "type": "text_columns",
+    "fields": [
+      {
+        "text_column": [
+          {
+            "type": "heading2",
+            "text": "Heading 2, Banana forged newspaper water",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Blue they her large my that least five. Perceive him of legislators, have monstrous insurance lady logged back extent,  set privilege they to of I were remedies. Determined the to much his or  LINK TO A PRISMIC MEDIA LIBRARY ITEM , diet, with and consider find or few not have any would the past, soon best tone don't neuter. That hadn't him, the side dream. A refinement and way. Rexpected but on their sleep eyes. Phase them.Wonder, the unprofitable be viewer. A MUCH LONGER LINK THAT WHEN YOU CLICK IT WILL OPEN A NEW TAB IN YOUR BROWSER AND TAKE YOU TO THE WEBSITE GOOGLE. sofas bed in of back impatient have and a thoughts roam; To creating very than steps.  Least, gone into the may parameters up systems allowed different about place with to the success  keep outlines and founder, look loyalty. , way not arduous of and in he and they of then. LINK TO A DEVELOPMENT EVENT PAGE. ",
+            "spans": [
+              {
+                "start": 94,
+                "end": 160,
+                "type": "strong"
+              },
+              {
+                "start": 193,
+                "end": 229,
+                "type": "hyperlink",
+                "data": {
+                  "link_type": "Media",
+                  "name": "blanco 11152019.jpg",
+                  "kind": "image",
+                  "url": "https://images.prismic.io/hmbk-cms/7da73508-6ad5-4ff3-b404-678a3ddfd5c7_blanco+11152019.jpg?auto=compress,format",
+                  "size": "36719",
+                  "height": "600",
+                  "width": "600"
+                }
+              },
+              {
+                "start": 325,
+                "end": 326,
+                "type": "strong"
+              },
+              {
+                "start": 463,
+                "end": 575,
+                "type": "hyperlink",
+                "data": {
+                  "link_type": "Web",
+                  "url": "https://www.google.com",
+                  "target": "_blank"
+                }
+              },
+              {
+                "start": 852,
+                "end": 884,
+                "type": "hyperlink",
+                "data": {
+                  "id": "X6RuZxIAACEAOklG",
+                  "type": "event",
+                  "tags": [],
+                  "slug": "25th-anniversary-purple-people-eaters-reunion-carnival-extravaganzathon",
+                  "lang": "en-us",
+                  "uid": "dev-event-purple-people-eater",
+                  "link_type": "Document",
+                  "isBroken": false
+                }
+              }
+            ]
+          },
+          {
+            "type": "heading3",
+            "text": "Heading 3, If but then what how this that",
+            "spans": []
+          },
+          {
+            "type": "heading4",
+            "text": "Heading 4, Study return is times put these",
+            "spans": []
+          },
+          {
+            "type": "heading5",
+            "text": "Heading 5, One brought in and live get",
+            "spans": []
+          },
+          {
+            "type": "heading6",
+            "text": "Heading 6, To making still is of his",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Bolded Text",
+            "spans": [
+              {
+                "start": 0,
+                "end": 11,
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "list-item",
+            "text": "For viewer the that little",
+            "spans": []
+          },
+          {
+            "type": "list-item",
+            "text": "As and all arranged it",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Bolded and Italicized text",
+            "spans": [
+              {
+                "start": 0,
+                "end": 26,
+                "type": "em"
+              },
+              {
+                "start": 0,
+                "end": 26,
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "o-list-item",
+            "text": "Intention guest feedback seven seemed",
+            "spans": []
+          },
+          {
+            "type": "o-list-item",
+            "text": "Theoretically logbook to an start",
+            "spans": [
+              {
+                "start": 14,
+                "end": 33,
+                "type": "strong"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text_column": [
+          {
+            "type": "heading2",
+            "text": "Heading 2, Banana forged newspaper water",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Blue they her large my that least five. Perceive him of legislators, have monstrous insurance lady logged back extent,  set privilege they to of I were remedies. Determined the to much his or  LINK TO A PRISMIC MEDIA LIBRARY ITEM , diet, with and consider find or few not have any would the past, soon best tone don't neuter. That hadn't him, the side dream. A refinement and way. Rexpected but on their sleep eyes. Phase them.Wonder, the unprofitable be viewer. A MUCH LONGER LINK THAT WHEN YOU CLICK IT WILL OPEN A NEW TAB IN YOUR BROWSER AND TAKE YOU TO THE WEBSITE GOOGLE. sofas bed in of back impatient have and a thoughts roam; To creating very than steps.  Least, gone into the may parameters up systems allowed different about place with to the success  keep outlines and founder, look loyalty. , way not arduous of and in he and they of then. LINK TO A DEVELOPMENT EVENT PAGE. ",
+            "spans": [
+              {
+                "start": 94,
+                "end": 160,
+                "type": "strong"
+              },
+              {
+                "start": 193,
+                "end": 229,
+                "type": "hyperlink",
+                "data": {
+                  "link_type": "Media",
+                  "name": "blanco 11152019.jpg",
+                  "kind": "image",
+                  "url": "https://images.prismic.io/hmbk-cms/7da73508-6ad5-4ff3-b404-678a3ddfd5c7_blanco+11152019.jpg?auto=compress,format",
+                  "size": "36719",
+                  "height": "600",
+                  "width": "600"
+                }
+              },
+              {
+                "start": 325,
+                "end": 326,
+                "type": "strong"
+              },
+              {
+                "start": 463,
+                "end": 575,
+                "type": "hyperlink",
+                "data": {
+                  "link_type": "Web",
+                  "url": "https://www.google.com",
+                  "target": "_blank"
+                }
+              },
+              {
+                "start": 852,
+                "end": 884,
+                "type": "hyperlink",
+                "data": {
+                  "id": "X6RuZxIAACEAOklG",
+                  "type": "event",
+                  "tags": [],
+                  "slug": "25th-anniversary-purple-people-eaters-reunion-carnival-extravaganzathon",
+                  "lang": "en-us",
+                  "uid": "dev-event-purple-people-eater",
+                  "link_type": "Document",
+                  "isBroken": false
+                }
+              }
+            ]
+          },
+          {
+            "type": "heading3",
+            "text": "Heading 3, If but then what how this that",
+            "spans": []
+          },
+          {
+            "type": "heading4",
+            "text": "Heading 4, Study return is times put these",
+            "spans": []
+          },
+          {
+            "type": "heading5",
+            "text": "Heading 5, One brought in and live get",
+            "spans": []
+          },
+          {
+            "type": "heading6",
+            "text": "Heading 6, To making still is of his",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Bolded Text",
+            "spans": [
+              {
+                "start": 0,
+                "end": 11,
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "list-item",
+            "text": "For viewer the that little",
+            "spans": []
+          },
+          {
+            "type": "list-item",
+            "text": "As and all arranged it",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Bolded and Italicized text",
+            "spans": [
+              {
+                "start": 0,
+                "end": 26,
+                "type": "em"
+              },
+              {
+                "start": 0,
+                "end": 26,
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "o-list-item",
+            "text": "Intention guest feedback seven seemed",
+            "spans": []
+          },
+          {
+            "type": "o-list-item",
+            "text": "Theoretically logbook to an start",
+            "spans": [
+              {
+                "start": 14,
+                "end": 33,
+                "type": "strong"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text_column": [
+          {
+            "type": "heading2",
+            "text": "Heading 2, Banana forged newspaper water",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Blue they her large my that least five. Perceive him of legislators, have monstrous insurance lady logged back extent,  set privilege they to of I were remedies. Determined the to much his or  LINK TO A PRISMIC MEDIA LIBRARY ITEM , diet, with and consider find or few not have any would the past, soon best tone don't neuter. That hadn't him, the side dream. A refinement and way. Rexpected but on their sleep eyes. Phase them.Wonder, the unprofitable be viewer. A MUCH LONGER LINK THAT WHEN YOU CLICK IT WILL OPEN A NEW TAB IN YOUR BROWSER AND TAKE YOU TO THE WEBSITE GOOGLE. sofas bed in of back impatient have and a thoughts roam; To creating very than steps.  Least, gone into the may parameters up systems allowed different about place with to the success  keep outlines and founder, look loyalty. , way not arduous of and in he and they of then. LINK TO A DEVELOPMENT EVENT PAGE. ",
+            "spans": [
+              {
+                "start": 94,
+                "end": 160,
+                "type": "strong"
+              },
+              {
+                "start": 193,
+                "end": 229,
+                "type": "hyperlink",
+                "data": {
+                  "link_type": "Media",
+                  "name": "blanco 11152019.jpg",
+                  "kind": "image",
+                  "url": "https://images.prismic.io/hmbk-cms/7da73508-6ad5-4ff3-b404-678a3ddfd5c7_blanco+11152019.jpg?auto=compress,format",
+                  "size": "36719",
+                  "height": "600",
+                  "width": "600"
+                }
+              },
+              {
+                "start": 325,
+                "end": 326,
+                "type": "strong"
+              },
+              {
+                "start": 463,
+                "end": 575,
+                "type": "hyperlink",
+                "data": {
+                  "link_type": "Web",
+                  "url": "https://www.google.com",
+                  "target": "_blank"
+                }
+              },
+              {
+                "start": 852,
+                "end": 884,
+                "type": "hyperlink",
+                "data": {
+                  "id": "X6RuZxIAACEAOklG",
+                  "type": "event",
+                  "tags": [],
+                  "slug": "25th-anniversary-purple-people-eaters-reunion-carnival-extravaganzathon",
+                  "lang": "en-us",
+                  "uid": "dev-event-purple-people-eater",
+                  "link_type": "Document",
+                  "isBroken": false
+                }
+              }
+            ]
+          },
+          {
+            "type": "heading3",
+            "text": "Heading 3, If but then what how this that",
+            "spans": []
+          },
+          {
+            "type": "heading4",
+            "text": "Heading 4, Study return is times put these",
+            "spans": []
+          },
+          {
+            "type": "heading5",
+            "text": "Heading 5, One brought in and live get",
+            "spans": []
+          },
+          {
+            "type": "heading6",
+            "text": "Heading 6, To making still is of his",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Bolded Text",
+            "spans": [
+              {
+                "start": 0,
+                "end": 11,
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "list-item",
+            "text": "For viewer the that little",
+            "spans": []
+          },
+          {
+            "type": "list-item",
+            "text": "As and all arranged it",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Bolded and Italicized text",
+            "spans": [
+              {
+                "start": 0,
+                "end": 26,
+                "type": "em"
+              },
+              {
+                "start": 0,
+                "end": 26,
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "o-list-item",
+            "text": "Intention guest feedback seven seemed",
+            "spans": []
+          },
+          {
+            "type": "o-list-item",
+            "text": "Theoretically logbook to an start",
+            "spans": [
+              {
+                "start": 14,
+                "end": 33,
+                "type": "strong"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text_column": [
+          {
+            "type": "heading2",
+            "text": "Heading 2, Banana forged newspaper water",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Blue they her large my that least five. Perceive him of legislators, have monstrous insurance lady logged back extent,  set privilege they to of I were remedies. Determined the to much his or  LINK TO A PRISMIC MEDIA LIBRARY ITEM , diet, with and consider find or few not have any would the past, soon best tone don't neuter. That hadn't him, the side dream. A refinement and way. Rexpected but on their sleep eyes. Phase them.Wonder, the unprofitable be viewer. A MUCH LONGER LINK THAT WHEN YOU CLICK IT WILL OPEN A NEW TAB IN YOUR BROWSER AND TAKE YOU TO THE WEBSITE GOOGLE. sofas bed in of back impatient have and a thoughts roam; To creating very than steps.  Least, gone into the may parameters up systems allowed different about place with to the success  keep outlines and founder, look loyalty. , way not arduous of and in he and they of then. LINK TO A DEVELOPMENT EVENT PAGE. ",
+            "spans": [
+              {
+                "start": 94,
+                "end": 160,
+                "type": "strong"
+              },
+              {
+                "start": 193,
+                "end": 229,
+                "type": "hyperlink",
+                "data": {
+                  "link_type": "Media",
+                  "name": "blanco 11152019.jpg",
+                  "kind": "image",
+                  "url": "https://images.prismic.io/hmbk-cms/7da73508-6ad5-4ff3-b404-678a3ddfd5c7_blanco+11152019.jpg?auto=compress,format",
+                  "size": "36719",
+                  "height": "600",
+                  "width": "600"
+                }
+              },
+              {
+                "start": 325,
+                "end": 326,
+                "type": "strong"
+              },
+              {
+                "start": 463,
+                "end": 575,
+                "type": "hyperlink",
+                "data": {
+                  "link_type": "Web",
+                  "url": "https://www.google.com",
+                  "target": "_blank"
+                }
+              },
+              {
+                "start": 852,
+                "end": 884,
+                "type": "hyperlink",
+                "data": {
+                  "id": "X6RuZxIAACEAOklG",
+                  "type": "event",
+                  "tags": [],
+                  "slug": "25th-anniversary-purple-people-eaters-reunion-carnival-extravaganzathon",
+                  "lang": "en-us",
+                  "uid": "dev-event-purple-people-eater",
+                  "link_type": "Document",
+                  "isBroken": false
+                }
+              }
+            ]
+          },
+          {
+            "type": "heading3",
+            "text": "Heading 3, If but then what how this that",
+            "spans": []
+          },
+          {
+            "type": "heading4",
+            "text": "Heading 4, Study return is times put these",
+            "spans": []
+          },
+          {
+            "type": "heading5",
+            "text": "Heading 5, One brought in and live get",
+            "spans": []
+          },
+          {
+            "type": "heading6",
+            "text": "Heading 6, To making still is of his",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Bolded Text",
+            "spans": [
+              {
+                "start": 0,
+                "end": 11,
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "list-item",
+            "text": "For viewer the that little",
+            "spans": []
+          },
+          {
+            "type": "list-item",
+            "text": "As and all arranged it",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Bolded and Italicized text",
+            "spans": [
+              {
+                "start": 0,
+                "end": 26,
+                "type": "em"
+              },
+              {
+                "start": 0,
+                "end": 26,
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "o-list-item",
+            "text": "Intention guest feedback seven seemed",
+            "spans": []
+          },
+          {
+            "type": "o-list-item",
+            "text": "Theoretically logbook to an start",
+            "spans": [
+              {
+                "start": 14,
+                "end": 33,
+                "type": "strong"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "primary": {
+      "text_columns_header": [
+        {
+          "type": "heading2",
+          "text": "Four Columns",
+          "spans": []
+        }
+      ],
+      "text_columns_footer": null
     }
   },
   {
@@ -4607,43 +6399,63 @@
     "type": "slice_divider"
   },
   {
+    "__typename": "PRISMIC_Cms_guideBodyText",
+    "type": "text",
+    "label": null,
+    "primary": {
+      "body_text": [
+        {
+          "type": "heading3",
+          "text": "Quarterpage",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "A single image that is ¼ of the page height. Fit up to four, stacked vertically, on a page at once.",
+          "spans": []
+        }
+      ]
+    }
+  },
+  {
     "__typename": "PRISMIC_Cms_guideBodyFull_width_image",
+    "type": "full_width_image",
     "label": "medium",
     "primary": {
       "full_width_image": {
         "dimensions": {
           "width": 1920,
-          "height": 1280
+          "height": 1200
         },
-        "alt": "Yellow Flower Field Near Snow Covered Mountain",
-        "copyright": "Taryn Elliot // pexels",
-        "url": "https://images.prismic.io/hmbk-cms/604acac1-d13d-4dfa-bfd8-ebc556919fa4_pexels-taryn-elliott-3889990.jpg?auto=compress,format",
+        "alt": "Green Nebula in Outer Space",
+        "copyright": "yjm67g // wallhaven",
+        "url": "https://images.prismic.io/hmbk-cms/874d566f-66e0-491f-ab1c-3372019385f1_wallhaven-yjm67g_1920x1200.png?auto=compress,format",
         "halfheight": {
           "dimensions": {
             "width": 1600,
             "height": 1200
           },
-          "alt": "Yellow Flower Field Near Snow Covered Mountain",
-          "copyright": "Taryn Elliot // pexels",
-          "url": "https://images.prismic.io/hmbk-cms/604acac1-d13d-4dfa-bfd8-ebc556919fa4_pexels-taryn-elliott-3889990.jpg?auto=compress,format&rect=107,0,1707,1280&w=1600&h=1200"
+          "alt": "Green Nebula in Outer Space",
+          "copyright": "yjm67g // wallhaven",
+          "url": "https://images.prismic.io/hmbk-cms/874d566f-66e0-491f-ab1c-3372019385f1_wallhaven-yjm67g_1920x1200.png?auto=compress,format&rect=160,0,1600,1200&w=1600&h=1200"
         },
         "medium": {
           "dimensions": {
             "width": 1600,
             "height": 600
           },
-          "alt": "Yellow Flower Field Near Snow Covered Mountain",
-          "copyright": "Taryn Elliot // pexels",
-          "url": "https://images.prismic.io/hmbk-cms/604acac1-d13d-4dfa-bfd8-ebc556919fa4_pexels-taryn-elliott-3889990.jpg?auto=compress,format&rect=0,279,1920,720&w=1600&h=600"
+          "alt": "Green Nebula in Outer Space",
+          "copyright": "yjm67g // wallhaven",
+          "url": "https://images.prismic.io/hmbk-cms/874d566f-66e0-491f-ab1c-3372019385f1_wallhaven-yjm67g_1920x1200.png?auto=compress,format&rect=0,240,1920,720&w=1600&h=600"
         },
         "small": {
           "dimensions": {
             "width": 1600,
             "height": 300
           },
-          "alt": "Yellow Flower Field Near Snow Covered Mountain",
-          "copyright": "Taryn Elliot // pexels",
-          "url": "https://images.prismic.io/hmbk-cms/604acac1-d13d-4dfa-bfd8-ebc556919fa4_pexels-taryn-elliott-3889990.jpg?auto=compress,format&rect=0,460,1920,360&w=1600&h=300"
+          "alt": "Green Nebula in Outer Space",
+          "copyright": "yjm67g // wallhaven",
+          "url": "https://images.prismic.io/hmbk-cms/874d566f-66e0-491f-ab1c-3372019385f1_wallhaven-yjm67g_1920x1200.png?auto=compress,format&rect=0,420,1920,360&w=1600&h=300"
         }
       },
       "fwi_titling": [
@@ -4657,48 +6469,154 @@
   },
   {
     "__typename": "PRISMIC_Cms_guideBodyFull_width_image",
-    "label": "halfpage",
+    "type": "full_width_image",
+    "label": "medium",
     "primary": {
       "full_width_image": {
         "dimensions": {
-          "width": 1920,
-          "height": 1280
+          "width": 2880,
+          "height": 1800
         },
-        "alt": "Yellow Flower Field Near Snow Covered Mountain",
-        "copyright": "Taryn Elliot // pexels",
-        "url": "https://images.prismic.io/hmbk-cms/604acac1-d13d-4dfa-bfd8-ebc556919fa4_pexels-taryn-elliott-3889990.jpg?auto=compress,format",
+        "alt": "Oslo Subway Escalator long exposure",
+        "copyright": "w8yxlr // wallhaven",
+        "url": "https://images.prismic.io/hmbk-cms/450e3121-5d28-48eb-961c-937cfd5bd364_wallhaven-w8yxlr.jpg?auto=compress,format",
         "halfheight": {
           "dimensions": {
             "width": 1600,
             "height": 1200
           },
-          "alt": "Yellow Flower Field Near Snow Covered Mountain",
-          "copyright": "Taryn Elliot // pexels",
-          "url": "https://images.prismic.io/hmbk-cms/604acac1-d13d-4dfa-bfd8-ebc556919fa4_pexels-taryn-elliott-3889990.jpg?auto=compress,format&rect=107,0,1707,1280&w=1600&h=1200"
+          "alt": "Oslo Subway Escalator long exposure",
+          "copyright": "w8yxlr // wallhaven",
+          "url": "https://images.prismic.io/hmbk-cms/450e3121-5d28-48eb-961c-937cfd5bd364_wallhaven-w8yxlr.jpg?auto=compress,format&rect=240,0,2400,1800&w=1600&h=1200"
         },
         "medium": {
           "dimensions": {
             "width": 1600,
             "height": 600
           },
-          "alt": "Yellow Flower Field Near Snow Covered Mountain",
-          "copyright": "Taryn Elliot // pexels",
-          "url": "https://images.prismic.io/hmbk-cms/604acac1-d13d-4dfa-bfd8-ebc556919fa4_pexels-taryn-elliott-3889990.jpg?auto=compress,format&rect=0,280,1920,720&w=1600&h=600"
+          "alt": "Oslo Subway Escalator long exposure",
+          "copyright": "w8yxlr // wallhaven",
+          "url": "https://images.prismic.io/hmbk-cms/450e3121-5d28-48eb-961c-937cfd5bd364_wallhaven-w8yxlr.jpg?auto=compress,format&rect=0,360,2880,1080&w=1600&h=600"
         },
         "small": {
           "dimensions": {
             "width": 1600,
             "height": 300
           },
-          "alt": "Yellow Flower Field Near Snow Covered Mountain",
-          "copyright": "Taryn Elliot // pexels",
-          "url": "https://images.prismic.io/hmbk-cms/604acac1-d13d-4dfa-bfd8-ebc556919fa4_pexels-taryn-elliott-3889990.jpg?auto=compress,format&rect=0,460,1920,360&w=1600&h=300"
+          "alt": "Oslo Subway Escalator long exposure",
+          "copyright": "w8yxlr // wallhaven",
+          "url": "https://images.prismic.io/hmbk-cms/450e3121-5d28-48eb-961c-937cfd5bd364_wallhaven-w8yxlr.jpg?auto=compress,format&rect=0,630,2880,540&w=1600&h=300"
         }
       },
-      "fwi_titling": [
+      "fwi_titling": null
+    }
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodyFull_width_image",
+    "type": "full_width_image",
+    "label": null,
+    "primary": {
+      "full_width_image": {
+        "dimensions": {
+          "width": 2560,
+          "height": 1440
+        },
+        "alt": "Vicious Greenery",
+        "copyright": "g8gx03 // wallhaven",
+        "url": "https://images.prismic.io/hmbk-cms/7a050f39-fc51-4148-8272-cbb5ed05e261_wallhaven-g8gxo3.png?auto=compress,format",
+        "halfheight": {
+          "dimensions": {
+            "width": 1600,
+            "height": 1200
+          },
+          "alt": "Vicious Greenery",
+          "copyright": "g8gx03 // wallhaven",
+          "url": "https://images.prismic.io/hmbk-cms/7a050f39-fc51-4148-8272-cbb5ed05e261_wallhaven-g8gxo3.png?auto=compress,format&rect=320,0,1920,1440&w=1600&h=1200"
+        },
+        "medium": {
+          "dimensions": {
+            "width": 1600,
+            "height": 600
+          },
+          "alt": "Vicious Greenery",
+          "copyright": "g8gx03 // wallhaven",
+          "url": "https://images.prismic.io/hmbk-cms/7a050f39-fc51-4148-8272-cbb5ed05e261_wallhaven-g8gxo3.png?auto=compress,format&rect=0,240,2560,960&w=1600&h=600"
+        },
+        "small": {
+          "dimensions": {
+            "width": 1600,
+            "height": 300
+          },
+          "alt": "Vicious Greenery",
+          "copyright": "g8gx03 // wallhaven",
+          "url": "https://images.prismic.io/hmbk-cms/7a050f39-fc51-4148-8272-cbb5ed05e261_wallhaven-g8gxo3.png?auto=compress,format&rect=0,480,2560,480&w=1600&h=300"
+        }
+      },
+      "fwi_titling": null
+    }
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodyFull_width_image",
+    "type": "full_width_image",
+    "label": null,
+    "primary": {
+      "full_width_image": {
+        "dimensions": {
+          "width": 1920,
+          "height": 1281
+        },
+        "alt": "Selecting Silhouette of Tree Photo Among Other Photos",
+        "copyright": "Photo by Lisa Fotios from Pexels",
+        "url": "https://images.prismic.io/hmbk-cms/19549fdf-cf76-42bc-8651-b6e2b99854ba_pexels-lisa-fotios-3024996.jpg?auto=compress,format",
+        "halfheight": {
+          "dimensions": {
+            "width": 1600,
+            "height": 1200
+          },
+          "alt": "Selecting Silhouette of Tree Photo Among Other Photos",
+          "copyright": "Photo by Lisa Fotios from Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/19549fdf-cf76-42bc-8651-b6e2b99854ba_pexels-lisa-fotios-3024996.jpg?auto=compress,format&rect=106,0,1708,1281&w=1600&h=1200"
+        },
+        "medium": {
+          "dimensions": {
+            "width": 1600,
+            "height": 600
+          },
+          "alt": "Selecting Silhouette of Tree Photo Among Other Photos",
+          "copyright": "Photo by Lisa Fotios from Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/19549fdf-cf76-42bc-8651-b6e2b99854ba_pexels-lisa-fotios-3024996.jpg?auto=compress,format&rect=0,281,1920,720&w=1600&h=600"
+        },
+        "small": {
+          "dimensions": {
+            "width": 1600,
+            "height": 300
+          },
+          "alt": "Selecting Silhouette of Tree Photo Among Other Photos",
+          "copyright": "Photo by Lisa Fotios from Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/19549fdf-cf76-42bc-8651-b6e2b99854ba_pexels-lisa-fotios-3024996.jpg?auto=compress,format&rect=0,461,1920,360&w=1600&h=300"
+        }
+      },
+      "fwi_titling": null
+    }
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodySlice_divider",
+    "type": "slice_divider"
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodyText",
+    "type": "text",
+    "label": null,
+    "primary": {
+      "body_text": [
         {
-          "type": "heading2",
+          "type": "heading3",
           "text": "Halfpage",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "A single image that is ½  of the page height. Fit up to two. stacked vertically, on a page at once.",
           "spans": []
         }
       ]
@@ -4706,6 +6624,114 @@
   },
   {
     "__typename": "PRISMIC_Cms_guideBodyFull_width_image",
+    "type": "full_width_image",
+    "label": "halfpage",
+    "primary": {
+      "full_width_image": {
+        "dimensions": {
+          "width": 1920,
+          "height": 1280
+        },
+        "alt": "Man in Black Leather Jacket Beside Woman in Blue Cardigan",
+        "copyright": "cottonbro // Pexels",
+        "url": "https://images.prismic.io/hmbk-cms/2cc10f37-7212-4b02-80a7-1abdc88f844e_pexels-cottonbro-4776595.jpg?auto=compress,format",
+        "halfheight": {
+          "dimensions": {
+            "width": 1600,
+            "height": 1200
+          },
+          "alt": "Man in Black Leather Jacket Beside Woman in Blue Cardigan",
+          "copyright": "cottonbro // Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/2cc10f37-7212-4b02-80a7-1abdc88f844e_pexels-cottonbro-4776595.jpg?auto=compress,format&rect=119,0,1707,1280&w=1600&h=1200"
+        },
+        "medium": {
+          "dimensions": {
+            "width": 1600,
+            "height": 600
+          },
+          "alt": "Man in Black Leather Jacket Beside Woman in Blue Cardigan",
+          "copyright": "cottonbro // Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/2cc10f37-7212-4b02-80a7-1abdc88f844e_pexels-cottonbro-4776595.jpg?auto=compress,format&rect=0,0,1920,720&w=1600&h=600"
+        },
+        "small": {
+          "dimensions": {
+            "width": 1600,
+            "height": 300
+          },
+          "alt": "Man in Black Leather Jacket Beside Woman in Blue Cardigan",
+          "copyright": "cottonbro // Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/2cc10f37-7212-4b02-80a7-1abdc88f844e_pexels-cottonbro-4776595.jpg?auto=compress,format&rect=0,460,1920,360&w=1600&h=300"
+        }
+      },
+      "fwi_titling": null
+    }
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodyFull_width_image",
+    "type": "full_width_image",
+    "label": "halfpage",
+    "primary": {
+      "full_width_image": {
+        "dimensions": {
+          "width": 3620,
+          "height": 2400
+        },
+        "alt": null,
+        "copyright": null,
+        "url": "https://images.prismic.io/hmbk-cms/b51eceb2-d66b-4c0b-8c0e-16aac4d8a78c_000034610009.jpg?auto=compress,format",
+        "halfheight": {
+          "dimensions": {
+            "width": 1600,
+            "height": 1200
+          },
+          "alt": null,
+          "copyright": null,
+          "url": "https://images.prismic.io/hmbk-cms/b51eceb2-d66b-4c0b-8c0e-16aac4d8a78c_000034610009.jpg?auto=compress,format&rect=210,0,3200,2400&w=1600&h=1200"
+        },
+        "medium": {
+          "dimensions": {
+            "width": 1600,
+            "height": 600
+          },
+          "alt": null,
+          "copyright": null,
+          "url": "https://images.prismic.io/hmbk-cms/b51eceb2-d66b-4c0b-8c0e-16aac4d8a78c_000034610009.jpg?auto=compress,format&rect=0,35,3620,1358&w=1600&h=600"
+        },
+        "small": {
+          "dimensions": {
+            "width": 1600,
+            "height": 300
+          },
+          "alt": null,
+          "copyright": null,
+          "url": "https://images.prismic.io/hmbk-cms/b51eceb2-d66b-4c0b-8c0e-16aac4d8a78c_000034610009.jpg?auto=compress,format&rect=0,860,3620,679&w=1600&h=300"
+        }
+      },
+      "fwi_titling": null
+    }
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodyText",
+    "type": "text",
+    "label": null,
+    "primary": {
+      "body_text": [
+        {
+          "type": "heading3",
+          "text": "Fullpage",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "A single image fills the entire height of the page.",
+          "spans": []
+        }
+      ]
+    }
+  },
+  {
+    "__typename": "PRISMIC_Cms_guideBodyFull_width_image",
+    "type": "full_width_image",
     "label": "fullpage",
     "primary": {
       "full_width_image": {
@@ -4713,35 +6739,35 @@
           "width": 1920,
           "height": 1280
         },
-        "alt": "Yellow Flower Field Near Snow Covered Mountain",
-        "copyright": "Taryn Elliot // pexels",
-        "url": "https://images.prismic.io/hmbk-cms/604acac1-d13d-4dfa-bfd8-ebc556919fa4_pexels-taryn-elliott-3889990.jpg?auto=compress,format",
+        "alt": "Display of donuts and sweets",
+        "copyright": "Igor Ovsyannykov // Pexels",
+        "url": "https://images.prismic.io/hmbk-cms/9d285a82-2d5e-4113-8547-ac7c52958b1a_pexels-igor-ovsyannykov-205961.jpg?auto=compress,format",
         "halfheight": {
           "dimensions": {
             "width": 1600,
             "height": 1200
           },
-          "alt": "Yellow Flower Field Near Snow Covered Mountain",
-          "copyright": "Taryn Elliot // pexels",
-          "url": "https://images.prismic.io/hmbk-cms/604acac1-d13d-4dfa-bfd8-ebc556919fa4_pexels-taryn-elliott-3889990.jpg?auto=compress,format&rect=107,0,1707,1280&w=1600&h=1200"
+          "alt": "Display of donuts and sweets",
+          "copyright": "Igor Ovsyannykov // Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/9d285a82-2d5e-4113-8547-ac7c52958b1a_pexels-igor-ovsyannykov-205961.jpg?auto=compress,format&rect=107,0,1707,1280&w=1600&h=1200"
         },
         "medium": {
           "dimensions": {
             "width": 1600,
             "height": 600
           },
-          "alt": "Yellow Flower Field Near Snow Covered Mountain",
-          "copyright": "Taryn Elliot // pexels",
-          "url": "https://images.prismic.io/hmbk-cms/604acac1-d13d-4dfa-bfd8-ebc556919fa4_pexels-taryn-elliott-3889990.jpg?auto=compress,format&rect=0,280,1920,720&w=1600&h=600"
+          "alt": "Display of donuts and sweets",
+          "copyright": "Igor Ovsyannykov // Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/9d285a82-2d5e-4113-8547-ac7c52958b1a_pexels-igor-ovsyannykov-205961.jpg?auto=compress,format&rect=0,280,1920,720&w=1600&h=600"
         },
         "small": {
           "dimensions": {
             "width": 1600,
             "height": 300
           },
-          "alt": "Yellow Flower Field Near Snow Covered Mountain",
-          "copyright": "Taryn Elliot // pexels",
-          "url": "https://images.prismic.io/hmbk-cms/604acac1-d13d-4dfa-bfd8-ebc556919fa4_pexels-taryn-elliott-3889990.jpg?auto=compress,format&rect=0,460,1920,360&w=1600&h=300"
+          "alt": "Display of donuts and sweets",
+          "copyright": "Igor Ovsyannykov // Pexels",
+          "url": "https://images.prismic.io/hmbk-cms/9d285a82-2d5e-4113-8547-ac7c52958b1a_pexels-igor-ovsyannykov-205961.jpg?auto=compress,format&rect=0,460,1920,360&w=1600&h=300"
         }
       },
       "fwi_titling": null

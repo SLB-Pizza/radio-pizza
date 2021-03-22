@@ -1,6 +1,7 @@
 import React from 'react'
 import { RichTextHelper } from '../helpers'
 import { mappableDataFilter } from '../../utils'
+import { filter } from 'lodash'
 
 /**
  * Renders a set of Prismic RichText columns, with optional header and footer sections. One of the instances of `.text-block`, a class name that changes line height and link rendering. This slice will NOT render if `filteredTextCols` is returned by {@link mappableDataFilter} to be 0.
@@ -10,12 +11,30 @@ import { mappableDataFilter } from '../../utils'
  * @returns {jsx}
  */
 function TextColumns({ slice }) {
-  let { fields, primary } = slice
-  let { text_columns_header: header, text_columns_footer: footer } = primary
+  const { fields, primary } = slice
+  const { text_columns_header: header, text_columns_footer: footer } = primary
 
-  const filteredTextCols = mappableDataFilter(fields)
+  /**
+   * Filter out any null column items from `fields`.
+   */
+  const filteredTextColumns = mappableDataFilter(fields)
 
-  return filteredTextCols ? (
+  /**
+   * Boolean used to set `text-column` border styling on TextColumn if columns.length > 1.
+   */
+  const onlyOneColumn = filteredTextColumns.length === 1
+
+  /**
+   * If {@link mappableDataFilter} returns an array, grab up to the first 5 columns.
+   */
+  const firstFiveColumns = Array.isArray(filteredTextColumns)
+    ? filteredTextColumns.slice(0, 5)
+    : null
+
+  /**
+   * Render this slice ONLY IF Text Columns received column(s) to render.
+   */
+  return firstFiveColumns ? (
     <section className="section slice text-columns">
       {header && (
         <div className="container">
@@ -29,11 +48,15 @@ function TextColumns({ slice }) {
         <div className="columns is-mobile is-centered">
           <div className="column is-11">
             <div className="columns is-mobile is-multiline text-columns__main">
-              {filteredTextCols.map(({ text_column }, index) => (
+              {firstFiveColumns.map(({ text_column }, index) => (
                 <RichTextHelper
                   key={`text-column-${index}`}
                   richText={text_column}
-                  columnSizing={'column text-column'}
+                  columnSizing={
+                    onlyOneColumn
+                      ? 'column is-12-mobile is-6-tablet-only'
+                      : 'column is-12-mobile is-6-tablet-only text-column'
+                  }
                 />
               ))}
             </div>

@@ -116,15 +116,7 @@ const htmlSerializer = function(type, element, content, children, key) {
      * ```
      */
     case Elements.image: // Image
-      const linkUrl = element.linkTo
-        ? element.linkTo.url || linkResolver(element.linkTo)
-        : null
-      const linkTarget =
-        element.linkTo && element.linkTo.target
-          ? { target: element.linkTo.target }
-          : {}
-      const linkRel = linkTarget.target ? { rel: 'noopener' } : {}
-
+      // No links on images!
       return (
         <EmbeddedImageModal
           key={key}

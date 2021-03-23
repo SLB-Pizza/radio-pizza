@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import { ImageModal, ResponsiveImage } from '../../utils'
 /**
  * Creates a JSX segment that CMS Slices call on to format images. Its text counterpart is {@link RichTextHelper}. Called upon by {@link ResponsiveImage}
- * @category Layout Helper
- * @param {?String} columnSizing - optional string prop dictating specific column layouts.
  *
  * **CMS Slices passing this prop**
  * - {@link OneImageAndText}
@@ -11,6 +9,10 @@ import { ImageModal, ResponsiveImage } from '../../utils'
  *
  * **CMS Slices NOT passing this prop**
  * - {@link ImageRow}
+ * @category Layout Helper
+ * @function ImageHelper
+ * @param {?String} columnSizing - optional string prop dictating specific column layouts.
+ * @param {Object.<String, *>} imageData - contains all image data from Prismic about the image.
  * @returns {jsx}
  */
 function ImageHelper({ columnSizing, imageData }) {

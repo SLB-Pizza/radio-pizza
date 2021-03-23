@@ -67,8 +67,6 @@ function SliceZone({ sliceZone, metadata }) {
      */
     const SliceComponent = sliceComponents[slice.type]
 
-    console.log('slice type', slice.type)
-
     if (SliceComponent) {
       return (
         <SliceComponent

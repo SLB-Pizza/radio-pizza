@@ -23,7 +23,7 @@
           "headline_block": {
             "type": "Slice",
             "fieldset": "Headline Block",
-            "description": "An image, category and subcategory and headline to start your article.",
+            "description": "A hero image, headline and category to start your article.",
             "icon": "subtitles",
             "display": "list",
             "non-repeat": {
@@ -91,7 +91,7 @@
               "article_subtitle": {
                 "type": "StructuredText",
                 "config": {
-                  "single": "heading4",
+                  "single": "heading2",
                   "label": "Subtitle (REQUIRED)",
                   "placeholder": "(REQUIRED) Enter the guide's subtitle here..."
                 }
@@ -100,6 +100,7 @@
                 "type": "Link",
                 "config": {
                   "select": "document",
+                  "customtypes": ["staff"],
                   "label": "Author",
                   "placeholder": "Select the author (Create Staff member first, if necessary)"
                 }
@@ -117,12 +118,9 @@
       "fieldset": "Slice zone",
       "config": {
         "labels": {
-          "one_image_and_text": [],
-          "two_images___text": [],
           "image_row": [],
           "headline_block": [],
-          "image_group": [],
-          "one_image_and_text1": [
+          "one_image_and_text": [
             {
               "name": "left__tall_image_--_text",
               "display": "Left: Tall Image -- Text"
@@ -167,8 +165,8 @@
           ],
           "full_width_image": [
             {
-              "name": "medium",
-              "display": "Medium"
+              "name": "quarterpage",
+              "display": "Quarterpage"
             },
             {
               "name": "halfpage",
@@ -181,6 +179,16 @@
           ],
           "text_columns": [],
           "one_item_and_text": [
+            {
+              "name": "left__card_--_text",
+              "display": "Left: Card -- Text"
+            },
+            {
+              "name": "right__text_--_card",
+              "display": "Right: Text -- Card"
+            }
+          ],
+          "hmbk_item_and_text": [
             {
               "name": "left__card_--_text",
               "display": "Left: Card -- Text"
@@ -239,7 +247,7 @@
               "blockquote_text": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph, strong, em",
+                  "multi": "paragraph",
                   "label": "(REQUIRED) Blockquote Text",
                   "placeholder": "Enter blockquote text here..."
                 }
@@ -247,7 +255,7 @@
               "blockquote_attribution": {
                 "type": "StructuredText",
                 "config": {
-                  "single": "paragraph, strong, em",
+                  "single": "paragraph",
                   "label": "Blockquote Attribution",
                   "placeholder": "Enter quote attribution here..."
                 }
@@ -263,7 +271,7 @@
             },
             "repeat": {}
           },
-          "one_image_and_text1": {
+          "one_image_and_text": {
             "type": "Slice",
             "fieldset": "One Image and Text",
             "description": "One image and a text section on the left or right.",
@@ -431,7 +439,7 @@
             },
             "repeat": {}
           },
-          "image_group": {
+          "image_row": {
             "type": "Slice",
             "fieldset": "Row of Images",
             "description": "A group of 1-12 images to enrich your article.",
@@ -480,18 +488,10 @@
           "full_width_image": {
             "type": "Slice",
             "fieldset": "Full Width Image",
-            "description": "A full width image with optional text within.",
+            "description": "A full width image of selectable height.",
             "icon": "video_label",
             "display": "list",
             "non-repeat": {
-              "fwi_titling": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading2",
-                  "label": "Full Width Image Titling",
-                  "placeholder": "(Optional) Enter text to overlay the full width image here..."
-                }
-              },
               "full_width_image": {
                 "type": "Image",
                 "config": {
@@ -517,15 +517,6 @@
                 }
               }
             },
-            "repeat": {}
-          },
-          "hmbk_media": {
-            "type": "Slice",
-            "fieldset": "HMBK Media",
-            "description": "An embed for HMBK content (mixes, features, residents, etc)",
-            "icon": "book",
-            "display": "list",
-            "non-repeat": {},
             "repeat": {}
           },
           "text_columns": {

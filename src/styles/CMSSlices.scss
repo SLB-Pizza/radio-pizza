@@ -9,11 +9,8 @@ article .container {
   }
 }
 
-figure.image-embed {
-  width: 300px; // embedded images have width: 300px; set by htmlSerializer.
-}
-
 .feature-img {
+  padding: 0.25rem;
   background: transparent;
   transition: 0.25s $easing;
 
@@ -23,6 +20,11 @@ figure.image-embed {
       rgba($color: $primary, $alpha: 0.1) 0px 8px 24px,
       rgba($color: $primary, $alpha: 0.1) 0px 16px 48px;
   }
+}
+
+figure.image-embed {
+  @extend .feature-img;
+  width: 300px; // embedded images have width: 300px; set by htmlSerializer.
 }
 
 section.slice {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { ArticleHeadline } from '../components/slices/'
-import { ArticleBylineSubtitle, SliceZone } from '../components'
+import { ArticleBylineSubtitle, HMBKDivider, SliceZone } from '../components'
 
 /**
  * Renders a single Feature entry. Components in `return` are not short-circuited here at the top-level; they're short circuited at the exact render location in the layout/slice subcomponent they're used.
@@ -41,6 +41,12 @@ function FeatureTemplate({ data }) {
         />
 
         <SliceZone sliceZone={sliceData} metadata={metadata} />
+
+        <footer className="section container">
+          <div className="columns is-mobile is-vcentered">
+            <HMBKDivider />
+          </div>
+        </footer>
       </article>
     </main>
   )

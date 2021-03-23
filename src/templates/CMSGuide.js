@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { ArticleBylineSubtitle, SliceZone } from '../components'
+import { ArticleBylineSubtitle, HMBKDivider, SliceZone } from '../components'
 import { ArticleHeadline } from '../components/slices'
 
 /**
@@ -40,7 +40,13 @@ function CMSGuideTemplate({ data }) {
         />
 
         <SliceZone sliceZone={sliceData} metadata={metadata} />
-        <hr />
+
+        <footer className="section container">
+          <div className="columns is-mobile is-vcentered">
+            <HMBKDivider />
+          </div>
+        </footer>
+
         <section className="container is-fluid">
           <div className="columns is-mobile is-multiline">
             <div className="column is-full">

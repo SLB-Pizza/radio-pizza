@@ -108,7 +108,7 @@ export const query = graphql`
                   body_text
                 }
               }
-              ... on PRISMIC_Cms_guideBodyOne_image_and_text1 {
+              ... on PRISMIC_Cms_guideBodyOne_image_and_text {
                 type
                 label
                 primary {
@@ -142,10 +142,9 @@ export const query = graphql`
                 label
                 primary {
                   full_width_image
-                  fwi_titling
                 }
               }
-              ... on PRISMIC_Cms_guideBodyImage_group {
+              ... on PRISMIC_Cms_guideBodyImage_row {
                 type
                 fields {
                   single_img
@@ -165,6 +164,7 @@ export const query = graphql`
                 type
                 label
                 primary {
+                  oiat_text
                   hmbk_item {
                     ... on PRISMIC_Event {
                       _meta {
@@ -205,7 +205,6 @@ export const query = graphql`
                       }
                     }
                   }
-                  oiat_text
                 }
               }
             }

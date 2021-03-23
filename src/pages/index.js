@@ -144,8 +144,8 @@ export const query = graphql`
             editorials {
               node {
                 ... on PRISMIC_Feature {
-                  headline_block {
-                    ... on PRISMIC_FeatureHeadline_blockHeadline_block {
+                  header {
+                    ... on PRISMIC_FeatureHeaderHeadline_block {
                       primary {
                         article_subtitle
                         article_subcategory

@@ -173,8 +173,8 @@ export const query = graphql`
                   lastPublicationDate
                   firstPublicationDate
                 }
-                headline_block {
-                  ... on PRISMIC_FeatureHeadline_blockHeadline_block {
+                header {
+                  ... on PRISMIC_FeatureHeaderHeadline_block {
                     type
                     primary {
                       article_headline_img
@@ -188,15 +188,14 @@ export const query = graphql`
             }
             bottom_right_feature {
               ... on PRISMIC_Feature {
-                _linkType
                 _meta {
                   uid
                   type
                   lastPublicationDate
                   firstPublicationDate
                 }
-                headline_block {
-                  ... on PRISMIC_FeatureHeadline_blockHeadline_block {
+                header {
+                  ... on PRISMIC_FeatureHeaderHeadline_block {
                     primary {
                       article_headline_img
                       article_headline
@@ -224,16 +223,24 @@ export const query = graphql`
           node {
             _meta {
               uid
-              firstPublicationDate
               lastPublicationDate
+              firstPublicationDate
               type
-              tags
             }
-            headline_block {
-              ... on PRISMIC_FeatureHeadline_blockHeadline_block {
+            header {
+              ... on PRISMIC_FeatureHeaderHeadline_block {
+                type
                 primary {
-                  article_headline_img
+                  article_author {
+                    ... on PRISMIC_Staff {
+                      hmbk_staff_name
+                      hmbk_staff_position
+                      hmbk_staff_photo
+                    }
+                  }
+                  article_category
                   article_headline
+                  article_headline_img
                   article_subcategory
                   article_subtitle
                 }

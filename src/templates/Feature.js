@@ -16,18 +16,18 @@ function FeatureTemplate({ data }) {
 
   // Grab the metadata for the feature and CMS slice data
   const metadata = prismicContent._meta
-  const headlineData = prismicContent.headline_block[0].primary
+  const headlineData = prismicContent.header[0].primary
   const sliceData = prismicContent.body
 
   /**
    * Grab props for {@link ArticleBylineSubtitle}.
    */
-  const featureSubtitle = headlineData.primary.article_subtitle
+  const featureSubtitle = headlineData.article_subtitle
   const featureDates = {
     first: metadata.firstPublicationDate,
     last: metadata.lastPublicationDate,
   }
-  const featureAuthor = headlineData.primary.article_author
+  const featureAuthor = headlineData.article_author
 
   return (
     <main className="full-height-page">
@@ -64,14 +64,10 @@ export const query = graphql`
               firstPublicationDate
               type
             }
-            headline_block {
-              ... on PRISMIC_FeatureHeadline_blockHeadline_block {
+            header {
+              ... on PRISMIC_FeatureHeaderHeadline_block {
+                type
                 primary {
-                  article_subtitle
-                  article_subcategory
-                  article_headline_img
-                  article_headline
-                  article_category
                   article_author {
                     ... on PRISMIC_Staff {
                       hmbk_staff_name
@@ -79,48 +75,49 @@ export const query = graphql`
                       hmbk_staff_photo
                     }
                   }
+                  article_category
+                  article_headline
+                  article_headline_img
+                  article_subcategory
+                  article_subtitle
                 }
               }
             }
             body {
               ... on PRISMIC_FeatureBodyText {
                 type
+                label
                 primary {
-                  set_first_letter
                   body_text
+                }
+              }
+              ... on PRISMIC_FeatureBodyOne_image_and_text {
+                type
+                label
+                primary {
+                  oiat_img
+                  oiat_text
+                }
+              }
+              ... on PRISMIC_FeatureBodySlice_divider {
+                type
+              }
+              ... on PRISMIC_FeatureBodyTwo_images_and_text {
+                label
+                type
+                primary {
+                  tiat_left_img
+                  tiat_right_img
+                  tiat_text
                 }
               }
               ... on PRISMIC_FeatureBodyBlockquote {
                 type
+                label
                 primary {
-                  blockquote_type
                   blockquote_text
-                  blockquote_attribution
                   blockquote_bg_img
-                }
-              }
-              ... on PRISMIC_FeatureBodyImage_group {
-                type
-                fields {
-                  single_img
-                }
-              }
-              ... on PRISMIC_FeatureBodyOne_image_and_text1 {
-                type
-                primary {
-                  oiat_img
-                  oiat_layout
-                  oiat_text
-                }
-              }
-              ... on PRISMIC_FeatureBodyTwo_images_and_text {
-                type
-                primary {
-                  tiat_is_gapless
-                  tiat_layout
-                  tiat_left_img
-                  tiat_right_img
-                  tiat_text
+                  blockquote_attribution
                 }
               }
               ... on PRISMIC_FeatureBodyFull_width_image {
@@ -128,8 +125,69 @@ export const query = graphql`
                 label
                 primary {
                   full_width_image
-                  fwi_height
-                  fwi_titling
+                }
+              }
+              ... on PRISMIC_FeatureBodyImage_row {
+                type
+                fields {
+                  single_img
+                }
+              }
+              ... on PRISMIC_FeatureBodyText_columns {
+                type
+                fields {
+                  text_column
+                }
+                primary {
+                  text_columns_header
+                  text_columns_footer
+                }
+              }
+              ... on PRISMIC_FeatureBodyHmbk_item_and_text {
+                type
+                label
+                primary {
+                  oiat_text
+                  hmbk_item {
+                    ... on PRISMIC_Event {
+                      _meta {
+                        uid
+                        type
+                      }
+                      event_blurb
+                      main_event_image
+                      event_name
+                      event_end
+                      event_start
+                      event_location
+                    }
+                    ... on PRISMIC_Resident {
+                      _meta {
+                        uid
+                        type
+                      }
+                      resident_name
+                      resident_image
+                    }
+                    ... on PRISMIC_Mix {
+                      _meta {
+                        uid
+                        type
+                        tags
+                      }
+                      mix_date
+                      mix_image
+                      mix_link
+                      mix_title
+                      featured_residents {
+                        mix_resident {
+                          ... on PRISMIC_Resident {
+                            resident_name
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }

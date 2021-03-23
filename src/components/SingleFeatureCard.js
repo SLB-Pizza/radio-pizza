@@ -11,11 +11,11 @@ import { formatDateTime, linkResolver } from '../utils'
  * @category Media Card
  * @function SingleFeatureCard
  * @param {Object} featureData - the feature data object
- * @param {String} [featureColumnLayout=column] - string dictating column
+ * @param {String} [featureColumnLayout="column"] - string dictating column
  * @returns {jsx}
  */
 function SingleFeatureCard({ featureColumnLayout = 'column', featureData }) {
-  const { headline_block, _meta } = featureData
+  const { header, _meta } = featureData
 
   const { lastPublicationDate, type, uid } = _meta
 
@@ -24,7 +24,7 @@ function SingleFeatureCard({ featureColumnLayout = 'column', featureData }) {
     article_headline,
     article_subtitle,
     article_subcategory,
-  } = headline_block[0].primary
+  } = header[0].primary
 
   const linkData = {
     type,

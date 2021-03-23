@@ -359,8 +359,8 @@ export const query = graphql`
                     firstPublicationDate
                     lastPublicationDate
                   }
-                  headline_block {
-                    ... on PRISMIC_FeatureHeadline_blockHeadline_block {
+                  header {
+                    ... on PRISMIC_FeatureHeaderHeadline_block {
                       primary {
                         article_headline_img
                         article_headline

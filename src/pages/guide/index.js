@@ -54,17 +54,18 @@ export const query = graphql`
               type
             }
             cms_guide_category
-            # body {
-            #   ... on PRISMIC_Cms_guideBodyHeadline_block {
-            #     type
-            #     primary {
-            #       article_headline
-            #       article_headline_img
-            #       article_subcategory
-            #       article_subtitle
-            #     }
-            #   }
-            # }
+            header {
+              ... on PRISMIC_Cms_guideHeaderHeadline_block {
+                type
+                primary {
+                  article_headline
+                  article_headline_img
+                  article_category
+                  article_subcategory
+                  article_subtitle
+                }
+              }
+            }
           }
         }
       }

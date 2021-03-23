@@ -13,5 +13,6 @@ export { default as ArticleAuthorDetails } from './ArticleAuthorDetails'
 /**
  * Generic Layout Helpers
  */
+export { default as EmbeddedImageModal } from './EmbeddedImageModal'
 export { default as ImageHelper } from './ImageHelper'
 export { default as RichTextHelper } from './RichTextHelper'

@@ -3,17 +3,17 @@ import { ResponsiveImage } from './index'
 
 /**
  * Creates an Image Modal; called by {@link ImageHelper}.
- * @category Layout Helper
- * @function ImageModal
- * @param {?String} columnClassName - optional string prop dictating specific column layouts.
  *
- * **CMS Slices passing this prop**
+ * **CMS Slices passing `columnSizing`**
  * - {@link OneImageAndText}
  * - {@link TwoImagesAndText}
  *
- * **CMS Slices NOT passing this prop**
+ * **CMS Slices NOT passing `columnSizing`**
  * - {@link ImageRow}
  *
+ * @category Layout Helper
+ * @function ImageModal
+ * @param {?String} columnClassName - optional string prop dictating specific column layouts.
  * @param {String} fullSizeImg.url - link from Prismic CMS to the image from the media library
  * @param {String} fullSizeImg.alt - contains image caption data that's used for accessibility purposes too; comes from Prismic CMS. Its default value should be set when the image is **first uploaded** to the CMS Media Library. A different fullSizeImg.alt value, aka image caption, can be set when the image is selected for use in an article
  * @param {String} fullSizeImg.photoCredit - contains image credit data; comes from Prismic CMS. Should be set when the image is **first uploaded** to the CMS Media Library
@@ -54,9 +54,6 @@ function ImageModal({ fullSizeImg, responsiveData, setImgModalOpen }) {
               )}
             </figure>
           </div>
-
-          {/* <div className="column is-2">
-          </div> */}
           <button
             className="modal-close is-large"
             tabIndex="0"

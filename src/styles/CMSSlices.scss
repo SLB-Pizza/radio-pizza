@@ -9,6 +9,10 @@ article .container {
   }
 }
 
+figure.image-embed {
+  width: 300px; // embedded images have width: 300px; set by htmlSerializer.
+}
+
 .feature-img {
   background: transparent;
   transition: 0.25s $easing;
@@ -22,13 +26,11 @@ article .container {
 }
 
 section.slice {
-  // margin-top: $gap;
-  // margin-bottom: $gap;
   // ================================
   // Layout Helper - ImageModal.js
   // ================================
   .modal-content {
-    width: 85vw;
+    width: 92.5vw;
     padding: $gap;
     background-color: black;
     border: 2px solid white;
@@ -241,4 +243,6 @@ header.article-header {
 .debug {
   border-top: 2px solid chartreuse;
   border-bottom: 2px solid red;
+  border-left: 2px solid lightskyblue;
+  border-right: 2px solid lightskyblue;
 }

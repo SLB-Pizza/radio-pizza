@@ -2,10 +2,11 @@ import React from 'react'
 import { Elements } from 'prismic-richtext'
 import { linkResolver } from './index'
 import { Link as PrismicLink } from 'prismic-reactjs'
-import Embed from 'react-embed'
-import { Tweet } from 'react-twitter-widgets'
+// import Embed from "react-embed";
+// import { Tweet } from "react-twitter-widgets";
 import { Link } from 'gatsby'
 import { HMBKIFrame } from '../components'
+import { EmbeddedImageModal } from '../components/helpers/'
 
 // -- Function to add unique key to props
 const propsWithUniqueKey = function(props, key) {
@@ -123,37 +124,19 @@ const htmlSerializer = function(type, element, content, children, key) {
           ? { target: element.linkTo.target }
           : {}
       const linkRel = linkTarget.target ? { rel: 'noopener' } : {}
-      const img = React.createElement('img', {
-        src: element.url,
-        alt: element.alt || '',
-        width: '300',
-        className: 'has-ratio',
-      })
 
-      const imgDetails = element.copyright ? (
-        <figcaption className="credit">
-          {`${element.alt} - ${element.copyright}`}
-        </figcaption>
-      ) : (
-        <figcaption className="credit">{element.alt}</figcaption>
+      return (
+        <EmbeddedImageModal
+          key={key}
+          url={element.url}
+          alt={element.alt}
+          copyright={element.copyright}
+        />
       )
 
-      const wrappedImg = React.createElement(
-        'figure',
-        propsWithUniqueKey({ className: 'is-pulled-right is-clearfix' }, key),
-        linkUrl
-          ? React.createElement(
-              'a',
-              Object.assign({ href: linkUrl }, linkTarget, linkRel),
-              img,
-              imgDetails
-            )
-          : img,
-        imgDetails
-      )
-      return <React.Fragment key={key}>{wrappedImg}</React.Fragment>
-
-    // DEFAULT EMBED
+    /**
+     * oEmbed handling
+     */
     case Elements.embed: // Embed
       const { label, oembed } = element
 

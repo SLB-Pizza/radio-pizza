@@ -28,14 +28,14 @@ function PasswordProtect() {
                   <div className="field has-addons">
                     <div className="control is-expanded has-icons-left">
                       <input
-                        className="input is-medium is-rounded"
+                        className="input is-rounded"
                         type="password"
                         value={password}
                         onChange={event => setPassword(event.target.value)}
                         placeholder="Ears to the concrete."
                       />
                       <IconMaker
-                        spanClass={'icon is-medium is-left'}
+                        spanClass={'icon is-left'}
                         iconSize={'1x'}
                         iconToUse={'lock'}
                         iconClass={'icon-color'}
@@ -43,7 +43,7 @@ function PasswordProtect() {
                     </div>
                     <p className="control">
                       <button
-                        className="button is-medium is-outlined is-rounded"
+                        className="button is-outlined is-rounded"
                         type="submit"
                       >
                         Welcome

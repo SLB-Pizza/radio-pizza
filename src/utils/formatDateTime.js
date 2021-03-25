@@ -55,17 +55,30 @@ export default function formatDateTime(time, format, number) {
   }
 
   /**
-
+   * Use `format` to select and run case time manipulation.
    */
   switch (format) {
     case 'current-time':
       return dayjs().tz('America/New_York')
     case 'add-days':
       return time.add(number, 'day').format('MM.DD')
+    case 'get-this-weeks-dates':
+      /**
+       * Since we want the next six dates AFTER today,
+       * we create a numbers array from 1 to 6
+       * to map over for the `.add` function.
+       * @see {@link loadSevenDaySchedule}
+       */
+      return [1, 2, 3, 4, 5, 6].map(daysToAdd =>
+        time.add(daysToAdd, 'day').format('MM.DD')
+      )
     case 'prismic-date-query':
-      return dayjs(time)
-        .add(number, 'day')
-        .format('YYYY-MM-DD')
+      /**
+       * -- `$yesterday`:   day today before today; -1
+       * -- `$weekAndADay`: seven days after today; 7
+       * @see {@link loadSevenDaySchedule}
+       */
+      return [-1, 7].map(number => time.add(number, 'day').format('YYYY-MM-DD'))
     case 'full-month-day':
       return dayjs(time).format('MMM DD')
     case 'month-day':

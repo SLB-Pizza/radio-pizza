@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { Link } from 'gatsby'
 import { useQuery } from '@apollo/client'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import Ticker from 'react-ticker'
@@ -39,7 +38,10 @@ function ScheduleBar({ timeNow }) {
   /**
    * Format timeNow for use in schedule_date_before and schedule_date_after below. Neither date is inclusive so we need to pass in yesterday as the filter date.
    */
-  let yesterday = formatDateTime(currentTime, 'prismic-date-query', -1)
+
+  // refactor to handle new array prismic-date-query refactor
+  // let yesterday = formatDateTime(currentTime, "add-days", -1);
+  let yesterday = '2021-03-24'
 
   /**
    * Run the query on load and poll every 120 seconds; 2 minutes.

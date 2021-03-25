@@ -6,7 +6,6 @@ import { useLazyQuery } from '@apollo/client'
 import { GET_SELECTED_TAGGED_MIXES } from '../../queries'
 import { GlobalStateContext } from '../../context/GlobalContextProvider'
 import { AllMixesLayout, DisplayFetchedTaggedMixes } from '../../components'
-import { scrollToTop } from '../../utils'
 
 /**
  * Layout for /mixes landing page. This is also the page layout where mix tag queries are fetched are rendered.

@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { useLazyQuery } from '@apollo/client'
-
-import { DateSelectorButton, SingleScheduleEntryRow } from '../../components'
+import {
+  DateSelectorButton,
+  SingleDateScheduleGenerator,
+} from '../../components'
 import { formatDateTime } from '../../utils'
 import { GET_SEVEN_DAY_SCHEDULE } from '../../queries'
-// import dayjs from "dayjs";
-// import isBetween from "dayjs/plugin/isBetween";
-// import utc from "dayjs/plugin/utc";
-// dayjs.extend(isBetween);
-// dayjs.extend(utc);
 
 import scheduleDummyData from '../../../__test__/HMBK-schedule-page-query-test.json'
 
@@ -119,6 +116,7 @@ function ScheduleIndexPage() {
           let currDateObject = {}
           currDateObject.date = currHeading
           currDateObject.id = currLabel
+          currDateObject.entries = null
 
           for (
             let j = 0;
@@ -154,15 +152,16 @@ function ScheduleIndexPage() {
    */
   useEffect(() => {
     const updateTimeByFifteenSeconds = setInterval(() => {
-      setTodayDate(todayDate.add(15, 's'))
-    }, 15000)
+      setTodayDate(todayDate.add(60, 's'))
+      console.log('time is now:', todayDate)
+    }, 60000)
 
     return () => {
       clearInterval(updateTimeByFifteenSeconds)
     }
   }, [todayDate])
 
-  // FOR JSON TEXT FILE DEBUGGING
+  // FOR JSON TEST FILE DEBUGGING
   // const sevenDaysArray = arr.filter(({ node }) =>
   //   dayjs(node.schedule_date).isBetween(today, sixDaysFromToday, "day", [])
   // );
@@ -187,62 +186,11 @@ function ScheduleIndexPage() {
       )}
 
       {thisWeekSchedule && (
-        <section className="section container is-fluid">
-          {thisWeekSchedule.map(({ date, entries, id }, index) => {
-            if (isActive === id) {
-              return (
-                <div
-                  key={`schedule-for-${id}-${index}`}
-                  className="columns is-multiline is-vcentered is-mobile schedule-page-entries"
-                  id={id}
-                >
-                  <div className="column is-12 today-date">
-                    <p className="title is-size-4-desktop is-size-6-touch has-text-centered">
-                      {date}
-                    </p>
-                  </div>
-
-                  {entries !== null ? (
-                    <div className="column is-12">
-                      {entries.map(
-                        ({ start_time, end_time, scheduled_show }, index) => {
-                          const formattedStart = formatDateTime(
-                            start_time,
-                            'hour-minute'
-                          )
-                          const formattedEnd = formatDateTime(
-                            end_time,
-                            'hour-minute'
-                          )
-
-                          return (
-                            // <pre>{JSON.stringify(entry, null, 2)}</pre>
-                            <SingleScheduleEntryRow
-                              key={`show-entry-#${index}-${start_time}`}
-                              start={formattedStart}
-                              end={formattedEnd}
-                              show={scheduled_show}
-                            />
-                          )
-                        }
-                      )}
-                    </div>
-                  ) : (
-                    <div className="column is-12">
-                      <div className="content">
-                        <p className="subtitle is-size-5-desktop is-size-6-touch has-text-centered">
-                          No shows scheduled!
-                        </p>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              )
-            } else {
-              return null
-            }
-          })}
-        </section>
+        <SingleDateScheduleGenerator
+          currentTime={todayDate}
+          scheduledShowsArr={thisWeekSchedule}
+          isActive={isActive}
+        />
       )}
 
       <hr />

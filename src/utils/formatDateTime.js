@@ -1,9 +1,11 @@
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
+import isBetween from 'dayjs/plugin/isBetween'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 dayjs.extend(utc)
 dayjs.extend(timezone)
+dayjs.extend(isBetween)
 dayjs.extend(customParseFormat)
 
 /**
@@ -21,12 +23,20 @@ dayjs.extend(customParseFormat)
  * @param {Object|String} time - a `dayjs` object or a Prismic datetime string from containing datetime
  * @param {String} format - dictates how to format the incoming time
  * @param {?Number} number - optional number to use when adding to the time param, negative numbers allowed
+ * @param {?String|Object} startTime - used in `get-place-in-schedule` case
+ * @param {?String|Object} endTime - used in `get-place-in-schedule` case
  * @returns {String} String time formatting depends on input `format`.
  *
  * @see {@link https://day.js.org/docs/en/manipulate/add dayjs - add}
  * @see {@link https://day.js.org/docs/en/display/format dayjs - format}
  */
-export default function formatDateTime(time, format, number) {
+export default function formatDateTime(
+  time,
+  format,
+  number,
+  startTime,
+  endTime
+) {
   /**
    * Set up a placeholder variable that'll be used for certain use cases and determine the user's timezone.
    */
@@ -60,6 +70,8 @@ export default function formatDateTime(time, format, number) {
   switch (format) {
     case 'current-time':
       return dayjs().tz('America/New_York')
+    case 'Prismic-to-dayjs':
+      return dayjs(time, 'YYYY-MM-DDTHH:mm:ssZZ', 'America/New_York')
     case 'add-days':
       return time.add(number, 'day').format('MM.DD')
     case 'get-this-weeks-dates':
@@ -103,6 +115,8 @@ export default function formatDateTime(time, format, number) {
       return convertedPrismicDateTime.format('MMMM D, YYYY')
     case 'datetime-value':
       return convertedPrismicDateTime.format('YYYY-MM-DD HH:mm:ssZ')
+    case 'get-place-in-schedule':
+      return time.isBetween(startTime, endTime, 'minute', '[)')
     case 'time-debug':
       console.log(
         dayjs(time, 'YYYY-MM-DDTHH:mm:ssZZ').format('MMMM D, YYYY - HH:mm Z')

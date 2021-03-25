@@ -556,6 +556,41 @@
                 }
               }
             }
+          },
+          "interview": {
+            "type": "Slice",
+            "fieldset": "Interview",
+            "description": "A layout to display interviewers and speakers.",
+            "icon": "people",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {
+              "speaking_now": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "HMBK (Interviewers)",
+                  "placeholder_true": "Interviewee(s)",
+                  "default_value": false,
+                  "label": "Which party is speaking right now?"
+                }
+              },
+              "current_speaker": {
+                "type": "Text",
+                "config": {
+                  "label": "Current Speaker",
+                  "placeholder": "Who is speaking right now?"
+                }
+              },
+              "current_line": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, strong, em, hyperlink, list-item, o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "Current Line",
+                  "placeholder": "Enter the current question/response here. Add a new section per question/answer."
+                }
+              }
+            }
           }
         }
       }

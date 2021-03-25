@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
 import { useLazyQuery } from '@apollo/client'
 import { HMBKDivider, SingleResidentCard } from '../../components'
-import { toggleColumn } from '../../utils'
+import { toggleColumn, scrollToTop } from '../../utils'
 import {
   GET_MORE_RESIDENTS,
   GET_MORE_ALUMNI,

@@ -8,29 +8,23 @@ import { getResidentLinks } from '../utils'
  * @param {Object.<String, String|Object>} entry - the data object for a single scheduled radio show
  * @returns {jsx}
  */
-function SingleScheduleEntryRow({ entry }) {
-  const { start_time, end_time, scheduled_show } = entry
-  const { mix_title, featured_residents } = scheduled_show
-
+function SingleScheduleEntryRow({ start, end, show }) {
   const ShowTimes = () => {
-    const formattedStart = formatDateTime(start_time, 'hour-minute')
-    const formattedEnd = formatDateTime(end_time, 'hour-minute')
-
-    if (start_time && end_time) {
+    if (start && end) {
       // Render both the formatted start and end times.
       return (
         <div className="column is-4">
           <p className="title is-size-6-tablet is-size-7-mobile has-text-centered">
-            {formattedStart} – {formattedEnd}
+            {start} – {end}
           </p>
         </div>
       )
-    } else if (start_time && !end_time) {
+    } else if (start && !end) {
       // Only render the formatted start time.
       return (
         <div className="column is-4">
           <p className="title is-size-6-tablet is-size-7-mobile has-text-centered">
-            {formattedStart}
+            {start}
           </p>
         </div>
       )
@@ -47,19 +41,28 @@ function SingleScheduleEntryRow({ entry }) {
   }
 
   const RenderRadioShowName = () => {
-    return mix_title !== null ? (
+    if (show !== null) {
+      return show.mix_title !== null ? (
+        <div className="column is-8">
+          <p className="title is-size-6-tablet is-size-7-mobile has-text-centered">
+            {show.mix_title}
+          </p>
+          <p className="subtitle is-size-7 has-text-centered">
+            {getResidentLinks(show.featured_residents)}
+          </p>
+        </div>
+      ) : (
+        <div className="column is-8">
+          <p className="title is-size-6-tablet is-size-7-mobile has-text-centered">
+            {getResidentLinks(show.featured_residents)}
+          </p>
+        </div>
+      )
+    }
+    return (
       <div className="column is-8">
         <p className="title is-size-6-tablet is-size-7-mobile has-text-centered">
-          {mix_title}
-        </p>
-        <p className="subtitle is-size-7 has-text-centered">
-          {getResidentLinks(featured_residents)}
-        </p>
-      </div>
-    ) : (
-      <div className="column is-8">
-        <p className="title is-size-6-tablet is-size-7-mobile has-text-centered">
-          {getResidentLinks(featured_residents)}
+          show name here
         </p>
       </div>
     )

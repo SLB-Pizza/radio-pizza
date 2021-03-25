@@ -20,25 +20,17 @@ import scheduleDummyData from '../../../__test__/HMBK-schedule-page-query-test.j
  */
 function ScheduleIndexPage() {
   const [todayDate, setTodayDate] = useState(null)
-  const [isActive, setIsActive] = useState(
-    formatDateTime(todayDate, 'month-day')
-  )
-  const [weekDatesArray, setWeekDatesArray] = useState(null)
+  const [isActive, setIsActive] = useState(null)
+  const [dateBtnLabels, setDateBtnLabels] = useState(null)
+  const [dateHeaders, setDateHeaders] = useState(null)
+  const [datesToMatch, setDatesToMatch] = useState(null)
   const [scheduleFetchDates, setFetchDates] = useState(null)
   const [thisWeekSchedule, setThisWeekSchedule] = useState(null)
 
   /**
-   * Format timeNow for use in schedule_date_before and schedule_date_after below. Neither date is inclusive so
-   * @param yesterday - day before today
-   * @param weekAndADay - eight days after today
-   */
-  // const yesterday = formatDateTime(timeNow, "prismic-date-query", -1);
-  // const weekAndADay = formatDateTime(timeNow, "prismic-date-query", 7);
-
-  /**
    * useLazyQuery called by {@link executeScheduleFetch}.
-   * Passes {@link MixesIndexPage} local `selectedTags` as variable to query.
-   * Returns data as `taggedMixesData` and a loading state as `isFetching`.
+   * Passes `scheduleFetchDates` as variables to query.
+   * Returns data as `sevenDayScheduleData` and a loading state as `isFetching`.
    * @category useLazyQueries
    * @param {String} yesterday - day before today; formatted as `"YYYY-MM-DD"` by {@link formatDateTime}
    * @param {String} dayAndAWeek eight days after today; formatted as `"YYYY-MM-DD"` by {@link formatDateTime}
@@ -53,10 +45,10 @@ function ScheduleIndexPage() {
    * Set initial values for `/schedule` state and fetches the current seven day schedule.
    *
    * 1. Set `todayDate` using {@link formatDateTime}
-   * 2. Set `weekDatesArray`
-   * - Receive array of next six dates from {@link formatDateTime}
-   * - Create new array using `currTime` and spreading in `nextSixDates`
-   * 3. Fetch the schedule for the next seven days -- today and next 6 days
+   * 2. Set `isActive` using formatted `todayDate`; "MM.DD"
+   * 3. Set `dateBtnLabels` setDateBtnLabels `convertedDates.dateLabels`
+   * 4. Set `datesToMatch` using `convertedDates.queryMatching`
+   * 5. Fetch the schedule for the next seven days -- today and next 6 days
    * - Set variables for query use
    * -- `$yesterday`:   day today before today
    * -- `$weekAndADay`: eight days after today
@@ -70,12 +62,17 @@ function ScheduleIndexPage() {
       setTodayDate(currTime)
 
       // #2
-      const nextSixDates = formatDateTime(currTime, 'get-this-weeks-dates')
       const todayInMMDD = formatDateTime(currTime, 'month-day')
-      const nextSevenDatesArr = [todayInMMDD, ...nextSixDates]
-      setWeekDatesArray(nextSevenDatesArr)
+      setIsActive(todayInMMDD)
 
-      // #3
+      // #3, 4
+      const convertedDates = formatDateTime(currTime, 'get-this-weeks-dates')
+      const { btnLabels, queryMatching, dateHeadings } = convertedDates
+      setDateBtnLabels(btnLabels)
+      setDatesToMatch(queryMatching)
+      setDateHeaders(dateHeadings)
+
+      // #5
       const queryDatesArr = formatDateTime(currTime, 'prismic-date-query')
       setFetchDates({
         yesterday: queryDatesArr[0],
@@ -111,9 +108,35 @@ function ScheduleIndexPage() {
    */
   useEffect(() => {
     const updateThisWeeksSchedule = () => {
+      let datedScheduleEntries = []
+
       if (sevenDayScheduleData) {
-        // console.log(sevenDayScheduleData.allSchedules.edges);
-        setThisWeekSchedule(sevenDayScheduleData.allSchedules.edges)
+        for (let i = 0; i < datesToMatch.length; i++) {
+          const currDate = datesToMatch[i]
+          const currHeading = dateHeaders[i]
+          const currLabel = dateBtnLabels[i]
+
+          let currDateObject = {}
+          currDateObject.date = currHeading
+          currDateObject.id = currLabel
+
+          for (
+            let j = 0;
+            j < sevenDayScheduleData.allSchedules.edges.length;
+            j++
+          ) {
+            const {
+              schedule_date,
+              schedule_entries,
+            } = sevenDayScheduleData.allSchedules.edges[j].node
+
+            if (currDate === schedule_date) {
+              currDateObject.entries = schedule_entries
+            }
+          }
+          datedScheduleEntries.push(currDateObject)
+        }
+        setThisWeekSchedule(datedScheduleEntries)
       }
     }
     return updateThisWeeksSchedule()
@@ -156,21 +179,75 @@ function ScheduleIndexPage() {
         </div>
       </div>
 
-      {weekDatesArray && (
+      {dateBtnLabels && (
         <DateSelectorButton
-          datesArr={weekDatesArray}
+          datesArr={dateBtnLabels}
           toggleColumn={toggleColumn}
         />
       )}
 
       {thisWeekSchedule && (
         <section className="section container is-fluid">
-          <div className="columns is-mobile is-vcentered">Hello</div>
+          {thisWeekSchedule.map(({ date, entries, id }, index) => {
+            if (isActive === id) {
+              return (
+                <div
+                  key={`schedule-for-${id}-${index}`}
+                  className="columns is-multiline is-vcentered is-mobile schedule-page-entries"
+                  id={id}
+                >
+                  <div className="column is-12 today-date">
+                    <p className="title is-size-4-desktop is-size-6-touch has-text-centered">
+                      {date}
+                    </p>
+                  </div>
+
+                  {entries !== null ? (
+                    <div className="column is-12">
+                      {entries.map(
+                        ({ start_time, end_time, scheduled_show }, index) => {
+                          const formattedStart = formatDateTime(
+                            start_time,
+                            'hour-minute'
+                          )
+                          const formattedEnd = formatDateTime(
+                            end_time,
+                            'hour-minute'
+                          )
+
+                          return (
+                            // <pre>{JSON.stringify(entry, null, 2)}</pre>
+                            <SingleScheduleEntryRow
+                              key={`show-entry-#${index}-${start_time}`}
+                              start={formattedStart}
+                              end={formattedEnd}
+                              show={scheduled_show}
+                            />
+                          )
+                        }
+                      )}
+                    </div>
+                  ) : (
+                    <div className="column is-12">
+                      <div className="content">
+                        <p className="subtitle is-size-5-desktop is-size-6-touch has-text-centered">
+                          No shows scheduled!
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )
+            } else {
+              return null
+            }
+          })}
         </section>
       )}
+
       <hr />
       <pre>todayDate {JSON.stringify(todayDate, null, 2)}</pre>
-      <pre>weekDatesArray {JSON.stringify(weekDatesArray, null, 2)}</pre>
+      <pre>dateBtnLabels {JSON.stringify(dateBtnLabels, null, 2)}</pre>
       <pre>
         scheduleFetchDates {JSON.stringify(scheduleFetchDates, null, 2)}
       </pre>
@@ -180,65 +257,6 @@ function ScheduleIndexPage() {
         {JSON.stringify(sevenDayScheduleData.allSchedules.edges, null, 2)}
       </pre> */}
       <pre>thisWeekSchedule {JSON.stringify(thisWeekSchedule, null, 2)}</pre>
-      {/* {sevenDaysData.map(({ node }, index) => {
-        const { schedule_date, schedule_entries } = node;
-
-        const dateID = formatDateTime(schedule_date, "month-day");
-        const scheduleDateHeading = formatDateTime(
-          schedule_date,
-          "schedule-date-heading"
-        );
-
-        if (isActive === dateID) {
-          return (
-            <div
-              key={`date-#${index}-${dateID}`}
-              className="columns is-multiline is-vcentered is-mobile schedule-page-entries"
-            >
-              <div className="column is-12 today-date">
-                <p className="title is-size-4-desktop is-size-5-mobile has-text-centered">
-                  {scheduleDateHeading}
-                </p>
-              </div>
-
-              {schedule_entries !== null ? (
-                <div className="column is-12">
-                  {schedule_entries.map((entry, index) => {
-                    const { start_time, end_time, scheduled_show } = entry;
-                    const formattedStart = formatDateTime(
-                      start_time,
-                      "hour-minute"
-                    );
-                    const formattedEnd = formatDateTime(
-                      end_time,
-                      "hour-minute"
-                    );
-
-                    return (
-                      <SingleScheduleEntryRow
-                        key={`show-entry-#${index}-${start_time}`}
-                        start={formattedStart}
-                        end={formattedEnd}
-                        show={scheduled_show}
-                      />
-                    );
-                  })}
-                </div>
-              ) : (
-                <div className="column is-12">
-                  <div className="content">
-                    <p className="subtitle is-size-5-desktop is-size-6-touch has-text-centered">
-                      No shows scheduled!
-                    </p>
-                  </div>
-                </div>
-              )}
-            </div>
-          );
-        } else {
-          return null;
-        }
-      })} */}
     </main>
   )
 }

@@ -64,14 +64,22 @@ export default function formatDateTime(time, format, number) {
       return time.add(number, 'day').format('MM.DD')
     case 'get-this-weeks-dates':
       /**
-       * Since we want the next six dates AFTER today,
-       * we create a numbers array from 1 to 6
+       * Since we want today and the six dates after,
+       * we create a numbers array from 0 to 6
        * to map over for the `.add` function.
        * @see {@link loadSevenDaySchedule}
        */
-      return [1, 2, 3, 4, 5, 6].map(daysToAdd =>
-        time.add(daysToAdd, 'day').format('MM.DD')
+      const daysToAdd = [0, 1, 2, 3, 4, 5, 6]
+      const btnLabels = daysToAdd.map(num =>
+        time.add(num, 'day').format('MM.DD')
       )
+      const queryMatching = daysToAdd.map(num =>
+        time.add(num, 'day').format('YYYY-MM-DD')
+      )
+      const dateHeadings = daysToAdd.map(num =>
+        time.add(num, 'day').format('dddd, MMMM D')
+      )
+      return { btnLabels, queryMatching, dateHeadings }
     case 'prismic-date-query':
       /**
        * -- `$yesterday`:   day today before today; -1
@@ -84,7 +92,7 @@ export default function formatDateTime(time, format, number) {
     case 'month-day':
       return dayjs(time).format('MM.DD')
     case 'hour-minute':
-      return dayjs(time).format('HH:mm')
+      return convertedPrismicDateTime.format('HH:mm')
     case 'year-month-day':
       return dayjs(time).format('YYYY.MM.DD')
     case 'schedule-date-heading':

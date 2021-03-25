@@ -225,6 +225,34 @@ header.article-header {
 }
 
 // ==================================
+// Interview.js
+// ==================================
+.interview {
+  &-segment:not(:last-child) {
+    margin-bottom: $gap;
+  }
+
+  &-speaker {
+    &__hmbk,
+    &__answer {
+      .speaker::before {
+        content: "\2014 \2009";
+      }
+    }
+
+    &__hmbk {
+      border-left: 5px solid $primary;
+    }
+
+    &__answer {
+      p:last-child {
+        margin-top: -0.5rem;
+      }
+    }
+  }
+}
+
+// ==================================
 // Layout Helper - ResponsiveImage
 // ==================================
 .inline-image {

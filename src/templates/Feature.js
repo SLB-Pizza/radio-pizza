@@ -190,6 +190,14 @@ export const query = graphql`
                   }
                 }
               }
+              ... on PRISMIC_FeatureBodyInterview {
+                type
+                fields {
+                  current_line
+                  current_speaker
+                  speaking_now
+                }
+              }
             }
           }
         }

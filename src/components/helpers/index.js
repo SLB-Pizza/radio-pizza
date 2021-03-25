@@ -9,6 +9,8 @@
  */
 export { default as ArticleDateTime } from './ArticleDateTime'
 export { default as ArticleAuthorDetails } from './ArticleAuthorDetails'
+export { default as HMBKSpeaking } from './HMBKSpeaking'
+export { default as Interviewee } from './Interviewee'
 
 /**
  * Generic Layout Helpers

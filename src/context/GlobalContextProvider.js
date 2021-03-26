@@ -30,6 +30,7 @@ const initialState = {
   currentClockTime: '',
   mixSearchTags: null,
   sameTagsInQuery: false,
+  liveMarquee: "HalfMoon Radio - Streaming LIVE!",
 }
 
 function reducer(state, action) {
@@ -287,6 +288,20 @@ function reducer(state, action) {
     //   resident: state.playlist[0].resident,
     //   img: state.playlist[0].img,
     // };
+
+    case 'MARQUEE_SET_DEFAULT':
+      return {
+        ...state,
+        liveMarquee: "HalfMoon Radio - Streaming LIVE!",
+      }
+
+    case 'MARQUEE_UPDATE':
+      alert
+
+      return {
+        ...state,
+        liveMarquee: action.payload.marqueeMessage,
+      }
 
     default:
       throw new Error('Bad Action Type')

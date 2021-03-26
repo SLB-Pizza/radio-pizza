@@ -1,8 +1,15 @@
 import PropTypes from 'prop-types'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useContext, useRef, useState } from 'react'
 import { graphql } from 'gatsby'
 import { CMSIssueMessage } from '../../components'
 import { cmsNodeValidator, getMixTitle, uidValidator } from '../../utils'
+import firebase from "gatsby-plugin-firebase"
+import { useObjectVal } from "react-firebase-hooks/database"
+import {
+  GlobalDispatchContext,
+  GlobalStateContext,
+} from '../../context/GlobalContextProvider'
+import { updateRemoteMarquee, getRemoteMarquee } from '../../utils/firebaseDbConnection'
 
 function HMBKAdminPage({ data, prismic }) {
   const entryLimit = 20
@@ -19,59 +26,69 @@ function HMBKAdminPage({ data, prismic }) {
   const [problemCollections, setCollections] = useState([])
   const [problemSchedules, setSchedules] = useState([])
   const [problemStaffs, setStaffs] = useState([])
+  const dispatch = useContext(GlobalDispatchContext)
+  const globalState = useContext(GlobalStateContext)
+
+  const [marqueeMessage, setMarqueeMessage] = useState('');
+
+  const remoteMarquee = getRemoteMarquee();
 
   const prismicContent = data.prismic._allDocuments
   if (!prismicContent) return null
 
-  // useEffect(() => {
-  //   const nodeProcessor = () => {
-  //     if (prismicContent) {
-  //       // Set total count of all HMBK entries
-  //       setCount(prismicContent.totalCount);
+  const updateMarquee = ( event ) => {
+    event.preventDefault();
 
-  //       // Process each node
-  //       for (let i = 0; i < prismicContent.edges.length; i++) {
-  //         const currentNode = prismicContent.edges[i].node;
-  //         const entryType = currentNode._meta.type;
+    if ( 'string' !== typeof event.target.value ) {
+      alert( 'Please only input alphanumeric characters' );
+      return;
+    }
 
-  //         const entryIssues = cmsNodeValidator(currentNode);
-  //         // console.log("entryIssues", entryIssues);
-  //         // console.log(
-  //         //   "\n============================================================\n"
-  //         // );
-  //         // const uidIssue = uidValidator(currentNode)
+    return setMarqueeMessage( event.target.value );
+  }
 
-  //         // If the currentNode has no issues, continue to the next loop
-  //         if (!entryIssues) {
-  //           continue;
-  //         }
-  //         // else determine the currentNode type and
-  //         // spread it into an existing problem array
-  //         else {
-  //           const issuePackage = { entryIssues };
-  //           switch (entryType) {
-  //             case "mix":
-  //               setMixes([...problemMixes, issuePackage]);
-  //               break;
-  //             case "event":
-  //               setEvents([...problemEvents, issuePackage]);
-  //               break;
-  //             case "resident":
-  //               setResidents([...problemResidents, issuePackage]);
-  //               break;
-  //             case "endless_mix":
-  //               setCollections([...problemCollections, issuePackage]);
-  //               break;
-  //             default:
-  //               console.log(entryType);
-  //           }
-  //         }
-  //       }
-  //     }
-  //   };
+  const submitMarquee = async ( event ) => {
+    event.preventDefault();
 
-  //   return nodeProcessor();
-  // }, []);
+    if ( 'string' !== typeof marqueeMessage ) {
+      alert( 'Please only input alphanumeric characters' );
+      return;
+    }
+
+    await dispatch({
+      type: 'MARQUEE_UPDATE',
+      payload: {
+        marqueeMessage,
+      }
+    })
+
+    await updateRemoteMarquee( 
+      "marquee", 
+      { message: marqueeMessage }
+    )
+  }
+
+  useEffect( () => {
+    // console.log( 'db value?.marquee?.message', value?.marquee?.message )
+    // console.log( 'loading db', loading )
+    // console.log( 'error db', error )
+    // console.log( 'db', db )
+    updateRemoteMarquee( 
+      "marquee", 
+      {
+        message: globalState.liveMarquee
+      }
+    )
+  }, [globalState.liveMarquee] );
+
+  const marqueeSetDefault = async ( event ) => {
+    event.preventDefault();
+
+    return await dispatch({
+      type: 'MARQUEE_SET_DEFAULT',
+    })
+
+  }
 
   return (
     <main className="black-bg-page">
@@ -80,6 +97,32 @@ function HMBKAdminPage({ data, prismic }) {
         <div className="columns is-mobile is-multiline">
           <div className="column is-12 content">
             <h3 className="title is-4-touch">HalfmoonBK Admin Dashboard</h3>
+
+            <h4 className="">Live Streaming Marquee</h4>
+            <p className="subtitle is-6-touch">{`Remote Marquee: ${remoteMarquee.message}`}</p>
+            <p className="subtitle is-6-touch">Global Context Marquee: {globalState.liveMarquee}</p>
+            <p className="subtitle is-6-touch">Local State Marquee: {marqueeMessage}</p>
+
+            <form onSubmit={submitMarquee} >
+              <label>
+                New Marquee Message: 
+                <input
+                  type='text'
+                  // id='marqueeInput'
+                  name='marqueeInput'
+                  placeholder="Type new message here"
+                  onChange={updateMarquee}
+                  onSubmit={submitMarquee}
+                />
+              </label>
+              <input className="button is-outlined is-rounded" type="submit" value="submit" />
+            </form>
+
+            <button className="button is-outlined is-rounded" onClick={marqueeSetDefault}>
+              Set Marquee Default
+            </button>
+            <br/>
+
             <p className="subtitle is-6-touch">
               These dummy mixes are the same as the ones on the home page. You
               can hover/touch and play them the same way. Try it!

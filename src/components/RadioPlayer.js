@@ -1,8 +1,11 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useRef, useState, useEffect } from 'react'
 import ReactPlayer from 'react-player'
 import Ticker from 'react-ticker'
 import PageVisibility from 'react-page-visibility'
 import { hot } from 'react-hot-loader'
+import firebase from "gatsby-plugin-firebase"
+import { useObjectVal } from "react-firebase-hooks/database"
+import { DB, remoteMarquee, updateRemoteMarquee, getRemoteMarquee } from '../utils/firebaseDbConnection'
 
 import {
   GlobalDispatchContext,
@@ -163,29 +166,39 @@ function RadioPlayer() {
         </figure>
       </div>
 
-      <div
-        className={
-          globalState.isLoading
-            ? 'column text-truncate mix-data'
-            : 'column text-truncate mix-data is-loaded'
-        }
-        id="now-playing"
-      >
-        {globalState.title === null ? (
+      {
+        globalState.live ?
+        (
           <div id="now-playing-details">
             <p className="title is-size-6-tablet is-size-7-mobile">
-              {globalState.resident}
+              {globalState.liveMarquee}
             </p>
           </div>
-        ) : (
-          <div id="now-playing-details">
-            <p className="title is-size-6-tablet is-size-7-mobile">
-              {globalState.title}
-            </p>
-            <p className="subtitle is-size-7">{globalState.resident}</p>
-          </div>
-        )}
-      </div>
+        )
+        : (<div
+            className={
+              globalState.isLoading
+                ? 'column text-truncate mix-data'
+                : 'column text-truncate mix-data is-loaded'
+            }
+            id="now-playing"
+          >
+          {globalState.title === null ? (
+            <div id="now-playing-details">
+              <p className="title is-size-6-tablet is-size-7-mobile">
+                {globalState.resident}
+              </p>
+            </div>
+          ) : (
+            <div id="now-playing-details">
+              <p className="title is-size-6-tablet is-size-7-mobile">
+                {globalState.title}
+              </p>
+              <p className="subtitle is-size-7">{globalState.resident}</p>
+            </div>
+          )}
+        </div>)
+      }
 
       {/* <div className="column">
         <input

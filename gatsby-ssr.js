@@ -34,6 +34,7 @@ import {
   faTag,
   faTimes,
 } from '@fortawesome/free-solid-svg-icons'
+import "firebase/database"
 
 /**
  * @see {@link https://github.com/FortAwesome/react-fontawesome#build-a-library-to-reference-icons-throughout-your-app-more-conveniently Build a Library to Reference Icons Throughout Your App More Conveniently}

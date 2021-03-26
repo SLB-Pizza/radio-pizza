@@ -122,6 +122,26 @@ module.exports = {
         printRejected: true,
       },
     },
+    {
+      resolve: 'gatsby-plugin-firebase',
+      options: {
+        features: {
+          // auth: true,
+          database: true,
+        },
+        credentials: {
+          apiKey: "AIzaSyAriN2bY13iDur_TcmnPIhWXVnxizzd9DQ",
+          authDomain: "halfmoonmarquee.firebaseapp.com",
+          databaseURL: "https://halfmoonmarquee-default-rtdb.firebaseio.com",
+          projectId: "halfmoonmarquee",
+          storageBucket: "halfmoonmarquee.appspot.com",
+          messagingSenderId: "253395700802",
+          appId: "1:253395700802:web:966d8bd5c35b60fe7e31db",
+          measurementId: "G-GGD961PQ5S"
+        }
+      }
+
+    },
     /**
      * Automatically generates a _headers file and a _redirects file at the root of the public folder to configure HTTP headers and redirects on Netlify
      * @see {@link https://www.gatsbyjs.com/plugins/gatsby-plugin-netlify/ gatsby-plugin-netlify}

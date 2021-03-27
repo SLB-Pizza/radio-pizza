@@ -14,14 +14,14 @@
           "start_time": {
             "type": "Timestamp",
             "config": {
-              "label": "Start Time",
+              "label": "(REQUIRED) Start Time",
               "placeholder": "Select the show's start time..."
             }
           },
           "end_time": {
             "type": "Timestamp",
             "config": {
-              "label": "End Time",
+              "label": "(REQUIRED) End Time",
               "placeholder": "Select the show's end time..."
             }
           },
@@ -30,8 +30,22 @@
             "config": {
               "select": "document",
               "customtypes": ["mix"],
-              "label": "Scheduled Show",
-              "placeholder": "Select the show for this time slot..."
+              "label": "(PRE-RECORDED ONLY) Mix to Broadcast",
+              "placeholder": "Select the pre-recorded mix for this time slot (If needed, add to Prismic first)"
+            }
+          },
+          "live_show_title": {
+            "type": "Text",
+            "config": {
+              "label": "(LIVE SHOW) Show Title",
+              "placeholder": "(OPTIONAL) If this live show has a title, add it here."
+            }
+          },
+          "live_show_guests": {
+            "type": "Text",
+            "config": {
+              "label": "(LIVE SHOW) Show Guests",
+              "placeholder": "Add the names of those appearing on the livestream (Should match radio.co input)"
             }
           }
         },

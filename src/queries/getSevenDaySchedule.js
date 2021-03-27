@@ -6,8 +6,8 @@ import { gql } from '@apollo/client'
  * Used in {@link ScheduleBar}.
  * @category Queries
  * @name GET_SEVEN_DAY_SCHEDULE
- * @param yesterday - day before today
- * @param weekAndADay - eight days after today
+ * @param yesterday - day before today; "YYYY-MM-DD" format
+ * @param weekAndADay - eight days after today; "YYYY-MM-DD" format
  * @see {@link https://hmbk-cms.prismic.io/graphql HMBK's Prismic GraphQL API}
  * @see {@link https://prismic.io/docs/graphql/query-the-api/query-by-date Prismic - GraphQL Query by Date}
  */
@@ -27,6 +27,8 @@ export const GET_SEVEN_DAY_SCHEDULE = gql`
           schedule_entries {
             end_time
             start_time
+            live_show_title
+            live_show_guests
             scheduled_show {
               ... on Mix {
                 mix_image

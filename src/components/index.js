@@ -40,6 +40,8 @@ export { default as SingleDateScheduleGenerator } from './SingleDateScheduleGene
 export { default as SingleDateScheduleEntries } from './SingleDateScheduleEntries'
 export { default as SingleFeatureCard } from './SingleFeatureCard'
 export { default as SingleScheduleEntryRow } from './SingleScheduleEntryRow'
+export { default as SingleScheduledShowTimes } from './SingleScheduledShowTimes'
+export { default as SingleScheduledShowTitling } from './SingleScheduledShowTitling'
 export { default as SliceZone } from './SliceZone'
 export { default as SingleEventCard } from './SingleEventCard'
 export { default as SingleMixCard } from './SingleMixCard'

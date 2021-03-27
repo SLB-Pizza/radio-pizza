@@ -1,0 +1,551 @@
+[
+  {
+    "date": "03.27",
+    "id": "03.27",
+    "entries": [
+      {
+        "start_time": "2021-03-27T08:35:00+0000",
+        "end_time": "2021-03-27T18:16:00+0000",
+        "scheduled_show": {
+          "mix_title": null,
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "in lectus pellentesque",
+                "_meta": { "uid": "dev-res-koan-sound", "type": "resident" }
+              }
+            },
+            {
+              "mix_resident": {
+                "resident_name": "eu sapien",
+                "_meta": {
+                  "uid": "dev-resident-dj-slavine",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "start_time": "2021-03-27T02:15:00+0000",
+        "end_time": "2021-03-27T16:25:00+0000",
+        "scheduled_show": {
+          "mix_title": "est donec",
+          "featured_residents": null
+        }
+      },
+      {
+        "start_time": "2021-03-27T08:35:00+0000",
+        "end_time": "2021-03-27T20:57:00+0000",
+        "scheduled_show": {
+          "mix_title": "est",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "odio condimentum",
+                "_meta": {
+                  "uid": "dev-res-thank-you-scientist",
+                  "type": "resident"
+                }
+              }
+            },
+            {
+              "mix_resident": {
+                "resident_name": "libero",
+                "_meta": { "uid": "dev-res-koan-sound", "type": "resident" }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "start_time": "2021-03-27T08:31:00+0000",
+        "end_time": "2021-03-27T15:42:00+0000",
+        "scheduled_show": {
+          "mix_title": "donec dapibus",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "lobortis",
+                "_meta": {
+                  "uid": "dev-res-thank-you-scientist",
+                  "type": "resident"
+                }
+              }
+            },
+            {
+              "mix_resident": {
+                "resident_name": "eget semper rutrum",
+                "_meta": { "uid": "dev-res-koan-sound", "type": "resident" }
+              }
+            },
+            {
+              "mix_resident": {
+                "resident_name": "donec",
+                "_meta": { "uid": "dev-res-koan-sound", "type": "resident" }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "start_time": "2021-03-27T08:52:00+0000",
+        "end_time": "2021-03-27T17:19:00+0000",
+        "scheduled_show": {
+          "mix_title": null,
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "dui",
+                "_meta": {
+                  "uid": "dev-res-thank-you-scientist",
+                  "type": "resident"
+                }
+              }
+            },
+            {
+              "mix_resident": {
+                "resident_name": "eget tincidunt eget",
+                "_meta": {
+                  "uid": "dev-resident-dj-slavine",
+                  "type": "resident"
+                }
+              }
+            },
+            {
+              "mix_resident": {
+                "resident_name": "lacus",
+                "_meta": { "uid": "dev-res-koan-sound", "type": "resident" }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "date": "03.28",
+    "id": "03.28",
+    "entries": [
+      {
+        "start_time": "2021-03-27T05:23:00+0000",
+        "end_time": "2021-03-27T21:30:00+0000",
+        "scheduled_show": {
+          "mix_title": "ipsum integer a",
+          "featured_residents": null
+        }
+      },
+      {
+        "start_time": "2021-03-27T09:19:00+0000",
+        "end_time": "2021-03-27T13:46:00+0000",
+        "scheduled_show": {
+          "mix_title": "ac est",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "nulla mollis molestie",
+                "_meta": {
+                  "uid": "dev-res-thank-you-scientist",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "start_time": "2021-03-27T09:10:00+0000",
+        "end_time": "2021-03-27T21:45:00+0000",
+        "scheduled_show": {
+          "mix_title": "ac nulla",
+          "featured_residents": null
+        }
+      },
+      {
+        "start_time": "2021-03-27T07:40:00+0000",
+        "end_time": "2021-03-27T20:56:00+0000",
+        "scheduled_show": {
+          "mix_title": null,
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "id ornare imperdiet",
+                "_meta": { "uid": "dev-res-koan-sound", "type": "resident" }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "start_time": "2021-03-27T03:35:00+0000",
+        "end_time": "2021-03-27T11:50:00+0000",
+        "scheduled_show": {
+          "mix_title": null,
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "fusce lacus",
+                "_meta": {
+                  "uid": "dev-res-thank-you-scientist",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "date": "03.29",
+    "id": "03.29",
+    "entries": [
+      {
+        "start_time": "2021-03-27T04:10:00+0000",
+        "end_time": "2021-03-27T11:28:00+0000",
+        "scheduled_show": {
+          "mix_title": null,
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "ac nulla sed",
+                "_meta": {
+                  "uid": "dev-res-thank-you-scientist",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "start_time": "2021-03-27T00:52:00+0000",
+        "end_time": "2021-03-27T22:17:00+0000",
+        "scheduled_show": {
+          "mix_title": null,
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "sit",
+                "_meta": { "uid": "dev-res-koan-sound", "type": "resident" }
+              }
+            },
+            {
+              "mix_resident": {
+                "resident_name": "elementum eu interdum",
+                "_meta": {
+                  "uid": "dev-res-thank-you-scientist",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "start_time": "2021-03-27T01:48:00+0000",
+        "end_time": "2021-03-27T18:28:00+0000",
+        "scheduled_show": {
+          "mix_title": "vestibulum sed",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "et ultrices posuere",
+                "_meta": {
+                  "uid": "dev-res-thank-you-scientist",
+                  "type": "resident"
+                }
+              }
+            },
+            {
+              "mix_resident": {
+                "resident_name": "odio porttitor id",
+                "_meta": {
+                  "uid": "dev-res-thank-you-scientist",
+                  "type": "resident"
+                }
+              }
+            },
+            {
+              "mix_resident": {
+                "resident_name": "enim in tempor",
+                "_meta": { "uid": "dev-res-koan-sound", "type": "resident" }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "start_time": "2021-03-27T08:36:00+0000",
+        "end_time": "2021-03-27T21:49:00+0000",
+        "scheduled_show": {
+          "mix_title": "blandit non",
+          "featured_residents": null
+        }
+      },
+      {
+        "start_time": "2021-03-27T07:51:00+0000",
+        "end_time": "2021-03-27T14:30:00+0000",
+        "scheduled_show": {
+          "mix_title": "accumsan tellus nisi",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "odio",
+                "_meta": {
+                  "uid": "dev-resident-dj-slavine",
+                  "type": "resident"
+                }
+              }
+            },
+            {
+              "mix_resident": {
+                "resident_name": "velit",
+                "_meta": { "uid": "dev-res-koan-sound", "type": "resident" }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  { "date": "03.30", "id": "03.30", "entries": null },
+  {
+    "date": "03.31",
+    "id": "03.31",
+    "entries": [
+      {
+        "start_time": "2021-03-27T00:41:00+0000",
+        "end_time": "2021-03-27T23:29:00+0000",
+        "scheduled_show": {
+          "mix_title": null,
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "nam nulla integer",
+                "_meta": { "uid": "dev-res-koan-sound", "type": "resident" }
+              }
+            },
+            {
+              "mix_resident": {
+                "resident_name": "et",
+                "_meta": {
+                  "uid": "dev-res-thank-you-scientist",
+                  "type": "resident"
+                }
+              }
+            },
+            {
+              "mix_resident": {
+                "resident_name": "suscipit",
+                "_meta": {
+                  "uid": "dev-resident-dj-slavine",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "date": "04.01",
+    "id": "04.01",
+    "entries": [
+      {
+        "start_time": "2021-03-27T00:23:00+0000",
+        "end_time": "2021-03-27T23:43:00+0000",
+        "scheduled_show": {
+          "mix_title": "nulla integer pede",
+          "featured_residents": null
+        }
+      },
+      {
+        "start_time": "2021-03-27T09:51:00+0000",
+        "end_time": "2021-03-27T22:10:00+0000",
+        "scheduled_show": {
+          "mix_title": "odio",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "metus arcu adipiscing",
+                "_meta": {
+                  "uid": "dev-resident-dj-slavine",
+                  "type": "resident"
+                }
+              }
+            },
+            {
+              "mix_resident": {
+                "resident_name": "sed",
+                "_meta": {
+                  "uid": "dev-resident-dj-slavine",
+                  "type": "resident"
+                }
+              }
+            },
+            {
+              "mix_resident": {
+                "resident_name": "fringilla rhoncus",
+                "_meta": {
+                  "uid": "dev-res-thank-you-scientist",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "start_time": "2021-03-27T04:55:00+0000",
+        "end_time": "2021-03-27T12:57:00+0000",
+        "scheduled_show": {
+          "mix_title": null,
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "in quis",
+                "_meta": {
+                  "uid": "dev-resident-dj-slavine",
+                  "type": "resident"
+                }
+              }
+            },
+            {
+              "mix_resident": {
+                "resident_name": "sit",
+                "_meta": { "uid": "dev-res-koan-sound", "type": "resident" }
+              }
+            },
+            {
+              "mix_resident": {
+                "resident_name": "maecenas",
+                "_meta": { "uid": "dev-res-koan-sound", "type": "resident" }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "start_time": "2021-03-27T02:10:00+0000",
+        "end_time": "2021-03-27T12:55:00+0000",
+        "scheduled_show": {
+          "mix_title": null,
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "eget elit",
+                "_meta": { "uid": "dev-res-koan-sound", "type": "resident" }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "start_time": "2021-03-27T09:47:00+0000",
+        "end_time": "2021-03-27T13:41:00+0000",
+        "scheduled_show": {
+          "mix_title": "nisl aenean",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "phasellus in felis",
+                "_meta": {
+                  "uid": "dev-resident-dj-slavine",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "start_time": "2021-03-27T08:12:00+0000",
+        "end_time": "2021-03-27T21:57:00+0000",
+        "scheduled_show": { "mix_title": null, "featured_residents": null }
+      },
+      {
+        "start_time": "2021-03-27T00:33:00+0000",
+        "end_time": "2021-03-27T10:39:00+0000",
+        "scheduled_show": {
+          "mix_title": "vestibulum vestibulum",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "odio",
+                "_meta": { "uid": "dev-res-koan-sound", "type": "resident" }
+              }
+            },
+            {
+              "mix_resident": {
+                "resident_name": "donec",
+                "_meta": {
+                  "uid": "dev-resident-dj-slavine",
+                  "type": "resident"
+                }
+              }
+            },
+            {
+              "mix_resident": {
+                "resident_name": "nulla eget",
+                "_meta": {
+                  "uid": "dev-resident-dj-slavine",
+                  "type": "resident"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "start_time": "2021-03-27T09:10:00+0000",
+        "end_time": "2021-03-27T12:11:00+0000",
+        "scheduled_show": {
+          "mix_title": "maecenas rhoncus aliquam",
+          "featured_residents": null
+        }
+      }
+    ]
+  },
+  {
+    "date": "04.02",
+    "id": "04.02",
+    "entries": [
+      {
+        "start_time": "2021-03-27T00:47:00+0000",
+        "end_time": "2021-03-27T18:56:00+0000",
+        "scheduled_show": {
+          "mix_title": "arcu",
+          "featured_residents": [
+            {
+              "mix_resident": {
+                "resident_name": "nec euismod",
+                "_meta": {
+                  "uid": "dev-resident-dj-slavine",
+                  "type": "resident"
+                }
+              }
+            },
+            {
+              "mix_resident": {
+                "resident_name": "diam nam",
+                "_meta": {
+                  "uid": "dev-res-thank-you-scientist",
+                  "type": "resident"
+                }
+              }
+            },
+            {
+              "mix_resident": {
+                "resident_name": "ante vivamus",
+                "_meta": { "uid": "dev-res-koan-sound", "type": "resident" }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -12,30 +12,27 @@ import { linkResolver } from '../utils'
  * @returns {jsx}
  */
 function getResidentLinks(residentsArr, currentPath, residentsAsTitle) {
-  console.log(residentsAsTitle)
   const wrapperClassStyling = residentsAsTitle
     ? 'title is-size-5-desktop is-size-6-touch has-text-centered text-block'
     : 'subtitle is-size-6-desktop is-size-7-touch has-text-centered text-block'
 
-  // Address null mix_title AND resident_name case
-  for (let i = 0; residentsArr.length; i++) {
-    const currResident = residentsArr[i]
-    console.log(currResident.mix_resident.resident_name)
-    if (!currResident.mix_resident.resident_name) {
-      currResident.mix_resident.resident_name = 'HMBK Resident'
-    }
-  }
-
   return (
     <p className={wrapperClassStyling}>
       {residentsArr.map(({ mix_resident }, index) => {
-        const { _meta, resident_name } = mix_resident
+        let { _meta, resident_name } = mix_resident
+
+        /**
+         * Reverse engineer resident from UID by replacing hyphens with spaces.
+         */
+        if (!resident_name) {
+          resident_name = _meta.uid.replace('-', ' ')
+        }
 
         const linkTo = linkResolver(_meta)
         const linkLabel = resident_name
 
         /**
-         *
+         * First if statement was riginally put in place for use with {@link SingleMixCard} and only used on {@link ResidentTemplate}. Currently disabled.
          */
         if (currentPath === linkTo) {
           if (index !== residentsArr.length - 1) {

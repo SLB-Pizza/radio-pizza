@@ -2,7 +2,7 @@ import React from 'react'
 import { formatDateTime } from '../utils'
 
 /**
- *
+ * Render the start and end times for a scheduled show. Called by
  * @category Layout Helper
  * @function SingleScheduledShowTimes
  * @param {String} start - Prismic formatted DateTime string for this particular scheduled show's starts
@@ -22,21 +22,12 @@ export default function SingleScheduledShowTimes({ start, end }) {
         </p>
       </div>
     )
-  } else if (start && !end) {
-    // Only render the formatted start time.
-    return (
-      <div className="column is-4">
-        <p className="title is-size-6-tablet is-size-7-mobile has-text-centered">
-          {formattedStart}
-        </p>
-      </div>
-    )
   } else {
     // Render a fallback indicating that neither a start time nor an end time have been set.
     return (
       <div className="column is-4">
         <p className="title is-size-6-tablet is-size-7-mobile has-text-centered">
-          --:-- – --:--
+          TBD
         </p>
       </div>
     )

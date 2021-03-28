@@ -8,7 +8,7 @@ import { htmlSerializer, linkResolver } from '../../utils'
  * @function Interviewee
  * @param {Object} line - The answer to a question
  * @param {String} [speaker="Answer"] - Name of the speaker
- * @returns
+ * @returns {jsx}
  */
 export default function Interviewee({ line, speaker = 'Answer' }) {
   return (

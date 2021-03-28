@@ -1,11 +1,14 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { SingleDateScheduleEntries } from './index'
 
 /**
- * Called by {@link ScheduleIndexPage}.
+ * Renders an schedule layout for a single date. Called by {@link ScheduleIndexPage}.
  * @category Layout Helper
  * @function SingleDateScheduleGenerator
  * @param {Object[]} scheduledShowsArr - array of schedule and date objects
+ * @prop {String} scheduledShowsArr.date - the full weekday, month name and day for this schedule date
+ * @prop {String} scheduledShowsArr.id - used as the id for the columns render in the map; "MM.DD" format
+ * @prop {Object[]} scheduledShowsArr.entries - sourced from {@link ScheduleIndexPage} - `sevenDayScheduleData` by {@link fetchSevenDaySchedule}
  * @param {Object} currentTime - dayjs object detailing current time
  * @param {Boolean} isActive - dictates whether to render a date's shows IF there are shows schedule, or to render the fallback {@link NoShowsFallback} component.
  * @returns {jsx}
@@ -15,15 +18,6 @@ export default function SingleDateScheduleGenerator({
   currentTime,
   isActive,
 }) {
-  /**
-   * @category useEffect
-   * @name markCurrentAndUpcomingShow
-   */
-  useEffect(() => {
-    const markCurrentAndUpcomingShow = () => {}
-    return markCurrentAndUpcomingShow()
-  }, [currentTime])
-
   return (
     <section className="section container is-fluid">
       {scheduledShowsArr.map(({ date, entries, id }, index) => {
@@ -35,7 +29,7 @@ export default function SingleDateScheduleGenerator({
               id={id}
             >
               <div className="column is-12 today-date">
-                <p className="title is-size-4-desktop is-size-6-touch has-text-centered">
+                <p className="title is-size-4-desktop is-size-5-touch has-text-centered">
                   {date}
                 </p>
               </div>
@@ -46,12 +40,10 @@ export default function SingleDateScheduleGenerator({
                   currentTime={currentTime}
                 />
               ) : (
-                <div className="column is-12">
-                  <div className="content">
-                    <p className="subtitle is-size-5-desktop is-size-6-touch has-text-centered">
-                      No shows scheduled!
-                    </p>
-                  </div>
+                <div className="section is-medium column is-12 content">
+                  <p className="subtitle is-size-5-desktop is-size-6-touch has-text-centered">
+                    No shows scheduled!
+                  </p>
                 </div>
               )}
             </div>

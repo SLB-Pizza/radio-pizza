@@ -7,7 +7,7 @@ import {
 import { formatDateTime } from '../../utils'
 import { GET_SEVEN_DAY_SCHEDULE } from '../../queries'
 
-import scheduleDummyData from '../../../__test__/mock-data/HMBK - Schedule Page Query Test.json'
+// import scheduleDummyData from "../../../__test__/mock-data/HMBK - Schedule Page Query Test.json";
 
 /**
  * Layout for the `/schedule` page.

@@ -1,4 +1,5 @@
 import React from 'react'
+import { RenderShowTitlingLayout } from '../components'
 import { mappableDataFilter, getResidentLinks } from '../utils'
 
 /**
@@ -13,42 +14,61 @@ import { mappableDataFilter, getResidentLinks } from '../utils'
  * @param {?String} liveShowTitle - optional string detailing show's name
  * @param {?String} liveShowGuests - optional string detailing show's guest list (no link)
  * @returns {jsx}
+ * @see {@link mappableDataFilter We need to pass an objectKeyCount of 2 when checking preRecordedMix.featured_residents since __typename counts as a key-value pair!}
  */
 export default function SingleScheduledShowTitling({
   preRecordedMix,
   liveShowTitle,
   liveShowGuests,
 }) {
+  /**
+   * If `preRecordedMix` exists:
+   * 1. If `mix_title` is null, filter the residents array,
+   * and create resident links using {@link getResidentLinks} with the
+   * optional `residentsAsTitle` true. {@link RenderShowTitlingLayout}: `showTitle` - null; `showSubtitle` - processedMixResidents
+   * 2. `mix_title` exists; filter the residents array, create resident links.
+   * create resident links; {@link RenderShowTitlingLayout}: `showTitle` - mix_title; `showSubtitle` - processedMixResidents
+   */
   if (preRecordedMix) {
     const { mix_title, featured_residents } = preRecordedMix
     let processedResidents, recordedMixResidents
 
+    /**
+     * Data arrays containing `__typename` , like HMBK GraphQL Prismic queries, like {@link getSevenDaySchedule} feeding through props to {@link SingleScheduledShowTitling}, **NEED THIS VALUE SET TO 2** in order to receive a properly filtered array.
+     */
     if (!mix_title) {
-      processedResidents = mappableDataFilter(featured_residents)
+      processedResidents = mappableDataFilter(featured_residents, 2)
       recordedMixResidents = Array.isArray(processedResidents)
         ? getResidentLinks(featured_residents, null, true)
         : null
     } else {
-      processedResidents = mappableDataFilter(featured_residents)
+      processedResidents = mappableDataFilter(featured_residents, 2)
       recordedMixResidents = Array.isArray(processedResidents)
         ? getResidentLinks(featured_residents)
         : null
     }
 
     return (
-      <RenderScheduledShowDetails
+      <RenderShowTitlingLayout
         showTitle={mix_title}
         showSubtitle={recordedMixResidents}
       />
     )
   } else if (liveShowTitle || liveShowGuests) {
+    /**
+     * No `preRecordedMix`; if either liveShowTitle or liveShowGuests exists,
+     * pass both to {@link RenderShowTitlingLayout}.
+     */
     return (
-      <RenderScheduledShowDetails
+      <RenderShowTitlingLayout
         showTitle={liveShowTitle}
         showSubtitle={liveShowGuests}
       />
     )
   } else {
+    /**
+     * Render a "Live Broadcast" fallback.
+     */
     return (
       <div className="column is-8">
         <p className="title is-size-5-desktop is-size-6-touch has-text-centered">
@@ -58,25 +78,3 @@ export default function SingleScheduledShowTitling({
     )
   }
 }
-
-function RenderScheduledShowDetails({ showTitle, showSubtitle }) {
-  return showTitle !== null ? (
-    <div className="column is-8">
-      <p className="title is-size-5-desktop is-size-6-touch has-text-centered">
-        {showTitle}
-      </p>
-      {/* {showSubtitle} */}
-      {showSubtitle !== null ? showSubtitle : <FallbackResident />}
-    </div>
-  ) : (
-    <div className="column is-8">
-      {showSubtitle !== null ? showSubtitle : <FallbackResident />}
-    </div>
-  )
-}
-
-const FallbackResident = () => (
-  <p className="title is-size-5-desktop is-size-6-touch has-text-centered">
-    HMBK Resident
-  </p>
-)

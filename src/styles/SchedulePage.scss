@@ -12,6 +12,12 @@
 }
 
 .single-show-entry {
-  border-top: 0.125rem solid white;
-  min-height: 5rem;
+  border-top: 2px solid $grey;
+  min-height: 6rem;
+  transition: 0.75s $easing;
+}
+
+.today-date {
+  padding-top: 0.75 * $gap;
+  padding-bottom: 0.75 * $gap;
 }

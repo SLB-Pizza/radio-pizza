@@ -86,7 +86,7 @@
  * @category Utilities
  * @function mappableDataFilter
  * @param {Array} groupFieldArray - a Prismic data subarray that will be checking to ensure proper Layout Component mapping
- * @param {?Number} objectKeyCount - an optional integer greater than 1 that dictates the number of key-value pairs the mappable object entry has; when present; passing null defaults to 1 key-value pair per object
+ * @param {?Number} objectKeyCount - an optional integer greater than 1 that dictates the number of key-value pairs the mappable object entry has; when present; passing null defaults to 1 key-value pair per object. Data arrays containing `__typename` , like HMBK GraphQL Prismic queries, like {@link getSevenDaySchedule} feeding through props to {@link SingleScheduledShowTitling}, **NEED THIS VALUE SET TO 2** in order to receive a properly filtered array.
  * @param {?Boolean} nodeValidation - an optional boolean that changes the output of the function from a filtered array to a boolean
  * @returns {Object[]|Number} returns a filtered array of valid, mappable group fields for a component to use; if called by {@link cmsNodeValidator} via nodeValidation: true, return the number of invalid entries found in this mappable group field.
  */

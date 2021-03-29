@@ -5,12 +5,12 @@ import { gql } from '@apollo/client'
  * Retrieves the first available date after yesterday with scheduled show entries.
  * Used in {@link ScheduleBar}.
  * @category Queries
- * @name GET_NEXT_SHOW
+ * @name GET_TODAYS_SCHEDULE
  * @see {@link https://hmbk-cms.prismic.io/graphql HMBK's Prismic GraphQL API}
  * @see {@link https://prismic.io/docs/graphql/query-the-api/query-by-date Prismic - GraphQL Query by Date}
  */
-export const GET_NEXT_SHOW = gql`
-  query getNextShow($yesterday: Date!) {
+export const GET_TODAYS_SCHEDULE = gql`
+  query getTodaysSchedule($yesterday: Date!) {
     allSchedules(
       where: { schedule_date_after: $yesterday }
       sortBy: schedule_date_ASC
@@ -22,6 +22,8 @@ export const GET_NEXT_SHOW = gql`
           schedule_entries {
             end_time
             start_time
+            live_show_title
+            live_show_guests
             scheduled_show {
               ... on Mix {
                 mix_image

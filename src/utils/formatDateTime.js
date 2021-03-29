@@ -74,6 +74,15 @@ export default function formatDateTime(
       return dayjs(time, 'YYYY-MM-DDTHH:mm:ssZZ', 'America/New_York')
     case 'add-days':
       return time.add(number, 'day').format('MM.DD')
+    case 'prismic-date-query':
+      /**
+       * -- `$yesterday`:   day today before today; -1
+       * -- `$weekAndADay`: seven days after today; 7
+       * @see {@link loadSevenDaySchedule}
+       */
+      return [-1, 7].map(number => time.add(number, 'day').format('YYYY-MM-DD'))
+    case 'get-yesterday-date':
+      return time.add(-1, 'day').format('YYYY-MM-DD')
     case 'get-this-weeks-dates':
       /**
        * Since we want today and the six dates after,
@@ -92,13 +101,7 @@ export default function formatDateTime(
         time.add(num, 'day').format('dddd, MMMM D')
       )
       return { btnLabels, queryMatching, dateHeadings }
-    case 'prismic-date-query':
-      /**
-       * -- `$yesterday`:   day today before today; -1
-       * -- `$weekAndADay`: seven days after today; 7
-       * @see {@link loadSevenDaySchedule}
-       */
-      return [-1, 7].map(number => time.add(number, 'day').format('YYYY-MM-DD'))
+
     case 'full-month-day':
       return dayjs(time).format('MMM DD')
     case 'month-day':

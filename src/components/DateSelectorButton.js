@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
 /**
  * Function that creates styled date selector buttons using today's date and `/schedule`'s `toggleColumn` function.
@@ -15,30 +15,34 @@ function DateSelectorButton({ datesArr, activeButton, toggleColumn }) {
     <div className="columns is-vcentered is-mobile date-selector">
       {datesArr.map((date, index) => {
         return (
-          <div key={`date-button-${date}- ${index}`} className="column">
-            <button
-              className={
-                activeButton === date
-                  ? 'button is-fullwidth is-outlined is-rounded is-hidden-touch is-focused'
-                  : 'button is-fullwidth is-outlined is-rounded is-hidden-touch'
-              }
-              id={`${date}`}
-              onClick={toggleColumn}
-            >
-              {date}
-            </button>
-            <button
-              className={
-                activeButton === date
-                  ? 'button is-small is-fullwidth is-outlined is-rounded is-hidden-desktop is-focused'
-                  : 'button is-small is-fullwidth is-outlined is-rounded is-hidden-desktop'
-              }
-              id={`${date}`}
-              onClick={toggleColumn}
-            >
-              {date}
-            </button>
-          </div>
+          <Fragment key={`date-button-${date}- ${index}`}>
+            <div className="column is-hidden-mobile">
+              <button
+                className={
+                  activeButton === date
+                    ? 'button is-fullwidth is-outlined is-rounded is-focused'
+                    : 'button is-fullwidth is-outlined is-rounded'
+                }
+                id={`${date}`}
+                onClick={toggleColumn}
+              >
+                {date}
+              </button>
+            </div>
+            <div className="column is-two-fifths is-hidden-tablet">
+              <button
+                className={
+                  activeButton === date
+                    ? 'button is-small is-fullwidth is-outlined is-rounded is-focused'
+                    : 'button is-small is-fullwidth is-outlined is-rounded'
+                }
+                id={`${date}`}
+                onClick={toggleColumn}
+              >
+                {date}
+              </button>
+            </div>
+          </Fragment>
         )
       })}
     </div>

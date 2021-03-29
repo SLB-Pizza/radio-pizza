@@ -20,13 +20,13 @@ export const FILL_HOME_FEATURES = gql`
             firstPublicationDate
             lastPublicationDate
           }
-          headline_block {
-            ... on FeatureHeadline_blockHeadline_block {
+          header {
+            ... on FeatureHeaderHeadline_block {
               primary {
+                article_headline
                 article_headline_img
                 article_category
                 article_subcategory
-                article_headline
                 article_subtitle
               }
             }

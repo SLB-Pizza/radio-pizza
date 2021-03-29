@@ -20,9 +20,23 @@
   }
 }
 
-.today-date {
-  padding-top: 0.75 * $gap;
-  padding-bottom: 0.75 * $gap;
+.schedule-date-header {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  background-color: black;
+  border-bottom: 2px solid white;
+  &__sched-page {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 6.5rem;
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+    background-color: black;
+    padding-top: 0.75 * $gap;
+    padding-bottom: 0.75 * $gap;
+    border-bottom: 2px solid white;
+  }
 }
 
 .now-playing {

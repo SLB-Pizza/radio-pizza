@@ -7,8 +7,6 @@ import {
 import { formatDateTime } from '../../utils'
 import { GET_SEVEN_DAY_SCHEDULE } from '../../queries'
 
-// import scheduleDummyData from "../../../__test__/mock-data/HMBK - Schedule Page Query Test.json";
-
 /**
  * Layout for the `/schedule` page.
  * @category Pages
@@ -105,8 +103,6 @@ function ScheduleIndexPage() {
    */
   useEffect(() => {
     const updateThisWeeksSchedule = () => {
-      // setThisWeekSchedule(scheduleDummyData);
-
       let datedScheduleEntries = []
 
       if (sevenDayScheduleData) {
@@ -149,34 +145,28 @@ function ScheduleIndexPage() {
   }
 
   /**
-   * Update today's date every fifteen seconds.
-   * @function
+   * Update today's date every second.
+   * @category useEffect
+   * @name updateTimeEverySecond
    */
   useEffect(() => {
-    const updateTimeByOneSecond = setInterval(() => {
+    const updateTimeEverySecond = setInterval(() => {
       setTodayDate(todayDate.add(1, 's'))
-      // console.log('time is now:', todayDate)
     }, 1000)
 
     return () => {
-      clearInterval(updateTimeByOneSecond)
+      clearInterval(updateTimeEverySecond)
     }
   }, [todayDate])
-
-  // FOR JSON TEST FILE DEBUGGING
-  // const sevenDaysArray = arr.filter(({ node }) =>
-  //   dayjs(node.schedule_date).isBetween(today, sixDaysFromToday, "day", [])
-  // );
-  // const sevenDaysData = getSevenDays(scheduleDummyData);
 
   return (
     <main className="container is-fluid black-bg-page">
       <div className="columns is-mobile is-multiline">
         <div className="column">
-          <p className="title is-size-2-desktop is-size-3-touch">Schedule</p>
-          <p className="subtitle is-size-5-desktop is-size-6-touch">
+          <h1 className="title is-size-3-desktop is-size-5-touch">schedule</h1>
+          <h2 className="subtitle is-size-5-desktop is-size-6-touch">
             All times are NYC.
-          </p>
+          </h2>
         </div>
       </div>
       {dateBtnLabels && (
@@ -193,20 +183,6 @@ function ScheduleIndexPage() {
           isActive={isActive}
         />
       )}
-      {/*
-      <hr />
-      <pre>todayDate {JSON.stringify(todayDate, null, 2)}</pre>
-      <pre>dateBtnLabels {JSON.stringify(dateBtnLabels, null, 2)}</pre>
-      <pre>
-        scheduleFetchDates {JSON.stringify(scheduleFetchDates, null, 2)}
-      </pre>
-
-      <pre>
-        sevenDayScheduleData
-        {JSON.stringify(sevenDayScheduleData.allSchedules.edges, null, 2)}
-      </pre>
-      <pre>thisWeekSchedule {JSON.stringify(thisWeekSchedule, null, 2)}</pre>
-      */}
     </main>
   )
 }

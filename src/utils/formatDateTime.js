@@ -120,10 +120,17 @@ export default function formatDateTime(
       return convertedPrismicDateTime.format('YYYY-MM-DD HH:mm:ssZ')
     case 'get-place-in-schedule':
       return time.isBetween(startTime, endTime, 'minute', '[)')
+    case 'is-schedule-date-today':
+      /**
+       * startTime here is the incoming schedule date.
+       * @see {@link ScheduleDropdown}
+       */
+      const incomingDateParsed = dayjs(startTime, 'YYYY-MM-DD')
+      return incomingDateParsed.isSame(time, 'day')
     case 'time-debug':
-      console.log(
-        dayjs(time, 'YYYY-MM-DDTHH:mm:ssZZ').format('MMMM D, YYYY - HH:mm Z')
-      )
+      // console.log(
+      //   dayjs(time, "YYYY-MM-DDTHH:mm:ssZZ").format("MMMM D, YYYY - HH:mm Z")
+      // );
       return dayjs(time, 'YYYY-MM-DDTHH:mm:ssZZ').isValid()
     default:
       // Return a current Date object

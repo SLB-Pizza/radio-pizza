@@ -4,6 +4,16 @@ import { ScheduleDropdown, UpcomingShow } from './index'
 import { GlobalDispatchContext } from '../context/GlobalContextProvider'
 import { closeSchedule, toggleSchedule, handleLiveTest } from '../dispatch'
 
+/**
+ *
+ *
+ * @function ScheduleBarLayout
+ * @param {Object} globalState - global
+ *   timeNow,
+ *   todaysSchedule,
+ * }
+ * @returns
+ */
 export default function ScheduleBarLayout({
   globalState,
   timeNow,
@@ -110,7 +120,7 @@ export default function ScheduleBarLayout({
         </div>
       </div>
       {todaysSchedule && scheduleOpen && (
-        <ScheduleDropdown todayShowData={todaysSchedule} timeNow={timeNow} />
+        <ScheduleDropdown showData={todaysSchedule} timeNow={timeNow} />
       )}
     </div>
   )

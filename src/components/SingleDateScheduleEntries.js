@@ -4,7 +4,7 @@ import {
   SingleScheduledShowTimes,
   SingleScheduledShowTitling,
 } from './index'
-import { formatDateTime, isCurrentShowLive } from '../utils'
+import { isCurrentShowLive } from '../utils'
 
 /**
  * Renders each of a single date's entries.

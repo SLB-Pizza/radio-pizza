@@ -26,7 +26,7 @@ export default function SingleDateScheduleGenerator({
           className="columns is-multiline is-vcentered is-mobile schedule-page-entries"
           id={id}
         >
-          <div className="column is-12 today-date">
+          <div className="column is-12 schedule-date-header__sched-page">
             <p className="title is-size-4-desktop is-size-5-touch has-text-centered">
               {date}
             </p>

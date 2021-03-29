@@ -1,18 +1,12 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { useLazyQuery } from '@apollo/client'
-import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import Ticker from 'react-ticker'
 import PageVisibility from 'react-page-visibility'
 import {
   GlobalDispatchContext,
   GlobalStateContext,
 } from '../context/GlobalContextProvider'
-import {
-  ScheduleBarLayout,
-  ScheduleDropdown,
-  OutsideClick,
-  UpcomingShow,
-} from './index'
+import { ScheduleBarLayout, OutsideClick } from './index'
 import { formatDateTime } from '../utils'
 import { GET_TODAYS_SCHEDULE } from '../queries'
 import { closeSchedule } from '../dispatch'
@@ -26,9 +20,9 @@ function ScheduleBar({ timeNow }) {
   const [todaysSchedule, setTodaysSchedule] = useState([])
 
   /**
-   * useLazyQuery called by {@link }.
+   * useLazyQuery called by {@link fetchTodaysSchedule}.
    * @category useLazyQueries
-   * @name fetchTodaysSchedule
+   * @name getTodaysSchedule
    */
   const [
     getTodaysSchedule,
@@ -43,7 +37,6 @@ function ScheduleBar({ timeNow }) {
   useEffect(() => {
     const setCurrentTimeAndYesterdayDate = setInterval(() => {
       const yesterday = formatDateTime(timeNow, 'get-yesterday-date')
-      console.log('yesterday is', yesterday)
 
       /**
        * Only update `yesterdayDate` if it's `null` (initial page load),
@@ -66,7 +59,6 @@ function ScheduleBar({ timeNow }) {
    */
   useEffect(() => {
     const fetchTodaysSchedule = () => {
-      console.log('yesterdayDate is', yesterdayDate)
       if (yesterdayDate) {
         getTodaysSchedule({
           variables: {
@@ -86,10 +78,10 @@ function ScheduleBar({ timeNow }) {
    */
   useEffect(() => {
     const updateTodaysSchedule = () => {
-      console.log('todayScheduleData', todayScheduleData)
       if (todayScheduleData) {
         const todayScheduleDataNode =
           todayScheduleData.allSchedules.edges[0].node
+
         setTodaysSchedule(todayScheduleDataNode)
       }
     }

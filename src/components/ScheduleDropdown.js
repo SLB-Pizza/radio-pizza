@@ -1,32 +1,23 @@
-import React, { useState, useEffect } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { Link } from 'gatsby'
+import { GlobalDispatchContext } from '../context/GlobalContextProvider'
 import { formatDateTime } from '../utils'
-import dayjs from 'dayjs'
-import utc from 'dayjs/plugin/utc'
-dayjs.extend(utc)
+import { closeSchedule } from '../dispatch'
 
 import { SingleScheduleEntryRow } from '../components'
-import dummySchedule from '../../__test__/HMBK-schedule-page-query-test.json'
 
 /**
  * Renders the schedule dropdown bar when `setOpen` is set to `true` in {@link ScheduleBar}.
  * @category Site Elements
  * @function ScheduleDropdown
- * @param {} setOpen,
- * @param {} open
- * @param {} toggleSchedule
- * @param {} showData
+ * @param {} todayShowData
  * @param {} timeNow
  * @returns {jsx}
  */
-function ScheduleDropdown({
-  setOpen,
-  open,
-  toggleSchedule,
-  showData,
-  timeNow,
-}) {
-  const { schedule_date, schedule_entries } = showData
+function ScheduleDropdown({ todayShowData, timeNow }) {
+  const dispatch = useContext(GlobalDispatchContext)
+
+  const { schedule_date, schedule_entries } = todayShowData
 
   /**
    * Format date using {@link formatDateTime}.
@@ -46,11 +37,10 @@ function ScheduleDropdown({
           <button
             className="button is-small is-outlined is-rounded"
             onClick={() => {
-              setOpen(!open)
-              toggleSchedule()
+              closeSchedule(dispatch)
             }}
           >
-            Full Schedule
+            View Full Schedule
           </button>
         </Link>
       </div>
@@ -71,9 +61,10 @@ function ScheduleDropdown({
         </div>
       ) : (
         <div className="column is-12 content">
-          <p className="subtitle has-text-centered">
+          <pre>{JSON.stringify(todayShowData, null, 2)}</pre>
+          {/* <p className="subtitle has-text-centered">
             No programming planned for today.
-          </p>
+          </p> */}
         </div>
       )}
     </div>

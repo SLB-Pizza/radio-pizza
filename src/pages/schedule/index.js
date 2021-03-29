@@ -179,14 +179,13 @@ function ScheduleIndexPage() {
           </p>
         </div>
       </div>
-
       {dateBtnLabels && (
         <DateSelectorButton
           datesArr={dateBtnLabels}
+          activeButton={isActive}
           toggleColumn={toggleColumn}
         />
       )}
-
       {thisWeekSchedule && (
         <SingleDateScheduleGenerator
           currentTime={todayDate}
@@ -194,7 +193,7 @@ function ScheduleIndexPage() {
           isActive={isActive}
         />
       )}
-
+      {/*
       <hr />
       <pre>todayDate {JSON.stringify(todayDate, null, 2)}</pre>
       <pre>dateBtnLabels {JSON.stringify(dateBtnLabels, null, 2)}</pre>
@@ -202,11 +201,12 @@ function ScheduleIndexPage() {
         scheduleFetchDates {JSON.stringify(scheduleFetchDates, null, 2)}
       </pre>
 
-      {/* <pre>
+      <pre>
         sevenDayScheduleData
         {JSON.stringify(sevenDayScheduleData.allSchedules.edges, null, 2)}
-      </pre> */}
+      </pre>
       <pre>thisWeekSchedule {JSON.stringify(thisWeekSchedule, null, 2)}</pre>
+      */}
     </main>
   )
 }

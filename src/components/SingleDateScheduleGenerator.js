@@ -18,40 +18,36 @@ export default function SingleDateScheduleGenerator({
   currentTime,
   isActive,
 }) {
-  return (
-    <section className="section container is-fluid">
-      {scheduledShowsArr.map(({ date, entries, id }, index) => {
-        if (isActive === id) {
-          return (
-            <div
-              key={`schedule-for-${id}-${index}`}
-              className="columns is-multiline is-vcentered is-mobile schedule-page-entries"
-              id={id}
-            >
-              <div className="column is-12 today-date">
-                <p className="title is-size-4-desktop is-size-5-touch has-text-centered">
-                  {date}
-                </p>
-              </div>
+  return scheduledShowsArr.map(({ date, entries, id }, index) => {
+    if (isActive === id) {
+      return (
+        <section
+          key={`schedule-for-${id}-${index}`}
+          className="columns is-multiline is-vcentered is-mobile schedule-page-entries"
+          id={id}
+        >
+          <div className="column is-12 today-date">
+            <p className="title is-size-4-desktop is-size-5-touch has-text-centered">
+              {date}
+            </p>
+          </div>
 
-              {entries !== null ? (
-                <SingleDateScheduleEntries
-                  entries={entries}
-                  currentTime={currentTime}
-                />
-              ) : (
-                <div className="section is-medium column is-12 content">
-                  <p className="subtitle is-size-5-desktop is-size-6-touch has-text-centered">
-                    No shows scheduled!
-                  </p>
-                </div>
-              )}
+          {entries !== null ? (
+            <SingleDateScheduleEntries
+              entries={entries}
+              currentTime={currentTime}
+            />
+          ) : (
+            <div className="section is-medium column is-12 content">
+              <p className="subtitle is-size-5-desktop is-size-6-touch has-text-centered">
+                No shows scheduled!
+              </p>
             </div>
-          )
-        } else {
-          return null
-        }
-      })}
-    </section>
-  )
+          )}
+        </section>
+      )
+    } else {
+      return null
+    }
+  })
 }

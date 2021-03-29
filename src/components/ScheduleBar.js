@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { useQuery } from '@apollo/client'
+import { useLazyQuery } from '@apollo/client'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import Ticker from 'react-ticker'
 import PageVisibility from 'react-page-visibility'
@@ -7,69 +7,94 @@ import {
   GlobalDispatchContext,
   GlobalStateContext,
 } from '../context/GlobalContextProvider'
-import { ScheduleDropdown, OutsideClick, UpcomingShow } from './index'
+import {
+  ScheduleBarLayout,
+  ScheduleDropdown,
+  OutsideClick,
+  UpcomingShow,
+} from './index'
 import { formatDateTime } from '../utils'
-import { GET_NEXT_SHOW } from '../queries'
-import dayjs from 'dayjs'
-import utc from 'dayjs/plugin/utc'
-import timezone from 'dayjs/plugin/timezone'
-dayjs.extend(utc)
-dayjs.extend(timezone)
+import { GET_TODAYS_SCHEDULE } from '../queries'
+import { closeSchedule } from '../dispatch'
 
 function ScheduleBar({ timeNow }) {
   const dispatch = useContext(GlobalDispatchContext)
   const globalState = useContext(GlobalStateContext)
 
-  const [open, setOpen] = useState(false)
-  const [pageIsVisible, setPageIsVisible] = useState(true)
+  // const [pageIsVisible, setPageIsVisible] = useState(true);
+  const [yesterdayDate, setYesterdayDate] = useState(null)
   const [todaysSchedule, setTodaysSchedule] = useState([])
-  const [currentTime, setCurrentTime] = useState(dayjs().tz('America/New_York'))
 
+  /**
+   * useLazyQuery called by {@link }.
+   * @category useLazyQueries
+   * @name fetchTodaysSchedule
+   */
+  const [
+    getTodaysSchedule,
+    { loading: isFetching, data: todayScheduleData },
+  ] = useLazyQuery(GET_TODAYS_SCHEDULE)
+
+  /**
+   * Compute current time and yesterday's date is Prismic query date format ("YYYY-MM-DD") every second.
+   * @category useEffect
+   * @name setCurrentTimeAndYesterdayDate
+   */
   useEffect(() => {
-    const schedTime = setInterval(() => {
-      setCurrentTime(currentTime.add(1, 's'))
+    const setCurrentTimeAndYesterdayDate = setInterval(() => {
+      const yesterday = formatDateTime(timeNow, 'get-yesterday-date')
+      console.log('yesterday is', yesterday)
+
+      /**
+       * Only update `yesterdayDate` if it's `null` (initial page load),
+       * or the day has changed (one day to the next).
+       */
+      if (yesterdayDate === null || yesterday !== yesterdayDate) {
+        setYesterdayDate(yesterday)
+      }
     }, 1000)
 
     return () => {
-      clearInterval(schedTime)
+      clearInterval(setCurrentTimeAndYesterdayDate)
     }
   }, [])
 
   /**
-   * Format timeNow for use in schedule_date_before and schedule_date_after below. Neither date is inclusive so we need to pass in yesterday as the filter date.
-   */
-
-  // refactor to handle new array prismic-date-query refactor
-  // let yesterday = formatDateTime(currentTime, "add-days", -1);
-  let yesterday = '2021-03-24'
-
-  /**
-   * Run the query on load and poll every 120 seconds; 2 minutes.
-   */
-  const { loading, error, data } = useQuery(GET_NEXT_SHOW, {
-    variables: { yesterday },
-    pollInterval: 5000,
-  })
-
-  /**
-   * Query the HMBK Prismic CMS to get the data for the next scheduled show's data.
-   * Grab the schedule data object from the query result.
-   * Destructure the mix data object and dispatch the mix data to appear in {@link UpcomingShow}
-   * @function
+   * Once `yesterdayDate` value is set/updates, pass that value
+   * @category useEffect
+   * @name fetchTodaysSchedule
    */
   useEffect(() => {
-    const getNextShowData = () => {
-      if (error) {
-        console.log(`Error: ${error.message}`)
-      }
-      if (data) {
-        const todayScheduleData = data.allSchedules.edges
-        setTodaysSchedule(todayScheduleData)
+    const fetchTodaysSchedule = () => {
+      console.log('yesterdayDate is', yesterdayDate)
+      if (yesterdayDate) {
+        getTodaysSchedule({
+          variables: {
+            yesterday: yesterdayDate,
+          },
+        })
       }
     }
 
-    return getNextShowData()
-  }, [data, loading, error])
+    return fetchTodaysSchedule()
+  }, [yesterdayDate])
+
+  /**
+   * Update `todayScheduleData` with the fetched data from {@link getTodaysSchedule}.
+   * @category useEffect
+   * @name updateTodaysSchedule
+   */
+  useEffect(() => {
+    const updateTodaysSchedule = () => {
+      console.log('todayScheduleData', todayScheduleData)
+      if (todayScheduleData) {
+        const todayScheduleDataNode =
+          todayScheduleData.allSchedules.edges[0].node
+        setTodaysSchedule(todayScheduleDataNode)
+      }
+    }
+    return updateTodaysSchedule()
+  }, [todayScheduleData])
 
   // check if the Radio.co stream is live once upon bar mounting.
   // if so, set the globalState.live boolean to true.
@@ -137,9 +162,9 @@ function ScheduleBar({ timeNow }) {
     return () => clearInterval(interval)
   }, [])
 
-  const handleVisibilityChange = isVisible => {
-    setPageIsVisible(isVisible)
-  }
+  // const handleVisibilityChange = (isVisible) => {
+  //   setPageIsVisible(isVisible);
+  // };
 
   const handlePlayLive = async () => {
     await dispatch({
@@ -149,19 +174,6 @@ function ScheduleBar({ timeNow }) {
         title: 'Halfmoon Radio',
       },
     })
-  }
-
-  const closeSchedule = async () => {
-    await dispatch({ type: 'CLOSE_SCHEDULE' })
-  }
-
-  const toggleSchedule = async () => {
-    await dispatch({ type: 'TOGGLE_SCHEDULE' })
-  }
-
-  // TEST ONLY -- just for live toggle
-  const handleLiveTest = async () => {
-    await dispatch({ type: 'TOGGLE_LIVE_TEST' })
   }
 
   // const showLiveStatus = () => (globalState.live ? "true" : "false");
@@ -192,210 +204,19 @@ function ScheduleBar({ timeNow }) {
    * @see {@link OutsideClick Related OutsideClick situation in BottomNav}
    */
   return globalState.scheduleOpen ? (
-    <OutsideClick id={'schedule-bar'} onClick={() => closeSchedule()}>
-      <div
-        className={
-          globalState.live
-            ? 'schedule-bar container is-fluid is-open is-live'
-            : 'schedule-bar container is-fluid is-open'
-        }
-        id="schedule-bar"
-      >
-        <div className="columns is-vcentered is-mobile is-variable is-2 up-next">
-          <div
-            className="column is-narrow"
-            onClick={() => {
-              handleLiveTest()
-              closeSchedule()
-            }}
-          >
-            {globalState.live ? (
-              <button
-                className="button is-small is-outlined is-rounded"
-                onClick={() => closeSchedule()}
-              >
-                {globalState.playingRadio ? (
-                  <>
-                    <span>Listening</span>
-                    <span className="icon">
-                      <Icon
-                        icon="headphones"
-                        size="1x"
-                        className="live-light"
-                      />
-                      Listening
-                    </span>
-                  </>
-                ) : (
-                  <>
-                    <span>Live</span>
-                    <span className="icon">
-                      <Icon
-                        icon="broadcast-tower"
-                        size="1x"
-                        className="live-light"
-                      />
-                    </span>
-                  </>
-                )}
-              </button>
-            ) : (
-              <p className="display-text is-size-6-desktop is-size-7-touch">
-                Next Show
-              </p>
-            )}
-          </div>
-
-          {todaysSchedule ? (
-            <div className="column next-show" />
-          ) : (
-            <UpcomingShow showData={todaysSchedule} />
-          )}
-
-          <div className="column upcoming is-hidden-tablet">
-            <PageVisibility onChange={handleVisibilityChange}>
-              {pageIsVisible &&
-                nextShowTicker('MON 4.21', 'An HMBK Moment In Time')}
-            </PageVisibility>
-          </div>
-          <div className="column is-narrow">
-            <Icon
-              icon="calendar-alt"
-              size="1x"
-              className="icon-color"
-              onClick={() => toggleSchedule()}
-            />
-          </div>
-          {/* <div className="column is-narrow">
-            <Link to="/search">
-              <Icon
-                onClick={() => closeSchedule()}
-                icon="search"
-                size="1x"
-                className="icon-color"
-              />
-            </Link>
-          </div> */}
-
-          <div className="column is-narrow">
-            <a
-              href="http://halfmoonradiochat.chatango.com/"
-              target="_blank"
-              rel="noopener"
-            >
-              <Icon
-                onClick={() => closeSchedule()}
-                icon="comments"
-                size="1x"
-                className="icon-color"
-              />
-            </a>
-          </div>
-        </div>
-        {todaysSchedule && (
-          <ScheduleDropdown
-            showData={todaysSchedule}
-            timeNow={timeNow}
-            open={open}
-            setOpen={setOpen}
-            toggleSchedule={toggleSchedule}
-          />
-        )}
-      </div>
+    <OutsideClick id={'schedule-bar'} onClick={() => closeSchedule(dispatch)}>
+      <ScheduleBarLayout
+        globalState={globalState}
+        timeNow={timeNow}
+        todaysSchedule={todaysSchedule}
+      />
     </OutsideClick>
   ) : (
-    <div
-      className={
-        globalState.live
-          ? 'schedule-bar container is-fluid is-live'
-          : 'schedule-bar container is-fluid'
-      }
-    >
-      <div className="columns is-vcentered is-mobile is-variable is-2 up-next">
-        <div
-          className="column is-narrow"
-          onClick={() => {
-            handleLiveTest()
-            closeSchedule()
-          }}
-        >
-          {globalState.live ? (
-            <button
-              className="button is-small is-outlined is-rounded"
-              onClick={() => closeSchedule()}
-            >
-              {globalState.playingRadio ? (
-                <>
-                  <span>Listening</span>
-                  <span className="icon">
-                    <Icon icon="headphones" size="1x" className="live-light" />
-                  </span>
-                </>
-              ) : (
-                <>
-                  <span>Live</span>
-                  <span className="icon">
-                    <Icon
-                      icon="broadcast-tower"
-                      size="1x"
-                      className="live-light"
-                    />
-                  </span>
-                </>
-              )}
-            </button>
-          ) : (
-            <p className="display-text is-size-6-desktop is-size-7-touch">
-              Next Show
-            </p>
-          )}
-        </div>
-        {!todaysSchedule ? (
-          <div className="column next-show" />
-        ) : (
-          <UpcomingShow showData={todaysSchedule} />
-        )}
-        <div className="column upcoming is-hidden-tablet">
-          {/* <PageVisibility onChange={handleVisibilityChange}>
-            {pageIsVisible &&
-              todaysScheduleTickeTodaysSchedule.21", "An HMBK Moment In Time")}
-          </PageVisibility> */}
-        </div>
-        <div className="column is-narrow">
-          <Icon
-            onClick={() => toggleSchedule()}
-            icon="calendar-alt"
-            size="1x"
-            className="icon-color"
-          />
-        </div>
-        {/* <div className="column is-narrow">
-          <Link to="/search">
-            <Icon
-              onClick={() => closeSchedule()}
-              icon="search"
-              size="1x"
-              className="icon-color"
-            />
-          </Link>
-        </div> */}
-
-        <div className="column is-narrow">
-          <a
-            href="http://halfmoonradiochat.chatango.com/"
-            target="_blank"
-            rel="noopener"
-          >
-            <Icon
-              onClick={() => closeSchedule()}
-              icon="comments"
-              size="1x"
-              className="icon-color"
-            />
-          </a>
-        </div>
-      </div>
-    </div>
+    <ScheduleBarLayout
+      globalState={globalState}
+      timeNow={timeNow}
+      todaysSchedule={todaysSchedule}
+    />
   )
 }
 

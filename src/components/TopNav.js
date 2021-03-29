@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { GlobalStateContext } from '../context/GlobalContextProvider'
 import { RadioBar, ScheduleBar } from './index'
+import { formatDateTime } from '../utils'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
@@ -16,11 +17,11 @@ dayjs.extend(timezone)
 function TopNav() {
   const globalState = useContext(GlobalStateContext)
 
-  const [nycTime, setNYCTime] = useState(dayjs().tz('America/New_York'))
+  const [nycTime, setNYCTime] = useState(formatDateTime(null, 'current-time'))
   const [laTime, setLATime] = useState(dayjs().tz('America/Los_Angeles'))
 
   /**
-   * Function that adds one second to the time values set in each `useState`.
+   * Function that adds one second to the clocks set in each `useState`.
    * @category useEffect
    * @name addOneSecondToClock
    */

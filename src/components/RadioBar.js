@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import Ticker from 'react-ticker'
 import { useQuery } from '@apollo/client'
 import { RadioPlayer } from './index'
-import { formatDateTime, getResidentString } from '../utils'
+import { formatDateTime, getResidentString, mappableDataFilter } from '../utils'
 import { GET_DEFAULT_MIX } from '../queries'
 import {
   GlobalDispatchContext,
@@ -23,42 +23,13 @@ function RadioBar({ nycTime, laTime }) {
   const [radioData, setRadioData] = useState({})
   const [pageIsVisible, setPageIsVisible] = useState(true)
 
+  /**
+   * @category useQuery
+   * @name getDefaultMix
+   */
+  const { loading, error, data } = useQuery(GET_DEFAULT_MIX)
   const clearMixSearchTags = async () =>
     await dispatch({ type: 'CLEAR_MIX_SEARCH_TAGS' })
-
-  // const handleVisibilityChange = (isVisible) => {
-  //   setPageIsVisible(isVisible);
-  // };
-
-  // const handlePlayLive = async () => {
-  //   await dispatch({
-  //     type: "CHANGE_URL",
-  //     payload: {
-  //       url: "https://streamer.radio.co/sa3c47c55b/listen",
-  //       title: "Halfmoon Radio",
-  //     },
-  //   });
-  // };
-
-  // NEW LINK: https://public.radio.co/stations/s6f093248d/status
-
-  // const liveText = "Pendulum: Hold Your Colour 15th Anniversary Live Set";
-  // const renderLiveTicker = (text) => {
-  //   return (
-  //     <div className="columns is-mobile is-vcentered live-bar">
-  //       <div className="column is-narrow live-invert">
-  //         <p className="display-text is-size-5 has-text-centered">ON AIR</p>
-  //       </div>
-  //       <div className="column live-ticker">
-  //         <Ticker mode="await" offset="run-in" speed={3}>
-  //           {() => <p className="display-text is-size-5">{text}!</p>}
-  //         </Ticker>
-  //       </div>
-  //     </div>
-  //   );
-  // };
-
-  const { loading, error, data } = useQuery(GET_DEFAULT_MIX)
 
   /**
    * Query the HMBK Prismic CMS to get the data for the initial mix data.
@@ -70,26 +41,44 @@ function RadioBar({ nycTime, laTime }) {
       // console.log("Initial Mix request in progress");
     }
     if (error) {
-      console.log(`initialMix Error: ${error.message}`)
+      console.error(`initialMix Error: ${error.message}`)
     }
     if (data) {
-      const mixDataObject = data.allTopnavs.edges[0].node.default_mix
-      const {
-        featured_residents,
-        mix_image,
-        mix_link,
-        mix_title,
-      } = mixDataObject
+      if (data.allTopnavs.edges[0].node) {
+        const mixDataObject = data.allTopnavs.edges[0].node.default_mix
+        const {
+          featured_residents,
+          mix_image,
+          mix_link,
+          mix_title,
+        } = mixDataObject
 
-      const mixResidentsString = getResidentString(featured_residents)
+        /**
+         * Another case where `objectKeyCount` needs to be assigned `2` for {@link mappableDataFilter}.
+         */
+        const filteredResidents = mappableDataFilter(featured_residents, 2)
+        const mixResidentsString = getResidentString(filteredResidents)
 
+        return dispatch({
+          type: 'SET_INITIAL_MIX',
+          payload: {
+            url: mix_link,
+            title: mix_title,
+            resident: mixResidentsString,
+            img: mix_image.now_playing.url,
+          },
+        })
+      }
+      /**
+       * Handle case where no initial mix is selected.
+       */
       return dispatch({
         type: 'SET_INITIAL_MIX',
         payload: {
-          url: mix_link,
-          title: mix_title,
-          resident: mixResidentsString,
-          img: mix_image.now_playing.url,
+          url: null,
+          title: null,
+          resident: null,
+          img: null,
         },
       })
     }

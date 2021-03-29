@@ -12,12 +12,39 @@
 }
 
 .single-show-entry {
-  border-top: 2px solid $grey;
-  min-height: 6rem;
+  border-top: 2px solid $grey-darker;
+  min-height: 6.5rem;
   transition: 0.75s $easing;
+  &.column {
+    height: 100%;
+  }
 }
 
 .today-date {
   padding-top: 0.75 * $gap;
   padding-bottom: 0.75 * $gap;
+}
+
+.now-playing {
+  text-transform: uppercase;
+  line-height: 1.2;
+  border-top-right-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+  animation: onAirBGChange 2s infinite;
+
+  p {
+    font-weight: 700;
+  }
+}
+
+@keyframes onAirBGChange {
+  0% {
+    background-color: darken($color: $primary, $amount: 35);
+  }
+  50% {
+    background-color: darken($color: $primary, $amount: 15);
+  }
+  100% {
+    background-color: darken($color: $primary, $amount: 35);
+  }
 }

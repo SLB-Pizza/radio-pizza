@@ -153,13 +153,13 @@ function ScheduleIndexPage() {
    * @function
    */
   useEffect(() => {
-    const updateTimeByFifteenSeconds = setInterval(() => {
-      setTodayDate(todayDate.add(60, 's'))
-      console.log('time is now:', todayDate)
-    }, 60000)
+    const updateTimeByOneSecond = setInterval(() => {
+      setTodayDate(todayDate.add(1, 's'))
+      // console.log('time is now:', todayDate)
+    }, 1000)
 
     return () => {
-      clearInterval(updateTimeByFifteenSeconds)
+      clearInterval(updateTimeByOneSecond)
     }
   }, [todayDate])
 

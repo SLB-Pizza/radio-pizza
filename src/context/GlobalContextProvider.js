@@ -30,7 +30,10 @@ const initialState = {
   currentClockTime: '',
   mixSearchTags: null,
   sameTagsInQuery: false,
-  liveMarquee: "HalfMoon Radio - Streaming LIVE!",
+  liveMarquee: {
+    liveShowTitle: "DEFAULT ARTIST STRING",
+    liveShowGuests: "DEFAULT GUESTS STRING"
+  },
 }
 
 function reducer(state, action) {
@@ -289,18 +292,11 @@ function reducer(state, action) {
     //   img: state.playlist[0].img,
     // };
 
-    case 'MARQUEE_SET_DEFAULT':
-      return {
-        ...state,
-        liveMarquee: "HalfMoon Radio - Streaming LIVE!",
-      }
-
     case 'MARQUEE_UPDATE':
-      alert
 
       return {
         ...state,
-        liveMarquee: action.payload.marqueeMessage,
+        liveMarquee: action.payload.marquee,
       }
 
     default:

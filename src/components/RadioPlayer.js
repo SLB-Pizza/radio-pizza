@@ -5,7 +5,7 @@ import PageVisibility from 'react-page-visibility'
 import { hot } from 'react-hot-loader'
 import firebase from "gatsby-plugin-firebase"
 import { useObjectVal } from "react-firebase-hooks/database"
-import { DB, remoteMarquee, updateRemoteMarquee, getRemoteMarquee } from '../utils/firebaseDbConnection'
+import { updateRemoteMarquee, getRemoteMarquee } from '../utils/firebaseDbConnection'
 
 import {
   GlobalDispatchContext,
@@ -87,45 +87,6 @@ function RadioPlayer() {
     return
   }
 
-  // const handleVolumeChange = (e) => {
-  //   let value = parseFloat(e.target.value);
-  //   console.log("current volume", value);
-
-  //   setLocalState({ volume: value });
-  // };
-
-  // const load = async (url) => {
-  //   await setLocalState({
-  //     ...localState,
-  //     url: url,
-  //     played: 0,
-  //     loaded: 0,
-  //     pip: false,
-  //   });
-  // };
-
-  // const renderLoadButton = (url, label) => {
-  //   return <button onClick={() => this.load(url)}>{label}</button>;
-  // };
-
-  // const handleDuration = (duration) => {
-  //   setLocalState({ duration: duration });
-  // };
-
-  // const renderNowPlaying = (resident, title) => {
-  //   return (
-  //     <Ticker mode="await" offset="run-in" speed={3}>
-  //       {() => (
-  //         <div className="is-hidden-tablet" id="radioShowName">
-  //           <p className="display-text is-size-6-mobile">
-  //             {resident} – {title}
-  //           </p>
-  //         </div>
-  //       )}
-  //     </Ticker>
-  //   );
-  // };
-
   const player = useRef(ReactPlayer)
 
   return (
@@ -170,9 +131,16 @@ function RadioPlayer() {
         globalState.live ?
         (
           <div id="now-playing-details">
-            <p className="title is-size-6-tablet is-size-7-mobile">
-              {globalState.liveMarquee}
-            </p>
+            { globalState.liveMarquee.liveShowTitle && 
+              <p className="title is-size-6-tablet is-size-7-mobile">
+                {globalState.liveMarquee.liveShowTitle}
+              </p>
+            }
+            { globalState.liveMarquee.liveShowGuests && 
+              <p className="title is-size-6-tablet is-size-7-mobile">
+                {globalState.liveMarquee.liveShowGuests}
+              </p>
+            }
           </div>
         )
         : (<div
@@ -183,6 +151,7 @@ function RadioPlayer() {
             }
             id="now-playing"
           >
+            {/* CHRISTIAN resident name and track title may be flipped */}
           {globalState.title === null ? (
             <div id="now-playing-details">
               <p className="title is-size-6-tablet is-size-7-mobile">

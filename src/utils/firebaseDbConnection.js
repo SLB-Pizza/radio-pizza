@@ -1,18 +1,41 @@
+import React, { useState, useEffect, useContext } from 'react'
 import firebase from "gatsby-plugin-firebase";
 import { useObjectVal } from "react-firebase-hooks/database"
-
-// export const DB = firebase.database && firebase.database();
-
-// export const remoteMarquee = DB?.ref("/liveStreamMarquee");
+import { GlobalDispatchContext, GlobalStateContext } from '../context/GlobalContextProvider';
 
 export const updateRemoteMarquee = (key, data) => {
     return firebase.database().ref("/liveStreamMarquee").child(key).update(data);
 };
 
 export const getRemoteMarquee = async () => {
-	const [value, loading, error] = await useObjectVal( firebase.database().ref("liveStreamMarquee") );
+	const globalState = useContext(GlobalStateContext);
+	const dispatch = useContext(GlobalDispatchContext)
 
-	console.log( 'value', value );
+	const [value, loading, error] = useObjectVal( firebase.database().ref("liveStreamMarquee/marquee") );
 
-	return value;
+	console.log( 'getRemoteMarquee value', value );
+	console.log( 'getRemoteMarquee loading', loading );
+	console.log( 'getRemoteMarquee error', error );
+
+	if ( error ) {
+		console.error( error );
+	}
+
+	if( ( value ) 
+		&& ( 
+			( value.liveShowTitle !== globalState.liveMarquee.liveShowTitle ) 
+			|| ( value.liveShowGuests !== globalState.liveMarquee.liveShowGuests )
+		) 
+	) {
+		await dispatch({
+			type: 'MARQUEE_UPDATE',
+			payload: {
+				marquee: value,
+			}
+		})
+	}
+
+	if ( ! loading ){
+		return value;
+	}
 }

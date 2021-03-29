@@ -3,8 +3,6 @@ import React, { useEffect, useContext, useRef, useState } from 'react'
 import { graphql } from 'gatsby'
 import { CMSIssueMessage } from '../../components'
 import { cmsNodeValidator, getMixTitle, uidValidator } from '../../utils'
-import firebase from "gatsby-plugin-firebase"
-import { useObjectVal } from "react-firebase-hooks/database"
 import {
   GlobalDispatchContext,
   GlobalStateContext,
@@ -29,14 +27,16 @@ function HMBKAdminPage({ data, prismic }) {
   const dispatch = useContext(GlobalDispatchContext)
   const globalState = useContext(GlobalStateContext)
 
-  const [marqueeMessage, setMarqueeMessage] = useState('');
+  const [liveTitle, setLiveTitle] = useState('');
+  const [liveGuests, setLiveGuests] = useState('');
+  
 
   const remoteMarquee = getRemoteMarquee();
 
   const prismicContent = data.prismic._allDocuments
   if (!prismicContent) return null
 
-  const updateMarquee = ( event ) => {
+  const updateMarqueeTitle = ( event ) => {
     event.preventDefault();
 
     if ( 'string' !== typeof event.target.value ) {
@@ -44,50 +44,43 @@ function HMBKAdminPage({ data, prismic }) {
       return;
     }
 
-    return setMarqueeMessage( event.target.value );
+    return setLiveTitle( event.target.value );
+  }
+
+  const updateMarqueeGuests = ( event ) => {
+    event.preventDefault();
+
+    if ( 'string' !== typeof event.target.value ) {
+      alert( 'Please only input alphanumeric characters' );
+      return;
+    }
+
+    return setLiveGuests( event.target.value );
   }
 
   const submitMarquee = async ( event ) => {
     event.preventDefault();
 
-    if ( 'string' !== typeof marqueeMessage ) {
-      alert( 'Please only input alphanumeric characters' );
-      return;
-    }
-
-    await dispatch({
-      type: 'MARQUEE_UPDATE',
-      payload: {
-        marqueeMessage,
-      }
-    })
-
     await updateRemoteMarquee( 
       "marquee", 
-      { message: marqueeMessage }
+      { 
+        liveShowGuests: liveGuests,
+        liveShowTitle: liveTitle
+      }
     )
   }
 
-  useEffect( () => {
-    // console.log( 'db value?.marquee?.message', value?.marquee?.message )
-    // console.log( 'loading db', loading )
-    // console.log( 'error db', error )
-    // console.log( 'db', db )
-    updateRemoteMarquee( 
-      "marquee", 
-      {
-        message: globalState.liveMarquee
-      }
-    )
-  }, [globalState.liveMarquee] );
 
   const marqueeSetDefault = async ( event ) => {
     event.preventDefault();
 
-    return await dispatch({
-      type: 'MARQUEE_SET_DEFAULT',
-    })
-
+    await updateRemoteMarquee( 
+      "marquee", 
+      { 
+        liveShowGuests: "NO LIVE GUESTS",
+        liveShowTitle: "NO LIVE TITLE"
+      }
+    )
   }
 
   return (
@@ -99,19 +92,29 @@ function HMBKAdminPage({ data, prismic }) {
             <h3 className="title is-4-touch">HalfmoonBK Admin Dashboard</h3>
 
             <h4 className="">Live Streaming Marquee</h4>
-            <p className="subtitle is-6-touch">{`Remote Marquee: ${remoteMarquee.message}`}</p>
-            <p className="subtitle is-6-touch">Global Context Marquee: {globalState.liveMarquee}</p>
-            <p className="subtitle is-6-touch">Local State Marquee: {marqueeMessage}</p>
+            <p className="subtitle is-6-touch">{`Current Marquee: 
+            ${globalState.liveMarquee.liveShowTitle} + ${globalState.liveMarquee.liveShowGuests}`}</p>
 
             <form onSubmit={submitMarquee} >
               <label>
-                New Marquee Message: 
+                Live Show Title: 
                 <input
                   type='text'
                   // id='marqueeInput'
                   name='marqueeInput'
                   placeholder="Type new message here"
-                  onChange={updateMarquee}
+                  onChange={updateMarqueeTitle}
+                  onSubmit={submitMarquee}
+                />
+              </label>
+              <label>
+                Live Show Guests: 
+                <input
+                  type='text'
+                  // id='marqueeInput'
+                  name='marqueeInput'
+                  placeholder="Type new message here"
+                  onChange={updateMarqueeGuests}
                   onSubmit={submitMarquee}
                 />
               </label>

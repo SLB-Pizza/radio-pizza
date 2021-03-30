@@ -9,7 +9,7 @@ import { closeSchedule } from '../dispatch'
  * Renders the schedule dropdown bar when `setOpen` is set to `true` in {@link ScheduleBar}.
  * @category Site Elements
  * @function ScheduleDropdown
- * @param {Object} showData - single data node from
+ * @param {Object[]} showData - data array of the next two, if available, dates with scheduled shows
  * @param {Object} timeNow - dayJS object
  * @returns {jsx}
  */
@@ -18,25 +18,32 @@ function ScheduleDropdown({ showData, timeNow }) {
   const [scheduleData, setScheduleData] = useState(null)
 
   /**
-   * Check to see if today's date matches the date of `showData.schedule_data`.
+   * Three scenarios:
+   * 1. `showData` exists and has scheduled shows for today: in this case, today's shows are always be `showData[0].node.schedule_date`.
    * If it does, means `showData` is for today; set `scheduleData` to `schedule_entries`.
-   * If it doesn't, `showData` is for a different day; null `scheduleData` to render fallback.
+   * 2. `showData[0]` contains schedule objects for dates OTHER THAN today.
+   * 3. `showData` is an empty array: there are currently no shows scheduled after yesterday's date.
+   * For both 2 and 3, null `scheduleData` to render "No shows scheduled!" fallback.
    * @category useEffect
    * @name updateScheduleOnDateChange
    */
   useEffect(() => {
     const updateScheduleOnDateChange = () => {
-      const { schedule_date, schedule_entries } = showData
+      if (showData.length) {
+        const { schedule_date, schedule_entries } = showData[0].node
 
-      const isScheduleDataForToday = formatDateTime(
-        timeNow,
-        'is-schedule-date-today',
-        null,
-        schedule_date
-      )
+        const isScheduleDataForToday = formatDateTime(
+          timeNow,
+          'is-schedule-date-today',
+          null,
+          schedule_date
+        )
 
-      if (isScheduleDataForToday) {
-        setScheduleData(schedule_entries)
+        if (isScheduleDataForToday) {
+          setScheduleData(schedule_entries)
+        } else {
+          setScheduleData(null)
+        }
       } else {
         setScheduleData(null)
       }

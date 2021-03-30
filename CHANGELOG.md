@@ -1,3 +1,31 @@
+### Version 1.9.1
+- feat(Divider): add HMBK divider to Guide, Feature templates closes #142
+- style(Password): make input and button normal size
+- backup(Prismic): update cms_guide, feature type JSON
+- style(ImageEmbed): extend `.feature-img` style to Text Block imgs
+- refactor(migration): migrate Feature, Guide CMS types rework page and template queries update SingleFeatureCard header deconstruction closes #139 closes #142 - missed commit
+- feat(Interview): add Interview slice to Feature
+- backup(Prismic): update Feature, CMS Guide with Interview Slice
+- refactor(/schedule): write useEffect to handle initial render set todayDate using formatDateTime 'current-time' set weekDatesArray using new 'get-this-weeks-dates' case in formatDateTime refactor DateSelectorButtons to use weekDatesArray; short-circuit fetch and set sevenDayScheduleData in state
+- inter(commit): mid /schedule work
+- inter(prismic date convert): commit for later pull
+- feat(/schedule): refactor SingleScheduleEntryRow into subcomponents add mock data address double null: mix_title and resident name augment getSevenDaysSchedule query update schedule Prismic backup refactor getResidentLinks to work with wrapper p class; unwrap in SingleScheduledShowTitling
+- docs(mappableDataFilter): add note about Apollo-based Prismic query data arrays
+- docs(Interviewee): add jsx to return
+- refactor(getResidentLinks): remove explicit for-loop handle case where resident_name is null inside residentsArr map by using UID
+- refactor(ShowTimes): remove !end render case; change fallback to render TBD
+- refactor(/schedule): handle fallbacks; extract local components fix render of Prismic mixes with and without titles fix render of Prismic residents featured on mixes (one and multiples) simplify fallback cases for show times and live stream info
+- feat(/schedule): create isCurrentShowLive util; add OnAirScheduleTag
+- refactor(query): rename getNextShow to getTodaysSchedule
+- refactor(queries): update getTodaysSchedule import
+- style(DateSelectorButton): make desktop/touch styles add is-focused styling so button stays active even off-click while that date is selected
+- style(link color): lighten link pink color; 25 to 35
+- refactor(cleanup): change order of cases in fDT; fix docs in ICSL
+- fix(query): update query to reflect Feature migration
+- refactor(ScheduleBar): componentize everything create dispatches folder, index and scheduleBarDispatches update client-side queries
+- style(DateSelectorButton): make mobile buttons larger
+- feat(ScheduleBar): render showData in ScheduleDropdown make schedule date headers on schedule page and dropdown sticky
+
 ### Version 1.4.0
 - add og:image:type
 - feat(SMC): add query, dispatch, and function to TagButtons add GET_SELECTED_TAGGED_MIXES query add tagDispatch function add base query set up for /mixes

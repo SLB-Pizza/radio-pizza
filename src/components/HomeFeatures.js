@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'gatsby'
-import { RichText } from 'prismic-reactjs'
 import { useQuery } from '@apollo/client'
 
 import { SingleFeatureCard } from './index'
@@ -8,11 +7,11 @@ import { FILL_HOME_FEATURES } from '../queries'
 import { mappableDataFilter } from '../utils'
 
 /**
- * Returns the HomeFeatures section
- * @category Site Elements
+ * Returns the Editorial content section of the Homepage.
+ * @category Layout Helper
  * @function HomeFeatures
- * @param {Array} headline - Prismic RichText object
- * @param {Array} blurb - Prismic RichText object
+ * @param {String} headline - the label for this section
+ * @param {String} blurb - short description to give the user context
  * @param {Object[]} homeFeaturesData - Array of data from Prismic received from /index; original data set in Prismic Homepage document
  * @returns {jsx}
  */
@@ -81,8 +80,8 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
       <div className="columns is-hidden-touch">
         <div className="column is-3">
           <div className="sticky-section content">
-            {headline && <p className="title">{RichText.asText(headline)}</p>}
-            {blurb && <p className="subtitle">{RichText.render(blurb)}</p>}
+            {headline && <h3 className="title">{headline}</h3>}
+            {blurb && <p className="subtitle">{blurb}</p>}
 
             <Link to="/features">
               <button className="button is-outlined is-rounded">
@@ -96,7 +95,7 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
           <div className="columns is-multiline">
             {twelveFeatures?.map(({ node }, index) => (
               <SingleFeatureCard
-                key={`${index}-home-feature-d`}
+                key={`${index}-home-feature`}
                 featureData={node}
                 featureColumnLayout={featuresPageLayout}
               />
@@ -108,11 +107,9 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
       Touch Sizes
       */}
       <div className="columns is-mobile is-multiline is-vcentered is-hidden-desktop">
-        <div className="column">
-          {headline && (
-            <p className="title is-4">{RichText.asText(headline)}</p>
-          )}
-          {blurb && <p className="subtitle is-6">{RichText.asText(blurb)}</p>}
+        <div className="column content">
+          {headline && <h3 className="title is-4">{headline}</h3>}
+          {blurb && <p className="subtitle is-6">{blurb}</p>}
         </div>
         <div className="column is-narrow">
           <Link to="/features">

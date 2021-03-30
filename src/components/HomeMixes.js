@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'gatsby'
-import { RichText } from 'prismic-reactjs'
 import { useQuery } from '@apollo/client'
 
 import { SingleMixCard } from './index'
@@ -9,10 +8,10 @@ import { mappableDataFilter } from '../utils'
 
 /**
  * Returns the Mixes content section of the Homepage, directly underneath the {@link Hero} section.
- * @category Site Elements
+ * @category Layout Helper
  * @function HomeMixes
- * @param {Array} headline - Prismic RichText object
- * @param {Array} blurb - Prismic RichText object
+ * @param {String} headline - the label for this section
+ * @param {String} blurb - short description to give the user context
  * @param {Object[]} homeMixesData - Array of data from Prismic received from /index; original data set in Prismic Homepage document
  * @returns {jsx}
  */
@@ -24,33 +23,40 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
 
   /**
    * Uses the query {@link FILL_HOME_MIXES} to fetch `mixQueryCount` number of mixes to set twelvesMixes to map.
+   * @category useQuery
+   *
    */
   const { data, loading, error } = useQuery(FILL_HOME_MIXES, {
-    variables: { count: mixQueryCount },
+    variables: {
+      count: mixQueryCount,
+    },
   })
 
+  /**
+   * Three scenarios:
+   * 1. homeMixesData has more than 12 mix objects
+   * Grab only the first 12 mixes
+   * 2. homeMixesData has less than 12 mix objects
+   * Subtract quantity of filteredHomeMixes from 12
+   * Query for that many of the most recent mixes
+   * Spread that data into the filteredHomeMixes array
+   * setTwelveMixes the new 12 mix filteredHomeMixes
+   * 3. homeMixesData has exactly 12 mix objects
+   * we have exactly 12 mixes; directly setTwelveMixes off it
+   * @category useEffect
+   * @name fetchRemainingHomeMixes
+   */
   useEffect(() => {
     const fetchRemainingHomeMixes = () => {
-      /**
-       * Three scenarios:
-       * 1) homeMixesData has more than 12 mix objects
-       * 2) homeMixesData has less than 12 mix objects
-       * 3) homeMixesData has exactly 12 mix objects
-       */
       if (filteredHomeMixes.length > 12) {
         /**
          * Scenario 1
-         * Grab only the first 12 mixes
          */
         const mixesToMap = filteredHomeMixes.slice(0, 13)
         setTwelveMixes(mixesToMap)
       } else if (filteredHomeMixes.length < 12) {
         /**
          * Scenario 2
-         * Subtract quantity of filteredHomeMixes from 12
-         * Query for that many of the most recent mixes
-         * Spread that data into the filteredHomeMixes array
-         * setTwelveMixes the new 12 mix filteredHomeMixes
          */
 
         if (data) {
@@ -61,7 +67,6 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
       } else {
         /**
          * Scenario 3
-         * we have exactly 12 mixes; directly setTwelveMixes off it
          */
         setTwelveMixes(filteredHomeMixes)
       }
@@ -81,8 +86,8 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
       <div className="columns is-hidden-touch">
         <div className="column is-3">
           <div className="sticky-section content">
-            {headline && <p className="title">{RichText.asText(headline)}</p>}
-            {blurb && <p className="subtitle">{RichText.render(blurb)}</p>}
+            {headline && <h3 className="title">{headline}</h3>}
+            {blurb && <p className="subtitle">{blurb}</p>}
             <Link to="/mixes">
               <button className="button is-outlined is-rounded">
                 All Mixes
@@ -105,10 +110,8 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
       {/* TOUCH */}
       <div className="columns is-mobile is-multiline is-vcentered is-hidden-desktop">
         <div className="column">
-          {headline && (
-            <p className="title is-4">{RichText.asText(headline)}</p>
-          )}
-          {blurb && <p className="subtitle is-6">{RichText.asText(blurb)}</p>}
+          {headline && <h3 className="title is-4">{headline}</h3>}
+          {blurb && <p className="subtitle is-6">{blurb}</p>}
         </div>
         <div className="column is-narrow">
           <Link to="/mixes">

@@ -1,18 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import PropTypes from 'prop-types'
-
-import '../styles/index.scss'
 import { Hero, HomeMixes, HomeEvents, HomeFeatures } from '../components'
+import '../styles/index.scss'
 
 /**
  * Layout for the Index Page of the site.
  * @category Pages
  * @function IndexPage
  * @param {Object} data - the data object coming from Prismic CMS that contains all data needed to build the layout for index route, `/`
-
  * @returns {jsx}
-
  */
 function IndexPage({ data }) {
   /**
@@ -30,12 +26,12 @@ function IndexPage({ data }) {
    * Deconstruct homepageData
    */
   const {
-    home_mixes_headline,
+    home_mixes_titling,
     home_mixes_blurb,
-    home_events_headline,
+    home_events_titling,
     home_events_blurb,
-    home_features_headline,
-    home_features_blurb,
+    home_editorial_titling,
+    home_editorial_blurb,
     homepage_carousel,
     home_mixes,
     editorials,
@@ -45,18 +41,18 @@ function IndexPage({ data }) {
     <main className="has-navbar-fixed-bottom full-height-page">
       <Hero slides={homepage_carousel} />
       <HomeMixes
-        headline={home_mixes_headline}
+        headline={home_mixes_titling}
         blurb={home_mixes_blurb}
         homeMixesData={home_mixes}
       />
       <HomeEvents
-        headline={home_events_headline}
+        headline={home_events_titling}
         blurb={home_events_blurb}
         homeEventsData={homeEventsData}
       />
       <HomeFeatures
-        headline={home_features_headline}
-        blurb={home_features_blurb}
+        headline={home_editorial_titling}
+        blurb={home_editorial_blurb}
         homeFeaturesData={editorials}
       />
     </main>
@@ -69,12 +65,12 @@ export const query = graphql`
       allHomepages {
         edges {
           node {
-            home_mixes_headline
+            home_mixes_titling
             home_mixes_blurb
-            home_features_headline
-            home_features_blurb
-            home_events_headline
+            home_events_titling
             home_events_blurb
+            home_editorial_titling
+            home_editorial_blurb
             homepage_carousel {
               slide_bg
               slide_cta

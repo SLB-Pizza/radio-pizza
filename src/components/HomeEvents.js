@@ -1,14 +1,14 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 import { Link } from 'gatsby'
-import { RichText } from 'prismic-reactjs'
 import { SingleEventCard } from './index'
 
 /**
- * The Events section featuring the 6 most recent events.
+ * Returns the Events content section of the Homepage.
  * @category Layout Section
  * @function HomeEvents
- * @param {*} { blurb, headline, homeEventsData }
+ * @param {String} headline - the label for this section
+ * @param {String} blurb - short description to give the user context
+ * @param {Object[]} homeEventsData - Array of data from Prismic received from /index; original data set in Prismic Homepage document
  * @returns {jsx}
  */
 function HomeEvents({ blurb, headline, homeEventsData }) {
@@ -20,8 +20,8 @@ function HomeEvents({ blurb, headline, homeEventsData }) {
       <div className="columns is-hidden-touch">
         <div className="column is-3">
           <div className="sticky-section content">
-            <p className="title">{RichText.asText(headline)}</p>
-            <p className="subtitle">{RichText.render(blurb)}</p>
+            {headline && <h3 className="title">{headline}</h3>}
+            {blurb && <p className="subtitle">{blurb}</p>}
             <Link to="/events">
               <button className="button is-outlined is-rounded">
                 All Events
@@ -44,8 +44,8 @@ function HomeEvents({ blurb, headline, homeEventsData }) {
       {/* TOUCH */}
       <div className="columns is-mobile is-multiline is-vcentered is-hidden-desktop">
         <div className="column">
-          <p className="title is-4">{RichText.asText(headline)}</p>
-          <p className="subtitle is-6">{RichText.asText(blurb)}</p>
+          {headline && <h3 className="title is-4">{headline}</h3>}
+          {blurb && <p className="subtitle is-6">{blurb}</p>}
         </div>
         <div className="column is-narrow">
           <Link to="/events">
@@ -66,14 +66,6 @@ function HomeEvents({ blurb, headline, homeEventsData }) {
       </div>
     </div>
   )
-}
-
-HomeEvents.propTypes = {
-  blurb: PropTypes.any,
-  headline: PropTypes.any,
-  homeEventsData: PropTypes.shape({
-    map: PropTypes.func,
-  }),
 }
 
 export default HomeEvents

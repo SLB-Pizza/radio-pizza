@@ -24,7 +24,7 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
   /**
    * Uses the query {@link FILL_HOME_MIXES} to fetch `mixQueryCount` number of mixes to set twelvesMixes to map.
    * @category useQuery
-   *
+   * @name FILL_HOME_MIXES
    */
   const { data, loading, error } = useQuery(FILL_HOME_MIXES, {
     variables: {

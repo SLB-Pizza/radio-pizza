@@ -1,26 +1,25 @@
 import React, { useContext } from 'react'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import { ScheduleDropdown, UpcomingShow } from './index'
-import { GlobalDispatchContext } from '../context/GlobalContextProvider'
+import {
+  GlobalStateContext,
+  GlobalDispatchContext,
+} from '../context/GlobalContextProvider'
 import { closeSchedule, toggleSchedule, handleLiveTest } from '../dispatch'
 
 /**
- *
- *
+ * Render the layout of the ScheduleBar using globalState.
+ * Called by: {@link ScheduleBar}
+ * Calls: {@link UpcomingShow}, {@link ScheduleDropdown}
+ * @category Layout Helper
  * @function ScheduleBarLayout
- * @param {Object} globalState - global
- *   timeNow,
- *   todaysSchedule,
- * }
- * @returns
+ * @param {Object} timeNow - dayJS object originating from {@link TopNav}
+ * @param {Object[]} upcomingShows - array of schedule data nodes, max 2
+ * @returns {jsx}
  */
-export default function ScheduleBarLayout({
-  globalState,
-  timeNow,
-  todaysSchedule,
-}) {
+export default function ScheduleBarLayout({ timeNow, upcomingShows }) {
   const dispatch = useContext(GlobalDispatchContext)
-
+  const globalState = useContext(GlobalStateContext)
   const { live, playingRadio, scheduleOpen, ...rest } = globalState
 
   return (
@@ -67,14 +66,12 @@ export default function ScheduleBarLayout({
               )}
             </button>
           ) : (
-            <p className="display-text is-size-6-desktop is-size-7-touch">
-              Next Show
-            </p>
+            <p className="title is-size-6-desktop is-size-7-touch">Next Show</p>
           )}
         </div>
 
-        {todaysSchedule ? (
-          <UpcomingShow showData={todaysSchedule} />
+        {upcomingShows.length ? (
+          <UpcomingShow showData={upcomingShows} timeNow={timeNow} />
         ) : (
           <div className="column next-show" />
         )}
@@ -96,7 +93,7 @@ export default function ScheduleBarLayout({
         {/* <div className="column is-narrow">
             <Link to="/search">
               <Icon
-                onClick={() => closeSchedule()}
+                onClick={() => closeSchedule(dispatch)}
                 icon="search"
                 size="1x"
                 className="icon-color"
@@ -119,8 +116,8 @@ export default function ScheduleBarLayout({
           </a>
         </div>
       </div>
-      {todaysSchedule && scheduleOpen && (
-        <ScheduleDropdown showData={todaysSchedule} timeNow={timeNow} />
+      {upcomingShows && scheduleOpen && (
+        <ScheduleDropdown showData={upcomingShows} timeNow={timeNow} />
       )}
     </div>
   )

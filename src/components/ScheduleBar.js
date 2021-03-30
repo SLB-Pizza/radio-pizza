@@ -8,7 +8,7 @@ import {
 } from '../context/GlobalContextProvider'
 import { ScheduleBarLayout, OutsideClick } from './index'
 import { formatDateTime } from '../utils'
-import { GET_TODAYS_SCHEDULE } from '../queries'
+import { GET_UPCOMING_SHOWS } from '../queries'
 import { closeSchedule } from '../dispatch'
 
 function ScheduleBar({ timeNow }) {
@@ -17,17 +17,17 @@ function ScheduleBar({ timeNow }) {
 
   // const [pageIsVisible, setPageIsVisible] = useState(true);
   const [yesterdayDate, setYesterdayDate] = useState(null)
-  const [todaysSchedule, setTodaysSchedule] = useState([])
+  const [upcomingShows, setUpcomingShowData] = useState([])
 
   /**
-   * useLazyQuery called by {@link fetchTodaysSchedule}.
+   * useLazyQuery called by {@link fetchUpcomingShows}.
    * @category useLazyQueries
-   * @name getTodaysSchedule
+   * @name getUpcomingShows
    */
   const [
-    getTodaysSchedule,
-    { loading: isFetching, data: todayScheduleData },
-  ] = useLazyQuery(GET_TODAYS_SCHEDULE)
+    getUpcomingShows,
+    { loading: isFetching, data: upcomingShowData },
+  ] = useLazyQuery(GET_UPCOMING_SHOWS)
 
   /**
    * Compute current time and yesterday's date is Prismic query date format ("YYYY-MM-DD") every second.
@@ -53,14 +53,14 @@ function ScheduleBar({ timeNow }) {
   }, [])
 
   /**
-   * Once `yesterdayDate` value is set/updates, pass that value
+   * Once `yesterdayDate` value is set/updates, pass that value to getUpcomingShows
    * @category useEffect
-   * @name fetchTodaysSchedule
+   * @name fetchUpcomingShows
    */
   useEffect(() => {
-    const fetchTodaysSchedule = () => {
+    const fetchUpcomingShows = () => {
       if (yesterdayDate) {
-        getTodaysSchedule({
+        getUpcomingShows({
           variables: {
             yesterday: yesterdayDate,
           },
@@ -68,25 +68,24 @@ function ScheduleBar({ timeNow }) {
       }
     }
 
-    return fetchTodaysSchedule()
+    return fetchUpcomingShows()
   }, [yesterdayDate])
 
   /**
-   * Update `todayScheduleData` with the fetched data from {@link getTodaysSchedule}.
+   * Update `upcomingShowData` with the fetched data from {@link getUpcomingShows}.
    * @category useEffect
    * @name updateTodaysSchedule
    */
   useEffect(() => {
     const updateTodaysSchedule = () => {
-      if (todayScheduleData) {
-        const todayScheduleDataNode =
-          todayScheduleData.allSchedules.edges[0].node
+      if (upcomingShowData) {
+        const todayScheduleDataNode = upcomingShowData.allSchedules.edges
 
-        setTodaysSchedule(todayScheduleDataNode)
+        setUpcomingShowData(todayScheduleDataNode)
       }
     }
     return updateTodaysSchedule()
-  }, [todayScheduleData])
+  }, [upcomingShowData])
 
   // check if the Radio.co stream is live once upon bar mounting.
   // if so, set the globalState.live boolean to true.
@@ -197,18 +196,10 @@ function ScheduleBar({ timeNow }) {
    */
   return globalState.scheduleOpen ? (
     <OutsideClick id={'schedule-bar'} onClick={() => closeSchedule(dispatch)}>
-      <ScheduleBarLayout
-        globalState={globalState}
-        timeNow={timeNow}
-        todaysSchedule={todaysSchedule}
-      />
+      <ScheduleBarLayout timeNow={timeNow} upcomingShows={upcomingShows} />
     </OutsideClick>
   ) : (
-    <ScheduleBarLayout
-      globalState={globalState}
-      timeNow={timeNow}
-      todaysSchedule={todaysSchedule}
-    />
+    <ScheduleBarLayout timeNow={timeNow} upcomingShows={upcomingShows} />
   )
 }
 

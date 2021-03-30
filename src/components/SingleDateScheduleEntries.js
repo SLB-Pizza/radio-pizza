@@ -17,7 +17,7 @@ import { isCurrentShowLive } from '../utils'
  * @prop {String} entries.end_time - Prismic formatted DateTime string
  * @prop {?String} entries.scheduled_show - Prismic Mix data object; #1 render choice of {@link SingleScheduledShowTitling}
  * @prop {?String} entries.live_show_title - live show titling details
- * @prop {?String} entries.live_show_guests
+ * @prop {?String} entries.live_show_guests - live show guests details
  * @param {Object} currentTime - dayjs object detailing current time
  * @return {jsx}
  */
@@ -42,25 +42,27 @@ export default function SingleDateScheduleEntries({ entries, currentTime }) {
            */
           if (start_time && end_time) {
             isNowPlaying = isCurrentShowLive(currentTime, start_time, end_time)
+            return (
+              <div
+                key={`single-schedule-show-details-${index}`}
+                className="columns is-mobile is-multiline is-vcentered single-show-entry"
+              >
+                {isNowPlaying && <OnAirScheduleTag />}
+                <SingleScheduledShowTimes
+                  start={start_time}
+                  end={end_time}
+                  isNowPlaying={isNowPlaying}
+                />
+                <SingleScheduledShowTitling
+                  preRecordedMix={scheduled_show}
+                  liveShowTitle={live_show_title}
+                  liveShowGuests={live_show_guests}
+                />
+              </div>
+            )
+          } else {
+            return null
           }
-          return (
-            <div
-              key={`single-schedule-show-details-${index}`}
-              className="columns is-mobile is-multiline is-vcentered single-show-entry"
-            >
-              {isNowPlaying && <OnAirScheduleTag />}
-              <SingleScheduledShowTimes
-                start={start_time}
-                end={end_time}
-                isNowPlaying={isNowPlaying}
-              />
-              <SingleScheduledShowTitling
-                preRecordedMix={scheduled_show}
-                liveShowTitle={live_show_title}
-                liveShowGuests={live_show_guests}
-              />
-            </div>
-          )
         }
       )}
     </div>

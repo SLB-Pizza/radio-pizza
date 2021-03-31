@@ -7,9 +7,12 @@ import {
   GlobalDispatchContext,
   GlobalStateContext,
 } from '../../context/GlobalContextProvider'
-import { updateRemoteMarquee, getRemoteMarquee } from '../../utils/firebaseDbConnection'
+import { updateRemoteMarquee } from '../../utils/'
 
 function HMBKAdminPage({ data, prismic }) {
+  const dispatch = useContext(GlobalDispatchContext)
+  const globalState = useContext(GlobalStateContext)
+
   const entryLimit = 20
   const totalCount = data.prismic._allDocuments.totalCount
   const didMountRef = useRef(false)
@@ -24,63 +27,51 @@ function HMBKAdminPage({ data, prismic }) {
   const [problemCollections, setCollections] = useState([])
   const [problemSchedules, setSchedules] = useState([])
   const [problemStaffs, setStaffs] = useState([])
-  const dispatch = useContext(GlobalDispatchContext)
-  const globalState = useContext(GlobalStateContext)
 
-  const [liveTitle, setLiveTitle] = useState('');
-  const [liveGuests, setLiveGuests] = useState('');
-  
-
-  const remoteMarquee = getRemoteMarquee();
+  const [liveTitle, setLiveTitle] = useState('')
+  const [liveGuests, setLiveGuests] = useState('')
 
   const prismicContent = data.prismic._allDocuments
   if (!prismicContent) return null
 
-  const updateMarqueeTitle = ( event ) => {
-    event.preventDefault();
+  const updateMarqueeTitle = event => {
+    event.preventDefault()
 
-    if ( 'string' !== typeof event.target.value ) {
-      alert( 'Please only input alphanumeric characters' );
-      return;
+    if ('string' !== typeof event.target.value) {
+      alert('Please only input alphanumeric characters')
+      return
     }
 
-    return setLiveTitle( event.target.value );
+    return setLiveTitle(event.target.value)
   }
 
-  const updateMarqueeGuests = ( event ) => {
-    event.preventDefault();
+  const updateMarqueeGuests = event => {
+    event.preventDefault()
 
-    if ( 'string' !== typeof event.target.value ) {
-      alert( 'Please only input alphanumeric characters' );
-      return;
+    if ('string' !== typeof event.target.value) {
+      alert('Please only input alphanumeric characters')
+      return
     }
 
-    return setLiveGuests( event.target.value );
+    return setLiveGuests(event.target.value)
   }
 
-  const submitMarquee = async ( event ) => {
-    event.preventDefault();
+  const submitMarquee = async event => {
+    event.preventDefault()
 
-    await updateRemoteMarquee( 
-      "marquee", 
-      { 
-        liveShowGuests: liveGuests,
-        liveShowTitle: liveTitle
-      }
-    )
+    await updateRemoteMarquee('marquee', {
+      liveShowGuests: liveGuests,
+      liveShowTitle: liveTitle,
+    })
   }
 
+  const marqueeSetDefault = async event => {
+    event.preventDefault()
 
-  const marqueeSetDefault = async ( event ) => {
-    event.preventDefault();
-
-    await updateRemoteMarquee( 
-      "marquee", 
-      { 
-        liveShowGuests: "NO LIVE GUESTS",
-        liveShowTitle: "NO LIVE TITLE"
-      }
-    )
+    await updateRemoteMarquee('marquee', {
+      liveShowGuests: 'NO LIVE GUESTS',
+      liveShowTitle: 'NO LIVE TITLE',
+    })
   }
 
   return (
@@ -92,39 +83,46 @@ function HMBKAdminPage({ data, prismic }) {
             <h3 className="title is-4-touch">HalfmoonBK Admin Dashboard</h3>
 
             <h4 className="">Live Streaming Marquee</h4>
-            <p className="subtitle is-6-touch">{`Current Marquee: 
+            <p className="subtitle is-6-touch">{`Current Marquee:
             ${globalState.liveMarquee.liveShowTitle} + ${globalState.liveMarquee.liveShowGuests}`}</p>
 
-            <form onSubmit={submitMarquee} >
+            <form onSubmit={submitMarquee}>
               <label>
-                Live Show Title: 
+                Live Show Title:
                 <input
-                  type='text'
+                  type="text"
                   // id='marqueeInput'
-                  name='marqueeInput'
+                  name="marqueeInput"
                   placeholder="Type new message here"
                   onChange={updateMarqueeTitle}
                   onSubmit={submitMarquee}
                 />
               </label>
               <label>
-                Live Show Guests: 
+                Live Show Guests:
                 <input
-                  type='text'
+                  type="text"
                   // id='marqueeInput'
-                  name='marqueeInput'
+                  name="marqueeInput"
                   placeholder="Type new message here"
                   onChange={updateMarqueeGuests}
                   onSubmit={submitMarquee}
                 />
               </label>
-              <input className="button is-outlined is-rounded" type="submit" value="submit" />
+              <input
+                className="button is-outlined is-rounded"
+                type="submit"
+                value="submit"
+              />
             </form>
 
-            <button className="button is-outlined is-rounded" onClick={marqueeSetDefault}>
+            <button
+              className="button is-outlined is-rounded"
+              onClick={marqueeSetDefault}
+            >
               Set Marquee Default
             </button>
-            <br/>
+            <br />
 
             <p className="subtitle is-6-touch">
               These dummy mixes are the same as the ones on the home page. You

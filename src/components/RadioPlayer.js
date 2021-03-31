@@ -3,10 +3,6 @@ import ReactPlayer from 'react-player'
 import Ticker from 'react-ticker'
 import PageVisibility from 'react-page-visibility'
 import { hot } from 'react-hot-loader'
-import firebase from "gatsby-plugin-firebase"
-import { useObjectVal } from "react-firebase-hooks/database"
-import { updateRemoteMarquee, getRemoteMarquee } from '../utils/firebaseDbConnection'
-
 import {
   GlobalDispatchContext,
   GlobalStateContext,
@@ -127,31 +123,29 @@ function RadioPlayer() {
         </figure>
       </div>
 
-      {
-        globalState.live && globalState.playingRadio ?
-        (
-          <div id="now-playing-details">
-            { globalState.liveMarquee.liveShowTitle && 
-              <p className="title is-size-6-tablet is-size-7-mobile">
-                {globalState.liveMarquee.liveShowTitle}
-              </p>
-            }
-            { globalState.liveMarquee.liveShowGuests && 
-              <p className="title is-size-6-tablet is-size-7-mobile">
-                {globalState.liveMarquee.liveShowGuests}
-              </p>
-            }
-          </div>
-        )
-        : (<div
-            className={
-              globalState.isLoading
-                ? 'column text-truncate mix-data'
-                : 'column text-truncate mix-data is-loaded'
-            }
-            id="now-playing"
-          >
-            {/* CHRISTIAN resident name and track title may be flipped */}
+      {globalState.live && globalState.playingRadio ? (
+        <div id="now-playing-details">
+          {globalState.liveMarquee.liveShowTitle && (
+            <p className="title is-size-6-tablet is-size-7-mobile">
+              {globalState.liveMarquee.liveShowTitle}
+            </p>
+          )}
+          {globalState.liveMarquee.liveShowGuests && (
+            <p className="title is-size-6-tablet is-size-7-mobile">
+              {globalState.liveMarquee.liveShowGuests}
+            </p>
+          )}
+        </div>
+      ) : (
+        <div
+          className={
+            globalState.isLoading
+              ? 'column text-truncate mix-data'
+              : 'column text-truncate mix-data is-loaded'
+          }
+          id="now-playing"
+        >
+          {/* CHRISTIAN resident name and track title may be flipped */}
           {globalState.title === null ? (
             <div id="now-playing-details">
               <p className="title is-size-6-tablet is-size-7-mobile">
@@ -166,8 +160,8 @@ function RadioPlayer() {
               <p className="subtitle is-size-7">{globalState.resident}</p>
             </div>
           )}
-        </div>)
-      }
+        </div>
+      )}
 
       {/* <div className="column">
         <input

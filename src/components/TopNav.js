@@ -1,5 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { GlobalDispatchContext, GlobalStateContext } from '../context/GlobalContextProvider'
+import firebase from 'gatsby-plugin-firebase'
+import { useObjectVal } from 'react-firebase-hooks/database'
+import {
+  GlobalDispatchContext,
+  GlobalStateContext,
+} from '../context/GlobalContextProvider'
+
 import { RadioBar, ScheduleBar } from './index'
 import { formatDateTime } from '../utils'
 import dayjs from 'dayjs'
@@ -7,7 +13,7 @@ import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
 dayjs.extend(utc)
 dayjs.extend(timezone)
-import { getRemoteMarquee, remoteMarqueeDirects } from '../utils/firebaseDbConnection'
+
 /**
  * Renders the top navigation bar that contains {@link RadioBar} and {@link ScheduleBar}.
  * @category Site Elements
@@ -16,12 +22,45 @@ import { getRemoteMarquee, remoteMarqueeDirects } from '../utils/firebaseDbConne
  */
 function TopNav() {
   const globalState = useContext(GlobalStateContext)
-  
-  const [nycTime, setNYCTime] = useState(dayjs().tz('America/New_York'))
+  const dispatch = useContext(GlobalDispatchContext)
+
+  const [nycTime, setNYCTime] = useState(formatDateTime(null, 'current-time'))
   const [laTime, setLATime] = useState(dayjs().tz('America/Los_Angeles'))
-  
-  
-  getRemoteMarquee();
+
+  const [value, loading, error] = useObjectVal(
+    firebase.database().ref('liveStreamMarquee/marquee')
+  )
+
+  /**
+   * Opens a subscripttion to the Firebase DB to read the live marquee data.
+   * @category useEffect
+   * @name getRemoteMarquee
+   */
+  useEffect(() => {
+    const getRemoteMarquee = async () => {
+      if (error) {
+        console.error(error)
+      }
+
+      if (
+        value &&
+        (value.liveShowTitle !== globalState.liveMarquee.liveShowTitle ||
+          value.liveShowGuests !== globalState.liveMarquee.liveShowGuests)
+      ) {
+        await dispatch({
+          type: 'MARQUEE_UPDATE',
+          payload: {
+            marquee: value,
+          },
+        })
+      }
+
+      if (!loading) {
+        return value
+      }
+    }
+    getRemoteMarquee()
+  })
 
   /**
    * Function that adds one second to the clocks set in each `useState`.
@@ -33,12 +72,11 @@ function TopNav() {
       setNYCTime(nycTime.add(1, 's'))
       setLATime(laTime.add(1, 's'))
     }, 1000)
-    
+
     return () => {
       clearInterval(addOneSecondToClock)
     }
   })
-  
 
   /**
    * This `globalState` null return prevents ERROR #95313. Our render return depends on `globalState.live` to exist.

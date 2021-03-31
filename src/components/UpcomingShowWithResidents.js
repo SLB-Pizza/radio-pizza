@@ -5,6 +5,7 @@ import { linkResolver } from '../utils'
 export default function UpcomingShowWithResidents({
   startTimeStr,
   upcomingShow,
+  isLoading,
 }) {
   const { mix_title, featured_residents } = upcomingShow
 
@@ -42,8 +43,14 @@ export default function UpcomingShowWithResidents({
   )
   if (mix_title) {
     return (
-      <div className="column next-show is-loaded is-hidden-mobile">
-        <p className="subtitle is-size-6-desktop is-size-7-touch text-block">
+      <div
+        className={
+          isLoading
+            ? 'column next-show is-hidden-mobile text-block'
+            : 'column next-show is-hidden-mobile text-block is-loaded'
+        }
+      >
+        <p className="subtitle is-size-6-desktop is-size-7-touch">
           <b>{`${startTimeStr} ${mix_title}`}</b>
           {' | '}
           <ResidentLinkSpan />
@@ -52,8 +59,14 @@ export default function UpcomingShowWithResidents({
     )
   } else {
     return (
-      <div className="column next-show is-loaded is-hidden-mobile">
-        <p className="subtitle is-size-6-desktop is-size-7-touch text-block">
+      <div
+        className={
+          isLoading
+            ? 'column next-show is-hidden-mobile text-block'
+            : 'column next-show is-hidden-mobile text-block is-loaded'
+        }
+      >
+        <p className="subtitle is-size-6-desktop is-size-7-touch">
           {`${startTimeStr} | `}
           <ResidentLinkSpan />
         </p>

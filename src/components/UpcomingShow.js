@@ -5,7 +5,11 @@ import {
   getResidentLinks,
   getUpcomingShowDetails,
 } from '../utils'
-import { UpcomingShowWithResidents } from '../components'
+import {
+  UpcomingShowFallbackMessage,
+  UpcomingShowLiveBroadcast,
+  UpcomingShowWithResidents,
+} from '../components'
 
 /**
  *
@@ -68,7 +72,6 @@ function UpcomingShow({ showData, timeNow }) {
   }, [timeNow])
 
   if (upcomingShow) {
-    // console.log("in render", upcomingShow);
     const { date, isToday, nextShow, start } = upcomingShow
     const startTimeStr = isToday ? `${start} -` : `${date} @ ${start}:`
 
@@ -78,67 +81,21 @@ function UpcomingShow({ showData, timeNow }) {
         <UpcomingShowWithResidents
           startTimeStr={startTimeStr}
           upcomingShow={scheduled_show}
+          isLoading={globalState.isLoading}
         />
       )
     } else {
-      let liveShowStr = ''
-      if (live_show_title) {
-        liveShowStr += `${live_show_title} `
-        if (live_show_guests) {
-          liveShowStr += ` - ${live_show_guests}`
-        }
-      } else if (live_show_guests) {
-        liveShowStr += `${live_show_guests}`
-      } else {
-        liveShowStr = 'HMBK Live Show'
-      }
-
       return (
-        <div className="column next-show is-loaded is-hidden-mobile">
-          <p className="subtitle is-size-6-desktop is-size-7-touch">
-            {`${liveShowStr}`}
-          </p>
-        </div>
+        <UpcomingShowLiveBroadcast
+          startTimeStr={startTimeStr}
+          showTitle={live_show_title}
+          showGuests={live_show_guests}
+          isLoading={globalState.isLoading}
+        />
       )
     }
   } else {
-    return (
-      <div
-        className={
-          globalState.isLoading
-            ? 'column next-show is-hidden-mobile text-block'
-            : 'column next-show is-hidden-mobile text-block is-loaded'
-        }
-      >
-        <p className="subtitle is-size-6-desktop is-size-7-touch">
-          No upcoming shows planned. Follow us on our{' '}
-          <a
-            href="https://twitter.com/halfmoonbk"
-            rel="noopener"
-            target="_blank"
-          >
-            Twitter
-          </a>
-          {', '}
-          <a
-            href="https://www.instagram.com/halfmoonbk/"
-            rel="noopener"
-            target="_blank"
-          >
-            Instagram
-          </a>
-          {', and '}
-          <a
-            href="https://www.facebook.com/halfmoonbk/"
-            rel="noopener"
-            target="_blank"
-          >
-            Facebook
-          </a>
-          {' for all the latest HMBK news.'}
-        </p>
-      </div>
-    )
+    return <UpcomingShowFallbackMessage isLoading={globalState.isLoading} />
   }
 }
 

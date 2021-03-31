@@ -14,9 +14,10 @@ import { ResponsiveImage } from './index'
  * @category Layout Helper
  * @function ImageModal
  * @param {?String} columnClassName - optional string prop dictating specific column layouts.
- * @param {String} fullSizeImg.url - link from Prismic CMS to the image from the media library
- * @param {String} fullSizeImg.alt - contains image caption data that's used for accessibility purposes too; comes from Prismic CMS. Its default value should be set when the image is **first uploaded** to the CMS Media Library. A different fullSizeImg.alt value, aka image caption, can be set when the image is selected for use in an article
- * @param {String} fullSizeImg.photoCredit - contains image credit data; comes from Prismic CMS. Should be set when the image is **first uploaded** to the CMS Media Library
+ * @param {Object.<String, String>} fullSizeImg - object containing image data
+ * @prop {String} fullSizeImg.url - link from Prismic CMS to the image from the media library
+ * @prop {String} fullSizeImg.alt - contains image caption data that's used for accessibility purposes too; comes from Prismic CMS. Its default value should be set when the image is **first uploaded** to the CMS Media Library. A different fullSizeImg.alt value, aka image caption, can be set when the image is selected for use in an article
+ * @prop {String} fullSizeImg.photoCredit - contains image credit data; comes from Prismic CMS. Should be set when the image is **first uploaded** to the CMS Media Library
  * @returns {jsx}
  */
 function ImageModal({ fullSizeImg, responsiveData, setImgModalOpen }) {

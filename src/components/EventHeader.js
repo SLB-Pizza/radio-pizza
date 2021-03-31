@@ -17,12 +17,12 @@ dayjs.extend(isSameOrBefore)
  * Component that renders the time remaining and relevant button for each event
  * @category Layout Helper
  * @function EventHeader
- * @param {*} startDate
- * @param {*} startDate
- * @param {*} startDate
- * @param {*} startDate
- * @param {*} startDate
- * @param {*} startDate
+ * @param {String} startDate - Prismic formatted DateTime string
+ * @param {?String} endDate - Prismic formatted DateTime string
+ * @param {Object[]} eventName - Prismic RichText array
+ * @param {String} location - name of the event location
+ * @param {?String} headerButtonText - label to for the action button
+ * @param {?Object} headerButtonLink - React link object
  * @returns {jsx} a bar that appears after the event's image that sticks to the top on scroll
  */
 function EventHeader({
@@ -136,6 +136,14 @@ function EventHeader({
     }
   }, [eventHeight, timerHeight, headerIsSticky])
 
+  const props = {
+    startDate,
+    endDate,
+    eventName,
+    location,
+    headerButtonText,
+    headerButtonLink,
+  }
   return (
     <div
       className="container is-fluid event-header"
@@ -151,30 +159,28 @@ function EventHeader({
           location={location}
         />
 
-        {beforeEvent && headerButtonLink ? (
+        {/* {beforeEvent && headerButtonLink ? (
           <>
-            {/* TABLET AND DESKTOP BUTTON */}
             <div className="column is-narrow is-hidden-mobile">
               <a href={headerButtonLink.url} target="_blank">
                 <button
                   className={
                     headerIsSticky
-                      ? 'button is-small is-fullwidth is-outlined is-rounded'
-                      : 'button is-fullwidth is-outlined is-rounded'
+                      ? "button is-small is-fullwidth is-outlined is-rounded"
+                      : "button is-fullwidth is-outlined is-rounded"
                   }
                 >
                   {headerButtonText}
                 </button>
               </a>
             </div>
-            {/* MOBILE BUTTON */}
             <div className="column is-8 is-offset-2 is-hidden-tablet">
               <a href={headerButtonLink.url} target="_blank">
                 <button
                   className={
                     headerIsSticky
-                      ? 'button is-small is-fullwidth is-outlined is-rounded'
-                      : 'button is-fullwidth is-outlined is-rounded'
+                      ? "button is-small is-fullwidth is-outlined is-rounded"
+                      : "button is-fullwidth is-outlined is-rounded"
                   }
                 >
                   {headerButtonText}
@@ -182,9 +188,9 @@ function EventHeader({
               </a>
             </div>
           </>
-        ) : null}
+        ) : null} */}
       </div>
-      {beforeEvent ? (
+      {/* {beforeEvent ? (
         <EventCountdown
           sticky={headerIsSticky}
           days={dayCount}
@@ -192,7 +198,7 @@ function EventHeader({
           minutes={minuteCount}
           seconds={secondCount}
         />
-      ) : null}
+      ) : null} */}
     </div>
   )
 }

@@ -1,8 +1,9 @@
-.hero-body {
-  min-height: calc(100vh - 19.375rem);
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
+.event {
+  &-image {
+    .modal.is-active .modal-content {
+      background-color: black;
+    }
+  }
 }
 
 .event-title {

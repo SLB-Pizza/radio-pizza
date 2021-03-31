@@ -60,7 +60,13 @@ export default function EventDateTimeLocationInfo({
           </p>
         )}
 
-        <p className="subtitle is-size-6-tablet is-size-7-mobile">
+        <p
+          className={
+            isSticky
+              ? 'subtitle is-7'
+              : 'subtitle is-size-6-tablet is-size-7-mobile'
+          }
+        >
           {eventInfoString}
         </p>
       </div>

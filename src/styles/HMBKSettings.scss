@@ -380,6 +380,33 @@ figcaption {
     height: calc(100vh - 8.75rem);
   }
 
+  &.event-image {
+    height: calc(100vh - 9.75rem);
+    img {
+      transition: 0.25s $easing;
+      &.lazyload {
+        opacity: 0;
+        transform: scale(0.75);
+      }
+      &.lazyloaded {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    & .hero-body {
+      padding: 0;
+      margin: -2px;
+      display: flex;
+      justify-content: center;
+      img {
+        max-width: 100vw;
+        max-height: calc(100vh - 9.75rem);
+        object-fit: contain;
+        border: 2px solid white;
+      }
+    }
+  }
+
   &.is-blockquote {
     .hero-body {
       min-height: initial;
@@ -423,6 +450,9 @@ figcaption {
     object-position: center center;
     width: 100%;
     height: 100%;
+    &__blurred-bg {
+      filter: blur(10px);
+    }
     &.is-transparent {
       opacity: 0.5;
     }

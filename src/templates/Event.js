@@ -1,7 +1,11 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
-import { EventHeader, EventMapEmbed } from '../components'
+import {
+  EventHeader,
+  EventMapEmbed,
+  EventTemplateImageHeader,
+} from '../components'
 import {
   formatDateTime,
   htmlSerializer,
@@ -61,15 +65,7 @@ function EventTemplate({ data }) {
   return (
     <main className="full-height-page">
       <article>
-        <header className="hero event-image">
-          <div
-            className="hero-body"
-            style={{
-              backgroundImage: `url(${main_event_image.url})`,
-            }}
-          />
-        </header>
-
+        <EventTemplateImageHeader eventImage={main_event_image} />
         <EventHeader
           startDate={event_start}
           endDate={event_end}
@@ -79,7 +75,7 @@ function EventTemplate({ data }) {
           headerButtonLink={event_header_button_link}
         />
 
-        <section className="section container">
+        <section className="container">
           <div className="columns is-mobile">
             {categoryLabels?.map((category, index) => (
               <Fragment key={`HMBK-${category}-${index}`}>

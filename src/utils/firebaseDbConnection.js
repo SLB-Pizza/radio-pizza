@@ -13,10 +13,6 @@ export const getRemoteMarquee = async () => {
 
 	const [value, loading, error] = useObjectVal( firebase.database().ref("liveStreamMarquee/marquee") );
 
-	console.log( 'getRemoteMarquee value', value );
-	console.log( 'getRemoteMarquee loading', loading );
-	console.log( 'getRemoteMarquee error', error );
-
 	if ( error ) {
 		console.error( error );
 	}

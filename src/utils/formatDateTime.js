@@ -2,10 +2,12 @@ import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
 import isBetween from 'dayjs/plugin/isBetween'
+import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 dayjs.extend(utc)
 dayjs.extend(timezone)
 dayjs.extend(isBetween)
+dayjs.extend(isSameOrBefore)
 dayjs.extend(customParseFormat)
 
 /**
@@ -118,6 +120,8 @@ export default function formatDateTime(
       return convertedPrismicDateTime.format('MMMM D, YYYY')
     case 'datetime-value':
       return convertedPrismicDateTime.format('YYYY-MM-DD HH:mm:ssZ')
+    case 'is-same-or-before':
+      return time.isSameOrBefore(startTime, 'minute')
     case 'get-place-in-schedule':
       return time.isBetween(startTime, endTime, 'minute', '[)')
     case 'is-schedule-date-today':

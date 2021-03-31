@@ -31,9 +31,9 @@
 .column.mix-data,
 .column.next-show {
   opacity: 0;
+  overflow-x: hidden;
   white-space: nowrap;
-
-  transition: 0.5s ease;
+  transition: 0.5s $easing;
   &.is-loaded {
     opacity: 1;
   }
@@ -49,7 +49,7 @@
   #now-playing {
     display: flex;
     flex-direction: row;
-    transition: 0.5s ease;
+    transition: 0.5s $easing;
   }
 
   #now-playing-img {
@@ -160,7 +160,7 @@
   color: white;
   border-bottom: 0.125rem solid white;
   height: 2.5rem;
-  transition: 1s ease;
+  transition: 1s $easing;
   &.is-open {
     // 2.5rem height + .125rem bottom border
     max-height: 2.625rem;
@@ -192,7 +192,7 @@
   a,
   span {
     color: white;
-    transition: 0.25s ease;
+    transition: 0.25s $easing;
     &:hover {
       color: $primary;
     }
@@ -226,7 +226,7 @@
   a,
   span {
     color: $primary;
-    transition: 0.25s ease;
+    transition: 0.25s $easing;
     &:hover {
       color: white;
     }

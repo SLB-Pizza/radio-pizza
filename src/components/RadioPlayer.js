@@ -31,6 +31,12 @@ function RadioPlayer() {
     played: 0,
     loaded: 0,
     duration: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+    hoursPlayed: 0,
+    minutesPlayed: 0,
+    secondsPlayed: 0,
     playbackRate: 1.0,
     loop: false,
   })
@@ -82,6 +88,133 @@ function RadioPlayer() {
 
     return
   }
+
+  // const handleVolumeChange = (e) => {
+  //   let value = parseFloat(e.target.value);
+  //   console.log("current volume", value);
+
+  //   setLocalState({ ...localState, volume: value });
+  // };
+
+  // const load = async (url) => {
+  //   await setLocalState({
+  //     ...localState,
+  //     url: url,
+  //     played: 0,
+  //     loaded: 0,
+  //     pip: false,
+  //   });
+  // };
+
+  // const renderLoadButton = (url, label) => {
+  //   return <button onClick={() => this.load(url)}>{label}</button>;
+  // };
+
+  const handleDuration = (duration) => {
+    console.log( 'duration', duration );
+    console.log( 'duration rounded', Math.round(duration) );
+    let seconds = Math.round(duration % 60);
+    let minutes = Math.round(duration / 60);
+    let hours = Math.round(minutes / 60);
+
+    if( minutes >= 60 ){
+      minutes = (minutes % 60);
+      hours = Math.round( minutes / 60 );
+    } else {
+      hours = 0;
+      // hours = hours.toLocaleString( 'en-US', {minimumIntegerDigits: 2});
+    }
+    console.log( 'hours'. hours );
+    console.log( 'minutes', minutes );
+    console.log( 'seconds', seconds );
+
+    // console.log( 'local state', localState )
+
+    setLocalState({ 
+      ...localState,
+      duration: duration,
+      hours,
+      minutes,
+      seconds
+    });
+  };
+
+  const handleProgress = ( played, loaded) => {
+    console.log( 'played', played );
+    console.log( 'loaded', loaded );
+    let hoursPlayed = 0;
+    let minutesPlayed = 0;
+    let secondsPlayed = 0;
+    if( played?.playedSeconds > 60 ){
+      minutesPlayed = 
+        (Math.floor(played.playedSeconds / 60))
+        // .toLocaleString( 'en-US', {
+        //   minimumIntegerDigits: 2,
+        // });
+
+        if( minutesPlayed >= 60 ){
+          minutesPlayed = (minutesPlayed % 60).toLocaleString( 'en-US', {minimumIntegerDigits: 2});
+          hoursPlayed = Math.floor( minutesPlayed / 60 ).toLocaleString( 'en-US', {minimumIntegerDigits: 2});
+        } else {
+          hoursPlayed = Number(0).toLocaleString( 'en-US', {minimumIntegerDigits: 2});
+        }
+
+      secondsPlayed = 
+        Math.round(played.playedSeconds % 60)
+        .toLocaleString( 'en-US', {
+          minimumIntegerDigits: 2,
+        });
+
+    } else {
+      hoursPlayed = Number(0).toLocaleString( 'en-US', {minimumIntegerDigits: 2});
+      minutesPlayed = Number(0).toLocaleString( 'en-US', {minimumIntegerDigits: 2});
+      minutesPlayed = 
+        minutesPlayed
+        .toLocaleString( 'en-US', {
+          minimumIntegerDigits: 2,
+        });
+      secondsPlayed = 
+        Math.round(played.playedSeconds % 60)
+        .toLocaleString( 'en-US', {
+          minimumIntegerDigits: 2,
+        });
+    }
+
+    setLocalState({ 
+      ...localState,
+      played: played,
+      loaded: loaded,
+      hoursPlayed,
+      minutesPlayed,
+      secondsPlayed
+    });
+  };
+
+  useEffect( () => {
+    setLocalState({ 
+      ...localState,
+      hours: localState.hours.toLocaleString( 'en-US', {minimumIntegerDigits: 2}),
+      minutes: localState.minutes.toLocaleString( 'en-US', {minimumIntegerDigits: 2}),
+      seconds: localState.seconds.toLocaleString( 'en-US', {minimumIntegerDigits: 2}),
+      hoursPlayed: localState.hoursPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2}),
+      minutesPlayed: localState.hoursPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2}),
+      secondsPlayed: localState.secondsPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2})
+    });
+  }, [] )
+
+  // const renderNowPlaying = (resident, title) => {
+  //   return (
+  //     <Ticker mode="await" offset="run-in" speed={3}>
+  //       {() => (
+  //         <div className="is-hidden-tablet" id="radioShowName">
+  //           <p className="display-text is-size-6-mobile">
+  //             {resident} – {title}
+  //           </p>
+  //         </div>
+  //       )}
+  //     </Ticker>
+  //   );
+  // };
 
   const player = useRef(ReactPlayer)
 
@@ -151,6 +284,7 @@ function RadioPlayer() {
               <p className="title is-size-6-tablet is-size-7-mobile">
                 {globalState.resident}
               </p>
+              { localState.hoursPlayed }:{ localState.minutesPlayed }:{ localState.secondsPlayed } / { localState.hours }:{ localState.minutes }:{ localState.seconds }
             </div>
           ) : (
             <div id="now-playing-details">
@@ -158,6 +292,7 @@ function RadioPlayer() {
                 {globalState.title}
               </p>
               <p className="subtitle is-size-7">{globalState.resident}</p>
+              { localState.hoursPlayed }:{ localState.minutesPlayed }:{ localState.secondsPlayed } / { localState.hours }:{ localState.minutes }:{ localState.seconds }
             </div>
           )}
         </div>
@@ -217,12 +352,12 @@ function RadioPlayer() {
         onStart={() => console.log(`PLAYING: ${globalState.title}`)}
         onBuffer={() => console.log('onBuffer')}
         // muted={globalState.muted}
-        // onDuration={handleDuration}
+        onDuration={handleDuration}
         // onEnablePIP={this.handleEnablePIP}
         // onDisablePIP={this.handleDisablePIP}
         // onSeek={e => console.log('onSeek', e)}
         onEnded={handleEnded}
-        // onProgress={this.handleProgress}
+        onProgress={handleProgress}
       />
     </>
   )

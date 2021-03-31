@@ -29,7 +29,7 @@ function OneImageAndText({ slice }) {
    */
 
   if (!label) {
-    layoutSide = left
+    layoutSide = 'left'
   } else {
     layoutDetails = label.split('__')
     layoutSide = layoutDetails[0]

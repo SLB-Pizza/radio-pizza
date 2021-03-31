@@ -42,12 +42,12 @@ function SupportPage({ data }) {
 
   return (
     <main className="full-height-page">
-      <ParallaxHeadline
+      {/* <ParallaxHeadline
         cta={supportHeader.cta}
         hook={supportHeader.hook}
         imgObj={supportHeader.img}
       />
-      <SliceZone sliceZone={supportSlice} />
+      <SliceZone sliceZone={supportSlice} /> */}
       <hr />
 
       <section className="container is-fluid">

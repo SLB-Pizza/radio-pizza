@@ -5,7 +5,7 @@ import {
   GlobalStateContext,
   GlobalDispatchContext,
 } from '../context/GlobalContextProvider'
-import { closeSchedule, toggleSchedule, handleLiveTest } from '../dispatch'
+import { closeSchedule, toggleSchedule, handleLiveTest, handlePlayLive } from '../dispatch'
 
 /**
  * Render the layout of the ScheduleBar using globalState.
@@ -35,7 +35,7 @@ export default function ScheduleBarLayout({ timeNow, upcomingShows }) {
         <div
           className="column is-narrow"
           onClick={() => {
-            handleLiveTest(dispatch)
+            handlePlayLive(dispatch)
             closeSchedule(dispatch)
           }}
         >

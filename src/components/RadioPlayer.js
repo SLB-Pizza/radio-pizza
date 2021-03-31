@@ -111,21 +111,21 @@ function RadioPlayer() {
   // };
 
   const handleDuration = (duration) => {
-    console.log( 'duration', duration );
-    console.log( 'duration rounded', Math.round(duration) );
+    // console.log( 'duration', duration );
+    // console.log( 'duration rounded', Math.round(duration) );
     let seconds = Math.round(duration % 60);
     let minutes = Math.round(duration / 60);
     let hours = Math.round(minutes / 60);
 
     if( minutes >= 60 ){
-      minutes = (minutes % 60);
       hours = Math.round( minutes / 60 );
+      minutes = (minutes % 60);
     } else {
       hours = 0;
     }
-    console.log( 'hours'. hours );
-    console.log( 'minutes', minutes );
-    console.log( 'seconds', seconds );
+    // console.log( 'hours'. hours );
+    // console.log( 'minutes', minutes );
+    // console.log( 'seconds', seconds );
 
     // console.log( 'local state', localState )
 
@@ -149,8 +149,8 @@ function RadioPlayer() {
         (Math.floor(played.playedSeconds / 60))
 
         if( minutesPlayed >= 60 ){
-          minutesPlayed = (minutesPlayed % 60);
           hoursPlayed = Math.floor( minutesPlayed / 60 );
+          minutesPlayed = (minutesPlayed % 60);
         } else {
           hoursPlayed = 0;
         }
@@ -271,7 +271,7 @@ function RadioPlayer() {
               <p className="title is-size-6-tablet is-size-7-mobile">
                 {globalState.resident}
               </p>
-              { localState.hoursPlayed > 0 ? `${localState.hoursPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2})}:` : null }{ localState.minutesPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) }:{ localState.secondsPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) } / { localState.hours > 0 ? `${localState.hours.toLocaleString( 'en-US', {minimumIntegerDigits: 2})}:` : null }{ localState.minutes.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) }:{ localState.seconds.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) }
+              { localState.hours > 0 ? `${localState.hoursPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2})}:` : null }{ localState.minutesPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) }:{ localState.secondsPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) } / { localState.hours > 0 ? `${localState.hours.toLocaleString( 'en-US', {minimumIntegerDigits: 2})}:` : null }{ localState.minutes.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) }:{ localState.seconds.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) }
             </div>
           ) : (
             <div id="now-playing-details">
@@ -279,7 +279,7 @@ function RadioPlayer() {
                 {globalState.title}
               </p>
               <p className="subtitle is-size-7">{globalState.resident}</p>
-              { localState.hoursPlayed > 0 ? `${localState.hoursPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2})}:` : null }{ localState.minutesPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) }:{ localState.secondsPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) } / { localState.hours > 0 ? `${localState.hours.toLocaleString( 'en-US', {minimumIntegerDigits: 2})}:` : null }{ localState.minutes.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) }:{ localState.seconds.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) }
+              { localState.hours > 0 ? `${localState.hoursPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2})}:` : null }{ localState.minutesPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) }:{ localState.secondsPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) } / { localState.hours > 0 ? `${localState.hours.toLocaleString( 'en-US', {minimumIntegerDigits: 2})}:` : null }{ localState.minutes.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) }:{ localState.seconds.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) }
             </div>
           )}
         </div>

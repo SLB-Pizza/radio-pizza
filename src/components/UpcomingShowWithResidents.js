@@ -67,7 +67,7 @@ export default function UpcomingShowWithResidents({
         }
       >
         <p className="subtitle is-size-6-desktop is-size-7-touch">
-          {`${startTimeStr} | `}
+          <b>{`${startTimeStr} `}</b>
           <ResidentLinkSpan />
         </p>
       </div>

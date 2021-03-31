@@ -153,10 +153,10 @@ function RadioPlayer() {
         // });
 
         if( minutesPlayed >= 60 ){
-          minutesPlayed = (minutesPlayed % 60).toLocaleString( 'en-US', {minimumIntegerDigits: 2});
-          hoursPlayed = Math.floor( minutesPlayed / 60 ).toLocaleString( 'en-US', {minimumIntegerDigits: 2});
+          minutesPlayed = (minutesPlayed % 60);
+          hoursPlayed = Math.floor( minutesPlayed / 60 );
         } else {
-          hoursPlayed = Number(0).toLocaleString( 'en-US', {minimumIntegerDigits: 2});
+          hoursPlayed = 0;
         }
 
       secondsPlayed = 
@@ -166,8 +166,8 @@ function RadioPlayer() {
         });
 
     } else {
-      hoursPlayed = Number(0).toLocaleString( 'en-US', {minimumIntegerDigits: 2});
-      minutesPlayed = Number(0).toLocaleString( 'en-US', {minimumIntegerDigits: 2});
+      hoursPlayed = 0;
+      minutesPlayed = 0;
       minutesPlayed = 
         minutesPlayed
         .toLocaleString( 'en-US', {
@@ -193,12 +193,12 @@ function RadioPlayer() {
   useEffect( () => {
     setLocalState({ 
       ...localState,
-      hours: localState.hours.toLocaleString( 'en-US', {minimumIntegerDigits: 2}),
-      minutes: localState.minutes.toLocaleString( 'en-US', {minimumIntegerDigits: 2}),
-      seconds: localState.seconds.toLocaleString( 'en-US', {minimumIntegerDigits: 2}),
-      hoursPlayed: localState.hoursPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2}),
-      minutesPlayed: localState.hoursPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2}),
-      secondsPlayed: localState.secondsPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2})
+      hours: localState.hours,
+      minutes: localState.minutes,
+      seconds: localState.seconds,
+      hoursPlayed: localState.hoursPlayed,
+      minutesPlayed: localState.hoursPlayed,
+      secondsPlayed: localState.secondsPlayed
     });
   }, [] )
 

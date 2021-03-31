@@ -128,7 +128,7 @@ function RadioPlayer() {
       </div>
 
       {
-        globalState.live ?
+        globalState.live && globalState.playingRadio ?
         (
           <div id="now-playing-details">
             { globalState.liveMarquee.liveShowTitle && 

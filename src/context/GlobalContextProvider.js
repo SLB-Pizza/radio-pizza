@@ -203,6 +203,7 @@ function reducer(state, action) {
         ...state,
         playing: true,
         playingRadio: true,
+        url: 'https://s3.radio.co/s6f093248d/listen'
       }
 
     // PLAYLIST_START should be hit by dispatch called when a NEW Curated Collection is played

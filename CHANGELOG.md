@@ -1,3 +1,17 @@
+### Version 1.10.0
+- docs(query): update HomeMixes FILL_HOME_MIXES docs
+- refactor(/schedule): update state variable and props names
+- feat(Dropdown): add case to useEffect handling 0 length showData array
+- refactor(query): rename query; expand to 2 results; update exports
+- feat(SingleDateScheduleEntries): make start_time and end_time required
+- feat(UpcomingShow): fix scheduled_show render with residents
+- feat(UpcomingShow): add missed files from last commit
+- feat(UpcomingShow): componentize all upcoming show possibilities
+- fix(UpcomingShow): adjust styling for untitled single res Mix
+- test(formatDateTime): fix broken tests add more test cases
+- prune(formatNextShow): code built into formatDateTime as a case updates #79
+- fix(OIAT): change left to "left" in label fallback comment out /support layout for render
+
 ### Version 1.9.1
 - feat(Divider): add HMBK divider to Guide, Feature templates closes #142
 - style(Password): make input and button normal size

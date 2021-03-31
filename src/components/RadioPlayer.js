@@ -89,30 +89,7 @@ function RadioPlayer() {
     return
   }
 
-  // const handleVolumeChange = (e) => {
-  //   let value = parseFloat(e.target.value);
-  //   console.log("current volume", value);
-
-  //   setLocalState({ ...localState, volume: value });
-  // };
-
-  // const load = async (url) => {
-  //   await setLocalState({
-  //     ...localState,
-  //     url: url,
-  //     played: 0,
-  //     loaded: 0,
-  //     pip: false,
-  //   });
-  // };
-
-  // const renderLoadButton = (url, label) => {
-  //   return <button onClick={() => this.load(url)}>{label}</button>;
-  // };
-
   const handleDuration = (duration) => {
-    // console.log( 'duration', duration );
-    // console.log( 'duration rounded', Math.round(duration) );
     let seconds = Math.round(duration % 60);
     let minutes = Math.round(duration / 60);
     let hours = Math.round(minutes / 60);
@@ -123,11 +100,6 @@ function RadioPlayer() {
     } else {
       hours = 0;
     }
-    // console.log( 'hours'. hours );
-    // console.log( 'minutes', minutes );
-    // console.log( 'seconds', seconds );
-
-    // console.log( 'local state', localState )
 
     setLocalState({ 
       ...localState,
@@ -188,20 +160,6 @@ function RadioPlayer() {
       secondsPlayed: localState.secondsPlayed
     });
   }, [] )
-
-  // const renderNowPlaying = (resident, title) => {
-  //   return (
-  //     <Ticker mode="await" offset="run-in" speed={3}>
-  //       {() => (
-  //         <div className="is-hidden-tablet" id="radioShowName">
-  //           <p className="display-text is-size-6-mobile">
-  //             {resident} – {title}
-  //           </p>
-  //         </div>
-  //       )}
-  //     </Ticker>
-  //   );
-  // };
 
   const player = useRef(ReactPlayer)
 
@@ -284,42 +242,6 @@ function RadioPlayer() {
           )}
         </div>
       )}
-
-      {/* <div className="column">
-        <input
-          type="range"
-          min="0"
-          max="1"
-          step="0.05"
-          value={localState.volume}
-          onChange={(e) => handleVolumeChange(e)}
-        />
-        <p className="is-size-6">{localState.volume}</p>
-      </div> */}
-
-      {/* <div className="column is-hidden-mobile" id="now-playing-img">
-        <figure className="image is-48x48">
-          <img src={`${globalState.img}`} alt="Current mix" />
-        </figure>
-      </div>
-
-      <div className="column" id="now-play-details"> */}
-      {/* Static tablet and up currentTrackTitle */}
-      {/* <p className="display-text is-size-7-tablet">{globalState.resident}</p>
-        <p className="display-text is-size-6-tablet">{globalState.title}</p> */}
-
-      {/* <div className="is-hidden-mobile" id="radioShowName">
-          <p className="display-text is-size-6-tablet">
-            {globalState.resident} – {globalState.title}
-          </p>
-        </div> */}
-
-      {/* Dynamic mobile currentTrackTitle */}
-      {/* <PageVisibility onChange={handleVisibilityChange}>
-          {pageIsVisible &&
-            renderNowPlaying(globalState.resident, globalState.title)}
-        </PageVisibility>
-      </div> */}
 
       <ReactPlayer
         className="cloud-player"

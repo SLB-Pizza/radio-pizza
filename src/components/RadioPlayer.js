@@ -122,7 +122,6 @@ function RadioPlayer() {
       hours = Math.round( minutes / 60 );
     } else {
       hours = 0;
-      // hours = hours.toLocaleString( 'en-US', {minimumIntegerDigits: 2});
     }
     console.log( 'hours'. hours );
     console.log( 'minutes', minutes );
@@ -148,9 +147,6 @@ function RadioPlayer() {
     if( played?.playedSeconds > 60 ){
       minutesPlayed = 
         (Math.floor(played.playedSeconds / 60))
-        // .toLocaleString( 'en-US', {
-        //   minimumIntegerDigits: 2,
-        // });
 
         if( minutesPlayed >= 60 ){
           minutesPlayed = (minutesPlayed % 60);
@@ -161,23 +157,14 @@ function RadioPlayer() {
 
       secondsPlayed = 
         Math.round(played.playedSeconds % 60)
-        .toLocaleString( 'en-US', {
-          minimumIntegerDigits: 2,
-        });
 
     } else {
       hoursPlayed = 0;
       minutesPlayed = 0;
       minutesPlayed = 
         minutesPlayed
-        .toLocaleString( 'en-US', {
-          minimumIntegerDigits: 2,
-        });
       secondsPlayed = 
         Math.round(played.playedSeconds % 60)
-        .toLocaleString( 'en-US', {
-          minimumIntegerDigits: 2,
-        });
     }
 
     setLocalState({ 
@@ -284,7 +271,7 @@ function RadioPlayer() {
               <p className="title is-size-6-tablet is-size-7-mobile">
                 {globalState.resident}
               </p>
-              { localState.hoursPlayed }:{ localState.minutesPlayed }:{ localState.secondsPlayed } / { localState.hours }:{ localState.minutes }:{ localState.seconds }
+              { localState.hoursPlayed > 0 ? `${localState.hoursPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2})}:` : null }{ localState.minutesPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) }:{ localState.secondsPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) } / { localState.hours > 0 ? `${localState.hours.toLocaleString( 'en-US', {minimumIntegerDigits: 2})}:` : null }{ localState.minutes.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) }:{ localState.seconds.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) }
             </div>
           ) : (
             <div id="now-playing-details">
@@ -292,7 +279,7 @@ function RadioPlayer() {
                 {globalState.title}
               </p>
               <p className="subtitle is-size-7">{globalState.resident}</p>
-              { localState.hoursPlayed }:{ localState.minutesPlayed }:{ localState.secondsPlayed } / { localState.hours }:{ localState.minutes }:{ localState.seconds }
+              { localState.hoursPlayed > 0 ? `${localState.hoursPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2})}:` : null }{ localState.minutesPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) }:{ localState.secondsPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) } / { localState.hours > 0 ? `${localState.hours.toLocaleString( 'en-US', {minimumIntegerDigits: 2})}:` : null }{ localState.minutes.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) }:{ localState.seconds.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) }
             </div>
           )}
         </div>

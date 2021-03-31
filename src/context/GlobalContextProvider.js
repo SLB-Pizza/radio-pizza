@@ -166,6 +166,7 @@ function reducer(state, action) {
         title: action.payload.title,
         resident: action.payload.resident,
         img: action.payload.img,
+        playingRadio: false
       }
 
     case 'CLOSE_NAVMENU':
@@ -202,6 +203,7 @@ function reducer(state, action) {
       return {
         ...state,
         playing: true,
+        isLoading: false,
         playingRadio: true,
         url: 'https://s3.radio.co/s6f093248d/listen'
       }

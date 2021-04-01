@@ -5,7 +5,7 @@ import { FallbackImage } from '../utils'
  * Render the image for an Event template page.
  * @category Layout Helper
  * @function EventTemplateImageHeader
- * @param {Object.<String>} eventImage
+ * @param {Object.<String>} eventImage - object containing image data from Prismic
  * @returns {jsx}
  */
 export default function EventTemplateImageHeader({ eventImage }) {
@@ -21,6 +21,7 @@ export default function EventTemplateImageHeader({ eventImage }) {
         <FallbackImage styleName={'hero-background'} />
       )}
       <div className="hero-body is-overlay">
+        <div className="bg-gradient is-overlay" />
         <figure>
           {eventImage ? (
             <>

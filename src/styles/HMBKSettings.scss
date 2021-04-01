@@ -395,14 +395,23 @@ figcaption {
     }
     & .hero-body {
       padding: 0;
-      margin: -2px;
+      margin: -1px;
       display: flex;
       justify-content: center;
+      .bg-gradient {
+        background: linear-gradient(
+          to right,
+          transparent 0%,
+          black 40%,
+          black 60%,
+          transparent 100%
+        );
+      }
+
       img {
         max-width: 100vw;
         max-height: calc(100vh - 9.75rem);
         object-fit: contain;
-        border: 2px solid white;
       }
     }
   }

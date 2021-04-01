@@ -374,6 +374,18 @@ figcaption {
   }
 }
 
+img {
+  transition: 0.25s $easing;
+  &.lazyload {
+    opacity: 0;
+    transform: scale(0.75);
+  }
+  &.lazyloaded {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 // New Working Hero
 .hero {
   &.homepage {

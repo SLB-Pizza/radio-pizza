@@ -23,9 +23,13 @@ function SingleResidentCard({ resident }) {
           <div className="card-image">
             <figure className="image is-1by1">
               {resident_image ? (
-                <img src={resident_image.url} alt={resident_image.alt} />
+                <img
+                  className="lazyload"
+                  src={resident_image.url}
+                  alt={resident_image.alt}
+                />
               ) : (
-                <FallbackImage />
+                <FallbackImage styleName="lazyload" />
               )}
             </figure>
           </div>

@@ -41,11 +41,12 @@ function SingleFeatureCard({ featureColumnLayout = 'column', featureData }) {
             <figure className="image is-16by9">
               {article_headline_img ? (
                 <img
+                  className="lazyload"
                   src={article_headline_img.tablet.url}
                   alt={article_headline_img.tablet.alt}
                 />
               ) : (
-                <FallbackImage />
+                <FallbackImage styleName="lazyload" />
               )}
             </figure>
           </div>

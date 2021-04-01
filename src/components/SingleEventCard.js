@@ -3,7 +3,13 @@ import { Link } from 'gatsby'
 import NanoClamp from 'nanoclamp'
 import { RichText } from 'prismic-reactjs'
 import { FallbackImage, formatDateTime, linkResolver } from '../utils'
-
+/**
+ *
+ *
+ * @param {String} eventColumnLayout - dictates the column layout to use
+ * @param {Object} eventData - dis
+ * @returns
+ */
 function SingleEventCard({ eventColumnLayout, eventData }) {
   const [eventDateLocation, setEventDateLocation] = useState(null)
 
@@ -17,8 +23,13 @@ function SingleEventCard({ eventColumnLayout, eventData }) {
     event_end,
   } = eventData
 
+  /**
+   * Create the string used that displays the start, end, and location details on an Event card.
+   * @category useEffect
+   * @name createEventDateLocationStr
+   */
   useEffect(() => {
-    const makeDateLocationStr = () => {
+    const createEventDateLocationStr = () => {
       let resultString = ''
 
       if (event_start) {
@@ -37,7 +48,7 @@ function SingleEventCard({ eventColumnLayout, eventData }) {
 
       setEventDateLocation(resultString)
     }
-    return makeDateLocationStr()
+    return createEventDateLocationStr()
   })
 
   return (
@@ -47,9 +58,13 @@ function SingleEventCard({ eventColumnLayout, eventData }) {
           <div className="card-image">
             <figure className="image is-1by1">
               {main_event_image ? (
-                <img src={main_event_image.url} alt={main_event_image.alt} />
+                <img
+                  className="lazyload"
+                  src={main_event_image.url}
+                  alt={main_event_image.alt}
+                />
               ) : (
-                <FallbackImage />
+                <FallbackImage className="lazyload" />
               )}
             </figure>
           </div>

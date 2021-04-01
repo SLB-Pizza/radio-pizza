@@ -35,7 +35,7 @@ function SlideGenerator({ background, headline, link, cta }) {
     <header className="hero homepage has-background">
       {background ? (
         <img
-          className="hero-background"
+          className="hero-background lazyload"
           src={background.url}
           alt={background.alt}
         />

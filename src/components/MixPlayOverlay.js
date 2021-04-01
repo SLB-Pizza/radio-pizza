@@ -80,7 +80,11 @@ function MixPlayOverlay({
         />
 
         <figure className="image is-1by1">
-          {img ? <img src={img.url} alt={img.alt} /> : <FallbackImage />}
+          {img ? (
+            <img className="lazyload" src={img.url} alt={img.alt} />
+          ) : (
+            <FallbackImage />
+          )}
           <div className="play-btn-diffuser is-overlay">
             <IconMaker
               spanClass={'icon is-large'}

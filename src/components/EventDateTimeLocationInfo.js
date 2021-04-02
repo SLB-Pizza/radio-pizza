@@ -7,7 +7,7 @@ import { formatDateTime } from '../utils'
  * @category Layout Helper
  * @function EventDateTimeLocationInfo
  * @param {Boolean} isSticky
- * @param {Boolean} hasEventButton
+ * @param {Boolean} renderEventButton
  * @param {String} start
  * @param {String} end
  * @param {String} location
@@ -16,7 +16,7 @@ import { formatDateTime } from '../utils'
  */
 export default function EventDateTimeLocationInfo({
   isSticky,
-  hasEventButton,
+  renderEventButton,
   start,
   end,
   location,
@@ -42,7 +42,7 @@ export default function EventDateTimeLocationInfo({
   return (
     <div
       className={
-        hasEventButton
+        renderEventButton
           ? 'column is-hidden-mobile'
           : 'column is-12 is-hidden-mobile'
       }

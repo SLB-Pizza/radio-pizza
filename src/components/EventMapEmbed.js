@@ -37,15 +37,21 @@ function EventMapEmbed({ locationName, address }) {
   }, [])
 
   return (
-    <figure className="image">
-      <iframe
-        width={mapWidth}
-        height="600"
-        frameBorder="0"
-        src={`https://www.google.com/maps/embed/v1/place?key=${process.env.GATSBY_MAPS_EMBED_KEY}&q=${processedDescription}&zoom=19`}
-        allowFullScreen
-      />
-    </figure>
+    <section className="section container" id="map-section">
+      <div className="columns">
+        <div className="column is-12">
+          <figure className="image">
+            <iframe
+              width={mapWidth}
+              height="600"
+              frameBorder="0"
+              src={`https://www.google.com/maps/embed/v1/place?key=${process.env.GATSBY_MAPS_EMBED_KEY}&q=${processedDescription}&zoom=19`}
+              allowFullScreen
+            />
+          </figure>
+        </div>
+      </div>
+    </section>
   )
 }
 

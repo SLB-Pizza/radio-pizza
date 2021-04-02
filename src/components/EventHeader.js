@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import _ from 'lodash'
 import NanoClamp from 'nanoclamp'
-import { RichText } from 'prismic-reactjs'
-import { EventDateTimeLocationInfo, EventCountdown } from '../components'
+import {
+  EventCountdown,
+  EventDateTimeLocationInfo,
+  EventHeaderButton,
+} from '../components'
 import { formatDateTime } from '../utils'
 
 import dayjs from 'dayjs'
@@ -36,14 +39,19 @@ function EventHeader({
   const [currentTime, setCurrentTime] = useState(
     formatDateTime(null, 'current-time')
   )
-  const [beforeEvent, setBeforeEvent] = useState(null)
   const [dayCount, setDayCount] = useState(null)
   const [hourCount, setHourCount] = useState(null)
   const [minuteCount, setMinuteCount] = useState(null)
   const [secondCount, setSecondCount] = useState(null)
   const [eventHeight, setEventHeight] = useState(1)
   const [timerHeight, setTimerHeight] = useState(1)
+  const [beforeEvent, setBeforeEvent] = useState(null)
   const [headerIsSticky, setHeaderIsSticky] = useState(false)
+
+  headerButtonText =
+    'Super long text to test what happens when you add a long description'
+  const hasEventButton = headerButtonText && headerButtonLink
+  const renderEventButton = hasEventButton && beforeEvent
 
   /**
    * Renders a countdown clock that tells you the amount of time remaining between now and `event_start`.
@@ -52,13 +60,12 @@ function EventHeader({
    */
   useEffect(() => {
     const eventCountdownClock = setInterval(() => {
+      startDate = '2021-04-01T19:43:00+0000'
+      let startDayJS = dayjs(startDate)
       setCurrentTime(currentTime.add(1, 's'))
 
       // Check if currentTime is before or same as startDate
-      if (currentTime.isSameOrBefore(dayjs(startDate))) {
-        setBeforeEvent(true)
-
-        let startDayJS = dayjs(startDate)
+      if (currentTime.isSameOrBefore(startDayJS)) {
         let days = dayjs(startDayJS).diff(currentTime, 'day')
 
         // 24 hours in a day
@@ -70,10 +77,16 @@ function EventHeader({
         // 60 seconds in a minute
         let seconds = dayjs(startDayJS).diff(currentTime, 'second') % 60
 
+        setBeforeEvent(true)
         setDayCount(days)
         setHourCount(hours)
         setMinuteCount(minutes)
         setSecondCount(seconds)
+      } else {
+        /**
+         * Remove event timer if event has started already.
+         */
+        setBeforeEvent(false)
       }
     }, 1000)
 
@@ -126,8 +139,8 @@ function EventHeader({
       }
     }
 
-    // Limit checks to every 1/8 second, instead of on every pixel change
-    const makeEventHeaderSticky = _.throttle(handleScroll, 125)
+    // Limit checks to every 1/10 second, instead of on every pixel change
+    const makeEventHeaderSticky = _.throttle(handleScroll, 100)
 
     window.addEventListener('scroll', makeEventHeaderSticky)
 
@@ -136,14 +149,6 @@ function EventHeader({
     }
   }, [eventHeight, timerHeight, headerIsSticky])
 
-  const props = {
-    startDate,
-    endDate,
-    eventName,
-    location,
-    headerButtonText,
-    headerButtonLink,
-  }
   return (
     <div
       className="container is-fluid event-header"
@@ -152,6 +157,7 @@ function EventHeader({
       <div className="columns is-mobile is-multiline is-vcentered event-title">
         <EventDateTimeLocationInfo
           isSticky={headerIsSticky}
+          renderEventButton={renderEventButton}
           headerButtonLink={headerButtonLink}
           eventName={eventName}
           start={startDate}
@@ -159,38 +165,15 @@ function EventHeader({
           location={location}
         />
 
-        {/* {beforeEvent && headerButtonLink ? (
-          <>
-            <div className="column is-narrow is-hidden-mobile">
-              <a href={headerButtonLink.url} target="_blank">
-                <button
-                  className={
-                    headerIsSticky
-                      ? "button is-small is-fullwidth is-outlined is-rounded"
-                      : "button is-fullwidth is-outlined is-rounded"
-                  }
-                >
-                  {headerButtonText}
-                </button>
-              </a>
-            </div>
-            <div className="column is-8 is-offset-2 is-hidden-tablet">
-              <a href={headerButtonLink.url} target="_blank">
-                <button
-                  className={
-                    headerIsSticky
-                      ? "button is-small is-fullwidth is-outlined is-rounded"
-                      : "button is-fullwidth is-outlined is-rounded"
-                  }
-                >
-                  {headerButtonText}
-                </button>
-              </a>
-            </div>
-          </>
-        ) : null} */}
+        {beforeEvent && headerButtonLink ? (
+          <EventHeaderButton
+            buttonText={headerButtonText}
+            buttonLink={headerButtonLink}
+            isSticky={headerIsSticky}
+          />
+        ) : null}
       </div>
-      {/* {beforeEvent ? (
+      {beforeEvent ? (
         <EventCountdown
           sticky={headerIsSticky}
           days={dayCount}
@@ -198,7 +181,7 @@ function EventHeader({
           minutes={minuteCount}
           seconds={secondCount}
         />
-      ) : null} */}
+      ) : null}
     </div>
   )
 }

@@ -33,7 +33,7 @@ export default function EventTemplateImageHeader({ eventImage }) {
               />
             </>
           ) : (
-            <FallbackImage />
+            <FallbackImage styleName="lazyload" />
           )}
         </figure>
       </div>

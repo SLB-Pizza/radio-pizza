@@ -1,17 +1,12 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
-import { RichText } from 'prismic-reactjs'
 import {
   EventHeader,
   EventMapEmbed,
   EventTemplateImageHeader,
 } from '../components'
-import {
-  formatDateTime,
-  htmlSerializer,
-  linkResolver,
-  toggleColumn,
-} from '../utils'
+import { htmlSerializer, linkResolver, toggleColumn } from '../utils'
+import { RichTextHelper } from '../components/helpers'
 
 /**
  * Render a single Event Prismic CMS entry.
@@ -26,7 +21,7 @@ function EventTemplate({ data }) {
   const [isOpen, setIsOpen] = useState('Info')
   const [categoryLabels, setCategoryLabels] = useState(null)
 
-  const {
+  let {
     event_start,
     event_end,
     event_blurb,
@@ -119,30 +114,16 @@ function EventTemplate({ data }) {
         {isOpen === 'Info' ? (
           <section className="section container">
             <div className="columns is-mobile">
-              <div className="column is-12">
-                <div className="content">
-                  <RichText
-                    render={event_blurb}
-                    linkResolver={linkResolver}
-                    htmlSerializer={htmlSerializer}
-                  />
-                </div>
-              </div>
+              <RichTextHelper richText={event_blurb} />
             </div>
           </section>
         ) : null}
 
         {isOpen === 'Map' ? (
-          <section className="section container" id="map-section">
-            <div className="columns">
-              <div className="column is-12">
-                <EventMapEmbed
-                  locationName={event_location}
-                  address={event_location_physical_address}
-                />
-              </div>
-            </div>
-          </section>
+          <EventMapEmbed
+            locationName={event_location}
+            address={event_location_physical_address}
+          />
         ) : null}
       </article>
     </main>

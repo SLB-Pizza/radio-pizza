@@ -13,6 +13,7 @@ export { default as DisplayFetchedTaggedMixes } from './DisplayFetchedTaggedMixe
 export { default as EventHeader } from './EventHeader'
 export { default as EventDateTimeLocationInfo } from './EventDateTimeLocationInfo'
 export { default as EventCountdown } from './EventCountdown'
+export { default as EventHeaderButton } from './EventHeaderButton'
 export { default as EventMapEmbed } from './EventMapEmbed'
 export { default as EventTemplateImageHeader } from './EventTemplateImageHeader'
 export { default as FeaturedResident } from './FeaturedResident'

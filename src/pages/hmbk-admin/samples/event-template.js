@@ -40,11 +40,9 @@ function SampleEventTemplate() {
    */
   useEffect(() => {
     const setEventCategoryData = () => {
-      if (eventTemplateSampleData) {
-        let labels = []
-
+      if (data) {
         if (event_blurb) {
-          labels.push('Info')
+          setHasInfo(true)
         }
 
         /**
@@ -53,24 +51,17 @@ function SampleEventTemplate() {
         const displayEventMap =
           event_location && event_location_physical_address
         if (displayEventMap) {
-          labels.push('Map')
+          setHasMap(true)
         }
 
         if (event_livestream_embed) {
-          labels.push('Livestream')
+          setHasStream(true)
         }
-        /**
-         * Set categoryLabels based on available data.
-         * Set isOpen to the first entry of categoryLabels
-         */
-        setCategoryLabels(labels)
-        setIsOpen(labels[0])
       }
     }
     return setEventCategoryData()
-  }, [eventTemplateSampleData])
+  }, [data])
 
-  event_blurb = null
   return (
     <main className="full-height-page">
       <article>
@@ -84,75 +75,34 @@ function SampleEventTemplate() {
           headerButtonLink={event_header_button_link}
         />
 
-        <section className="container event-info-buttons">
-          <div className="columns is-mobile is-vcentered">
-            {categoryLabels?.map((category, index) => (
-              <Fragment key={`HMBK-${category}-${index}`}>
-                {/* DESKTOP SIZED BUTTONS */}
-                <div className="column is-hidden-mobile">
-                  <button
-                    className={
-                      isOpen === category
-                        ? 'button is-fullwidth is-outlined is-rounded is-focused'
-                        : 'button is-fullwidth is-outlined is-rounded'
-                    }
-                    id={category}
-                    onClick={() => {
-                      toggleColumn(category, isOpen, setIsOpen)
-                    }}
-                  >
-                    {category}
-                  </button>
-                </div>
-                {/* TOUCH SIZED BUTTONS */}
-                <div className="column is-hidden-tablet">
-                  <button
-                    className={
-                      isOpen === category
-                        ? 'button is-small is-fullwidth is-outlined is-rounded is-focused'
-                        : 'button is-small is-fullwidth is-outlined is-rounded'
-                    }
-                    id={category}
-                    onClick={() => {
-                      toggleColumn(category, isOpen, setIsOpen)
-                    }}
-                  >
-                    {category}
-                  </button>
-                </div>
-              </Fragment>
-            ))}
-          </div>
-        </section>
-
-        {isOpen === 'Info' || isOpen === null ? (
+        {hasInfo && (
           <section className="section container">
-            <div className="columns">
-              {event_blurb && <RichTextHelper richText={event_blurb} />}
+            <div className="columns is-mobile is-multiline">
+              <div className="column is-12 content">
+                <p className="title is-4">Info</p>
+              </div>
+              <RichTextHelper richText={event_blurb} />
             </div>
           </section>
-        ) : null}
+        )}
 
-        {isOpen === 'Map' ? (
-          <>
-            {event_location && event_location_physical_address && (
-              <EventMapEmbed
-                locationName={event_location}
-                address={event_location_physical_address}
-              />
-            )}
-          </>
-        ) : null}
+        {hasMap && (
+          <EventMapEmbed
+            locationName={event_location}
+            address={event_location_physical_address}
+          />
+        )}
 
-        {isOpen === 'Livestream' ? (
+        {hasStream && (
           <section className="section container">
-            <div className="columns">
-              {event_livestream_embed && (
-                <RichTextHelper richText={event_livestream_embed} />
-              )}
+            <div className="columns is-mobile is-multiline">
+              <div className="column is-12 content">
+                <p className="title is-4">Livestreams</p>
+              </div>
+              <RichTextHelper richText={event_livestream_embed} />
             </div>
           </section>
-        ) : null}
+        )}
       </article>
     </main>
   )

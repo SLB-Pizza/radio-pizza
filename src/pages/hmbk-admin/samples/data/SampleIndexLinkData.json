@@ -1,0 +1,14 @@
+[
+  {
+    "section": {
+      "titling": "Event",
+      "pages": [
+        {
+          "linkURL": "/hmbk-admin/samples/event-template/",
+          "linkLabel": "Event Template",
+          "linkBlurb": "A Sample Template with every option detailed."
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,227 @@
+{
+  "event_blurb": [
+    {
+      "type": "heading4",
+      "text": "One morning, when Gregor Samsa woke from troubled dreams.",
+      "spans": []
+    },
+    {
+      "type": "paragraph",
+      "text": "One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections. The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. \"What's happened to me? \" he thought. It wasn't a dream. His room, a proper human room although a little too small, lay peacefully between its four familiar walls.",
+      "spans": []
+    },
+    {
+      "type": "o-list-item",
+      "text": "Lorem ipsum dolor sit amet consectetuer.",
+      "spans": []
+    },
+    {
+      "type": "o-list-item",
+      "text": "Aenean commodo ligula eget dolor.",
+      "spans": []
+    },
+    {
+      "type": "o-list-item",
+      "text": "Aenean massa cum sociis natoque penatibus.",
+      "spans": []
+    },
+    {
+      "type": "paragraph",
+      "text": "One morning, when Gregor Samsa woke from troubled dreams.",
+      "spans": []
+    },
+    {
+      "type": "heading5",
+      "text": "The bedding was hardly able to cover it.",
+      "spans": []
+    },
+    {
+      "type": "paragraph",
+      "text": "It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer.",
+      "spans": []
+    },
+    {
+      "type": "paragraph",
+      "text": "The bedding was hardly able to cover it.",
+      "spans": []
+    },
+    {
+      "type": "paragraph",
+      "text": "It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff thar covered the whole of her lower arm towards the viewer.",
+      "spans": []
+    },
+    {
+      "type": "list-item",
+      "text": "Lorem ipsum dolor sit amet consectetuer.",
+      "spans": []
+    },
+    {
+      "type": "list-item",
+      "text": "Aenean commodo ligula eget dolor.",
+      "spans": []
+    },
+    {
+      "type": "list-item",
+      "text": "Aenean massa cum sociis natoque penatibus.",
+      "spans": []
+    },
+    {
+      "type": "heading4",
+      "text": "It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer.",
+      "spans": []
+    },
+    {
+      "type": "paragraph",
+      "text": "One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections. The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. \"What's happened to me? \" he thought. It wasn't a dream. His room, a proper human room although a little too small, lay peacefully between its four familiar walls.",
+      "spans": []
+    }
+  ],
+  "main_event_image": {
+    "dimensions": {
+      "width": 1920,
+      "height": 1280
+    },
+    "alt": "Purple People Eaters Live",
+    "copyright": null,
+    "url": "https://images.prismic.io/hmbk-cms/4c112f9b-c84f-408a-80f2-5891dbf3494a_wallhaven-oxyl99.jpg?auto=compress,format"
+  },
+  "event_name": [
+    {
+      "type": "heading1",
+      "text": "25th Anniversary Purple People Eaters' Reunion Carnival Extravaganzathon!",
+      "spans": []
+    }
+  ],
+  "event_end": null,
+  "event_start": "2021-03-15T16:00:00+0000",
+  "event_location": "Bossa Nova",
+  "event_livestream_embed": [
+    {
+      "type": "heading3",
+      "text": "Stream 1 (using Heading 3)",
+      "spans": []
+    },
+    {
+      "type": "paragraph",
+      "text": "Example sentence where you could detail what Stream 1 is about. The YT Livestream below was added by clicking the Embed button in the Rich Text editing bar and copy/pasting the link in.",
+      "spans": [
+        {
+          "start": 101,
+          "end": 126,
+          "type": "strong"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "NOTE: You should only embed YouTube livestreams with the embed option provided. ",
+      "spans": [
+        {
+          "start": 0,
+          "end": 80,
+          "type": "strong"
+        }
+      ]
+    },
+    {
+      "type": "embed",
+      "oembed": {
+        "type": "video",
+        "embed_url": "https://www.youtube.com/watch?v=21X5lGlDOfg",
+        "title": "NASA Live: Official Stream of NASA TV",
+        "provider_name": "YouTube",
+        "thumbnail_url": "https://i.ytimg.com/vi/21X5lGlDOfg/hqdefault.jpg",
+        "height": 150,
+        "width": 200,
+        "version": "1.0",
+        "author_name": "NASA",
+        "author_url": "https://www.youtube.com/c/NASA",
+        "provider_url": "https://www.youtube.com/",
+        "cache_age": null,
+        "thumbnail_width": 480,
+        "thumbnail_height": 360,
+        "html": "<iframe width=\"200\" height=\"150\" src=\"https://www.youtube.com/embed/21X5lGlDOfg?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+      }
+    },
+    {
+      "type": "heading3",
+      "text": "Stream 2 (also a Heading 3)",
+      "spans": []
+    },
+    {
+      "type": "paragraph",
+      "text": "Maybe you've got multiple streams for an event available. If it's also a YT livestream, you can embed it the same way you embedded the first.",
+      "spans": []
+    },
+    {
+      "type": "embed",
+      "oembed": {
+        "type": "video",
+        "embed_url": "https://www.youtube.com/watch?v=xOA0T8ZjpFQ",
+        "title": "\"works.\" 24/7 stream : work music radio",
+        "provider_name": "YouTube",
+        "thumbnail_url": "https://i.ytimg.com/vi/xOA0T8ZjpFQ/hqdefault.jpg",
+        "height": 150,
+        "width": 200,
+        "version": "1.0",
+        "author_name": "DiverseSystem",
+        "author_url": "https://www.youtube.com/c/diversesystem",
+        "provider_url": "https://www.youtube.com/",
+        "cache_age": null,
+        "thumbnail_width": 480,
+        "thumbnail_height": 360,
+        "html": "<iframe width=\"200\" height=\"150\" src=\"https://www.youtube.com/embed/xOA0T8ZjpFQ?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+      }
+    },
+    {
+      "type": "heading3",
+      "text": "Adding Non-YouTube Livestreams",
+      "spans": []
+    },
+    {
+      "type": "paragraph",
+      "text": "With sources other than YouTube, you do the following: type in the label for the Livestream, click the Hyperlink option in the Rich Text editing bar above, copy/paste the link, select 'Open in New Tab', and then click \"Link to this Page'.\nRelax Beats on Twitch",
+      "spans": [
+        {
+          "start": 13,
+          "end": 31,
+          "type": "strong"
+        },
+        {
+          "start": 184,
+          "end": 201,
+          "type": "strong"
+        },
+        {
+          "start": 218,
+          "end": 238,
+          "type": "strong"
+        },
+        {
+          "start": 239,
+          "end": 260,
+          "type": "strong"
+        },
+        {
+          "start": 239,
+          "end": 260,
+          "type": "hyperlink",
+          "data": {
+            "link_type": "Web",
+            "url": "https://www.twitch.tv/relaxbeats",
+            "target": "_blank"
+          }
+        }
+      ]
+    }
+  ],
+  "event_location_physical_address": "1271 Myrtle Ave, Brooklyn, NY",
+  "event_location_link": null,
+  "event_header_button_text": "Visit the site",
+  "event_header_button_link": {
+    "__typename": "PRISMIC__ExternalLink",
+    "target": "_blank",
+    "_linkType": "Link.web",
+    "url": "http://www.bossanovacivicclub.com/"
+  }
+}

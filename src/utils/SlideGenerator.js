@@ -40,7 +40,7 @@ function SlideGenerator({ background, headline, link, cta }) {
           alt={background.alt}
         />
       ) : (
-        <FallbackImage styleName={'hero-background'} />
+        <FallbackImage styleName={'hero-background lazyload'} />
       )}
 
       <div className="hero-body">

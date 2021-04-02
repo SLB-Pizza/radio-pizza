@@ -419,6 +419,11 @@ img {
           transparent 100%
         );
       }
+      figure {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
 
       img {
         max-width: 100vw;
@@ -469,16 +474,16 @@ img {
     position: absolute;
     object-fit: cover;
     object-position: center center;
-    width: 100%;
+    width: 100vh;
     height: 100%;
-    &__blurred-bg {
-      filter: blur(10px);
-    }
     &.is-transparent {
       opacity: 0.5;
     }
   }
 
+  & .blurred-bg {
+    filter: blur(10px);
+  }
   // For ArticleHeadline.js
   &.article-header {
     justify-content: flex-end;

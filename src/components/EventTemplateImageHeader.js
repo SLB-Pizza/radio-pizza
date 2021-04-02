@@ -13,7 +13,7 @@ export default function EventTemplateImageHeader({ eventImage }) {
     <header className="hero has-background event-image">
       {eventImage ? (
         <img
-          className="hero-background__blurred-bg lazyload"
+          className="hero-background blurred-bg lazyload"
           src={eventImage.url}
           alt={eventImage.alt}
         />
@@ -22,7 +22,7 @@ export default function EventTemplateImageHeader({ eventImage }) {
       )}
       <div className="hero-body is-overlay">
         <div className="bg-gradient is-overlay" />
-        <figure>
+        <figure className="overlay-image">
           {eventImage ? (
             <>
               <a className="is-overlay" href={eventImage.url} target="_blank" />

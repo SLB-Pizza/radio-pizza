@@ -1,6 +1,7 @@
 import React from 'react'
 import { RichText } from 'prismic-reactjs'
 import { formatDateTime } from '../utils'
+import Nanoclamp from 'nanoclamp'
 
 /**
  * Renders a single {@link EventTemplate}'s date, start time, end time, and location inside {@link EventHeader}. All props received from {@link EventHeader}.
@@ -42,33 +43,35 @@ export default function EventDateTimeLocationInfo({
   return (
     <div
       className={
-        renderEventButton
-          ? 'column is-hidden-mobile'
-          : 'column is-12 is-hidden-mobile'
+        renderEventButton ? 'column is-9-tablet is-8-mobile' : 'column is-12'
       }
     >
       <div className="content">
         {eventName?.length && (
-          <p
+          <Nanoclamp
             className={
               isSticky
-                ? 'title is-size-5'
+                ? 'title is-size-5-tablet is-size-6-mobile'
                 : 'title is-size-4-tablet is-size-5-mobile'
             }
-          >
-            {RichText.asText(eventName)}
-          </p>
+            is="h1"
+            lines={2}
+            text={RichText.asText(eventName)}
+          />
         )}
 
-        <p
-          className={
-            isSticky
-              ? 'subtitle is-7'
-              : 'subtitle is-size-6-tablet is-size-7-mobile'
-          }
-        >
-          {eventInfoString}
-        </p>
+        {eventInfoString && (
+          <Nanoclamp
+            is="p"
+            className={
+              isSticky
+                ? 'subtitle is-size-7'
+                : 'subtitle is-size-6-tablet is-size-7-mobile'
+            }
+            lines={1}
+            text={eventInfoString}
+          />
+        )}
       </div>
     </div>
   )

@@ -1,11 +1,10 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
 import {
   EventHeader,
   EventMapEmbed,
   EventTemplateImageHeader,
 } from '../components'
-import { htmlSerializer, linkResolver, toggleColumn } from '../utils'
 import { RichTextHelper } from '../components/helpers'
 
 /**
@@ -18,8 +17,10 @@ function EventTemplate({ data }) {
   const prismicContent = data.prismic.allEvents.edges[0].node
   if (!prismicContent) return null
 
-  const [isOpen, setIsOpen] = useState('Info')
-  const [categoryLabels, setCategoryLabels] = useState(null)
+  const [isOpen, setIsOpen] = useState(null)
+  const [hasMap, setHasMap] = useState(null)
+  const [hasInfo, setHasInfo] = useState(null)
+  const [hasStream, setHasStream] = useState(null)
 
   let {
     event_start,
@@ -32,6 +33,7 @@ function EventTemplate({ data }) {
     event_location_link,
     event_header_button_text,
     event_header_button_link,
+    event_livestream_embed,
   } = prismicContent
 
   /**
@@ -41,7 +43,9 @@ function EventTemplate({ data }) {
   useEffect(() => {
     const setEventCategoryData = () => {
       if (data) {
-        let labels = ['Info']
+        if (event_blurb) {
+          setHasInfo(true)
+        }
 
         /**
          * Boolean to ensure that BOTH location and location link data are present in order to render the link
@@ -49,9 +53,12 @@ function EventTemplate({ data }) {
         const displayEventMap =
           event_location && event_location_physical_address
         if (displayEventMap) {
-          labels.push('Map')
+          setHasMap(true)
         }
-        setCategoryLabels(labels)
+
+        if (event_livestream_embed) {
+          setHasStream(true)
+        }
       }
     }
     return setEventCategoryData()
@@ -70,61 +77,34 @@ function EventTemplate({ data }) {
           headerButtonLink={event_header_button_link}
         />
 
-        <section className="container">
-          <div className="columns is-mobile">
-            {categoryLabels?.map((category, index) => (
-              <Fragment key={`HMBK-${category}-${index}`}>
-                {/* DESKTOP SIZED BUTTONS */}
-                <div className="column is-hidden-mobile">
-                  <button
-                    className={
-                      isOpen === category
-                        ? 'button active is-fullwidth is-outlined is-rounded'
-                        : 'button is-fullwidth is-outlined is-rounded'
-                    }
-                    id={category}
-                    onClick={() => {
-                      toggleColumn(category, isOpen, setIsOpen)
-                    }}
-                  >
-                    {category}
-                  </button>
-                </div>
-                {/* TOUCH SIZED BUTTONS */}
-                <div className="column is-hidden-tablet">
-                  <button
-                    className={
-                      isOpen === category
-                        ? 'button is-small active is-fullwidth is-outlined is-rounded'
-                        : 'button is-small is-fullwidth is-outlined is-rounded'
-                    }
-                    id={category}
-                    onClick={() => {
-                      toggleColumn(category, isOpen, setIsOpen)
-                    }}
-                  >
-                    {category}
-                  </button>
-                </div>
-              </Fragment>
-            ))}
-          </div>
-        </section>
-
-        {isOpen === 'Info' ? (
+        {hasInfo && (
           <section className="section container">
-            <div className="columns is-mobile">
+            <div className="columns is-mobile is-multiline">
+              <div className="column is-12 content">
+                <p className="title is-4">Info</p>
+              </div>
               <RichTextHelper richText={event_blurb} />
             </div>
           </section>
-        ) : null}
+        )}
 
-        {isOpen === 'Map' ? (
+        {hasMap && (
           <EventMapEmbed
             locationName={event_location}
             address={event_location_physical_address}
           />
-        ) : null}
+        )}
+
+        {hasStream && (
+          <section className="section container">
+            <div className="columns is-mobile is-multiline">
+              <div className="column is-12 content">
+                <p className="title is-4">Livestreams</p>
+              </div>
+              <RichTextHelper richText={event_livestream_embed} />
+            </div>
+          </section>
+        )}
       </article>
     </main>
   )
@@ -144,6 +124,7 @@ export const query = graphql`
             event_end
             event_start
             event_location
+            event_livestream_embed
             event_location_physical_address
             event_location_link {
               ... on PRISMIC__ExternalLink {

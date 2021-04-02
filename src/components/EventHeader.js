@@ -5,6 +5,7 @@ import {
   EventCountdown,
   EventDateTimeLocationInfo,
   EventHeaderButton,
+  EventInfoButtons,
 } from '../components'
 import { formatDateTime } from '../utils'
 
@@ -60,7 +61,7 @@ function EventHeader({
    */
   useEffect(() => {
     const eventCountdownClock = setInterval(() => {
-      startDate = '2021-04-01T19:43:00+0000'
+      // startDate = "2021-04-01T20:17:00+0000";
       let startDayJS = dayjs(startDate)
       setCurrentTime(currentTime.add(1, 's'))
 
@@ -104,7 +105,7 @@ function EventHeader({
     const handleScroll = e => {
       // Set base values for the heights of the image and timer component
       if (timerHeight === 1 && eventHeight === 1) {
-        let eventImage = document.querySelector('header.event-image')
+        let eventImage = document.querySelector('.event-image')
         let eventHeader = document.querySelector('.event-header')
 
         /**
@@ -150,10 +151,7 @@ function EventHeader({
   }, [eventHeight, timerHeight, headerIsSticky])
 
   return (
-    <div
-      className="container is-fluid event-header"
-      style={headerIsSticky ? { minHeight: 'auto' } : null}
-    >
+    <div className="container is-fluid event-header">
       <div className="columns is-mobile is-multiline is-vcentered event-title">
         <EventDateTimeLocationInfo
           isSticky={headerIsSticky}
@@ -173,6 +171,7 @@ function EventHeader({
           />
         ) : null}
       </div>
+
       {beforeEvent ? (
         <EventCountdown
           sticky={headerIsSticky}

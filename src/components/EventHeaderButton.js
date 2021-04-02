@@ -1,4 +1,5 @@
 import React from 'react'
+import Nanoclam from 'nanoclamp'
 
 /**
  * On {@link EventTemplate}: renders a button with instructional text that onClick links to you a page.
@@ -16,12 +17,12 @@ export default function EventHeaderButton({
 }) {
   return (
     <>
-      <div className="column is-narrow is-hidden-mobile">
+      <div className="column is-3 is-hidden-mobile event-button">
         <a href={buttonLink.url} target="_blank">
           <button
             className={
               isSticky
-                ? 'button is-small is-fullwidth is-outlined is-rounded'
+                ? 'button is-fullwidth is-outlined is-rounded'
                 : 'button is-fullwidth is-outlined is-rounded'
             }
           >
@@ -29,13 +30,13 @@ export default function EventHeaderButton({
           </button>
         </a>
       </div>
-      <div className="column is-8 is-offset-2 is-hidden-tablet">
+      <div className="column is-4 is-hidden-tablet event-button">
         <a href={buttonLink.url} target="_blank">
           <button
             className={
               isSticky
                 ? 'button is-small is-fullwidth is-outlined is-rounded'
-                : 'button is-fullwidth is-outlined is-rounded'
+                : 'button is-small is-fullwidth is-outlined is-rounded'
             }
           >
             {buttonText}

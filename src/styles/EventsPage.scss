@@ -1,30 +1,41 @@
 .event {
+  &-button {
+    button {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  &-header {
+    background-color: black;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 6.625rem;
+    z-index: 3;
+    transition: 0.25s ease;
+    @include touch {
+      width: 100%;
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+  }
   &-image {
     .modal.is-active .modal-content {
       background-color: black;
     }
   }
-}
-
-.event-title {
-  margin: 0 auto 0;
-}
-
-.container.event-header {
-  background-color: black;
-  min-height: 9rem;
-  position: sticky;
-  position: -webkit-sticky;
-  top: 6.625rem;
-  z-index: 3;
-  @include touch {
-    width: 100%;
-    padding-left: 12px;
-    padding-right: 12px;
+  &-info-buttons {
+    background-color: black;
+  }
+  &-title {
+    margin: 0 auto 0;
+    h1,
+    p {
+      transition: 0.25s ease;
+    }
   }
 }
 
-.event-title p,
 .time-amount,
 .timer-caption,
 .event-header {

@@ -38,12 +38,15 @@ function EventMapEmbed({ locationName, address }) {
 
   return (
     <section className="section container" id="map-section">
-      <div className="columns">
+      <div className="columns is-mobile is-multiline">
+        <div className="column is-12 content">
+          <p className="title is-4">Map</p>
+        </div>
         <div className="column is-12">
           <figure className="image">
             <iframe
               width={mapWidth}
-              height="600"
+              height="500"
               frameBorder="0"
               src={`https://www.google.com/maps/embed/v1/place?key=${process.env.GATSBY_MAPS_EMBED_KEY}&q=${processedDescription}&zoom=19`}
               allowFullScreen

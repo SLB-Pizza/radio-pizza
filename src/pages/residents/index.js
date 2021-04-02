@@ -214,7 +214,7 @@ function ResidentsIndex({ data }) {
                 <button
                   className={
                     isOpen === category
-                      ? 'button active is-fullwidth is-outlined is-rounded'
+                      ? 'button is-fullwidth is-outlined is-rounded is-focused'
                       : 'button is-fullwidth is-outlined is-rounded'
                   }
                   id={category}
@@ -228,7 +228,7 @@ function ResidentsIndex({ data }) {
                 <button
                   className={
                     isOpen === category
-                      ? 'button is-small active is-fullwidth is-outlined is-rounded'
+                      ? 'button is-small is-fullwidth is-outlined is-rounded is-focused'
                       : 'button is-small is-fullwidth is-outlined is-rounded'
                   }
                   id={category}

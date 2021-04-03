@@ -1,0 +1,373 @@
+{
+  "Header": {
+    "body1": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {},
+        "choices": {
+          "full_width_image": {
+            "type": "Slice",
+            "fieldset": "Full Width Image",
+            "description": "A full width image of selectable height.",
+            "icon": "video_label",
+            "display": "list",
+            "non-repeat": {
+              "full_width_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [
+                    {
+                      "name": "halfheight",
+                      "width": 1600,
+                      "height": 1200
+                    },
+                    {
+                      "name": "medium",
+                      "width": 1600,
+                      "height": 600
+                    },
+                    {
+                      "name": "small",
+                      "width": 1600,
+                      "height": 300
+                    }
+                  ],
+                  "label": "Full Width Image"
+                }
+              }
+            },
+            "repeat": {}
+          }
+        }
+      }
+    }
+  },
+  "Sections": {
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {},
+        "choices": {
+          "text": {
+            "type": "Slice",
+            "fieldset": "Text",
+            "description": "A Rich Text section with headings, bullets, links & more.",
+            "icon": "text_fields",
+            "non-repeat": {
+              "set_first_letter": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "No",
+                  "placeholder_true": "Yes",
+                  "default_value": false,
+                  "label": "Would you like the first letter to be a drop cap?"
+                }
+              },
+              "body_text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "Body Text",
+                  "placeholder": "Write your body text section here..."
+                }
+              }
+            },
+            "repeat": {},
+            "display": "list"
+          },
+          "blockquote": {
+            "type": "Slice",
+            "fieldset": "Blockquote",
+            "description": "Fullwidth large text quote with optional background image.",
+            "icon": "format_quote",
+            "display": "list",
+            "non-repeat": {
+              "blockquote_text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph",
+                  "label": "(REQUIRED) Blockquote Text",
+                  "placeholder": "Enter blockquote text here..."
+                }
+              },
+              "blockquote_attribution": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph",
+                  "label": "Blockquote Attribution",
+                  "placeholder": "Enter quote attribution here..."
+                }
+              },
+              "blockquote_bg_img": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "(OPTIONAL) Blockquote Background Image"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "hmbk_item_and_text": {
+            "type": "Slice",
+            "fieldset": "HMBK Item and Text",
+            "description": "One HMBK Media card and text block on the left or right.",
+            "icon": "filter_1",
+            "display": "list",
+            "non-repeat": {
+              "oiat_text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "Text Section",
+                  "placeholder": "Enter the text that will appear alongside the image here..."
+                }
+              },
+              "hmbk_item": {
+                "type": "Link",
+                "config": {
+                  "select": "document",
+                  "customtypes": ["event", "resident", "mix", "feature"],
+                  "label": "HMBK Item",
+                  "placeholder": "Select a Mix, Feature, Event, or Resident..."
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "one_image_and_text": {
+            "type": "Slice",
+            "fieldset": "One Image and Text",
+            "description": "One image and a text section on the left or right.",
+            "icon": "filter_1",
+            "display": "list",
+            "non-repeat": {
+              "oiat_text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "Text Section",
+                  "placeholder": "Enter the text that will appear alongside the image here..."
+                }
+              },
+              "oiat_img": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [
+                    {
+                      "name": "widescreen",
+                      "width": 1407,
+                      "height": null
+                    },
+                    {
+                      "name": "desktop",
+                      "width": 1215,
+                      "height": null
+                    },
+                    {
+                      "name": "tablet",
+                      "width": 1023,
+                      "height": null
+                    },
+                    {
+                      "name": "mobile",
+                      "width": 767,
+                      "height": null
+                    },
+                    {
+                      "name": "lo_fi_placeholder",
+                      "width": 32,
+                      "height": null
+                    }
+                  ],
+                  "label": "Select your image..."
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "two_images_and_text": {
+            "type": "Slice",
+            "fieldset": "Two Images and Text",
+            "description": "Two images with a text section on the left or right.",
+            "icon": "filter_2",
+            "display": "list",
+            "non-repeat": {
+              "tiat_text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "Text Section",
+                  "placeholder": "Enter the text that will appear alongside the images here..."
+                }
+              },
+              "tiat_left_img": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [
+                    {
+                      "name": "widescreen",
+                      "width": 1407,
+                      "height": null
+                    },
+                    {
+                      "name": "desktop",
+                      "width": 1215,
+                      "height": null
+                    },
+                    {
+                      "name": "tablet",
+                      "width": 1023,
+                      "height": null
+                    },
+                    {
+                      "name": "mobile",
+                      "width": 767,
+                      "height": null
+                    },
+                    {
+                      "name": "lo_fi_placeholder",
+                      "width": 32,
+                      "height": null
+                    }
+                  ],
+                  "label": "Left Image"
+                }
+              },
+              "tiat_right_img": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [
+                    {
+                      "name": "widescreen",
+
+                      "width": 1407,
+                      "height": null
+                    },
+                    {
+                      "name": "desktop",
+                      "width": 1215,
+                      "height": null
+                    },
+                    {
+                      "name": "tablet",
+                      "width": 1023,
+                      "height": null
+                    },
+                    {
+                      "name": "mobile",
+                      "width": 767,
+                      "height": null
+                    },
+                    {
+                      "name": "lo_fi_placeholder",
+                      "width": 32,
+                      "height": null
+                    }
+                  ],
+                  "label": "Right Image"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "text_columns": {
+            "type": "Slice",
+            "fieldset": "Text Columns",
+            "description": "Up to 5 columns of text with optional header and footer.",
+            "icon": "view_column",
+            "display": "list",
+            "non-repeat": {
+              "text_columns_header": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "(OPTIONAL) Text Columns Header",
+                  "placeholder": "Add header text for the columns..."
+                }
+              },
+              "text_columns_footer": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "(OPTIONAL) Text Columns Footer",
+                  "placeholder": "Add footer text for the columns..."
+                }
+              }
+            },
+            "repeat": {
+              "text_column": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "Text Column",
+                  "placeholder": "Add the text for a column..."
+                }
+              }
+            }
+          },
+          "row_of_images": {
+            "type": "Slice",
+            "fieldset": "Row of Images",
+            "description": "A group of 1-12 images to enrich your article.",
+            "icon": "burst_mode",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {
+              "single_img": {
+                "type": "Image",
+                "config": {
+                  "constraint": {
+                    "width": null
+                  },
+                  "thumbnails": [
+                    {
+                      "name": "widescreen",
+                      "width": 1407,
+                      "height": null
+                    },
+                    {
+                      "name": "desktop",
+                      "width": 1215,
+                      "height": null
+                    },
+                    {
+                      "name": "tablet",
+                      "width": 1023,
+                      "height": null
+                    },
+                    {
+                      "name": "mobile",
+                      "width": 767,
+                      "height": null
+                    },
+                    {
+                      "name": "lo_fi_placeholder",
+                      "width": 32,
+                      "height": null
+                    }
+                  ],
+                  "label": "Select your image..."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

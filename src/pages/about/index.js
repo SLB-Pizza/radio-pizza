@@ -22,6 +22,7 @@ function AboutIndexPage() {
         <meta name="twitter:site" content={twitterUsername} />
         <meta name="twitter:image" content={`/img/HalfMoon-3.png`} />
       </Helmet>
+
       <section className="section container is-fluid">
         <div className="columns is-mobile">
           <div className="column">
@@ -76,4 +77,18 @@ function AboutIndexPage() {
 
 export default AboutIndexPage
 
-// export const query = graphql``;
+export const query = graphql`
+  query AboutIndexQuery {
+    prismic {
+      allAbouts {
+        edges {
+          node {
+            _meta {
+              uid
+            }
+          }
+        }
+      }
+    }
+  }
+`

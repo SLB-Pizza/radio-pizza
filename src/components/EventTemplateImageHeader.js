@@ -24,14 +24,13 @@ export default function EventTemplateImageHeader({ eventImage }) {
         <div className="bg-gradient is-overlay" />
         <figure className="overlay-image">
           {eventImage ? (
-            <>
-              <a className="is-overlay" href={eventImage.url} target="_blank" />
+            <a href={eventImage.url} target="_blank">
               <img
                 className="lazyload"
                 src={eventImage.url}
                 alt={eventImage.alt}
               />
-            </>
+            </a>
           ) : (
             <FallbackImage styleName="lazyload" />
           )}

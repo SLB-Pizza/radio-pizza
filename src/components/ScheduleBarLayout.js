@@ -5,7 +5,12 @@ import {
   GlobalStateContext,
   GlobalDispatchContext,
 } from '../context/GlobalContextProvider'
-import { closeSchedule, toggleSchedule, handleLiveTest, handlePlayLive } from '../dispatch'
+import {
+  closeSchedule,
+  toggleSchedule,
+  handleLiveTest,
+  handlePlayLive,
+} from '../dispatch'
 
 /**
  * Render the layout of the ScheduleBar using globalState.
@@ -70,11 +75,7 @@ export default function ScheduleBarLayout({ timeNow, upcomingShows }) {
           )}
         </div>
 
-        {upcomingShows.length ? (
-          <UpcomingShow showData={upcomingShows} timeNow={timeNow} />
-        ) : (
-          <div className="column next-show" />
-        )}
+        <UpcomingShow showData={upcomingShows} timeNow={timeNow} />
 
         <div className="column upcoming is-hidden-tablet">
           {/* <PageVisibility onChange={handleVisibilityChange}>

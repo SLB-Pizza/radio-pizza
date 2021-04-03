@@ -70,21 +70,21 @@ export default function formatDateTime(
    * Use `format` to select and run case time manipulation.
    */
   switch (format) {
-    case 'current-time':
-      return dayjs().tz('America/New_York')
-    case 'Prismic-to-dayjs':
-      return dayjs(time, 'YYYY-MM-DDTHH:mm:ssZZ', 'America/New_York')
     case 'add-days':
       return time.add(number, 'day').format('MM.DD')
-    case 'prismic-date-query':
-      /**
-       * -- `$yesterday`:   day today before today; -1
-       * -- `$weekAndADay`: seven days after today; 7
-       * @see {@link loadSevenDaySchedule}
-       */
-      return [-1, 7].map(number => time.add(number, 'day').format('YYYY-MM-DD'))
-    case 'get-yesterday-date':
-      return time.add(-1, 'day').format('YYYY-MM-DD')
+
+    case 'current-time':
+      return dayjs().tz('America/New_York')
+
+    case 'datetime-value':
+      return convertedPrismicDateTime.format('YYYY-MM-DD HH:mm:ssZ')
+
+    case 'full-month-day':
+      return dayjs(time).format('MMM DD')
+
+    case 'get-place-in-schedule':
+      return time.isBetween(startTime, endTime, 'minute', '[)')
+
     case 'get-this-weeks-dates':
       /**
        * Since we want today and the six dates after,
@@ -104,26 +104,42 @@ export default function formatDateTime(
       )
       return { btnLabels, queryMatching, dateHeadings }
 
-    case 'full-month-day':
-      return dayjs(time).format('MMM DD')
-    case 'month-day':
-      return dayjs(time).format('MM.DD')
-    case 'hour-minute':
-      return convertedPrismicDateTime.format('HH:mm')
-    case 'year-month-day':
-      return dayjs(time).format('YYYY.MM.DD')
-    case 'schedule-date-heading':
-      return dayjs(time).format('dddd, MMMM D')
-    case 'long-form-date-time':
-      return convertedPrismicDateTime.format('MMMM D, YYYY - HH:mm')
-    case 'long-form-date':
-      return convertedPrismicDateTime.format('MMMM D, YYYY')
-    case 'datetime-value':
-      return convertedPrismicDateTime.format('YYYY-MM-DD HH:mm:ssZ')
+    case 'get-yesterday-date':
+      return time.add(-1, 'day').format('YYYY-MM-DD')
+
+    case 'is-before-start-time':
+      /**
+       * {@link EventHeader}
+       * `time` is currentTime
+       * `startTime` is startDate
+       */
+      const eventStartDayJS = dayjs(startTime)
+      if (time.isSameOrBefore(eventStartDayJS)) {
+        const days = dayjs(eventStartDayJS).diff(time, 'day')
+
+        // 24 hours in a day
+        const hours = dayjs(eventStartDayJS).diff(time, 'hour') % 24
+
+        // 60 minutes in a hour
+        const minutes = dayjs(eventStartDayJS).diff(time, 'minute') % 60
+
+        // 60 seconds in a minute
+        const seconds = dayjs(eventStartDayJS).diff(time, 'second') % 60
+
+        const times = {
+          days,
+          minutes,
+          hours,
+          seconds,
+        }
+        return times
+      } else {
+        return false
+      }
+
     case 'is-same-or-before':
       return time.isSameOrBefore(startTime, 'minute')
-    case 'get-place-in-schedule':
-      return time.isBetween(startTime, endTime, 'minute', '[)')
+
     case 'is-schedule-date-today':
       /**
        * startTime here is the incoming schedule date.
@@ -131,11 +147,42 @@ export default function formatDateTime(
        */
       const incomingDateParsed = dayjs(startTime, 'YYYY-MM-DD')
       return incomingDateParsed.isSame(time, 'day')
+
+    case 'month-day':
+      return dayjs(time).format('MM.DD')
+
+    case 'hour-minute':
+      return convertedPrismicDateTime.format('HH:mm')
+
+    case 'year-month-day':
+      return dayjs(time).format('YYYY.MM.DD')
+
+    case 'schedule-date-heading':
+      return dayjs(time).format('dddd, MMMM D')
+
+    case 'long-form-date':
+      return convertedPrismicDateTime.format('MMMM D, YYYY')
+
+    case 'long-form-date-time':
+      return convertedPrismicDateTime.format('MMMM D, YYYY - HH:mm')
+
+    case 'Prismic-to-dayjs':
+      return dayjs(time, 'YYYY-MM-DDTHH:mm:ssZZ', 'America/New_York')
+
+    case 'prismic-date-query':
+      /**
+       * -- `$yesterday`:   day today before today; -1
+       * -- `$weekAndADay`: seven days after today; 7
+       * @see {@link loadSevenDaySchedule}
+       */
+      return [-1, 7].map(number => time.add(number, 'day').format('YYYY-MM-DD'))
+
     case 'time-debug':
-      // console.log(
-      //   dayjs(time, "YYYY-MM-DDTHH:mm:ssZZ").format("MMMM D, YYYY - HH:mm Z")
-      // );
+      console.log(
+        dayjs(time, 'YYYY-MM-DDTHH:mm:ssZZ').format('MMMM D, YYYY - HH:mm Z')
+      )
       return dayjs(time, 'YYYY-MM-DDTHH:mm:ssZZ').isValid()
+
     default:
       // Return a current Date object
       return dayjs()

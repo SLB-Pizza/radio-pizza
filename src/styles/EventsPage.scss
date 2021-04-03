@@ -13,19 +13,12 @@
     top: 6.625rem;
     z-index: 3;
     transition: 0.25s ease;
-    @include touch {
-      width: 100%;
-      padding-left: 12px;
-      padding-right: 12px;
-    }
   }
+
   &-image {
     .modal.is-active .modal-content {
       background-color: black;
     }
-  }
-  &-info-buttons {
-    background-color: black;
   }
   &-title {
     margin: 0 auto 0;

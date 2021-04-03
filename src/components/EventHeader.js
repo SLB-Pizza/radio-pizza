@@ -1,21 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import _ from 'lodash'
-import NanoClamp from 'nanoclamp'
 import {
   EventCountdown,
   EventDateTimeLocationInfo,
   EventHeaderButton,
-  EventInfoButtons,
 } from '../components'
 import { formatDateTime } from '../utils'
-
-import dayjs from 'dayjs'
-import utc from 'dayjs/plugin/utc'
-import timezone from 'dayjs/plugin/timezone'
-import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
-dayjs.extend(utc)
-dayjs.extend(timezone)
-dayjs.extend(isSameOrBefore)
 
 /**
  * Component that renders the time remaining and relevant button for each event
@@ -49,8 +39,6 @@ function EventHeader({
   const [beforeEvent, setBeforeEvent] = useState(null)
   const [headerIsSticky, setHeaderIsSticky] = useState(false)
 
-  headerButtonText =
-    'Super long text to test what happens when you add a long description'
   const hasEventButton = headerButtonText && headerButtonLink
   const renderEventButton = hasEventButton && beforeEvent
 
@@ -61,22 +49,17 @@ function EventHeader({
    */
   useEffect(() => {
     const eventCountdownClock = setInterval(() => {
-      // startDate = "2021-04-01T20:17:00+0000";
-      let startDayJS = dayjs(startDate)
       setCurrentTime(currentTime.add(1, 's'))
 
-      // Check if currentTime is before or same as startDate
-      if (currentTime.isSameOrBefore(startDayJS)) {
-        let days = dayjs(startDayJS).diff(currentTime, 'day')
+      const currentTimeIsBeforeStartTime = formatDateTime(
+        currentTime,
+        'is-before-start-time',
+        null,
+        startDate
+      )
 
-        // 24 hours in a day
-        let hours = dayjs(startDayJS).diff(currentTime, 'hour') % 24
-
-        // 60 minutes in a hour
-        let minutes = dayjs(startDayJS).diff(currentTime, 'minute') % 60
-
-        // 60 seconds in a minute
-        let seconds = dayjs(startDayJS).diff(currentTime, 'second') % 60
+      if (currentTimeIsBeforeStartTime) {
+        const { days, hours, minutes, seconds } = currentTimeIsBeforeStartTime
 
         setBeforeEvent(true)
         setDayCount(days)

@@ -4,6 +4,7 @@ import {
   EventHeader,
   EventMapEmbed,
   EventTemplateImageHeader,
+  HMBKDivider,
 } from '../components'
 import { RichTextHelper } from '../components/helpers'
 
@@ -11,13 +12,12 @@ import { RichTextHelper } from '../components/helpers'
  * Render a single Event Prismic CMS entry.
  * @category Templates
  * @function EventsTemplate
- * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/features` landing page
+ * @param {Object} data - the data object coming from Prismic CMS that contains all data needed to build the `/features` landing page
  */
 function EventTemplate({ data }) {
   const prismicContent = data.prismic.allEvents.edges[0].node
   if (!prismicContent) return null
 
-  const [isOpen, setIsOpen] = useState(null)
   const [hasMap, setHasMap] = useState(null)
   const [hasInfo, setHasInfo] = useState(null)
   const [hasStream, setHasStream] = useState(null)
@@ -105,6 +105,12 @@ function EventTemplate({ data }) {
             </div>
           </section>
         )}
+
+        <footer className="section container">
+          <div className="columns is-mobile is-vcentered">
+            <HMBKDivider />
+          </div>
+        </footer>
       </article>
     </main>
   )

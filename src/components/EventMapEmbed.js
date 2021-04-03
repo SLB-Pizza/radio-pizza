@@ -39,7 +39,7 @@ function EventMapEmbed({ locationName, address }) {
   return (
     <section className="section container" id="map-section">
       <div className="columns is-mobile is-multiline">
-        <div className="column is-12 content">
+        <div className="column is-12 content event-section-title">
           <p className="title is-4">Map</p>
         </div>
         <div className="column is-12">

@@ -3,6 +3,7 @@ import {
   EventHeader,
   EventMapEmbed,
   EventTemplateImageHeader,
+  HMBKDivider,
 } from '../../../components'
 import { RichTextHelper } from '../../../components/helpers'
 import { toggleColumn } from '../../../utils'
@@ -17,8 +18,9 @@ import eventTemplateSampleData from './data/EventTemplate.json'
 function SampleEventTemplate() {
   if (!eventTemplateSampleData) return null
 
-  const [isOpen, setIsOpen] = useState(null)
-  const [categoryLabels, setCategoryLabels] = useState(null)
+  const [hasMap, setHasMap] = useState(null)
+  const [hasInfo, setHasInfo] = useState(null)
+  const [hasStream, setHasStream] = useState(null)
 
   let {
     event_start,
@@ -40,7 +42,7 @@ function SampleEventTemplate() {
    */
   useEffect(() => {
     const setEventCategoryData = () => {
-      if (data) {
+      if (eventTemplateSampleData) {
         if (event_blurb) {
           setHasInfo(true)
         }
@@ -60,7 +62,7 @@ function SampleEventTemplate() {
       }
     }
     return setEventCategoryData()
-  }, [data])
+  }, [])
 
   return (
     <main className="full-height-page">
@@ -78,7 +80,7 @@ function SampleEventTemplate() {
         {hasInfo && (
           <section className="section container">
             <div className="columns is-mobile is-multiline">
-              <div className="column is-12 content">
+              <div className="column is-12 content event-section-title">
                 <p className="title is-4">Info</p>
               </div>
               <RichTextHelper richText={event_blurb} />
@@ -96,13 +98,19 @@ function SampleEventTemplate() {
         {hasStream && (
           <section className="section container">
             <div className="columns is-mobile is-multiline">
-              <div className="column is-12 content">
+              <div className="column is-12 content event-section-title">
                 <p className="title is-4">Livestreams</p>
               </div>
               <RichTextHelper richText={event_livestream_embed} />
             </div>
           </section>
         )}
+
+        <footer className="section container">
+          <div className="columns is-mobile is-vcentered">
+            <HMBKDivider />
+          </div>
+        </footer>
       </article>
     </main>
   )

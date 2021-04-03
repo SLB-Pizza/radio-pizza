@@ -86,7 +86,7 @@
     "event_livestream_embed": {
       "type": "StructuredText",
       "config": {
-        "multi": "paragraph, heading2, hyperlink, embed",
+        "multi": "paragraph, heading3, strong, em, hyperlink, embed",
         "allowTargetBlank": true,
         "label": "Event Livestream Embed",
         "placeholder": "For YouTube livestreams, select Embed button, then copy/paste the link. For all other links, select the Hyperlink, then copy/paste the link in with desired label text."

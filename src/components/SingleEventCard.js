@@ -4,11 +4,12 @@ import NanoClamp from 'nanoclamp'
 import { RichText } from 'prismic-reactjs'
 import { FallbackImage, formatDateTime, linkResolver } from '../utils'
 /**
- *
- *
+ * Renders an Event media card for use across the site.
+ * @category Media Cards
+ * @function SingleEventCard
  * @param {String} eventColumnLayout - dictates the column layout to use
  * @param {Object} eventData - dis
- * @returns
+ * @returns {jsx}
  */
 function SingleEventCard({ eventColumnLayout, eventData }) {
   const [eventDateLocation, setEventDateLocation] = useState(null)

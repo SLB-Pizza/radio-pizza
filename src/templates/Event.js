@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
 import {
+  ContainedImageHero,
   EventHeader,
   EventMapEmbed,
-  EventTemplateImageHeader,
   HMBKDivider,
 } from '../components'
 import { RichTextHelper } from '../components/helpers'
@@ -67,7 +67,7 @@ function EventTemplate({ data }) {
   return (
     <main className="full-height-page">
       <article>
-        <EventTemplateImageHeader eventImage={main_event_image} />
+        <ContainedImageHero image={main_event_image} isHeader={true} />
         <EventHeader
           startDate={event_start}
           endDate={event_end}

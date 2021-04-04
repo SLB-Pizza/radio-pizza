@@ -392,7 +392,7 @@ img {
     height: calc(100vh - 8.75rem);
   }
 
-  &.event-image {
+  &.contained-image {
     height: calc(100vh - 9.75rem);
     img {
       transition: 0.25s $easing;
@@ -482,7 +482,7 @@ img {
   }
 
   & .blurred-bg {
-    filter: blur(10px);
+    filter: blur(15px);
   }
   // For ArticleHeadline.js
   &.article-header {

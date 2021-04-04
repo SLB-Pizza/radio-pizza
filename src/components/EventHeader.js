@@ -86,9 +86,12 @@ function EventHeader({
    */
   useEffect(() => {
     const handleScroll = e => {
-      // Set base values for the heights of the image and timer component
+      /**
+       * `.contained-image` is wrapper className for {@link EventTemplateImageHeader}.
+       * Set base values for the heights of the image and timer component
+       */
       if (timerHeight === 1 && eventHeight === 1) {
-        let eventImage = document.querySelector('.event-image')
+        let eventImage = document.querySelector('.contained-image')
         let eventHeader = document.querySelector('.event-header')
 
         /**

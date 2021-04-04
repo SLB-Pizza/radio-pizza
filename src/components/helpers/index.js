@@ -7,8 +7,10 @@
 /**
  * Component-specific Layout Helpers
  */
-export { default as ArticleDateTime } from './ArticleDateTime'
 export { default as ArticleAuthorDetails } from './ArticleAuthorDetails'
+export { default as ArticleHeadlineCategoryInfo } from './ArticleHeadlineCategoryInfo'
+export { default as ArticleDateTime } from './ArticleDateTime'
+export { default as ArticleHeadlinePhotoCredit } from './ArticleHeadlinePhotoCredit'
 export { default as HMBKSpeaking } from './HMBKSpeaking'
 export { default as Interviewee } from './Interviewee'
 

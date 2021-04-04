@@ -1,5 +1,9 @@
 import React from 'react'
 import { RichText } from 'prismic-reactjs'
+import {
+  ArticleHeadlineCategoryInfo,
+  ArticleHeadlinePhotoCredit,
+} from '../helpers'
 import { FallbackImage } from '../../utils'
 
 /**
@@ -20,30 +24,7 @@ function ArticleHeadline({ headlineData }) {
   /**
    * Process article category details.
    */
-  let categoryDetails
-  if (article_category) {
-    if (article_subcategory) {
-      categoryDetails = `${article_category} ‣ ${article_subcategory}`
-    } else {
-      categoryDetails = `${article_category}`
-    }
-  }
-
-  /**
-   * If the image has copyright info (photo credit):
-   *    Image alt text — photo credit
-   * If the image doesn't have copyright info:
-   *    Image alt text
-   */
-  const headlinePhotoDetails = article_headline_img.copyright ? (
-    <figcaption className="subtitle credit" id="article-headline-image">
-      {`${article_headline_img.alt} by ${article_headline_img.copyright}`}
-    </figcaption>
-  ) : (
-    <figcaption className="subtitle credit" id="article-headline-image">
-      {article_headline_img.alt}
-    </figcaption>
-  )
+  const categoryDetails = article_category || article_subcategory
 
   return (
     <header
@@ -65,9 +46,10 @@ function ArticleHeadline({ headlineData }) {
           <div className="columns is-mobile">
             <div className="column is-12">
               {categoryDetails && (
-                <p className="is-size-6-desktop is-size-7-touch article-category">
-                  {categoryDetails}
-                </p>
+                <ArticleHeadlineCategoryInfo
+                  category={article_category}
+                  subcategory={article_subcategory}
+                />
               )}
               <div className="content">
                 {article_headline && (
@@ -78,7 +60,10 @@ function ArticleHeadline({ headlineData }) {
                     {RichText.asText(article_headline)}
                   </h1>
                 )}
-                {headlinePhotoDetails}
+                <ArticleHeadlinePhotoCredit
+                  alt={article_headline_img.alt}
+                  copyright={article_headline_img.copyright}
+                />
               </div>
             </div>
           </div>

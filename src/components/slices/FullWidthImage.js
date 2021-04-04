@@ -1,4 +1,5 @@
 import React from 'react'
+import { ContainedImageHero } from '../index'
 
 /**
  * @category CMS Slices
@@ -35,15 +36,23 @@ function FullWidthImage({ slice }) {
       heroClassName = 'hero has-background is-fwi-quarterpage'
   }
 
-  return imgURL ? (
-    <section className={heroClassName}>
-      <img
-        className="hero-background"
-        src={imgURL}
-        alt={full_width_image.alt}
-      />
-    </section>
-  ) : null
+  if (imgURL) {
+    if (layoutType === 'fullpage') {
+      return <ContainedImageHero image={full_width_image} />
+    } else {
+      return (
+        <section className={heroClassName}>
+          <img
+            className="hero-background"
+            src={imgURL}
+            alt={full_width_image.alt}
+          />
+        </section>
+      )
+    }
+  }
+
+  return null
 }
 
 export default FullWidthImage

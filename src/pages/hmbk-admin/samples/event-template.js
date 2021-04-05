@@ -2,11 +2,10 @@ import React, { Fragment, useEffect, useState } from 'react'
 import {
   EventHeader,
   EventMapEmbed,
-  EventTemplateImageHeader,
+  ContainedImageHero,
   HMBKDivider,
 } from '../../../components'
 import { RichTextHelper } from '../../../components/helpers'
-import { toggleColumn } from '../../../utils'
 import eventTemplateSampleData from './data/EventTemplate.json'
 
 /**
@@ -67,7 +66,7 @@ function SampleEventTemplate() {
   return (
     <main className="full-height-page">
       <article>
-        <EventTemplateImageHeader eventImage={main_event_image} />
+        <ContainedImageHero image={main_event_image} isHeader={true} />
         <EventHeader
           startDate={event_start}
           endDate={event_end}

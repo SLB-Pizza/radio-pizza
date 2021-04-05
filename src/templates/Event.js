@@ -146,6 +146,28 @@ export const query = graphql`
                 url
               }
             }
+            event_mixes {
+              event_mix {
+                ... on PRISMIC_Mix {
+                  _meta {
+                    uid
+                    type
+                    tags
+                  }
+                  mix_image
+                  mix_title
+                  mix_date
+                  mix_link
+                  featured_residents {
+                    mix_resident {
+                      ... on PRISMIC_Resident {
+                        resident_name
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }

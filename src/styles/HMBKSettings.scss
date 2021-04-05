@@ -409,8 +409,9 @@ img {
       padding: 0;
       margin: -1px;
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
       .bg-gradient {
         background: linear-gradient(
           to right,

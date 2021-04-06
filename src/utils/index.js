@@ -37,6 +37,7 @@ export {
   featureDateSort,
 } from './singleResidentDateSorting'
 export { scrollToTop } from './scrollToTop'
+export { default as sortUpcomingShowsArray } from './sortUpcomingShowsArray'
 export { default as sortShowEntriesByStartTime } from './sortShowEntriesByStartTime'
 export { default as testCaseMaker } from './testCaseMaker'
 export { default as toggleColumn } from './toggleColumn'

@@ -4,7 +4,7 @@ import {
   DateSelectorButton,
   SingleDateScheduleGenerator,
 } from '../../components'
-import { formatDateTime } from '../../utils'
+import { formatDateTime, sortShowEntriesByStartTime } from '../../utils'
 import { GET_SEVEN_DAY_SCHEDULE } from '../../queries'
 
 /**
@@ -127,7 +127,9 @@ function ScheduleIndexPage() {
             } = sevenDayScheduleData.allSchedules.edges[j].node
 
             if (currDate === schedule_date) {
-              currDateObject.entries = schedule_entries
+              const sortedEntries = sortShowEntriesByStartTime(schedule_entries)
+
+              currDateObject.entries = sortedEntries
             }
           }
           datedScheduleEntries.push(currDateObject)

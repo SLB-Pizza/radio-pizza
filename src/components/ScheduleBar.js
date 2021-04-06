@@ -6,7 +6,7 @@ import {
   GlobalStateContext,
 } from '../context/GlobalContextProvider'
 import { ScheduleBarLayout, OutsideClick } from './index'
-import { formatDateTime, sortShowEntriesByStartTime } from '../utils'
+import { formatDateTime, sortUpcomingShowsArray } from '../utils'
 import { GET_UPCOMING_SHOWS } from '../queries'
 import { closeSchedule } from '../dispatch'
 
@@ -81,7 +81,7 @@ function ScheduleBar({ timeNow }) {
       if (upcomingShowData) {
         let nextTwoDatesWithScheduledShows = upcomingShowData.allSchedules.edges
 
-        const sortedEntries = sortShowEntriesByStartTime(
+        const sortedEntries = sortUpcomingShowsArray(
           nextTwoDatesWithScheduledShows
         )
 

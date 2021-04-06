@@ -1,6 +1,6 @@
 import React from 'react'
-import { RenderShowTitlingLayout } from '../components'
-import { mappableDataFilter, getResidentLinks } from '../utils'
+import { RenderShowTitlingLayout, ResidentLinks } from '../components'
+import { mappableDataFilter } from '../utils'
 
 /**
  * Examines the incoming single date's entries and renders them, in preferential order:
@@ -14,7 +14,7 @@ import { mappableDataFilter, getResidentLinks } from '../utils'
  * @param {?String} liveShowTitle - optional string detailing show's name
  * @param {?String} liveShowGuests - optional string detailing show's guest list (no link)
  * @returns {jsx}
- * @see {@link mappableDataFilter We need to pass an objectKeyCount of 2 when checking preRecordedMix.featured_residents since __typename counts as a key-value pair!}
+ * @see {@link mappableDataFilter We need to pass an objectKeyCount of 2 when checking preRecordedMix.featured_residents since `__typename` counts as a key-value pair!}
  */
 export default function SingleScheduledShowTitling({
   preRecordedMix,
@@ -24,7 +24,7 @@ export default function SingleScheduledShowTitling({
   /**
    * If `preRecordedMix` exists:
    * 1. If `mix_title` is null, filter the residents array,
-   * and create resident links using {@link getResidentLinks} with the
+   * and create resident links using {@link ResidentLinks} with the
    * optional `residentsAsTitle` true. {@link RenderShowTitlingLayout}: `showTitle` - null; `showSubtitle` - processedMixResidents
    * 2. `mix_title` exists; filter the residents array, create resident links.
    * create resident links; {@link RenderShowTitlingLayout}: `showTitle` - mix_title; `showSubtitle` - processedMixResidents
@@ -38,14 +38,17 @@ export default function SingleScheduledShowTitling({
      */
     if (!mix_title) {
       processedResidents = mappableDataFilter(featured_residents, 2)
-      recordedMixResidents = Array.isArray(processedResidents)
-        ? getResidentLinks(featured_residents, null, true)
-        : null
+      recordedMixResidents = Array.isArray(processedResidents) ? (
+        <ResidentLinks
+          residentsArr={featured_residents}
+          residentsAsTitle={true}
+        />
+      ) : null
     } else {
       processedResidents = mappableDataFilter(featured_residents, 2)
-      recordedMixResidents = Array.isArray(processedResidents)
-        ? getResidentLinks(featured_residents)
-        : null
+      recordedMixResidents = Array.isArray(processedResidents) ? (
+        <ResidentLinks residentsArr={featured_residents} />
+      ) : null
     }
 
     return (

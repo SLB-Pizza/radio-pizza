@@ -1,13 +1,12 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { useLazyQuery } from '@apollo/client'
-import Ticker from 'react-ticker'
 import PageVisibility from 'react-page-visibility'
 import {
   GlobalDispatchContext,
   GlobalStateContext,
 } from '../context/GlobalContextProvider'
 import { ScheduleBarLayout, OutsideClick } from './index'
-import { formatDateTime } from '../utils'
+import { formatDateTime, sortShowEntriesByStartTime } from '../utils'
 import { GET_UPCOMING_SHOWS } from '../queries'
 import { closeSchedule } from '../dispatch'
 
@@ -72,16 +71,21 @@ function ScheduleBar({ timeNow }) {
   }, [yesterdayDate])
 
   /**
-   * Update `upcomingShowData` with the fetched data from {@link getUpcomingShows}.
+   * Grabs the edges array from the data fetched by {@link getUpcomingShows}.
+   * Sorts the `schedule_entries` for each date object in the edges array, then passes that data to `setUpcomingShowData`
    * @category useEffect
    * @name updateTodaysSchedule
    */
   useEffect(() => {
     const updateTodaysSchedule = () => {
       if (upcomingShowData) {
-        const todayScheduleDataNode = upcomingShowData.allSchedules.edges
+        let nextTwoDatesWithScheduledShows = upcomingShowData.allSchedules.edges
 
-        setUpcomingShowData(todayScheduleDataNode)
+        const sortedEntries = sortShowEntriesByStartTime(
+          nextTwoDatesWithScheduledShows
+        )
+
+        setUpcomingShowData(sortedEntries)
       }
     }
     return updateTodaysSchedule()
@@ -153,10 +157,6 @@ function ScheduleBar({ timeNow }) {
     return () => clearInterval(interval)
   }, [])
 
-  // const handleVisibilityChange = (isVisible) => {
-  //   setPageIsVisible(isVisible);
-  // };
-
   const handlePlayLive = async () => {
     await dispatch({
       type: 'CHANGE_URL',
@@ -165,22 +165,6 @@ function ScheduleBar({ timeNow }) {
         title: 'Halfmoon Radio',
       },
     })
-  }
-
-  // const showLiveStatus = () => (globalState.live ? "true" : "false");
-  // END TEST CODE
-
-  const nextShowTicker = (date, showName) => {
-    return (
-      <Ticker mode="await" offset="run-in" speed={3}>
-        {() => (
-          <p className="display-text  is-size-7">
-            {/* {date} – {showName} */}
-            Aldrich Title - Oxygen Body
-          </p>
-        )}
-      </Ticker>
-    )
   }
 
   /**

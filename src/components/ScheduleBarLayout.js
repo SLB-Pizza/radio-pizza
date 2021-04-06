@@ -1,6 +1,10 @@
 import React, { useContext } from 'react'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
-import { ScheduleDropdown, UpcomingShow } from './index'
+import {
+  ScheduleDropdown,
+  UpcomingShow,
+  UpcomingShowWithResidents,
+} from './index'
 import {
   GlobalStateContext,
   GlobalDispatchContext,
@@ -25,6 +29,7 @@ import {
 export default function ScheduleBarLayout({ timeNow, upcomingShows }) {
   const dispatch = useContext(GlobalDispatchContext)
   const globalState = useContext(GlobalStateContext)
+
   const { live, playingRadio, scheduleOpen, ...rest } = globalState
 
   return (
@@ -36,6 +41,7 @@ export default function ScheduleBarLayout({ timeNow, upcomingShows }) {
       }
       id="schedule-bar"
     >
+      <canvas id="upcoming-measure" />
       <div className="columns is-vcentered is-mobile is-variable is-2 up-next">
         <div
           className="column is-narrow"
@@ -77,12 +83,12 @@ export default function ScheduleBarLayout({ timeNow, upcomingShows }) {
 
         <UpcomingShow showData={upcomingShows} timeNow={timeNow} />
 
-        <div className="column upcoming is-hidden-tablet">
-          {/* <PageVisibility onChange={handleVisibilityChange}>
+        {/* <div className="column upcoming is-hidden-tablet"> */}
+        {/* <PageVisibility onChange={handleVisibilityChange}>
             {pageIsVisible &&
               nextShowTicker("MON 4.21", "An HMBK Moment In Time")}
           </PageVisibility> */}
-        </div>
+        {/* </div> */}
         <div className="column is-narrow">
           <Icon
             icon="calendar-alt"
@@ -91,6 +97,7 @@ export default function ScheduleBarLayout({ timeNow, upcomingShows }) {
             onClick={() => toggleSchedule(dispatch)}
           />
         </div>
+
         {/* <div className="column is-narrow">
             <Link to="/search">
               <Icon

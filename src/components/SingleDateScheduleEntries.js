@@ -38,7 +38,7 @@ export default function SingleDateScheduleEntries({ entries, currentTime }) {
           let isNowPlaying = false
 
           /**
-           * Determine whether show is live ONLY IF show has both start and end times.
+           * If show has both start and end times, determine whether it's currently live (to render the {@link OnAirScheduleTag}), and render the schedule entry's data.
            */
           if (start_time && end_time) {
             isNowPlaying = isCurrentShowLive(currentTime, start_time, end_time)

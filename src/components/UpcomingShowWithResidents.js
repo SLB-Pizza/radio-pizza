@@ -1,7 +1,18 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { linkResolver } from '../utils'
+import { linkResolver, mappableDataFilter } from '../utils'
 
+/**
+ * Renders the Prismic Mix data object to be display in `.upcoming-show`
+ * @category Layout Helper
+ * @function UpcomingShowWithResidents
+ * @param {String} startTimeStr - DateTime string; preformatted in {@link UpcomingShow}
+ * @param {Object} upcomingShow - the Prismic Mix data object
+ * @prop {?String} mix_title - optional mix title
+ * @prop {}
+ * @param {Boolean} isLoading
+ * @returns {jsx}
+ */
 export default function UpcomingShowWithResidents({
   startTimeStr,
   upcomingShow,
@@ -41,13 +52,14 @@ export default function UpcomingShowWithResidents({
       })}
     </span>
   )
+
   if (mix_title) {
     return (
       <div
         className={
           isLoading
-            ? 'column next-show is-hidden-mobile text-block'
-            : 'column next-show is-hidden-mobile text-block is-loaded'
+            ? 'column upcoming-show is-hidden-mobile text-block'
+            : 'column upcoming-show is-hidden-mobile text-block is-loaded'
         }
       >
         <p className="subtitle is-size-6-desktop is-size-7-touch">
@@ -62,8 +74,8 @@ export default function UpcomingShowWithResidents({
       <div
         className={
           isLoading
-            ? 'column next-show is-hidden-mobile text-block'
-            : 'column next-show is-hidden-mobile text-block is-loaded'
+            ? 'column upcoming-show is-hidden-mobile text-block'
+            : 'column upcoming-show is-hidden-mobile text-block is-loaded'
         }
       >
         <p className="subtitle is-size-6-desktop is-size-7-touch">

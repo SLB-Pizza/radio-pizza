@@ -1,10 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { GlobalStateContext } from '../context/GlobalContextProvider'
-import {
-  formatDateTime,
-  getResidentLinks,
-  getUpcomingShowDetails,
-} from '../utils'
+import { getUpcomingShowDetails } from '../utils'
 import {
   UpcomingShowFallbackMessage,
   UpcomingShowLiveBroadcast,
@@ -12,7 +8,7 @@ import {
 } from '../components'
 
 /**
- *
+ * Processes `showData` using `timeNow` to render the details about the upcoming show.
  * @category Layout Helper
  * @function UpcomingShow
  * @param {Object[]} showData - data array of the next two, if available, dates with scheduled shows

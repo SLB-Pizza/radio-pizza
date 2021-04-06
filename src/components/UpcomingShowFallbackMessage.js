@@ -1,12 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { debounce } from 'lodash'
+import { compareTextWidthAndShowSpace } from '../utils'
 
+/**
+ * Renders the `.upcoming-show` div content when the upcoming show is a Live Broadcast powered by `live_show_title` and `live_show_guests`.
+ * @category Layout Helper
+ * @function UpcomingShowFallbackMessage
+ * @param {Boolean} isLoading - `globalState` pop; originates from {@link UpcomingShow}
+ * @returns {jsx}
+ */
 export default function UpcomingShowFallbackMessage({ isLoading }) {
+  const [isScrolling, setScrolling] = useState(null)
+
+  useEffect(() => {
+    const debouncedWidthCheck = window.addEventListener
+
+    return () => {
+      compareTextWidthAndShowSpace()
+    }
+  })
+
   return (
     <div
       className={
         isLoading
-          ? 'column next-show is-hidden-mobile text-block'
-          : 'column next-show is-hidden-mobile text-block is-loaded'
+          ? 'column upcoming-show text-block'
+          : 'column upcoming-show text-block is-loaded'
       }
     >
       <p className="subtitle is-size-6-desktop is-size-7-touch">

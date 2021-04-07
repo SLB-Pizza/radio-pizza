@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { debounce } from 'lodash'
-import { measureTextWidth } from '../utils'
+import {
+  measureTextWidth,
+  checkUpcomingShowWidth,
+  setInitialMarqueeState,
+} from '../utils'
 
 /**
  * Renders the `.upcoming-show` div content when the upcoming show is a Live Broadcast powered by `live_show_title` and `live_show_guests`.
@@ -14,31 +18,24 @@ export default function UpcomingShowFallbackMessage({ isLoading }) {
 
   /**
    * Runs once on page load to set initial `activeMarquee` state.
+   * Calls on {@link setInitialMarqueeState}.
    * @category useEffect
-   * @name setInitialMarqueeState
    */
   useEffect(() => {
-    const setInitialMarqueeState = () => {
-      const marqueeIsActive = measureTextWidth()
-      setActiveMarquee(marqueeIsActive)
-    }
-    return setInitialMarqueeState()
+    return setInitialMarqueeState(setActiveMarquee)
   }, [])
 
   /**
    * Update `activeMarquee` anytime the page is resized.
+   * `stateLoadedFunction` returns {@link checkUpcomingShowWidth} with local state.
+   * `stateLoadedFunction` is then debounced, and then passed to the `resize` eventListener
    * @category useEffect
-   * @name checkUpcomingShowWidth
    */
   useEffect(() => {
-    const checkUpcomingShowWidth = () => {
-      if (activeMarquee !== null) {
-        const marqueeIsActive = measureTextWidth()
-        setActiveMarquee(marqueeIsActive)
-      }
-    }
+    const stateLoadedFunction = () =>
+      checkUpcomingShowWidth(activeMarquee, setActiveMarquee)
 
-    const debouncedWidthCheck = debounce(checkUpcomingShowWidth, 500)
+    const debouncedWidthCheck = debounce(stateLoadedFunction, 500)
     window.addEventListener('resize', debouncedWidthCheck)
 
     return () => {
@@ -57,8 +54,8 @@ export default function UpcomingShowFallbackMessage({ isLoading }) {
       <p
         className={
           activeMarquee
-            ? 'title is-size-6-desktop is-size-7-touch active-marquee'
-            : 'title is-size-6-desktop is-size-7-touch'
+            ? 'title is-size-6-tablet is-size-7-mobile active-marquee'
+            : 'title is-size-6-tablet is-size-7-mobile'
         }
       >
         No upcoming shows planned. Follow us on our{' '}

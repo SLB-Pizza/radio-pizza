@@ -11,6 +11,7 @@ export { default as linkResolver } from './linkResolver'
  *
  * These utility functions are called throughout this projects to help with data processing.
  */
+export { default as checkUpcomingShowWidth } from './checkUpcomingShowWidth'
 export { default as cmsNodeValidator } from './cmsNodeValidator'
 export { default as devEntryDetails } from './devEntryDetails'
 export { default as displayCollectionPlaylistDetails } from './displayCollectionPlaylistDetails'
@@ -37,6 +38,7 @@ export {
   featureDateSort,
 } from './singleResidentDateSorting'
 export { scrollToTop } from './scrollToTop'
+export { default as setInitialMarqueeState } from './setInitialMarqueeState'
 export { default as sortUpcomingShowsArray } from './sortUpcomingShowsArray'
 export { default as sortShowEntriesByStartTime } from './sortShowEntriesByStartTime'
 export { default as testCaseMaker } from './testCaseMaker'

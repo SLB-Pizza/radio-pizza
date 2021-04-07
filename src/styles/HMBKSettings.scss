@@ -228,6 +228,12 @@ figcaption {
   }
 }
 
+.unstyled {
+  border-style: none;
+  background-color: black;
+  cursor: pointer;
+}
+
 //================================================
 // Override default bulma card styles
 // Give each card a solid $primary border

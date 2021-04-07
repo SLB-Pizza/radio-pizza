@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { debounce } from 'lodash'
-import {
-  measureTextWidth,
-  checkUpcomingShowWidth,
-  setInitialMarqueeState,
-} from '../utils'
+import { checkUpcomingShowWidth, setInitialMarqueeState } from '../utils'
 
 /**
  * Renders the `.upcoming-show` div content when the upcoming show is a Live Broadcast powered by `live_show_title` and `live_show_guests`.

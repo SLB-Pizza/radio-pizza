@@ -1,3 +1,47 @@
+### Version 1.11.0
+- basic remote live stream marquee working
+- updated liveMarquee - working
+- update react-player ^2.6.2 -> ^2.9.0
+- added current live url
+- deketed console logs
+- committing package-log
+- added handlePlayLive dispatch; updated live button
+- updated global context re: playing radio
+- Merge remote-tracking branch 'origin' into fix/eventTemplateLayout
+- refactor(firebaseMarquee): move getRemoteMarquee to TopNav in useEffect update exports; add to utils index
+- feat(EventImageHeader): componentize header fix height of hero image; use as blurred BG fit whole image in hero container as overlay add lazyload to header images
+- style(EventTemplateImage): add gradient under EventImage
+- style(lazyload): add lazyload to media cards
+- fix(Event): componentize EventHeaderButton pass renderEventButton bool to EventDateTimeLocationInfo
+- style(Hero): lazyload FallbackImage
+- backup(Event): update Prismic JSON Event custom type
+- feat(Samples): make event-template sample page
+- fix(tablet): change tablet breakpoint to 769px
+- feat(/samples): make event-template route import hardcode JSON source
+- style(/residents): add 'is-focused' to button styling
+- feat(Event): fix EventHeader layout issues remove event category button; layout back-to-back
+- fix(EventTemplateImage): fix non-filling blurred-bg add flex styling to contained 'overlay-image' to place in center on tablets; mobile
+- fix(Hero): make hero-background 100% width
+- refactor(formatDateTime): add 'is-before-start-time' add HMBKDivider
+- fix(UpcomingShow): remove conditional render the conditional render blocked UpcomingShowFallbackMessage from appearing
+- backup(Event): update Prismic JSON
+- backup(About): add base Prismic JSON custom type
+- feat(/about): add base query to /about
+- fix(EventImage): add z-index to .overlay-image wrap overlay image in anchor tag
+- docs(SingleEvent): add missing @returns; description
+- refactor(ContainedImageHero): rename component make classNames generic
+- refactor(ArticleHeadline): componentize photo credit and category info
+- feat(FWI): change 'fullpage' case to render ContainedImageHero refactor render conditions
+- fix(ContainedImageHero): add align-items flex detail
+- fix(event-template): rename import, props passed
+- refactor(ResidentLinks): convert getResidentLinks to component move from utils to components update imports; add props
+- prune(#79): remove SingleScheduleEntryRow handled by SingleScheduledShowTimes and SingleScheduledShowTitling
+- refactor(SingleScheduledShowTitling): pass in ResidentLinks component
+- docs(ScheduleEntries): update render notes
+- docs: pushed missed file
+- feat(sortEntries): add util func to sort ScheduleBar, UpcomingShow `schedule_entries`
+- feat(/schedule): sort schedule_entries in updateThisWeeksSchedule refactor date sorting into two functions: - sortUpcomingShowsArray (ScheduleBar) - sortShowEntriesByStartTime (/schedule)
+
 ### Version 1.10.0
 - docs(query): update HomeMixes FILL_HOME_MIXES docs
 - refactor(/schedule): update state variable and props names

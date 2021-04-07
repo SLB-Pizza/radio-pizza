@@ -29,13 +29,32 @@
 }
 
 .column.mix-data,
-.column.next-show {
+.column.upcoming-show {
   opacity: 0;
   overflow-x: hidden;
   white-space: nowrap;
   transition: 0.5s $easing;
   &.is-loaded {
     opacity: 1;
+  }
+}
+
+.upcoming-show p {
+  transition: 0.5s ease;
+  &.active-marquee {
+    /* Starting position */
+    -moz-transform: translateX(115%);
+    -webkit-transform: translateX(115%);
+    transform: translateX(115%);
+    /* Apply animation to this element */
+    -moz-animation: upcoming-show-marquee 20s linear infinite;
+    -webkit-animation: upcoming-show-marquee 20s linear infinite;
+    animation: upcoming-show-marquee 20s linear infinite;
+
+    &:focus,
+    &:hover {
+      animation-play-state: paused;
+    }
   }
 }
 
@@ -182,6 +201,14 @@
   }
 }
 
+#upcoming-measure {
+  background-color: blueviolet;
+  width: auto;
+  position: absolute;
+  z-index: -10;
+  // top: -15rem
+}
+
 //==================================
 // <BottomNav />
 //==================================
@@ -223,12 +250,44 @@
     display: flex;
     justify-content: center;
   }
-  a,
   span {
     color: $primary;
     transition: 0.25s $easing;
     &:hover {
       color: white;
     }
+  }
+}
+
+//==================
+// UpcomingShow Animation
+//==================
+/* Move it (define the animation) */
+@keyframes upcoming-show-marquee {
+  0% {
+    -moz-transform: translateX(115%); /* Firefox bug fix */
+    -webkit-transform: translateX(115%); /* Firefox bug fix */
+    transform: translateX(115%);
+  }
+  100% {
+    -moz-transform: translateX(-110%); /* Firefox bug fix */
+    -webkit-transform: translateX(-110%); /* Firefox bug fix */
+    transform: translateX(-110%);
+  }
+}
+@-moz-keyframes upcoming-show-marquee {
+  0% {
+    -moz-transform: translateX(115%);
+  }
+  100% {
+    -moz-transform: translateX(-110%);
+  }
+}
+@-webkit-keyframes upcoming-show-marquee {
+  0% {
+    -webkit-transform: translateX(115%);
+  }
+  100% {
+    -webkit-transform: translateX(-110%);
   }
 }

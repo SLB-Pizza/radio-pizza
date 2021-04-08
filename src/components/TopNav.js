@@ -20,7 +20,7 @@ dayjs.extend(timezone)
  * @function TopNav
  * @returns {jsx}
  */
-function TopNav() {
+export default function TopNav() {
   const globalState = useContext(GlobalStateContext)
   const dispatch = useContext(GlobalDispatchContext)
 
@@ -93,10 +93,10 @@ function TopNav() {
           : 'radio-and-schedule-bar'
       }
     >
+      <canvas id="upcoming-measure" aria-hidden="true" />
+
       <RadioBar nycTime={nycTime} laTime={laTime} />
       <ScheduleBar timeNow={nycTime} />
     </div>
   )
 }
-
-export default TopNav

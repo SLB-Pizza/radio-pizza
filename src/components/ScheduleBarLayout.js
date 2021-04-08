@@ -41,7 +41,6 @@ export default function ScheduleBarLayout({ timeNow, upcomingShows }) {
       }
       id="schedule-bar"
     >
-      <canvas id="upcoming-measure" aria-hidden="true" />
       <div className="columns is-vcentered is-mobile is-variable is-2 up-next">
         <div className="column is-narrow">
           {live ? (

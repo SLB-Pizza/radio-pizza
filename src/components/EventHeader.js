@@ -125,7 +125,6 @@ function EventHeader({
         setHeaderIsSticky(false)
       }
     }
-    asdaf
     // Limit checks to every 1/10 second, instead of on every pixel change
     const makeEventHeaderSticky = throttle(handleScroll, 100)
 

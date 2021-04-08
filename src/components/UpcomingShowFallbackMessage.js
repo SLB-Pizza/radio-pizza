@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { debounce } from 'lodash'
-import { compareTextWidthAndShowSpace } from '../utils'
+import { checkUpcomingShowWidth, setInitialMarqueeState } from '../utils'
 
 /**
  * Renders the `.upcoming-show` div content when the upcoming show is a Live Broadcast powered by `live_show_title` and `live_show_guests`.
@@ -10,13 +10,32 @@ import { compareTextWidthAndShowSpace } from '../utils'
  * @returns {jsx}
  */
 export default function UpcomingShowFallbackMessage({ isLoading }) {
-  const [isScrolling, setScrolling] = useState(null)
+  const [activeMarquee, setActiveMarquee] = useState(null)
 
+  /**
+   * Runs once on page load to set initial `activeMarquee` state.
+   * Calls on {@link setInitialMarqueeState}.
+   * @category useEffect
+   */
   useEffect(() => {
-    const debouncedWidthCheck = window.addEventListener
+    return setInitialMarqueeState(setActiveMarquee)
+  }, [])
+
+  /**
+   * Update `activeMarquee` anytime the page is resized.
+   * `stateLoadedFunction` returns {@link checkUpcomingShowWidth} with local state.
+   * `stateLoadedFunction` is then debounced, and then passed to the `resize` eventListener
+   * @category useEffect
+   */
+  useEffect(() => {
+    const stateLoadedFunction = () =>
+      checkUpcomingShowWidth(activeMarquee, setActiveMarquee)
+
+    const debouncedWidthCheck = debounce(stateLoadedFunction, 500)
+    window.addEventListener('resize', debouncedWidthCheck)
 
     return () => {
-      compareTextWidthAndShowSpace()
+      window.removeEventListener('resize', debouncedWidthCheck)
     }
   })
 
@@ -28,7 +47,13 @@ export default function UpcomingShowFallbackMessage({ isLoading }) {
           : 'column upcoming-show text-block is-loaded'
       }
     >
-      <p className="subtitle is-size-6-desktop is-size-7-touch">
+      <p
+        className={
+          activeMarquee
+            ? 'title is-size-6-tablet is-size-7-mobile active-marquee'
+            : 'title is-size-6-tablet is-size-7-mobile'
+        }
+      >
         No upcoming shows planned. Follow us on our{' '}
         <a href="https://twitter.com/halfmoonbk" rel="noopener" target="_blank">
           Twitter

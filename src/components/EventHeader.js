@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import _ from 'lodash'
+import { throttle } from 'lodash'
 import {
   EventCountdown,
   EventDateTimeLocationInfo,
@@ -125,9 +125,8 @@ function EventHeader({
         setHeaderIsSticky(false)
       }
     }
-
     // Limit checks to every 1/10 second, instead of on every pixel change
-    const makeEventHeaderSticky = _.throttle(handleScroll, 100)
+    const makeEventHeaderSticky = throttle(handleScroll, 100)
 
     window.addEventListener('scroll', makeEventHeaderSticky)
 

@@ -29,13 +29,34 @@
 }
 
 .column.mix-data,
-.column.next-show {
+.column.upcoming-show {
   opacity: 0;
   overflow-x: hidden;
   white-space: nowrap;
   transition: 0.5s $easing;
   &.is-loaded {
     opacity: 1;
+  }
+}
+
+.upcoming-show p {
+  transition: 0.5s ease;
+  &.active-marquee {
+    /* Starting position */
+    -moz-transform: translateX(150%);
+    -webkit-transform: translateX(150%);
+    transform: translateX(150%);
+    /* Apply animation to this element */
+    -moz-animation: upcoming-show-marquee 20s linear infinite;
+    -webkit-animation: upcoming-show-marquee 20s linear infinite;
+    animation: upcoming-show-marquee 20s linear infinite;
+
+    &:focus,
+    &:hover,
+    & a:hover,
+    & a:focus {
+      animation-play-state: paused;
+    }
   }
 }
 
@@ -66,7 +87,6 @@
     flex-direction: column;
     align-content: flex-end;
     width: 100%;
-    // margin-left: 1rem;
     p {
       flex: 1;
       overflow: hidden;
@@ -78,8 +98,6 @@
   .columns {
     margin-top: 0rem;
     max-height: 4rem;
-    // border: 2px solid red;
-    // background-color: rgba($color: orange, $alpha: 0.5);
   }
 }
 
@@ -108,7 +126,7 @@
     border-color: white;
   }
   50% {
-    border-color: $primary;
+    border-color: $link;
   }
   100% {
     border-color: white;
@@ -138,7 +156,7 @@
     color: white;
   }
   50% {
-    color: $primary;
+    color: $link;
   }
   100% {
     color: white;
@@ -182,6 +200,15 @@
   }
 }
 
+#upcoming-measure {
+  background-color: blueviolet;
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  z-index: -10;
+  top: -15rem;
+}
+
 //==================================
 // <BottomNav />
 //==================================
@@ -223,12 +250,44 @@
     display: flex;
     justify-content: center;
   }
-  a,
   span {
     color: $primary;
     transition: 0.25s $easing;
     &:hover {
       color: white;
     }
+  }
+}
+
+//==================
+// UpcomingShow Animation
+//==================
+/* Move it (define the animation) */
+@keyframes upcoming-show-marquee {
+  0% {
+    -moz-transform: translateX(150%); /* Firefox bug fix */
+    -webkit-transform: translateX(150%); /* Firefox bug fix */
+    transform: translateX(150%);
+  }
+  100% {
+    -moz-transform: translateX(-150%); /* Firefox bug fix */
+    -webkit-transform: translateX(-150%); /* Firefox bug fix */
+    transform: translateX(-150%);
+  }
+}
+@-moz-keyframes upcoming-show-marquee {
+  0% {
+    -moz-transform: translateX(150%);
+  }
+  100% {
+    -moz-transform: translateX(-150%);
+  }
+}
+@-webkit-keyframes upcoming-show-marquee {
+  0% {
+    -webkit-transform: translateX(150%);
+  }
+  100% {
+    -webkit-transform: translateX(-150%);
   }
 }

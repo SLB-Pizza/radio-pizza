@@ -23,7 +23,7 @@ import {
  * @category Layout Helper
  * @function ScheduleBarLayout
  * @param {Object} timeNow - dayJS object originating from {@link TopNav}
- * @param {Object[]} upcomingShows - array of schedule data nodes, max 2
+ * @param {Object[]} upcomingShows - array of schedule data nodes, max 2 data objects
  * @returns {jsx}
  */
 export default function ScheduleBarLayout({ timeNow, upcomingShows }) {
@@ -41,31 +41,25 @@ export default function ScheduleBarLayout({ timeNow, upcomingShows }) {
       }
       id="schedule-bar"
     >
-      <canvas id="upcoming-measure" />
       <div className="columns is-vcentered is-mobile is-variable is-2 up-next">
-        <div
-          className="column is-narrow"
-          onClick={() => {
-            handlePlayLive(dispatch)
-            closeSchedule(dispatch)
-          }}
-        >
+        <div className="column is-narrow">
           {live ? (
             <button
               className="button is-small is-outlined is-rounded"
-              onClick={() => closeSchedule(dispatch)}
+              onClick={() => {
+                handlePlayLive(dispatch)
+                closeSchedule(dispatch)
+              }}
             >
               {playingRadio ? (
                 <>
-                  <span>Listening</span>
                   <span className="icon">
-                    <Icon icon="headphones" size="1x" className="live-light" />
-                    Listening
+                    <Icon icon="headphones" size="lg" className="live-light" />
                   </span>
+                  <span>Listening</span>
                 </>
               ) : (
                 <>
-                  <span>Live</span>
                   <span className="icon">
                     <Icon
                       icon="broadcast-tower"
@@ -73,29 +67,25 @@ export default function ScheduleBarLayout({ timeNow, upcomingShows }) {
                       className="live-light"
                     />
                   </span>
+                  <span>Tune In!</span>
                 </>
               )}
             </button>
           ) : (
-            <p className="title is-size-6-desktop is-size-7-touch">Next Show</p>
+            <p className="title is-size-6-tablet is-size-7-mobile">Next Show</p>
           )}
         </div>
 
         <UpcomingShow showData={upcomingShows} timeNow={timeNow} />
 
-        {/* <div className="column upcoming is-hidden-tablet"> */}
-        {/* <PageVisibility onChange={handleVisibilityChange}>
-            {pageIsVisible &&
-              nextShowTicker("MON 4.21", "An HMBK Moment In Time")}
-          </PageVisibility> */}
-        {/* </div> */}
         <div className="column is-narrow">
-          <Icon
-            icon="calendar-alt"
-            size="1x"
-            className="icon-color"
+          <button
+            className="unstyled"
+            aria-label="Toggle Schedule Dropdown"
             onClick={() => toggleSchedule(dispatch)}
-          />
+          >
+            <Icon icon="calendar-alt" size="1x" className="icon-color" />
+          </button>
         </div>
 
         {/* <div className="column is-narrow">
@@ -114,13 +104,9 @@ export default function ScheduleBarLayout({ timeNow, upcomingShows }) {
             href="http://halfmoonradiochat.chatango.com/"
             target="_blank"
             rel="noopener"
+            onClick={() => closeSchedule(dispatch)}
           >
-            <Icon
-              onClick={() => closeSchedule(dispatch)}
-              icon="comments"
-              size="1x"
-              className="icon-color"
-            />
+            <Icon icon="comments" size="1x" className="icon-color" />
           </a>
         </div>
       </div>

@@ -5,7 +5,9 @@ import {
   EventHeader,
   EventMapEmbed,
   HMBKDivider,
+  SingleMixCard,
 } from '../components'
+import { mappableDataFilter } from '../utils'
 import { RichTextHelper } from '../components/helpers'
 
 /**
@@ -21,6 +23,7 @@ function EventTemplate({ data }) {
   const [hasMap, setHasMap] = useState(null)
   const [hasInfo, setHasInfo] = useState(null)
   const [hasStream, setHasStream] = useState(null)
+  const [eventMixes, setEventMixes] = useState(null)
 
   let {
     event_start,
@@ -34,6 +37,7 @@ function EventTemplate({ data }) {
     event_header_button_text,
     event_header_button_link,
     event_livestream_embed,
+    event_mixes,
   } = prismicContent
 
   /**
@@ -58,6 +62,11 @@ function EventTemplate({ data }) {
 
         if (event_livestream_embed) {
           setHasStream(true)
+        }
+
+        const filteredMixes = mappableDataFilter(event_mixes)
+        if (filteredMixes) {
+          setEventMixes(filteredMixes)
         }
       }
     }
@@ -102,6 +111,25 @@ function EventTemplate({ data }) {
                 <p className="title is-4">Livestreams</p>
               </div>
               <RichTextHelper richText={event_livestream_embed} />
+            </div>
+          </section>
+        )}
+
+        {eventMixes && (
+          <section className="section container">
+            <div className="columns is-mobile is-multiline">
+              <div className="column is-12 content">
+                <p className="title is-4">Mixes From This Event</p>
+              </div>
+              {eventMixes?.map(({ event_mix }, index) => (
+                <SingleMixCard
+                  key={`single-event-mix-${index}`}
+                  mixData={event_mix}
+                  columnLayout={
+                    'column is-12-mobile is-6-tablet is-4-widescreen'
+                  }
+                />
+              ))}
             </div>
           </section>
         )}

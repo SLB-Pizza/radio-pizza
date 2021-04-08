@@ -37,29 +37,32 @@ function UpcomingShow({ showData, timeNow }) {
    */
   useEffect(() => {
     const processUpcomingShow = () => {
-      for (let i = 0; i < showData.length; i++) {
-        const currScheduleObj = showData[i].node
-        const { schedule_date, schedule_entries } = currScheduleObj
-
-        /**
-         * Check length and presence of both `start_time` and `end_time`.
-         * If `currScheduleObj` has no entries/null; null continue to second (last) showData array element to analyze.
-         */
-        if (schedule_entries?.length) {
-          const nextShowDetails = getUpcomingShowDetails(
-            timeNow,
-            schedule_date,
-            schedule_entries
-          )
+      if (showData) {
+        for (let i = 0; i < showData.length; i++) {
+          const currScheduleObj = showData[i].node
+          const { schedule_date, schedule_entries } = currScheduleObj
 
           /**
-           * If `nextShowDetails` object is set, break out of loop and set value.
+           * Check length and presence of both `start_time` and `end_time`.
+           * If `currScheduleObj` has no entries/null; null continue to second (last) showData array element to analyze.
            */
-          if (nextShowDetails) {
-            setUpcomingShow(nextShowDetails)
-            break
+          if (schedule_entries?.length) {
+            const nextShowDetails = getUpcomingShowDetails(
+              timeNow,
+              schedule_date,
+              schedule_entries
+            )
+
+            /**
+             * If `nextShowDetails` object is set, break out of loop and set value.
+             */
+            if (nextShowDetails) {
+              setUpcomingShow(nextShowDetails)
+              break
+            }
           }
         }
+      } else {
         setUpcomingShow(null)
       }
     }

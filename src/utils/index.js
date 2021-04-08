@@ -11,8 +11,8 @@ export { default as linkResolver } from './linkResolver'
  *
  * These utility functions are called throughout this projects to help with data processing.
  */
+export { default as checkUpcomingShowWidth } from './checkUpcomingShowWidth'
 export { default as cmsNodeValidator } from './cmsNodeValidator'
-export { default as compareTextWidthAndShowSpace } from './compareTextWidthAndShowSpace'
 export { default as devEntryDetails } from './devEntryDetails'
 export { default as displayCollectionPlaylistDetails } from './displayCollectionPlaylistDetails'
 export { default as updateRemoteMarquee } from './firebaseDbConnection'
@@ -27,6 +27,7 @@ export { default as isCurrentShowLive } from './isCurrentShowLive'
 export { default as linkStripper } from './linkStripper'
 export { default as mappableDataFilter } from './mappableDataFilter'
 export { default as makeCollectionDispatch } from './makeCollectionDispatch'
+export { default as measureTextWidth } from './measureTextWidth'
 export { default as mixLinkIconInfo } from './mixLinkIconInfo'
 export { default as playlistShuffle } from './playlistShuffle'
 export { default as prioritySetter } from './prioritySetter'
@@ -37,6 +38,7 @@ export {
   featureDateSort,
 } from './singleResidentDateSorting'
 export { scrollToTop } from './scrollToTop'
+export { default as setInitialMarqueeState } from './setInitialMarqueeState'
 export { default as sortUpcomingShowsArray } from './sortUpcomingShowsArray'
 export { default as sortShowEntriesByStartTime } from './sortShowEntriesByStartTime'
 export { default as testCaseMaker } from './testCaseMaker'

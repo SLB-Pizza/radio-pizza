@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
+import { SliceZone } from '../../components'
 import useSiteMetadata from '../../components/SiteMetadata'
 
 function AboutIndexPage({ data }) {

@@ -18,5 +18,7 @@ export { default as Interviewee } from './Interviewee'
  * Generic Layout Helpers
  */
 export { default as EmbeddedImageModal } from './EmbeddedImageModal'
+export { default as HeroLeftArrow } from './HeroLeftArrow'
+export { default as HeroRightArrow } from './HeroRightArrow'
 export { default as ImageHelper } from './ImageHelper'
 export { default as RichTextHelper } from './RichTextHelper'

@@ -3,8 +3,9 @@ import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import useSiteMetadata from '../../components/SiteMetadata'
 
-function AboutIndexPage() {
+function AboutIndexPage({ data }) {
   const { title, description, siteUrl, twitterUsername } = useSiteMetadata()
+
   return (
     <main className="full-height-page">
       <Helmet defer={false}>
@@ -23,7 +24,7 @@ function AboutIndexPage() {
         <meta name="twitter:image" content={`/img/HalfMoon-3.png`} />
       </Helmet>
 
-      <section className="section container is-fluid">
+      {/* <section className="section container is-fluid">
         <div className="columns is-mobile">
           <div className="column">
             <div className="content">
@@ -51,7 +52,7 @@ function AboutIndexPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <footer className="container is-fluid">
         <div className="columns is-mobile">
@@ -78,13 +79,119 @@ function AboutIndexPage() {
 export default AboutIndexPage
 
 export const query = graphql`
-  query AboutIndexQuery {
+  query AboutIndexPage {
     prismic {
       allAbouts {
         edges {
           node {
-            _meta {
-              uid
+            body {
+              ... on PRISMIC_AboutBodyText {
+                type
+                label
+                primary {
+                  body_text
+                }
+              }
+              ... on PRISMIC_AboutBodyBlockquote {
+                type
+                label
+                primary {
+                  blockquote_attribution
+                  blockquote_bg_img
+                  blockquote_text
+                }
+              }
+              ... on PRISMIC_AboutBodyHmbk_item_and_text {
+                type
+                label
+                primary {
+                  oiat_text
+                  hmbk_item {
+                    ... on PRISMIC_Event {
+                      _meta {
+                        uid
+                        type
+                      }
+                      event_blurb
+                      main_event_image
+                      event_name
+                      event_end
+                      event_start
+                      event_location
+                    }
+                    ... on PRISMIC_Resident {
+                      _meta {
+                        uid
+                        type
+                      }
+                      resident_name
+                      resident_image
+                    }
+                    ... on PRISMIC_Mix {
+                      _meta {
+                        uid
+                        type
+                        tags
+                      }
+                      mix_date
+                      mix_image
+                      mix_link
+                      mix_title
+                      featured_residents {
+                        mix_resident {
+                          ... on PRISMIC_Resident {
+                            resident_name
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              ... on PRISMIC_AboutBodyOne_image_and_text {
+                type
+                label
+                primary {
+                  oiat_img
+                  oiat_text
+                }
+              }
+              ... on PRISMIC_AboutBodyTwo_images_and_text {
+                type
+                label
+                primary {
+                  tiat_left_img
+                  tiat_right_img
+                  tiat_text
+                }
+              }
+              ... on PRISMIC_AboutBodyText_columns {
+                type
+                label
+                fields {
+                  text_column
+                }
+                primary {
+                  text_columns_footer
+                  text_columns_header
+                }
+              }
+              ... on PRISMIC_AboutBodyRow_of_images {
+                type
+                label
+                fields {
+                  single_img
+                }
+              }
+            }
+            body1 {
+              ... on PRISMIC_AboutBody1Full_width_image {
+                type
+                label
+                primary {
+                  full_width_image
+                }
+              }
             }
           }
         }

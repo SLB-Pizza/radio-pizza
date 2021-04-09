@@ -6,7 +6,10 @@ import { measureTextWidth } from './index'
  * @category Utilities
  * @function checkUpcomingShowWidth
  * @param {Boolean} stateValue - dictates whether marquee className should be applied
+ * @param {String} wrapperClassName - className of the container to measure again
+ * @param {String} textClassName  - className of the text to grab for measurement
  * @param {Function} setStateFunc - function from UpcomingShow component to set local state using {@link measureTextWidth} result.
+ * @param {String}
  * @example
  * useEffect(() => {
  *  const stateLoadedFunction = () =>
@@ -20,9 +23,15 @@ import { measureTextWidth } from './index'
  *  }
  *})
  */
-export default function checkUpcomingShowWidth(stateValue, setStateFunc) {
+export default function checkUpcomingShowWidth(
+  stateValue,
+  wrapperClassName,
+  textClassName,
+  setStateFunc
+) {
   if (stateValue !== null) {
-    const marqueeIsActive = measureTextWidth()
+    const marqueeIsActive = measureTextWidth(wrapperClassName, textClassName)
+
     setStateFunc(marqueeIsActive)
   }
 }

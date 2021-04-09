@@ -32,7 +32,7 @@ export default function TopNav() {
   )
 
   /**
-   * Opens a subscripttion to the Firebase DB to read the live marquee data.
+   * Opens a subscription to the Firebase DB to read the live marquee data.
    * @category useEffect
    * @name getRemoteMarquee
    */
@@ -93,7 +93,8 @@ export default function TopNav() {
           : 'radio-and-schedule-bar'
       }
     >
-      <canvas id="upcoming-measure" aria-hidden="true" />
+      {/* For use with measureTextWidth.js */}
+      <canvas id="for-text-measuring" aria-hidden="true" />
 
       <RadioBar nycTime={nycTime} laTime={laTime} />
       <ScheduleBar timeNow={nycTime} />

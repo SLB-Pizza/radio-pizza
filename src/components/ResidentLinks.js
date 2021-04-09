@@ -3,7 +3,7 @@ import { Link, path } from 'gatsby'
 import { linkResolver } from '../utils'
 
 /**
- * Returns a series of Gatsby Link elements, wrapped in their own span, collectively returned in either a `<p>` tag, or a `<span>` if `returnAsSpan` is passed in as `true.
+ * Returns a fragment containing a series of Gatsby Link elements, wrapped in their own span, collectively returned in either a `<p>` tag, or a `<span>` if `returnAsSpan` is passed in as `true.
  * @category Layout
  * @function ResidentLinks
  * @param {Object[]} residentsArr - Array of resident objects, each containing their _meta data to create links to their page and the resident's name
@@ -71,9 +71,11 @@ export default function ResidentLinks({
   )
 
   if (returnAsSpan) {
-    ;<span>
-      <ResidentSpans />
-    </span>
+    return (
+      <span>
+        <ResidentSpans />
+      </span>
+    )
   } else {
     return (
       <p className={wrapperClassStyling}>

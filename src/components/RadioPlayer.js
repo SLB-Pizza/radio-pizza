@@ -31,6 +31,12 @@ function RadioPlayer() {
     played: 0,
     loaded: 0,
     duration: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+    hoursPlayed: 0,
+    minutesPlayed: 0,
+    secondsPlayed: 0,
     playbackRate: 1.0,
     loop: false,
   })
@@ -82,6 +88,78 @@ function RadioPlayer() {
 
     return
   }
+
+  const handleDuration = (duration) => {
+    let seconds = Math.round(duration % 60);
+    let minutes = Math.round(duration / 60);
+    let hours = Math.round(minutes / 60);
+
+    if( minutes >= 60 ){
+      hours = Math.round( minutes / 60 );
+      minutes = (minutes % 60);
+    } else {
+      hours = 0;
+    }
+
+    setLocalState({ 
+      ...localState,
+      duration: duration,
+      hours,
+      minutes,
+      seconds
+    });
+  };
+
+  const handleProgress = ( played, loaded) => {
+    console.log( 'played', played );
+    console.log( 'loaded', loaded );
+    let hoursPlayed = 0;
+    let minutesPlayed = 0;
+    let secondsPlayed = 0;
+    if( played?.playedSeconds > 60 ){
+      minutesPlayed = 
+        (Math.floor(played.playedSeconds / 60))
+
+        if( minutesPlayed >= 60 ){
+          hoursPlayed = Math.floor( minutesPlayed / 60 );
+          minutesPlayed = (minutesPlayed % 60);
+        } else {
+          hoursPlayed = 0;
+        }
+
+      secondsPlayed = 
+        Math.round(played.playedSeconds % 60)
+
+    } else {
+      hoursPlayed = 0;
+      minutesPlayed = 0;
+      minutesPlayed = 
+        minutesPlayed
+      secondsPlayed = 
+        Math.round(played.playedSeconds % 60)
+    }
+
+    setLocalState({ 
+      ...localState,
+      played: played,
+      loaded: loaded,
+      hoursPlayed,
+      minutesPlayed,
+      secondsPlayed
+    });
+  };
+
+  useEffect( () => {
+    setLocalState({ 
+      ...localState,
+      hours: localState.hours,
+      minutes: localState.minutes,
+      seconds: localState.seconds,
+      hoursPlayed: localState.hoursPlayed,
+      minutesPlayed: localState.hoursPlayed,
+      secondsPlayed: localState.secondsPlayed
+    });
+  }, [] )
 
   const player = useRef(ReactPlayer)
 
@@ -151,6 +229,7 @@ function RadioPlayer() {
               <p className="title is-size-6-tablet is-size-7-mobile">
                 {globalState.resident}
               </p>
+              { localState.hours > 0 ? `${localState.hoursPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2})}:` : null }{ localState.minutesPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) }:{ localState.secondsPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) } / { localState.hours > 0 ? `${localState.hours.toLocaleString( 'en-US', {minimumIntegerDigits: 2})}:` : null }{ localState.minutes.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) }:{ localState.seconds.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) }
             </div>
           ) : (
             <div id="now-playing-details">
@@ -158,46 +237,11 @@ function RadioPlayer() {
                 {globalState.title}
               </p>
               <p className="subtitle is-size-7">{globalState.resident}</p>
+              { localState.hours > 0 ? `${localState.hoursPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2})}:` : null }{ localState.minutesPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) }:{ localState.secondsPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) } / { localState.hours > 0 ? `${localState.hours.toLocaleString( 'en-US', {minimumIntegerDigits: 2})}:` : null }{ localState.minutes.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) }:{ localState.seconds.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) }
             </div>
           )}
         </div>
       )}
-
-      {/* <div className="column">
-        <input
-          type="range"
-          min="0"
-          max="1"
-          step="0.05"
-          value={localState.volume}
-          onChange={(e) => handleVolumeChange(e)}
-        />
-        <p className="is-size-6">{localState.volume}</p>
-      </div> */}
-
-      {/* <div className="column is-hidden-mobile" id="now-playing-img">
-        <figure className="image is-48x48">
-          <img src={`${globalState.img}`} alt="Current mix" />
-        </figure>
-      </div>
-
-      <div className="column" id="now-play-details"> */}
-      {/* Static tablet and up currentTrackTitle */}
-      {/* <p className="display-text is-size-7-tablet">{globalState.resident}</p>
-        <p className="display-text is-size-6-tablet">{globalState.title}</p> */}
-
-      {/* <div className="is-hidden-mobile" id="radioShowName">
-          <p className="display-text is-size-6-tablet">
-            {globalState.resident} – {globalState.title}
-          </p>
-        </div> */}
-
-      {/* Dynamic mobile currentTrackTitle */}
-      {/* <PageVisibility onChange={handleVisibilityChange}>
-          {pageIsVisible &&
-            renderNowPlaying(globalState.resident, globalState.title)}
-        </PageVisibility>
-      </div> */}
 
       <ReactPlayer
         className="cloud-player"
@@ -217,12 +261,12 @@ function RadioPlayer() {
         onStart={() => console.log(`PLAYING: ${globalState.title}`)}
         onBuffer={() => console.log('onBuffer')}
         // muted={globalState.muted}
-        // onDuration={handleDuration}
+        onDuration={handleDuration}
         // onEnablePIP={this.handleEnablePIP}
         // onDisablePIP={this.handleDisablePIP}
         // onSeek={e => console.log('onSeek', e)}
         onEnded={handleEnded}
-        // onProgress={this.handleProgress}
+        onProgress={handleProgress}
       />
     </>
   )

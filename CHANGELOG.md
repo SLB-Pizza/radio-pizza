@@ -1,3 +1,17 @@
+### Version 1.12.0
+- fix(HeroArrows): use separate SVG arrows per direction create react component for each SVG
+- refactor(Marquee): add params to re-use with RadioPlayer
+- fix(ResidentLinks): add missing return statement for returnAsSpan
+- feat(Marquee): add marquee useEffects to UpcomingShowWithResidents UPWR: pre-recorded mix with residents
+- feat(USWR): add featured_resident filtering add short-circuit to ResidentLinks render
+- added in basic duration timer; buggy
+- fixing duration timer
+- debugging hours in timer
+- debugged hours display
+- removed unused comments
+- added package lock
+- feat(LiveBroadcast): add marquee useEffect functions
+
 ### Version 1.11.0
 - basic remote live stream marquee working
 - updated liveMarquee - working

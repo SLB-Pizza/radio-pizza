@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'gatsby'
 import { debounce } from 'lodash'
 import { ResidentLinks } from '../components'
 import {
   checkUpcomingShowWidth,
-  linkResolver,
   mappableDataFilter,
   setInitialMarqueeState,
 } from '../utils'
@@ -25,8 +23,29 @@ export default function UpcomingShowWithResidents({
   upcomingShow,
   isLoading,
 }) {
-  const [activeMarquee, setActiveMarquee] = useState(null)
   const { mix_title, featured_residents } = upcomingShow
+  const [activeMarquee, setActiveMarquee] = useState(null)
+  const [filteredResidents, setFilteredResidents] = useState(null)
+
+  /**
+   * Filter the `upcomingShow`'s `featured_residents` array.
+   * Set and pass that filtered array to {@link ResidentLinks}, if exists.
+   * @category useEffect
+   * @name filterUpcomingMixResidents
+   */
+  useEffect(() => {
+    const filterUpcomingMixResidents = () => {
+      /**
+       * Pass 2 as `objectKeyCount` to {@link mappableDataFilter}!
+       * `__typename` is counted as a key-value pair!
+       */
+      const filteredRes = mappableDataFilter(upcomingShow.featured_residents, 2)
+      if (filteredRes) {
+        setFilteredResidents(filteredRes)
+      }
+    }
+    return filterUpcomingMixResidents()
+  }, [upcomingShow])
 
   /**
    * Runs once on page load to set initial `activeMarquee` state.
@@ -81,10 +100,12 @@ export default function UpcomingShowWithResidents({
           }
         >
           {`${startTimeStr} ${mix_title} | `}
-          <ResidentLinks
-            residentsArr={featured_residents}
-            returnAsSpan={true}
-          />
+          {filteredResidents && (
+            <ResidentLinks
+              residentsArr={featured_residents}
+              returnAsSpan={true}
+            />
+          )}
         </p>
       </div>
     )
@@ -105,10 +126,12 @@ export default function UpcomingShowWithResidents({
           }
         >
           {`${startTimeStr} `}
-          <ResidentLinks
-            residentsArr={featured_residents}
-            returnAsSpan={true}
-          />
+          {filteredResidents && (
+            <ResidentLinks
+              residentsArr={featured_residents}
+              returnAsSpan={true}
+            />
+          )}
         </p>
       </div>
     )

@@ -1,6 +1,13 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'gatsby'
-import { linkResolver, mappableDataFilter } from '../utils'
+import { debounce } from 'lodash'
+import { ResidentLinks } from '../components'
+import {
+  checkUpcomingShowWidth,
+  linkResolver,
+  mappableDataFilter,
+  setInitialMarqueeState,
+} from '../utils'
 
 /**
  * Renders the Prismic Mix data object to be display in `.upcoming-show`
@@ -18,54 +25,66 @@ export default function UpcomingShowWithResidents({
   upcomingShow,
   isLoading,
 }) {
+  const [activeMarquee, setActiveMarquee] = useState(null)
   const { mix_title, featured_residents } = upcomingShow
 
-  const ResidentLinkSpan = () => (
-    <span>
-      {featured_residents.map(({ mix_resident }, index) => {
-        let { _meta, resident_name } = mix_resident
+  /**
+   * Runs once on page load to set initial `activeMarquee` state.
+   * Calls on {@link setInitialMarqueeState}.
+   * @category useEffect
+   */
+  useEffect(() => {
+    setInitialMarqueeState(
+      '.upcoming-show',
+      '.upcoming-show p',
+      setActiveMarquee
+    )
+  }, [])
 
-        /**
-         * Reverse engineer resident from UID by replacing hyphens with spaces.
-         */
-        if (!resident_name) {
-          resident_name = _meta.uid.replace('-', ' ')
-        }
+  /**
+   * Update `activeMarquee` anytime the page is resized.
+   * `stateLoadedFunction` returns {@link checkUpcomingShowWidth} with local state.
+   * `stateLoadedFunction` is then debounced, and then passed to the `resize` eventListener
+   * @category useEffect
+   */
+  useEffect(() => {
+    const stateLoadedFunction = () =>
+      checkUpcomingShowWidth(
+        activeMarquee,
+        '.upcoming-show',
+        '.upcoming-show p',
+        setActiveMarquee
+      )
 
-        const linkTo = linkResolver(_meta)
-        const linkLabel = resident_name
+    const debouncedActiveMarqueeCheck = debounce(stateLoadedFunction, 500)
+    window.addEventListener('resize', debouncedActiveMarqueeCheck)
 
-        if (index !== featured_residents.length - 1) {
-          return (
-            <span key={`res-link-${index}-${linkLabel}`}>
-              <Link to={linkTo}>{linkLabel}</Link>
-              {' · '}
-            </span>
-          )
-        } else {
-          return (
-            <span key={`res-link-${index}-${linkLabel}`}>
-              <Link to={linkTo}>{linkLabel}</Link>
-            </span>
-          )
-        }
-      })}
-    </span>
-  )
+    return () => {
+      window.removeEventListener('resize', debouncedActiveMarqueeCheck)
+    }
+  })
 
   if (mix_title) {
     return (
       <div
         className={
           isLoading
-            ? 'column upcoming-show is-hidden-mobile text-block'
-            : 'column upcoming-show is-hidden-mobile text-block is-loaded'
+            ? 'column upcoming-show text-block'
+            : 'column upcoming-show text-block is-loaded'
         }
       >
-        <p className="subtitle is-size-6-desktop is-size-7-touch">
-          <b>{`${startTimeStr} ${mix_title}`}</b>
-          {' | '}
-          <ResidentLinkSpan />
+        <p
+          className={
+            activeMarquee
+              ? 'title is-size-6-tablet is-size-7-mobile active-marquee'
+              : 'title is-size-6-tablet is-size-7-mobile'
+          }
+        >
+          {`${startTimeStr} ${mix_title} | `}
+          <ResidentLinks
+            residentsArr={featured_residents}
+            returnAsSpan={true}
+          />
         </p>
       </div>
     )
@@ -74,13 +93,22 @@ export default function UpcomingShowWithResidents({
       <div
         className={
           isLoading
-            ? 'column upcoming-show is-hidden-mobile text-block'
-            : 'column upcoming-show is-hidden-mobile text-block is-loaded'
+            ? 'column upcoming-show text-block'
+            : 'column upcoming-show text-block is-loaded'
         }
       >
-        <p className="subtitle is-size-6-desktop is-size-7-touch">
-          <b>{`${startTimeStr} `}</b>
-          <ResidentLinkSpan />
+        <p
+          className={
+            activeMarquee
+              ? 'title is-size-6-tablet is-size-7-mobile active-marquee'
+              : 'title is-size-6-tablet is-size-7-mobile'
+          }
+        >
+          {`${startTimeStr} `}
+          <ResidentLinks
+            residentsArr={featured_residents}
+            returnAsSpan={true}
+          />
         </p>
       </div>
     )

@@ -18,7 +18,7 @@ export default function UpcomingShowFallbackMessage({ isLoading }) {
    * @category useEffect
    */
   useEffect(() => {
-    return setInitialMarqueeState(
+    setInitialMarqueeState(
       '.upcoming-show',
       '.upcoming-show p',
       setActiveMarquee
@@ -40,11 +40,11 @@ export default function UpcomingShowFallbackMessage({ isLoading }) {
         setActiveMarquee
       )
 
-    const debouncedWidthCheck = debounce(stateLoadedFunction, 500)
-    window.addEventListener('resize', debouncedWidthCheck)
+    const debouncedActiveMarqueeCheck = debounce(stateLoadedFunction, 500)
+    window.addEventListener('resize', debouncedActiveMarqueeCheck)
 
     return () => {
-      window.removeEventListener('resize', debouncedWidthCheck)
+      window.removeEventListener('resize', debouncedActiveMarqueeCheck)
     }
   })
 

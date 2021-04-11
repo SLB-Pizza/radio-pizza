@@ -33,12 +33,12 @@ function ArticleHeadline({ headlineData }) {
     >
       {article_headline_img ? (
         <img
-          className="hero-background"
+          className="hero-background lazyload"
           src={article_headline_img.url}
           alt={article_headline_img.alt}
         />
       ) : (
-        <FallbackImage styleName="hero-background" />
+        <FallbackImage styleName="hero-background lazyload" />
       )}
       <div className="footer-gradient is-overlay" />
       <div className="hero-foot">

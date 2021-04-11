@@ -381,7 +381,7 @@ figcaption {
 }
 
 img {
-  transition: 0.25s $easing;
+  transition: 0.125s $easing;
   &.lazyload {
     opacity: 0;
     transform: scale(0.75);

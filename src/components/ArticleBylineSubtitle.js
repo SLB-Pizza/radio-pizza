@@ -16,11 +16,7 @@ function ArticleByline({ subtitle, dates, authorDetails }) {
     <section className="section container">
       {subtitle && (
         <div className="columns is-multiline is-vcentered">
-          <div className="column is-12 content">
-            <p className="subtitle is-size-3-widescreen is-size-4-desktop is-size-5-touch">
-              {RichText.asText(subtitle)}
-            </p>
-          </div>
+          <div className="column is-12 content"></div>
 
           {authorDetails && (
             <div className="column">

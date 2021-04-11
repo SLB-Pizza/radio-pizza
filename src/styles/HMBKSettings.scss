@@ -394,6 +394,9 @@ img {
 
 // New Working Hero
 .hero {
+  .footer-gradient.is-overlay {
+    background: linear-gradient(to bottom, transparent 80%, black);
+  }
   &.homepage {
     height: calc(100vh - 8.75rem);
   }
@@ -491,9 +494,28 @@ img {
   & .blurred-bg {
     filter: blur(15px);
   }
-  // For ArticleHeadline.js
+
+  // ================================
+  // CMS Slice -- ArticleHeadline.js
+  // ================================
   &.article-header {
+    height: calc(100vh - 9.625rem);
     justify-content: flex-end;
+    h1 {
+      font-weight: 900;
+    }
+
+    img.is-rounded {
+      border: 2px solid white;
+    }
+    .hero-foot {
+      .container {
+        padding-bottom: $gap;
+        .columns {
+          margin: auto 0;
+        }
+      }
+    }
   }
 }
 

@@ -3,6 +3,8 @@ export { default as CMSSlides } from './cms-help/CMSSlides'
 export { default as HomeContentSample } from './cms-help/HomeContentSample'
 
 //
+export { default as AboutPageHero } from './AboutPageHero'
+export { default as AboutPageTitling } from './AboutPageTitling'
 export { default as AllMixesLayout } from './AllMixesLayout'
 export { default as ArticleBylineSubtitle } from './ArticleBylineSubtitle'
 export { default as BottomNav } from './BottomNav'

@@ -1,83 +1,89 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import { SliceZone } from '../../components'
+import { AboutPageHero, AboutPageTitling, SliceZone } from '../../components'
+import { HMBKFooter } from '../../components/helpers'
 import useSiteMetadata from '../../components/SiteMetadata'
 
-function AboutIndexPage({ data }) {
+/**
+ * Layout for /about page.
+ * @function AboutIndexPage
+ * @param {Object} data - the data object coming from Prismic CMS that contains all data needed to display all mixes on `/mixes`
+ * @returns {jsx}
+ */
+export default function AboutIndexPage({ data }) {
   const { title, description, siteUrl, twitterUsername } = useSiteMetadata()
 
+  const prismicContent = data.prismic.allAbouts.edges[0].node
+
+  if (!prismicContent) return null
+
+  const { body, header } = prismicContent
+  const { primary: aboutHeroData } = header[0]
   return (
     <main className="full-height-page">
       <Helmet defer={false}>
         <html lang="en" />
-        <title>About {title}</title>
-        <meta name="description" content="HalfMoon Radio About Page" />
+        <title>{`About | ${title}`}</title>
+        <meta name="description" content="About | HalfmoonBK Radio" />
         <meta name="theme-color" content="#f600ff" />
         <meta property="og:type" content="business.business" />
-        <meta property="og:title" content={`About ${title}`} />
+        <meta property="og:title" content={`About | ${title}`} />
         <meta property="og:url" content={`${siteUrl}/about`} />
         <meta property="og:image" content={`/img/HalfMoon-3.png`} />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content="HalfMoon Radio About Page" />
+        <meta name="twitter:title" content={`About | ${title}`} />
+        <meta name="twitter:description" content="About | HalfmoonBK Radio" />
         <meta name="twitter:site" content={twitterUsername} />
         <meta name="twitter:image" content={`/img/HalfMoon-3.png`} />
       </Helmet>
 
-      {/* <section className="section container is-fluid">
-        <div className="columns is-mobile">
-          <div className="column">
-            <div className="content">
-              <p className="title is-size-3">Ears to the concrete.</p>
-              <p className="subtitle is-size-5">
-                Brooklyn based music network connecting music culture across the
-                world through radio, events, and more.
-              </p>
-              <p>
-                Founded in 2017, Half Moon was born out of the need to defy.
-                Essentially, we are destroying mainstream radio and building a
-                platform that allows music and culture to thrive without limits.
-                We pride ourselves in bringing our audience live, uncensored and
-                undiscovered music from a grass-roots perspective reminding the
-                world that the underground is where the sublime lives, grows and
-                becomes timeless.
-              </p>
+      <AboutPageHero headlineData={aboutHeroData} />
+      <AboutPageTitling aboutTitling={aboutHeroData} />
+      <SliceZone sliceZone={body} />
+      {/* <pre>{JSON.stringify(body, null, 2)}</pre> */}
 
-              <p className="title is-size-5">Team</p>
-              <p>Surf Allah – Owner & Founder</p>
-              <p>Edrick Chu – Head of Marketing & Partnerships</p>
-              <p className="title is-size-5">Contact</p>
-              <p>Business: business@halfmoonbk.com</p>
-              <p>Info: info@halfmoonbk.com</p>
-            </div>
+      <section className="section container">
+        <div className="columns is-mobile">
+          <div className="column content">
+            <p className="title is-4">Design</p>
+            <p className="subtitle is-6">
+              <a
+                href="https://christianmejia.dev"
+                rel="noopener"
+                target="_blank"
+              >
+                Christian Mejia
+              </a>
+            </p>
+          </div>
+          <div className="column context text-block">
+            <p className="title is-4">Programming</p>
+            <p className="subtitle is-6">
+              <a
+                href="https://christianmejia.dev"
+                rel="noopener"
+                target="_blank"
+              >
+                Christian Mejia
+              </a>
+              {' · '}
+              <a
+                href="https://www.richarddominguez.dev/"
+                rel="noopener"
+                target="_blank"
+              >
+                Richard Dominguez
+              </a>
+            </p>
           </div>
         </div>
-      </section> */}
+      </section>
 
-      <footer className="container is-fluid">
-        <div className="columns is-mobile">
-          <div className="column">
-            <div className="content">
-              <p className="title is-5">Design</p>
-              <p className="subtitle is-7">Christian Mejia</p>
-            </div>
-          </div>
-          <div className="column">
-            <div className="content">
-              <p className="title is-5">Programming</p>
-              <p className="subtitle is-7">
-                Christian Mejia & Richard Dominguez
-              </p>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <HMBKFooter />
     </main>
   )
 }
-
-export default AboutIndexPage
 
 export const query = graphql`
   query AboutIndexPage {
@@ -185,12 +191,14 @@ export const query = graphql`
                 }
               }
             }
-            body1 {
-              ... on PRISMIC_AboutBody1Full_width_image {
+            header {
+              ... on PRISMIC_AboutHeaderHeadline_block {
                 type
                 label
                 primary {
-                  full_width_image
+                  article_subtitle
+                  article_headline_img
+                  article_headline
                 }
               }
             }

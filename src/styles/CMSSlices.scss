@@ -159,35 +159,6 @@ section.sample-feature {
 }
 
 // ================================
-// CMS Slice -- ArticleHeadline.js
-// ================================
-header.article-header {
-  &.hero {
-    height: calc(100vh - 9.625rem);
-
-    .footer-gradient.is-overlay {
-      background: linear-gradient(to bottom, transparent 80%, black);
-    }
-
-    h1 {
-      font-weight: 900;
-    }
-
-    img.is-rounded {
-      border: 2px solid white;
-    }
-    .hero-foot {
-      .container {
-        padding-bottom: $gap;
-        .columns {
-          margin: auto 0;
-        }
-      }
-    }
-  }
-}
-
-// ================================
 // CMS Slice -- TextColumns.js
 // ================================
 .text-columns {

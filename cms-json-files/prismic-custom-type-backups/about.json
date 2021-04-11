@@ -1,40 +1,73 @@
 {
   "Header": {
-    "body1": {
+    "header": {
       "type": "Slices",
       "fieldset": "Slice zone",
       "config": {
-        "labels": {},
+        "labels": {
+          "headline_block": []
+        },
         "choices": {
-          "full_width_image": {
+          "headline_block": {
             "type": "Slice",
-            "fieldset": "Full Width Image",
-            "description": "A full width image of selectable height.",
-            "icon": "video_label",
+            "fieldset": "About Header",
+            "description": "A hero image, headline and category to start your article.",
+            "icon": "subtitles",
             "display": "list",
             "non-repeat": {
-              "full_width_image": {
+              "article_headline_img": {
                 "type": "Image",
                 "config": {
                   "constraint": {},
                   "thumbnails": [
                     {
-                      "name": "halfheight",
-                      "width": 1600,
-                      "height": 1200
+                      "name": "widescreen",
+                      "width": 1407,
+                      "height": null
                     },
                     {
-                      "name": "medium",
-                      "width": 1600,
-                      "height": 600
+                      "name": "desktop",
+                      "width": 1215,
+                      "height": null
                     },
                     {
-                      "name": "small",
-                      "width": 1600,
-                      "height": 300
+                      "name": "tablet",
+                      "width": 1023,
+                      "height": null
+                    },
+                    {
+                      "name": "mobile",
+                      "width": 767,
+                      "height": null
+                    },
+                    {
+                      "name": "square_highlight",
+                      "width": 256,
+                      "height": 256
+                    },
+                    {
+                      "name": "lo_fi_placeholder",
+                      "width": 32,
+                      "height": null
                     }
                   ],
-                  "label": "Full Width Image"
+                  "label": "Headline Image (REQUIRED)"
+                }
+              },
+              "article_headline": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1",
+                  "label": "Headline (REQUIRED)",
+                  "placeholder": "(REQUIRED) Enter your headline here..."
+                }
+              },
+              "article_subtitle": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2",
+                  "label": "Subtitle (REQUIRED)",
+                  "placeholder": "(REQUIRED) Enter the feature subtitle here..."
                 }
               }
             },
@@ -251,7 +284,6 @@
                   "thumbnails": [
                     {
                       "name": "widescreen",
-
                       "width": 1407,
                       "height": null
                     },
@@ -281,44 +313,6 @@
               }
             },
             "repeat": {}
-          },
-          "text_columns": {
-            "type": "Slice",
-            "fieldset": "Text Columns",
-            "description": "Up to 5 columns of text with optional header and footer.",
-            "icon": "view_column",
-            "display": "list",
-            "non-repeat": {
-              "text_columns_header": {
-                "type": "StructuredText",
-                "config": {
-                  "multi": "paragraph, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
-                  "allowTargetBlank": true,
-                  "label": "(OPTIONAL) Text Columns Header",
-                  "placeholder": "Add header text for the columns..."
-                }
-              },
-              "text_columns_footer": {
-                "type": "StructuredText",
-                "config": {
-                  "multi": "paragraph, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
-                  "allowTargetBlank": true,
-                  "label": "(OPTIONAL) Text Columns Footer",
-                  "placeholder": "Add footer text for the columns..."
-                }
-              }
-            },
-            "repeat": {
-              "text_column": {
-                "type": "StructuredText",
-                "config": {
-                  "multi": "paragraph, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
-                  "allowTargetBlank": true,
-                  "label": "Text Column",
-                  "placeholder": "Add the text for a column..."
-                }
-              }
-            }
           },
           "row_of_images": {
             "type": "Slice",

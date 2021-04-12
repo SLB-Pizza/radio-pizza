@@ -11,7 +11,7 @@
           "headline_block": {
             "type": "Slice",
             "fieldset": "About Header",
-            "description": "A hero image, headline and category to start your article.",
+            "description": "Header Layout for /about",
             "icon": "subtitles",
             "display": "list",
             "non-repeat": {
@@ -90,15 +90,6 @@
             "description": "A Rich Text section with headings, bullets, links & more.",
             "icon": "text_fields",
             "non-repeat": {
-              "set_first_letter": {
-                "type": "Boolean",
-                "config": {
-                  "placeholder_false": "No",
-                  "placeholder_true": "Yes",
-                  "default_value": false,
-                  "label": "Would you like the first letter to be a drop cap?"
-                }
-              },
               "body_text": {
                 "type": "StructuredText",
                 "config": {

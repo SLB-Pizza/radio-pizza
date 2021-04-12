@@ -265,7 +265,7 @@ function ResidentsIndex({ data }) {
                         })
                       }
                     >
-                      More Residents!
+                      More Residents
                     </button>
                   </div>
                 ) : (

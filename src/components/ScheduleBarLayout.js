@@ -67,7 +67,7 @@ export default function ScheduleBarLayout({ timeNow, upcomingShows }) {
                       className="live-light"
                     />
                   </span>
-                  <span>Tune In!</span>
+                  <span>Tune In</span>
                 </>
               )}
             </button>

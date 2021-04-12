@@ -1,7 +1,12 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import { AboutPageHero, AboutPageTitling, SliceZone } from '../../components'
+import {
+  AboutPageCredits,
+  AboutPageHero,
+  AboutPageTitling,
+  SliceZone,
+} from '../../components'
 import { HMBKFooter } from '../../components/helpers'
 import useSiteMetadata from '../../components/SiteMetadata'
 
@@ -25,7 +30,10 @@ export default function AboutIndexPage({ data }) {
       <Helmet defer={false}>
         <html lang="en" />
         <title>{`About | ${title}`}</title>
-        <meta name="description" content="About | HalfmoonBK Radio" />
+        <meta
+          name="description"
+          content={`About | HalfmoonBK Radio - ${description}`}
+        />
         <meta name="theme-color" content="#f600ff" />
         <meta property="og:type" content="business.business" />
         <meta property="og:title" content={`About | ${title}`} />
@@ -41,45 +49,7 @@ export default function AboutIndexPage({ data }) {
       <AboutPageHero headlineData={aboutHeroData} />
       <AboutPageTitling aboutTitling={aboutHeroData} />
       <SliceZone sliceZone={body} />
-      {/* <pre>{JSON.stringify(body, null, 2)}</pre> */}
-
-      <section className="section container">
-        <div className="columns is-mobile">
-          <div className="column content">
-            <p className="title is-4">Design</p>
-            <p className="subtitle is-6">
-              <a
-                href="https://christianmejia.dev"
-                rel="noopener"
-                target="_blank"
-              >
-                Christian Mejia
-              </a>
-            </p>
-          </div>
-          <div className="column context text-block">
-            <p className="title is-4">Programming</p>
-            <p className="subtitle is-6">
-              <a
-                href="https://christianmejia.dev"
-                rel="noopener"
-                target="_blank"
-              >
-                Christian Mejia
-              </a>
-              {' · '}
-              <a
-                href="https://www.richarddominguez.dev/"
-                rel="noopener"
-                target="_blank"
-              >
-                Richard Dominguez
-              </a>
-            </p>
-          </div>
-        </div>
-      </section>
-
+      <AboutPageCredits />
       <HMBKFooter />
     </main>
   )

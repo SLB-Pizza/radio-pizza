@@ -142,17 +142,6 @@ export const query = graphql`
                   tiat_text
                 }
               }
-              ... on PRISMIC_AboutBodyText_columns {
-                type
-                label
-                fields {
-                  text_column
-                }
-                primary {
-                  text_columns_footer
-                  text_columns_header
-                }
-              }
               ... on PRISMIC_AboutBodyRow_of_images {
                 type
                 label

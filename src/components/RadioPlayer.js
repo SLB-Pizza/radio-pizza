@@ -3,6 +3,8 @@ import ReactPlayer from 'react-player'
 import Ticker from 'react-ticker'
 import PageVisibility from 'react-page-visibility'
 import { hot } from 'react-hot-loader'
+import { LiveBroadcastInfoDisplay } from './index'
+import { handleEnded, handleMixReady, handlePlayPause } from '../dispatch'
 import {
   GlobalDispatchContext,
   GlobalStateContext,
@@ -20,25 +22,12 @@ function RadioPlayer() {
   const globalState = useContext(GlobalStateContext)
 
   const [localState, setLocalState] = useState({
-    url: null,
-    pip: false,
-    loading: false,
-    playing: false,
-    controls: false,
-    light: false,
-    volume: 0.25,
-    muted: false,
-    played: 0,
-    loaded: 0,
-    duration: 0,
     hours: 0,
     minutes: 0,
     seconds: 0,
     hoursPlayed: 0,
     minutesPlayed: 0,
     secondsPlayed: 0,
-    playbackRate: 1.0,
-    loop: false,
   })
 
   /**
@@ -52,114 +41,73 @@ function RadioPlayer() {
     margin: '-1px',
   }
 
-  // const [pageIsVisible, setPageIsVisible] = useState(true);
+  const handleDuration = duration => {
+    let seconds = Math.round(duration % 60)
+    let minutes = Math.round(duration / 60)
+    let hours = Math.round(minutes / 60)
 
-  // const handleVisibilityChange = (isVisible) => {
-  //   setPageIsVisible(isVisible);
-  // };
-
-  const handlePlayPause = async () => {
-    await dispatch({ type: 'TOGGLE_PLAYING' })
-  }
-  const handlePlay = () => {
-    setLocalState({ ...localState, playing: true })
-  }
-
-  const handlePause = () => {
-    setLocalState({ ...localState, playing: false })
-  }
-
-  const handleMixReady = async () => {
-    await dispatch({ type: 'MIX_LOADED' })
-  }
-
-  const handleEnded = async () => {
-    console.log('onEnded')
-
-    // ADD check in case we are ending on a single track, not a playlist
-    if (globalState.playlist.length) {
-      // if list_curr_index from global state is less the current playlist's number of tracks, then dispatch func which increments it by one and plays next
-      if (globalState.playlist.length - 1 > globalState.list_curr_index) {
-        await dispatch({ type: 'PLAYLIST_PLAY_NEXT' })
-      } else {
-        await dispatch({ type: 'PLAYLIST_LOOP' })
-      }
-    }
-
-    return
-  }
-
-  const handleDuration = (duration) => {
-    let seconds = Math.round(duration % 60);
-    let minutes = Math.round(duration / 60);
-    let hours = Math.round(minutes / 60);
-
-    if( minutes >= 60 ){
-      hours = Math.round( minutes / 60 );
-      minutes = (minutes % 60);
+    if (minutes >= 60) {
+      hours = Math.round(minutes / 60)
+      minutes = minutes % 60
     } else {
-      hours = 0;
+      hours = 0
     }
 
-    setLocalState({ 
+    setLocalState({
       ...localState,
-      duration: duration,
       hours,
       minutes,
-      seconds
-    });
-  };
+      seconds,
+    })
+  }
 
-  const handleProgress = ( played, loaded) => {
-    console.log( 'played', played );
-    console.log( 'loaded', loaded );
-    let hoursPlayed = 0;
-    let minutesPlayed = 0;
-    let secondsPlayed = 0;
-    if( played?.playedSeconds > 60 ){
-      minutesPlayed = 
-        (Math.floor(played.playedSeconds / 60))
+  const handleProgress = (played, loaded) => {
+    console.log('played', played)
+    console.log('loaded', loaded)
+    let hoursPlayed = 0
+    let minutesPlayed = 0
+    let secondsPlayed = 0
+    if (Math.round(played?.playedSeconds) > 59) {
+      minutesPlayed = Math.floor(played.playedSeconds / 60)
 
-        if( minutesPlayed >= 60 ){
-          hoursPlayed = Math.floor( minutesPlayed / 60 );
-          minutesPlayed = (minutesPlayed % 60);
-        } else {
-          hoursPlayed = 0;
-        }
+      if (minutesPlayed > 59) {
+        hoursPlayed = Math.floor(minutesPlayed / 60)
+        minutesPlayed = minutesPlayed % 60
+      } else {
+        hoursPlayed = 0
+      }
 
-      secondsPlayed = 
-        Math.round(played.playedSeconds % 60)
-
+      secondsPlayed = Math.round(played.playedSeconds % 60)
     } else {
-      hoursPlayed = 0;
-      minutesPlayed = 0;
-      minutesPlayed = 
-        minutesPlayed
-      secondsPlayed = 
-        Math.round(played.playedSeconds % 60)
+      hoursPlayed = 0
+      minutesPlayed = 0
+      minutesPlayed = minutesPlayed
+      secondsPlayed = Math.round(played.playedSeconds % 60)
     }
 
-    setLocalState({ 
+    setLocalState({
       ...localState,
-      played: played,
-      loaded: loaded,
       hoursPlayed,
       minutesPlayed,
-      secondsPlayed
-    });
-  };
+      secondsPlayed,
+    })
+  }
 
-  useEffect( () => {
-    setLocalState({ 
+  /**
+   *
+   * @category useEffect
+   */
+  useEffect(() => {
+    setLocalState({
       ...localState,
       hours: localState.hours,
       minutes: localState.minutes,
       seconds: localState.seconds,
       hoursPlayed: localState.hoursPlayed,
       minutesPlayed: localState.hoursPlayed,
-      secondsPlayed: localState.secondsPlayed
-    });
-  }, [] )
+      secondsPlayed: localState.secondsPlayed,
+    })
+  }, [])
 
   const player = useRef(ReactPlayer)
 
@@ -172,48 +120,33 @@ function RadioPlayer() {
             : 'column is-narrow mix-data is-loaded'
         }
       >
-        {!globalState.playing ? (
-          <Icon
-            icon="play"
-            className="icon-color"
-            onClick={handlePlayPause}
-            size="2x"
-          />
-        ) : (
-          <Icon
-            icon="pause"
-            className="icon-color"
-            onClick={handlePlayPause}
-            size="2x"
-          />
-        )}
+        <Icon
+          icon={!globalState.playing ? 'play' : 'pause'}
+          className="icon-color"
+          onClick={() => {
+            handlePlayPause(dispatch)
+          }}
+          size="2x"
+        />
       </div>
 
       <div
         className={
           globalState.isLoading
-            ? 'column is-narrow mix-data'
-            : 'column is-narrow mix-data is-loaded'
+            ? 'column is-narrow is-hidden-mobile mix-data'
+            : 'column is-narrow is-hidden-mobile mix-data is-loaded'
         }
       >
         <figure className="image is-48x48">
-          <img src={`${globalState.img}`} alt="" />
+          <img src={globalState.img} alt={globalState.title} />
         </figure>
       </div>
 
       {globalState.live && globalState.playingRadio ? (
-        <div id="now-playing-details">
-          {globalState.liveMarquee.liveShowTitle && (
-            <p className="title is-size-6-tablet is-size-7-mobile">
-              {globalState.liveMarquee.liveShowTitle}
-            </p>
-          )}
-          {globalState.liveMarquee.liveShowGuests && (
-            <p className="title is-size-6-tablet is-size-7-mobile">
-              {globalState.liveMarquee.liveShowGuests}
-            </p>
-          )}
-        </div>
+        <LiveBroadcastInfo
+          liveTitle={globalState.liveMarquee.liveShowTitle}
+          liveGuests={globalState.liveMarquee.liveShowGuests}
+        />
       ) : (
         <div
           className={
@@ -229,7 +162,31 @@ function RadioPlayer() {
               <p className="title is-size-6-tablet is-size-7-mobile">
                 {globalState.resident}
               </p>
-              { localState.hours > 0 ? `${localState.hoursPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2})}:` : null }{ localState.minutesPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) }:{ localState.secondsPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) } / { localState.hours > 0 ? `${localState.hours.toLocaleString( 'en-US', {minimumIntegerDigits: 2})}:` : null }{ localState.minutes.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) }:{ localState.seconds.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) }
+              {localState.hours > 0
+                ? `${localState.hoursPlayed.toLocaleString('en-US', {
+                    minimumIntegerDigits: 2,
+                  })}:`
+                : null}
+              {localState.minutesPlayed.toLocaleString('en-US', {
+                minimumIntegerDigits: 2,
+              })}
+              :
+              {localState.secondsPlayed.toLocaleString('en-US', {
+                minimumIntegerDigits: 2,
+              })}{' '}
+              /{' '}
+              {localState.hours > 0
+                ? `${localState.hours.toLocaleString('en-US', {
+                    minimumIntegerDigits: 2,
+                  })}:`
+                : null}
+              {localState.minutes.toLocaleString('en-US', {
+                minimumIntegerDigits: 2,
+              })}
+              :
+              {localState.seconds.toLocaleString('en-US', {
+                minimumIntegerDigits: 2,
+              })}
             </div>
           ) : (
             <div id="now-playing-details">
@@ -237,36 +194,60 @@ function RadioPlayer() {
                 {globalState.title}
               </p>
               <p className="subtitle is-size-7">{globalState.resident}</p>
-              { localState.hours > 0 ? `${localState.hoursPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2})}:` : null }{ localState.minutesPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) }:{ localState.secondsPlayed.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) } / { localState.hours > 0 ? `${localState.hours.toLocaleString( 'en-US', {minimumIntegerDigits: 2})}:` : null }{ localState.minutes.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) }:{ localState.seconds.toLocaleString( 'en-US', {minimumIntegerDigits: 2}) }
+              {localState.hours > 0
+                ? `${localState.hoursPlayed.toLocaleString('en-US', {
+                    minimumIntegerDigits: 2,
+                  })}:`
+                : null}
+              {localState.minutesPlayed.toLocaleString('en-US', {
+                minimumIntegerDigits: 2,
+              })}
+              :
+              {localState.secondsPlayed.toLocaleString('en-US', {
+                minimumIntegerDigits: 2,
+              })}{' '}
+              /{' '}
+              {localState.hours > 0
+                ? `${localState.hours.toLocaleString('en-US', {
+                    minimumIntegerDigits: 2,
+                  })}:`
+                : null}
+              {localState.minutes.toLocaleString('en-US', {
+                minimumIntegerDigits: 2,
+              })}
+              :
+              {localState.seconds.toLocaleString('en-US', {
+                minimumIntegerDigits: 2,
+              })}
             </div>
           )}
         </div>
       )}
 
       <ReactPlayer
-        className="cloud-player"
-        id="react-player"
-        style={playerStyle}
-        url={globalState.url}
-        ref={player}
         width="auto"
         height="auto"
-        volume={localState.volume}
+        className="cloud-player"
+        id="react-player"
+        ref={player}
+        style={playerStyle}
+        url={globalState.url}
+        volume={0.85}
         playing={globalState.playing}
         loop={globalState.loop}
-        onPlay={handlePlay}
-        onPause={handlePause}
-        onError={error => console.log('ReactPlayer has an issue ↴\n', error)}
-        onReady={handleMixReady}
-        onStart={() => console.log(`PLAYING: ${globalState.title}`)}
-        onBuffer={() => console.log('onBuffer')}
-        // muted={globalState.muted}
+        onReady={() => {
+          handleMixReady(dispatch)
+        }}
         onDuration={handleDuration}
-        // onEnablePIP={this.handleEnablePIP}
-        // onDisablePIP={this.handleDisablePIP}
-        // onSeek={e => console.log('onSeek', e)}
-        onEnded={handleEnded}
+        onEnded={() => {
+          handleEnded(
+            dispatch,
+            globalState.playlist.length,
+            globalState.list_curr_index
+          )
+        }}
         onProgress={handleProgress}
+        // onError={(error) => console.log("ReactPlayer has an issue ↴\n", error)}
       />
     </>
   )

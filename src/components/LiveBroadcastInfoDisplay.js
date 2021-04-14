@@ -4,8 +4,8 @@ import React from 'react'
  * Renders the `liveShowTitle` and `liveShowGuests` strings when `globalState.live && globalState.playingRadio` in {@link RadioPlayer}
  * @category Layout Helper
  * @function LiveBroadcastInfoDisplay
- * @param {String} liveTitle
- * @param {String} liveGuests
+ * @param {String} liveTitle - string set by the LiveMarqueeInput on `/hmbk-admin`
+ * @param {String} liveGuests - string set by the LiveMarqueeInput on `/hmbk-admin`
  * @returns {jsx}
  */
 export default function LiveBroadcastInfoDisplay({ liveTitle, liveGuests }) {

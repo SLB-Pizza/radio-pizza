@@ -3,7 +3,7 @@ import ReactPlayer from 'react-player'
 import Ticker from 'react-ticker'
 import PageVisibility from 'react-page-visibility'
 import { hot } from 'react-hot-loader'
-import { LiveBroadcastInfoDisplay } from './index'
+import { LiveBroadcastInfoDisplay, RecordedMixInfoDisplay } from './index'
 import { handleEnded, handleMixReady, handlePlayPause } from '../dispatch'
 import {
   GlobalDispatchContext,
@@ -156,71 +156,16 @@ function RadioPlayer() {
           }
           id="now-playing"
         >
-          {/* CHRISTIAN resident name and track title may be flipped */}
-          {globalState.title === null ? (
-            <div id="now-playing-details">
-              <p className="title is-size-6-tablet is-size-7-mobile">
-                {globalState.resident}
-              </p>
-              {localState.hours > 0
-                ? `${localState.hoursPlayed.toLocaleString('en-US', {
-                    minimumIntegerDigits: 2,
-                  })}:`
-                : null}
-              {localState.minutesPlayed.toLocaleString('en-US', {
-                minimumIntegerDigits: 2,
-              })}
-              :
-              {localState.secondsPlayed.toLocaleString('en-US', {
-                minimumIntegerDigits: 2,
-              })}{' '}
-              /{' '}
-              {localState.hours > 0
-                ? `${localState.hours.toLocaleString('en-US', {
-                    minimumIntegerDigits: 2,
-                  })}:`
-                : null}
-              {localState.minutes.toLocaleString('en-US', {
-                minimumIntegerDigits: 2,
-              })}
-              :
-              {localState.seconds.toLocaleString('en-US', {
-                minimumIntegerDigits: 2,
-              })}
-            </div>
-          ) : (
-            <div id="now-playing-details">
-              <p className="title is-size-6-tablet is-size-7-mobile">
-                {globalState.title}
-              </p>
-              <p className="subtitle is-size-7">{globalState.resident}</p>
-              {localState.hours > 0
-                ? `${localState.hoursPlayed.toLocaleString('en-US', {
-                    minimumIntegerDigits: 2,
-                  })}:`
-                : null}
-              {localState.minutesPlayed.toLocaleString('en-US', {
-                minimumIntegerDigits: 2,
-              })}
-              :
-              {localState.secondsPlayed.toLocaleString('en-US', {
-                minimumIntegerDigits: 2,
-              })}{' '}
-              /{' '}
-              {localState.hours > 0
-                ? `${localState.hours.toLocaleString('en-US', {
-                    minimumIntegerDigits: 2,
-                  })}:`
-                : null}
-              {localState.minutes.toLocaleString('en-US', {
-                minimumIntegerDigits: 2,
-              })}
-              :
-              {localState.seconds.toLocaleString('en-US', {
-                minimumIntegerDigits: 2,
-              })}
-            </div>
-          )}
+          <RecordedMixInfoDisplay
+            title={globalState.title}
+            residents={globalState.resident}
+            hoursPlayed={localState.hoursPlayed}
+            minutesPlayed={localState.minutesPlayed}
+            secondsPlayed={localState.secondsPlayed}
+            totalHours={localState.hours}
+            totalMinutes={localState.minutes}
+            totalSeconds={localState.seconds}
+          />
         </div>
       )}
 

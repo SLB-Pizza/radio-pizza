@@ -101,6 +101,13 @@
   }
 }
 
+.title,
+.subtitle {
+  &.duration-margin {
+    margin-bottom: 0.125rem;
+  }
+}
+
 .live-light {
   animation: live-light-pulse 2s infinite;
 }

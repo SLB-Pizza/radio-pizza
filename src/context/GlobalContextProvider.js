@@ -31,8 +31,8 @@ const initialState = {
   mixSearchTags: null,
   sameTagsInQuery: false,
   liveMarquee: {
-    liveShowTitle: "DEFAULT ARTIST STRING",
-    liveShowGuests: "DEFAULT GUESTS STRING"
+    liveShowTitle: 'DEFAULT ARTIST STRING',
+    liveShowGuests: 'DEFAULT GUESTS STRING',
   },
 }
 
@@ -159,14 +159,14 @@ function reducer(state, action) {
       return {
         ...state,
         isLoading: false,
-        playing: true,
+        playing: false,
         playlist: [],
         list_curr_index: 0,
         url: action.payload.url,
         title: action.payload.title,
         resident: action.payload.resident,
         img: action.payload.img,
-        playingRadio: false
+        playingRadio: false,
       }
 
     case 'CLOSE_NAVMENU':
@@ -205,7 +205,7 @@ function reducer(state, action) {
         playing: true,
         isLoading: false,
         playingRadio: true,
-        url: 'https://s3.radio.co/s6f093248d/listen'
+        url: 'https://s3.radio.co/s6f093248d/listen',
       }
 
     // PLAYLIST_START should be hit by dispatch called when a NEW Curated Collection is played
@@ -296,7 +296,6 @@ function reducer(state, action) {
     // };
 
     case 'MARQUEE_UPDATE':
-
       return {
         ...state,
         liveMarquee: action.payload.marquee,

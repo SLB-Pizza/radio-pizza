@@ -81,7 +81,6 @@ function RadioPlayer() {
     } else {
       hoursPlayed = 0
       minutesPlayed = 0
-      minutesPlayed = minutesPlayed
       secondsPlayed = Math.round(played.playedSeconds % 60)
     }
 
@@ -193,6 +192,7 @@ function RadioPlayer() {
           )
         }}
         onError={error => console.error(error)}
+        playsinline={true}
       />
     </>
   )

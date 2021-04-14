@@ -112,15 +112,14 @@ function RadioPlayer() {
 
   const handleProgress = ( played, loaded) => {
     console.log( 'played', played );
-    console.log( 'loaded', loaded );
+    // console.log( 'loaded', loaded );
     let hoursPlayed = 0;
     let minutesPlayed = 0;
     let secondsPlayed = 0;
-    if( played?.playedSeconds > 60 ){
-      minutesPlayed = 
-        (Math.floor(played.playedSeconds / 60))
+    if( Math.round(played?.playedSeconds) > 59 ){
+      minutesPlayed = (Math.floor(played.playedSeconds / 60));
 
-        if( minutesPlayed >= 60 ){
+        if( minutesPlayed > 59 ){
           hoursPlayed = Math.floor( minutesPlayed / 60 );
           minutesPlayed = (minutesPlayed % 60);
         } else {
@@ -133,10 +132,7 @@ function RadioPlayer() {
     } else {
       hoursPlayed = 0;
       minutesPlayed = 0;
-      minutesPlayed = 
-        minutesPlayed
-      secondsPlayed = 
-        Math.round(played.playedSeconds % 60)
+      secondsPlayed = Math.round(played.playedSeconds % 60);
     }
 
     setLocalState({ 

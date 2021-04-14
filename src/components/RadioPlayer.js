@@ -26,7 +26,7 @@ function RadioPlayer() {
     playing: false,
     controls: false,
     light: false,
-    volume: 0.25,
+    volume: 1,
     muted: false,
     played: 0,
     loaded: 0,
@@ -267,6 +267,7 @@ function RadioPlayer() {
         // onSeek={e => console.log('onSeek', e)}
         onEnded={handleEnded}
         onProgress={handleProgress}
+        playsinline={true}
       />
     </>
   )

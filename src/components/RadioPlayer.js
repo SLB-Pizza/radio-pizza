@@ -143,7 +143,7 @@ function RadioPlayer() {
       </div>
 
       {globalState.live && globalState.playingRadio ? (
-        <LiveBroadcastInfo
+        <LiveBroadcastInfoDisplay
           liveTitle={globalState.liveMarquee.liveShowTitle}
           liveGuests={globalState.liveMarquee.liveShowGuests}
         />
@@ -235,10 +235,11 @@ function RadioPlayer() {
         volume={0.85}
         playing={globalState.playing}
         loop={globalState.loop}
+        onProgress={handleProgress}
+        onDuration={handleDuration}
         onReady={() => {
           handleMixReady(dispatch)
         }}
-        onDuration={handleDuration}
         onEnded={() => {
           handleEnded(
             dispatch,
@@ -246,8 +247,7 @@ function RadioPlayer() {
             globalState.list_curr_index
           )
         }}
-        onProgress={handleProgress}
-        // onError={(error) => console.log("ReactPlayer has an issue ↴\n", error)}
+        onError={error => console.error(error)}
       />
     </>
   )

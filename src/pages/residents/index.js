@@ -1,7 +1,12 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
 import { useLazyQuery } from '@apollo/client'
-import { HMBKDivider, SingleResidentCard } from '../../components'
+import { Helmet } from 'react-helmet'
+import {
+  HMBKDivider,
+  SingleResidentCard,
+  useSiteMetadata,
+} from '../../components'
 import { toggleColumn, scrollToTop } from '../../utils'
 import {
   GET_MORE_RESIDENTS,
@@ -18,6 +23,8 @@ import {
  */
 
 function ResidentsIndex({ data }) {
+  const { title, description, siteUrl, twitterUsername } = useSiteMetadata()
+
   const [isOpen, setIsOpen] = useState('Residents')
   const [categoryLabels, setCategoryLabels] = useState(null)
 
@@ -194,6 +201,13 @@ function ResidentsIndex({ data }) {
 
   return (
     <main className="black-bg-page">
+      <Helmet defer={false}>
+        <title>{`Residents | ${title}`}</title>
+        <meta property="og:title" content={`Residents | ${title}`} />
+        <meta property="og:url" content={`${siteUrl}/residents/`} />
+        <meta name="twitter:title" content={`Residents | ${title}`} />
+      </Helmet>
+
       <header className="container is-fluid">
         <div className="columns is-mobile">
           <div className="column is-full content">

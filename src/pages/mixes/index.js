@@ -2,10 +2,15 @@ import React, { useContext, useEffect, useState, useRef } from 'react'
 import { getCursorFromDocumentIndex } from '@prismicio/gatsby-source-prismic-graphql'
 import { graphql } from 'gatsby'
 import { useLazyQuery } from '@apollo/client'
+import { Helmet } from 'react-helmet'
 
 import { GET_SELECTED_TAGGED_MIXES } from '../../queries'
 import { GlobalStateContext } from '../../context/GlobalContextProvider'
-import { AllMixesLayout, DisplayFetchedTaggedMixes } from '../../components'
+import {
+  AllMixesLayout,
+  DisplayFetchedTaggedMixes,
+  useSiteMetadata,
+} from '../../components'
 
 /**
  * Layout for /mixes landing page. This is also the page layout where mix tag queries are fetched are rendered.
@@ -27,6 +32,7 @@ import { AllMixesLayout, DisplayFetchedTaggedMixes } from '../../components'
  * @returns {jsx}
  */
 function MixesIndexPage({ data, prismic }) {
+  const { title, description, siteUrl, twitterUsername } = useSiteMetadata()
   const globalState = useContext(GlobalStateContext)
 
   // Initial useState is first query results
@@ -229,6 +235,13 @@ function MixesIndexPage({ data, prismic }) {
 
   return (
     <main className="black-bg-page">
+      <Helmet defer={false}>
+        <title>{`Radio | ${title}`}</title>
+        <meta property="og:title" content={`Radio | ${title}`} />
+        <meta property="og:url" content={`${siteUrl}/mixes/`} />
+        <meta name="twitter:title" content={`Radio | ${title}`} />
+      </Helmet>
+
       <header className="container is-fluid" id="mixes-header">
         <div className="columns is-mobile is-multiline">
           <div className="column is-12 content">

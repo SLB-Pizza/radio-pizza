@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
+import { Helmet } from 'react-helmet'
 import {
   ContainedImageHero,
   EventHeader,
   EventMapEmbed,
   HMBKDivider,
   SingleMixCard,
+  useSiteMetadata,
 } from '../components'
 import { mappableDataFilter } from '../utils'
 import { RichTextHelper } from '../components/helpers'
+import { RichText } from 'prismic-reactjs'
 
 /**
  * Render a single Event Prismic CMS entry.
@@ -16,7 +19,8 @@ import { RichTextHelper } from '../components/helpers'
  * @function EventsTemplate
  * @param {Object} data - the data object coming from Prismic CMS that contains all data needed to build the `/features` landing page
  */
-function EventTemplate({ data }) {
+function EventTemplate({ data, path }) {
+  const { title, description, siteUrl, twitterUsername } = useSiteMetadata()
   const prismicContent = data.prismic.allEvents.edges[0].node
   if (!prismicContent) return null
 
@@ -73,8 +77,16 @@ function EventTemplate({ data }) {
     return setEventCategoryData()
   }, [data])
 
+  const helmetTitle = event_name ? RichText.asText(event_name) : 'HMBK Event'
+
   return (
     <main className="full-height-page">
+      <Helmet defer={false}>
+        <title>{`${helmetTitle} | ${title}`}</title>
+        <meta property="og:title" content={`${title} | ${helmetTitle}`} />
+        <meta property="og:url" content={`${siteUrl}${path}/`} />
+        <meta name="twitter:title" content={`About | ${title}`} />
+      </Helmet>
       <article>
         <ContainedImageHero image={main_event_image} isHeader={true} />
         <EventHeader

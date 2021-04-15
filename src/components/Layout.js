@@ -1,8 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { withPrefix } from 'gatsby'
-import useSiteMetadata from './SiteMetadata'
-import { TopNav, BottomNav } from '../components'
+import { TopNav, BottomNav, useSiteMetadata } from '../components'
 import '../styles/index.scss'
 
 const TemplateWrapper = ({ children }) => {

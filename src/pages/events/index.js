@@ -1,7 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { getCursorFromDocumentIndex } from '@prismicio/gatsby-source-prismic-graphql'
 import { graphql } from 'gatsby'
-import { LandingPageFetchAndLoading, SingleEventCard } from '../../components'
+import { Helmet } from 'react-helmet'
+import {
+  LandingPageFetchAndLoading,
+  SingleEventCard,
+  useSiteMetadata,
+} from '../../components'
 
 /**
  * Layout for the /events landing page.
@@ -12,6 +17,7 @@ import { LandingPageFetchAndLoading, SingleEventCard } from '../../components'
  * @returns {jsx}
  */
 function EventsIndexPage({ data, prismic }) {
+  const { title, description, siteUrl, twitterUsername } = useSiteMetadata()
   const prismicContent = data.prismic.allEvents
   if (!prismicContent) return null
 
@@ -75,6 +81,13 @@ function EventsIndexPage({ data, prismic }) {
 
   return (
     <main className="black-bg-page">
+      <Helmet defer={false}>
+        <title>{`Events | ${title}`}</title>
+        <meta property="og:title" content={`Events | ${title}`} />
+        <meta property="og:url" content={`${siteUrl}/events/`} />
+        <meta name="twitter:title" content={`Events | ${title}`} />
+      </Helmet>
+
       <header className="container is-fluid">
         <div className="columns is-mobile is-multiline">
           <div className="column is-full content">

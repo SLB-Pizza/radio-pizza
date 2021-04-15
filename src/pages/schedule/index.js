@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useLazyQuery } from '@apollo/client'
+import { Helmet } from 'react-helmet'
 import {
   DateSelectorButton,
   SingleDateScheduleGenerator,
+  useSiteMetadata,
 } from '../../components'
 import { formatDateTime, sortShowEntriesByStartTime } from '../../utils'
 import { GET_SEVEN_DAY_SCHEDULE } from '../../queries'
@@ -14,6 +16,8 @@ import { GET_SEVEN_DAY_SCHEDULE } from '../../queries'
  * @returns {jsx}
  */
 function ScheduleIndexPage() {
+  const { title, description, siteUrl, twitterUsername } = useSiteMetadata()
+
   const [todayDate, setTodayDate] = useState(null)
   const [isActive, setIsActive] = useState(null)
   const [dateBtnLabels, setDateBtnLabels] = useState(null)
@@ -163,6 +167,13 @@ function ScheduleIndexPage() {
 
   return (
     <main className="container is-fluid black-bg-page">
+      <Helmet defer={false}>
+        <title>{`Schedule | ${title}`}</title>
+        <meta property="og:title" content={`Schedule | ${title}`} />
+        <meta property="og:url" content={`${siteUrl}/schedule/`} />
+        <meta name="twitter:title" content={`Schedule | ${title}`} />
+      </Helmet>
+
       <div className="columns is-mobile is-multiline">
         <div className="column">
           <h1 className="title is-size-3-desktop is-size-5-touch">schedule</h1>

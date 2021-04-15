@@ -132,51 +132,32 @@ function ResidentTemplate({ data, path }) {
   const smallCardLayout = 'column is-12-mobile is-6-tablet is-4-widescreen'
   const largeCardLayout = 'column is-6 is-4-widescreen'
 
+  /**
+   * Processing single resident data to pass to Helmet
+   */
+  const helmetResName = resBio?.resident_name
+    ? resBio?.resident_name
+    : `HMBK ${resBio?.resident_status}`
+  const helmetDescription = resBio?.resident_blurb
+    ? RichText.asText(resBio?.resident_blurb)
+    : description
+
   return (
     <main className="full-height-page">
       <Helmet defer={false}>
-        <html lang="en" />
-        {resBio?.resident_name && <title>HMBK | {resBio.resident_name}</title>}
-        {resBio?.resident_blurb && (
-          <meta
-            name="description"
-            content={RichText.asText(resBio.resident_blurb)}
-          />
-        )}
-        <meta name="theme-color" content="#f600ff" />
-        <meta property="og:type" content="business.business" />
-        {resBio?.resident_name && (
-          <meta
-            property="og:title"
-            content={`HalfMoon feat. ${resBio.resident_name}`}
-          />
-        )}
+        <title>{`${title} | ${helmetResName}`}</title>
+        <meta name="description" content={helmetDescription} />
+        <meta property="og:title" content={helmetResName} />
         <meta property="og:url" content={`${siteUrl}${path}`} />
         {resBio?.resident_image && resBio?.resident_image?.url && (
           <meta property="og:image" content={resBio.resident_image.url} />
         )}
-        {resBio?.resident_blurb && (
-          <meta
-            name="og:description"
-            content={RichText.asText(resBio.resident_blurb)}
-          />
-        )}
+        <meta name="og:description" content={helmetDescription} />
         {resBio?.resident_image && resBio?.resident_image?.url && (
           <meta property="og:image:type" content="image/webp" />
         )}
-        <meta name="twitter:card" content="summary" />
-        {resBio?.resident_name && (
-          <meta
-            name="twitter:title"
-            content={`HalfMoon feat. ${resBio.resident_name}`}
-          />
-        )}
-        {resBio?.resident_blurb && (
-          <meta
-            name="twitter:description"
-            content={RichText.asText(resBio.resident_blurb)}
-          />
-        )}
+        <meta name="twitter:title" content={`${title} | ${helmetResName}`} />
+        <meta name="twitter:description" content={helmetDescription} />
         <meta name="twitter:site" content={twitterUsername} />
         {resBio?.social_media?.find(
           elem => elem.resident_social_page === 'Twitter'
@@ -194,6 +175,7 @@ function ResidentTemplate({ data, path }) {
           <meta name="twitter:image" content={resBio.resident_image.url} />
         )}
       </Helmet>
+
       <div className="container is-fluid">
         <div className="columns is-multiline">
           {resBio && <ResidentBio residentBioData={resBio} />}

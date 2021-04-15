@@ -6,9 +6,9 @@ import {
   AboutPageHero,
   AboutPageTitling,
   SliceZone,
+  useSiteMetadata,
 } from '../../components'
 import { HMBKFooter } from '../../components/helpers'
-import useSiteMetadata from '../../components/SiteMetadata'
 
 /**
  * Layout for /about page.
@@ -17,7 +17,7 @@ import useSiteMetadata from '../../components/SiteMetadata'
  * @returns {jsx}
  */
 export default function AboutIndexPage({ data }) {
-  const { title, description, siteUrl, twitterUsername } = useSiteMetadata()
+  const { title, siteUrl } = useSiteMetadata()
 
   const prismicContent = data.prismic.allAbouts.edges[0].node
 
@@ -28,22 +28,10 @@ export default function AboutIndexPage({ data }) {
   return (
     <main className="full-height-page">
       <Helmet defer={false}>
-        <html lang="en" />
         <title>{`About | ${title}`}</title>
-        <meta
-          name="description"
-          content={`About | HalfmoonBK Radio - ${description}`}
-        />
-        <meta name="theme-color" content="#f600ff" />
-        <meta property="og:type" content="business.business" />
         <meta property="og:title" content={`About | ${title}`} />
         <meta property="og:url" content={`${siteUrl}/about`} />
-        <meta property="og:image" content={`/img/HalfMoon-3.png`} />
-        <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={`About | ${title}`} />
-        <meta name="twitter:description" content="About | HalfmoonBK Radio" />
-        <meta name="twitter:site" content={twitterUsername} />
-        <meta name="twitter:image" content={`/img/HalfMoon-3.png`} />
       </Helmet>
 
       <AboutPageHero headlineData={aboutHeroData} />

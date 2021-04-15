@@ -12,6 +12,9 @@ import { sortShowEntriesByStartTime } from './index'
 export default function sortUpcomingShowsArray(upcomingShowsArr) {
   const fullySortedEntries = []
 
+  /**
+   * Works even when no upcoming shows are scheduled.
+   */
   for (let i = 0; i < upcomingShowsArr.length; i++) {
     let dateObject = { node: {} }
     let node = upcomingShowsArr[i].node
@@ -26,5 +29,5 @@ export default function sortUpcomingShowsArray(upcomingShowsArr) {
     fullySortedEntries.push(dateObject)
   }
 
-  return fullySortedEntries.length ? fullySortedEntries : null
+  return fullySortedEntries
 }

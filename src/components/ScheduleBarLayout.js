@@ -1,10 +1,6 @@
 import React, { useContext } from 'react'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
-import {
-  ScheduleDropdown,
-  UpcomingShow,
-  UpcomingShowWithResidents,
-} from './index'
+import { ScheduleDropdown, UpcomingShow } from './index'
 import {
   GlobalStateContext,
   GlobalDispatchContext,
@@ -30,7 +26,7 @@ export default function ScheduleBarLayout({ timeNow, upcomingShows }) {
   const dispatch = useContext(GlobalDispatchContext)
   const globalState = useContext(GlobalStateContext)
 
-  const { live, playingRadio, scheduleOpen, ...rest } = globalState
+  const { live, playingRadio, scheduleOpen, ..._ } = globalState
 
   return (
     <div

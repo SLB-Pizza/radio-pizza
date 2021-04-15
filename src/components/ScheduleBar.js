@@ -80,6 +80,7 @@ function ScheduleBar({ timeNow }) {
     const updateTodaysSchedule = () => {
       if (upcomingShowData) {
         let nextTwoDatesWithScheduledShows = upcomingShowData.allSchedules.edges
+        console.log(nextTwoDatesWithScheduledShows)
 
         const sortedEntries = sortUpcomingShowsArray(
           nextTwoDatesWithScheduledShows

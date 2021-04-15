@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types'
 import React, { useContext } from 'react'
-import { FallbackImage, IconMaker } from '../utils'
 import { GlobalDispatchContext } from '../context/GlobalContextProvider'
+import { FallbackImage, IconMaker } from '../utils'
+import { changeURL, playCollection } from '../dispatch'
 
 /**
  * Creates a play icon that `onClick` dispatches the `SHOW_LOADING` and `CHANGE_URL` actions, playing the audio source through {@link RadioPlayer}.
@@ -29,40 +30,9 @@ function MixPlayOverlay({
 }) {
   const dispatch = useContext(GlobalDispatchContext)
 
-  /**
-   * Dispatches CHANGE_URL to switch from whatever is in {@link RadioPlayer} to the selected mix.
-   * @category Dispatch Function
-   * @function playCollection
-   */
-  const changeUrl = async () => {
-    await dispatch({ type: 'SHOW_LOADING' })
-    await dispatch({
-      type: 'CHANGE_URL',
-      payload: {
-        url,
-        title,
-        resident: residents,
-        img: img.now_playing.url,
-      },
-    })
-  }
-
-  /**
-   * Dispatch corresponds to "PLAYLIST_PLAY_FIRST".
-   * @category Dispatch Function
-   * @function playCollection
-   * @see {@link makeCollectionDispatch}
-   */
-  const playCollection = async () => {
-    await dispatch({ type: 'SHOW_LOADING' })
-    await dispatch({ type: 'PLAYLIST_START', payload: collectionDetails })
-  }
-
-  // Determine which dispatch function to use based on isCollection boolean
-  const dispatchFunc = isCollection === true ? playCollection : changeUrl
-
   // Remove punctuation and white spaces in title string for use with the SR-only #play-mix-title href
   const titleForSRHashURL = title.replace(/[.,\/#!$%\^&\*;:{}=\_`~()\s]/g, '-')
+
   return (
     <div className={wrapperClassName}>
       <div className="card-image">
@@ -72,11 +42,27 @@ function MixPlayOverlay({
           linkAddress={`#play-${titleForSRHashURL}`}
           linkIsLocal={true}
           linkClassName={'sr-only title is-6'}
-          linkOnClickFunc={() => dispatchFunc()}
+          linkOnClickFunc={
+            isCollection
+              ? () => {
+                  playCollection(dispatch, collectionDetails)
+                }
+              : () => {
+                  changeURL(
+                    dispatch,
+                    url,
+                    title,
+                    residents,
+                    img.now_playing.url
+                  )
+                }
+          }
           linkProps={{
             tabIndex: '0',
           }}
-          textAfterIcon={'Play This Mix'}
+          textAfterIcon={
+            isCollection ? 'Load This Collection' : 'Load This Mix'
+          }
         />
 
         <figure className="image is-1by1">
@@ -88,10 +74,24 @@ function MixPlayOverlay({
           <div className="play-btn-diffuser is-overlay">
             <IconMaker
               spanClass={'icon is-large'}
-              iconSize={'5x'}
+              iconSize={'4x'}
               iconToUse={'play'}
               iconClass={'play-icon'}
-              iconOnClickFunc={() => dispatchFunc()}
+              iconOnClickFunc={
+                isCollection
+                  ? () => {
+                      playCollection(dispatch, collectionDetails)
+                    }
+                  : () => {
+                      changeURL(
+                        dispatch,
+                        url,
+                        title,
+                        residents,
+                        img.now_playing.url
+                      )
+                    }
+              }
             />
           </div>
         </figure>

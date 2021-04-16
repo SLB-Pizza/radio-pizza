@@ -56,6 +56,7 @@ function SliceZone({ sliceZone, metadata }) {
     interview: Interview,
     row_of_images: ImageRow,
     image_group: ImageRow,
+    image_row: ImageRow,
     slice_divider: SectionDivider,
     one_image_and_text: OneImageAndText,
     two_images_and_text: TwoImagesAndText,

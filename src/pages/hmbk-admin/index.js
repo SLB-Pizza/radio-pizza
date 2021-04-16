@@ -122,7 +122,6 @@ function HMBKAdminPage({ data, prismic }) {
             >
               Set Marquee Default
             </button>
-            <br />
 
             <p className="subtitle is-6-touch">
               These dummy mixes are the same as the ones on the home page. You

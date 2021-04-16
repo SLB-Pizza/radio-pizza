@@ -158,7 +158,6 @@ function ResidentTemplate({ data, path }) {
         )}
         <meta name="twitter:title" content={`${title} | ${helmetResName}`} />
         <meta name="twitter:description" content={helmetDescription} />
-        <meta name="twitter:site" content={twitterUsername} />
         {resBio?.social_media?.find(
           elem => elem.resident_social_page === 'Twitter'
         ) && (

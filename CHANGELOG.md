@@ -1,3 +1,28 @@
+### Version 1.13.0
+- feat(HMBKFooter): extract into own component
+- feat(About): add Hero & Titling; slice zone, credits, footer
+- backup(About): update Prismic CMS JSON custom type
+- refactor(Byline): restore missing subtitle render change short-circuit wrapping
+- refactor(/about): move credits to own component
+- backup(About): update Prismic JSON custom type
+- fix(Text): remove exclamation marks from tune in and more residents
+- fix(/about): remove TextColumns slice
+- feat(Helmet): add prelim favicon details to Layout
+- feat(RadioPlayer): extract local dispatch functions re-import dispatch functions
+- added playsINline to fix ios video player bug
+- duration timer fix
+- fix(LiveBroadcastInfo): add missing React import add render case where liveTitle is null; must display liveGuests as title; if defined
+- set CHANGE_URL playing to false
+- feat(Duration): integrate RecordedMixInfoDisplay and InfoDisplayTimerElement
+- fix(Dropdown): change sortUpcomingShowArray return to re-enable toggling
+- fix(Dropdown): give Dropdown button transparent background addresses live pulse background color clipping
+- refactor(PlayOverlay): extract dispatch functions rework iconOnClickFunc and textAfterIcon
+- refactor(mixLinkSite): extract logic from mixLinkIconInfo for reusability
+- style(icon): add fa-external-link-alt icon to library
+- feat(Helmet): add first wave of Helmet details
+- fix(/about): adjust logo sizing and titling columns
+- fix(ImageRow): add `image_row`type to slice object
+
 ### Version 1.12.0
 - fix(HeroArrows): use separate SVG arrows per direction create react component for each SVG
 - refactor(Marquee): add params to re-use with RadioPlayer

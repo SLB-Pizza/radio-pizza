@@ -13,7 +13,7 @@ dayjs.extend(customParseFormat)
 /**
  * Takes in a Date object or regular date string and returns strings formatted by `dayjs`.
  *
- * ## `convertedPrismicDateTime` use cases:
+ * `convertedPrismicDateTime` use cases:
  *
  * | `format` value            | Components              |
  * |---------------------------|-------------------------|
@@ -159,6 +159,9 @@ export default function formatDateTime(
 
     case 'schedule-date-heading':
       return dayjs(time).format('dddd, MMMM D')
+
+    case 'short-form-date-time':
+      return dayjs(time).format('MMMM D, YYYY - HH:mm:ss')
 
     case 'long-form-date':
       return convertedPrismicDateTime.format('MMMM D, YYYY')

@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React, { useEffect, useContext, useRef, useState } from 'react'
 import { graphql } from 'gatsby'
 import { CMSIssueMessage } from '../../components'
+import { NetlifyStatus } from '../../components/admin'
 import { cmsNodeValidator, getMixTitle, uidValidator } from '../../utils'
 import {
   GlobalDispatchContext,
@@ -69,8 +70,8 @@ function HMBKAdminPage({ data, prismic }) {
     event.preventDefault()
 
     await updateRemoteMarquee('marquee', {
-      liveShowGuests: 'NO LIVE GUESTS',
-      liveShowTitle: 'NO LIVE TITLE',
+      liveShowTitle: 'HalfmoonBK Live Show',
+      liveShowGuests: 'HMBK Family',
     })
   }
 
@@ -80,40 +81,88 @@ function HMBKAdminPage({ data, prismic }) {
       <header className="container is-fluid">
         <div className="columns is-mobile is-multiline">
           <div className="column is-12 content">
-            <h3 className="title is-4-touch">HalfmoonBK Admin Dashboard</h3>
+            <h1 className="title is-3-desktop is-4-touch">
+              HalfmoonBK Admin Dashboard
+            </h1>
+          </div>
+        </div>
+      </header>
 
-            <h4 className="">Live Streaming Marquee</h4>
-            <p className="subtitle is-6-touch">{`Current Marquee:
-            ${globalState.liveMarquee.liveShowTitle} + ${globalState.liveMarquee.liveShowGuests}`}</p>
+      <NetlifyStatus />
 
+      <div className="section container admin-block__netlify">
+        <div className="columns is-mobile is-multiline">
+          <div className="column is-12 content">
+            <h2 className="subtitle">Live Streaming Marquee</h2>
+            <p>{`Current Live Title: ${globalState.liveMarquee.liveShowTitle}`}</p>
+            <p>{`Current Live Guest: ${globalState.liveMarquee.liveShowGuests}`}</p>
+          </div>
+          <div className="column is-12">
             <form onSubmit={submitMarquee}>
-              <label>
-                Live Show Title:
-                <input
-                  type="text"
-                  // id='marqueeInput'
-                  name="marqueeInput"
-                  placeholder="Type new message here"
-                  onChange={updateMarqueeTitle}
-                  onSubmit={submitMarquee}
-                />
-              </label>
-              <label>
-                Live Show Guests:
-                <input
-                  type="text"
-                  // id='marqueeInput'
-                  name="marqueeInput"
-                  placeholder="Type new message here"
-                  onChange={updateMarqueeGuests}
-                  onSubmit={submitMarquee}
-                />
-              </label>
-              <input
+              <div className="field is-horizontal">
+                <div className="field-label is-normal">
+                  <label className="label">Live Show Title</label>
+                </div>
+
+                <div className="field-body">
+                  <p className="field">
+                    <p className="control is-expanded">
+                      <input
+                        className="input is-rounded"
+                        type="text"
+                        name="marqueeInput"
+                        placeholder="Type new message here"
+                        onChange={updateMarqueeTitle}
+                        onSubmit={submitMarquee}
+                      />
+                    </p>
+                  </p>
+                </div>
+              </div>
+
+              <div className="field is-horizontal">
+                <div className="field-label is-normal">
+                  <label className="label">Live Show Guests</label>
+                </div>
+
+                <div className="field-body">
+                  <p className="field">
+                    <p className="control is-expanded">
+                      <input
+                        className="input is-rounded"
+                        type="text"
+                        name="marqueeInput"
+                        placeholder="Type new message here"
+                        onChange={updateMarqueeGuests}
+                        onSubmit={submitMarquee}
+                      />
+                    </p>
+                  </p>
+                </div>
+              </div>
+              <div className="field is-horizontal">
+                <div className="field-label is-normal" />
+
+                <div className="field-body">
+                  <p className="field">
+                    <p className="control">
+                      <button
+                        className="button is-outlined is-rounded"
+                        type="submit"
+                        value="submit"
+                      >
+                        Update Live Show Info
+                      </button>
+                    </p>
+                  </p>
+                </div>
+              </div>
+
+              {/* <input
                 className="button is-outlined is-rounded"
                 type="submit"
                 value="submit"
-              />
+              /> */}
             </form>
 
             <button
@@ -122,84 +171,76 @@ function HMBKAdminPage({ data, prismic }) {
             >
               Set Marquee Default
             </button>
-
-            <p className="subtitle is-6-touch">
-              These dummy mixes are the same as the ones on the home page. You
-              can hover/touch and play them the same way. Try it!
-            </p>
-          </div>
-          <div className="column is-narrow">
-            <aside className="menu is-hidden-mobile">
-              <p className="menu-label">Dashboard</p>
-              <ul className="menu-list">
-                {problemMixes.length && (
-                  <li>
-                    <a href="#mixes">Mixes</a>
-                  </li>
-                )}
-
-                <li>
-                  <a>Other</a>
-                </li>
-              </ul>
-            </aside>
-          </div>
-
-          <div className="column has-background-info">
-            <div className="columns is-vcentered is-mobile is-multiline">
-              <div className="column content">
-                <p className="title has-text-centered">
-                  {totalCount} HMBK CMS Entries
-                </p>
-              </div>
-            </div>
           </div>
         </div>
-        {problemMixes.length && (
+      </div>
+
+      <p className="subtitle is-6-touch">
+        These dummy mixes are the same as the ones on the home page. You can
+        hover/touch and play them the same way. Try it!
+      </p>
+
+      {/* <div className="column is-narrow">
+          <aside className="menu is-hidden-mobile">
+            <p className="menu-label">Dashboard</p>
+            <ul className="menu-list">
+              {problemMixes.length && (
+                <li>
+                  <a href="#mixes">Mixes</a>
+                </li>
+              )}
+
+              <li>
+                <a>Other</a>
+              </li>
+            </ul>
+          </aside>
+        </div> */}
+
+      <div className="column has-background-info">
+        <div className="columns is-vcentered is-mobile is-multiline">
+          <div className="column content">
+            <p className="title has-text-centered">
+              {totalCount} HMBK CMS Entries
+            </p>
+          </div>
+        </div>
+      </div>
+      {/* {problemMixes.length && (
           <div className="column is-12">
             <div className="content">
               <h1 className="title">
                 <a href="#mixes"># </a>Mixes
               </h1>
-              {/* <pre>Problem Mixes {JSON.stringify(problemMixes, null, 2)}</pre> */}
+              <pre>Problem Mixes {JSON.stringify(problemMixes, null, 2)}</pre>
             </div>
-            {problemMixes.map((mixIssuePkg, index) => {
-              return (
-                <>
-                  <CMSIssueMessage
-                    key={`problem-mixes-${index}`}
-                    issueData={mixIssuePkg}
-                  />
-                  {/* <pre>{JSON.stringify(mixIssuePkg, null, 2)}</pre> */}
-                </>
-              )
-            })}
+            {problemMixes.map((mixIssuePkg, index) => (
+              <>
+                <CMSIssueMessage
+                  key={`problem-mixes-${index}`}
+                  issueData={mixIssuePkg}
+                />
+                <pre>{JSON.stringify(mixIssuePkg, null, 2)}</pre>
+              </>
+            ))}
           </div>
-        )}
-        {problemResidents.length && (
+        )} */}
+      {/* {problemResidents.length && (
           <div className="column is-12">
             <div className="content">
               <h1 className="title">Residents</h1>
             </div>
-            {problemResidents.map((residentIssuePkg, index) => {
-              return (
+            {problemResidents.map((residentIssuePkg, index) =>(
                 <>
                   <CMSIssueMessage
                     key={`problem-residents-${index}`}
                     issueData={residentIssuePkg}
                   />
-                  {/* <pre>{JSON.stringify(residentIssuePkg, null, 2)}</pre> */}
                 </>
-              )
-            })}
+              );
+            )}
           </div>
-        )}
-        {/* <div className="column is-12">
-          <section className="section content">
-            <pre>{JSON.stringify(prismicContent.edges, null, 2)}</pre>
-          </section>
-        </div> */}
-      </header>
+        )} */}
     </main>
   )
 }

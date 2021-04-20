@@ -2,7 +2,11 @@ import PropTypes from 'prop-types'
 import React, { useEffect, useContext, useRef, useState } from 'react'
 import { graphql } from 'gatsby'
 import { CMSIssueMessage } from '../../components'
-import { NetlifyStatus } from '../../components/admin'
+import {
+  AdminHeader,
+  AdminLinkButtons,
+  NetlifyStatus,
+} from '../../components/admin'
 import { cmsNodeValidator, getMixTitle, uidValidator } from '../../utils'
 import {
   GlobalDispatchContext,
@@ -77,20 +81,12 @@ function HMBKAdminPage({ data, prismic }) {
 
   return (
     <main className="black-bg-page">
-      {/* FIRST SECTION - Header Section */}
-      <header className="container is-fluid">
-        <div className="columns is-mobile is-multiline">
-          <div className="column is-12 content">
-            <h1 className="title is-3-desktop is-4-touch">
-              HalfmoonBK Admin Dashboard
-            </h1>
-          </div>
-        </div>
-      </header>
+      <AdminHeader />
 
       <NetlifyStatus />
+      <AdminLinkButtons />
 
-      <div className="section container admin-block__netlify">
+      <div className="section container is-fluid">
         <div className="columns is-mobile is-multiline">
           <div className="column is-12 content">
             <h2 className="subtitle">Live Streaming Marquee</h2>
@@ -157,12 +153,6 @@ function HMBKAdminPage({ data, prismic }) {
                   </p>
                 </div>
               </div>
-
-              {/* <input
-                className="button is-outlined is-rounded"
-                type="submit"
-                value="submit"
-              /> */}
             </form>
 
             <button

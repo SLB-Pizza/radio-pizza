@@ -4,3 +4,21 @@
     border-radius: 0.75rem;
   }
 }
+
+.admin-link {
+  border: 2px solid white;
+  border-radius: 0.75rem;
+  margin: 1rem;
+  padding: $gap;
+  transition: $speed $easing;
+  &:focus,
+  &:hover {
+    background-color: darken($color: $primary, $amount: 35);
+    border: 2px solid $primary;
+  }
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+  }
+}

@@ -46,15 +46,19 @@ export default function NetlifyStatus() {
   }, [])
 
   return (
-    <section className="section container is-fluid">
+    <section className="section container is-fluid" id="netlify">
       <div className="columns is-mobile is-multiline is-vcentered">
         <div className="column is-6 content">
-          <h2 className="title">Netlify Status</h2>
-          <p className="subtitle">Updates every 10 seconds</p>
+          <h2 className="title is-size-3-desktop is-size-4-tablet is-size-5-mobile">
+            Netlify Status
+          </h2>
+          <p className="subtitle is-size-5-desktop is-size-6-tablet is-size-7-mobile">
+            Updates every 10 seconds
+          </p>
         </div>
 
         {deployDetails ? (
-          <div className="column is-2">
+          <div className="column is-2-desktop is-half-touch">
             <figure className="image">
               <img
                 className="has-ratio"

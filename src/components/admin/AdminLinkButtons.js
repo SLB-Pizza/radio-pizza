@@ -13,11 +13,13 @@ export default function AdminLinkButtons() {
       <div className="columns is-mobile is-multiline">
         <SingleAdminLink
           icon={'broadcast-tower'}
+          linkPath={'live-stream-info'}
           linkText={'Update Live Broadcast Info'}
         />
         <SingleAdminLink
-          icon={'broadcast-tower'}
-          linkText={'Update Live Broadcast Info'}
+          icon={'calendar-alt'}
+          linkPath={'full-schedule'}
+          linkText={'View Complete Schedule'}
         />
         <SingleAdminLink
           icon={'broadcast-tower'}

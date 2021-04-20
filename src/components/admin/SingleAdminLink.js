@@ -7,13 +7,14 @@ import { IconMaker } from '../../utils'
  * @category Admin Helper
  * @function AdminLinkButtons
  * @param {String} icon - which FontAwesomeIcon to use
+ * @param {String} linkPath - string that completes `/hmbk-admin/${linkPath}`
  * @param {String} linkText - text to label the button
  * @returns {jsx}
  */
-export default function SingleAdminLink({ icon, linkText }) {
+export default function SingleAdminLink({ icon, linkPath, linkText }) {
   return (
     <div className="column is-4">
-      <Link to="/hmbk-admin/live-stream-info">
+      <Link to={`/hmbk-admin/${linkPath}`}>
         <article className="admin-link columns is-mobile is-vcentered">
           <div className="column is-3 admin-link__icon">
             <figure className="image">

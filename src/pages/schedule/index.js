@@ -84,10 +84,10 @@ function ScheduleIndexPage() {
   /**
    * Fetch new schedule info by calling {@link fetchSevenDaySchedule} when `scheduleFetchDates` is initially set, or changes because of a day change.
    * @category useEffect
-   * @name executeScheduleFetch
+   * @name executeSevenDayScheduleFetch
    */
   useEffect(() => {
-    const executeScheduleFetch = () => {
+    const executeSevenDayScheduleFetch = () => {
       if (scheduleFetchDates) {
         fetchSevenDaySchedule({
           variables: {
@@ -97,7 +97,7 @@ function ScheduleIndexPage() {
         })
       }
     }
-    return executeScheduleFetch()
+    return executeSevenDayScheduleFetch()
   }, [scheduleFetchDates])
 
   /**

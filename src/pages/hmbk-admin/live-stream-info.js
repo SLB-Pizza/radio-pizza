@@ -11,7 +11,7 @@ import {
 
 /**
  * Renders the `/hmbk-admin/live-stream-info/` page with a form to update the live stream marquee.
- * @category Admin Helper
+ * @category Admin Page
  * @function AdminLiveStreamInfo
  * @returns {jsx}
  */
@@ -34,7 +34,7 @@ export default function AdminLiveStreamInfo() {
         </div>
 
         <div className="columns is-multiline is-vcentered admin-box">
-          <div className="column is-6">
+          <div className="column">
             <div className="content">
               <h3 className="title">Current Live Stream Info</h3>
             </div>
@@ -43,7 +43,23 @@ export default function AdminLiveStreamInfo() {
               liveGuests={globalState.liveMarquee.liveShowGuests}
             />
           </div>
-          <div className="column is-6">
+          <div className="column">
+            <div className="content">
+              <h3 className="title">Live Info Preview</h3>
+            </div>
+            {liveTitle || liveGuests ? (
+              <LiveBroadcastInfoDisplay
+                liveTitle={liveTitle}
+                liveGuests={liveGuests}
+              />
+            ) : (
+              <LiveBroadcastInfoDisplay
+                liveTitle={'Start typing new live stream info'}
+                liveGuests={'to preview it here!'}
+              />
+            )}
+          </div>
+          <div className="column">
             <div className="content">
               <h3 className="title">Live Info Preview</h3>
             </div>

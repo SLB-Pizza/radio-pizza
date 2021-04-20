@@ -12,7 +12,6 @@ import {
   GlobalDispatchContext,
   GlobalStateContext,
 } from '../../context/GlobalContextProvider'
-import { updateRemoteMarquee } from '../../utils/'
 
 function HMBKAdminPage({ data, prismic }) {
   const dispatch = useContext(GlobalDispatchContext)
@@ -39,131 +38,11 @@ function HMBKAdminPage({ data, prismic }) {
   const prismicContent = data.prismic._allDocuments
   if (!prismicContent) return null
 
-  const updateMarqueeTitle = event => {
-    event.preventDefault()
-
-    if ('string' !== typeof event.target.value) {
-      alert('Please only input alphanumeric characters')
-      return
-    }
-
-    return setLiveTitle(event.target.value)
-  }
-
-  const updateMarqueeGuests = event => {
-    event.preventDefault()
-
-    if ('string' !== typeof event.target.value) {
-      alert('Please only input alphanumeric characters')
-      return
-    }
-
-    return setLiveGuests(event.target.value)
-  }
-
-  const submitMarquee = async event => {
-    event.preventDefault()
-
-    await updateRemoteMarquee('marquee', {
-      liveShowGuests: liveGuests,
-      liveShowTitle: liveTitle,
-    })
-  }
-
-  const marqueeSetDefault = async event => {
-    event.preventDefault()
-
-    await updateRemoteMarquee('marquee', {
-      liveShowTitle: 'HalfmoonBK Live Show',
-      liveShowGuests: 'HMBK Family',
-    })
-  }
-
   return (
     <main className="black-bg-page">
       <AdminHeader />
-
       <NetlifyStatus />
       <AdminLinkButtons />
-
-      <div className="section container is-fluid">
-        <div className="columns is-mobile is-multiline">
-          <div className="column is-12 content">
-            <h2 className="subtitle">Live Streaming Marquee</h2>
-            <p>{`Current Live Title: ${globalState.liveMarquee.liveShowTitle}`}</p>
-            <p>{`Current Live Guest: ${globalState.liveMarquee.liveShowGuests}`}</p>
-          </div>
-          <div className="column is-12">
-            <form onSubmit={submitMarquee}>
-              <div className="field is-horizontal">
-                <div className="field-label is-normal">
-                  <label className="label">Live Show Title</label>
-                </div>
-
-                <div className="field-body">
-                  <p className="field">
-                    <p className="control is-expanded">
-                      <input
-                        className="input is-rounded"
-                        type="text"
-                        name="marqueeInput"
-                        placeholder="Type new message here"
-                        onChange={updateMarqueeTitle}
-                        onSubmit={submitMarquee}
-                      />
-                    </p>
-                  </p>
-                </div>
-              </div>
-
-              <div className="field is-horizontal">
-                <div className="field-label is-normal">
-                  <label className="label">Live Show Guests</label>
-                </div>
-
-                <div className="field-body">
-                  <p className="field">
-                    <p className="control is-expanded">
-                      <input
-                        className="input is-rounded"
-                        type="text"
-                        name="marqueeInput"
-                        placeholder="Type new message here"
-                        onChange={updateMarqueeGuests}
-                        onSubmit={submitMarquee}
-                      />
-                    </p>
-                  </p>
-                </div>
-              </div>
-              <div className="field is-horizontal">
-                <div className="field-label is-normal" />
-
-                <div className="field-body">
-                  <p className="field">
-                    <p className="control">
-                      <button
-                        className="button is-outlined is-rounded"
-                        type="submit"
-                        value="submit"
-                      >
-                        Update Live Show Info
-                      </button>
-                    </p>
-                  </p>
-                </div>
-              </div>
-            </form>
-
-            <button
-              className="button is-outlined is-rounded"
-              onClick={marqueeSetDefault}
-            >
-              Set Marquee Default
-            </button>
-          </div>
-        </div>
-      </div>
 
       <p className="subtitle is-6-touch">
         These dummy mixes are the same as the ones on the home page. You can

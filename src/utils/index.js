@@ -1,3 +1,5 @@
+import { from } from '@apollo/client'
+
 /**
  * Special Prismic Utility Functions
  *
@@ -15,7 +17,6 @@ export { default as checkUpcomingShowWidth } from './checkUpcomingShowWidth'
 export { default as cmsNodeValidator } from './cmsNodeValidator'
 export { default as devEntryDetails } from './devEntryDetails'
 export { default as displayCollectionPlaylistDetails } from './displayCollectionPlaylistDetails'
-export { default as updateRemoteMarquee } from './firebaseDbConnection'
 export { default as formatDateTime } from './formatDateTime'
 export { default as getCMSEntryName } from './getCMSEntryName'
 export { default as getMixTitle } from './getMixTitle'
@@ -26,6 +27,13 @@ export { default as HeroArrows } from './HeroArrows'
 export { default as IconMaker } from './IconMaker'
 export { default as isCurrentShowLive } from './isCurrentShowLive'
 export { default as linkStripper } from './linkStripper'
+export {
+  updateRemoteMarquee,
+  updateMarqueeTitle,
+  updateMarqueeGuests,
+  submitMarquee,
+  setDefaultMarquee,
+} from './liveBroadcastInfoUtils'
 export { default as mappableDataFilter } from './mappableDataFilter'
 export { default as makeCollectionDispatch } from './makeCollectionDispatch'
 export { default as measureTextWidth } from './measureTextWidth'

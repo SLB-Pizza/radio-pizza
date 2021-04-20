@@ -3,7 +3,7 @@ import ReactPlayer from 'react-player'
 import Ticker from 'react-ticker'
 import PageVisibility from 'react-page-visibility'
 import { hot } from 'react-hot-loader'
-import { LiveBroadcastInfoDisplay, RecordedMixInfoDisplay } from './index'
+import { LiveBroadcastInfoWrapper, RecordedMixInfoDisplay } from './index'
 import { handleEnded, handleMixReady, handlePlayPause } from '../dispatch'
 import {
   GlobalDispatchContext,
@@ -142,7 +142,7 @@ function RadioPlayer() {
       </div>
 
       {globalState.live && globalState.playingRadio ? (
-        <LiveBroadcastInfoDisplay
+        <LiveBroadcastInfoWrapper
           liveTitle={globalState.liveMarquee.liveShowTitle}
           liveGuests={globalState.liveMarquee.liveShowGuests}
         />

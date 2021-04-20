@@ -19,7 +19,7 @@ import { changeURL, playCollection } from '../dispatch'
  * @param {?Object} collectionDispatch - optional object containing the dispatch payload in collection format; passed from {@link SingleCollection}
  * @returns {jsx}
  */
-function MixPlayOverlay({
+export default function MixPlayOverlay({
   url,
   title,
   residents,
@@ -35,72 +35,61 @@ function MixPlayOverlay({
 
   return (
     <div className={wrapperClassName}>
-      <div className="card-image">
-        <IconMaker
-          iconSize={'1x'}
-          iconToUse={'play'}
-          linkAddress={`#play-${titleForSRHashURL}`}
-          linkIsLocal={true}
-          linkClassName={'sr-only title is-6'}
-          linkOnClickFunc={
-            isCollection
-              ? () => {
-                  playCollection(dispatch, collectionDetails)
-                }
-              : () => {
-                  changeURL(
-                    dispatch,
-                    url,
-                    title,
-                    residents,
-                    img.now_playing.url
-                  )
-                }
-          }
-          linkProps={{
-            tabIndex: '0',
-          }}
-          textAfterIcon={
-            isCollection ? 'Load This Collection' : 'Load This Mix'
-          }
-        />
-
-        <figure className="image is-1by1">
-          {img ? (
-            <img className="lazyload" src={img.url} alt={img.alt} />
-          ) : (
-            <FallbackImage />
-          )}
-          <div className="play-btn-diffuser is-overlay">
-            <IconMaker
-              spanClass={'icon is-large'}
-              iconSize={'4x'}
-              iconToUse={'play'}
-              iconClass={'play-icon'}
-              iconOnClickFunc={
-                isCollection
-                  ? () => {
-                      playCollection(dispatch, collectionDetails)
-                    }
-                  : () => {
-                      changeURL(
-                        dispatch,
-                        url,
-                        title,
-                        residents,
-                        img.now_playing.url
-                      )
-                    }
+      <IconMaker
+        iconSize={'1x'}
+        iconToUse={'play'}
+        linkAddress={`#play-${titleForSRHashURL}`}
+        linkIsLocal={true}
+        linkClassName={'sr-only title is-6'}
+        linkOnClickFunc={
+          isCollection
+            ? () => {
+                playCollection(dispatch, collectionDetails)
               }
-            />
-          </div>
-        </figure>
-      </div>
+            : () => {
+                changeURL(dispatch, url, title, residents, img.now_playing.url)
+              }
+        }
+        linkProps={{
+          tabIndex: '0',
+        }}
+        textAfterIcon={isCollection ? 'Load This Collection' : 'Load This Mix'}
+      />
+
+      <figure className="image is-1by1">
+        {img ? (
+          <img className="lazyload" src={img.url} alt={img.alt} />
+        ) : (
+          <FallbackImage />
+        )}
+        <div className="play-btn-diffuser is-overlay">
+          <IconMaker
+            spanClass={'icon is-large'}
+            iconSize={'4x'}
+            iconToUse={'play'}
+            iconClass={'play-icon'}
+            iconOnClickFunc={
+              isCollection
+                ? () => {
+                    playCollection(dispatch, collectionDetails)
+                  }
+                : () => {
+                    changeURL(
+                      dispatch,
+                      url,
+                      title,
+                      residents,
+                      img.now_playing.url
+                    )
+                  }
+            }
+          />
+        </div>
+      </figure>
     </div>
   )
 }
 
-export default MixPlayOverlay
 MixPlayOverlay.propTypes = {
   img: PropTypes.shape({
     alt: PropTypes.string,

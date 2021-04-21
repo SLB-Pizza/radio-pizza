@@ -10,7 +10,7 @@ import { SingleAdminLink } from './index'
 export default function AdminLinkButtons() {
   return (
     <section className="section container is-fluid">
-      <div className="columns is-mobile is-multiline">
+      <div className="columns is-multiline">
         <SingleAdminLink
           icon={'broadcast-tower'}
           linkPath={'live-stream-info'}
@@ -20,10 +20,6 @@ export default function AdminLinkButtons() {
           icon={'calendar-alt'}
           linkPath={'full-schedule'}
           linkText={'View Complete Schedule'}
-        />
-        <SingleAdminLink
-          icon={'broadcast-tower'}
-          linkText={'Update Live Broadcast Info'}
         />
       </div>
     </section>

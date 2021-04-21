@@ -4,10 +4,11 @@ import { useLazyQuery } from '@apollo/client'
 import { Helmet } from 'react-helmet'
 import {
   HMBKDivider,
+  LandingPageFetchAndLoading,
   SingleResidentCard,
   useSiteMetadata,
 } from '../../components'
-import { toggleColumn, scrollToTop } from '../../utils'
+import { toggleColumn } from '../../utils'
 import {
   GET_MORE_RESIDENTS,
   GET_MORE_ALUMNI,
@@ -76,6 +77,41 @@ function ResidentsIndex({ data }) {
     getMoreGuests,
     { loading: guestLoad, data: guestFetch },
   ] = useLazyQuery(GET_MORE_GUESTS)
+
+  /**
+   * Function passed to {@link LandingPageFetchAndLoading} that calls {@link getMoreResidents} `useLazyQuery`.
+   * @category Fetch Trigger
+   * @function fetchMoreResidents
+   */
+  const fetchMoreResidents = () => {
+    getMoreResidents({
+      variables: {
+        after: residents.endCursor,
+      },
+    })
+  }
+
+  /**
+   * Function passed to {@link LandingPageFetchAndLoading} that calls {@link getMoreAlumni} `useLazyQuery`.
+   * @category Fetch Trigger
+   * @function fetchMoreAlumni
+   */
+  const fetchMoreAlumni = () => {
+    getMoreAlumni({
+      variables: { after: alumni.endCursor },
+    })
+  }
+
+  /**
+   * Function passed to {@link LandingPageFetchAndLoading} that calls {@link getMoreGuests} `useLazyQuery`.
+   * @category Fetch Trigger
+   * @function fetchMoreGuests
+   */
+  const fetchMoreGuests = () => {
+    getMoreGuests({
+      variables: { after: guests.endCursor },
+    })
+  }
 
   /**
    * Don't render this component with having prismicContent
@@ -265,46 +301,13 @@ function ResidentsIndex({ data }) {
                 <SingleResidentCard key={`Resident-${index}`} resident={node} />
               ))}
             </div>
-            {residents?.hasMore ? (
-              <div className="columns is-mobile is-vcentered">
-                {!resLoad ? (
-                  <div className="column">
-                    <button
-                      className="button is-fullwidth is-outlined is-rounded"
-                      onClick={() =>
-                        getMoreResidents({
-                          variables: {
-                            after: residents.endCursor,
-                          },
-                        })
-                      }
-                    >
-                      More Residents
-                    </button>
-                  </div>
-                ) : (
-                  <HMBKDivider forLoading={true} />
-                )}
-                <div className="column is-narrow">
-                  <a href="#mixes-header">
-                    <button className="button is-fullwidth is-outlined is-rounded">
-                      Top
-                    </button>
-                  </a>
-                </div>
-              </div>
-            ) : (
-              <div className="columns is-mobile is-vcentered">
-                <HMBKDivider />
-                <div className="column is-narrow">
-                  <a href="#all-mixes">
-                    <button className="button is-fullwidth is-outlined is-rounded">
-                      Top
-                    </button>
-                  </a>
-                </div>
-              </div>
-            )}
+
+            <LandingPageFetchAndLoading
+              hasMore={residents.hasMore}
+              currentlyFetching={resLoad}
+              fetchMoreFunc={fetchMoreResidents}
+              fetchMoreBtnTxt={'More Residents'}
+            />
           </>
         ) : null}
 
@@ -316,45 +319,12 @@ function ResidentsIndex({ data }) {
                 <SingleResidentCard key={`Alumnus-${index}`} resident={node} />
               ))}
             </div>
-            {alumni?.hasMore ? (
-              <div className="columns is-mobile">
-                {!alumLoad ? (
-                  <div className="column">
-                    <button
-                      className="button is-fullwidth is-outlined is-rounded"
-                      onClick={() =>
-                        getMoreAlumni({
-                          variables: {
-                            after: alumni.endCursor,
-                          },
-                        })
-                      }
-                    >
-                      More Alumni
-                    </button>
-                  </div>
-                ) : (
-                  <HMBKDivider />
-                )}
-                <div className="column is-narrow">
-                  <a href="#mixes-header">
-                    <button className="button is-fullwidth is-outlined is-rounded">
-                      Top
-                    </button>
-                  </a>
-                </div>
-              </div>
-            ) : (
-              <div className="columns is-mobile">
-                <div className="column is-offset-10 is-2">
-                  <a href="#all-mixes">
-                    <button className="button is-fullwidth is-outlined is-rounded">
-                      Top
-                    </button>
-                  </a>
-                </div>
-              </div>
-            )}
+            <LandingPageFetchAndLoading
+              hasMore={alumni.hasMore}
+              currentlyFetching={alumLoad}
+              fetchMoreFunc={fetchMoreAlumni}
+              fetchMoreBtnTxt={'More Alumni'}
+            />
           </>
         ) : null}
 
@@ -366,46 +336,12 @@ function ResidentsIndex({ data }) {
                 <SingleResidentCard key={`Guests-${index}`} resident={node} />
               ))}
             </div>
-            {guests?.hasMore ? (
-              <div className="columns is-mobile">
-                {!guestLoad ? (
-                  <div className="column">
-                    <button
-                      className="button is-fullwidth is-outlined is-rounded"
-                      onClick={() =>
-                        getMoreGuests({
-                          variables: {
-                            after: guests.endCursor,
-                          },
-                        })
-                      }
-                    >
-                      More Guests
-                    </button>
-                  </div>
-                ) : (
-                  <HMBKDivider forLoading={true} />
-                )}
-                <div className="column is-narrow">
-                  <a href="#mixes-header">
-                    <button className="button is-fullwidth is-outlined is-rounded">
-                      Top
-                    </button>
-                  </a>
-                </div>
-              </div>
-            ) : (
-              <div className="columns is-mobile is-vcentered">
-                <HMBKDivider />
-                <div className="column is-narrow">
-                  <a href="#all-mixes">
-                    <button className="button is-fullwidth is-outlined is-rounded">
-                      Top
-                    </button>
-                  </a>
-                </div>
-              </div>
-            )}
+            <LandingPageFetchAndLoading
+              hasMore={guests.hasMore}
+              currentlyFetching={guestLoad}
+              fetchMoreFunc={fetchMoreGuests}
+              fetchMoreBtnTxt={'More Guests'}
+            />
           </>
         ) : null}
       </section>

@@ -1,5 +1,3 @@
-import { from } from '@apollo/client'
-
 /**
  * Special Prismic Utility Functions
  *
@@ -17,6 +15,7 @@ export { default as checkUpcomingShowWidth } from './checkUpcomingShowWidth'
 export { default as cmsNodeValidator } from './cmsNodeValidator'
 export { default as devEntryDetails } from './devEntryDetails'
 export { default as displayCollectionPlaylistDetails } from './displayCollectionPlaylistDetails'
+export { default as filterProblemSingleShows } from './filterProblemSingleShows'
 export { default as formatDateTime } from './formatDateTime'
 export { default as getCMSEntryName } from './getCMSEntryName'
 export { default as getMixTitle } from './getMixTitle'
@@ -49,6 +48,7 @@ export {
 export { scrollToTop } from './scrollToTop'
 export { default as setInitialMarqueeState } from './setInitialMarqueeState'
 export { default as sortUpcomingShowsArray } from './sortUpcomingShowsArray'
+export { default as sortAndSetScheduleData } from './sortAndSetScheduleData'
 export { default as sortShowEntriesByStartTime } from './sortShowEntriesByStartTime'
 export { default as testCaseMaker } from './testCaseMaker'
 export { default as toggleColumn } from './toggleColumn'

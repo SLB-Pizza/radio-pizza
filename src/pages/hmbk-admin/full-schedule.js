@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useLazyQuery } from '@apollo/client'
-import { formatDateTime, sortShowEntriesByStartTime } from '../../utils'
-import { HMBKDivider, SingleDateScheduleEntries } from '../../components'
-import { AdminHeader } from '../../components/admin'
+import {
+  filterProblemSingleShows,
+  formatDateTime,
+  sortShowEntriesByStartTime,
+} from '../../utils'
+import { HMBKDivider } from '../../components'
+import { HMBKFooter } from '../../components/helpers'
+import { AdminHeader, AdminScheduleGenerator } from '../../components/admin'
 import { GET_ALL_SCHEDULED_SHOWS } from '../../queries'
 /**
  * Renders the `/hmbk-admin/full-schedule/` page to view all currently scheduled shows
@@ -12,9 +17,11 @@ import { GET_ALL_SCHEDULED_SHOWS } from '../../queries'
  */
 export default function FullSchedule() {
   const [currentTime, setCurrentTime] = useState(null)
-  const [todayDateHeader, setTodayDateHeader] = useState(null)
+  const [fetchTime, setFetchTime] = useState(null)
   const [yesterdayDate, setYesterdayDate] = useState(null)
   const [scheduledShows, setScheduledShows] = useState(null)
+  const [problemShows, setProblemShows] = useState(null)
+  const [totalShows, setTotalShows] = useState(null)
 
   /**
    * useLazyQuery called by {@link executeAllScheduleFetch}.
@@ -30,22 +37,43 @@ export default function FullSchedule() {
   ] = useLazyQuery(GET_ALL_SCHEDULED_SHOWS)
 
   /**
-   * Returns a Prismic Date for yesterday, `YYYY-MM-DD`, to use in {@link executeAllScheduleFetch}
+   * Returns a Prismic Date for yesterday, `YYYY-MM-DD`, to use in {@link executeAllScheduleFetch}. The initial schedule fetch
    * @category useEffect
-   * @name getYesterdayDate
+   * @name initialScheduleDataFetch
    */
   useEffect(() => {
-    const getYesterdaysDate = () => {
+    const initialScheduleDataFetch = () => {
       const currTime = formatDateTime(null, 'current-time')
-      const todayHeader = formatDateTime(currTime, 'schedule-date-heading')
-      const yesterday = formatDateTime(currTime, 'prismic-date-query')[0]
+      const lastFetchTime = formatDateTime(currTime, 'short-form-date-time')
+      // const yesterday = formatDateTime(currTime, "prismic-date-query")[0];
 
-      // const yesterday = "2019-01-10";
+      const yesterday = '2019-01-10'
       setCurrentTime(currTime)
-      setTodayDateHeader(todayHeader)
+      setFetchTime(lastFetchTime)
       setYesterdayDate(yesterday)
     }
-    return getYesterdaysDate()
+
+    return initialScheduleDataFetch()
+  }, [])
+
+  /**
+   * Returns a Prismic Date for yesterday, `YYYY-MM-DD`, to use in {@link executeAllScheduleFetch}. Updates every ten seconds.
+   * @category useEffect
+   * @name refreshScheduleData
+   */
+  useEffect(() => {
+    const refreshScheduleData = setInterval(() => {
+      const currTime = formatDateTime(null, 'current-time')
+      const lastFetchTime = formatDateTime(currTime, 'short-form-date-time')
+      // const yesterday = formatDateTime(currTime, "prismic-date-query")[0];
+
+      const yesterday = '2019-01-10'
+      setCurrentTime(currTime)
+      setFetchTime(lastFetchTime)
+      setYesterdayDate(yesterday)
+    }, 10000)
+
+    return () => clearInterval(refreshScheduleData)
   }, [])
 
   /**
@@ -68,28 +96,62 @@ export default function FullSchedule() {
 
   useEffect(() => {
     const sortAndSetScheduleData = () => {
-      let preppedScheduleData = []
-
       if (scheduleData) {
+        if (!totalShows) {
+          setTotalShows(scheduleData.allSchedules.totalCount)
+        }
+
         const scheduleEdgesArr = scheduleData.allSchedules.edges
+        let sortedScheduleData = []
+        let currentFetchProblemShows = []
 
         for (let i = 0; i < scheduleEdgesArr.length; i++) {
           const { schedule_date, schedule_entries } = scheduleEdgesArr[i].node
-
-          let currDateObject = {}
-          currDateObject.date = formatDateTime(
+          const currShowDate = formatDateTime(
             schedule_date,
             'schedule-date-heading'
           )
+
+          let currDateObject = {}
+          currDateObject.date = currShowDate
           currDateObject.entries = sortShowEntriesByStartTime(schedule_entries)
-          preppedScheduleData.push(currDateObject)
+          sortedScheduleData.push(currDateObject)
+
+          /**
+           * Check single entries in this date's show array for issues for with missing times and/or missing show selection/live show info.
+           */
+          let singleProblemDate = {}
+          singleProblemDate.date = currShowDate
+          singleProblemDate.entries = []
+          filterProblemSingleShows(singleProblemDate, schedule_entries)
+
+          // Push to currentFetchProblemShows only if the entries array has length
+          if (singleProblemDate.entries.length !== 0) {
+            currentFetchProblemShows.push(singleProblemDate)
+          }
         }
-        if (preppedScheduleData.length === 0) {
-          return
-        } else if (scheduledShows === null) {
-          setScheduledShows(preppedScheduleData)
-        } else {
-          setScheduledShows(...scheduledShows, ...preppedScheduleData)
+        /**
+         * IF `scheduledShows` hasn't been initially set
+         *    Set `scheduledShows` to the sorted show data
+         * ELSE IF `sortedScheduleData` has array elements
+         *    Spread the existing `scheduledShows` and new `sortedScheduleData` into a new array to set as `scheduledShows`
+         */
+        if (problemShows === null) {
+          setProblemShows(currentFetchProblemShows)
+        } else if (currentFetchProblemShows.length) {
+          setProblemShows([...problemShows, ...currentFetchProblemShows])
+        }
+
+        /**
+         * IF `scheduledShows` hasn't been initially set
+         *    Set `scheduledShows` to the sorted show data
+         * ELSE IF `sortedScheduleData` has array elements
+         *    Spread the existing `scheduledShows` and new `sortedScheduleData` into a new array to set as `scheduledShows`
+         */
+        if (scheduledShows === null) {
+          setScheduledShows(sortedScheduleData)
+        } else if (sortedScheduleData.length) {
+          setScheduledShows([...scheduledShows, ...sortedScheduleData])
         }
       }
     }
@@ -103,14 +165,30 @@ export default function FullSchedule() {
 
       <section className="section container is-fluid">
         <div className="columns is-mobile">
-          <div className="column is-12 content">
-            <h2 className="title">All Scheduled Shows</h2>
-            {todayDateHeader && (
-              <p className="subtitle">From {todayDateHeader} onwards.</p>
+          <div className="column content">
+            <h2 className="title is-size-4-desktop is-size-5-touch">
+              Updates every 10 seconds.
+            </h2>
+            {fetchTime && (
+              <p className="subtitle is-size-6-desktop is-size-7-touch">
+                <b>Last Schedule Fetch: </b>
+                {fetchTime}
+              </p>
+            )}
+          </div>
+
+          <div className="column content">
+            {totalShows && (
+              <h3 className="title is-size-4-desktop is-size-5-touch">{`${totalShows} future dates with scheduled shows`}</h3>
+            )}
+            {problemShows && (
+              <p className="subtitle is-size-6-desktop is-size-7-touch">{`${problemShows.length} dates that have problems with one or more show entries.`}</p>
             )}
           </div>
         </div>
       </section>
+
+      {/* {problemShows && <pre>{JSON.stringify(problemShows, null, 2)}</pre>} */}
 
       {isFetching ? (
         <section className="container is-fluid">
@@ -120,6 +198,11 @@ export default function FullSchedule() {
         </section>
       ) : (
         <section className="container is-fluid">
+          <div className="columns">
+            <div className="column is-12 content">
+              <h3 className="title">All Scheduled Shows</h3>
+            </div>
+          </div>
           {scheduledShows ? (
             scheduledShows.map(({ date, entries }, index) => (
               <article
@@ -133,7 +216,7 @@ export default function FullSchedule() {
                 </div>
 
                 {entries !== null ? (
-                  <SingleDateScheduleEntries
+                  <AdminScheduleGenerator
                     entries={entries}
                     currentTime={currentTime}
                   />
@@ -168,6 +251,7 @@ export default function FullSchedule() {
           )}
         </section>
       )}
+      <HMBKFooter />
     </main>
   )
 }

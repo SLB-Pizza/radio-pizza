@@ -20,36 +20,54 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
 
   const filteredHomeFeatures = mappableDataFilter(homeFeaturesData)
   const featureQueryCount = 4 - filteredHomeFeatures.length
+  /**
+   * The string passed into {@link SingleFeatureCard} that defines the column sizing for the mix cards in the Editorial section of the Homepage.
+   */
+  const featuresPageLayout = 'column is-6-tablet is-four-fifths-mobile'
 
   /**
    * Uses the query {@link FILL_HOME_FEATURES}
+   * @category useQuery
+   * @name HomeFeaturesQuery
    */
   const { data, loading, error } = useQuery(FILL_HOME_FEATURES, {
-    variables: { count: featureQueryCount },
+    variables: {
+      count: featureQueryCount,
+    },
   })
 
+  /**
+   * Fetches (4 - data.length) Features to fill {@link HomeFeatures} layout.
+   * Three scenarios:
+   * 1) homeFeaturesData has more than 4 Feature objects
+   * 2) homeFeaturesData has less than 4 Feature objects
+   * 3) homeFeaturesData has exactly 4 Feature objects
+   *
+   * Scenario 1
+   * Grab only the first 4 features
+   *
+   * Scenario 2
+   * Subtract quantity of filteredHomeFeatures from 4
+   * Query for that many of the most recent mixes
+   * Spread that data into the filteredHomeFeatures array
+   * setTwelveMixes the new 12 mix filteredHomeFeatures
+   *
+   * Scenario 3
+   * We have exactly 4 features
+   * @category useEffect
+   * @name fetchRemainingHomeFeatures
+   */
   useEffect(() => {
     const fetchRemainingHomeFeatures = () => {
-      /**
-       * Three scenarios:
-       * 1) homeFeaturesData has more than 4 Feature objects
-       * 2) homeFeaturesData has less than 4 Feature objects
-       * 3) homeFeaturesData has exactly 4 Feature objects
-       */
       if (filteredHomeFeatures.length > 4) {
         /**
-         * Scenario 1
-         * Grab only the first 4 features
+         * #1
          */
         const featuresToMap = filteredHomeFeatures.slice(0, 4)
         setTwelveFeatures(featuresToMap)
       } else if (filteredHomeFeatures.length < 4) {
         /**
-         * Scenario 2
-         * Subtract quantity of filteredHomeFeatures from 4
-         * Query for that many of the most recent mixes
-         * Spread that data into the filteredHomeFeatures array
-         * setTwelveMixes the new 12 mix filteredHomeFeatures
+         * #2
          */
         if (data) {
           const fetchedRecentFeatures = data.allFeatures.edges
@@ -60,8 +78,7 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
           setTwelveFeatures(newTwelveFeatures)
         } else {
           /**
-           * Scenario 3
-           * We have exactly 4 features
+           * #3
            */
           setTwelveFeatures(filteredHomeFeatures)
         }
@@ -69,10 +86,6 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
     }
     return fetchRemainingHomeFeatures()
   }, [homeFeaturesData, data])
-  /**
-   * The string passed into {@link SingleFeatureCard} that defines the column sizing for the mix cards in the Editorial section of the Homepage.
-   */
-  const featuresPageLayout = 'column is-12-mobile is-6-tablet'
 
   return (
     <section className="container is-fluid" id="home-news">
@@ -122,7 +135,7 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
       <div className="columns is-mobile is-hidden-desktop mobile-single-items">
         {twelveFeatures?.map(({ node }, index) => (
           <SingleFeatureCard
-            key={`${index}-home-feature-d`}
+            key={`${index}-home-feature`}
             featureData={node}
             featureColumnLayout={featuresPageLayout}
           />

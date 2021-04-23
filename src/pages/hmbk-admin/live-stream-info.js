@@ -76,7 +76,7 @@ export default function AdminLiveStreamInfo() {
 
                 <div className="field-body">
                   <div className="field">
-                    <p className="control is-expanded">
+                    <div className="control is-expanded">
                       <input
                         className="input is-rounded"
                         type="text"
@@ -89,7 +89,7 @@ export default function AdminLiveStreamInfo() {
                           submitMarquee(event, liveTitle, liveGuests)
                         }
                       />
-                    </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -101,7 +101,7 @@ export default function AdminLiveStreamInfo() {
 
                 <div className="field-body">
                   <div className="field">
-                    <p className="control is-expanded">
+                    <div className="control is-expanded">
                       <input
                         className="input is-rounded"
                         type="text"
@@ -114,7 +114,7 @@ export default function AdminLiveStreamInfo() {
                           submitMarquee(event, liveTitle, liveGuests)
                         }
                       />
-                    </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -123,7 +123,7 @@ export default function AdminLiveStreamInfo() {
 
                 <div className="field-body">
                   <div className="field">
-                    <p className="control">
+                    <div className="control">
                       <button
                         className="button is-outlined is-rounded"
                         type="submit"
@@ -131,18 +131,60 @@ export default function AdminLiveStreamInfo() {
                       >
                         Update Live Show Info
                       </button>
-                    </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </form>
+          </div>
+        </div>
 
-            <button
-              className="button is-outlined is-rounded"
-              onClick={event => setDefaultMarquee(event)}
-            >
-              Set Marquee Default
-            </button>
+        <div className="section columns is-mobile is-multiline is-vcentered">
+          <div className="column is-12">
+            <div className="content">
+              <h3 className="title">Reset to Default</h3>
+              <p>
+                For times when you don't have complete info about the
+                livestream, you can use this button to display the default live
+                stream info.
+              </p>
+            </div>
+          </div>
+
+          <div className="column is-12">
+            <form>
+              <div className="field is-horizontal">
+                <div className="field-label is-normal">
+                  <label className="label">Default Stream Info</label>
+                </div>
+                <div className="field-body">
+                  <div className="field">
+                    <div className="control">
+                      <LiveBroadcastInfoDisplay
+                        liveTitle={'HalfmoonBK Live Show'}
+                        liveGuests={'HMBK Family'}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="field is-horizontal">
+                <div className="field-label is-normal" />
+                <div className="field-body">
+                  <div className="field">
+                    <div className="control">
+                      <button
+                        className="button is-outlined is-rounded"
+                        onClick={event => setDefaultMarquee(event)}
+                      >
+                        Use Default Live Stream Info
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>

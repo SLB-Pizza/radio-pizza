@@ -193,7 +193,7 @@ export default function FullSchedules() {
 
       <section className="section container is-fluid">
         <div className="columns is-mobile">
-          <div className="column content">
+          {/* <div className="column content">
             <h2 className="title is-size-4-desktop is-size-5-touch">
               Updates every 10 seconds.
             </h2>
@@ -203,12 +203,12 @@ export default function FullSchedules() {
                 {fetchTime}
               </p>
             )}
-          </div>
+          </div> */}
 
-          <AdminTotalShowsReport
+          {/* <AdminTotalShowsReport
             totalShows={totalShows}
             problemShows={problemShows}
-          />
+          /> */}
         </div>
       </section>
 

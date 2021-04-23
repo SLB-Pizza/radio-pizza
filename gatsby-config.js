@@ -58,9 +58,9 @@ module.exports = {
     {
       resolve: '@mkitio/gatsby-theme-password-protect',
       options: {
-        password: '$HalfmoonBK2020',
+        password: `${process.env.GATSBY_HMBK_ADMIN_PASSWORD}`,
         partialMatching: true, // /guide, /guide/any-other-routes, etc..
-        pagePaths: ['/guide'], // delete or `undefined` to disable password protection
+        pagePaths: ['/hmbk-admin'], // delete or `undefined` to disable password protection
       },
     },
     /**
@@ -85,7 +85,7 @@ module.exports = {
           },
           {
             type: 'Cms_guide',
-            match: '/guide/:uid',
+            match: '/hmbk-admin/guide/:uid',
             path: '/guide-preview/',
             component: require.resolve('./src/templates/CMSGuide.js'),
           },
@@ -130,17 +130,16 @@ module.exports = {
           database: true,
         },
         credentials: {
-          apiKey: "AIzaSyAriN2bY13iDur_TcmnPIhWXVnxizzd9DQ",
-          authDomain: "halfmoonmarquee.firebaseapp.com",
-          databaseURL: "https://halfmoonmarquee-default-rtdb.firebaseio.com",
-          projectId: "halfmoonmarquee",
-          storageBucket: "halfmoonmarquee.appspot.com",
-          messagingSenderId: "253395700802",
-          appId: "1:253395700802:web:966d8bd5c35b60fe7e31db",
-          measurementId: "G-GGD961PQ5S"
-        }
-      }
-
+          apiKey: `${process.env.GATSBY_FIREBASE_API_KEY}`,
+          authDomain: 'halfmoonmarquee.firebaseapp.com',
+          databaseURL: 'https://halfmoonmarquee-default-rtdb.firebaseio.com',
+          projectId: 'halfmoonmarquee',
+          storageBucket: 'halfmoonmarquee.appspot.com',
+          messagingSenderId: `${process.env.GATSBY_FIREBASE_MESSAGING_SENDER}`,
+          appId: `${process.env.GATSBY_FIREBASE_APP_ID}`,
+          measurementId: 'G-GGD961PQ5S',
+        },
+      },
     },
     /**
      * Automatically generates a _headers file and a _redirects file at the root of the public folder to configure HTTP headers and redirects on Netlify

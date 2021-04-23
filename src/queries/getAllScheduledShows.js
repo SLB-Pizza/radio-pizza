@@ -13,12 +13,17 @@ import { gql } from '@apollo/client'
  */
 
 export const GET_ALL_SCHEDULED_SHOWS = gql`
-  query GetAllScheduledShows($yesterday: Date!) {
+  query GetAllScheduledShows($yesterday: Date!, $after: String) {
     allSchedules(
       where: { schedule_date_after: $yesterday }
       sortBy: schedule_date_ASC
+      after: $after
     ) {
       totalCount
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
       edges {
         node {
           schedule_date

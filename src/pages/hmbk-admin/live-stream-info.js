@@ -59,22 +59,6 @@ export default function AdminLiveStreamInfo() {
               />
             )}
           </div>
-          <div className="column">
-            <div className="content">
-              <h3 className="title">Live Info Preview</h3>
-            </div>
-            {liveTitle || liveGuests ? (
-              <LiveBroadcastInfoDisplay
-                liveTitle={liveTitle}
-                liveGuests={liveGuests}
-              />
-            ) : (
-              <LiveBroadcastInfoDisplay
-                liveTitle={'Start typing new live stream info'}
-                liveGuests={'to preview it here!'}
-              />
-            )}
-          </div>
         </div>
 
         <div className="section columns is-mobile is-multiline">

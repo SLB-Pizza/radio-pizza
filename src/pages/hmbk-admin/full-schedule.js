@@ -20,7 +20,7 @@ import { GET_ALL_SCHEDULED_SHOWS } from '../../queries'
  * @function FullSchedule
  * @returns {jsx}
  */
-export default function FullSchedule() {
+export default function FullSchedules() {
   const [currentTime, setCurrentTime] = useState(null)
   const [fetchTime, setFetchTime] = useState(null)
   const [yesterdayDate, setYesterdayDate] = useState(null)

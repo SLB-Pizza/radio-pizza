@@ -17,6 +17,11 @@ export default function AdminLinkButtons() {
           linkText={'Update Live Broadcast Info'}
         />
         <SingleAdminLink
+          icon={'info-circle'}
+          linkPath={'guides'}
+          linkText={'Read HalfmoonBK Guides'}
+        />
+        <SingleAdminLink
           icon={'calendar-alt'}
           linkPath={'full-schedule'}
           linkText={'View Complete Schedule'}

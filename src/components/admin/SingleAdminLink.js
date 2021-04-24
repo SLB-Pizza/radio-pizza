@@ -13,7 +13,7 @@ import { IconMaker } from '../../utils'
  */
 export default function SingleAdminLink({ icon, linkPath, linkText }) {
   return (
-    <div className="column">
+    <div className="column is-6-desktop is-12-touch">
       <Link to={`/hmbk-admin/${linkPath}`}>
         <article className="admin-link columns is-mobile is-vcentered">
           <div className="column is-3 admin-link__icon">

@@ -86,7 +86,7 @@ function BottomNav() {
         >
           <div className="navbar-start">
             <Link
-              to="/mixes"
+              to="/radio"
               className="navbar-item"
               onClick={() => toggleNavMenu()}
             >

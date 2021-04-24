@@ -1,4 +1,5 @@
 import React from 'react'
+import { withPrefix } from 'gatsby'
 
 /**
  * Used to cover in places where an image is needed but not present. Props received include things like `className`, `onClick` etc.
@@ -12,7 +13,7 @@ import React from 'react'
 export default function FallbackImage({ styleName = '', ...rest }) {
   return (
     <img
-      src={`../../img/Halfmoon-3.png`}
+      src={`${withPrefix('/')}img/Halfmoon-3.png`}
       alt="HalfmoonBK logo"
       className={styleName}
       {...rest}

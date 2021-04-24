@@ -85,7 +85,7 @@ module.exports = {
           },
           {
             type: 'Cms_guide',
-            match: '/hmbk-admin/guide/:uid',
+            match: '/hmbk-admin/guides/:uid',
             path: '/guide-preview/',
             component: require.resolve('./src/templates/CMSGuide.js'),
           },

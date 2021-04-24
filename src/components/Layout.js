@@ -45,7 +45,7 @@ const TemplateWrapper = ({ children }) => {
         <meta property="og:url" content={siteUrl} />
         <meta
           property="og:image"
-          content={`${withPrefix('/')}img/HalfMoon-3.png`}
+          content={`${withPrefix('/')}img/Halfmoon-blk-bg.png`}
         />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={title} />
@@ -53,7 +53,7 @@ const TemplateWrapper = ({ children }) => {
         <meta name="twitter:site" content={twitterUsername} />
         <meta
           name="twitter:image"
-          content={`${withPrefix('/')}img/HalfMoon-3.png`}
+          content={`${withPrefix('/')}img/Halfmoon-blk-bg.png`}
         />
       </Helmet>
       <TopNav />

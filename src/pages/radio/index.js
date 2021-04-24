@@ -26,12 +26,12 @@ import {
  * 6. {@link processFetchedMixes} `useEffect` detects change in `taggedMixesData`, {@link fetchTaggedMixes} returned tag query data, and `setReceivedTagMixes` data object.
  * 7. Now that `receivedTagMixes` is an object with queried data, {@link DisplayFetchedTaggedMixes} renders that data because of a `receivedTagMixes?.data` ternary.
  * @category Pages
- * @function MixesIndexPage
+ * @function RadioIndexPage
  * @param {Object} data - the data object coming from Prismic CMS that contains all data needed to display all mixes on `/mixes`
  * @param {Object} prismic - the data object containing Prismic follow up functions
  * @returns {jsx}
  */
-function MixesIndexPage({ data, prismic }) {
+function RadioIndexPage({ data, prismic }) {
   const { title, description, siteUrl, twitterUsername } = useSiteMetadata()
   const globalState = useContext(GlobalStateContext)
 
@@ -63,7 +63,7 @@ function MixesIndexPage({ data, prismic }) {
 
   /**
    * useLazyQuery called by {@link executeTagSearch}.
-   * Passes {@link MixesIndexPage} local `selectedTags` as variable to query.
+   * Passes {@link RadioIndexPage} local `selectedTags` as variable to query.
    * Returns data as `taggedMixesData` and a loading state as `isFetching`.
    * @category useLazyQueries
    * @name fetchTaggedMixes
@@ -74,7 +74,7 @@ function MixesIndexPage({ data, prismic }) {
   ] = useLazyQuery(GET_SELECTED_TAGGED_MIXES)
 
   /**
-   * Fetch more mixes when the 'More Music' button is clicked in {@link AllMixesLayout} on {@link MixesIndexPage}.
+   * Fetch more mixes when the 'More Music' button is clicked in {@link AllMixesLayout} on {@link RadioIndexPage}.
    * Use the loadNextMixes function to call the useEffect.
    * @category Fetch Trigger
    * @function loadNextMixes
@@ -85,7 +85,7 @@ function MixesIndexPage({ data, prismic }) {
   }
 
   /**
-   * useEffect that fires off a Prismic fetch when "More Mixes" button on {@link MixesIndexPage} is clicked. Adds mixes from Prismic fetch to mixesToMap data array and updates hasMore and endCursor values.
+   * useEffect that fires off a Prismic fetch when "More Mixes" button on {@link RadioIndexPage} is clicked. Adds mixes from Prismic fetch to mixesToMap data array and updates hasMore and endCursor values.
    * @category useEffect
    * @name loadMoreMixes
    */
@@ -131,7 +131,7 @@ function MixesIndexPage({ data, prismic }) {
        * Scenario 1
        *
        * Brings globalState.mixSearchTags to /mixes local useState.
-       * Runs when globalState is changed based off a click {@link TagButtons} on {@link MixesIndexPage}, dispatching {@link ADD_TAG_TO_MIX_SEARCH} to add the tag's text to `mixSearchTags`.
+       * Runs when globalState is changed based off a click {@link TagButtons} on {@link RadioIndexPage}, dispatching {@link ADD_TAG_TO_MIX_SEARCH} to add the tag's text to `mixSearchTags`.
        */
       if (globalState.mixSearchTags) {
         console.log('setting selectedTags:', globalState.mixSearchTags)
@@ -318,4 +318,4 @@ export const query = graphql`
   }
 `
 
-export default MixesIndexPage
+export default RadioIndexPage

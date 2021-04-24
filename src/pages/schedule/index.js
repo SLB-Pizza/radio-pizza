@@ -178,7 +178,7 @@ function ScheduleIndexPage() {
         <div className="column">
           <h1 className="title is-size-3-desktop is-size-5-touch">schedule</h1>
           <h2 className="subtitle is-size-5-desktop is-size-6-touch">
-            All times are NYC.
+            All times are EST.
           </h2>
         </div>
       </div>

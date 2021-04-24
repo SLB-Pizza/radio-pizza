@@ -96,9 +96,9 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
             {headline && <h3 className="title">{headline}</h3>}
             {blurb && <p className="subtitle">{blurb}</p>}
 
-            <Link to="/features">
+            <Link to="/editorial">
               <button className="button is-outlined is-rounded">
-                All Features
+                All Editorial
               </button>
             </Link>
           </div>
@@ -125,9 +125,9 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
           {blurb && <p className="subtitle is-6">{blurb}</p>}
         </div>
         <div className="column is-narrow">
-          <Link to="/features">
+          <Link to="/editorial">
             <button className="button is-small is-outlined is-rounded">
-              All Features
+              All Editorial
             </button>
           </Link>
         </div>

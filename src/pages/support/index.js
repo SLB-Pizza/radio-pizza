@@ -24,7 +24,7 @@ function SupportPage({ data }) {
   if (!prismicContent) return null
 
   /**
-   * The data from the 'FeaturesIndexPage' query comes pre-sorted to show the most recent published feature, NOT the most recently updated.
+   * The data from the 'EditorialIndexPage' query comes pre-sorted to show the most recent published feature, NOT the most recently updated.
    *
    * The remaining array of node objects can be mapped over normally using XYZ_Component.
    */

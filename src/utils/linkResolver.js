@@ -14,9 +14,9 @@ function linkResolver(linkObj) {
     case 'event':
       return `/events/${linkObj.uid}`
     case 'feature':
-      return `/features/${linkObj.uid}`
+      return `/editorial/${linkObj.uid}`
     case 'mix':
-      return `/mixes/${linkObj.uid}`
+      return `/radio/${linkObj.uid}`
     case 'page':
       return `/${linkObj.uid}`
     case 'resident':

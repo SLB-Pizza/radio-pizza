@@ -61,7 +61,7 @@ export default function TagButtons({ tagsArray, onMixesPage }) {
   }
 
   /**
-   * Function that reads the current location and navigates to `/mixes` ({@link MixesIndexPage}) before firing off the {@link addTagToSearchArray} dispatch function. Reason being that if the dispatch function is allowed to fire before navigating to `/mixes`, the `globalState.mixSearchTags` array will update and not trigger the `useEffect` chain on {@link MixesIndexPage}.
+   * Function that reads the current location and navigates to `/mixes` ({@link RadioIndexPage}) before firing off the {@link addTagToSearchArray} dispatch function. Reason being that if the dispatch function is allowed to fire before navigating to `/mixes`, the `globalState.mixSearchTags` array will update and not trigger the `useEffect` chain on {@link RadioIndexPage}.
    *
    * The param `onMixesPage = true` will only ever be passed by
    * - {@link IndexPage}

@@ -11,12 +11,12 @@ import PropTypes from 'prop-types'
 /**
  * Layout for /features landing page.
  * @category Pages
- * @function FeaturesIndexPage
+ * @function EditorialIndexPage
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build the `/features` landing page
  * @param {Object} prismic - the data object containing Prismic follow up functions
  * @returns {jsx}
  */
-function FeaturesIndexPage({ data, prismic }) {
+function EditorialIndexPage({ data, prismic }) {
   const prismicContent = data.prismic
   /**
    * This line is here to prevent an error from occurring when you eventually deploy the site live. There is an issue with the preview functionality that requires this check on every page.
@@ -146,7 +146,7 @@ function FeaturesIndexPage({ data, prismic }) {
   )
 }
 
-FeaturesIndexPage.propTypes = {
+EditorialIndexPage.propTypes = {
   leadFeatureData: PropTypes.exact({
     _meta: PropTypes.object.isRequired,
     body: PropTypes.arrayOf(PropTypes.object),
@@ -155,7 +155,7 @@ FeaturesIndexPage.propTypes = {
 }
 
 export const query = graphql`
-  query FeaturesIndexPage(
+  query EditorialIndexPage(
     $first: Int = 6
     $last: Int
     $after: String
@@ -253,4 +253,4 @@ export const query = graphql`
   }
 `
 
-export default FeaturesIndexPage
+export default EditorialIndexPage

@@ -88,9 +88,9 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
           <div className="sticky-section content">
             {headline && <h3 className="title">{headline}</h3>}
             {blurb && <p className="subtitle">{blurb}</p>}
-            <Link to="/mixes">
+            <Link to="/radio">
               <button className="button is-outlined is-rounded">
-                All Mixes
+                All Radio
               </button>
             </Link>
           </div>
@@ -114,9 +114,9 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
           {blurb && <p className="subtitle is-6">{blurb}</p>}
         </div>
         <div className="column is-narrow">
-          <Link to="/mixes">
+          <Link to="/radio">
             <button className="button is-small is-outlined is-rounded">
-              All Mixes
+              All Radio
             </button>
           </Link>
         </div>

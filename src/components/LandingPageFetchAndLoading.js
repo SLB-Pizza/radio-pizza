@@ -4,9 +4,9 @@ import { scrollToTop } from '../utils'
 
 /**
  * Renders the final section of the page for of each of:
- * - {@link FeaturesIndexPage}
+ * - {@link EditorialIndexPage}
  * - {@link EventsIndexPage}
- * - {@link MixesIndexPage}
+ * - {@link RadioIndexPage}
  *
  * @category Layout Helper
  * @function LandingPageFetchAndLoading

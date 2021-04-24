@@ -79,7 +79,7 @@ module.exports = {
         pages: [
           {
             type: 'Feature',
-            match: '/features/:uid',
+            match: '/editorial/:uid',
             path: '/feature-preview/',
             component: require.resolve('./src/templates/Feature.js'),
           },

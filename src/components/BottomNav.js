@@ -153,14 +153,14 @@ function BottomNav() {
               Events
             </Link>
             <Link
-              to="/features"
+              to="/editorial"
               className="navbar-item"
               onClick={() => {
                 toggleNavMenu()
                 clearMixSearchTags()
               }}
             >
-              Features
+              Editorial
             </Link>
             <Link
               to="/about"

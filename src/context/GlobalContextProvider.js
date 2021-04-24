@@ -60,7 +60,7 @@ function reducer(state, action) {
 
     /**
      * Remove the clicked 'selected' tag from the current mix search tags array
-     * {@link MixesIndexPage}
+     * {@link RadioIndexPage}
      * @category Reducer Action
      * @name REMOVE_TAG_FROM_SEARCH_ARRAY
      */
@@ -73,7 +73,7 @@ function reducer(state, action) {
       }
 
     /**
-     * Clear the mix search tags when navigating away from {@link MixesIndexPage}. Dispatched by select links in {@link BottomNav} and home logo link in {@link RadioBar}.
+     * Clear the mix search tags when navigating away from {@link RadioIndexPage}. Dispatched by select links in {@link BottomNav} and home logo link in {@link RadioBar}.
      * @category Reducer Action
      * @name CLEAR_MIX_SEARCH_TAGS
      */
@@ -84,7 +84,7 @@ function reducer(state, action) {
       }
 
     /**
-     * Used to tell {@link processFetchedMixes} to combine the existing `receivedTagMixes.data` on {@link MixesIndexPage} with the incoming {@link fetchTaggedMixes} data to map the next set of mixes in {@link DisplayFetchedTaggedMixes}.
+     * Used to tell {@link processFetchedMixes} to combine the existing `receivedTagMixes.data` on {@link RadioIndexPage} with the incoming {@link fetchTaggedMixes} data to map the next set of mixes in {@link DisplayFetchedTaggedMixes}.
      * @category Reducer Action
      * @name USING_SAME_TAGS_IN_MIX_QUERY
      */
@@ -95,7 +95,7 @@ function reducer(state, action) {
       }
 
     /**
-     * Used to tell {@link processFetchedMixes} on {@link MixesIndexPage} to use the incoming {@link fetchTaggedMixes} data to for a fresh map of {@link DisplayFetchedTaggedMixes}.
+     * Used to tell {@link processFetchedMixes} on {@link RadioIndexPage} to use the incoming {@link fetchTaggedMixes} data to for a fresh map of {@link DisplayFetchedTaggedMixes}.
      * @category Reducer Action
      * @name NEW_TAGS_FOR_TAG_QUERY_SEARCH
      */

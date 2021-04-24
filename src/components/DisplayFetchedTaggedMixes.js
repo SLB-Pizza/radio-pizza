@@ -12,14 +12,14 @@ import { scrollToTop } from '../utils'
 
 /**
  * Layout for the mixes fetched when a {@link TagButtons} is clicked.
- * Renders on {@link MixesIndexPage} when `selectedTags` isn't null and {@link fetchTaggedMixes} has returned fetchedMixes results.
+ * Renders on {@link RadioIndexPage} when `selectedTags` isn't null and {@link fetchTaggedMixes} has returned fetchedMixes results.
  *
  * This component passes `onMixesPage = true` prop to {@link SingleMixCard} for use in {@link TagButtons}.
  * @category Layout Helper
  * @function DisplayFetchedTaggedMixes
- * @param {Function} fetchFunc - the function used onClick to trigger the {@link fetchTaggedMixes} useLazyQuery in {@link MixesIndexPage}
+ * @param {Function} fetchFunc - the function used onClick to trigger the {@link fetchTaggedMixes} useLazyQuery in {@link RadioIndexPage}
  * @param {Object[]} fetchedData - array received when a tag query initiates
- * @param {Boolean} isFetching - fetching status from {@link fetchTaggedMixes} useLazyQuery in parent component, {@link MixesIndexPage}
+ * @param {Boolean} isFetching - fetching status from {@link fetchTaggedMixes} useLazyQuery in parent component, {@link RadioIndexPage}
  * @param {String[]} selectedTags - array of mixes in the current tag query
  * @returns {jsx}
  */
@@ -118,7 +118,7 @@ function DisplayFetchedTaggedMixes({
           hasMore={fetchedData.hasMore}
           currentlyFetching={isFetching}
           fetchMoreFunc={dispatchAndFetchTaggedMixes}
-          fetchMoreBtnTxt={'More Mixes Like These'}
+          fetchMoreBtnTxt={'More Radio Like This'}
         />
       </div>
     </div>

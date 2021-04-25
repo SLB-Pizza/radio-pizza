@@ -18,11 +18,11 @@ export default function AdminLatestSiteStatus({ fetchTime, latestDeploy }) {
             Netlify Status
           </h2>
           <p className="subtitle is-size-5-desktop is-size-6-touch">
-            Updates every 30 seconds
+            Updates every 15 seconds
           </p>
         </div>
 
-        {latestDeploy ? (
+        {latestDeploy && latestDeploy?.state !== 'building' ? (
           <div className="column is-3-desktop is-half-tablet is-12-mobile">
             <figure className="image">
               <img
@@ -44,8 +44,12 @@ export default function AdminLatestSiteStatus({ fetchTime, latestDeploy }) {
           <h3 className="title is-size-4-desktop is-size-5-touch">
             Latest Deploy Status Check
           </h3>
-          <p className="is-size-6-touch is-12-mobile">
-            {fetchTime ? fetchTime : 'Running first fetch...'}
+          <p className="is-size-6-touch">
+            {fetchTime ? (
+              <p className="is-family-code is-size-6-touch">{fetchTime}</p>
+            ) : (
+              'Running first fetch...'
+            )}
           </p>
         </div>
 
@@ -55,21 +59,26 @@ export default function AdminLatestSiteStatus({ fetchTime, latestDeploy }) {
           </h3>
           {latestDeploy ? (
             <>
-              <p className="is-size-6-touch">
-                <b>State: </b>
-                {latestDeploy.state.toUpperCase()}
+              <p className="is-family-code is-size-6-touch">
+                <b>{latestDeploy.state.toUpperCase()}</b>
               </p>
-              <p className="is-size-6-touch">
-                <b>Published: </b>
-                {latestDeploy.publishTime}
-              </p>
-              <p className="is-size-6-touch">
-                <b>Message: </b>
+              {latestDeploy.publishTime !== 'Invalid Date' ? (
+                <p className="is-family-code is-size-6-touch">
+                  {latestDeploy.publishTime}
+                </p>
+              ) : (
+                <p className="is-family-code is-size-6-touch">
+                  {latestDeploy.startedTime}
+                </p>
+              )}
+              <p className="is-family-code is-size-6-touch">
                 {latestDeploy.title}
               </p>
             </>
           ) : (
-            <p className="is-size-6-touch">Running first fetch...</p>
+            <p className="is-family-code is-size-6-touch">
+              Running first fetch...
+            </p>
           )}
         </div>
       </div>

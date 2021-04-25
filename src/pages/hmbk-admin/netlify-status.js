@@ -20,10 +20,10 @@ export default function NetlifyStatus() {
   /**
    * Fetches and process the latest deploy records from netlify.
    * @category useEffect
-   * @name fetchNetlifyDeployDetails
+   * @name fetchFirstNetlifyDeployDetails
    */
   useEffect(() => {
-    const fetchNetlifyDeployDetails = setInterval(async () => {
+    const fetchFirstNetlifyDeployDetails = async () => {
       const timeNow = formatDateTime(null, 'current-time')
       const formattedTime = formatDateTime(timeNow, 'short-form-date-time')
       setFetchTime(formattedTime)
@@ -44,9 +44,41 @@ export default function NetlifyStatus() {
       } catch (e) {
         console.error(e)
       }
-    }, 30000)
+    }
 
-    return () => clearInterval(fetchNetlifyDeployDetails)
+    return fetchFirstNetlifyDeployDetails()
+  }, [])
+
+  /**
+   * Fetches and process the latest deploy records from netlify.
+   * @category useEffect
+   * @name refreshNetlifyDeployDetails
+   */
+  useEffect(() => {
+    const refreshNetlifyDeployDetails = setInterval(async () => {
+      const timeNow = formatDateTime(null, 'current-time')
+      const formattedTime = formatDateTime(timeNow, 'short-form-date-time')
+      setFetchTime(formattedTime)
+
+      try {
+        const response = await fetch(
+          `https://api.netlify.com/api/v1/sites/${process.env.GATSBY_NETLIFY_API_ID}/deploys`
+        )
+
+        const data = await response.json()
+
+        const mostRecentDeploy = data.shift()
+        const latestInfo = processDeployInfo(mostRecentDeploy)
+        setLatestDeploy(latestInfo)
+
+        const recentDeploys = data.map(deploy => processDeployInfo(deploy))
+        setRecentDeploys(recentDeploys)
+      } catch (e) {
+        console.error(e)
+      }
+    }, 15000)
+
+    return () => clearInterval(refreshNetlifyDeployDetails)
   }, [])
 
   return (

@@ -8,11 +8,11 @@ import { Link } from 'gatsby'
  * @param {?Boolean} renderHomeLink - when true, renders a link back to the `/hmbk-admin` landing page
  * @returns {jsx}
  */
-export default function AdminHeader({ renderHomeLink }) {
+export default function AdminHeader({ totalCount, renderHomeLink }) {
   return (
     <header className="container is-fluid">
-      <div className="columns is-mobile is-multiline">
-        <div className="column is-12 content">
+      <div className="columns is-mobile is-multiline is-vcentered">
+        <div className={totalCount ? 'column' : 'column is-12'}>
           <h1 className="title is-3-desktop is-4-touch">
             HalfmoonBK Admin Dashboard
           </h1>
@@ -22,6 +22,11 @@ export default function AdminHeader({ renderHomeLink }) {
             </p>
           )}
         </div>
+        {totalCount && (
+          <div className="column is-narrow">
+            <p className="is-size-4">{totalCount} CMS entries</p>
+          </div>
+        )}
       </div>
     </header>
   )

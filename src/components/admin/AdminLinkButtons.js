@@ -9,29 +9,27 @@ import { SingleAdminLink } from './index'
  */
 export default function AdminLinkButtons() {
   return (
-    <section className="section container is-fluid">
-      <div className="columns is-multiline">
-        <SingleAdminLink
-          icon={'info-circle'}
-          linkPath={'netlify-status'}
-          linkText={'View Netlify Status'}
-        />
-        <SingleAdminLink
-          icon={'broadcast-tower'}
-          linkPath={'live-stream-info'}
-          linkText={'Update Live Broadcast Info'}
-        />
-        <SingleAdminLink
-          icon={'book'}
-          linkPath={'guides'}
-          linkText={'Read HalfmoonBK Guides'}
-        />
-        <SingleAdminLink
-          icon={'calendar-alt'}
-          linkPath={'full-schedule'}
-          linkText={'View Complete Schedule'}
-        />
-      </div>
-    </section>
+    <div className="columns is-multiline">
+      <SingleAdminLink
+        icon={'info-circle'}
+        linkPath={'netlify-status'}
+        linkText={'View Netlify Status'}
+      />
+      <SingleAdminLink
+        icon={'broadcast-tower'}
+        linkPath={'live-stream-info'}
+        linkText={'Update Live Broadcast Info'}
+      />
+      <SingleAdminLink
+        icon={'book'}
+        linkPath={'guides'}
+        linkText={'Read HalfmoonBK Guides'}
+      />
+      <SingleAdminLink
+        icon={'calendar-alt'}
+        linkPath={'full-schedule'}
+        linkText={'View Complete Schedule'}
+      />
+    </div>
   )
 }

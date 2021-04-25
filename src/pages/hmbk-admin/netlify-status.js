@@ -4,6 +4,7 @@ import {
   AdminSiteStatus,
   AdminRecentDeploysTable,
 } from '../../components/admin'
+import { HMBKFooter } from '../../components/helpers'
 import { formatDateTime, processDeployInfo } from '../../utils'
 
 /**
@@ -88,6 +89,7 @@ export default function NetlifyStatus() {
       {recentDeploys && (
         <AdminRecentDeploysTable recentDeploys={recentDeploys} />
       )}
+      <HMBKFooter />
     </main>
   )
 }

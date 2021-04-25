@@ -2,17 +2,19 @@ import PropTypes from 'prop-types'
 import React, { useEffect, useContext, useRef, useState } from 'react'
 import { graphql } from 'gatsby'
 import { CMSIssueMessage } from '../../components'
-import {
-  AdminHeader,
-  AdminLinkButtons,
-  NetlifyStatus,
-} from '../../components/admin'
+import { AdminHeader, AdminLinkButtons } from '../../components/admin'
 import { cmsNodeValidator, getMixTitle, uidValidator } from '../../utils'
 import {
   GlobalDispatchContext,
   GlobalStateContext,
 } from '../../context/GlobalContextProvider'
 
+/**
+ * Renders the `/hmbk-admin/` landing page
+ * @category Admin Page
+ * @function HMBKAdminPage
+ * @returns {jsx}
+ */
 function HMBKAdminPage({ data, prismic }) {
   const dispatch = useContext(GlobalDispatchContext)
   const globalState = useContext(GlobalStateContext)
@@ -41,7 +43,6 @@ function HMBKAdminPage({ data, prismic }) {
   return (
     <main className="black-bg-page">
       <AdminHeader />
-      <NetlifyStatus />
       <AdminLinkButtons />
 
       <p className="subtitle is-6-touch">

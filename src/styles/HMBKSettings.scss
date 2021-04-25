@@ -20,7 +20,7 @@ $hero-body-padding-medium: 6rem 1.5rem;
 // navbar variables
 //==================================
 $navbar-dropdown-background-color: black;
-$navbar-dropdown-item-hover-color: white;
+$navbar-dropdown-item-hover-color: darken($primary, 25);
 $navbar-dropdown-item-hover-background-color: darken($primary, 25);
 $navbar-item-active-background-color: darken($primary, 25);
 
@@ -88,8 +88,14 @@ $card-content-padding: 0.75rem;
 $card-radius: 0.75rem;
 
 //==================================
-// HERO
+// TABLE - /hmbk-admin/netlify-status
 //==================================
+$table-background-color: black;
+$table-head-background-color: black;
+$table-body-background-color: black;
+$table-color: white;
+$table-cell-border: 2px solid $grey-dark;
+$table-cell-padding: 0.75rem 1rem;
 //==================================
 // FONTS
 //==================================

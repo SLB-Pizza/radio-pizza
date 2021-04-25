@@ -18,6 +18,7 @@ import {
   faYoutube,
 } from '@fortawesome/free-brands-svg-icons'
 import {
+  faBook,
   faBroadcastTower,
   faCalendarAlt,
   faCheck,
@@ -43,6 +44,7 @@ import 'firebase/database'
 library.add(
   faApple,
   faBandcamp,
+  faBook,
   faBroadcastTower,
   faCalendarAlt,
   faCheck,

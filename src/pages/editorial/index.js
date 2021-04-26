@@ -1,10 +1,13 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { getCursorFromDocumentIndex } from '@prismicio/gatsby-source-prismic-graphql'
 import { graphql } from 'gatsby'
+import { Helmet } from 'react-helmet'
+
 import {
   FeaturesHighlightItems,
   LandingPageFetchAndLoading,
   SingleFeatureCard,
+  useSiteMetadata,
 } from '../../components'
 import PropTypes from 'prop-types'
 
@@ -17,6 +20,7 @@ import PropTypes from 'prop-types'
  * @returns {jsx}
  */
 function EditorialIndexPage({ data, prismic }) {
+  const { title, description, siteUrl, twitterUsername } = useSiteMetadata()
   const prismicContent = data.prismic
   /**
    * This line is here to prevent an error from occurring when you eventually deploy the site live. There is an issue with the preview functionality that requires this check on every page.
@@ -110,6 +114,13 @@ function EditorialIndexPage({ data, prismic }) {
 
   return (
     <main className="black-bg-page" id="features">
+      <Helmet defer={false}>
+        <title>{`Editorial | ${title}`}</title>
+        <meta property="og:title" content={`Editorial | ${title}`} />
+        <meta property="og:url" content={`${siteUrl}/mixes/`} />
+        <meta name="twitter:title" content={`Editorial | ${title}`} />
+      </Helmet>
+
       <header className="container is-fluid">
         <div className="columns">
           <div className="column is-full content">

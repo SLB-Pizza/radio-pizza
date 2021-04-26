@@ -238,7 +238,7 @@ function RadioIndexPage({ data, prismic }) {
       <Helmet defer={false}>
         <title>{`Radio | ${title}`}</title>
         <meta property="og:title" content={`Radio | ${title}`} />
-        <meta property="og:url" content={`${siteUrl}/mixes/`} />
+        <meta property="og:url" content={`${siteUrl}/radio/`} />
         <meta name="twitter:title" content={`Radio | ${title}`} />
       </Helmet>
 

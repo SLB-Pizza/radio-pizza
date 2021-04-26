@@ -145,7 +145,7 @@ function ResidentTemplate({ data, path }) {
   return (
     <main className="full-height-page">
       <Helmet defer={false}>
-        <title>{`${title} | ${helmetResName}`}</title>
+        <title>{`${helmetResName} | ${title}`}</title>
         <meta name="description" content={helmetDescription} />
         <meta property="og:title" content={helmetResName} />
         <meta property="og:url" content={`${siteUrl}${path}`} />
@@ -156,7 +156,7 @@ function ResidentTemplate({ data, path }) {
         {resBio?.resident_image && resBio?.resident_image?.url && (
           <meta property="og:image:type" content="image/webp" />
         )}
-        <meta name="twitter:title" content={`${title} | ${helmetResName}`} />
+        <meta name="twitter:title" content={`${helmetResName} | ${title}`} />
         <meta name="twitter:description" content={helmetDescription} />
         {resBio?.social_media?.find(
           elem => elem.resident_social_page === 'Twitter'

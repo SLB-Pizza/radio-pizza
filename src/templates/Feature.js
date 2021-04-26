@@ -1,7 +1,13 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { RichText } from 'prismic-reactjs'
+import { Helmet } from 'react-helmet'
 import { ArticleHeadline } from '../components/slices/'
-import { ArticleBylineSubtitle, SliceZone } from '../components'
+import {
+  ArticleBylineSubtitle,
+  SliceZone,
+  useSiteMetadata,
+} from '../components'
 import { HMBKFooter } from '../components/helpers'
 
 /**
@@ -11,7 +17,8 @@ import { HMBKFooter } from '../components/helpers'
  * @param {Object} data - the data object coming from Prismic CMS that contains all data needed to build features off of `/features/:uid`
  * @returns {jsx}
  */
-function FeatureTemplate({ data }) {
+function FeatureTemplate({ data, path }) {
+  const { title, description, siteUrl, twitterUsername } = useSiteMetadata()
   const prismicContent = data.prismic.allFeatures.edges[0].node
   if (!prismicContent) return null
 
@@ -30,8 +37,47 @@ function FeatureTemplate({ data }) {
   }
   const featureAuthor = headlineData.article_author
 
+  /**
+   * Helmet value derivation
+   */
+  const helmetDescription = featureSubtitle ? featureSubtitle : description
+  const helmetEditorialTitle = headlineData.article_headline
+    ? RichText.asText(headlineData.article_headline)
+    : 'Editorial'
+
   return (
     <main className="full-height-page">
+      <Helmet defer={false}>
+        <title>{`${helmetEditorialTitle} | ${title}`}</title>
+        <meta name="description" content={helmetDescription} />
+        <meta property="og:title" content={helmetEditorialTitle} />
+        <meta property="og:url" content={`${siteUrl}${path}`} />
+        {headlineData?.article_headline_img &&
+          headlineData?.article_headline_img?.url && (
+            <meta
+              property="og:image"
+              content={headlineData.article_headline_img.url}
+            />
+          )}
+        <meta name="og:description" content={helmetDescription} />
+        {headlineData?.article_headline_img &&
+          headlineData?.article_headline_img?.url && (
+            <meta property="og:image:type" content="image/webp" />
+          )}
+        <meta
+          name="twitter:title"
+          content={`$${helmetEditorialTitle} | ${title}`}
+        />
+        <meta name="twitter:description" content={helmetDescription} />
+        {headlineData?.article_headline_img &&
+          headlineData?.article_headline_img?.url && (
+            <meta
+              name="twitter:image"
+              content={headlineData.article_headline_img.url}
+            />
+          )}
+      </Helmet>
+
       <article>
         <ArticleHeadline headlineData={headlineData} />
 

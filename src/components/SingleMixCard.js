@@ -15,19 +15,19 @@ import {
  * Returns a Mix card with a clickable play button to start the mix in {@link RadioPlayer}, an icon made by {@link IconMaker} that links out to the original mix's page
  * @category Media Card
  * @function SingleMixCard
- * @param {Object} mixData - this mix's data from Prismic
- * @property {String} mixData.mix_date - this mix's date
- * @property {String} mixData.mix_link - this mix's URL; also used by {@link IconMaker} to generate the linking icon for the card
- * @property {?String} mixData.mix_title - Mix titles are optional, string of residents will be used to label mix if not present; see `useEffect` and `render` comments
- * @property {Object[]} mixData.featured_residents - Array of data objects containing the mix's resident data
- * @property {Object} mixData.mix_image - object containing the different sizes of a mix's image
- * @property {String[]} mixData._meta.tags - the mix's tags; allowed to be empty array
+ * @param {Object} data - this mix's data from Prismic
+ * @property {String} data.mix_date - this mix's date
+ * @property {String} data.mix_link - this mix's URL; also used by {@link IconMaker} to generate the linking icon for the card
+ * @property {?String} data.mix_title - Mix titles are optional, string of residents will be used to label mix if not present; see `useEffect` and `render` comments
+ * @property {Object[]} data.featured_residents - Array of data objects containing the mix's resident data
+ * @property {Object} data.mix_image - object containing the different sizes of a mix's image
+ * @property {String[]} data._meta.tags - the mix's tags; allowed to be empty array
  * @param {String} columnLayout - string detailing the column layout across different responsive breakpoints
  * @param {?Boolean} onMixesPage - optional boolean prop received as `true` from only two layout components: {@link DisplayFetchedTaggedMixes} and {@link AllMixesLayout}, both of which only render on {@link RadioIndexPage}. Passed to {@link TagButtons} for use with {@link tagNavigateAndDispatch}.
  * @returns {jsx}
  * @see {@link https://bulma.io/documentation/columns/sizes/ bulma.io column sizing}
  */
-function SingleMixCard({ mixData, columnLayout, onMixesPage }) {
+function SingleMixCard({ data, columnLayout, onMixesPage }) {
   const [mixDateStr, setMixDateStr] = useState(null)
   const [mixResidentsStr, setMixResidentsStr] = useState(null)
   const [mixDateResStr, setMixDateResStr] = useState(null)
@@ -41,7 +41,7 @@ function SingleMixCard({ mixData, columnLayout, onMixesPage }) {
     mix_link,
     mix_title,
     featured_residents,
-  } = mixData
+  } = data
 
   const { uid, type, tags } = _meta
 
@@ -190,7 +190,7 @@ function SingleMixCard({ mixData, columnLayout, onMixesPage }) {
 
 SingleMixCard.propTypes = {
   columnLayout: PropTypes.string.isRequired,
-  mixData: PropTypes.shape({
+  data: PropTypes.shape({
     _meta: PropTypes.shape({
       tags: PropTypes.arrayOf(PropTypes.string),
       uid: PropTypes.string.isRequired,

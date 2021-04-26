@@ -2,6 +2,7 @@ import { formatDateTime } from './index'
 
 export default function processDeployInfo(singleDeployObj) {
   const {
+    id,
     site_id,
     title,
     created_at,
@@ -21,6 +22,7 @@ export default function processDeployInfo(singleDeployObj) {
   if (deploySeconds) deployTime += `${deploySeconds}s`
 
   return {
+    id,
     site_id,
     title,
     state,

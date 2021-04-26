@@ -1,3 +1,6 @@
+### Version 1.14.1
+- revert(GCP): fix CHANGE_URL playing; false -> true
+
 ### Version 1.14.0
 - feat(admin): add Netlify status monitor
 - refactor(MixPlayOverlay): remove double "card-image" div

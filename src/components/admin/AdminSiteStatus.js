@@ -44,12 +44,8 @@ export default function AdminLatestSiteStatus({ fetchTime, latestDeploy }) {
           <h3 className="title is-size-4-desktop is-size-5-touch">
             Latest Deploy Status Check
           </h3>
-          <p className="is-size-6-touch">
-            {fetchTime ? (
-              <p className="is-family-code is-size-6-touch">{fetchTime}</p>
-            ) : (
-              'Running first fetch...'
-            )}
+          <p className="is-family-code is-size-6-touch">
+            {fetchTime ? fetchTime : 'Running first fetch...'}
           </p>
         </div>
 
@@ -73,6 +69,15 @@ export default function AdminLatestSiteStatus({ fetchTime, latestDeploy }) {
               )}
               <p className="is-family-code is-size-6-touch">
                 {latestDeploy.title}
+              </p>
+              <p className="is-family-code text-block">
+                <a
+                  href={`https://app.netlify.com/sites/halfmoon-rebuild-wip-2020/deploys/${latestDeploy.id}`}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  View this deploy's logs on Netlify
+                </a>
               </p>
             </>
           ) : (

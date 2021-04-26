@@ -47,7 +47,7 @@ export default function NetlifyStatus() {
       }
     }
 
-    return fetchFirstNetlifyDeployDetails()
+    fetchFirstNetlifyDeployDetails()
   }, [])
 
   /**

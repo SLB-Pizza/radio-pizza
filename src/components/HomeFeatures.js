@@ -109,8 +109,8 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
             {twelveFeatures?.map(({ node }, index) => (
               <SingleFeatureCard
                 key={`${index}-home-feature`}
-                featureData={node}
-                featureColumnLayout={featuresPageLayout}
+                data={node}
+                columnLayout={featuresPageLayout}
               />
             ))}
           </div>
@@ -136,8 +136,8 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
         {twelveFeatures?.map(({ node }, index) => (
           <SingleFeatureCard
             key={`${index}-home-feature`}
-            featureData={node}
-            featureColumnLayout={featuresPageLayout}
+            data={node}
+            columnLayout={featuresPageLayout}
           />
         ))}
       </div>

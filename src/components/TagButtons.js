@@ -72,7 +72,7 @@ export default function TagButtons({ tagsArray, onMixesPage }) {
    */
   const tagNavigateAndDispatch = (onMixesPage, tag) => {
     if (!onMixesPage) {
-      navigate('/mixes')
+      navigate('/radio')
     }
     addTagToSearchArray(tag)
   }

@@ -12,6 +12,7 @@ import { HMBKFooter } from '../../components/helpers'
 
 /**
  * Layout for /about page.
+ * @category Pages
  * @function AboutIndexPage
  * @param {Object} data - the data object coming from Prismic CMS that contains all data needed to display all mixes on `/mixes`
  * @returns {jsx}

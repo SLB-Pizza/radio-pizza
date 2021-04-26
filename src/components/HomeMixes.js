@@ -77,6 +77,7 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
 
   /**
    * The string passed into {@link SingleMixCard} that defines the column sizing for the mix cards in the Mixes section of the Homepage.
+   * @const homeMixesLayout
    */
   const homeMixesLayout = 'column is-9-mobile is-two-fifths-tablet is-4-desktop'
 
@@ -100,7 +101,7 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
             {twelveMixes?.map(({ node }, index) => (
               <SingleMixCard
                 key={`mixes-page-#${index}`}
-                mixData={node}
+                data={node}
                 columnLayout={homeMixesLayout}
               />
             ))}
@@ -125,7 +126,7 @@ function HomeMixes({ headline, blurb, homeMixesData }) {
         {twelveMixes?.map(({ node }, index) => (
           <SingleMixCard
             key={`mixes-page-#${index}`}
-            mixData={node}
+            data={node}
             columnLayout={homeMixesLayout}
           />
         ))}

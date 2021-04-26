@@ -220,7 +220,7 @@ function ResidentTemplate({ data, path }) {
                 {resMixes?.map(({ resident_mix }, index) => (
                   <SingleMixCard
                     key={`resident-mix-#${index}`}
-                    mixData={resident_mix}
+                    data={resident_mix}
                     columnLayout={smallCardLayout}
                   />
                 ))}
@@ -233,8 +233,8 @@ function ResidentTemplate({ data, path }) {
                 {resEvents?.map(({ resident_event }, index) => (
                   <SingleEventCard
                     key={`resident-event-#${index}`}
-                    eventData={resident_event}
-                    eventColumnLayout={smallCardLayout}
+                    data={resident_event}
+                    columnLayout={smallCardLayout}
                   />
                 ))}
               </div>
@@ -246,8 +246,8 @@ function ResidentTemplate({ data, path }) {
                 {resFeatures?.map(({ resident_feature }, index) => (
                   <SingleFeatureCard
                     key={`resident-feature-${index}`}
-                    featureData={resident_feature}
-                    featureColumnLayout={largeCardLayout}
+                    data={resident_feature}
+                    columnLayout={largeCardLayout}
                   />
                 ))}
               </div>

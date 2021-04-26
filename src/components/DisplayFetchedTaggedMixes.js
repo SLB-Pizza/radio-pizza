@@ -107,7 +107,7 @@ function DisplayFetchedTaggedMixes({
           {fetchedData?.data.map(({ node }, index) => (
             <SingleMixCard
               key={`tagged-mix-#${index}`}
-              mixData={node}
+              data={node}
               columnLayout={mixCardLayout}
               onMixesPage={true}
             />

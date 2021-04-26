@@ -26,7 +26,7 @@ function AllMixesLayout({
         {mixesDataToMap?.data.map(({ node }, index) => (
           <SingleMixCard
             key={`mixes-page-#${index}`}
-            mixData={node}
+            data={node}
             columnLayout={mixCardLayout}
             onMixesPage={true}
           />

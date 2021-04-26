@@ -19,7 +19,7 @@ function SearchResults(props) {
             return (
               <SingleMixCard
                 key={`resident-mix-#${index}`}
-                mixData={node}
+                data={node}
                 columnLayout={mixListLayout}
               />
             )
@@ -38,8 +38,8 @@ function SearchResults(props) {
         ? dummyEvents.map(event => (
             <SingleEventCard
               key={`search-result-event-${index}`}
-              eventData={event}
-              eventColumnLayout={eventsResultLayout}
+              data={event}
+              columnLayout={eventsResultLayout}
             />
           ))
         : null}

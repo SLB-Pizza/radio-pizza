@@ -10,12 +10,12 @@ import { formatDateTime, linkResolver } from '../utils'
  * Returns a Feature card layout used on the homepage, single /resident focus page, and the /features landing page
  * @category Media Card
  * @function SingleFeatureCard
- * @param {Object} featureData - the feature data object
- * @param {String} [featureColumnLayout="column"] - string dictating column
+ * @param {Object} data - data used to fill out an Editorial card
+ * @param {String} [columnLayout="column"] - string dictating column
  * @returns {jsx}
  */
-function SingleFeatureCard({ featureColumnLayout = 'column', featureData }) {
-  const { header, _meta } = featureData
+function SingleFeatureCard({ columnLayout = 'column', data }) {
+  const { header, _meta } = data
 
   const { lastPublicationDate, type, uid } = _meta
 
@@ -34,7 +34,7 @@ function SingleFeatureCard({ featureColumnLayout = 'column', featureData }) {
   const articleDate = formatDateTime(lastPublicationDate, 'year-month-day')
 
   return (
-    <article className={featureColumnLayout}>
+    <article className={columnLayout}>
       <Link to={linkResolver(linkData)}>
         <div className="card">
           <div className="card-image">

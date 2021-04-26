@@ -130,8 +130,8 @@ function EditorialIndexPage({ data, prismic }) {
           {featuresToMap?.data.map(({ node }, index) => (
             <SingleFeatureCard
               key={`halfmoon-feature-${index}`}
-              featureData={node}
-              featureColumnLayout={individualFeatureLayout}
+              data={node}
+              columnLayout={individualFeatureLayout}
             />
           ))}
         </div>

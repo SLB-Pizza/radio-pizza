@@ -34,8 +34,8 @@ function HomeEvents({ blurb, headline, homeEventsData }) {
             {homeEventsData?.map(({ node }, index) => (
               <SingleEventCard
                 key={`halfmoon-event-${index}`}
-                eventData={node}
-                eventColumnLayout={eventPageLayout}
+                data={node}
+                columnLayout={eventPageLayout}
               />
             ))}
           </div>
@@ -59,8 +59,8 @@ function HomeEvents({ blurb, headline, homeEventsData }) {
         {homeEventsData?.map(({ node }, index) => (
           <SingleEventCard
             key={`halfmoon-event-${index}`}
-            eventData={node}
-            eventColumnLayout={eventPageLayout}
+            data={node}
+            columnLayout={eventPageLayout}
           />
         ))}
       </div>

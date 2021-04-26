@@ -7,11 +7,11 @@ import { FallbackImage, formatDateTime, linkResolver } from '../utils'
  * Renders an Event media card for use across the site.
  * @category Media Cards
  * @function SingleEventCard
- * @param {String} eventColumnLayout - dictates the column layout to use
- * @param {Object} eventData - dis
+ * @param {Object} data - data used to fill out the event card
+ * @param {String} columnLayout - dictates the column layout to use
  * @returns {jsx}
  */
-function SingleEventCard({ eventColumnLayout, eventData }) {
+function SingleEventCard({ columnLayout, data }) {
   const [eventDateLocation, setEventDateLocation] = useState(null)
 
   const {
@@ -22,7 +22,7 @@ function SingleEventCard({ eventColumnLayout, eventData }) {
     event_blurb,
     event_start,
     event_end,
-  } = eventData
+  } = data
 
   /**
    * Create the string used that displays the start, end, and location details on an Event card.
@@ -53,7 +53,7 @@ function SingleEventCard({ eventColumnLayout, eventData }) {
   })
 
   return (
-    <article className={eventColumnLayout}>
+    <article className={columnLayout}>
       <Link to={linkResolver(_meta)}>
         <div className="card">
           <div className="card-image">

@@ -30,14 +30,14 @@ function FeaturesHighlightItems({ leftFeature, rightFeature }) {
     <div className="columns is-mobile is-multiline">
       {leftFeature && (
         <SingleFeatureCard
-          featureData={leftFeature}
-          featureColumnLayout={leftFeatureLayout}
+          data={leftFeature}
+          columnLayout={leftFeatureLayout}
         />
       )}
       {rightFeature && (
         <SingleFeatureCard
-          featureData={rightFeature}
-          featureColumnLayout={rightFeatureLayout}
+          data={rightFeature}
+          columnLayout={rightFeatureLayout}
         />
       )}
     </div>

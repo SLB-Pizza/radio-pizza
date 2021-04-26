@@ -136,7 +136,7 @@ function EventTemplate({ data, path }) {
               {eventMixes?.map(({ event_mix }, index) => (
                 <SingleMixCard
                   key={`single-event-mix-${index}`}
-                  mixData={event_mix}
+                  data={event_mix}
                   columnLayout={
                     'column is-12-mobile is-6-tablet is-4-widescreen'
                   }

@@ -159,7 +159,7 @@ function reducer(state, action) {
       return {
         ...state,
         isLoading: false,
-        playing: false,
+        playing: true,
         playlist: [],
         list_curr_index: 0,
         url: action.payload.url,

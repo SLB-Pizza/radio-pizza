@@ -1,3 +1,35 @@
+### Version 1.14.0
+- feat(admin): add Netlify status monitor
+- refactor(MixPlayOverlay): remove double "card-image" div
+- feat(/hmbk-admin): add NetlifyStatus, AdminHeader, SingleAdminLink create /live-stream-info; prep for form transfer
+- feat(/live-stream-info): update form and preview layout
+- feat(/full-schedule): query CMS for all shows after today
+- style(AdminLinkButtons): make links column width; collapse on mobile
+- docs(OnAir): add missing docs
+- feat(full-schedule): process incoming schedule data set up queries to refresh every 10 sec create admin schedule components to highlight show entries with issues collect problem entries into useState array TODO: create button switch to render problem shows
+- fix(HomeFeatures): change HomeFeatures layout to let other editorials peek through
+- refactor(/residents): add LandingPageFetchAndLoading
+- feat(/full-schedule): update query for recursive call map all schedule data with AdminAllSchedules
+- fix(/live-stream-info): remove extra LiveInfoPreview
+- WIP(/new-full): begin new admin to work out recursive allSchedule fetch on page load
+- feat(/live-stream): style Reset to Default section
+- refactor(/hmbk-admin/guide): migrate /guide behind /hmbk-admin
+- update: HMBK config and manifest; favicons
+- move(/guides): migrate Guide to /hmbk-admin/guides
+- refactor(config): change links and linkResolver /mixes to /radio /feature to /editorial
+- refactor(/radio): add missing change from last commit /mixes to /radio
+- refactor(/netlify-status): move status change to own page componentize latest status and recent deploys table create deploys util func move API ID portion of fetch to .env create new admin link button for /netlify-status
+- feat(/netlify-status): change update frequency 30s > 15s handle site state !== "ready" or "building" by showing loading format details to use code font
+- style(/netlify-status): add HMBKFooter
+- refactor(/netlify-status): prune validation code add totalCount props to /hmbk-admin AdminHeader move section wrapper outside AdminLinkButtons
+- fix(SingleMixCard): change navigate - /mixes > /radio
+- refactor(media cards): changes prop names to recomponentize home sections
+- feat(404): add desktop and mobile to StickyItemsLayout sort mixes by most recent render each of three sections to 404
+- fix(TagButtons): change navigate to /radio from /mixes
+- refactor(404): remove HomePage imports
+- feat(/editorial): add Helmet; update /radio, Feature, Resident
+- style(navbar): update hover link colors
+
 ### Version 1.13.0
 - feat(HMBKFooter): extract into own component
 - feat(About): add Hero & Titling; slice zone, credits, footer

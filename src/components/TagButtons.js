@@ -22,7 +22,6 @@ export default function TagButtons({ tagsArray, onMixesPage }) {
    * Dispatches {@link ADD_TAG_TO_MIX_SEARCH} or {@link NEW_TAGS_FOR_TAG_QUERY_SEARCH}.
    *
    * **Two Dispatch Scenarios**
-   *
    * 1. mixSearchTags hasn't been set yet (starts out `null`)
    *    - dispatches tag wrapped in an array e.g. `['tag']`.
    * 2. mixSearchTags is an array with:

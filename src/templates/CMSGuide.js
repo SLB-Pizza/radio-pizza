@@ -85,6 +85,11 @@ export const query = graphql`
               ... on PRISMIC_Cms_guideHeaderHeadline_block {
                 type
                 primary {
+                  article_category
+                  article_headline
+                  article_headline_img
+                  article_subcategory
+                  article_subtitle
                   article_author {
                     ... on PRISMIC_Staff {
                       hmbk_staff_name
@@ -92,11 +97,6 @@ export const query = graphql`
                       hmbk_staff_photo
                     }
                   }
-                  article_category
-                  article_headline
-                  article_headline_img
-                  article_subcategory
-                  article_subtitle
                 }
               }
             }
@@ -200,6 +200,30 @@ export const query = graphql`
                         mix_resident {
                           ... on PRISMIC_Resident {
                             resident_name
+                          }
+                        }
+                      }
+                    }
+                    ... on PRISMIC_Feature {
+                      _linkType
+                      _meta {
+                        uid
+                        type
+                        lastPublicationDate
+                        firstPublicationDate
+                      }
+                      header {
+                        ... on PRISMIC_FeatureHeaderHeadline_block {
+                          type
+                          primary {
+                            article_subtitle
+                            article_subcategory
+                            article_headline_img
+                            article_headline
+                            article_category
+                            article_author {
+                              _linkType
+                            }
                           }
                         }
                       }

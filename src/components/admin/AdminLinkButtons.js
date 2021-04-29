@@ -9,7 +9,7 @@ import { AdminCMSLink, SingleAdminLink } from './index'
  */
 export default function AdminLinkButtons() {
   return (
-    <div className="columns is-multiline">
+    <div className="columns is-mobile is-multiline">
       <SingleAdminLink
         icon={'info-circle'}
         linkPath={'netlify-status'}

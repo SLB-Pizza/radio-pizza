@@ -1,4 +1,6 @@
 export { default as AdminAllSchedules } from './AdminAllSchedules'
+export { default as AdminCategorizedGuides } from './AdminCategorizedGuides'
+export { default as AdminCMSLink } from './AdminCMSLink'
 export { default as AdminHeader } from './AdminHeader'
 export { default as AdminLinkButtons } from './AdminLinkButtons'
 export { default as AdminRecentDeploysTable } from './AdminRecentDeploysTable'

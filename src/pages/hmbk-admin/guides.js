@@ -1,9 +1,9 @@
-import React from 'react'
-import { graphql, Link } from 'gatsby'
-import { linkResolver } from '../../utils'
-import { HMBKDivider } from '../../components'
+import React, { useEffect, useState } from 'react'
+import { graphql } from 'gatsby'
+import { Helmet } from 'react-helmet'
+import { useSiteMetadata } from '../../components'
 import { HMBKFooter } from '../../components/helpers'
-import { AdminHeader } from '../../components/admin'
+import { AdminHeader, AdminCategorizedGuides } from '../../components/admin'
 
 /**
  * Renders the `/hmbk-admin/guides/` landing page.
@@ -13,32 +13,62 @@ import { AdminHeader } from '../../components/admin'
  * @returns {jsx}
  */
 export default function AdminGuides({ data }) {
+  const [guideCategories, setGuideCategories] = useState(null)
+  const { title, description, siteUrl, twitterUsername } = useSiteMetadata()
   const prismicContent = data.prismic.allCms_guides.edges
   if (!prismicContent) return null
+
+  useEffect(() => {
+    const categorizeGuides = () => {
+      if (data) {
+        const guideData = {}
+
+        prismicContent.forEach(({ node }) => {
+          const keyName = node.cms_guide_category
+
+          if (!guideData[keyName]) {
+            guideData[keyName] = { title: keyName, data: [node] }
+          } else {
+            guideData[keyName].data.push(node)
+          }
+        })
+        setGuideCategories(guideData)
+      }
+    }
+    categorizeGuides()
+  }, [])
   const cmsGuideData = prismicContent
   return (
-    <main className="container is-fluid black-bg-page">
-      <div className="columns is-multiline is-mobile">
-        <div className="column is-12">
-          <div className="content">
-            <h1 className="title is-size-2-widescreen is-size-3-desktop is-size-4-touch">
-              HMBK Reference Guides
-            </h1>
-            <h4 className="subtitle is-size-6-touch">
-              Your reference for Prismic CMS, image guidelines, editorial
-              standards and more.
-            </h4>
+    <main className="black-bg-page">
+      <Helmet defer={false}>
+        <title>{`Guides | ${title}`}</title>
+        <meta property="og:title" content={`Guides | ${title}`} />
+        <meta property="og:url" content={`${siteUrl}/hmbk-admin/guides/`} />
+        <meta name="twitter:title" content={`Guides | ${title}`} />
+      </Helmet>
+      <AdminHeader renderHomeLink={true} />
+
+      <section className="section container is-fluid">
+        <div className="columns is-multiline is-mobile">
+          <div className="column is-12">
+            <div className="content">
+              <h1 className="title is-size-2-widescreen is-size-3-desktop is-size-4-touch">
+                HMBK Reference Guides
+              </h1>
+              <h4 className="subtitle is-size-6-touch">
+                Your reference for Prismic CMS, image guidelines, editorial
+                standards and more.
+              </h4>
+            </div>
           </div>
         </div>
+      </section>
 
-        {cmsGuideData.map(({ node }, index) => (
-          <div className="column is-12">
-            <Link to={linkResolver(node._meta)}>
-              <pre>{JSON.stringify(node, null, 2)}</pre>
-            </Link>
-          </div>
-        ))}
-      </div>
+      {guideCategories && (
+        <AdminCategorizedGuides guideData={guideCategories} />
+      )}
+
+      <HMBKFooter />
     </main>
   )
 }

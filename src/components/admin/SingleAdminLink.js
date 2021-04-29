@@ -9,9 +9,15 @@ import { IconMaker } from '../../utils'
  * @param {String} icon - which FontAwesomeIcon to use
  * @param {String} linkPath - string that completes `/hmbk-admin/${linkPath}`
  * @param {String} linkText - text to label the button
+ * @param {String} linkDescription - text to link
  * @returns {jsx}
  */
-export default function SingleAdminLink({ icon, linkPath, linkText }) {
+export default function SingleAdminLink({
+  icon,
+  linkPath,
+  linkText,
+  linkDescription,
+}) {
   return (
     <div className="column is-6-desktop is-12-touch">
       <Link to={`/hmbk-admin/${linkPath}`}>
@@ -28,6 +34,9 @@ export default function SingleAdminLink({ icon, linkPath, linkText }) {
           <div className="column is-9 admin-link__text">
             <div className="content">
               <p className="title is-size-5 has-text-centered">{linkText}</p>
+              <p className="subtitle is-size-6 has-text-centered">
+                {linkDescription}
+              </p>
             </div>
           </div>
         </article>

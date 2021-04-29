@@ -10,6 +10,7 @@ import { AdminHeader, AdminLinkButtons } from '../../components/admin'
  */
 export default function HMBKAdminPage({ data }) {
   const totalCount = data.prismic._allDocuments.totalCount
+  if (!totalCount) return null
 
   return (
     <main className="black-bg-page">

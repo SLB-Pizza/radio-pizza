@@ -71,9 +71,9 @@ export default function ScheduleBarLayout({ timeNow, upcomingShows }) {
             <p className="title is-size-6-tablet is-size-7-mobile">Next Show</p>
           )}
         </div>
-
-        <UpcomingShow showData={upcomingShows} timeNow={timeNow} />
-
+        {/* TO FIX LATER */}
+        {/* <UpcomingShow showData={upcomingShows} timeNow={timeNow} /> */}
+        <div className="column" />
         <div className="column is-narrow">
           <button
             className="unstyled"

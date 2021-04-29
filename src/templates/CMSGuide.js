@@ -4,11 +4,11 @@ import { RichText } from 'prismic-reactjs'
 import { Helmet } from 'react-helmet'
 import {
   ArticleBylineSubtitle,
-  HMBKDivider,
   useSiteMetadata,
   SliceZone,
 } from '../components'
 import { ArticleHeadline } from '../components/slices'
+import { HMBKFooter } from '../components/helpers'
 
 /**
  * @category Templates
@@ -79,20 +79,13 @@ function CMSGuideTemplate({ data, path }) {
       </Helmet>
       <article>
         <ArticleHeadline headlineData={headlineData} />
-
         <ArticleBylineSubtitle
           subtitle={guideSubtitle}
           dates={guideDates}
           authorDetails={guideAuthor}
         />
-
         <SliceZone sliceZone={sliceData} metadata={metadata} />
-
-        <footer className="section container">
-          <div className="columns is-mobile is-vcentered">
-            <HMBKDivider />
-          </div>
-        </footer>
+        <HMBKFooter renderTopButton={true} />
       </article>
     </main>
   )

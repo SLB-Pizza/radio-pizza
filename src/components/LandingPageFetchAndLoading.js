@@ -1,6 +1,6 @@
 import React from 'react'
-import { HMBKDivider } from './index'
-import { scrollToTop } from '../utils'
+import { HMBKDivider } from '../components'
+import { DividerAndTopButton } from '../components/helpers'
 
 /**
  * Renders the final section of the page for of each of:
@@ -48,17 +48,7 @@ export default function LandingPageFetchAndLoading({
           </div>
         </div>
       ) : (
-        <div className="columns is-mobile is-vcentered">
-          <HMBKDivider />
-          <div className="column is-narrow">
-            <button
-              className="button is-fullwidth is-outlined is-rounded"
-              onClick={() => scrollToTop()}
-            >
-              Top
-            </button>
-          </div>
-        </div>
+        <DividerAndTopButton />
       )}
     </>
   )

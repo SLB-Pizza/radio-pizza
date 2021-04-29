@@ -41,45 +41,52 @@ export default function NewFull() {
     { called, loading: isFetching, data: fetchedScheduleData },
   ] = useLazyQuery(GET_ALL_SCHEDULED_SHOWS)
 
+  const callQuery = async (date, cursor) => {
+    fetchAllScheduledShows({
+      variables: { yesterday: date, after: cursor },
+    })
+  }
+
   const recursiveFetchAllSchedules = useCallback(
     async (yesterdayDate, currentCursor = null) => {
-      fetchAllScheduledShows({
-        variables: { yesterday: yesterdayDate, after: currentCursor },
-      })
-
+      await callQuery(yesterdayDate, currentCursor)
+      console.log('called', called)
       console.log(fetchedScheduleData)
-      const currentSchedules = fetchedScheduleData.allSchedules.edges.map(
-        edge => edge.node
-      )
+      // if (fetchedScheduleData) {
+      //   console.log("fetchedScheduleData", fetchedScheduleData);
+      //   const currentSchedules = fetchedScheduleData?.allSchedules?.edges.map(
+      //     (edge) => edge.node
+      //   );
 
-      console.log('currSched', currentSchedules)
+      //   console.log("currSchedule", currentSchedules);
 
-      if (!fetchedScheduleData.allSchedules.pageInfo.hasNextPage) {
-        return currentSchedules
-      }
+      //   if (!fetchedScheduleData?.allSchedules?.pageInfo?.hasNextPage) {
+      //     return currentSchedules;
+      //   }
 
-      const newCursor = fetchedScheduleData.allSchedules.pageInfo.endCursor
-      const newSchedules = await recursiveFetchAllSchedules(
-        yesterdayDate,
-        newCursor
-      )
+      //   const newCursor =
+      //     fetchedScheduleData?.allSchedules?.pageInfo?.e-ndCursor;
+      //   const newSchedules = await recursiveFetchAllSchedules(
+      //     yesterdayDate,
+      //     newCursor
+      //   );
 
-      return [...currrentSchedules, ...newSchedules]
+      //   return [...currrentSchedules, ...newSchedules];
+      // }
     },
     []
   )
 
   useEffect(() => {
-    const fetchAllSchedules = () => {
+    const fetchAllSchedules = async () => {
       const currTime = formatDateTime(null, 'current-time')
-      const yesterday = formatDateTime(currTime, 'prismic-date-query')[0]
+      // const yesterday = formatDateTime(currTime, "prismic-date-query")[0];
+      const yesterday = '2019-01-01'
 
-      const allSchedules = recursiveFetchAllSchedules(yesterday)
-      console.log('called', called)
+      const allSchedules = await recursiveFetchAllSchedules(yesterday)
       setScheduledShows({ data: allSchedules })
-
-      return fetchAllSchedules()
     }
+    fetchAllSchedules()
   }, [recursiveFetchAllSchedules])
 
   return (
@@ -105,7 +112,9 @@ export default function NewFull() {
       <section className="section container is-fluid">
         <div className="columns is-mobile">
           <div className="column content">
-            {scheduledShows && <pre>{JSON.stringify(scheduledShows.data)}</pre>}
+            {scheduledShows.data && (
+              <pre>{JSON.stringify(scheduledShows, null, 2)}</pre>
+            )}
           </div>
         </div>
       </section>

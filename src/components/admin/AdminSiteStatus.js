@@ -76,7 +76,7 @@ export default function AdminLatestSiteStatus({ fetchTime, latestDeploy }) {
                   target="_blank"
                   rel="noopener"
                 >
-                  View this deploy's logs on Netlify
+                  View this deploy's logs on Netlify (requires login)
                 </a>
               </p>
             </>

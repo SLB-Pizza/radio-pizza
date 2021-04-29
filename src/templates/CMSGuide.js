@@ -1,6 +1,13 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { ArticleBylineSubtitle, HMBKDivider, SliceZone } from '../components'
+import { RichText } from 'prismic-reactjs'
+import { Helmet } from 'react-helmet'
+import {
+  ArticleBylineSubtitle,
+  HMBKDivider,
+  useSiteMetadata,
+  SliceZone,
+} from '../components'
 import { ArticleHeadline } from '../components/slices'
 
 /**
@@ -9,7 +16,9 @@ import { ArticleHeadline } from '../components/slices'
  * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build cms-help off of `/guide/:uid`
  * @returns {jsx}
  */
-function CMSGuideTemplate({ data }) {
+function CMSGuideTemplate({ data, path }) {
+  const { title, description, siteUrl, twitterUsername } = useSiteMetadata()
+
   const prismicContent = data.prismic.allCms_guides.edges[0].node
   if (!prismicContent) return null
 
@@ -28,8 +37,46 @@ function CMSGuideTemplate({ data }) {
   }
   const guideAuthor = headlineData.article_author
 
+  /**
+   * Helmet value derivation
+   */
+  const helmetDescription = guideSubtitle ? guideSubtitle : description
+  const helmetGuideTitle = headlineData.article_headline
+    ? RichText.asText(headlineData.article_headline)
+    : 'Guide'
+
   return (
     <main className="full-height-page">
+      <Helmet defer={false}>
+        <title>{`${helmetGuideTitle} | ${title}`}</title>
+        <meta name="description" content={helmetDescription} />
+        <meta property="og:title" content={helmetGuideTitle} />
+        <meta property="og:url" content={`${siteUrl}${path}`} />
+        {headlineData?.article_headline_img &&
+          headlineData?.article_headline_img?.url && (
+            <meta
+              property="og:image"
+              content={headlineData.article_headline_img.url}
+            />
+          )}
+        <meta name="og:description" content={helmetDescription} />
+        {headlineData?.article_headline_img &&
+          headlineData?.article_headline_img?.url && (
+            <meta property="og:image:type" content="image/webp" />
+          )}
+        <meta
+          name="twitter:title"
+          content={`$${helmetGuideTitle} | ${title}`}
+        />
+        <meta name="twitter:description" content={helmetDescription} />
+        {headlineData?.article_headline_img &&
+          headlineData?.article_headline_img?.url && (
+            <meta
+              name="twitter:image"
+              content={headlineData.article_headline_img.url}
+            />
+          )}
+      </Helmet>
       <article>
         <ArticleHeadline headlineData={headlineData} />
 
@@ -46,23 +93,6 @@ function CMSGuideTemplate({ data }) {
             <HMBKDivider />
           </div>
         </footer>
-
-        <section className="container is-fluid">
-          <div className="columns is-mobile is-multiline">
-            <div className="column is-full">
-              <h1 className="title">metadata</h1>
-              <pre>{JSON.stringify(metadata, null, 2)}</pre>
-            </div>
-            <div className="column is-full">
-              <h1 className="title">headlineData</h1>
-              <pre>{JSON.stringify(headlineData, null, 2)}</pre>
-            </div>
-            <div className="column is-full">
-              <h1 className="title">sliceData</h1>
-              <pre>{JSON.stringify(sliceData, null, 2)}</pre>
-            </div>
-          </div>
-        </section>
       </article>
     </main>
   )

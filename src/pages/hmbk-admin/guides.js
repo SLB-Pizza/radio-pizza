@@ -13,8 +13,8 @@ import { AdminHeader, AdminCategorizedGuides } from '../../components/admin'
  * @returns {jsx}
  */
 export default function AdminGuides({ data }) {
-  const [guideCategories, setGuideCategories] = useState(null)
   const { title, description, siteUrl, twitterUsername } = useSiteMetadata()
+  const [guideCategories, setGuideCategories] = useState(null)
   const prismicContent = data.prismic.allCms_guides.edges
   if (!prismicContent) return null
 

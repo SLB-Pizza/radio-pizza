@@ -83,7 +83,7 @@ export default function formatDateTime(
       return dayjs(time).format('MMM DD')
 
     case 'get-place-in-schedule':
-      return time.isBetween(startTime, endTime, 'minute', '[)')
+      return dayjs(time).isBetween(startTime, endTime, 'minute', '[)')
 
     case 'get-this-weeks-dates':
       /**

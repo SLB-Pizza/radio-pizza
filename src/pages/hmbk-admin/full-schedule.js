@@ -28,6 +28,7 @@ export default function FullSchedules() {
   const [categoryLabels, setCategoryLabels] = useState(['All Schedule Dates'])
   const [tempShows, setTempShows] = useState(null)
   const [fetchComplete, setFetchComplete] = useState(false)
+  const [fetchedShows, setFetchedShows] = useState(null)
   const [scheduledShows, setScheduledShows] = useState(null)
   const [problemShows, setProblemShows] = useState(null)
 
@@ -57,8 +58,8 @@ export default function FullSchedules() {
       const yesterday = '2019-01-01'
 
       setCurrentTime(currTime)
+      setFetchTime(currTime)
       setYesterdayDate(yesterday)
-      setFetchTime(yesterday)
       fetchAllScheduledShows({
         variables: { yesterday },
       })
@@ -69,10 +70,10 @@ export default function FullSchedules() {
   /**
    * Process `fetchedScheduleData` every first fetch, and subsequent cursor-add refetches.
    * IF `pageInfohasNextPage`
-   *    Combine `tempShows` (if exists), with `currentSchedules`
-   *    Refetch using `newCursor
+   *    Combine `tempShows` (if exists), with incoming `edges`
+   *    Refetch {@link fetchAllScheduledShows} using `newCursor`
    * ELSE
-   *    Combine `tempShows` (if exists), with `currentSchedules`
+   *    Set `fetchedShows` to combined `tempShows` (if exists), with incoming `edges`
    *    Mark `fetchComplete` as true, triggers {@link sortAndSetSchedule}
    *    Null `tempShows`
    * @category useEffect
@@ -87,13 +88,16 @@ export default function FullSchedules() {
           setTotalShows(totalCount)
         }
 
+        /**
+         * IF
+         */
         if (pageInfo.hasNextPage) {
           const newCursor = pageInfo.endCursor
 
           if (tempShows) {
-            setFetchedShows([...tempShows, ...edges])
+            setTempShows([...tempShows, ...edges])
           } else {
-            setFetchedShows(edges)
+            setTempShows(edges)
           }
 
           fetchAllScheduledShows({
@@ -128,13 +132,12 @@ export default function FullSchedules() {
         if (!totalShows) {
           setTotalShows(fetchedScheduleData.allSchedules.totalCount)
         }
-
-        const scheduleEdgesArr = fetchedScheduleData.allSchedules.edges
+        console.log(fetchedShows)
         let sortedScheduleData = []
         let currentFetchProblemShows = []
 
-        for (let i = 0; i < scheduleEdgesArr.length; i++) {
-          const { schedule_date, schedule_entries } = scheduleEdgesArr[i].node
+        for (let i = 0; i < fetchedShows.length; i++) {
+          const { schedule_date, schedule_entries } = fetchedShows[i].node
           const currShowDate = formatDateTime(
             schedule_date,
             'schedule-date-heading'
@@ -178,21 +181,10 @@ export default function FullSchedules() {
          * ELSE IF `sortedScheduleData` has array elements
          *    Spread the existing `scheduledShows` and new `sortedScheduleData` into a new array to set as `scheduledShows`
          */
-        const hasMore = fetchedScheduleData.hasMore
-        const endCursor = fetchedScheduleData.endCursor
-
-        if (scheduledShows.data === null && sortedScheduleData.length) {
-          setScheduledShows({
-            data: sortedScheduleData,
-            hasMore,
-            endCursor,
-          })
+        if (scheduledShows === null && sortedScheduleData.length) {
+          setScheduledShows(sortedScheduleData)
         } else if (sortedScheduleData.length) {
-          setScheduledShows({
-            data: [...scheduledShows.data, ...sortedScheduleData],
-            hasMore,
-            endCursor,
-          })
+          setScheduledShows([...scheduledShows, ...sortedScheduleData])
         }
       }
     }
@@ -200,28 +192,29 @@ export default function FullSchedules() {
     processFetchedScheduleData()
   }, [fetchComplete])
 
+  console.log('problemShows', problemShows)
+  console.log('scheduledShows', scheduledShows)
   return (
     <main className="black-bg-page">
       <AdminHeader renderHomeLink={true} />
 
       <section className="section container is-fluid">
         <div className="columns is-mobile">
-          {/* <div className="column content">
+          <div className="column content">
             <h2 className="title is-size-4-desktop is-size-5-touch">
-              Updates every 10 seconds.
+              Schedule Data Fetched
             </h2>
             {fetchStartTime && (
               <p className="subtitle is-size-6-desktop is-size-7-touch">
-                <b>Last Schedule Fetch: </b>
                 {fetchStartTime}
               </p>
             )}
-          </div> */}
+          </div>
 
-          {/* <AdminTotalShowsReport
+          <AdminTotalShowsReport
             totalShows={totalShows}
             problemShows={problemShows}
-          /> */}
+          />
         </div>
       </section>
 
@@ -240,9 +233,9 @@ export default function FullSchedules() {
               <h3 className="title">All Scheduled Shows</h3>
             </div>
           </div>
-          {scheduledShows?.data ? (
+          {scheduledShows ? (
             <AdminAllSchedules
-              showsArr={scheduledShows.data}
+              showsArr={scheduledShows}
               currentTime={currentTime}
             />
           ) : (
@@ -250,7 +243,7 @@ export default function FullSchedules() {
           )}
         </section>
       )}
-      <HMBKFooter />
+      <HMBKFooter renderTopButton={true} />
     </main>
   )
 }

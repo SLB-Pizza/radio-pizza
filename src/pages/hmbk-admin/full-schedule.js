@@ -22,15 +22,13 @@ import { GET_ALL_SCHEDULED_SHOWS } from '../../queries'
  */
 export default function FullSchedules() {
   const [currentTime, setCurrentTime] = useState(null)
-  const [fetchTime, setFetchTime] = useState(null)
+  const [fetchStartTime, setFetchTime] = useState(null)
   const [yesterdayDate, setYesterdayDate] = useState(null)
   const [totalShows, setTotalShows] = useState(null)
   const [categoryLabels, setCategoryLabels] = useState(['All Schedule Dates'])
-  const [scheduledShows, setScheduledShows] = useState({
-    data: null,
-    hasMore: null,
-    endCursor: null,
-  })
+  const [tempShows, setTempShows] = useState(null)
+  const [fetchComplete, setFetchComplete] = useState(false)
+  const [scheduledShows, setScheduledShows] = useState(null)
   const [problemShows, setProblemShows] = useState(null)
 
   /**
@@ -47,75 +45,86 @@ export default function FullSchedules() {
   ] = useLazyQuery(GET_ALL_SCHEDULED_SHOWS)
 
   /**
-   * Triggers schedule fetch `useLazyQuery` into action; called by {@link initialScheduleDataFetch} and {@link refreshScheduleData}
+   * Triggers `useLazyQuery` {@link fetchAllScheduledShows} on page load.
    * @category useEffect
-   * @function scheduleDataFetch
-   */
-  const scheduleDataFetch = () => {
-    const currTime = formatDateTime(null, 'current-time')
-    const lastFetchTime = formatDateTime(currTime, 'short-form-date-time')
-    const yesterday = formatDateTime(currTime, 'prismic-date-query')[0]
-
-    // const yesterday = "2019-01-10";
-    setCurrentTime(currTime)
-    setFetchTime(lastFetchTime)
-    setYesterdayDate(yesterday)
-  }
-
-  /**
-   * Returns a Prismic Date for yesterday, `YYYY-MM-DD`, to use in {@link executeAllScheduleFetch}. The initial schedule data fetch.
-   * @category useEffect
-   * @name initialScheduleDataFetch
+   * @function initialScheduleFetch
    */
   useEffect(() => {
-    return scheduleDataFetch()
+    const initialFetchSchedules = () => {
+      const now = formatDateTime(null, 'current-time')
+      const currTime = formatDateTime(now, 'short-form-date-time')
+      // const yesterday = formatDateTime(now, "prismic-date-query")[0];
+      const yesterday = '2019-01-01'
+
+      setCurrentTime(currTime)
+      setYesterdayDate(yesterday)
+      setFetchTime(yesterday)
+      fetchAllScheduledShows({
+        variables: { yesterday },
+      })
+    }
+    initialFetchSchedules()
   }, [])
 
   /**
-   * Returns a Prismic Date for yesterday, `YYYY-MM-DD`, to use in {@link executeAllScheduleFetch}. Updates every ten seconds.
+   * Process `fetchedScheduleData` every first fetch, and subsequent cursor-add refetches.
+   * IF `pageInfohasNextPage`
+   *    Combine `tempShows` (if exists), with `currentSchedules`
+   *    Refetch using `newCursor
+   * ELSE
+   *    Combine `tempShows` (if exists), with `currentSchedules`
+   *    Mark `fetchComplete` as true, triggers {@link sortAndSetSchedule}
+   *    Null `tempShows`
    * @category useEffect
-   * @name refreshScheduleData
+   * @name gatherAllScheduleData
    */
   useEffect(() => {
-    const refreshScheduleData = setInterval(() => scheduleDataFetch(), 10000)
-    return () => clearInterval(refreshScheduleData)
-  }, [])
+    const gatherAllScheduleData = async () => {
+      if (fetchedScheduleData) {
+        const { edges, pageInfo, totalCount } = fetchedScheduleData.allSchedules
 
-  /**
-   * Runs {@link fetchAllScheduledShows} to get all scheduled shows from today onward
-   * @category useEffect
-   * @name executeAllScheduleFetch
-   */
-  useEffect(() => {
-    const executeAllScheduleFetch = () => {
-      if (yesterdayDate) {
-        if (scheduledShows.endCursor) {
+        if (!totalShows) {
+          setTotalShows(totalCount)
+        }
+
+        if (pageInfo.hasNextPage) {
+          const newCursor = pageInfo.endCursor
+
+          if (tempShows) {
+            setFetchedShows([...tempShows, ...edges])
+          } else {
+            setFetchedShows(edges)
+          }
+
           fetchAllScheduledShows({
             variables: {
               yesterday: yesterdayDate,
-              after: scheduledShows.endCursor,
+              after: newCursor,
             },
           })
         } else {
-          fetchAllScheduledShows({
-            variables: {
-              yesterday: yesterdayDate,
-            },
-          })
+          if (tempShows) {
+            setFetchedShows([...tempShows, ...edges])
+          } else {
+            setFetchedShows(edges)
+          }
+          setFetchComplete(true)
+          setTempShows(null)
         }
       }
     }
-    return executeAllScheduleFetch()
-  }, [yesterdayDate])
+    gatherAllScheduleData()
+  }, [fetchedScheduleData])
 
   /**
-   * Sets values for total number of scheduled shows after today's date, the `scheduledShows` data object array, and the `problemShows` data obecjt array.
+   * Sets values for total number of scheduled shows after today's date, the `scheduledShows` data object array, and the `problemShows` data object array.
+   * Runs only when `fetchComplete` is true, as marked by {@link gatherAllScheduleData} and when there's fetched schedule data to process.
    * @category useEffect
-   * @name sortAndScheduleData
+   * @name processFetchedScheduleData
    */
   useEffect(() => {
-    const sortAndSetScheduleData = () => {
-      if (fetchedScheduleData) {
+    const processFetchedScheduleData = () => {
+      if (fetchComplete && fetchedScheduleData) {
         if (!totalShows) {
           setTotalShows(fetchedScheduleData.allSchedules.totalCount)
         }
@@ -150,14 +159,14 @@ export default function FullSchedules() {
           }
         }
         /**
-         * IF `scheduledShows` hasn't been initially set
+         * IF there are no current `problemShows` and
          *    Set `scheduledShows` to the sorted show data
          * ELSE IF `sortedScheduleData` has array elements
          *    Spread the existing `scheduledShows` and new `sortedScheduleData` into a new array to set as `scheduledShows`
          */
         if (problemShows === null && currentFetchProblemShows.length) {
           setProblemShows(currentFetchProblemShows)
-          setCategoryLabels(['All Schedule Dates', 'Problem Dates'])
+          setCategoryLabels(['All Schedule Dates'])
         } else if (currentFetchProblemShows.length) {
           setProblemShows([...problemShows, ...currentFetchProblemShows])
           setCategoryLabels(['All Schedule Dates', 'Problem Dates'])
@@ -173,7 +182,11 @@ export default function FullSchedules() {
         const endCursor = fetchedScheduleData.endCursor
 
         if (scheduledShows.data === null && sortedScheduleData.length) {
-          setScheduledShows({ data: sortedScheduleData, hasMore, endCursor })
+          setScheduledShows({
+            data: sortedScheduleData,
+            hasMore,
+            endCursor,
+          })
         } else if (sortedScheduleData.length) {
           setScheduledShows({
             data: [...scheduledShows.data, ...sortedScheduleData],
@@ -184,8 +197,8 @@ export default function FullSchedules() {
       }
     }
 
-    return sortAndSetScheduleData()
-  }, [fetchedScheduleData])
+    processFetchedScheduleData()
+  }, [fetchComplete])
 
   return (
     <main className="black-bg-page">
@@ -197,10 +210,10 @@ export default function FullSchedules() {
             <h2 className="title is-size-4-desktop is-size-5-touch">
               Updates every 10 seconds.
             </h2>
-            {fetchTime && (
+            {fetchStartTime && (
               <p className="subtitle is-size-6-desktop is-size-7-touch">
                 <b>Last Schedule Fetch: </b>
-                {fetchTime}
+                {fetchStartTime}
               </p>
             )}
           </div> */}

@@ -26,8 +26,8 @@ export default function NewFull() {
   const [yesterdayDate, setYesterdayDate] = useState(null)
   const [totalShows, setTotalShows] = useState(null)
   const [categoryLabels, setCategoryLabels] = useState(['All Schedule Dates'])
-  const [tempShows, setTempShows] = useState(null)
-  const [scheduledShows, setScheduledShows] = useState(null)
+  const [fetchedShows, setFetchedShows] = useState(null)
+  const [fetchComplete, setFetchComplete] = useState(false)
   const [problemShows, setProblemShows] = useState(null)
 
   /**
@@ -44,7 +44,7 @@ export default function NewFull() {
   ] = useLazyQuery(GET_ALL_SCHEDULED_SHOWS)
 
   useEffect(() => {
-    const fetchAllSchedules = async () => {
+    const initialFetchSchedules = () => {
       const currTime = formatDateTime(null, 'current-time')
       // const yesterday = formatDateTime(currTime, "prismic-date-query")[0];
       const yesterday = '2019-01-01'
@@ -54,11 +54,11 @@ export default function NewFull() {
         variables: { yesterday },
       })
     }
-    fetchAllSchedules()
+    initialFetchSchedules()
   }, [])
 
   /**
-   * Process `fetchedScheduleData` after the first fetch.
+   * Process `fetchedScheduleData` every first fetch, and subsequent cursor-add refetches.
    * IF `pageInfohasNextPage`
    *    Combine `tempShows` (if exists), with `currentSchedules`
    *    Refetch using `newCursor
@@ -76,9 +76,9 @@ export default function NewFull() {
           const newCursor = pageInfo.endCursor
 
           if (tempShows) {
-            setTempShows([...tempShows, ...edges])
+            setFetchedShows([...tempShows, ...edges])
           } else {
-            setTempShows(edges)
+            setFetchedShows(edges)
           }
 
           fetchAllScheduledShows({
@@ -86,9 +86,9 @@ export default function NewFull() {
           })
         } else {
           if (tempShows) {
-            setScheduledShows([...tempShows, ...edges])
+            setFetchedShows([...tempShows, ...edges])
           } else {
-            setScheduledShows(edges)
+            setFetchedShows(edges)
           }
           setTempShows(null)
         }
@@ -120,10 +120,10 @@ export default function NewFull() {
       <section className="section container is-fluid">
         <div className="columns is-mobile">
           <div className="column content">
-            {scheduledShows && (
+            {fetchedShows && (
               <>
-                <p>{scheduledShows.length}</p>
-                <pre>{JSON.stringify(scheduledShows, null, 2)}</pre>
+                <p>{fetchedShows.length}</p>
+                <pre>{JSON.stringify(fetchedShows, null, 2)}</pre>
               </>
             )}
           </div>

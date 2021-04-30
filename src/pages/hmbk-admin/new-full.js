@@ -14,18 +14,20 @@ import {
   NoFutureShowsScheduled,
 } from '../../components/admin'
 import { GET_ALL_SCHEDULED_SHOWS } from '../../queries'
-
+/**
+ *
+ *
+ * @export
+ * @returns
+ */
 export default function NewFull() {
   const [currentTime, setCurrentTime] = useState(null)
   const [fetchTime, setFetchTime] = useState(null)
   const [yesterdayDate, setYesterdayDate] = useState(null)
   const [totalShows, setTotalShows] = useState(null)
   const [categoryLabels, setCategoryLabels] = useState(['All Schedule Dates'])
-  const [scheduledShows, setScheduledShows] = useState({
-    data: null,
-    hasMore: null,
-    endCursor: null,
-  })
+  const [tempShows, setTempShows] = useState(null)
+  const [scheduledShows, setScheduledShows] = useState(null)
   const [problemShows, setProblemShows] = useState(null)
 
   /**
@@ -38,44 +40,8 @@ export default function NewFull() {
    */
   const [
     fetchAllScheduledShows,
-    { called, loading: isFetching, data: fetchedScheduleData },
+    { loading, data: fetchedScheduleData },
   ] = useLazyQuery(GET_ALL_SCHEDULED_SHOWS)
-
-  const callQuery = async (date, cursor) => {
-    fetchAllScheduledShows({
-      variables: { yesterday: date, after: cursor },
-    })
-  }
-
-  const recursiveFetchAllSchedules = useCallback(
-    async (yesterdayDate, currentCursor = null) => {
-      await callQuery(yesterdayDate, currentCursor)
-      console.log('called', called)
-      console.log(fetchedScheduleData)
-      // if (fetchedScheduleData) {
-      //   console.log("fetchedScheduleData", fetchedScheduleData);
-      //   const currentSchedules = fetchedScheduleData?.allSchedules?.edges.map(
-      //     (edge) => edge.node
-      //   );
-
-      //   console.log("currSchedule", currentSchedules);
-
-      //   if (!fetchedScheduleData?.allSchedules?.pageInfo?.hasNextPage) {
-      //     return currentSchedules;
-      //   }
-
-      //   const newCursor =
-      //     fetchedScheduleData?.allSchedules?.pageInfo?.e-ndCursor;
-      //   const newSchedules = await recursiveFetchAllSchedules(
-      //     yesterdayDate,
-      //     newCursor
-      //   );
-
-      //   return [...currrentSchedules, ...newSchedules];
-      // }
-    },
-    []
-  )
 
   useEffect(() => {
     const fetchAllSchedules = async () => {
@@ -83,11 +49,53 @@ export default function NewFull() {
       // const yesterday = formatDateTime(currTime, "prismic-date-query")[0];
       const yesterday = '2019-01-01'
 
-      const allSchedules = await recursiveFetchAllSchedules(yesterday)
-      setScheduledShows({ data: allSchedules })
+      setYesterdayDate(yesterday)
+      fetchAllScheduledShows({
+        variables: { yesterday },
+      })
     }
     fetchAllSchedules()
-  }, [recursiveFetchAllSchedules])
+  }, [])
+
+  /**
+   * Process `fetchedScheduleData` after the first fetch.
+   * IF `pageInfohasNextPage`
+   *    Combine `tempShows` (if exists), with `currentSchedules`
+   *    Refetch using `newCursor
+   * ELSE
+   *    Combine `tempShows` (if exists), with `currentSchedules`
+   *    Null `tempShows`
+   * @category useEffect
+   * @name processShowAndFetchMore
+   */
+  useEffect(() => {
+    const processShowAndFetchMore = async () => {
+      if (fetchedScheduleData) {
+        const { edges, pageInfo, totalCount } = fetchedScheduleData.allSchedules
+        if (pageInfo.hasNextPage) {
+          const newCursor = pageInfo.endCursor
+
+          if (tempShows) {
+            setTempShows([...tempShows, ...edges])
+          } else {
+            setTempShows(edges)
+          }
+
+          fetchAllScheduledShows({
+            variables: { yesterday: yesterdayDate, after: newCursor },
+          })
+        } else {
+          if (tempShows) {
+            setScheduledShows([...tempShows, ...edges])
+          } else {
+            setScheduledShows(edges)
+          }
+          setTempShows(null)
+        }
+      }
+    }
+    processShowAndFetchMore()
+  }, [fetchedScheduleData])
 
   return (
     <main className="black-bg-page">
@@ -112,8 +120,11 @@ export default function NewFull() {
       <section className="section container is-fluid">
         <div className="columns is-mobile">
           <div className="column content">
-            {scheduledShows.data && (
-              <pre>{JSON.stringify(scheduledShows, null, 2)}</pre>
+            {scheduledShows && (
+              <>
+                <p>{scheduledShows.length}</p>
+                <pre>{JSON.stringify(scheduledShows, null, 2)}</pre>
+              </>
             )}
           </div>
         </div>

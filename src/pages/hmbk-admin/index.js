@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { AdminHeader, AdminLinkButtons } from '../../components/admin'
+import { HMBKFooter } from '../../components/helpers'
 
 /**
  * Renders the `/hmbk-admin/` landing page
@@ -18,6 +19,7 @@ export default function HMBKAdminPage({ data }) {
       <section className="section container is-fluid">
         <AdminLinkButtons />
       </section>
+      <HMBKFooter isFluid={true} />
     </main>
   )
 }

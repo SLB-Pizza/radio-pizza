@@ -62,8 +62,6 @@ function RadioPlayer() {
   }
 
   const handleProgress = (played, loaded) => {
-    console.log('played', played)
-    console.log('loaded', loaded)
     let hoursPlayed = 0
     let minutesPlayed = 0
     let secondsPlayed = 0

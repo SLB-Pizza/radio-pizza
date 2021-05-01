@@ -132,7 +132,6 @@ export default function FullSchedules() {
         if (!totalShows) {
           setTotalShows(fetchedScheduleData.allSchedules.totalCount)
         }
-        console.log(fetchedShows)
         let sortedScheduleData = []
         let currentFetchProblemShows = []
 
@@ -192,8 +191,6 @@ export default function FullSchedules() {
     processFetchedScheduleData()
   }, [fetchComplete])
 
-  console.log('problemShows', problemShows)
-  console.log('scheduledShows', scheduledShows)
   return (
     <main className="black-bg-page">
       <AdminHeader renderHomeLink={true} />

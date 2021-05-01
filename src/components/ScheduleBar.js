@@ -23,13 +23,14 @@ function ScheduleBar({ timeNow }) {
    * @category useLazyQueries
    * @name getUpcomingShows
    */
-  const [
-    getUpcomingShows,
-    { loading: isFetching, data: upcomingShowData },
-  ] = useLazyQuery(GET_UPCOMING_SHOWS)
+  const [getUpcomingShows, { data: upcomingShowData }] = useLazyQuery(
+    GET_UPCOMING_SHOWS
+  )
 
   /**
-   * Compute current time and yesterday's date is Prismic query date format ("YYYY-MM-DD") every second.
+   * Compute current time and yesterday's date in Prismic query date format ("YYYY-MM-DD") every second.
+   * Only update `yesterdayDate` if it's `null` (initial page load),
+   * or the day has changed (one day to the next).
    * @category useEffect
    * @name setCurrentTimeAndYesterdayDate
    */
@@ -37,10 +38,6 @@ function ScheduleBar({ timeNow }) {
     const setCurrentTimeAndYesterdayDate = setInterval(() => {
       const yesterday = formatDateTime(timeNow, 'get-yesterday-date')
 
-      /**
-       * Only update `yesterdayDate` if it's `null` (initial page load),
-       * or the day has changed (one day to the next).
-       */
       if (yesterdayDate === null || yesterday !== yesterdayDate) {
         setYesterdayDate(yesterday)
       }
@@ -80,7 +77,6 @@ function ScheduleBar({ timeNow }) {
     const updateTodaysSchedule = () => {
       if (upcomingShowData) {
         let nextTwoDatesWithScheduledShows = upcomingShowData.allSchedules.edges
-        console.log(nextTwoDatesWithScheduledShows)
 
         const sortedEntries = sortUpcomingShowsArray(
           nextTwoDatesWithScheduledShows
@@ -101,8 +97,7 @@ function ScheduleBar({ timeNow }) {
           `https://public.radio.co/stations/s6f093248d/status`
         )
         const streamData = await streamResponse.json()
-        // console.log('streamData', streamData);
-        // console.log('globalState.live:', globalState.live)
+
         if (streamData.status === 'online') {
           await dispatch({
             type: 'SET_LIVE',
@@ -113,7 +108,7 @@ function ScheduleBar({ timeNow }) {
           })
         }
       } catch (error) {
-        console.log('Error while fetching stream status, error:', error)
+        console.error('Error while fetching stream status, error:', error)
       }
     }
     fetchData()

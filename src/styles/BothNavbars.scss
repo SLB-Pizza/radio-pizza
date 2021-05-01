@@ -225,11 +225,7 @@
 
   a,
   span {
-    color: white;
     transition: 0.25s $easing;
-    &:hover {
-      color: $primary;
-    }
   }
 
   // Uncomment when done converting to .full-height-page

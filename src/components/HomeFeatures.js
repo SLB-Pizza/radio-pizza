@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'gatsby'
 import { useLazyQuery } from '@apollo/client'
-import { SingleFeatureCard } from './index'
+import { SingleFeatureCard, StickyItemsLayout } from './index'
 import { FILL_HOME_FEATURES } from '../queries'
-import { StickyItemsLayout } from './index'
 import {
   getUIDsFromDataArray,
   mappableDataFilter,
@@ -30,7 +28,7 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
     'column is-6-desktop is-two-fifths-tablet is-four-fifths-mobile'
 
   /**
-   * Uses the query {@link FILL_HOME_FEATURES}
+   * Uses the query {@link FILL_HOME_FEATURES} to fetch 4 Features for {@link processFetchedHomeFeatures} to work with.
    * @category useLazyQuery
    * @name HomeFeaturesQuery
    */
@@ -40,12 +38,12 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
   ] = useLazyQuery(FILL_HOME_FEATURES)
 
   /**
-   * Scenario 1 - `filteredHomeFeatures` has 4 or more entries
-   * Grab only the first 4 features
-   *
-   * Scenario 2 - `filteredHomeFeatures` has less than 4 entries
-   * Fetch 4 Features by calling {@link HomeFeaturesQuery}.
-   * `fetchedFeatures` updates, triggering {@link processFetchedHomeFeatures}.
+   * IF `filteredHomeFeatures` has 4 or more entries
+   *    Grab only the first 4 features
+   * ELSE
+   *    `filteredHomeFeatures` has less than 4 entries
+   *    Fetch 4 Features by calling {@link HomeFeaturesQuery}.
+   *    `fetchedFeatures` updates, triggering {@link processFetchedHomeFeatures}.
    * @category useEffect
    * @name fetchRemainingHomeFeatures
    */
@@ -58,8 +56,7 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
         const featuresToMap = filteredHomeFeatures.slice(0, 4)
         setHomeFeatures(featuresToMap)
       } else {
-        const featureQueryCount = 4
-        fetchFillerHomeFeatures({ variables: { count: featureQueryCount } })
+        fetchFillerHomeFeatures()
       }
     }
     fetchRemainingHomeFeatures()

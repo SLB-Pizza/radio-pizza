@@ -9,11 +9,12 @@ import {
 } from '../components'
 import { ArticleHeadline } from '../components/slices'
 import { HMBKFooter } from '../components/helpers'
+import { AdminHeader } from '../components/admin'
 
 /**
  * @category Templates
  * @function CMSGuideTemplate
- * @param {object} data - the data object coming from Prismic CMS that contains all data needed to build cms-help off of `/guide/:uid`
+ * @param {Object} data - the data object coming from Prismic CMS that contains all data needed to build cms-help off of `/guide/:uid`
  * @returns {jsx}
  */
 function CMSGuideTemplate({ data, path }) {
@@ -46,7 +47,7 @@ function CMSGuideTemplate({ data, path }) {
     : 'Guide'
 
   return (
-    <main className="full-height-page">
+    <main className="black-bg-page">
       <Helmet defer={false}>
         <title>{`${helmetGuideTitle} | ${title}`}</title>
         <meta name="description" content={helmetDescription} />
@@ -77,8 +78,9 @@ function CMSGuideTemplate({ data, path }) {
             />
           )}
       </Helmet>
+      <AdminHeader renderHomeLink={true} adminGuide={true} />
       <article>
-        <ArticleHeadline headlineData={headlineData} />
+        <ArticleHeadline headlineData={headlineData} isGuide={true} />
         <ArticleBylineSubtitle
           subtitle={guideSubtitle}
           dates={guideDates}

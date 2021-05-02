@@ -11,9 +11,10 @@ import { FallbackImage } from '../../utils'
  * @category CMS Slices
  * @function ArticleHeadline
  * @param {Object} headlineData - data object from Prismic CMS that contains all content data needed to create the HeadlineBlock slice
+ * @param {?Boolean} isGuide - when true, changes the hero height to allow for {@link AdminHeader} to be placed above it.
  * @returns {jsx}
  */
-function ArticleHeadline({ headlineData }) {
+export default function ArticleHeadline({ headlineData, isGuide }) {
   const {
     article_headline_img,
     article_category,
@@ -25,10 +26,13 @@ function ArticleHeadline({ headlineData }) {
    * Process article category details.
    */
   const categoryDetails = article_category || article_subcategory
-
   return (
     <header
-      className="hero article-header has-background"
+      className={
+        isGuide
+          ? 'hero article-header__guide has-background'
+          : 'hero article-header has-background'
+      }
       aria-labelledby="article-headline"
     >
       {article_headline_img ? (
@@ -72,5 +76,3 @@ function ArticleHeadline({ headlineData }) {
     </header>
   )
 }
-
-export default ArticleHeadline

@@ -6,6 +6,10 @@
 }
 
 .admin {
+  &-guide {
+    padding-bottom: $gap;
+  }
+
   &-link,
   &-box {
     border: 2px solid white;

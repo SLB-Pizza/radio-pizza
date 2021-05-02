@@ -508,8 +508,8 @@ img {
   // ================================
   // CMS Slice -- ArticleHeadline.js
   // ================================
-  &.article-header {
-    height: calc(100vh - 9.625rem);
+  &.article-header,
+  &.article-header__guide {
     justify-content: flex-end;
     h1 {
       font-weight: 900;
@@ -525,6 +525,12 @@ img {
           margin: auto 0;
         }
       }
+    }
+  }
+  &.article-header {
+    height: calc(100vh - 9.625rem);
+    &__guide {
+      height: calc(100vh - (9.625rem + (4 * 32px)));
     }
   }
 }

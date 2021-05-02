@@ -1,16 +1,17 @@
 import { gql } from '@apollo/client'
 
 /**
+ * Fetches 12 Mixes to filter through in {@link processFetchedHomeMixes} using {@link removeDuplicateFetchData}.
  * Query for Prismic in the GraphQL syntax, NOT the Gatsby syntax!
  * Similar procedure as in {@link ScheduleBar}, {@link HomeEvents} and {@link HomeFeatures}.
- * Used in {@link HomeMixes}.
+ * Called in {@link HomeMixes} by {@link HomeMixesQuery}.
  * @category Queries
  * @name FILL_HOME_MIXES
  * @see {@link https://hmbk-cms.prismic.io/graphql HMBK's Prismic GraphQL API}
  */
 export const FILL_HOME_MIXES = gql`
-  query FillHomeMixes($count: Int!) {
-    allMixs(sortBy: mix_date_DESC, first: $count) {
+  query FillHomeMixes {
+    allMixs(sortBy: mix_date_DESC, first: 12) {
       edges {
         node {
           _meta {

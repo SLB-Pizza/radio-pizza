@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'gatsby'
 import { useLazyQuery } from '@apollo/client'
 import { SingleMixCard, StickyItemsLayout } from './index'
 import { FILL_HOME_MIXES } from '../queries'

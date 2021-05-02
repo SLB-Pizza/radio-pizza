@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'gatsby'
-import { useQuery } from '@apollo/client'
-
+import { useLazyQuery } from '@apollo/client'
 import { SingleFeatureCard } from './index'
 import { FILL_HOME_FEATURES } from '../queries'
-import { mappableDataFilter } from '../utils'
+import {
+  getUIDsFromDataArray,
+  mappableDataFilter,
+  removeDuplicateFetchData,
+} from '../utils'
 
 /**
  * Returns the Editorial content section of the Homepage.
@@ -16,76 +19,91 @@ import { mappableDataFilter } from '../utils'
  * @returns {jsx}
  */
 function HomeFeatures({ headline, blurb, homeFeaturesData }) {
-  const [twelveFeatures, setTwelveFeatures] = useState(null)
+  const [homeFeatures, setHomeFeatures] = useState(null)
 
   const filteredHomeFeatures = mappableDataFilter(homeFeaturesData)
-  const featureQueryCount = 4 - filteredHomeFeatures.length
   /**
    * The string passed into {@link SingleFeatureCard} that defines the column sizing for the mix cards in the Editorial section of the Homepage.
    */
-  const featuresPageLayout = 'column is-6-tablet is-four-fifths-mobile'
+  const featuresPageLayout =
+    'column is-6-desktop is-two-fifths-tablet is-four-fifths-mobile'
 
   /**
    * Uses the query {@link FILL_HOME_FEATURES}
-   * @category useQuery
+   * @category useLazyQuery
    * @name HomeFeaturesQuery
    */
-  const { data, loading, error } = useQuery(FILL_HOME_FEATURES, {
-    variables: {
-      count: featureQueryCount,
-    },
-  })
+  const [
+    fetchFillerHomeFeatures,
+    { data: fetchedFeatures, loading },
+  ] = useLazyQuery(FILL_HOME_FEATURES)
 
   /**
-   * Fetches (4 - data.length) Features to fill {@link HomeFeatures} layout.
-   * Three scenarios:
-   * 1) homeFeaturesData has more than 4 Feature objects
-   * 2) homeFeaturesData has less than 4 Feature objects
-   * 3) homeFeaturesData has exactly 4 Feature objects
-   *
-   * Scenario 1
+   * Scenario 1 - `filteredHomeFeatures` has 4 or more entries
    * Grab only the first 4 features
    *
-   * Scenario 2
-   * Subtract quantity of filteredHomeFeatures from 4
-   * Query for that many of the most recent mixes
-   * Spread that data into the filteredHomeFeatures array
-   * setTwelveMixes the new 12 mix filteredHomeFeatures
-   *
-   * Scenario 3
-   * We have exactly 4 features
+   * Scenario 2 - `filteredHomeFeatures` has less than 4 entries
+   * Fetch 4 Features by calling {@link HomeFeaturesQuery}.
+   * `fetchedFeatures` updates, triggering {@link processFetchedHomeFeatures}.
    * @category useEffect
    * @name fetchRemainingHomeFeatures
    */
   useEffect(() => {
     const fetchRemainingHomeFeatures = () => {
-      if (filteredHomeFeatures.length > 4) {
+      if (filteredHomeFeatures.length >= 4) {
         /**
          * #1
          */
         const featuresToMap = filteredHomeFeatures.slice(0, 4)
-        setTwelveFeatures(featuresToMap)
-      } else if (filteredHomeFeatures.length < 4) {
-        /**
-         * #2
-         */
-        if (data) {
-          const fetchedRecentFeatures = data.allFeatures.edges
-          const newTwelveFeatures = [
-            ...filteredHomeFeatures,
-            ...fetchedRecentFeatures,
-          ]
-          setTwelveFeatures(newTwelveFeatures)
-        } else {
-          /**
-           * #3
-           */
-          setTwelveFeatures(filteredHomeFeatures)
-        }
+        setHomeFeatures(featuresToMap)
+      } else {
+        const featureQueryCount = 4
+        fetchFillerHomeFeatures({ variables: { count: featureQueryCount } })
       }
     }
-    return fetchRemainingHomeFeatures()
-  }, [homeFeaturesData, data])
+    fetchRemainingHomeFeatures()
+  }, [homeFeaturesData])
+
+  /**
+   * Runs when {@link fetchFillerHomeFeatures} returns fetchedFeatures to process.
+   * Scenario 1
+   * We have exactly 4 features
+   *
+   * Scenario 2
+   * Query 4 more recently published Features.
+   * Spread that fetchedFeatures into the filteredHomeFeatures array
+   * setTwelveMixes the new 12 mix filteredHomeFeatures
+   * @category useEffect
+   * @name processFetchedHomeFeatures
+   */
+  useEffect(() => {
+    const processFetchedHomeFeatures = () => {
+      if (!fetchedFeatures) {
+        /**
+         * Scenario 1
+         */
+        setHomeFeatures(filteredHomeFeatures)
+      } else {
+        /**
+         * Scenario 2
+         */
+        const featureUIDsToFilter = getUIDsFromDataArray(filteredHomeFeatures)
+        const fetchedRecentFeatures = fetchedFeatures.allFeatures.edges
+
+        const uidFilteredRecentFeatures = removeDuplicateFetchData(
+          fetchedRecentFeatures,
+          featureUIDsToFilter
+        )
+
+        const newTwelveFeatures = [
+          ...filteredHomeFeatures,
+          ...uidFilteredRecentFeatures,
+        ]
+        setHomeFeatures(newTwelveFeatures)
+      }
+    }
+    processFetchedHomeFeatures()
+  }, [fetchedFeatures])
 
   return (
     <section className="container is-fluid" id="home-news">
@@ -106,7 +124,7 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
 
         <div className="column is-9">
           <div className="columns is-multiline">
-            {twelveFeatures?.map(({ node }, index) => (
+            {homeFeatures?.map(({ node }, index) => (
               <SingleFeatureCard
                 key={`${index}-home-feature`}
                 data={node}
@@ -118,7 +136,7 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
       </div>
       {/*
       Touch Sizes
-      */}
+    */}
       <div className="columns is-mobile is-multiline is-vcentered is-hidden-desktop">
         <div className="column content">
           {headline && <h3 className="title is-4">{headline}</h3>}
@@ -133,7 +151,7 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
         </div>
       </div>
       <div className="columns is-mobile is-hidden-desktop mobile-single-items">
-        {twelveFeatures?.map(({ node }, index) => (
+        {homeFeatures?.map(({ node }, index) => (
           <SingleFeatureCard
             key={`${index}-home-feature`}
             data={node}

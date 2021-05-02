@@ -21,6 +21,7 @@ export { default as getCMSEntryName } from './getCMSEntryName'
 export { default as getMixTitle } from './getMixTitle'
 export { default as getMixLinkSite } from './getMixLinkSite'
 export { default as getResidentString } from './getResidentString'
+export { default as getUIDsFromDataArray } from './getUIDsFromDataArray'
 export { default as getUpcomingShowDetails } from './getUpcomingShowDetails'
 export { default as HeroArrows } from './HeroArrows'
 export { default as IconMaker } from './IconMaker'
@@ -46,6 +47,7 @@ export {
   eventDateSort,
   featureDateSort,
 } from './singleResidentDateSorting'
+export { default as removeDuplicateFetchData } from './removeDuplicateFetchData'
 export { scrollToTop } from './scrollToTop'
 export { default as setInitialMarqueeState } from './setInitialMarqueeState'
 export { default as sortUpcomingShowsArray } from './sortUpcomingShowsArray'

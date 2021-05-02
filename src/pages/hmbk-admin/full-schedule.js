@@ -69,7 +69,7 @@ export default function FullSchedules() {
 
   /**
    * Process `fetchedScheduleData` every first fetch, and subsequent cursor-add refetches.
-   * IF `pageInfohasNextPage`
+   * IF `pageInfo.hasNextPage`
    *    Combine `tempShows` (if exists), with incoming `edges`
    *    Refetch {@link fetchAllScheduledShows} using `newCursor`
    * ELSE

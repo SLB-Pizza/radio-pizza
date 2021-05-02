@@ -21,8 +21,8 @@ $hero-body-padding-medium: 6rem 1.5rem;
 //==================================
 $navbar-item-color: white;
 $navbar-item-hover-color: white;
+$navbar-item-hover-background-color: darken($primary, 35);
 $navbar-item-active-color: white;
-$navbar-item-hover-background-color: darken($primary, 25);
 $navbar-item-active-background-color: darken($primary, 30);
 $navbar-dropdown-background-color: black;
 $navbar-dropdown-item-hover-color: darken($primary, 25);

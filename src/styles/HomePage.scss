@@ -60,30 +60,28 @@ $text-shadow: ();
 // <HomeContent />
 //==================================
 // Make each content sections' titles and taglines sticky
-.sticky-section {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 8.25rem;
+.sticky {
+  &-items {
+    border-top: 0.125rem solid white;
+    padding: 3rem 2rem 1.625rem;
 
-  &-blurb {
-    button {
-      top: 0.5rem;
+    @include mobile {
+      padding: 2rem 1rem;
     }
   }
-}
+  &-section {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 8.25rem;
 
-// Make mobile entries horizontally scrollable
-.mobile-single-items {
-  overflow-x: auto;
-}
-
-#home-mixes,
-#home-events,
-#home-news {
-  border-top: 0.125rem solid white;
-  padding: 3rem 2rem 1.625rem;
-
-  @include mobile {
-    padding: 2rem 1rem;
+    &-blurb {
+      button {
+        top: 0.5rem;
+      }
+    }
+  }
+  // Make mobile entries horizontally scrollable
+  &-scroll-items {
+    overflow-x: auto;
   }
 }

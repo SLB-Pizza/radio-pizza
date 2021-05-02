@@ -10,8 +10,8 @@ import { Link } from 'gatsby'
  * @param {String} linkURL - content landing page to navigate to
  * @param {String} linkBtnText - label for the button that takes you to `/linkURL/`
  * @param {Object[]} itemsToMap - data from Prismic received from /index; original data set in Prismic Homepage document
- * @param {String} layout - dictates layout for `ItemComponent`
  * @param {Function} ItemComponent - React layout component to use when mapping `itemsToMap`
+ * @param {String} layout - dictates layout for `ItemComponent`
  * @returns {jsx}
  */
 export default function StickyItemsLayout({
@@ -20,11 +20,11 @@ export default function StickyItemsLayout({
   linkURL,
   linkBtnText,
   itemsToMap,
-  layout,
   ItemComponent,
+  layout,
 }) {
   return (
-    <section className="section container is-fluid">
+    <section className="section container is-fluid sticky-items">
       {/* DESKTOP */}
       <div className="columns is-hidden-touch">
         <div className="column is-3">
@@ -64,7 +64,7 @@ export default function StickyItemsLayout({
           </Link>
         </div>
       </div>
-      <div className="columns is-mobile is-hidden-desktop mobile-single-items">
+      <div className="columns is-mobile is-hidden-desktop sticky-scroll-items">
         {itemsToMap?.map(({ node }, index) => (
           <ItemComponent
             key={`${linkBtnText}-404-mobile-#${index}`}

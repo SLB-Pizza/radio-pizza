@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import { useLazyQuery } from '@apollo/client'
 import { SingleFeatureCard } from './index'
 import { FILL_HOME_FEATURES } from '../queries'
+import { StickyItemsLayout } from './index'
 import {
   getUIDsFromDataArray,
   mappableDataFilter,
@@ -106,60 +107,17 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
   }, [fetchedFeatures])
 
   return (
-    <section className="container is-fluid" id="home-news">
-      {/* DESKTOP */}
-      <div className="columns is-hidden-touch">
-        <div className="column is-3">
-          <div className="sticky-section content">
-            {headline && <h3 className="title">{headline}</h3>}
-            {blurb && <p className="subtitle">{blurb}</p>}
-
-            <Link to="/editorial">
-              <button className="button is-outlined is-rounded">
-                All Editorial
-              </button>
-            </Link>
-          </div>
-        </div>
-
-        <div className="column is-9">
-          <div className="columns is-multiline">
-            {homeFeatures?.map(({ node }, index) => (
-              <SingleFeatureCard
-                key={`${index}-home-feature`}
-                data={node}
-                columnLayout={featuresPageLayout}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-      {/*
-      Touch Sizes
-    */}
-      <div className="columns is-mobile is-multiline is-vcentered is-hidden-desktop">
-        <div className="column content">
-          {headline && <h3 className="title is-4">{headline}</h3>}
-          {blurb && <p className="subtitle is-6">{blurb}</p>}
-        </div>
-        <div className="column is-narrow">
-          <Link to="/editorial">
-            <button className="button is-small is-outlined is-rounded">
-              All Editorial
-            </button>
-          </Link>
-        </div>
-      </div>
-      <div className="columns is-mobile is-hidden-desktop mobile-single-items">
-        {homeFeatures?.map(({ node }, index) => (
-          <SingleFeatureCard
-            key={`${index}-home-feature`}
-            data={node}
-            columnLayout={featuresPageLayout}
-          />
-        ))}
-      </div>
-    </section>
+    homeFeatures && (
+      <StickyItemsLayout
+        headline={headline}
+        blurb={blurb}
+        linkURL={'/editorial'}
+        linkBtnText={'All Editorials'}
+        itemsToMap={homeFeatures}
+        ItemComponent={SingleFeatureCard}
+        layout={featuresPageLayout}
+      />
+    )
   )
 }
 

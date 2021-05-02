@@ -33,8 +33,9 @@ export default function NotFoundPage({ data }) {
   } = titling.edges[0].node
 
   const { title, description, siteUrl, twitterUsername } = useSiteMetadata()
-  const smallCardLayout = 'column is-3-desktop is-6-tablet is-12-mobile'
-  const largeCardLayout = 'column is-6-desktop is-12-touch'
+  const smallCardLayout =
+    'column is-four-fifths-mobile is-two-fifths-tablet is-4-desktop'
+  const largeCardLayout = 'column is-6-desktop is-four-fifths-touch'
 
   return (
     <main className="black-bg-page">
@@ -68,35 +69,41 @@ export default function NotFoundPage({ data }) {
         </div>
       </header>
 
-      <StickyItemsLayout
-        headline={home_mixes_titling}
-        blurb={home_mixes_blurb}
-        linkURL={'/radio'}
-        linkBtnText={'All Radio'}
-        itemsToMap={radios.edges}
-        layout={'column is-9-mobile is-two-fifths-tablet is-4-desktop'}
-        ItemComponent={SingleMixCard}
-      />
-      <StickyItemsLayout
-        headline={home_events_titling}
-        blurb={home_events_blurb}
-        linkURL={'/events'}
-        linkBtnText={'All Events'}
-        itemsToMap={events.edges}
-        layout={'column is-9-mobile is-two-fifths-tablet is-4-desktop'}
-        ItemComponent={SingleEventCard}
-      />
-      <StickyItemsLayout
-        headline={home_editorial_titling}
-        blurb={home_editorial_blurb}
-        linkURL={'/editorial'}
-        linkBtnText={'All Editorial'}
-        itemsToMap={editorials.edges}
-        layout={'column is-6-tablet is-four-fifths-mobile'}
-        ItemComponent={SingleFeatureCard}
-      />
+      {radios && (
+        <StickyItemsLayout
+          headline={home_mixes_titling}
+          blurb={home_mixes_blurb}
+          linkURL={'/radio'}
+          linkBtnText={'All Radio'}
+          itemsToMap={radios.edges}
+          layout={smallCardLayout}
+          ItemComponent={SingleMixCard}
+        />
+      )}
+      {events && (
+        <StickyItemsLayout
+          headline={home_events_titling}
+          blurb={home_events_blurb}
+          linkURL={'/events'}
+          linkBtnText={'All Events'}
+          itemsToMap={events.edges}
+          layout={smallCardLayout}
+          ItemComponent={SingleEventCard}
+        />
+      )}
+      {editorials && (
+        <StickyItemsLayout
+          headline={home_editorial_titling}
+          blurb={home_editorial_blurb}
+          linkURL={'/editorial'}
+          linkBtnText={'All Editorial'}
+          itemsToMap={editorials.edges}
+          layout={largeCardLayout}
+          ItemComponent={SingleFeatureCard}
+        />
+      )}
 
-      <HMBKFooter />
+      <HMBKFooter isFluid={true} />
     </main>
   )
 }

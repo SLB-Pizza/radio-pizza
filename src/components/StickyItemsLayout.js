@@ -2,17 +2,17 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 /**
- *
- *
- * @export
- * @param {*} headline
- * @param {*} blurb
- * @param {*} linkURL
- * @param {*} linkBtnText
- * @param {*} itemsToMap
- * @param {*} layout
- * @param {*} ItemComponent
- * @returns
+ * Renders a Sticky Layout section for fetched content on {@link IndexPage} and {@link NotFoundPage}.
+ * @category Layout Helper
+ * @function StickyItemsLayout
+ * @param {String} headline - the label for this section
+ * @param {String} blurb - short description to give the user context
+ * @param {String} linkURL - content landing page to navigate to
+ * @param {String} linkBtnText - label for the button that takes you to `/linkURL/`
+ * @param {Object[]} itemsToMap - data from Prismic received from /index; original data set in Prismic Homepage document
+ * @param {String} layout - dictates layout for `ItemComponent`
+ * @param {Function} ItemComponent - React layout component to use when mapping `itemsToMap`
+ * @returns {jsx}
  */
 export default function StickyItemsLayout({
   headline,
@@ -24,7 +24,7 @@ export default function StickyItemsLayout({
   ItemComponent,
 }) {
   return (
-    <section className="section container is-fluid" id="home-mixes">
+    <section className="section container is-fluid">
       {/* DESKTOP */}
       <div className="columns is-hidden-touch">
         <div className="column is-3">

@@ -1,3 +1,39 @@
+### Version 1.15.0
+- feat(HMBKItem): add Feature to query; update slice rework layoutSide derivation add short-circuit to whole slice
+- feat(AdminLink): add subtitle to describe link
+- feat(CMSLink): create component link button to go to CMS
+- refactor(AdminLinkButtons): import CMSLink component
+- fix(AdminSiteStatus): add 'requires login' note
+- feat(AdminGuides): map guide data to categories pass to SingleFeatureCard
+- docs(CategorizedGuides): add jsdoc
+- feat(/guides): add individualized guide helmet details
+- fix(/hmbk-admin): add null return case where data has not been fetched
+- fix(UpcomingShow): comment out; to fix post-launch
+- layout(AdminLink): add 'is-mobile' to section
+- refactor(DivAndTopBtn): componentize; add to LandingPageLoadFetch
+- feat(new-full): fetch all schedule data on page load; port for /full-schedule
+- WIP(refactor): /new-full -> /full-schedule schedule fetching
+- refactor(/full-schedule): port /new-full working all fetch code 'get-place-in-schedule' - wrap `time` in dayjs
+- prune(#79): remove console.logs
+- style(navbar): remove link-hover color selector
+- feat(home-fetch): add uid and filter base functions
+- refactor(/full-schedule): finish port of /new-full code
+- prune(#79): remove blank Features scss file
+- style(Guide): resize ArticleHeadline to fit it and AdminHeader on one screen sizing now allows for click back to `/hmbk-admin/
+- feat(HomeFeatures): add removeDuplicateFetchData function called by processFetchedHomeFeatures
+- docs(StickyLayout): update as prep for HomeFeatures call
+- refactor(HomeFeatures): calll StickyItemsLayout update sticky-section styling
+- feat(404): add short-circuit; make footer fluid
+- update(queries): hardcode 4 and 12 limits into FillHomeFeatures and FillHomeMixes, respectively
+- refactor(HomeFeatures): remove hardcode variables in fetchFillerHomeFeatures update docs
+- docs(removeDupeFetchData): add missing param desc
+- refactor(HomeMixes): same refactor as HomeFeatures add optional useLazyQuery call filter out fetchedMixes by UID call StickyItemsLayout and pass processed twelve mixes
+- refactor(HomeEvents): call StickyItemsLayout and pass props
+- refactor(getUIDsFromArr): use generic entry to handle `/editorial/` header data processing
+- feat(/editorial): add filtering code to remove duplicate editorials works for first load and subsequent fetches
+- WIP(RadioPlayer): start adding 'loading...' message code
+- rename(Event): change Event Prismic type; update backup
+
 ### Version 1.14.1
 - revert(GCP): fix CHANGE_URL playing; false -> true
 

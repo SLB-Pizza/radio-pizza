@@ -2,13 +2,13 @@ import React, { useEffect, useState, useRef } from 'react'
 import { getCursorFromDocumentIndex } from '@prismicio/gatsby-source-prismic-graphql'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
-
 import {
   FeaturesHighlightItems,
   LandingPageFetchAndLoading,
   SingleFeatureCard,
   useSiteMetadata,
 } from '../../components'
+import { getUIDsFromDataArray, removeDuplicateFetchData } from '../../utils'
 import PropTypes from 'prop-types'
 
 /**
@@ -28,31 +28,58 @@ function EditorialIndexPage({ data, prismic }) {
    */
   if (!prismicContent) return null
 
+  const firstEditorialFetch = prismicContent.allFeatures.edges
   /**
    * Focus the node for the otherFeaturesData check below.
    */
-
-  const [featuresHighlights, setFeaturesHighlights] = useState(null)
-
   const featuresPerPage = 6
   const didMountRef = useRef(false)
   const [page, setPage] = useState(-1)
-  const [featuresToMap, setFeaturesToMap] = useState({
-    data: prismicContent.allFeatures.edges,
-    hasMore: prismicContent.allFeatures.hasNextPage,
-  })
+  const [featuresHighlights, setFeaturesHighlights] = useState(null)
+  const [editorialUIDsToFilter, setEditorialsUIDsToFilter] = useState(null)
   const [featuresLoading, setFeaturesLoading] = useState(false)
+  const [featuresToMap, setFeaturesToMap] = useState(firstEditorialFetch)
+  // const [featuresToMap, setFeaturesToMap] = useState({
+  //   data: prismicContent.allFeatures.edges,
+  //   hasMore: prismicContent.allFeatures.hasNextPage,
+  // });
 
   /**
-   * Break down `prismicContent` to select `featuresHeaderData` for {@link FeaturesHighlightItems}.
+   * Break down `prismicContent` to select `editorialHeaderData` for {@link FeaturesHighlightItems}.
    * @category useEffect
-   * @name processFeaturesHeaderData
+   * @name processEditorialHeaderData
    */
   useEffect(() => {
-    const processFeaturesHeaderData = () => {
-      // Select and deconstruct featuresHeaderData for use.
-      const featuresHeaderData = prismicContent.allLandingpages.edges[0].node
-      const { bottom_right_feature, top_right_feature } = featuresHeaderData
+    const processEditorialHeaderData = () => {
+      /**
+       * Select and deconstruct `editorialHeaderData` for use.
+       */
+      const editorialHeaderData = prismicContent.allLandingpages.edges[0].node
+      const { bottom_right_feature, top_right_feature } = editorialHeaderData
+
+      /**
+       * Create an array to collect editorialHeaderData node to pass into {@link getUIDsFromDataArray}
+       */
+      console.debug(editorialHeaderData)
+      const editorialsToFilter = []
+      if (bottom_right_feature) {
+        editorialsToFilter.push({ node: bottom_right_feature })
+      }
+      if (top_right_feature) {
+        editorialsToFilter.push({ node: top_right_feature })
+      }
+
+      const uidsToFilter = getUIDsFromDataArray(editorialsToFilter)
+      setEditorialsUIDsToFilter(uidsToFilter)
+
+      const filteredEditorialData = removeDuplicateFetchData(
+        featuresToMap,
+        uidsToFilter
+      )
+      setFeaturesToMap({
+        data: filteredEditorialData,
+        hasMore: prismicContent.allFeatures.hasNextPage,
+      })
 
       /**
        * Build the highlightedFeatures data object; will be used as props for {@link FeaturesHighlightItems}.
@@ -64,7 +91,7 @@ function EditorialIndexPage({ data, prismic }) {
 
       setFeaturesHighlights(highlightedFeatures)
     }
-    return processFeaturesHeaderData()
+    return processEditorialHeaderData()
   }, [data])
 
   /**
@@ -89,7 +116,9 @@ function EditorialIndexPage({ data, prismic }) {
         return
       }
 
-      // Grab the next 12 events
+      /**
+       * Grab the next 6 Features
+       */
       prismic
         .load({
           variables: {
@@ -97,12 +126,17 @@ function EditorialIndexPage({ data, prismic }) {
           },
         })
         .then(res => {
-          setFeaturesLoading(false)
+          const fetchedEditorialData = res.data.allFeatures
+          const filteredFetchedEditorials = removeDuplicateFetchData(
+            fetchedEditorialDataArr.edges,
+            editorialUIDsToFilter
+          )
 
           setFeaturesToMap({
-            data: [...featuresToMap.data, ...res.data.allFeatures.edges],
-            hasMore: res.data.allFeatures.pageInfo.hasNextPage,
+            data: [...featuresToMap.data, ...filteredFetchedEditorials],
+            hasMore: fetchedEditorialData.pageInfo.hasNextPage,
           })
+          setFeaturesLoading(false)
         })
     }
 
@@ -117,7 +151,7 @@ function EditorialIndexPage({ data, prismic }) {
       <Helmet defer={false}>
         <title>{`Editorial | ${title}`}</title>
         <meta property="og:title" content={`Editorial | ${title}`} />
-        <meta property="og:url" content={`${siteUrl}/mixes/`} />
+        <meta property="og:url" content={`${siteUrl}/editorial/`} />
         <meta name="twitter:title" content={`Editorial | ${title}`} />
       </Helmet>
 
@@ -138,20 +172,23 @@ function EditorialIndexPage({ data, prismic }) {
 
       <section className="section container is-fluid media-cards">
         <div className="columns is-mobile is-multiline">
-          {featuresToMap?.data.map(({ node }, index) => (
-            <SingleFeatureCard
-              key={`halfmoon-feature-${index}`}
-              data={node}
-              columnLayout={individualFeatureLayout}
-            />
-          ))}
+          {featuresToMap?.data &&
+            featuresToMap?.data.map(({ node }, index) => (
+              <SingleFeatureCard
+                key={`halfmoon-feature-${index}`}
+                data={node}
+                columnLayout={individualFeatureLayout}
+              />
+            ))}
         </div>
-        <LandingPageFetchAndLoading
-          hasMore={featuresToMap.hasMore}
-          currentlyFetching={featuresLoading}
-          fetchMoreFunc={loadNextFeatures}
-          fetchMoreBtnTxt={'More Features'}
-        />
+        {featuresToMap && (
+          <LandingPageFetchAndLoading
+            hasMore={featuresToMap.hasMore}
+            fetchMoreFunc={loadNextFeatures}
+            currentlyFetching={featuresLoading}
+            fetchMoreBtnTxt={'More Features'}
+          />
+        )}
       </section>
     </main>
   )

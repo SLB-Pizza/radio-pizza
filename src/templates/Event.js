@@ -37,7 +37,6 @@ function EventTemplate({ data, path }) {
     event_name,
     event_location,
     event_location_physical_address,
-    event_location_link,
     event_header_button_text,
     event_header_button_link,
     event_livestream_embed,
@@ -172,12 +171,6 @@ export const query = graphql`
             event_location
             event_livestream_embed
             event_location_physical_address
-            event_location_link {
-              ... on PRISMIC__ExternalLink {
-                target
-                url
-              }
-            }
             event_header_button_text
             event_header_button_link {
               ... on PRISMIC__ExternalLink {

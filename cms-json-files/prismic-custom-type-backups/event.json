@@ -49,7 +49,7 @@
     "event_header_button_text": {
       "type": "Text",
       "config": {
-        "label": "Event Header Button Text",
+        "label": "Event Call To Action Button Text",
         "placeholder": "What action can a listener take here? ('Buy Tickets', 'RSVP (Free)',  etc.)"
       }
     },
@@ -57,7 +57,7 @@
       "type": "Link",
       "config": {
         "allowTargetBlank": true,
-        "label": "Event Header Button Link",
+        "label": "Event Call To Action Button Link",
         "placeholder": "Add a link to complete that action (ticketing site, venue's RSVP site, etc.)"
       }
     },
@@ -75,20 +75,12 @@
         "placeholder": "If in-person, please enter the location's physical address (e.g 1260 6th Ave, New York)"
       }
     },
-    "event_location_link": {
-      "type": "Link",
-      "config": {
-        "allowTargetBlank": true,
-        "label": "Event Stream Link",
-        "placeholder": "If the event has a livestream, add that link here (YouTube, Twitch, etc.)"
-      }
-    },
     "event_livestream_embed": {
       "type": "StructuredText",
       "config": {
         "multi": "paragraph, heading3, strong, em, hyperlink, embed",
         "allowTargetBlank": true,
-        "label": "Event Livestream Embed",
+        "label": "Event Livestream/Recorded Video",
         "placeholder": "For YouTube livestreams, select Embed button, then copy/paste the link. For all other links, select the Hyperlink, then copy/paste the link in with desired label text."
       }
     },

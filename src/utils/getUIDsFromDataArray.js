@@ -6,5 +6,5 @@
  * @returns {String[]}
  */
 export default function getUIDsFromDataArray(dataArray) {
-  return dataArray.map(({ node }) => node._meta.uid)
+  return dataArray.map(entry => entry.node._meta.uid)
 }

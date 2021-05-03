@@ -179,6 +179,7 @@ function RadioPlayer() {
         loop={globalState.loop}
         onProgress={handleProgress}
         onDuration={handleDuration}
+        onBuffer={() => console.log('onBuffer')}
         onReady={() => {
           handleMixReady(dispatch)
         }}

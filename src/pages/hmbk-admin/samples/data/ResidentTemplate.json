@@ -1,0 +1,2125 @@
+{
+  "data": {
+    "prismic": {
+      "bio": {
+        "edges": [
+          {
+            "node": {
+              "resident_image": {
+                "dimensions": {
+                  "width": 1200,
+                  "height": 800
+                },
+                "alt": "Koan Sound",
+                "copyright": "Anna O'Driscoll",
+                "url": "https://images.prismic.io/hmbk-cms/2d19d45f-8807-45e8-9fec-3a1e35a2a907_rs-14878-koan-1800-1396282463.webp?auto=compress,format"
+              },
+              "resident_name": "KOAN Sound",
+              "resident_status": "Guest",
+              "resident_blurb": [
+                {
+                  "type": "paragraph",
+                  "text": "KOAN Sound is an electronic music production duo from Bristol, United Kingdom. The duo consists of Will Weeks and Jim Bastow. The name is taken from the word kōan. A track from the Max Out EP  is titled \"One Hand Clap\" – a reference to a well-known kōan with the implied answer of silence, an element used in their music to draw extreme contrast. ",
+                  "spans": [
+                    {
+                      "start": 0,
+                      "end": 10,
+                      "type": "strong"
+                    },
+                    {
+                      "start": 54,
+                      "end": 61,
+                      "type": "hyperlink",
+                      "data": {
+                        "link_type": "Web",
+                        "url": "https://en.wikipedia.org/wiki/Bristol"
+                      }
+                    },
+                    {
+                      "start": 158,
+                      "end": 162,
+                      "type": "hyperlink",
+                      "data": {
+                        "link_type": "Web",
+                        "url": "https://en.wikipedia.org/wiki/K%C5%8Dan"
+                      }
+                    },
+                    {
+                      "start": 181,
+                      "end": 191,
+                      "type": "em"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "text": "The duo cite bands such as Rage Against the Machine and Incubus as early influences. In 2005 the duo began to explore electronic music through artists such as The Prodigy and Noisia. They initially gained recognition as dubstep producers, with earlier popular tracks including \"Akira\". Some of their many types of music includes glitch hop, neurohop, and Drum & Bass. ",
+                  "spans": [
+                    {
+                      "start": 27,
+                      "end": 51,
+                      "type": "hyperlink",
+                      "data": {
+                        "link_type": "Web",
+                        "url": "https://en.wikipedia.org/wiki/Rage_Against_the_Machine"
+                      }
+                    },
+                    {
+                      "start": 56,
+                      "end": 63,
+                      "type": "hyperlink",
+                      "data": {
+                        "link_type": "Web",
+                        "url": "https://en.wikipedia.org/wiki/Incubus_(band)"
+                      }
+                    },
+                    {
+                      "start": 118,
+                      "end": 134,
+                      "type": "hyperlink",
+                      "data": {
+                        "link_type": "Web",
+                        "url": "https://en.wikipedia.org/wiki/Electronic_music"
+                      }
+                    },
+                    {
+                      "start": 159,
+                      "end": 170,
+                      "type": "hyperlink",
+                      "data": {
+                        "link_type": "Web",
+                        "url": "https://en.wikipedia.org/wiki/The_Prodigy"
+                      }
+                    },
+                    {
+                      "start": 175,
+                      "end": 181,
+                      "type": "hyperlink",
+                      "data": {
+                        "link_type": "Web",
+                        "url": "https://en.wikipedia.org/wiki/Noisia"
+                      }
+                    },
+                    {
+                      "start": 220,
+                      "end": 227,
+                      "type": "hyperlink",
+                      "data": {
+                        "link_type": "Web",
+                        "url": "https://en.wikipedia.org/wiki/Dubstep"
+                      }
+                    },
+                    {
+                      "start": 329,
+                      "end": 339,
+                      "type": "hyperlink",
+                      "data": {
+                        "link_type": "Web",
+                        "url": "https://en.wikipedia.org/wiki/Glitch_hop"
+                      }
+                    },
+                    {
+                      "start": 341,
+                      "end": 349,
+                      "type": "hyperlink",
+                      "data": {
+                        "link_type": "Web",
+                        "url": "https://en.wikipedia.org/wiki/Neurohop"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "text": "The duo have since released music on various labels including Inspected Records and OWSLA, and have worked with a number of other artists, including producer Asa and singer Ed Sheeran. ",
+                  "spans": [
+                    {
+                      "start": 84,
+                      "end": 89,
+                      "type": "hyperlink",
+                      "data": {
+                        "link_type": "Web",
+                        "url": "https://en.wikipedia.org/wiki/OWSLA"
+                      }
+                    },
+                    {
+                      "start": 173,
+                      "end": 183,
+                      "type": "hyperlink",
+                      "data": {
+                        "link_type": "Web",
+                        "url": "https://en.wikipedia.org/wiki/Ed_Sheeran"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "social_media": [
+                {
+                  "resident_social_page": "Personal Site",
+                  "resident_social_link": {
+                    "target": "_blank",
+                    "_linkType": "Link.web",
+                    "url": "https://www.koansound.com/"
+                  }
+                },
+                {
+                  "resident_social_page": "Soundcloud",
+                  "resident_social_link": {
+                    "target": "_blank",
+                    "_linkType": "Link.web",
+                    "url": "https://soundcloud.com/koan-sound"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "mixes": {
+        "edges": [
+          {
+            "node": {
+              "resident_mixes": [
+                {
+                  "resident_mix": {
+                    "_meta": {
+                      "tags": [],
+                      "uid": "like-that-records-9252019",
+                      "type": "mix"
+                    },
+                    "mix_image": {
+                      "dimensions": {
+                        "width": 1080,
+                        "height": 1080
+                      },
+                      "alt": "Like That",
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/d19e73d7-143c-4844-b5d2-a9457dcfea80_likethat_925.jpg?auto=compress,format&rect=0,0,300,300&w=1080&h=1080",
+                      "large": {
+                        "dimensions": {
+                          "width": 600,
+                          "height": 600
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/d19e73d7-143c-4844-b5d2-a9457dcfea80_likethat_925.jpg?auto=compress,format&rect=0,0,300,300&w=600&h=600"
+                      },
+                      "medium": {
+                        "dimensions": {
+                          "width": 350,
+                          "height": 350
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/d19e73d7-143c-4844-b5d2-a9457dcfea80_likethat_925.jpg?auto=compress,format&rect=0,0,300,300&w=350&h=350"
+                      },
+                      "now_playing": {
+                        "dimensions": {
+                          "width": 96,
+                          "height": 96
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/d19e73d7-143c-4844-b5d2-a9457dcfea80_likethat_925.jpg?auto=compress,format&rect=0,0,300,300&w=96&h=96"
+                      }
+                    },
+                    "mix_title": "Like That Records",
+                    "mix_link": "https://www.mixcloud.com/HalfMoonbk/like-that-records-9252019/",
+                    "mix_date": "2019-09-25",
+                    "featured_residents": [
+                      {
+                        "mix_resident": {
+                          "resident_name": "Like That Records",
+                          "_meta": {
+                            "uid": "like-that",
+                            "type": "resident"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "resident_mix": {
+                    "_meta": {
+                      "tags": ["Club"],
+                      "uid": "dj-nativesun-10302019",
+                      "type": "mix"
+                    },
+                    "mix_image": {
+                      "dimensions": {
+                        "width": 1080,
+                        "height": 1080
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/0af6db45-2926-41ef-ad9d-726d1dbac68a_nativesun+10302019.jpg?auto=compress,format&rect=0,0,600,600&w=1080&h=1080",
+                      "large": {
+                        "dimensions": {
+                          "width": 600,
+                          "height": 600
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/0af6db45-2926-41ef-ad9d-726d1dbac68a_nativesun+10302019.jpg?auto=compress,format&rect=0,0,600,600&w=600&h=600"
+                      },
+                      "medium": {
+                        "dimensions": {
+                          "width": 350,
+                          "height": 350
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/0af6db45-2926-41ef-ad9d-726d1dbac68a_nativesun+10302019.jpg?auto=compress,format&rect=0,0,600,600&w=350&h=350"
+                      },
+                      "now_playing": {
+                        "dimensions": {
+                          "width": 96,
+                          "height": 96
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/0af6db45-2926-41ef-ad9d-726d1dbac68a_nativesun+10302019.jpg?auto=compress,format&rect=0,0,600,600&w=96&h=96"
+                      }
+                    },
+                    "mix_title": "DJ Nativesun - 10.30.2019",
+                    "mix_link": "https://www.mixcloud.com/HalfMoonbk/dj-native-sun-10302019/",
+                    "mix_date": "2019-10-30",
+                    "featured_residents": [
+                      {
+                        "mix_resident": {
+                          "resident_name": "DJ Nativesun",
+                          "_meta": {
+                            "uid": "dj-nativesun",
+                            "type": "resident"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "resident_mix": {
+                    "_meta": {
+                      "tags": ["Afrobeat", "Club", "House", "Trap"],
+                      "uid": "silky-black-9192019",
+                      "type": "mix"
+                    },
+                    "mix_image": {
+                      "dimensions": {
+                        "width": 600,
+                        "height": 600
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/13e2df47-8b0b-4a85-9c01-96a382628b4c_Screen+Shot+2021-01-28+at+5.55.24+PM.png?auto=compress,format&rect=0,3,596,596&w=600&h=600",
+                      "medium": {
+                        "dimensions": {
+                          "width": 350,
+                          "height": 350
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/13e2df47-8b0b-4a85-9c01-96a382628b4c_Screen+Shot+2021-01-28+at+5.55.24+PM.png?auto=compress,format&rect=0,3,596,596&w=350&h=350"
+                      },
+                      "now_playing": {
+                        "dimensions": {
+                          "width": 96,
+                          "height": 96
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/13e2df47-8b0b-4a85-9c01-96a382628b4c_Screen+Shot+2021-01-28+at+5.55.24+PM.png?auto=compress,format&rect=0,0,596,596&w=96&h=96"
+                      }
+                    },
+                    "mix_title": null,
+                    "mix_link": "https://www.mixcloud.com/HalfMoonbk/silky-black-9192019/",
+                    "mix_date": "2019-09-19",
+                    "featured_residents": [
+                      {
+                        "mix_resident": {
+                          "resident_name": "Silky Black",
+                          "_meta": {
+                            "uid": "silky-black",
+                            "type": "resident"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "resident_mix": {
+                    "_meta": {
+                      "tags": ["Chicago House", "House", "Dance", "Electronic"],
+                      "uid": "kilopatrah-jones-11112019",
+                      "type": "mix"
+                    },
+                    "mix_image": {
+                      "dimensions": {
+                        "width": 600,
+                        "height": 600
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/895ffddc-fd2c-42ac-8dbf-f2701b12c857_Screen+Shot+2021-01-28+at+5.15.56+PM.png?auto=compress,format&rect=1,0,598,598&w=600&h=600",
+                      "medium": {
+                        "dimensions": {
+                          "width": 350,
+                          "height": 350
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/895ffddc-fd2c-42ac-8dbf-f2701b12c857_Screen+Shot+2021-01-28+at+5.15.56+PM.png?auto=compress,format&rect=2,0,598,598&w=350&h=350"
+                      },
+                      "now_playing": {
+                        "dimensions": {
+                          "width": 96,
+                          "height": 96
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/895ffddc-fd2c-42ac-8dbf-f2701b12c857_Screen+Shot+2021-01-28+at+5.15.56+PM.png?auto=compress,format&rect=0,0,598,598&w=96&h=96"
+                      }
+                    },
+                    "mix_title": null,
+                    "mix_link": "https://www.mixcloud.com/HalfMoonbk/kilopatrah-jones-11112019/",
+                    "mix_date": "2019-11-11",
+                    "featured_residents": [
+                      {
+                        "mix_resident": {
+                          "resident_name": "Kilopatrah Jones",
+                          "_meta": {
+                            "uid": "kilopatrah-jones",
+                            "type": "resident"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "resident_mix": {
+                    "_meta": {
+                      "tags": ["Reggaeton", "Dancehall", "Club", "Juke"],
+                      "uid": "dos-flakos-3.5.2020",
+                      "type": "mix"
+                    },
+                    "mix_image": {
+                      "dimensions": {
+                        "width": 600,
+                        "height": 600
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/da8cfadd-2e43-470c-b677-700308a4511d_dos+flakos.jpg?auto=compress,format&rect=0,0,300,300&w=600&h=600",
+                      "medium": {
+                        "dimensions": {
+                          "width": 350,
+                          "height": 350
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/da8cfadd-2e43-470c-b677-700308a4511d_dos+flakos.jpg?auto=compress,format&rect=0,0,300,300&w=350&h=350"
+                      },
+                      "now_playing": {
+                        "dimensions": {
+                          "width": 96,
+                          "height": 96
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/da8cfadd-2e43-470c-b677-700308a4511d_dos+flakos.jpg?auto=compress,format&rect=0,0,300,300&w=96&h=96"
+                      }
+                    },
+                    "mix_title": "Dos Flakos - 3.5.2020",
+                    "mix_link": "https://www.mixcloud.com/HalfMoonbk/dos-flakos-352020/",
+                    "mix_date": "2020-03-05",
+                    "featured_residents": [
+                      {
+                        "mix_resident": {
+                          "resident_name": "Dos Flakos",
+                          "_meta": {
+                            "uid": "dos-flakos",
+                            "type": "resident"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "resident_mix": {
+                    "_meta": {
+                      "tags": ["Trap", "Hip Hop"],
+                      "uid": "dj-freedem-6252019",
+                      "type": "mix"
+                    },
+                    "mix_image": {
+                      "dimensions": {
+                        "width": 600,
+                        "height": 600
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/64d9f402-e593-466a-aeba-2b8f05359101_freedem+6252019.jpg?auto=compress,format&rect=0,0,600,600&w=600&h=600",
+                      "medium": {
+                        "dimensions": {
+                          "width": 350,
+                          "height": 350
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/64d9f402-e593-466a-aeba-2b8f05359101_freedem+6252019.jpg?auto=compress,format&rect=0,0,600,600&w=350&h=350"
+                      },
+                      "now_playing": {
+                        "dimensions": {
+                          "width": 96,
+                          "height": 96
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/64d9f402-e593-466a-aeba-2b8f05359101_freedem+6252019.jpg?auto=compress,format&rect=0,0,600,600&w=96&h=96"
+                      }
+                    },
+                    "mix_title": "DJ Freedem - 6.25.2019",
+                    "mix_link": "https://www.mixcloud.com/HalfMoonbk/dj-freedem-6252019/",
+                    "mix_date": "2019-06-25",
+                    "featured_residents": [
+                      {
+                        "mix_resident": {
+                          "resident_name": "DJ Freedem",
+                          "_meta": {
+                            "uid": "dj-freedem",
+                            "type": "resident"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "resident_mix": {
+                    "_meta": {
+                      "tags": ["Dembow", "Disco", "Dance", "House"],
+                      "uid": "jamesy-6262019",
+                      "type": "mix"
+                    },
+                    "mix_image": {
+                      "dimensions": {
+                        "width": 600,
+                        "height": 600
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/d1e60663-5484-4da2-9fbb-e16bb68d3758_e698-c0d5-491b-a234-f94d2849666d.jpg?auto=compress,format&rect=0,0,300,300&w=600&h=600",
+                      "medium": {
+                        "dimensions": {
+                          "width": 350,
+                          "height": 350
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/d1e60663-5484-4da2-9fbb-e16bb68d3758_e698-c0d5-491b-a234-f94d2849666d.jpg?auto=compress,format&rect=0,0,300,300&w=350&h=350"
+                      },
+                      "now_playing": {
+                        "dimensions": {
+                          "width": 96,
+                          "height": 96
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/d1e60663-5484-4da2-9fbb-e16bb68d3758_e698-c0d5-491b-a234-f94d2849666d.jpg?auto=compress,format&rect=0,0,300,300&w=96&h=96"
+                      }
+                    },
+                    "mix_title": null,
+                    "mix_link": "https://www.mixcloud.com/HalfMoonbk/jamesy-6262019/",
+                    "mix_date": "2019-06-26",
+                    "featured_residents": [
+                      {
+                        "mix_resident": {
+                          "resident_name": "Jamesy",
+                          "_meta": {
+                            "uid": "jamesy",
+                            "type": "resident"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "resident_mix": {
+                    "_meta": {
+                      "tags": ["House"],
+                      "uid": "dj-jazzabella-1082019",
+                      "type": "mix"
+                    },
+                    "mix_image": {
+                      "dimensions": {
+                        "width": 600,
+                        "height": 600
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/baa3779c-d198-42a9-93b5-ce4eda412968_jazzabella+1082019.jpg?auto=compress,format&rect=0,0,600,600&w=600&h=600",
+                      "medium": {
+                        "dimensions": {
+                          "width": 350,
+                          "height": 350
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/baa3779c-d198-42a9-93b5-ce4eda412968_jazzabella+1082019.jpg?auto=compress,format&rect=0,0,600,600&w=350&h=350"
+                      },
+                      "now_playing": {
+                        "dimensions": {
+                          "width": 96,
+                          "height": 96
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/baa3779c-d198-42a9-93b5-ce4eda412968_jazzabella+1082019.jpg?auto=compress,format&rect=0,0,600,600&w=96&h=96"
+                      }
+                    },
+                    "mix_title": "DJ Jazzabella - 10.8.2019",
+                    "mix_link": "https://www.mixcloud.com/HalfMoonbk/dj-jazzabella-1082019/",
+                    "mix_date": "2019-10-08",
+                    "featured_residents": [
+                      {
+                        "mix_resident": {
+                          "resident_name": "DJ Jazzabella",
+                          "_meta": {
+                            "uid": "dj-jazzabella",
+                            "type": "resident"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "resident_mix": {
+                    "_meta": {
+                      "tags": ["Funk", "House", "Afro House"],
+                      "uid": "jaxx-tms-8262019",
+                      "type": "mix"
+                    },
+                    "mix_image": {
+                      "dimensions": {
+                        "width": 600,
+                        "height": 600
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/b10d4188-7687-4ac1-8222-e6fca409fe56_01f7-5684-4944-8104-0ee48f8ec02e.jpg?auto=compress,format&rect=0,0,300,300&w=600&h=600",
+                      "medium": {
+                        "dimensions": {
+                          "width": 350,
+                          "height": 350
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/b10d4188-7687-4ac1-8222-e6fca409fe56_01f7-5684-4944-8104-0ee48f8ec02e.jpg?auto=compress,format&rect=0,0,300,300&w=350&h=350"
+                      },
+                      "now_playing": {
+                        "dimensions": {
+                          "width": 96,
+                          "height": 96
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/b10d4188-7687-4ac1-8222-e6fca409fe56_01f7-5684-4944-8104-0ee48f8ec02e.jpg?auto=compress,format&rect=0,0,300,300&w=96&h=96"
+                      }
+                    },
+                    "mix_title": null,
+                    "mix_link": "https://www.mixcloud.com/HalfMoonbk/jaxx-tms-8262019/",
+                    "mix_date": "2019-08-26",
+                    "featured_residents": [
+                      {
+                        "mix_resident": {
+                          "resident_name": "JAXX TMS",
+                          "_meta": {
+                            "uid": "jaxx-tms",
+                            "type": "resident"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "resident_mix": {
+                    "_meta": {
+                      "tags": ["House"],
+                      "uid": "dj-jazzabella-7122019",
+                      "type": "mix"
+                    },
+                    "mix_image": {
+                      "dimensions": {
+                        "width": 600,
+                        "height": 600
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/61f1ccb7-7b59-4f73-8216-1a20fb0f8003_jazzabella+7122019.jpg?auto=compress,format&rect=0,0,600,600&w=600&h=600",
+                      "medium": {
+                        "dimensions": {
+                          "width": 350,
+                          "height": 350
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/61f1ccb7-7b59-4f73-8216-1a20fb0f8003_jazzabella+7122019.jpg?auto=compress,format&rect=0,0,600,600&w=350&h=350"
+                      },
+                      "now_playing": {
+                        "dimensions": {
+                          "width": 96,
+                          "height": 96
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/61f1ccb7-7b59-4f73-8216-1a20fb0f8003_jazzabella+7122019.jpg?auto=compress,format&rect=0,0,600,600&w=96&h=96"
+                      }
+                    },
+                    "mix_title": "DJ Jazzabella - 7.12.2019",
+                    "mix_link": "https://www.mixcloud.com/HalfMoonbk/dj-jazzabella-7122019/",
+                    "mix_date": "2019-07-12",
+                    "featured_residents": [
+                      {
+                        "mix_resident": {
+                          "resident_name": "DJ Jazzabella",
+                          "_meta": {
+                            "uid": "dj-jazzabella",
+                            "type": "resident"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "resident_mix": {
+                    "_meta": {
+                      "tags": [],
+                      "uid": "invt-10.29.2019",
+                      "type": "mix"
+                    },
+                    "mix_image": null,
+                    "mix_title": "INVT - 10.29.2019",
+                    "mix_link": "https://www.mixcloud.com/HalfMoonbk/invt-10292019/",
+                    "mix_date": "2019-10-29",
+                    "featured_residents": [
+                      {
+                        "mix_resident": {
+                          "resident_name": "INVT",
+                          "_meta": {
+                            "uid": "invt",
+                            "type": "resident"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "resident_mix": {
+                    "_meta": {
+                      "tags": ["Electronic", "Electro", "House", "Deep House"],
+                      "uid": "jarren-10142019",
+                      "type": "mix"
+                    },
+                    "mix_image": {
+                      "dimensions": {
+                        "width": 600,
+                        "height": 600
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/45a15cf7-1645-4277-a241-c6b8f016421c_f77b-6839-40b3-b609-2f92b17a4b1f.jpg?auto=compress,format&rect=0,0,300,300&w=600&h=600",
+                      "medium": {
+                        "dimensions": {
+                          "width": 350,
+                          "height": 350
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/45a15cf7-1645-4277-a241-c6b8f016421c_f77b-6839-40b3-b609-2f92b17a4b1f.jpg?auto=compress,format&rect=0,0,300,300&w=350&h=350"
+                      },
+                      "now_playing": {
+                        "dimensions": {
+                          "width": 96,
+                          "height": 96
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/45a15cf7-1645-4277-a241-c6b8f016421c_f77b-6839-40b3-b609-2f92b17a4b1f.jpg?auto=compress,format&rect=0,0,300,300&w=96&h=96"
+                      }
+                    },
+                    "mix_title": null,
+                    "mix_link": "https://www.mixcloud.com/HalfMoonbk/jarren-10142019/",
+                    "mix_date": "2019-10-14",
+                    "featured_residents": [
+                      {
+                        "mix_resident": {
+                          "resident_name": "Jarren",
+                          "_meta": {
+                            "uid": "jarren",
+                            "type": "resident"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "resident_mix": {
+                    "_meta": {
+                      "tags": ["House", "Garage", "Pop"],
+                      "uid": "darian-akari-7162019",
+                      "type": "mix"
+                    },
+                    "mix_image": {
+                      "dimensions": {
+                        "width": 600,
+                        "height": 600
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/404f85ef-2c89-4722-bfc9-5562ec2064b3_61d4-b0f9-4b48-9401-49c2876cd150.jpg?auto=compress,format&rect=0,0,300,300&w=600&h=600",
+                      "medium": {
+                        "dimensions": {
+                          "width": 350,
+                          "height": 350
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/404f85ef-2c89-4722-bfc9-5562ec2064b3_61d4-b0f9-4b48-9401-49c2876cd150.jpg?auto=compress,format&rect=0,0,300,300&w=350&h=350"
+                      },
+                      "now_playing": {
+                        "dimensions": {
+                          "width": 96,
+                          "height": 96
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/404f85ef-2c89-4722-bfc9-5562ec2064b3_61d4-b0f9-4b48-9401-49c2876cd150.jpg?auto=compress,format&rect=0,0,300,300&w=96&h=96"
+                      }
+                    },
+                    "mix_title": "Darian + Akari - 7.16.2019",
+                    "mix_link": "https://www.mixcloud.com/HalfMoonbk/darian-akari-7162019/",
+                    "mix_date": "2019-07-16",
+                    "featured_residents": [
+                      {
+                        "mix_resident": {
+                          "resident_name": "Darian",
+                          "_meta": {
+                            "uid": "darian",
+                            "type": "resident"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "resident_mix": {
+                    "_meta": {
+                      "tags": [],
+                      "uid": "httpsaudiomack.comhalfmoon-1song12465332",
+                      "type": "mix"
+                    },
+                    "mix_image": {
+                      "dimensions": {
+                        "width": 1080,
+                        "height": 1080
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/b472f766-48d6-4c60-9550-322a0d5ed335_DJ+Delish.jpg?auto=compress,format&rect=0,0,1080,1080&w=1080&h=1080",
+                      "large": {
+                        "dimensions": {
+                          "width": 600,
+                          "height": 600
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/b472f766-48d6-4c60-9550-322a0d5ed335_DJ+Delish.jpg?auto=compress,format&rect=0,0,1080,1080&w=600&h=600"
+                      },
+                      "medium": {
+                        "dimensions": {
+                          "width": 350,
+                          "height": 350
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/b472f766-48d6-4c60-9550-322a0d5ed335_DJ+Delish.jpg?auto=compress,format&rect=0,0,1080,1080&w=350&h=350"
+                      },
+                      "now_playing": {
+                        "dimensions": {
+                          "width": 96,
+                          "height": 96
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/b472f766-48d6-4c60-9550-322a0d5ed335_DJ+Delish.jpg?auto=compress,format&rect=0,0,1080,1080&w=96&h=96"
+                      }
+                    },
+                    "mix_title": "Sound off for The Standard Hotel - 2.13.2021",
+                    "mix_link": "https://audiomack.com/halfmoon-1/song/12465332",
+                    "mix_date": "2021-02-13",
+                    "featured_residents": [
+                      {
+                        "mix_resident": {
+                          "resident_name": "DJ Delish",
+                          "_meta": {
+                            "uid": "dj-delish",
+                            "type": "resident"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "resident_mix": {
+                    "_meta": {
+                      "tags": ["Club"],
+                      "uid": "dj-nativesun-6262019",
+                      "type": "mix"
+                    },
+                    "mix_image": {
+                      "dimensions": {
+                        "width": 1080,
+                        "height": 1080
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/cee012e2-ce4d-428a-a7b9-389944d6d6e8_nativesun+6262019.jpg?auto=compress,format&rect=0,0,600,600&w=1080&h=1080",
+                      "large": {
+                        "dimensions": {
+                          "width": 600,
+                          "height": 600
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/cee012e2-ce4d-428a-a7b9-389944d6d6e8_nativesun+6262019.jpg?auto=compress,format&rect=0,0,600,600&w=600&h=600"
+                      },
+                      "medium": {
+                        "dimensions": {
+                          "width": 350,
+                          "height": 350
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/cee012e2-ce4d-428a-a7b9-389944d6d6e8_nativesun+6262019.jpg?auto=compress,format&rect=0,0,600,600&w=350&h=350"
+                      },
+                      "now_playing": {
+                        "dimensions": {
+                          "width": 96,
+                          "height": 96
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/cee012e2-ce4d-428a-a7b9-389944d6d6e8_nativesun+6262019.jpg?auto=compress,format&rect=0,0,600,600&w=96&h=96"
+                      }
+                    },
+                    "mix_title": "DJ Nativesun - 6.26.2019",
+                    "mix_link": "https://www.mixcloud.com/HalfMoonbk/dj-nativesun-6262019/",
+                    "mix_date": "2019-06-26",
+                    "featured_residents": [
+                      {
+                        "mix_resident": {
+                          "resident_name": "DJ Nativesun",
+                          "_meta": {
+                            "uid": "dj-nativesun",
+                            "type": "resident"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "resident_mix": {
+                    "_meta": {
+                      "tags": ["Club"],
+                      "uid": "dj-nativesun-10302019",
+                      "type": "mix"
+                    },
+                    "mix_image": {
+                      "dimensions": {
+                        "width": 1080,
+                        "height": 1080
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/0af6db45-2926-41ef-ad9d-726d1dbac68a_nativesun+10302019.jpg?auto=compress,format&rect=0,0,600,600&w=1080&h=1080",
+                      "large": {
+                        "dimensions": {
+                          "width": 600,
+                          "height": 600
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/0af6db45-2926-41ef-ad9d-726d1dbac68a_nativesun+10302019.jpg?auto=compress,format&rect=0,0,600,600&w=600&h=600"
+                      },
+                      "medium": {
+                        "dimensions": {
+                          "width": 350,
+                          "height": 350
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/0af6db45-2926-41ef-ad9d-726d1dbac68a_nativesun+10302019.jpg?auto=compress,format&rect=0,0,600,600&w=350&h=350"
+                      },
+                      "now_playing": {
+                        "dimensions": {
+                          "width": 96,
+                          "height": 96
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/0af6db45-2926-41ef-ad9d-726d1dbac68a_nativesun+10302019.jpg?auto=compress,format&rect=0,0,600,600&w=96&h=96"
+                      }
+                    },
+                    "mix_title": "DJ Nativesun - 10.30.2019",
+                    "mix_link": "https://www.mixcloud.com/HalfMoonbk/dj-native-sun-10302019/",
+                    "mix_date": "2019-10-30",
+                    "featured_residents": [
+                      {
+                        "mix_resident": {
+                          "resident_name": "DJ Nativesun",
+                          "_meta": {
+                            "uid": "dj-nativesun",
+                            "type": "resident"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "resident_mix": {
+                    "_meta": {
+                      "tags": ["Club", "House", "Juke", "Trap"],
+                      "uid": "silky-black-6202019",
+                      "type": "mix"
+                    },
+                    "mix_image": {
+                      "dimensions": {
+                        "width": 600,
+                        "height": 600
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/c9ca11e4-1188-44db-bdc8-c9e65b8bfea1_Screen+Shot+2021-01-28+at+6.18.37+PM.png?auto=compress,format&rect=6,0,588,588&w=600&h=600",
+                      "medium": {
+                        "dimensions": {
+                          "width": 350,
+                          "height": 350
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/c9ca11e4-1188-44db-bdc8-c9e65b8bfea1_Screen+Shot+2021-01-28+at+6.18.37+PM.png?auto=compress,format&rect=7,0,588,588&w=350&h=350"
+                      },
+                      "now_playing": {
+                        "dimensions": {
+                          "width": 96,
+                          "height": 96
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/c9ca11e4-1188-44db-bdc8-c9e65b8bfea1_Screen+Shot+2021-01-28+at+6.18.37+PM.png?auto=compress,format&rect=6,0,588,588&w=96&h=96"
+                      }
+                    },
+                    "mix_title": null,
+                    "mix_link": "https://www.mixcloud.com/HalfMoonbk/silky-black-6202019/",
+                    "mix_date": "2019-06-20",
+                    "featured_residents": [
+                      {
+                        "mix_resident": {
+                          "resident_name": "Silky Black",
+                          "_meta": {
+                            "uid": "silky-black",
+                            "type": "resident"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "resident_mix": {
+                    "_meta": {
+                      "tags": ["Afrobeat", "Club", "Dance"],
+                      "uid": "silky-black-calvo_music-5162019",
+                      "type": "mix"
+                    },
+                    "mix_image": {
+                      "dimensions": {
+                        "width": 600,
+                        "height": 600
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/73ea9787-978c-4468-9df3-89b3b5ae1314_Screen+Shot+2021-01-28+at+6.06.14+PM.png?auto=compress,format&rect=0,1,600,600&w=600&h=600",
+                      "medium": {
+                        "dimensions": {
+                          "width": 350,
+                          "height": 350
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/73ea9787-978c-4468-9df3-89b3b5ae1314_Screen+Shot+2021-01-28+at+6.06.14+PM.png?auto=compress,format&rect=0,2,600,600&w=350&h=350"
+                      },
+                      "now_playing": {
+                        "dimensions": {
+                          "width": 96,
+                          "height": 96
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/73ea9787-978c-4468-9df3-89b3b5ae1314_Screen+Shot+2021-01-28+at+6.06.14+PM.png?auto=compress,format&rect=0,0,600,600&w=96&h=96"
+                      }
+                    },
+                    "mix_title": null,
+                    "mix_link": "https://www.mixcloud.com/HalfMoonbk/silky-black-calvo-music-5162019/",
+                    "mix_date": "2019-05-16",
+                    "featured_residents": [
+                      {
+                        "mix_resident": {
+                          "resident_name": "Silky Black",
+                          "_meta": {
+                            "uid": "silky-black",
+                            "type": "resident"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "resident_mix": {
+                    "_meta": {
+                      "tags": ["Club", "House", "Juke", "Trap"],
+                      "uid": "silky-black-6202019",
+                      "type": "mix"
+                    },
+                    "mix_image": {
+                      "dimensions": {
+                        "width": 600,
+                        "height": 600
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/c9ca11e4-1188-44db-bdc8-c9e65b8bfea1_Screen+Shot+2021-01-28+at+6.18.37+PM.png?auto=compress,format&rect=6,0,588,588&w=600&h=600",
+                      "medium": {
+                        "dimensions": {
+                          "width": 350,
+                          "height": 350
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/c9ca11e4-1188-44db-bdc8-c9e65b8bfea1_Screen+Shot+2021-01-28+at+6.18.37+PM.png?auto=compress,format&rect=7,0,588,588&w=350&h=350"
+                      },
+                      "now_playing": {
+                        "dimensions": {
+                          "width": 96,
+                          "height": 96
+                        },
+                        "alt": null,
+                        "copyright": null,
+                        "url": "https://images.prismic.io/hmbk-cms/c9ca11e4-1188-44db-bdc8-c9e65b8bfea1_Screen+Shot+2021-01-28+at+6.18.37+PM.png?auto=compress,format&rect=6,0,588,588&w=96&h=96"
+                      }
+                    },
+                    "mix_title": null,
+                    "mix_link": "https://www.mixcloud.com/HalfMoonbk/silky-black-6202019/",
+                    "mix_date": "2019-06-20",
+                    "featured_residents": [
+                      {
+                        "mix_resident": {
+                          "resident_name": "Silky Black",
+                          "_meta": {
+                            "uid": "silky-black",
+                            "type": "resident"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "pageInfo": {
+          "hasNextPage": false,
+          "endCursor": "YXJyYXljb25uZWN0aW9uOjA="
+        }
+      },
+      "features": {
+        "edges": [
+          {
+            "node": {
+              "resident_features": [
+                {
+                  "resident_feature": {
+                    "_meta": {
+                      "uid": "like-that-records",
+                      "type": "feature",
+                      "firstPublicationDate": "2021-02-06T17:12:09+0000",
+                      "lastPublicationDate": "2021-03-24T02:00:52+0000"
+                    },
+                    "header": [
+                      {
+                        "primary": {
+                          "article_headline_img": {
+                            "dimensions": {
+                              "width": 3000,
+                              "height": 2003
+                            },
+                            "alt": "Crew Love",
+                            "copyright": "Replace this with Photographer",
+                            "url": "https://images.prismic.io/hmbk-cms/0d3ce27b-0d17-43f5-b949-e4f6df18841d_IMG_2846.JPG?auto=compress,format",
+                            "desktop": {
+                              "dimensions": {
+                                "width": 1215,
+                                "height": 811
+                              },
+                              "alt": "Crew Love",
+                              "copyright": "Replace this with Photographer",
+                              "url": "https://images.prismic.io/hmbk-cms/0d3ce27b-0d17-43f5-b949-e4f6df18841d_IMG_2846.JPG?auto=compress,format&rect=0,0,3000,2002&w=1215&h=811"
+                            },
+                            "tablet": {
+                              "dimensions": {
+                                "width": 1023,
+                                "height": 683
+                              },
+                              "alt": "Crew Love",
+                              "copyright": "Replace this with Photographer",
+                              "url": "https://images.prismic.io/hmbk-cms/0d3ce27b-0d17-43f5-b949-e4f6df18841d_IMG_2846.JPG?auto=compress,format&rect=0,0,3000,2003&w=1023&h=683"
+                            },
+                            "widescreen": {
+                              "dimensions": {
+                                "width": 1407,
+                                "height": 939
+                              },
+                              "alt": "Crew Love",
+                              "copyright": "Replace this with Photographer",
+                              "url": "https://images.prismic.io/hmbk-cms/0d3ce27b-0d17-43f5-b949-e4f6df18841d_IMG_2846.JPG?auto=compress,format&rect=0,0,3000,2002&w=1407&h=939"
+                            },
+                            "lo_fi_placeholder": {
+                              "dimensions": {
+                                "width": 32,
+                                "height": 21
+                              },
+                              "alt": "Crew Love",
+                              "copyright": "Replace this with Photographer",
+                              "url": "https://images.prismic.io/hmbk-cms/0d3ce27b-0d17-43f5-b949-e4f6df18841d_IMG_2846.JPG?auto=compress,format&rect=0,0,3000,1969&w=32&h=21"
+                            },
+                            "square_highlight": {
+                              "dimensions": {
+                                "width": 256,
+                                "height": 256
+                              },
+                              "alt": "Crew Love",
+                              "copyright": "Replace this with Photographer",
+                              "url": "https://images.prismic.io/hmbk-cms/0d3ce27b-0d17-43f5-b949-e4f6df18841d_IMG_2846.JPG?auto=compress,format&rect=501,0,2003,2003&w=256&h=256"
+                            },
+                            "mobile": {
+                              "dimensions": {
+                                "width": 767,
+                                "height": 512
+                              },
+                              "alt": "Crew Love",
+                              "copyright": "Replace this with Photographer",
+                              "url": "https://images.prismic.io/hmbk-cms/0d3ce27b-0d17-43f5-b949-e4f6df18841d_IMG_2846.JPG?auto=compress,format&rect=0,0,3000,2003&w=767&h=512"
+                            }
+                          },
+                          "article_headline": [
+                            {
+                              "type": "heading1",
+                              "text": "Get To Know All About Independent Label, Like That Records",
+                              "spans": []
+                            }
+                          ],
+                          "article_subtitle": null,
+                          "article_subcategory": "Like That Records"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "resident_feature": {
+                    "_meta": {
+                      "uid": "in-tune-with-dianna-lopez",
+                      "type": "feature",
+                      "firstPublicationDate": "2021-02-03T23:11:05+0000",
+                      "lastPublicationDate": "2021-04-10T01:30:58+0000"
+                    },
+                    "header": [
+                      {
+                        "primary": {
+                          "article_headline_img": {
+                            "dimensions": {
+                              "width": 4096,
+                              "height": 2729
+                            },
+                            "alt": null,
+                            "copyright": null,
+                            "url": "https://images.prismic.io/hmbk-cms/aa144452-28be-4d1f-a72f-600a8ab72a89_4BB02A58-4124-423C-807C-3125D3EA4074.JPEG?auto=compress,format",
+                            "desktop": {
+                              "dimensions": {
+                                "width": 1215,
+                                "height": 810
+                              },
+                              "alt": null,
+                              "copyright": null,
+                              "url": "https://images.prismic.io/hmbk-cms/aa144452-28be-4d1f-a72f-600a8ab72a89_4BB02A58-4124-423C-807C-3125D3EA4074.JPEG?auto=compress,format&rect=0,0,4094,2729&w=1215&h=810"
+                            },
+                            "tablet": {
+                              "dimensions": {
+                                "width": 1023,
+                                "height": 682
+                              },
+                              "alt": null,
+                              "copyright": null,
+                              "url": "https://images.prismic.io/hmbk-cms/aa144452-28be-4d1f-a72f-600a8ab72a89_4BB02A58-4124-423C-807C-3125D3EA4074.JPEG?auto=compress,format&rect=0,0,4094,2729&w=1023&h=682"
+                            },
+                            "widescreen": {
+                              "dimensions": {
+                                "width": 1407,
+                                "height": 937
+                              },
+                              "alt": null,
+                              "copyright": null,
+                              "url": "https://images.prismic.io/hmbk-cms/aa144452-28be-4d1f-a72f-600a8ab72a89_4BB02A58-4124-423C-807C-3125D3EA4074.JPEG?auto=compress,format&rect=0,0,4096,2728&w=1407&h=937"
+                            },
+                            "lo_fi_placeholder": {
+                              "dimensions": {
+                                "width": 32,
+                                "height": 21
+                              },
+                              "alt": null,
+                              "copyright": null,
+                              "url": "https://images.prismic.io/hmbk-cms/aa144452-28be-4d1f-a72f-600a8ab72a89_4BB02A58-4124-423C-807C-3125D3EA4074.JPEG?auto=compress,format&rect=0,0,4096,2688&w=32&h=21"
+                            },
+                            "square_highlight": {
+                              "dimensions": {
+                                "width": 256,
+                                "height": 256
+                              },
+                              "alt": null,
+                              "copyright": null,
+                              "url": "https://images.prismic.io/hmbk-cms/aa144452-28be-4d1f-a72f-600a8ab72a89_4BB02A58-4124-423C-807C-3125D3EA4074.JPEG?auto=compress,format&rect=682,0,2729,2729&w=256&h=256"
+                            },
+                            "mobile": {
+                              "dimensions": {
+                                "width": 767,
+                                "height": 511
+                              },
+                              "alt": null,
+                              "copyright": null,
+                              "url": "https://images.prismic.io/hmbk-cms/aa144452-28be-4d1f-a72f-600a8ab72a89_4BB02A58-4124-423C-807C-3125D3EA4074.JPEG?auto=compress,format&rect=0,0,4096,2729&w=767&h=511"
+                            }
+                          },
+                          "article_headline": [
+                            {
+                              "type": "heading1",
+                              "text": "In Tune with Dianna Lopez",
+                              "spans": []
+                            }
+                          ],
+                          "article_subtitle": [
+                            {
+                              "type": "heading2",
+                              "text": "Rising star Dianna Lopez’ uses her sound to paint a picture of divinity, evolution, sensuality - and the strength.",
+                              "spans": []
+                            }
+                          ],
+                          "article_subcategory": "Dianna Lopez"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "pageInfo": {
+          "hasNextPage": false,
+          "endCursor": "YXJyYXljb25uZWN0aW9uOjA="
+        }
+      },
+      "events": {
+        "edges": [
+          {
+            "node": {
+              "resident_events": [
+                {
+                  "resident_event": {
+                    "_meta": {
+                      "uid": "sp-404-intro-workshop",
+                      "type": "event"
+                    },
+                    "event_name": [
+                      {
+                        "type": "heading1",
+                        "text": "SP 404 Intro Workshop",
+                        "spans": []
+                      }
+                    ],
+                    "event_start": "2019-08-17T19:00:00+0000",
+                    "event_end": "2019-08-17T22:00:00+0000",
+                    "event_blurb": [
+                      {
+                        "type": "paragraph",
+                        "text": "Our resident Lamb Rabbit put together our very 1st SP 404 workshop teaching the basic in's and out's of everyones favorite beat machine.",
+                        "spans": []
+                      }
+                    ],
+                    "event_location": "Brooklyn",
+                    "main_event_image": {
+                      "dimensions": {
+                        "width": 1024,
+                        "height": 1024
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/5234147c-4769-43c2-ba0f-336d321ef624_EB4EFoLXoAAenkz.jpeg?auto=compress,format"
+                    }
+                  }
+                },
+                {
+                  "resident_event": {
+                    "_meta": {
+                      "uid": "private-party",
+                      "type": "event"
+                    },
+                    "event_name": [
+                      {
+                        "type": "heading1",
+                        "text": "Private Party",
+                        "spans": []
+                      }
+                    ],
+                    "event_start": "2019-09-06T04:00:00+0000",
+                    "event_end": "2019-11-07T07:00:00+0000",
+                    "event_blurb": [
+                      {
+                        "type": "paragraph",
+                        "text": "Private party at our HQ",
+                        "spans": []
+                      }
+                    ],
+                    "event_location": "Brooklyn",
+                    "main_event_image": {
+                      "dimensions": {
+                        "width": 1024,
+                        "height": 1024
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/dc00392b-f389-4272-9f5f-2963f9a3b3b3_EDjGBuSWwAY-OTH.jpeg?auto=compress,format"
+                    }
+                  }
+                },
+                {
+                  "resident_event": {
+                    "_meta": {
+                      "uid": "afro-punk-festival-in-brooklyn-asked-us-to-be-apart",
+                      "type": "event"
+                    },
+                    "event_name": [
+                      {
+                        "type": "heading1",
+                        "text": "HalfMoon x Afro Punk (Brooklyn After Dark)",
+                        "spans": []
+                      }
+                    ],
+                    "event_start": "2019-08-25T02:00:00+0000",
+                    "event_end": "2019-08-26T08:00:00+0000",
+                    "event_blurb": [
+                      {
+                        "type": "paragraph",
+                        "text": "Afro Punk festival in Brooklyn asked us to be apart of their after dark party series we had a line up of Half Moon resident DJ's featuring:",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Sunny Cheeba",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "DJ Bembona",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Gvijin",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Wahgwantwon",
+                        "spans": []
+                      }
+                    ],
+                    "event_location": "Putnams Pub",
+                    "main_event_image": {
+                      "dimensions": {
+                        "width": 1201,
+                        "height": 1201
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/52c45a01-9ba4-4c5e-8c18-6a4db0ace19c_EC3Cb7AWwAA1_ek.jpeg?auto=compress,format"
+                    }
+                  }
+                },
+                {
+                  "resident_event": {
+                    "_meta": {
+                      "uid": "request-invite",
+                      "type": "event"
+                    },
+                    "event_name": [
+                      {
+                        "type": "heading1",
+                        "text": "HalfMoon x Boiler Room Jersey Club special",
+                        "spans": []
+                      }
+                    ],
+                    "event_start": "2019-09-14T23:00:00+0000",
+                    "event_end": "2020-09-16T04:00:00+0000",
+                    "event_blurb": [
+                      {
+                        "type": "paragraph",
+                        "text": "Teamed up with Boiler Room and Jersey dance crew PB&J for a Jersey Club music special in Newark, New Jersey.",
+                        "spans": []
+                      }
+                    ],
+                    "event_location": null,
+                    "main_event_image": {
+                      "dimensions": {
+                        "width": 1792,
+                        "height": 1792
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/fcf8a737-0de4-4a29-a48f-121fdf1fb09a_EEITzbnVAAAtW6i.jpeg?auto=compress,format"
+                    }
+                  }
+                },
+                {
+                  "resident_event": {
+                    "_meta": {
+                      "uid": "another-party-for-our-monthly-bossa-nova-residency",
+                      "type": "event"
+                    },
+                    "event_name": [
+                      {
+                        "type": "heading1",
+                        "text": "HalfMoon at Bossa Nova",
+                        "spans": []
+                      }
+                    ],
+                    "event_start": "2019-11-15T03:00:00+0000",
+                    "event_end": "2019-11-16T09:00:00+0000",
+                    "event_blurb": [
+                      {
+                        "type": "paragraph",
+                        "text": "Another party for our monthly Bossa Nova residency this month we featured Ballroom Club living legend and founder of Qween Beat Records MikeQ. Also on the line up were HM residents PLAYPLAY and Adair.",
+                        "spans": []
+                      }
+                    ],
+                    "event_location": "Bosa Nova",
+                    "main_event_image": {
+                      "dimensions": {
+                        "width": 1500,
+                        "height": 1500
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/04970c48-b28e-4a98-bcc8-5241f8d2d328_EIKZ5sFXkAA9Y3v.jpeg?auto=compress,format"
+                    }
+                  }
+                },
+                {
+                  "resident_event": {
+                    "_meta": {
+                      "uid": "la-rave-2",
+                      "type": "event"
+                    },
+                    "event_name": [
+                      {
+                        "type": "heading1",
+                        "text": "LA RAVE 2",
+                        "spans": []
+                      }
+                    ],
+                    "event_start": "2020-02-25T05:00:00+0000",
+                    "event_end": "2020-02-26T09:00:00+0000",
+                    "event_blurb": [
+                      {
+                        "type": "paragraph",
+                        "text": "Our second LA rave this time er teamed up with Chewing Foil line up featured:",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "BAE BAE",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Bianca Oblivion",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "DJ Noir",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "they/them DJ",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Spinorita",
+                        "spans": []
+                      }
+                    ],
+                    "event_location": "Los Angeles",
+                    "main_event_image": {
+                      "dimensions": {
+                        "width": 3000,
+                        "height": 3000
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/5da48b4e-740f-446e-9744-5115189034e2_LA+RAVE+PT+2+new+flyer-2.jpg?auto=compress,format"
+                    }
+                  }
+                },
+                {
+                  "resident_event": {
+                    "_meta": {
+                      "uid": "curated-by-tiana-douglas-we-did-a-6-hour-live-radio",
+                      "type": "event"
+                    },
+                    "event_name": [
+                      {
+                        "type": "heading1",
+                        "text": "Live stream at Pirate Studios London",
+                        "spans": []
+                      }
+                    ],
+                    "event_start": "2019-03-09T17:00:00+0000",
+                    "event_end": "2019-03-10T22:00:00+0000",
+                    "event_blurb": [
+                      {
+                        "type": "paragraph",
+                        "text": "curated by Tiana Douglas we did a 6 hour live radio broadcast from the Pirate Studios London location using all local London heads.",
+                        "spans": []
+                      }
+                    ],
+                    "event_location": "Pirate studios London",
+                    "main_event_image": {
+                      "dimensions": {
+                        "width": 750,
+                        "height": 750
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/7aabd898-fcfd-4b17-bbfd-7fb91434f3a7_D1NwrMCWoAARwjH.jpeg?auto=compress,format"
+                    }
+                  }
+                },
+                {
+                  "resident_event": {
+                    "_meta": {
+                      "uid": "the-standard-hotel-bhm-soundoff",
+                      "type": "event"
+                    },
+                    "event_name": [
+                      {
+                        "type": "heading1",
+                        "text": "Half Moon & The Standard Hotel BHM Sound Off",
+                        "spans": []
+                      }
+                    ],
+                    "event_start": "2021-02-05T05:00:00+0000",
+                    "event_end": "2021-02-27T05:00:00+0000",
+                    "event_blurb": null,
+                    "event_location": null,
+                    "main_event_image": {
+                      "dimensions": {
+                        "width": 1080,
+                        "height": 1350
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/446874e4-87f5-4bee-b80c-7da4e846a6e6_Half+Moon+IG+Post+Drop+1_1.jpg?auto=compress,format"
+                    }
+                  }
+                },
+                {
+                  "resident_event": {
+                    "_meta": {
+                      "uid": "brooklyn",
+                      "type": "event"
+                    },
+                    "event_name": [
+                      {
+                        "type": "heading1",
+                        "text": "Perreo",
+                        "spans": []
+                      }
+                    ],
+                    "event_start": "2020-11-11T05:00:00+0000",
+                    "event_end": "2020-11-26T05:00:00+0000",
+                    "event_blurb": [
+                      {
+                        "type": "paragraph",
+                        "text": "HalfMoon Bossa party",
+                        "spans": []
+                      }
+                    ],
+                    "event_location": "Mood Ring",
+                    "main_event_image": {
+                      "dimensions": {
+                        "width": 1080,
+                        "height": 864
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/cb2f39f1-ddbb-4c0b-9a96-0d20515f67a7_EIz5XW0X0AAcLV2.jpeg?auto=compress,format"
+                    }
+                  }
+                },
+                {
+                  "resident_event": {
+                    "_meta": {
+                      "uid": "our-1st-ever-rave-that-kicked-everything-off",
+                      "type": "event"
+                    },
+                    "event_name": [
+                      {
+                        "type": "heading1",
+                        "text": "Launch Party",
+                        "spans": []
+                      }
+                    ],
+                    "event_start": "2018-07-26T22:00:00+0000",
+                    "event_end": "2018-07-27T02:00:00+0000",
+                    "event_blurb": [
+                      {
+                        "type": "paragraph",
+                        "text": "Our 1st ever rave that kicked everything off. This line up was ICONIC we had Equiss, Donis, MoMa Ready, and Acemo. This was Equiss and Donis 1st time ever playing a rave but they showed no signs of shyness.  We have this entire audio also uploaded to our Mixcloud",
+                        "spans": []
+                      }
+                    ],
+                    "event_location": "H0l0",
+                    "main_event_image": {
+                      "dimensions": {
+                        "width": 1500,
+                        "height": 1500
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/60c72326-6e24-4aa8-8e3b-70305701a42d_IMG_1425.JPG?auto=compress,format"
+                    }
+                  }
+                },
+                {
+                  "resident_event": {
+                    "_meta": {
+                      "uid": "london",
+                      "type": "event"
+                    },
+                    "event_name": [
+                      {
+                        "type": "heading1",
+                        "text": "Foundation FM takeover",
+                        "spans": []
+                      }
+                    ],
+                    "event_start": "2020-09-21T18:00:00+0000",
+                    "event_end": "2020-09-22T23:00:00+0000",
+                    "event_blurb": [
+                      {
+                        "type": "paragraph",
+                        "text": "We took over London based radio station Foundation fm for 5 hours!",
+                        "spans": []
+                      }
+                    ],
+                    "event_location": "London",
+                    "main_event_image": {
+                      "dimensions": {
+                        "width": 1600,
+                        "height": 1600
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/d3380281-ad23-4eb1-9612-a05d93c7cd32_IMG_2473.jpg?auto=compress,format"
+                    }
+                  }
+                },
+                {
+                  "resident_event": {
+                    "_meta": {
+                      "uid": "halfmoon-at-rose-gold",
+                      "type": "event"
+                    },
+                    "event_name": [
+                      {
+                        "type": "heading1",
+                        "text": "HalfMoon at Rose Gold",
+                        "spans": []
+                      }
+                    ],
+                    "event_start": "2019-01-04T03:00:00+0000",
+                    "event_end": "2019-01-05T09:00:00+0000",
+                    "event_blurb": [
+                      {
+                        "type": "paragraph",
+                        "text": "Dee Diggs",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "MoMa Ready",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Salenta",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Acemo",
+                        "spans": []
+                      }
+                    ],
+                    "event_location": "Rose Gold BK",
+                    "main_event_image": {
+                      "dimensions": {
+                        "width": 1000,
+                        "height": 1000
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/640784e9-974b-4b59-953c-bd96db83d582_Du-T3mmX0AAfnUt.jpeg?auto=compress,format"
+                    }
+                  }
+                },
+                {
+                  "resident_event": {
+                    "_meta": {
+                      "uid": "sainvil-live-at-halfmoon-hq",
+                      "type": "event"
+                    },
+                    "event_name": [
+                      {
+                        "type": "heading1",
+                        "text": "Sainvil Live at HalfMoon HQ",
+                        "spans": []
+                      }
+                    ],
+                    "event_start": "2020-02-15T01:00:00+0000",
+                    "event_end": "2020-02-16T05:00:00+0000",
+                    "event_blurb": [
+                      {
+                        "type": "paragraph",
+                        "text": "we partnered with record Alamo Records to bring R&B singer Sainvil to our radio HQ for a liver performance accompanied by DJ sets from HalfMoon residents.",
+                        "spans": []
+                      }
+                    ],
+                    "event_location": "Brooklyn",
+                    "main_event_image": {
+                      "dimensions": {
+                        "width": 1638,
+                        "height": 2048
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/cba2933d-ad7b-488d-8ff4-58cff76e3b83_EQS44GdXUAAzL9x.jpeg?auto=compress,format"
+                    }
+                  }
+                },
+                {
+                  "resident_event": {
+                    "_meta": {
+                      "uid": "hm--black-flamingo",
+                      "type": "event"
+                    },
+                    "event_name": [
+                      {
+                        "type": "heading1",
+                        "text": "HM @ Black Flamingo",
+                        "spans": []
+                      }
+                    ],
+                    "event_start": "2019-07-25T02:00:00+0000",
+                    "event_end": "2019-07-26T07:00:00+0000",
+                    "event_blurb": [
+                      {
+                        "type": "paragraph",
+                        "text": "the 1st party for our residency at Black Flamingo",
+                        "spans": []
+                      }
+                    ],
+                    "event_location": "Black Flamingo",
+                    "main_event_image": {
+                      "dimensions": {
+                        "width": 1080,
+                        "height": 1350
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/5e7f3966-9703-4bc7-a33a-d66e23fb2ea6_D_j7-VsXkAMxf5_.jpeg?auto=compress,format"
+                    }
+                  }
+                },
+                {
+                  "resident_event": {
+                    "_meta": {
+                      "uid": "the-elsewhere-loft-was-reopened-for-the-1st-time-in",
+                      "type": "event"
+                    },
+                    "event_name": [
+                      {
+                        "type": "heading1",
+                        "text": "HalfMoon at Elsewhere Loft",
+                        "spans": []
+                      }
+                    ],
+                    "event_start": "2018-11-08T00:00:00+0000",
+                    "event_end": "2018-11-09T06:00:00+0000",
+                    "event_blurb": [
+                      {
+                        "type": "paragraph",
+                        "text": "The elsewhere loft was reopened for the 1st time in years for remodeling and we were honored to be one of the very 1st to throw a dance here. We had a SUPER stacked line up with MoMa Ready, Acemo, Devoye, Equiss, JADALAREIGN, Dee Diggs, and Cosmo.",
+                        "spans": []
+                      }
+                    ],
+                    "event_location": "Elsewhere Loft",
+                    "main_event_image": {
+                      "dimensions": {
+                        "width": 1500,
+                        "height": 1500
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/02addb1b-24ca-490c-860e-c7cd595d849b_DrhMysLX4AAYEPk.jpeg?auto=compress,format"
+                    }
+                  }
+                },
+                {
+                  "resident_event": {
+                    "_meta": {
+                      "uid": "rave--h0l0",
+                      "type": "event"
+                    },
+                    "event_name": [
+                      {
+                        "type": "heading1",
+                        "text": "Rave @ H0l0",
+                        "spans": []
+                      }
+                    ],
+                    "event_start": "2018-09-27T02:00:00+0000",
+                    "event_end": "2018-09-27T08:00:00+0000",
+                    "event_blurb": [
+                      {
+                        "type": "paragraph",
+                        "text": "featuring MoMa Ready, Equiss, Donis, and Silky Black",
+                        "spans": []
+                      }
+                    ],
+                    "event_location": "H0l0",
+                    "main_event_image": {
+                      "dimensions": {
+                        "width": 1500,
+                        "height": 1500
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/72c63f78-0a7c-4e53-ac1f-37d68cfe29de_DnywjDMWsAMWWLL.jpeg?auto=compress,format"
+                    }
+                  }
+                },
+                {
+                  "resident_event": {
+                    "_meta": {
+                      "uid": "mood-ring",
+                      "type": "event"
+                    },
+                    "event_name": [
+                      {
+                        "type": "heading1",
+                        "text": "Dance at Mood Ring",
+                        "spans": []
+                      }
+                    ],
+                    "event_start": "2019-03-27T02:00:00+0000",
+                    "event_end": "2019-03-28T08:00:00+0000",
+                    "event_blurb": [
+                      {
+                        "type": "paragraph",
+                        "text": "One off party at local Brooklyn dance club Mood Ring featuring an all Femme Techno line up",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "VVEISS",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "DIME",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "LETHAL TRIP",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "SYANIDE",
+                        "spans": []
+                      }
+                    ],
+                    "event_location": "Mood Ring",
+                    "main_event_image": {
+                      "dimensions": {
+                        "width": 1500,
+                        "height": 1500
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/9bbd4391-beaf-48b2-b920-0ec128c0cc43_D2Ri26hUgAAT5u-.jpeg?auto=compress,format"
+                    }
+                  }
+                },
+                {
+                  "resident_event": {
+                    "_meta": {
+                      "uid": "brooklyn-electronic-music-festival",
+                      "type": "event"
+                    },
+                    "event_name": [
+                      {
+                        "type": "heading1",
+                        "text": "Brooklyn Electronic Music Festival",
+                        "spans": []
+                      }
+                    ],
+                    "event_start": "2018-10-04T02:00:00+0000",
+                    "event_end": "2018-10-05T08:00:00+0000",
+                    "event_blurb": [
+                      {
+                        "type": "paragraph",
+                        "text": "We got asked to participate in the BEMF along side Haus of ALT",
+                        "spans": []
+                      }
+                    ],
+                    "event_location": "H0L0",
+                    "main_event_image": {
+                      "dimensions": {
+                        "width": 600,
+                        "height": 600
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/26800eeb-51f0-4b0f-bbec-c7aa024e4b78_Dota4AAX4AA3y3_.jpeg?auto=compress,format"
+                    }
+                  }
+                },
+                {
+                  "resident_event": {
+                    "_meta": {
+                      "uid": "after-heading-down-to-miami-for-art-basel-we-got-into",
+                      "type": "event"
+                    },
+                    "event_name": [
+                      {
+                        "type": "heading1",
+                        "text": "Back From Miami Rave",
+                        "spans": []
+                      }
+                    ],
+                    "event_start": "2018-12-14T15:00:00+0000",
+                    "event_end": "2018-12-16T09:00:00+0000",
+                    "event_blurb": [
+                      {
+                        "type": "paragraph",
+                        "text": "After heading down to Miami for art Basel we got into a crazy MIA spiral and upon reaching back to Brooklyn we just wanted to let all that frustration out with a good RAVE. We did a night of Back2Back's with an all star line up featuring:",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": " Dj Swisha b2b Kush Jones",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "MoMa rEADY b2b Acemo",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "OSSX (Equiss b2b Lektor Scopes)",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Devoye b2b Donis",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Salenta",
+                        "spans": []
+                      },
+                      {
+                        "type": "paragraph",
+                        "text": "Sweater on Polo",
+                        "spans": []
+                      }
+                    ],
+                    "event_location": "H0l0",
+                    "main_event_image": {
+                      "dimensions": {
+                        "width": 1334,
+                        "height": 1334
+                      },
+                      "alt": null,
+                      "copyright": null,
+                      "url": "https://images.prismic.io/hmbk-cms/5708b913-b24e-4a0b-874f-f361e9fa939a_DuOxHw6W4AA6FpW.jpeg?auto=compress,format"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "pageInfo": {
+          "hasNextPage": false,
+          "endCursor": "YXJyYXljb25uZWN0aW9uOjA="
+        }
+      }
+    }
+  },
+  "extensions": {}
+}

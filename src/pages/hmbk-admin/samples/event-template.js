@@ -29,7 +29,6 @@ function SampleEventTemplate() {
     event_name,
     event_location,
     event_location_physical_address,
-    event_location_link,
     event_header_button_text,
     event_header_button_link,
     event_livestream_embed,

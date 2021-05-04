@@ -70,7 +70,7 @@ function RadioBar({ nycTime, laTime }) {
         })
       }
       /**
-       * Handle case where no initial mix is selected.
+       * Handle case where no initial mix is selected in the CMS.
        */
       return dispatch({
         type: 'SET_INITIAL_MIX',

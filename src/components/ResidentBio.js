@@ -33,6 +33,8 @@ function ResidentBio({ residentBioData }) {
    * --> returns 0
    * If the data subarray has valid entries
    * --> returns a filtered array of only the valid entries
+   * @category useEffect
+   * @name bioDataCheck
    */
   useEffect(() => {
     const bioDataCheck = () => {

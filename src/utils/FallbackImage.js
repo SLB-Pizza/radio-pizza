@@ -14,7 +14,7 @@ export default function FallbackImage({ styleName = '', ...rest }) {
   return (
     <img
       src={`${withPrefix('/')}img/Halfmoon-blk-bg.png`}
-      alt="HalfmoonBK logo"
+      alt={rest?.alt ? rest.alt : 'HalfmoonBK logo'}
       className={styleName}
       {...rest}
     />

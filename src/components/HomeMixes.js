@@ -23,7 +23,7 @@ export default function HomeMixes({ headline, blurb, homeMixesData }) {
   const filteredHomeMixes = mappableDataFilter(homeMixesData)
 
   /**
-   * Uses the query {@link FILL_HOME_FEATURES} to fetch 4 Features for {@link processFetchedHomeMixes} to work with.
+   * Uses the query {@link FILL_HOME_MIXES} to fetch 12 Mixes for {@link processFetchedHomeMixes} to work with.
    * @category useLazyQuery
    * @name HomeMixesQuery
    */
@@ -32,67 +32,60 @@ export default function HomeMixes({ headline, blurb, homeMixesData }) {
   )
 
   /**
-   * IF `filteredHomeMixes` has 4 or more entries
-   *    Grab only the first 4 features
-   * ELSE
-   *    `filteredHomeMixes` has less than 4 entries
+   * IF (`filteredHomeMixes` returns 0 b/c of ({@link mappableDataFilter})
+   *    OR  `filteredHomeMixes.length` <= 3)
    *    Fetch 4 Features by calling {@link HomeMixesQuery}.
    *    `fetchedMixes` updates, triggering {@link processFetchedHomeMixes}.
+   * ELSE
+   *    `filteredHomeMixes` has 12 or more entries
+   *    Slice only the first 12 Mixes
    * @category useEffect
    * @name fetchRemainingHomeMixes
    */
   useEffect(() => {
     const fetchRemainingHomeMixes = () => {
-      if (filteredHomeMixes.length >= 12) {
-        /**
-         * Scenario 1
-         */
+      if (filteredHomeMixes === 0 || filteredHomeMixes.length <= 11) {
+        fetchFillerHomeMixes()
+      } else {
         const mixesToMap = filteredHomeMixes.slice(0, 13)
         setTwelveMixes(mixesToMap)
-      } else {
-        fetchFillerHomeMixes()
       }
     }
 
-    return fetchRemainingHomeMixes()
+    fetchRemainingHomeMixes()
   }, [homeMixesData])
 
   /**
-   * Runs when {@link fetchFillerHomeFeatures} returns fetchedFeatures to process.
-   * Scenario 1
-   * We have exactly 4 features
-   *
-   * Scenario 2
-   * Query 4 more recently published Features.
-   * Spread that fetchedFeatures into the filteredHomeMixes array
-   * setTwelveMixes the new 12 mix filteredHomeMixes
+   * Runs when {@link fetchFillerHomeMixes} returns `fetchedMixes` to process.
+   * IF `filteredHomeMixes` returns 0 b/c of {@link mappableDataFilter}
+   *    No Mix UIDs to filter out, `setHomeMixes` using `fetchedMixes`
+   * ELSE
+   *    `filteredHomeMixes` has entries; {@link getUIDsFromDataArray} to pass to {@link removeDuplicateFetchData}
+   *    Create a new array by first spreading the `filteredHomeMixes` array, followed by the `uidFilteredRecentMixes`
+   *    `setHomeMixes` using the new 4 Feature array
    * @category useEffect
    * @name processFetchedHomeMixes
    */
   useEffect(() => {
     const processFetchedHomeMixes = () => {
-      if (!fetchedMixes) {
-        /**
-         * Scenario 1
-         */
-        setHomeMixes(filteredHomeMixes)
-      } else {
-        /**
-         * Scenario 2
-         */
-        const mixUIDsToFilter = getUIDsFromDataArray(filteredHomeMixes)
+      if (fetchedMixes) {
         const fetchedRecentMixes = fetchedMixes.allMixs.edges
+        if (filteredHomeMixes === 0) {
+          setHomeMixes(fetchedRecentMixes)
+        } else {
+          const mixUIDsToFilter = getUIDsFromDataArray(filteredHomeMixes)
 
-        const uidFilteredRecentFeatures = removeDuplicateFetchData(
-          fetchedRecentMixes,
-          mixUIDsToFilter
-        )
+          const uidFilteredRecentMixes = removeDuplicateFetchData(
+            fetchedRecentMixes,
+            mixUIDsToFilter
+          )
 
-        const twelveMixesToMap = [
-          ...filteredHomeMixes,
-          ...uidFilteredRecentFeatures,
-        ]
-        setHomeMixes(twelveMixesToMap)
+          const twelveMixesToMap = [
+            ...filteredHomeMixes,
+            ...uidFilteredRecentMixes,
+          ]
+          setHomeMixes(twelveMixesToMap)
+        }
       }
     }
     processFetchedHomeMixes()

@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import Ticker from 'react-ticker'
 import { useQuery } from '@apollo/client'
 import { RadioPlayer } from './index'
+import { FallbackImage } from '../utils'
 import { formatDateTime, getResidentString, mappableDataFilter } from '../utils'
 import { GET_DEFAULT_MIX } from '../queries'
 import {
@@ -16,7 +17,15 @@ dayjs.extend(utc)
 
 // import PageVisibility from "react-page-visibility";
 
-function RadioBar({ nycTime, laTime }) {
+/**
+ *
+ *
+ * @export
+ * @param {*} nycTime
+ * @param {*} laTime
+ * @returns
+ */
+export default function RadioBar({ nycTime, laTime }) {
   const dispatch = useContext(GlobalDispatchContext)
   const globalState = useContext(GlobalStateContext)
 
@@ -35,53 +44,58 @@ function RadioBar({ nycTime, laTime }) {
    * Query the HMBK Prismic CMS to get the data for the initial mix data.
    * Grab the mix data object from the query result.
    * Destructure the mix data object and dispatch the mix data to appear in {@link RadioPlayer}
+   * @category useEffect
+   * @name processInitialMix
    */
   useEffect(() => {
-    if (loading) {
-      // console.log("Initial Mix request in progress");
-    }
-    if (error) {
-      console.error(`initialMix Error: ${error.message}`)
-    }
-    if (data) {
-      if (data.allTopnavs.edges[0].node) {
-        const mixDataObject = data.allTopnavs.edges[0].node.default_mix
-        const {
-          featured_residents,
-          mix_image,
-          mix_link,
-          mix_title,
-        } = mixDataObject
+    const processInitialMix = () => {
+      if (loading) {
+        // console.log("Initial Mix request in progress");
+      }
+      if (error) {
+        console.error(`initialMix Error: ${error.message}`)
+      }
+      if (data) {
+        if (data.allTopnavs.edges[0].node) {
+          const mixDataObject = data.allTopnavs.edges[0].node.default_mix
+          const {
+            featured_residents,
+            mix_image,
+            mix_link,
+            mix_title,
+          } = mixDataObject
 
+          /**
+           * Another case where `objectKeyCount` needs to be assigned `2` for {@link mappableDataFilter}.
+           */
+          const filteredResidents = mappableDataFilter(featured_residents, 2)
+          const mixResidentsString = getResidentString(filteredResidents)
+
+          return dispatch({
+            type: 'SET_INITIAL_MIX',
+            payload: {
+              url: mix_link,
+              title: mix_title,
+              resident: mixResidentsString,
+              img: mix_image.now_playing.url,
+            },
+          })
+        }
         /**
-         * Another case where `objectKeyCount` needs to be assigned `2` for {@link mappableDataFilter}.
+         * Handle case where no initial mix is selected in the CMS.
          */
-        const filteredResidents = mappableDataFilter(featured_residents, 2)
-        const mixResidentsString = getResidentString(filteredResidents)
-
         return dispatch({
           type: 'SET_INITIAL_MIX',
           payload: {
-            url: mix_link,
-            title: mix_title,
-            resident: mixResidentsString,
-            img: mix_image.now_playing.url,
+            url: null,
+            title: null,
+            resident: null,
+            img: null,
           },
         })
       }
-      /**
-       * Handle case where no initial mix is selected.
-       */
-      return dispatch({
-        type: 'SET_INITIAL_MIX',
-        payload: {
-          url: null,
-          title: null,
-          resident: null,
-          img: null,
-        },
-      })
     }
+    processInitialMix()
   }, [data, loading, error])
 
   // Currently offline! Not gonna work until HMBK pays for it
@@ -112,10 +126,7 @@ function RadioBar({ nycTime, laTime }) {
         <div className="column is-narrow">
           <Link to="/" onClick={() => clearMixSearchTags()}>
             <figure className="image is-48x48">
-              <img
-                src={`../img/test/halfmoon-3.png`}
-                alt="Return to home page"
-              />
+              <FallbackImage alt={'Return Home'} className="lazyload" />
             </figure>
           </Link>
         </div>
@@ -138,5 +149,3 @@ function RadioBar({ nycTime, laTime }) {
     </div>
   )
 }
-
-export default RadioBar

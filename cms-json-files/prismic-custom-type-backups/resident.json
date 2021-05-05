@@ -11,7 +11,33 @@
       "type": "Image",
       "config": {
         "constraint": {},
-        "thumbnails": [],
+        "thumbnails": [
+          {
+            "name": "widescreen",
+            "width": 450,
+            "height": 450
+          },
+          {
+            "name": "desktop",
+            "width": 400,
+            "height": 400
+          },
+          {
+            "name": "tablet",
+            "width": 350,
+            "height": 350
+          },
+          {
+            "name": "mobile",
+            "width": 300,
+            "height": 300
+          },
+          {
+            "name": "lo_fi",
+            "width": 32,
+            "height": 32
+          }
+        ],
         "label": "Resident Image"
       }
     },

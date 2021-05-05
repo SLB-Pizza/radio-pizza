@@ -53,7 +53,7 @@
                       "height": 256
                     },
                     {
-                      "name": "lo_fi_placeholder",
+                      "name": "lo_fi",
                       "width": 32,
                       "height": null
                     }
@@ -202,15 +202,6 @@
             "description": "A Rich Text section with headings, bullets, links & more.",
             "icon": "text_fields",
             "non-repeat": {
-              "set_first_letter": {
-                "type": "Boolean",
-                "config": {
-                  "placeholder_false": "No",
-                  "placeholder_true": "Yes",
-                  "default_value": false,
-                  "label": "Would you like the first letter to be a drop cap?"
-                }
-              },
               "body_text": {
                 "type": "StructuredText",
                 "config": {

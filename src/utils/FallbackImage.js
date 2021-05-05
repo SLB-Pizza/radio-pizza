@@ -13,8 +13,8 @@ import { withPrefix } from 'gatsby'
 export default function FallbackImage({ styleName = '', ...rest }) {
   return (
     <img
-      src={`${withPrefix('/')}img/Halfmoon-3.png`}
-      alt="HalfmoonBK logo"
+      src={`${withPrefix('/')}img/Halfmoon-blk-bg.png`}
+      alt={rest?.alt ? rest.alt : 'HalfmoonBK logo'}
       className={styleName}
       {...rest}
     />

@@ -15,7 +15,7 @@ const initialState = {
   playing: false,
   controls: false,
   light: false,
-  volume: 0.65,
+  volume: 0.85,
   muted: false,
   played: 0,
   isLoading: false,

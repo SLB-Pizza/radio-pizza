@@ -38,7 +38,7 @@ export default function AboutIndexPage({ data }) {
       <AboutPageHero headlineData={aboutHeroData} />
       <AboutPageTitling aboutTitling={aboutHeroData} />
       <SliceZone sliceZone={body} />
-      <AboutPageCredits />
+      {/* <AboutPageCredits /> */}
       <HMBKFooter />
     </main>
   )

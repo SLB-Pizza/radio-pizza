@@ -143,7 +143,7 @@ function ResidentsIndex({ data }) {
       /**
        * Residents data check
        */
-      if (prismicContent.residents.totalCount) {
+      if (prismicContent?.residents?.totalCount) {
         setResidents({
           data: prismicContent.residents.edges,
           hasMore: prismicContent.residents.pageInfo.hasNextPage,
@@ -154,7 +154,7 @@ function ResidentsIndex({ data }) {
       /**
        * Alumni data check
        */
-      if (prismicContent.alumni.totalCount) {
+      if (prismicContent?.alumni?.totalCount) {
         setAlumni({
           type: 'Alumni',
           data: prismicContent.alumni.edges,
@@ -166,7 +166,7 @@ function ResidentsIndex({ data }) {
       /**
        * Guests data check
        */
-      if (prismicContent.guests.totalCount) {
+      if (prismicContent?.guests?.totalCount) {
         setGuests({
           type: 'Guests',
           data: prismicContent.guests.edges,
@@ -232,7 +232,7 @@ function ResidentsIndex({ data }) {
         })
       }
     }
-    return processFetchedResidentsData()
+    processFetchedResidentsData()
   }, [residentFetch, alumniFetch, guestFetch])
 
   return (
@@ -373,27 +373,27 @@ export const query = graphql`
           endCursor
         }
       }
-      alumni: allResidents(
-        sortBy: resident_name_ASC
-        where: { resident_status: "Alumnus" }
-        first: $first
-      ) {
-        edges {
-          node {
-            _meta {
-              uid
-              type
-            }
-            resident_name
-            resident_image
-          }
-        }
-        totalCount
-        pageInfo {
-          hasNextPage
-          endCursor
-        }
-      }
+      # alumni: allResidents(
+      #   sortBy: resident_name_ASC
+      #   where: { resident_status: "Alumnus" }
+      #   first: $first
+      # ) {
+      #   edges {
+      #     node {
+      #       _meta {
+      #         uid
+      #         type
+      #       }
+      #       resident_name
+      #       resident_image
+      #     }
+      #   }
+      #   totalCount
+      #   pageInfo {
+      #     hasNextPage
+      #     endCursor
+      #   }
+      # }
       guests: allResidents(
         sortBy: resident_name_ASC
         where: { resident_status: "Guest" }

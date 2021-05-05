@@ -125,7 +125,7 @@ export default function ResidentTemplate({ data, path }) {
         setCategoryLabels(labels)
       }
     }
-    return setSingleResDataAndLabels()
+    setSingleResDataAndLabels()
   }, [data])
 
   const smallCardLayout = 'column is-12-mobile is-6-tablet is-4-widescreen'

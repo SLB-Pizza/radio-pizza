@@ -11,7 +11,6 @@ import {
   useSiteMetadata,
 } from '../components'
 import {
-  HMBKDivider,
   eventDateSort,
   featureDateSort,
   mappableDataFilter,
@@ -26,7 +25,7 @@ import {
  * @param {Object} path - the complete path of `/residents/:uid`; passed to {@link SingleMixCard} so that it can be used by {@link getResidentLink} to compare to the `featured_residents` _meta data
  * @returns {jsx}
  */
-function ResidentTemplate({ data, path }) {
+export default function ResidentTemplate({ data, path }) {
   const [isOpen, setIsOpen] = useState('Mixes')
   const [categoryLabels, setCategoryLabels] = useState(null)
   const [resBio, setResBio] = useState(null)
@@ -389,5 +388,3 @@ export const query = graphql`
     }
   }
 `
-
-export default ResidentTemplate

@@ -1,7 +1,7 @@
 import React from 'react'
 import lazySizes from 'lazysizes'
 import 'lazysizes/plugins/attrchange/ls.attrchange'
-// import "lazysizes/plugins/blur-up/ls.blur-up";
+import 'lazysizes/plugins/blur-up/ls.blur-up'
 
 /**
  * Creates a JSX `<picture>` element with responsive sources that {@link ImageHelper} calls upon.
@@ -9,11 +9,11 @@ import 'lazysizes/plugins/attrchange/ls.attrchange'
  * @function ResponsiveImage
  * @param {String} mainUrl - the Imgix optimized Prismic image URL for the large image size; bulma "fullhd"
  * @param {Object} responsiveData - an object containing the Imgix optimized Prismic image URLs for the responsive sizes
- * @prop {String} responsiveData.widescreen - data object to make the image for bulma "widescreen" breakpoint
- * @prop {String} responsiveData.desktop - data object to make the image for bulma "desktop" breakpoint
- * @prop {String} responsiveData.tablet - data object to make the image for bulma "tablet" breakpoint
- * @prop {String} responsiveData.mobile - data object to make the image for bulma "mobile" breakpoint
- * @prop {String} responsiveData.lo_fi - data object to make the low quality image placeholder (LQIP)
+ * @prop {Object.<String>} responsiveData.widescreen - data object to make the image for bulma "widescreen" breakpoint
+ * @prop {Object.<String>} responsiveData.desktop - data object to make the image for bulma "desktop" breakpoint
+ * @prop {Object.<String>} responsiveData.tablet - data object to make the image for bulma "tablet" breakpoint
+ * @prop {Object.<String>} responsiveData.mobile - data object to make the image for bulma "mobile" breakpoint
+ * @prop {Object.<String>} responsiveData.lo_fi - data object to make the low quality image placeholder (LQIP)
  * @returns {jsx}
  * @see {@link https://bulma.io/documentation/overview/responsiveness/#breakpoints Bulma Breakpoints}
  * @see {@link https://afarkas.github.io/lazysizes/index.html lazySizes & LQIP}
@@ -35,6 +35,7 @@ function ResponsiveImage({ largestImg, responsiveData }) {
 
         /**
          * Used with size to get the Source's media query data
+         * FULL HD would get full size images; use widescreen url instead
          */
         const breakpoints = {
           mobile: '(max-width: 767px)',
@@ -59,7 +60,7 @@ function ResponsiveImage({ largestImg, responsiveData }) {
         width={largestImg.dimensions.width}
         height={largestImg.dimensions.height}
         data-src={largestImg.url}
-        className="lazyload inline-image"
+        className="lazyload"
       />
     </picture>
   )

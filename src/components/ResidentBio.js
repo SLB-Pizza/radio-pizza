@@ -1,12 +1,9 @@
-import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
-import { RichText } from 'prismic-reactjs'
-import {
-  FallbackImage,
-  ResidentSocialLinks,
-  mappableDataFilter,
-} from '../utils'
+import PropTypes from 'prop-types'
 import NanoClamp from 'nanoclamp'
+import { RichText } from 'prismic-reactjs'
+import { ResidentBioImage } from './index'
+import { mappableDataFilter, ResidentSocialLinks } from '../utils'
 
 /**
  * Resident Bio section for an individual resident. Called by {@link ResidentTemplate}.
@@ -15,7 +12,7 @@ import NanoClamp from 'nanoclamp'
  * @param {object} residentBioData - the data object coming from Prismic CMS that contains all data needed to build the bio section of the individual `/residents/:uid`  page
  * @returns {jsx}
  */
-function ResidentBio({ residentBioData }) {
+export default function ResidentBio({ residentBioData }) {
   const [socialMediaData, setMediaData] = useState([])
 
   const {
@@ -34,10 +31,10 @@ function ResidentBio({ residentBioData }) {
    * If the data subarray has valid entries
    * --> returns a filtered array of only the valid entries
    * @category useEffect
-   * @name bioDataCheck
+   * @name socialMediaDataCheck
    */
   useEffect(() => {
-    const bioDataCheck = () => {
+    const socialMediaDataCheck = () => {
       if (residentBioData) {
         /**
          * A nested social_media object requires its 2 keys, `resident_social_page` and `resident_social_link`, to BOTH have values to be valid.
@@ -50,7 +47,7 @@ function ResidentBio({ residentBioData }) {
         }
       }
     }
-    return bioDataCheck()
+    return socialMediaDataCheck()
   }, [residentBioData])
 
   return (
@@ -58,15 +55,7 @@ function ResidentBio({ residentBioData }) {
       <div className="columns is-multiline">
         <div className="column is-12">
           <figure className="image is-1by1">
-            {resident_image ? (
-              <img
-                className="lazyload"
-                src={resident_image.url}
-                alt={resident_image.alt}
-              />
-            ) : (
-              <FallbackImage className="lazyload" alt={'HMBK Resident'} />
-            )}
+            <ResidentBioImage resIMGObj={resident_image} />
           </figure>
         </div>
         <div className="column is-12 content text-block">
@@ -103,8 +92,6 @@ function ResidentBio({ residentBioData }) {
   )
 }
 
-export default ResidentBio
-
 ResidentBio.propTypes = {
   residentData: PropTypes.shape({
     resident_image: PropTypes.shape({
@@ -119,3 +106,5 @@ ResidentBio.propTypes = {
     social_media: PropTypes.arrayOf(PropTypes.object),
   }),
 }
+
+const ResBioImage = resIMGObj => {}

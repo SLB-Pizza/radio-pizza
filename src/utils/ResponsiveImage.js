@@ -56,7 +56,7 @@ function ResponsiveImage({ largestImg, responsiveData }) {
       })}
       <img
         alt={largestImg.alt}
-        data-lowsrc={responsiveData['lo_fi'].url}
+        src={responsiveData['lo_fi'].url}
         width={largestImg.dimensions.width}
         height={largestImg.dimensions.height}
         data-src={largestImg.url}

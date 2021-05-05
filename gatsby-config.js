@@ -28,7 +28,7 @@ module.exports = {
     'gatsby-plugin-sass',
     /**
      * A Gatsby source plugin for sourcing data into your Gatsby application from your local filesystem
-     * @see {@link https://www.gatsbyjs.com/plugins/gatsby-plugin-sass/?=file gatsby-source-filesystem}
+     * @see {@link https://www.gatsbyjs.com/plugins/gatsby-source-filesystem/ gatsby-source-filesystem}
      */
     {
       resolve: 'gatsby-source-filesystem',
@@ -42,13 +42,6 @@ module.exports = {
       options: {
         path: `${__dirname}/src/pages`,
         name: 'pages',
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/src/img`,
-        name: 'images',
       },
     },
     /**

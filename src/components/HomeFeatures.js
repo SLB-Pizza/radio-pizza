@@ -65,9 +65,9 @@ export default function HomeFeatures({ headline, blurb, homeFeaturesData }) {
    * IF `filteredHomeFeatures` returns 0 b/c of {@link mappableDataFilter}
    *    No Editorial UIDs to filter out, `setHomeFeatures` using `fetchedFeatures`
    * ELSE
-   * Query 4 more recently published Features.
-   * Spread that fetchedFeatures into the filteredHomeFeatures array
-   * setTwelveMixes the new 12 mix filteredHomeFeatures
+   *    `filteredHomeFeatures` has entries; {@link getUIDsFromDataArray} to pass to {@link removeDuplicateFetchData}
+   *    Create a new array by first spreading the `filteredHomeFeatures` array, followed by the `uidFilteredRecentFeatures`
+   *    `setHomeFeatures` using the new 4 Feature array
    * @category useEffect
    * @name processFetchedHomeFeatures
    */
@@ -79,7 +79,6 @@ export default function HomeFeatures({ headline, blurb, homeFeaturesData }) {
         if (filteredHomeFeatures === 0) {
           setHomeFeatures(fetchedRecentFeatures)
         } else {
-          console.debug(filteredHomeFeatures)
           const featureUIDsToFilter = getUIDsFromDataArray(filteredHomeFeatures)
 
           const uidFilteredRecentFeatures = removeDuplicateFetchData(

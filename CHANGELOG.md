@@ -1,3 +1,6 @@
+### Version 1.16.0
+- fix(ResponsiveImage): change `data-lowsrc` to `src` per lazysizes spec
+
 ### Version 1.15.0
 - feat(HMBKItem): add Feature to query; update slice rework layoutSide derivation add short-circuit to whole slice
 - feat(AdminLink): add subtitle to describe link

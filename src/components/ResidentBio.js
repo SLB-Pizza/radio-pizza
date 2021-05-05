@@ -59,9 +59,13 @@ function ResidentBio({ residentBioData }) {
         <div className="column is-12">
           <figure className="image is-1by1">
             {resident_image ? (
-              <img src={resident_image.url} alt={resident_image.alt} />
+              <img
+                className="lazyload"
+                src={resident_image.url}
+                alt={resident_image.alt}
+              />
             ) : (
-              <FallbackImage />
+              <FallbackImage className="lazyload" alt={'HMBK Resident'} />
             )}
           </figure>
         </div>

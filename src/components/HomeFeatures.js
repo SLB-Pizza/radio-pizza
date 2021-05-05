@@ -17,7 +17,7 @@ import {
  * @param {Object[]} homeFeaturesData - Array of data from Prismic received from /index; original data set in Prismic Homepage document
  * @returns {jsx}
  */
-function HomeFeatures({ headline, blurb, homeFeaturesData }) {
+export default function HomeFeatures({ headline, blurb, homeFeaturesData }) {
   const [homeFeatures, setHomeFeatures] = useState(null)
 
   const filteredHomeFeatures = mappableDataFilter(homeFeaturesData)
@@ -38,36 +38,33 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
   ] = useLazyQuery(FILL_HOME_FEATURES)
 
   /**
-   * IF `filteredHomeFeatures` has 4 or more entries
-   *    Grab only the first 4 features
-   * ELSE
-   *    `filteredHomeFeatures` has less than 4 entries
+   * IF (`filteredHomeFeatures` returns 0 b/c of ({@link mappableDataFilter})
+   *    OR  `filteredHomeFeatures.length` <= 3)
    *    Fetch 4 Features by calling {@link HomeFeaturesQuery}.
    *    `fetchedFeatures` updates, triggering {@link processFetchedHomeFeatures}.
+   * ELSE
+   *    filteredHomeFeatures` has 4 or more entries
+   *    Slice only the first 4 features
    * @category useEffect
    * @name fetchRemainingHomeFeatures
    */
   useEffect(() => {
     const fetchRemainingHomeFeatures = () => {
-      if (filteredHomeFeatures.length >= 4) {
-        /**
-         * #1
-         */
+      if (filteredHomeFeatures === 0 || filteredHomeFeatures.length <= 3) {
+        fetchFillerHomeFeatures()
+      } else {
         const featuresToMap = filteredHomeFeatures.slice(0, 4)
         setHomeFeatures(featuresToMap)
-      } else {
-        fetchFillerHomeFeatures()
       }
     }
     fetchRemainingHomeFeatures()
   }, [homeFeaturesData])
 
   /**
-   * Runs when {@link fetchFillerHomeFeatures} returns fetchedFeatures to process.
-   * Scenario 1
-   * We have exactly 4 features
-   *
-   * Scenario 2
+   * Runs when {@link fetchFillerHomeFeatures} returns `fetchedFeatures` to process.
+   * IF `filteredHomeFeatures` returns 0 b/c of {@link mappableDataFilter}
+   *    No Editorial UIDs to filter out, `setHomeFeatures` using `fetchedFeatures`
+   * ELSE
    * Query 4 more recently published Features.
    * Spread that fetchedFeatures into the filteredHomeFeatures array
    * setTwelveMixes the new 12 mix filteredHomeFeatures
@@ -76,28 +73,26 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
    */
   useEffect(() => {
     const processFetchedHomeFeatures = () => {
-      if (!fetchedFeatures) {
-        /**
-         * Scenario 1
-         */
-        setHomeFeatures(filteredHomeFeatures)
-      } else {
-        /**
-         * Scenario 2
-         */
-        const featureUIDsToFilter = getUIDsFromDataArray(filteredHomeFeatures)
+      if (fetchedFeatures) {
         const fetchedRecentFeatures = fetchedFeatures.allFeatures.edges
 
-        const uidFilteredRecentFeatures = removeDuplicateFetchData(
-          fetchedRecentFeatures,
-          featureUIDsToFilter
-        )
+        if (filteredHomeFeatures === 0) {
+          setHomeFeatures(fetchedRecentFeatures)
+        } else {
+          console.debug(filteredHomeFeatures)
+          const featureUIDsToFilter = getUIDsFromDataArray(filteredHomeFeatures)
 
-        const newTwelveFeatures = [
-          ...filteredHomeFeatures,
-          ...uidFilteredRecentFeatures,
-        ]
-        setHomeFeatures(newTwelveFeatures)
+          const uidFilteredRecentFeatures = removeDuplicateFetchData(
+            fetchedRecentFeatures,
+            featureUIDsToFilter
+          )
+
+          const newTwelveFeatures = [
+            ...filteredHomeFeatures,
+            ...uidFilteredRecentFeatures,
+          ]
+          setHomeFeatures(newTwelveFeatures)
+        }
       }
     }
     processFetchedHomeFeatures()
@@ -117,5 +112,3 @@ function HomeFeatures({ headline, blurb, homeFeaturesData }) {
     )
   )
 }
-
-export default HomeFeatures

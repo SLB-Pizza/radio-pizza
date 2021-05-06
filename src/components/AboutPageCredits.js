@@ -5,16 +5,16 @@ export default function AboutPageCredits() {
     <section className="section container">
       <div className="columns is-mobile">
         <div className="column context text-block">
-          <p className="title is-5">Design</p>
-          <p className="subtitle is-7">
-            <a href="https://christianmejia.dev" rel="noopener" target="_blank">
-              Christian Mejia
-            </a>
+          <p className="title is-size-5">Design</p>
+          <p className="subtitle is-size-6">
+            Christian Mejia
+            {/* <a href="https://christianmejia.dev" rel="noopener" target="_blank">
+            </a> */}
           </p>
         </div>
         <div className="column context text-block">
-          <p className="title is-5">Programming</p>
-          <p className="subtitle is-7">
+          <p className="title is-size-5">Programming</p>
+          <p className="subtitle is-size-6">
             {/* <a href="https://christianmejia.dev" rel="noopener" target="_blank">
               Christian Mejia
             </a> */}

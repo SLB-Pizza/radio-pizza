@@ -76,7 +76,6 @@ function HeroCarousel({ slides }) {
   //   color: "black",
   // };
 
-  console.log(slides)
   return (
     <section className="slider-sizing">
       {/* <pre>{JSON.stringify(slides, null, 2)}</pre> */}

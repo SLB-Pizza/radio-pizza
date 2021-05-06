@@ -3,7 +3,11 @@ import ReactPlayer from 'react-player'
 import Ticker from 'react-ticker'
 import PageVisibility from 'react-page-visibility'
 import { hot } from 'react-hot-loader'
-import { LiveBroadcastInfoWrapper, RecordedMixInfoDisplay } from './index'
+import {
+  LiveBroadcastInfoWrapper,
+  RecordedMixInfoDisplay,
+  RecordedMixPlayerImage,
+} from './index'
 import { handleEnded, handleMixReady, handlePlayPause } from '../dispatch'
 import {
   GlobalDispatchContext,
@@ -107,6 +111,11 @@ function RadioPlayer() {
   }, [])
 
   const player = useRef(ReactPlayer)
+  console.debug({
+    playing: globalState.playing,
+    playingRadio: globalState.playingRadio,
+    live: globalState.live,
+  })
 
   return (
     <>
@@ -127,17 +136,13 @@ function RadioPlayer() {
         />
       </div>
 
-      <div
-        className={
-          globalState.isLoading
-            ? 'column is-narrow is-hidden-mobile mix-data'
-            : 'column is-narrow is-hidden-mobile mix-data is-loaded'
-        }
-      >
-        <figure className="image is-48x48">
-          <img src={globalState.img} alt={globalState.title} />
-        </figure>
-      </div>
+      {!globalState.playingRadio ? (
+        <RecordedMixPlayerImage
+          isLoading={globalState.isLoading}
+          imgURL={globalState.img}
+          imgAlt={globalState.title}
+        />
+      ) : null}
 
       {globalState.live && globalState.playingRadio ? (
         <LiveBroadcastInfoWrapper

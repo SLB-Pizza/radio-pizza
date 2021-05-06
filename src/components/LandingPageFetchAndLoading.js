@@ -1,6 +1,7 @@
 import React from 'react'
 import { HMBKDivider } from '../components'
 import { DividerAndTopButton } from '../components/helpers'
+import { scrollToTop } from '../utils'
 
 /**
  * Renders the final section of the page for of each of:

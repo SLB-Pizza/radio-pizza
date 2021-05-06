@@ -31,7 +31,7 @@ function HeroCarousel({ slides }) {
         backgroundColor: isActive ? 'white' : 'black',
         borderRadius: '25%',
         marginInlineStart: '.5rem',
-        border: isActive ? '2px solid #f600ff' : '2px solid white',
+        border: isActive ? '2px solid black' : '2px solid white',
         width: '32px',
         height: '32px',
         opacity: isActive ? '1' : '.5',

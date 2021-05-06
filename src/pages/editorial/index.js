@@ -46,7 +46,7 @@ export default function EditorialIndexPage({ data, prismic }) {
 
   /**
    * Break down `prismicContent` to select `editorialHeaderData` for {@link FeaturesHighlightItems}.
-   * IF `bottom_right_feature` AND/OR `top_right_feature` exists
+   * IF `second_highlight_editorial` AND/OR `first_highlight_editorial` exists
    *    Filter out their UIDs
    * @category useEffect
    * @name processEditorialHeaderData
@@ -57,17 +57,20 @@ export default function EditorialIndexPage({ data, prismic }) {
        * Select and deconstruct `editorialHeaderData` for use.
        */
       const editorialHeaderData = prismicContent.allLandingpages.edges[0].node
-      const { bottom_right_feature, top_right_feature } = editorialHeaderData
+      const {
+        second_highlight_editorial,
+        first_highlight_editorial,
+      } = editorialHeaderData
 
       /**
        * Create an array to collect editorialHeaderData node to pass into {@link getUIDsFromDataArray}
        */
       const editorialsToFilter = []
-      if (bottom_right_feature) {
-        editorialsToFilter.push({ node: bottom_right_feature })
+      if (second_highlight_editorial) {
+        editorialsToFilter.push({ node: second_highlight_editorial })
       }
-      if (top_right_feature) {
-        editorialsToFilter.push({ node: top_right_feature })
+      if (first_highlight_editorial) {
+        editorialsToFilter.push({ node: first_highlight_editorial })
       }
 
       /**
@@ -93,8 +96,8 @@ export default function EditorialIndexPage({ data, prismic }) {
          * Build the highlightedFeatures data object; will be used as props for {@link FeaturesHighlightItems}.
          */
         const highlightedFeatures = {
-          leftFeature: top_right_feature,
-          rightFeature: bottom_right_feature,
+          leftFeature: first_highlight_editorial,
+          rightFeature: second_highlight_editorial,
         }
 
         setFeaturesHighlights(highlightedFeatures)
@@ -227,7 +230,7 @@ export const query = graphql`
       allLandingpages {
         edges {
           node {
-            top_right_feature {
+            first_highlight_editorial {
               ... on PRISMIC_Feature {
                 _meta {
                   uid
@@ -248,7 +251,7 @@ export const query = graphql`
                 }
               }
             }
-            bottom_right_feature {
+            second_highlight_editorial {
               ... on PRISMIC_Feature {
                 _meta {
                   uid

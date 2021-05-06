@@ -1,3 +1,11 @@
+### Version 1.16.1
+- fix(gatsby-config): remove `gatsby-source-filesystem` ref to `/img`
+- fix(HomeFeatures): address case where Homepage selected Editorials is 0/null rework `fetchRemainingHomeFeatures` and `processFetchedHomeFeatures` to catch case where `filteredHomeFeatures` is 0
+- fix(HomeMixes): address case where Homepage selected Sound Selects is 0/null rework `fetchRemainingHomeMixes` and `processFetchedHomeMixes` to catch case where `filteredHomeMixes` is 0
+- docs(HomeFeatures): clarify `processFetchedHomeFeatures`
+- refactor(Resident): comment Alumni portion of query does not fetch/render any Alumni Alumni still exists in CMS
+- fix(Landings): update Radio; Schedule header text
+
 ### Version 1.16.0
 - fix(ResponsiveImage): change `data-lowsrc` to `src` per lazysizes spec
 

@@ -12,6 +12,11 @@ import { HeroArrows } from '../utils'
  */
 function HeroCarousel({ slides }) {
   /**
+   * If slides array is null OR has no entries, do not render slider.
+   */
+  if (!slides || slides.length === 0) return null
+
+  /**
    * Amount of time in ms to stay on each slide before <Slider> auto moves to next slide; preset to 8000
    */
   const timePerSlide = 8000
@@ -71,8 +76,10 @@ function HeroCarousel({ slides }) {
   //   color: "black",
   // };
 
+  console.log(slides)
   return (
     <section className="slider-sizing">
+      {/* <pre>{JSON.stringify(slides, null, 2)}</pre> */}
       <Slider
         auto={timePerSlide}
         hasArrows
@@ -80,7 +87,7 @@ function HeroCarousel({ slides }) {
         ArrowComponent={HeroArrow}
         BulletComponent={HeroBullets}
       >
-        {slides.map((slide, index) => {
+        {slides?.map((slide, index) => {
           const { slide_link, slide_bg, slide_headline, slide_cta } = slide
 
           return (

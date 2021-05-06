@@ -41,19 +41,17 @@
             }
           },
           "slide_headline": {
-            "type": "StructuredText",
+            "type": "Text",
             "config": {
-              "single": "heading1",
-              "label": "(REQUIRED) Slide Headline",
+              "label": "Slide Headline",
               "placeholder": "Enter Slide Headline here..."
             }
           },
           "slide_cta": {
-            "type": "StructuredText",
+            "type": "Text",
             "config": {
-              "single": "heading4",
               "label": "Slide Call To Action",
-              "placeholder": "Enter Slide Call To Action Here"
+              "placeholder": "Enter a few words as a Call to Action here..."
             }
           },
           "slide_link": {

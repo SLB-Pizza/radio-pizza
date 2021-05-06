@@ -1,3 +1,6 @@
+### Version 1.17.2
+- remove(Credits): link to my page under design
+
 ### Version 1.17.1
 - active(Credits): temp remove link from my page in credits component
 - content(Fallbacks): changed HMBK instances to Half Moon

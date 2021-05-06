@@ -67,7 +67,7 @@ export default function SingleDateScheduleGenerator({
                 >
                   Facebook
                 </a>
-                {' for all the latest HMBK news.'}
+                {' for all the latest Half Moon news.'}
               </p>
             </div>
           )}

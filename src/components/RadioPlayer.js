@@ -1,7 +1,6 @@
 import React, { useContext, useRef, useState, useEffect } from 'react'
 import ReactPlayer from 'react-player'
-import Ticker from 'react-ticker'
-import PageVisibility from 'react-page-visibility'
+
 import { hot } from 'react-hot-loader'
 import {
   LiveBroadcastInfoWrapper,
@@ -111,11 +110,6 @@ function RadioPlayer() {
   }, [])
 
   const player = useRef(ReactPlayer)
-  console.debug({
-    playing: globalState.playing,
-    playingRadio: globalState.playingRadio,
-    live: globalState.live,
-  })
 
   return (
     <>

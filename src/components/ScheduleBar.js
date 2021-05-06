@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { useLazyQuery } from '@apollo/client'
-import PageVisibility from 'react-page-visibility'
 import {
   GlobalDispatchContext,
   GlobalStateContext,

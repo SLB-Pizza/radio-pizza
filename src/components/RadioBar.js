@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'gatsby'
-import Ticker from 'react-ticker'
 import { useQuery } from '@apollo/client'
 import { RadioPlayer } from './index'
 import { FallbackImage } from '../utils'
@@ -15,15 +14,13 @@ import dayjs from 'dayjs'
 const utc = require('dayjs/plugin/utc')
 dayjs.extend(utc)
 
-// import PageVisibility from "react-page-visibility";
-
 /**
- *
- *
- * @export
- * @param {*} nycTime
- * @param {*} laTime
- * @returns
+ * Renders the RadioBar portion of the {@link TopNav}.
+ * @category Site Elements
+ * @function RadioBar
+ * @param {Object} nycTime - dayJS object
+ * @param {Object} laTime - dayJS object
+ * @returns {jsx}
  */
 export default function RadioBar({ nycTime, laTime }) {
   const dispatch = useContext(GlobalDispatchContext)

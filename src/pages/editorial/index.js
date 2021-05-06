@@ -227,7 +227,6 @@ export const query = graphql`
       allLandingpages {
         edges {
           node {
-            editorial_page_header
             top_right_feature {
               ... on PRISMIC_Feature {
                 _meta {

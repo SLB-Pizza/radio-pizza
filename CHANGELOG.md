@@ -1,3 +1,21 @@
+### Version 1.17.0
+- fix(HomePage): update Prismic JSON schema
+- fix(Hero): address case where `slides` is null or has no length
+- fix(HomePage): update Prismic JSON schema change headline and cta from RichText to Plaintext
+- fix(SlideGen): add ResponsiveImage add new prop to ResponsiveImage to handle `hero-background` classNames
+- style(Hero): add margins to hero arrows; change current hero item border
+- fix(LPFetchAndLoad): add missing `scrollToTop` import
+- fix(/editorial): update query params; editorial highlight processing
+- style(Icons): change schedule dropdown, chat icon size 1x -> lg
+- feat(RadioPlayer): remove mix image when radio is playing live
+- style(Navbars): give both black backgrounds
+- feat(scheduling): add social media links to fallback components SingleDateScheduleGenerator; ScheduleDropdown
+- prune(#79): remove react-ticker, react-page-visibility, google-map-react
+- backup(LandingPage): update Prismic JSON schema remains WIP; need to connect to each landing page with fallbacks
+- feat(Helmet): add Ears to the concrete to each page
+- feat(Player): add base mix image toggle logic
+- fix(PlayOverlay): address case where mix has no img
+
 ### Version 1.16.2
 
 ### Version 1.16.1

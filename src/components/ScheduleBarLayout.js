@@ -80,7 +80,7 @@ export default function ScheduleBarLayout({ timeNow, upcomingShows }) {
             aria-label="Toggle Schedule Dropdown"
             onClick={() => toggleSchedule(dispatch)}
           >
-            <Icon icon="calendar-alt" size="1x" className="icon-color" />
+            <Icon icon="calendar-alt" size="lg" className="icon-color" />
           </button>
         </div>
 
@@ -89,7 +89,7 @@ export default function ScheduleBarLayout({ timeNow, upcomingShows }) {
               <Icon
                 onClick={() => closeSchedule(dispatch)}
                 icon="search"
-                size="1x"
+                size="lg"
                 className="icon-color"
               />
             </Link>
@@ -102,7 +102,7 @@ export default function ScheduleBarLayout({ timeNow, upcomingShows }) {
             rel="noopener"
             onClick={() => closeSchedule(dispatch)}
           >
-            <Icon icon="comments" size="1x" className="icon-color" />
+            <Icon icon="comments" size="lg" className="icon-color" />
           </a>
         </div>
       </div>

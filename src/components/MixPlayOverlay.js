@@ -32,6 +32,7 @@ export default function MixPlayOverlay({
 
   // Remove punctuation and white spaces in title string for use with the SR-only #play-mix-title href
   const titleForSRHashURL = title.replace(/[.,\/#!$%\^&\*;:{}=\_`~()\s]/g, '-')
+  const imgDataToSend = img === null ? null : img.now_playing.url
 
   return (
     <div className={wrapperClassName}>
@@ -47,7 +48,7 @@ export default function MixPlayOverlay({
                 playCollection(dispatch, collectionDetails)
               }
             : () => {
-                changeURL(dispatch, url, title, residents, img.now_playing.url)
+                changeURL(dispatch, url, title, residents, imgDataToSend)
               }
         }
         linkProps={{
@@ -74,13 +75,7 @@ export default function MixPlayOverlay({
                     playCollection(dispatch, collectionDetails)
                   }
                 : () => {
-                    changeURL(
-                      dispatch,
-                      url,
-                      title,
-                      residents,
-                      img.now_playing.url
-                    )
+                    changeURL(dispatch, url, title, residents, imgDataToSend)
                   }
             }
           />

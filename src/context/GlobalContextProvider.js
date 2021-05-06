@@ -1,4 +1,5 @@
 import React from 'react'
+import { withPrefix } from 'gatsby'
 
 export const GlobalStateContext = React.createContext()
 export const GlobalDispatchContext = React.createContext()
@@ -155,18 +156,39 @@ function reducer(state, action) {
         img: null,
       }
 
+    /**
+     * Changes the currently playing source in {@link RadioPlayer}.
+     * Now handles cases where mixes don't have images.
+     * @category Reducer Action
+     * @name CHANGE_URL
+     */
     case 'CHANGE_URL':
-      return {
-        ...state,
-        isLoading: false,
-        playing: true,
-        playlist: [],
-        list_curr_index: 0,
-        url: action.payload.url,
-        title: action.payload.title,
-        resident: action.payload.resident,
-        img: action.payload.img,
-        playingRadio: false,
+      if (!action.payload.img) {
+        return {
+          ...state,
+          isLoading: false,
+          playing: true,
+          playlist: [],
+          list_curr_index: 0,
+          url: action.payload.url,
+          title: action.payload.title,
+          resident: action.payload.resident,
+          img: null,
+          playingRadio: false,
+        }
+      } else {
+        return {
+          ...state,
+          isLoading: false,
+          playing: true,
+          playlist: [],
+          list_curr_index: 0,
+          url: action.payload.url,
+          title: action.payload.title,
+          resident: action.payload.resident,
+          img: action.payload.img,
+          playingRadio: false,
+        }
       }
 
     case 'CLOSE_NAVMENU':

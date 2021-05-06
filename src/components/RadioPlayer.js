@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useState, useEffect } from 'react'
 import ReactPlayer from 'react-player'
-
+import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import { hot } from 'react-hot-loader'
 import {
   LiveBroadcastInfoWrapper,
@@ -12,7 +12,6 @@ import {
   GlobalDispatchContext,
   GlobalStateContext,
 } from '../context/GlobalContextProvider'
-import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
 /**
  * Returns the Radio Player layout element
@@ -110,7 +109,6 @@ function RadioPlayer() {
   }, [])
 
   const player = useRef(ReactPlayer)
-
   return (
     <>
       <div

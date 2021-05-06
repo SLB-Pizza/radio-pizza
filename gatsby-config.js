@@ -7,7 +7,7 @@ module.exports = {
     title: 'Half Moon',
     description:
       'Ears to the concrete. Brooklyn based music network connecting music culture across the world through radio, events, and more. Founded in 2017, Half Moon was born out of the need to defy. We bring our audience live, uncensored and undiscovered music to remind the world that the underground is where the sublime lives, grows and becomes timeless.',
-    siteUrl: `https://halfmoon-rebuild-wip-2020.netlify.app/`,
+    siteUrl: `https://www.halfmoonbk.com/`,
     twitterUsername: '@halfmoonbk',
   },
   plugins: [

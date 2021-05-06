@@ -19,7 +19,7 @@ import PropTypes from 'prop-types'
  * @param {Object} prismic - the data object containing Prismic follow up functions
  * @returns {jsx}
  */
-function EditorialIndexPage({ data, prismic }) {
+export default function EditorialIndexPage({ data, prismic }) {
   const { title, description, siteUrl, twitterUsername } = useSiteMetadata()
   const prismicContent = data.prismic
   /**
@@ -46,6 +46,8 @@ function EditorialIndexPage({ data, prismic }) {
 
   /**
    * Break down `prismicContent` to select `editorialHeaderData` for {@link FeaturesHighlightItems}.
+   * IF `bottom_right_feature` AND/OR `top_right_feature` exists
+   *    Filter out their UIDs
    * @category useEffect
    * @name processEditorialHeaderData
    */
@@ -60,7 +62,6 @@ function EditorialIndexPage({ data, prismic }) {
       /**
        * Create an array to collect editorialHeaderData node to pass into {@link getUIDsFromDataArray}
        */
-      console.debug(editorialHeaderData)
       const editorialsToFilter = []
       if (bottom_right_feature) {
         editorialsToFilter.push({ node: bottom_right_feature })
@@ -69,29 +70,42 @@ function EditorialIndexPage({ data, prismic }) {
         editorialsToFilter.push({ node: top_right_feature })
       }
 
-      const uidsToFilter = getUIDsFromDataArray(editorialsToFilter)
-      setEditorialsUIDsToFilter(uidsToFilter)
-
-      const filteredEditorialData = removeDuplicateFetchData(
-        featuresToMap,
-        uidsToFilter
-      )
-      setFeaturesToMap({
-        data: filteredEditorialData,
-        hasMore: prismicContent.allFeatures.hasNextPage,
-      })
-
       /**
-       * Build the highlightedFeatures data object; will be used as props for {@link FeaturesHighlightItems}.
+       * IF there are highlight editorials
+       *    Grab their UIDs
+       *    Filter out editorial UIDs that match from `featuresToMap`.
+       *    `setFeaturesToMap
        */
-      const highlightedFeatures = {
-        leftFeature: top_right_feature,
-        rightFeature: bottom_right_feature,
-      }
+      if (editorialsToFilter.length) {
+        const uidsToFilter = getUIDsFromDataArray(editorialsToFilter)
+        setEditorialsUIDsToFilter(uidsToFilter)
 
-      setFeaturesHighlights(highlightedFeatures)
+        const filteredEditorialData = removeDuplicateFetchData(
+          featuresToMap,
+          uidsToFilter
+        )
+        setFeaturesToMap({
+          data: filteredEditorialData,
+          hasMore: prismicContent.allFeatures.hasNextPage,
+        })
+
+        /**
+         * Build the highlightedFeatures data object; will be used as props for {@link FeaturesHighlightItems}.
+         */
+        const highlightedFeatures = {
+          leftFeature: top_right_feature,
+          rightFeature: bottom_right_feature,
+        }
+
+        setFeaturesHighlights(highlightedFeatures)
+      } else {
+        setFeaturesToMap({
+          data: prismicContent.allFeatures.edges,
+          hasMore: prismicContent.allFeatures.hasNextPage,
+        })
+      }
     }
-    return processEditorialHeaderData()
+    processEditorialHeaderData()
   }, [data])
 
   /**
@@ -158,7 +172,7 @@ function EditorialIndexPage({ data, prismic }) {
       <header className="container is-fluid">
         <div className="columns">
           <div className="column is-full content">
-            <h1 className="title is-3-desktop is-4-touch">features</h1>
+            <h1 className="title is-3-desktop is-4-touch">Editorial</h1>
           </div>
         </div>
         {/* Show only after featuresHighlights is processed by useEffect */
@@ -213,6 +227,7 @@ export const query = graphql`
       allLandingpages {
         edges {
           node {
+            editorial_page_header
             top_right_feature {
               ... on PRISMIC_Feature {
                 _meta {
@@ -300,5 +315,3 @@ export const query = graphql`
     }
   }
 `
-
-export default EditorialIndexPage

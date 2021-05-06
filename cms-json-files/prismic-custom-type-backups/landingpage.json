@@ -1,50 +1,53 @@
 {
-  "Radio Page": {},
-  "Collections Page": {},
+  "Radio Page": {
+    "radio_page_header": {
+      "type": "Text",
+      "config": {
+        "label": "Radio Page Header",
+        "placeholder": "Enter the Header Text for /radio (Default: Radio Mixes)"
+      }
+    },
+    "radio_page_description": {
+      "type": "Text",
+      "config": {
+        "label": "Radio Page Description",
+        "placeholder": "Enter a short description for the /radio page here..."
+      }
+    }
+  },
   "Residents Page": {},
   "Events Page": {},
-  "Features Page": {
-    "features_page_header": {
-      "type": "StructuredText",
+  "Editorial Page": {
+    "editorial_page_header": {
+      "type": "Text",
       "config": {
-        "single": "heading1",
-        "label": "Features Page Header",
-        "placeholder": "Enter the Features Page header text here..."
+        "label": "Editorial Page Header",
+        "placeholder": "Enter the header for the /editorials page (Default: Editorials)"
       }
     },
-    "features_page_subtitle": {
-      "type": "StructuredText",
+    "editorial_page_description": {
+      "type": "Text",
       "config": {
-        "single": "heading3",
-        "label": "Features Page Subtitle",
-        "placeholder": "Enter the Features Page header text here..."
+        "label": "Editorial Page Description",
+        "placeholder": "Enter a short description for the /editorials page here..."
       }
     },
-    "main_feature_article": {
+    "first_highlight_editorial": {
       "type": "Link",
       "config": {
         "select": "document",
         "customtypes": ["feature"],
-        "label": "Main Feature Article (Large Left Half)",
-        "placeholder": "Select a Feature to use as the Main Feature"
+        "label": "First Highlight Editorial",
+        "placeholder": "Select an Editorial to use as the first highlight Editorial..."
       }
     },
-    "top_right_feature": {
+    "second_highlight_editorial": {
       "type": "Link",
       "config": {
         "select": "document",
         "customtypes": ["feature"],
-        "label": "Top Right Feature",
-        "placeholder": "Select a Feature to use as the Top Right Feature"
-      }
-    },
-    "bottom_right_feature": {
-      "type": "Link",
-      "config": {
-        "select": "document",
-        "customtypes": ["feature"],
-        "label": "Bottom Right Feature",
-        "placeholder": "Select a Feature to use as the Bottom Right Feature"
+        "label": "Second Highlight Editorial",
+        "placeholder": "Select an Editorial to use as the second highlight Editorial..."
       }
     }
   }

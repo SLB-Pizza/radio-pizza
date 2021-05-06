@@ -1,7 +1,7 @@
 import React from 'react'
 import lazySizes from 'lazysizes'
 import 'lazysizes/plugins/attrchange/ls.attrchange'
-import 'lazysizes/plugins/blur-up/ls.blur-up'
+// import "lazysizes/plugins/blur-up/ls.blur-up";
 
 /**
  * Creates a JSX `<picture>` element with responsive sources that {@link ImageHelper} calls upon.
@@ -14,13 +14,14 @@ import 'lazysizes/plugins/blur-up/ls.blur-up'
  * @prop {Object.<String>} responsiveData.tablet - data object to make the image for bulma "tablet" breakpoint
  * @prop {Object.<String>} responsiveData.mobile - data object to make the image for bulma "mobile" breakpoint
  * @prop {Object.<String>} responsiveData.lo_fi - data object to make the low quality image placeholder (LQIP)
+ * @param {?Boolean} isHeroIMG - when true, sets `className="hero-background lazyload"`; passed by {@link SlideGenerator}
  * @returns {jsx}
  * @see {@link https://bulma.io/documentation/overview/responsiveness/#breakpoints Bulma Breakpoints}
  * @see {@link https://afarkas.github.io/lazysizes/index.html lazySizes & LQIP}
  * @see {@link https://github.com/aFarkas/lazysizes/tree/gh-pages/plugins/parent-fit lazySizes parent fit extension}
  * @see {@link https://elad.medium.com/a-complete-guide-for-responsive-images-b13db359c6c7 Complete Guide to Responsive Images!}
  */
-function ResponsiveImage({ largestImg, responsiveData }) {
+function ResponsiveImage({ largestImg, responsiveData, isHeroIMG }) {
   return (
     <picture>
       {Object.keys(responsiveData).map((imgSize, index) => {
@@ -56,11 +57,11 @@ function ResponsiveImage({ largestImg, responsiveData }) {
       })}
       <img
         alt={largestImg.alt}
-        src={responsiveData['lo_fi'].url}
+        data-lowsrc={responsiveData['lo_fi'].url}
         width={largestImg.dimensions.width}
         height={largestImg.dimensions.height}
         data-src={largestImg.url}
-        className="lazyload"
+        className={isHeroIMG ? 'hero-background lazyload' : 'lazyload'}
       />
     </picture>
   )

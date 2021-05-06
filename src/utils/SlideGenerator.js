@@ -1,18 +1,17 @@
 import React from 'react'
 import { navigate } from 'gatsby'
-import { RichText } from 'prismic-reactjs'
-import { FallbackImage, linkResolver } from '../utils'
+import { FallbackImage, linkResolver, ResponsiveImage } from '../utils'
 
 /**
  * Returns a complete Hero layout for use in the return statement, inside the <Slider> component
  * @category Site Elements
  * @function SlideGenerator
  * @param {Object} background - Object containing the image's URL and alt data
- * @prop {String} background.url - The URL from Prismic of that slide's background image. This can be a relative local path (e.g. "/static/something-local.jpg") or an external image link (e.g. "https://source.unsplash.com/1920x1080/daily?music"). Both work.
+ * @prop {String} background.url - The URL from Prismic of that slide's background image. This can be a relative local path (e.g. `/static/something-local.jpg`) or an external image link (e.g. `https://source.unsplash.com/1920x1080/daily?music`). Both work.
  * @param {String} headline - Short string announcing that slide's content
  * @param {String} cta - Medium string giving context to that slide's content; might be a call to action or a breadcrumb for the reader
  * @param {String} link - Object containing the onClick URL
- * @prop {String} link.url - The link to navigate to onClick, This can either be an internal link (e.g. "/events"), or an external link (e.g. "https://www.instagram.com").
+ * @prop {String} link.url - The link to navigate to onClick, This can either be an internal link (e.g. `/events`), or an external link (e.g. `https://www.instagram.com`).
  * @returns {jsx}
  */
 function SlideGenerator({ background, headline, link, cta }) {
@@ -31,13 +30,31 @@ function SlideGenerator({ background, headline, link, cta }) {
     linkTo = link.url
   }
 
+  let fullSizeImg, responsiveSizes
+  if (background) {
+    fullSizeImg = {
+      alt: background.alt,
+      photoCredit: background.copyright,
+      url: background.url,
+      dimensions: background.dimensions,
+    }
+
+    responsiveSizes = {
+      widescreen: background.widescreen,
+      desktop: background.desktop,
+      tablet: background.tablet,
+      mobile: background.mobile,
+      lo_fi: background.lo_fi,
+    }
+  }
+
   return (
     <header className="hero homepage has-background">
       {background ? (
-        <img
-          className="hero-background lazyload"
-          src={background.url}
-          alt={background.alt}
+        <ResponsiveImage
+          largestImg={fullSizeImg}
+          responsiveData={responsiveSizes}
+          isHeroIMG={true}
         />
       ) : (
         <FallbackImage styleName={'hero-background lazyload'} />
@@ -54,18 +71,18 @@ function SlideGenerator({ background, headline, link, cta }) {
             >
               {headline && (
                 <h1
-                  className="title is-size-1-desktop is-size-3-tablet is-size-5-mobile hero-title"
+                  className="title is-size-1-desktop is-size-2-tablet is-size-3-mobile hero-title"
                   style={{ pointerEvents: 'auto' }}
                 >
-                  {RichText.asText(headline)}
+                  {headline}
                 </h1>
               )}
               {cta && (
                 <p
-                  className="subtitle is-size-5-desktop is-size-6-tablet is-size-7-mobile cta"
+                  className="subtitle is-size-5-desktop is-size-6-touch cta"
                   style={{ pointerEvents: 'auto' }}
                 >
-                  {RichText.asText(cta)}
+                  {cta}
                 </p>
               )}
             </div>

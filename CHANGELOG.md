@@ -1,3 +1,5 @@
+### Version 1.16.2
+
 ### Version 1.16.1
 - fix(gatsby-config): remove `gatsby-source-filesystem` ref to `/img`
 - fix(HomeFeatures): address case where Homepage selected Editorials is 0/null rework `fetchRemainingHomeFeatures` and `processFetchedHomeFeatures` to catch case where `filteredHomeFeatures` is 0

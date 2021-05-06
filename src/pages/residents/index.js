@@ -238,10 +238,16 @@ function ResidentsIndex({ data }) {
   return (
     <main className="black-bg-page">
       <Helmet defer={false}>
-        <title>{`Residents | ${title}`}</title>
-        <meta property="og:title" content={`Residents | ${title}`} />
+        <title>{`Residents | ${title} | Ears to the concrete.`}</title>
+        <meta
+          property="og:title"
+          content={`Residents | ${title} | Ears to the concrete.`}
+        />
         <meta property="og:url" content={`${siteUrl}/residents/`} />
-        <meta name="twitter:title" content={`Residents | ${title}`} />
+        <meta
+          name="twitter:title"
+          content={`Residents | ${title} | Ears to the concrete.`}
+        />
       </Helmet>
 
       <header className="container is-fluid">

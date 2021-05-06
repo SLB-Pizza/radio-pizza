@@ -134,7 +134,7 @@ function RadioIndexPage({ data, prismic }) {
        * Runs when globalState is changed based off a click {@link TagButtons} on {@link RadioIndexPage}, dispatching {@link ADD_TAG_TO_MIX_SEARCH} to add the tag's text to `mixSearchTags`.
        */
       if (globalState.mixSearchTags) {
-        console.log('setting selectedTags:', globalState.mixSearchTags)
+        // console.log('setting selectedTags:', globalState.mixSearchTags)
         setSelectedTags(globalState.mixSearchTags)
       } else {
         /**
@@ -236,10 +236,16 @@ function RadioIndexPage({ data, prismic }) {
   return (
     <main className="black-bg-page">
       <Helmet defer={false}>
-        <title>{`Radio | ${title}`}</title>
-        <meta property="og:title" content={`Radio | ${title}`} />
+        <title>{`Radio | ${title} | Ears to the concrete.`}</title>
+        <meta
+          property="og:title"
+          content={`Radio | ${title} | Ears to the concrete.`}
+        />
         <meta property="og:url" content={`${siteUrl}/radio/`} />
-        <meta name="twitter:title" content={`Radio | ${title}`} />
+        <meta
+          name="twitter:title"
+          content={`Radio | ${title} | Ears to the concrete.`}
+        />
       </Helmet>
 
       <header className="container is-fluid" id="mixes-header">

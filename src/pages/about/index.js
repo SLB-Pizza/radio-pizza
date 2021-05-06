@@ -29,10 +29,16 @@ export default function AboutIndexPage({ data }) {
   return (
     <main className="full-height-page">
       <Helmet defer={false}>
-        <title>{`About | ${title}`}</title>
-        <meta property="og:title" content={`About | ${title}`} />
+        <title>{`About | ${title} | Ears to the concrete.`}</title>
+        <meta
+          property="og:title"
+          content={`About | ${title} | Ears to the concrete.`}
+        />
         <meta property="og:url" content={`${siteUrl}/about`} />
-        <meta name="twitter:title" content={`About | ${title}`} />
+        <meta
+          name="twitter:title"
+          content={`About | ${title} | Ears to the concrete.`}
+        />
       </Helmet>
 
       <AboutPageHero headlineData={aboutHeroData} />

@@ -82,10 +82,16 @@ function EventsIndexPage({ data, prismic }) {
   return (
     <main className="black-bg-page">
       <Helmet defer={false}>
-        <title>{`Events | ${title}`}</title>
-        <meta property="og:title" content={`Events | ${title}`} />
+        <title>{`Events | ${title} | Ears to the concrete.`}</title>
+        <meta
+          property="og:title"
+          content={`Events | ${title} | Ears to the concrete.`}
+        />
         <meta property="og:url" content={`${siteUrl}/events/`} />
-        <meta name="twitter:title" content={`Events | ${title}`} />
+        <meta
+          name="twitter:title"
+          content={`Events | ${title} | Ears to the concrete.`}
+        />
       </Helmet>
 
       <header className="container is-fluid">

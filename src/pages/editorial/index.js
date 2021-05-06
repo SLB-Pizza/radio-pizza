@@ -166,10 +166,16 @@ export default function EditorialIndexPage({ data, prismic }) {
   return (
     <main className="black-bg-page" id="features">
       <Helmet defer={false}>
-        <title>{`Editorial | ${title}`}</title>
-        <meta property="og:title" content={`Editorial | ${title}`} />
+        <title>{`Editorial | ${title} | Ears to the concrete.`}</title>
+        <meta
+          property="og:title"
+          content={`Editorial | ${title} | Ears to the concrete.`}
+        />
         <meta property="og:url" content={`${siteUrl}/editorial/`} />
-        <meta name="twitter:title" content={`Editorial | ${title}`} />
+        <meta
+          name="twitter:title"
+          content={`Editorial | ${title} | Ears to the concrete.`}
+        />
       </Helmet>
 
       <header className="container is-fluid">

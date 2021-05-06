@@ -75,7 +75,7 @@ export default function TemplateWrapper({ children }) {
         <html lang="en" />
         <title>
           {nowPlayingInfo
-            ? `${nowPlayingInfo} | ${siteTitle}`
+            ? `${nowPlayingInfo} | ${siteTitle} | Ears to the concrete.`
             : `${siteTitle} | Ears to the concrete.`}
         </title>
         <meta name="description" content={description} />

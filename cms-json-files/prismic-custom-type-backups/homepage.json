@@ -7,13 +7,10 @@
           "slide_bg": {
             "type": "Image",
             "config": {
-              "constraint": {},
+              "constraint": {
+                "width": 1920
+              },
               "thumbnails": [
-                {
-                  "name": "fhd",
-                  "width": 1920,
-                  "height": null
-                },
                 {
                   "name": "widescreen",
                   "width": 1407,
@@ -64,61 +61,55 @@
             "config": {
               "allowTargetBlank": true,
               "label": "(REQUIRED) Slide Link",
-              "placeholder": "Enter the link to HMBK content or external link here..."
+              "placeholder": "Select the HMBK content or external link here..."
             }
           }
         },
-        "label": "Homepage Carousel"
+        "label": "Homepage Carousel (Maximum 5 Slides)"
       }
     }
   },
   "Section Titles and Blurbs": {
-    "home_mixes_headline": {
-      "type": "StructuredText",
+    "home_mixes_titling": {
+      "type": "Text",
       "config": {
-        "single": "heading1",
-        "label": "Home Mixes Headline",
+        "label": "Sound Selects Section Titling",
         "placeholder": "Enter Home Mixes headline here..."
       }
     },
     "home_mixes_blurb": {
-      "type": "StructuredText",
+      "type": "Text",
       "config": {
-        "multi": "paragraph, strong, em",
-        "label": "Home Mixes Blurb",
-        "placeholder": "Enter Home Mixes blurb here..."
+        "label": "Sound Selects Section Blurb",
+        "placeholder": "Enter Home Mixes section blurb..."
       }
     },
-    "home_events_headline": {
-      "type": "StructuredText",
+    "home_events_titling": {
+      "type": "Text",
       "config": {
-        "single": "heading1",
-        "label": "Home Events Headline",
-        "placeholder": "Enter Home Events headline here"
+        "label": "Homepage Event Section Titling",
+        "placeholder": "Enter Home Events headline here..."
       }
     },
     "home_events_blurb": {
-      "type": "StructuredText",
+      "type": "Text",
       "config": {
-        "single": "paragraph, strong, em",
-        "label": "Home Events Blurb",
-        "placeholder": "Enter Home Events blurb here..."
+        "label": "Homepage Event Section Blurb",
+        "placeholder": "Enter Home Events section blurb..."
       }
     },
-    "home_features_headline": {
-      "type": "StructuredText",
+    "home_editorial_titling": {
+      "type": "Text",
       "config": {
-        "single": "heading1",
-        "label": "Home Features Headline",
-        "placeholder": "Enter Home Features Headline here..."
+        "label": "Home Editorial Section Titling",
+        "placeholder": "Enter Home Editorial headline here..."
       }
     },
-    "home_features_blurb": {
-      "type": "StructuredText",
+    "home_editorial_blurb": {
+      "type": "Text",
       "config": {
-        "single": "paragraph, strong, em",
-        "label": "Home Features Blurb",
-        "placeholder": "Enter Home Features blurb here..."
+        "label": "Home Editorial Section Blurb",
+        "placeholder": "Enter Home Editorial section blurb..."
       }
     }
   },
@@ -137,7 +128,7 @@
             }
           }
         },
-        "label": "home_mixes"
+        "label": "Mixes to Display in Homepage Mixes Section (Maximum 12)"
       }
     }
   },
@@ -146,17 +137,17 @@
       "type": "Group",
       "config": {
         "fields": {
-          "home_feature": {
+          "node": {
             "type": "Link",
             "config": {
               "select": "document",
               "customtypes": ["feature"],
-              "label": "home_feature",
+              "label": "Home Feature",
               "placeholder": "Select a Feature that will appear in the Editorials section..."
             }
           }
         },
-        "label": "Editorials"
+        "label": "Editorials to Display in Homepage Editorial Section (Maximum 4)"
       }
     }
   }

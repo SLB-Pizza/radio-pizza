@@ -90,9 +90,36 @@ function ScheduleDropdown({ showData, timeNow }) {
           currentTime={timeNow}
         />
       ) : (
-        <div className="section column is-11 content">
-          <p className="subtitle is-size-5-desktop is-size-6-touch has-text-centered">
+        <div className="section column is-12 content">
+          <p className="title is-size-4-tablet is-size-5-mobile has-text-centered">
             No shows scheduled!
+          </p>
+          <p className="subtitle is-size-5-tablet is-size-7-mobile has-text-centered text-block">
+            Follow us on our{' '}
+            <a
+              href="https://twitter.com/halfmoonbk"
+              rel="noopener"
+              target="_blank"
+            >
+              Twitter
+            </a>
+            {', '}
+            <a
+              href="https://www.instagram.com/halfmoonbk/"
+              rel="noopener"
+              target="_blank"
+            >
+              Instagram
+            </a>
+            {', and '}
+            <a
+              href="https://www.facebook.com/halfmoonbk/"
+              rel="noopener"
+              target="_blank"
+            >
+              Facebook
+            </a>
+            {' for all the latest HMBK news.'}
           </p>
         </div>
       )}

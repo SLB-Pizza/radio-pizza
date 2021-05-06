@@ -1,3 +1,7 @@
+### Version 1.17.1
+- active(Credits): temp remove link from my page in credits component
+- content(Fallbacks): changed HMBK instances to Half Moon
+
 ### Version 1.17.0
 - fix(HomePage): update Prismic JSON schema
 - fix(Hero): address case where `slides` is null or has no length

@@ -48,7 +48,7 @@ export default function HomeMixes({ headline, blurb, homeMixesData }) {
         fetchFillerHomeMixes()
       } else {
         const mixesToMap = filteredHomeMixes.slice(0, 13)
-        setTwelveMixes(mixesToMap)
+        setHomeMixes(mixesToMap)
       }
     }
 

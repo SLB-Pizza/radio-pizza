@@ -21,11 +21,10 @@ export default function AboutIndexPage({ data }) {
   const { title, siteUrl } = useSiteMetadata()
 
   const prismicContent = data.prismic.allAbouts.edges[0].node
-
   if (!prismicContent) return null
 
   const { body, header } = prismicContent
-  const { primary: aboutHeroData } = header[0]
+  const { about_hero_img, site_title, site_tagline } = header[0].primary
   return (
     <main className="full-height-page">
       <Helmet defer={false}>
@@ -41,8 +40,8 @@ export default function AboutIndexPage({ data }) {
         />
       </Helmet>
 
-      <AboutPageHero headlineData={aboutHeroData} />
-      <AboutPageTitling aboutTitling={aboutHeroData} />
+      <AboutPageHero aboutHeroIMG={about_hero_img} />
+      <AboutPageTitling siteTitle={site_title} tagline={site_tagline} />
       <SliceZone sliceZone={body} />
       <AboutPageCredits />
       <HMBKFooter />
@@ -150,9 +149,9 @@ export const query = graphql`
                 type
                 label
                 primary {
-                  article_subtitle
-                  article_headline_img
-                  article_headline
+                  about_hero_img
+                  site_name
+                  site_tagline
                 }
               }
             }

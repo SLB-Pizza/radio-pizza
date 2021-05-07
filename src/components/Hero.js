@@ -78,7 +78,6 @@ function HeroCarousel({ slides }) {
 
   return (
     <section className="slider-sizing">
-      {/* <pre>{JSON.stringify(slides, null, 2)}</pre> */}
       <Slider
         auto={timePerSlide}
         hasArrows

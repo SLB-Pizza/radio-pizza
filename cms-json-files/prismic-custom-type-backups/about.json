@@ -15,10 +15,12 @@
             "icon": "subtitles",
             "display": "list",
             "non-repeat": {
-              "article_headline_img": {
+              "about_hero_img": {
                 "type": "Image",
                 "config": {
-                  "constraint": {},
+                  "constraint": {
+                    "width": 1920
+                  },
                   "thumbnails": [
                     {
                       "name": "widescreen",
@@ -41,33 +43,26 @@
                       "height": null
                     },
                     {
-                      "name": "square_highlight",
-                      "width": 256,
-                      "height": 256
-                    },
-                    {
-                      "name": "lo_fi_placeholder",
+                      "name": "lo_fi",
                       "width": 32,
                       "height": null
                     }
                   ],
-                  "label": "Headline Image (REQUIRED)"
+                  "label": "/about Hero Image"
                 }
               },
-              "article_headline": {
-                "type": "StructuredText",
+              "site_name": {
+                "type": "Text",
                 "config": {
-                  "single": "heading1",
-                  "label": "Headline (REQUIRED)",
-                  "placeholder": "(REQUIRED) Enter your headline here..."
+                  "label": "Site Name",
+                  "placeholder": "Enter the site name here...(Default: Half Moon)"
                 }
               },
-              "article_subtitle": {
-                "type": "StructuredText",
+              "site_tagline": {
+                "type": "Text",
                 "config": {
-                  "single": "heading2",
-                  "label": "Subtitle (REQUIRED)",
-                  "placeholder": "(REQUIRED) Enter the feature subtitle here..."
+                  "label": "Site Tagline",
+                  "placeholder": "Enter the site tagline here...(Default: Ears to the concrete.)"
                 }
               }
             },

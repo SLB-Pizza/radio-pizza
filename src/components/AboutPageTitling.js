@@ -1,5 +1,4 @@
 import React from 'react'
-import { RichText } from 'prismic-reactjs'
 import { FallbackImage } from '../utils'
 
 /**
@@ -9,9 +8,7 @@ import { FallbackImage } from '../utils'
  * @param {Object} aboutTitling
  * @returns {jsx}
  */
-export default function AboutPageTitling({ aboutTitling }) {
-  const { article_subtitle, article_headline } = aboutTitling
-
+export default function AboutPageTitling({ siteTitle, tagline }) {
   return (
     <section className="container about-titling">
       <div className="columns is-mobile is-centered is-vcentered">
@@ -22,14 +19,10 @@ export default function AboutPageTitling({ aboutTitling }) {
         </div>
         <div className="column is-narrow">
           <h1 className="title is-size-1-widescreen is-size-2-desktop is-size-3-tablet is-size-5-mobile">
-            {article_headline
-              ? RichText.asText(article_headline)
-              : 'HalfmoonBK'}
+            {siteTitle ? siteTitle : 'Half Moon'}
           </h1>
           <p className="subtitle is-size-3-widescreen is-size-4-desktop is-size-5-tablet is-size-7-mobile">
-            {article_subtitle
-              ? RichText.asText(article_subtitle)
-              : 'Ears to the concrete.'}
+            {tagline ? tagline : 'Ears to the concrete.'}
           </p>
         </div>
       </div>

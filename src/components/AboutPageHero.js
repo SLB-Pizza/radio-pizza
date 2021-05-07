@@ -1,5 +1,5 @@
 import React from 'react'
-import { FallbackImage } from '../utils'
+import { FallbackImage, ResponsiveImage } from '../utils'
 
 /**
  * Renders a stripped down version of {@link ArticleHeadline}; called on {@link AboutIndexPage}.
@@ -8,19 +8,35 @@ import { FallbackImage } from '../utils'
  * @param {Object} headlineData - data object from Prismic CMS that contains all content data needed to create the AboutPageHero
  * @returns {jsx}
  */
-export default function AboutPageHero({ headlineData }) {
-  const { article_headline_img } = headlineData
+export default function AboutPageHero({ aboutHeroIMG }) {
+  let fullSizeImg, responsiveSizes
+  if (aboutHeroIMG) {
+    fullSizeImg = {
+      alt: aboutHeroIMG.alt,
+      photoCredit: aboutHeroIMG.copyright,
+      url: aboutHeroIMG.url,
+      dimensions: aboutHeroIMG.dimensions,
+    }
+
+    responsiveSizes = {
+      widescreen: aboutHeroIMG.widescreen,
+      desktop: aboutHeroIMG.desktop,
+      tablet: aboutHeroIMG.tablet,
+      mobile: aboutHeroIMG.mobile,
+      lo_fi: aboutHeroIMG.lo_fi,
+    }
+  }
 
   return (
     <header
       className="hero about-page has-background"
       aria-labelledby="article-headline"
     >
-      {article_headline_img ? (
-        <img
-          className="hero-background lazyload"
-          src={article_headline_img.url}
-          alt={article_headline_img.alt}
+      {aboutHeroIMG ? (
+        <ResponsiveImage
+          largestImg={fullSizeImg}
+          responsiveData={responsiveSizes}
+          isHeroIMG={true}
         />
       ) : (
         <FallbackImage styleName="hero-background lazyload" />

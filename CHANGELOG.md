@@ -1,3 +1,17 @@
+### Version 1.18.0
+- fix(HomeMixes): correct setState function name
+- feat(AdminHeader): add link `/guides` home based on `isAdminGuide`
+- content(ScheduleBar): change Next Show to Not Live
+- backup(KitchenSink): safety-save of CMS entry post-max depth issue
+- style(ScheduleFallback): make Half Moon bold; refactor text Dropdown: increase size of today date
+- query(/editorial): remove article_author; type
+- feat(BottomNav): add Facebook icons to desktop and touch layouts
+- refactor(/about): make about hero responsive remove RichText titling update API field names to better reflect About page update /about index child component  props
+- content(config): update description to match /about page description remove preview paths
+- fix(full-schedule): change loading state render to work off `fetchComplete`
+- cleanup(ScheduleBar): remove console.logs; update docs
+- style(tune-in): increase button icon size; add padding/margin
+
 ### Version 1.17.2
 - remove(Credits): link to my page under design
 

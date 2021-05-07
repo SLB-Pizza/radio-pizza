@@ -5,12 +5,7 @@ import {
   GlobalStateContext,
   GlobalDispatchContext,
 } from '../context/GlobalContextProvider'
-import {
-  closeSchedule,
-  toggleSchedule,
-  handleLiveTest,
-  handlePlayLive,
-} from '../dispatch'
+import { closeSchedule, toggleSchedule, handlePlayLive } from '../dispatch'
 
 /**
  * Render the layout of the ScheduleBar using globalState.
@@ -68,7 +63,7 @@ export default function ScheduleBarLayout({ timeNow, upcomingShows }) {
               )}
             </button>
           ) : (
-            <p className="title is-size-6-tablet is-size-7-mobile">Next Show</p>
+            <p className="title is-size-6-tablet is-size-7-mobile">Not Live</p>
           )}
         </div>
         {/* TO FIX LATER */}

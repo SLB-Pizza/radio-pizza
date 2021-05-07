@@ -6,7 +6,7 @@ module.exports = {
   siteMetadata: {
     title: 'Half Moon',
     description:
-      'Ears to the concrete. Brooklyn based music network connecting music culture across the world through radio, events, and more. Founded in 2017, Half Moon was born out of the need to defy. We bring our audience live, uncensored and undiscovered music to remind the world that the underground is where the sublime lives, grows and becomes timeless.',
+      'A new age cultural institution founded In Brooklyn. We are an independent music and media company that covers and reinforces emerging culture around the world through radio, events, editorial, and educational workshops with headquarters in New York City, and Los Angeles.',
     siteUrl: `https://www.halfmoonbk.com/`,
     twitterUsername: '@halfmoonbk',
   },
@@ -66,26 +66,21 @@ module.exports = {
     {
       resolve: '@prismicio/gatsby-source-prismic-graphql',
       options: {
-        repositoryName: 'hmbk-cms', //https://hmbk-cms.prismic.io/
-        // previews: true,
-        // path: "/preview",
+        repositoryName: 'hmbk-cms', // https://hmbk-cms.prismic.io/
         pages: [
           {
             type: 'Feature',
             match: '/editorial/:uid',
-            path: '/feature-preview/',
             component: require.resolve('./src/templates/Feature.js'),
           },
           {
             type: 'Cms_guide',
             match: '/hmbk-admin/guides/:uid',
-            path: '/guide-preview/',
             component: require.resolve('./src/templates/CMSGuide.js'),
           },
           {
             type: 'Resident',
             match: '/residents/:uid',
-            path: '/resident-preview/',
             component: require.resolve('./src/templates/Resident.js'),
           },
           // {
@@ -97,7 +92,6 @@ module.exports = {
           {
             type: 'Event',
             match: '/events/:uid',
-            path: '/event-preview/',
             component: require.resolve('./src/templates/Event.js'),
           },
         ],
@@ -111,7 +105,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-purgecss',
       options: {
-        develop: false, // Activates purging in npm run develop
+        develop: false, // When true, purges in `npm start` / `gatsby develop`
         printRejected: true,
       },
     },

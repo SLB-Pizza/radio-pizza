@@ -42,8 +42,8 @@ export default function SingleDateScheduleGenerator({
               <p className="title is-size-4-tablet is-size-5-mobile has-text-centered">
                 No shows scheduled!
               </p>
-              <p className="subtitle is-size-5-tablet is-size-7-mobile has-text-centered text-block">
-                Follow us on our{' '}
+              <p className="subtitle is-size-6-tablet is-size-7-mobile has-text-centered text-block">
+                {'Follow us on our '}
                 <a
                   href="https://twitter.com/halfmoonbk"
                   rel="noopener"
@@ -67,7 +67,9 @@ export default function SingleDateScheduleGenerator({
                 >
                   Facebook
                 </a>
-                {' for all the latest Half Moon news.'}
+                {' for all the latest '}
+                <b>Half Moon</b>
+                {' news.'}
               </p>
             </div>
           )}

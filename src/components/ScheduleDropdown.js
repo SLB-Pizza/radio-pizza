@@ -61,7 +61,7 @@ function ScheduleDropdown({ showData, timeNow }) {
       <div className="column is-12 schedule-date-header">
         <div className="columns is-mobile is-vcentered">
           <div className="column">
-            <p className="title is-size-5-desktop is-size-6-touch has-text-centered">
+            <p className="title is-size-4-desktop is-size-5-touch has-text-centered">
               {todaysDate}
             </p>
           </div>
@@ -94,8 +94,8 @@ function ScheduleDropdown({ showData, timeNow }) {
           <p className="title is-size-4-tablet is-size-5-mobile has-text-centered">
             No shows scheduled!
           </p>
-          <p className="subtitle is-size-5-tablet is-size-7-mobile has-text-centered text-block">
-            Follow us on our{' '}
+          <p className="subtitle is-size-6-tablet is-size-7-mobile has-text-centered text-block">
+            {'Follow us on our '}
             <a
               href="https://twitter.com/halfmoonbk"
               rel="noopener"
@@ -119,7 +119,9 @@ function ScheduleDropdown({ showData, timeNow }) {
             >
               Facebook
             </a>
-            {' for all the latest Half Moon news.'}
+            {' for all the latest '}
+            <b>Half Moon</b>
+            {' news.'}
           </p>
         </div>
       )}

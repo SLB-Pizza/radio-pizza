@@ -63,7 +63,7 @@ export default function UpcomingShowFallbackMessage({ isLoading }) {
             : 'title is-size-6-tablet is-size-7-mobile'
         }
       >
-        No upcoming shows planned. Follow us on our{' '}
+        {'No upcoming shows planned. Follow us on our '}
         <a href="https://twitter.com/halfmoonbk" rel="noopener" target="_blank">
           Twitter
         </a>
@@ -83,7 +83,9 @@ export default function UpcomingShowFallbackMessage({ isLoading }) {
         >
           Facebook
         </a>
-        {' for all the latest Half Moon news.'}
+        {' for all the latest '}
+        <b>Half Moon</b>
+        {' news.'}
       </p>
     </div>
   )

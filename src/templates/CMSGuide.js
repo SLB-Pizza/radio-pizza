@@ -12,12 +12,13 @@ import { HMBKFooter } from '../components/helpers'
 import { AdminHeader } from '../components/admin'
 
 /**
+ * Renders the CMSGuide variation of {@link FeatureTemplate}. Landing found at `hmbk-admin/guides`.
  * @category Templates
  * @function CMSGuideTemplate
  * @param {Object} data - the data object coming from Prismic CMS that contains all data needed to build cms-help off of `/guide/:uid`
  * @returns {jsx}
  */
-function CMSGuideTemplate({ data, path }) {
+export default function CMSGuideTemplate({ data, path }) {
   const { title, description, siteUrl, twitterUsername } = useSiteMetadata()
 
   const prismicContent = data.prismic.allCms_guides.edges[0].node
@@ -78,7 +79,7 @@ function CMSGuideTemplate({ data, path }) {
             />
           )}
       </Helmet>
-      <AdminHeader renderHomeLink={true} adminGuide={true} />
+      <AdminHeader isAdminGuide={true} />
       <article>
         <ArticleHeadline headlineData={headlineData} isGuide={true} />
         <ArticleBylineSubtitle
@@ -230,7 +231,6 @@ export const query = graphql`
                       }
                     }
                     ... on PRISMIC_Feature {
-                      _linkType
                       _meta {
                         uid
                         type
@@ -239,16 +239,11 @@ export const query = graphql`
                       }
                       header {
                         ... on PRISMIC_FeatureHeaderHeadline_block {
-                          type
                           primary {
                             article_subtitle
-                            article_subcategory
                             article_headline_img
                             article_headline
                             article_category
-                            article_author {
-                              _linkType
-                            }
                           }
                         }
                       }
@@ -263,5 +258,3 @@ export const query = graphql`
     }
   }
 `
-
-export default CMSGuideTemplate

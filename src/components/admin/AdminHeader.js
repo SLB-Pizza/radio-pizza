@@ -7,18 +7,18 @@ import { Link } from 'gatsby'
  * @function AdminHeader
  * @param {?Number} totalCount - passed in on `/hmbk-admin/` landing page
  * @param {?Boolean} renderHomeLink - when true, renders a link back to the `/hmbk-admin` landing page
- * @param {?Boolean} adminGuide - when true, size {@link AdminHeader} to fit {@link ArticleHeadline}.
+ * @param {?Boolean} isAdminGuide - when true, size {@link AdminHeader} to fit {@link ArticleHeadline}.
  * @returns {jsx}
  */
 export default function AdminHeader({
   totalCount,
   renderHomeLink,
-  adminGuide,
+  isAdminGuide,
 }) {
   return (
     <header
       className={
-        adminGuide ? 'container is-fluid admin-guide' : 'container is-fluid'
+        isAdminGuide ? 'container is-fluid admin-guide' : 'container is-fluid'
       }
     >
       <div className="columns is-mobile is-multiline is-vcentered">
@@ -28,7 +28,12 @@ export default function AdminHeader({
           </h1>
           {renderHomeLink && (
             <p className="subtitle is-5-desktop is-6-touch text-block">
-              <Link to={'/hmbk-admin/'}>← Return to Admin Home</Link>
+              <Link to={'/hmbk-admin/'}>&larr; Return to Admin Home</Link>
+            </p>
+          )}
+          {isAdminGuide && (
+            <p className="subtitle is-5-desktop is-6-touch text-block">
+              <Link to={'/hmbk-admin/guides'}>&larr; Return to All Guides</Link>
             </p>
           )}
         </div>

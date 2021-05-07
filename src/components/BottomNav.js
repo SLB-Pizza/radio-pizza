@@ -189,6 +189,18 @@ function BottomNav() {
               </span>
             </a>
             <a
+              href="https://www.facebook.com/halfmoonbk/"
+              className="navbar-item"
+              onClick={() => toggleNavMenu()}
+              aria-label="Halfmoon on Facebook"
+              target="_blank"
+              rel="noopener"
+            >
+              <span className="icon is-medium" aria-hidden="true">
+                <Icon icon={['fab', 'facebook-square']} size="lg" />
+              </span>
+            </a>
+            <a
               href="https://www.instagram.com/halfmoonbk/"
               className="navbar-item"
               onClick={() => {
@@ -230,15 +242,15 @@ function BottomNav() {
               </span>
             </a>
             <a
-              href="https://www.instagram.com/halfmoonbk/"
+              href="https://www.facebook.com/halfmoonbk/"
               className="navbar-item"
               onClick={() => toggleNavMenu()}
-              aria-label="Halfmoon on Instagram"
+              aria-label="Halfmoon on Facebook"
               target="_blank"
               rel="noopener"
             >
               <span className="icon is-medium" aria-hidden="true">
-                <Icon icon={['fab', 'instagram']} size="lg" />
+                <Icon icon={['fab', 'facebook-square']} size="lg" />
               </span>
             </a>
             <a
@@ -251,6 +263,18 @@ function BottomNav() {
             >
               <span className="icon is-medium" aria-hidden="true">
                 <Icon icon={['fab', 'twitter']} size="lg" />
+              </span>
+            </a>
+            <a
+              href="https://www.instagram.com/halfmoonbk/"
+              className="navbar-item"
+              onClick={() => toggleNavMenu()}
+              aria-label="Halfmoon on Instagram"
+              target="_blank"
+              rel="noopener"
+            >
+              <span className="icon is-medium" aria-hidden="true">
+                <Icon icon={['fab', 'instagram']} size="lg" />
               </span>
             </a>
           </div>

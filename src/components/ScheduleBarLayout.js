@@ -21,7 +21,7 @@ export default function ScheduleBarLayout({ timeNow, upcomingShows }) {
   const dispatch = useContext(GlobalDispatchContext)
   const globalState = useContext(GlobalStateContext)
 
-  const { live, playingRadio, scheduleOpen, ..._ } = globalState
+  const { live, playing, playingRadio, scheduleOpen, ..._ } = globalState
 
   return (
     <div
@@ -36,29 +36,31 @@ export default function ScheduleBarLayout({ timeNow, upcomingShows }) {
         <div className="column is-narrow">
           {live ? (
             <button
-              className="button is-small is-outlined is-rounded"
+              className="button is-small is-outlined is-rounded live-radio-btn"
               onClick={() => {
                 handlePlayLive(dispatch)
                 closeSchedule(dispatch)
               }}
             >
-              {playingRadio ? (
+              {playing && playingRadio ? (
                 <>
                   <span className="icon">
                     <Icon icon="headphones" size="lg" className="live-light" />
                   </span>
-                  <span>Listening</span>
+                  <span className="live-radio-btn__text">Now Listening</span>
                 </>
               ) : (
                 <>
                   <span className="icon">
                     <Icon
                       icon="broadcast-tower"
-                      size="1x"
+                      size="lg"
                       className="live-light"
                     />
                   </span>
-                  <span>Tune In</span>
+                  <span className="live-radio-btn__text">
+                    Tune In to Broadcast
+                  </span>
                 </>
               )}
             </button>

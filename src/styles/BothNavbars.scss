@@ -208,12 +208,21 @@
 }
 
 #for-text-measuring {
-  background-color: blueviolet;
+  background-color: transparent;
   width: 1px;
   height: 1px;
   position: absolute;
   z-index: -10;
   top: -15rem;
+}
+
+.live-radio-btn {
+  &__text {
+    padding-left: 0.5rem;
+  }
+  span.icon {
+    padding-left: 0.5rem;
+  }
 }
 
 //==================================

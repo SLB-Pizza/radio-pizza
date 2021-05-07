@@ -13,7 +13,6 @@ function ScheduleBar({ timeNow }) {
   const dispatch = useContext(GlobalDispatchContext)
   const globalState = useContext(GlobalStateContext)
 
-  // const [pageIsVisible, setPageIsVisible] = useState(true);
   const [yesterdayDate, setYesterdayDate] = useState(null)
   const [upcomingShows, setUpcomingShowData] = useState([])
 
@@ -87,10 +86,14 @@ function ScheduleBar({ timeNow }) {
     return updateTodaysSchedule()
   }, [upcomingShowData])
 
-  // check if the Radio.co stream is live once upon bar mounting.
-  // if so, set the globalState.live boolean to true.
+  /**
+   * Check if the Radio.co stream is live once upon bar mounting.
+   * If so, set `globalState.live` to true.
+   * @category useEffect
+   * @name fetchInitialLivestreamStatus
+   */
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchInitialLivestreamStatus = async () => {
       try {
         const streamResponse = await fetch(
           `https://public.radio.co/stations/s6f093248d/status`
@@ -110,21 +113,26 @@ function ScheduleBar({ timeNow }) {
         console.error('Error while fetching stream status, error:', error)
       }
     }
-    fetchData()
+    fetchInitialLivestreamStatus()
   }, [])
 
-  // Repeats the check above every 60 seconds, but also doesn't dispatch a context update unless needed.
-  // clears itself when unmounting.
+  /**
+   * Repeats the check above every 60 seconds, but also doesn't dispatch a context update unless needed.
+   * Clears itself when unmounting.
+   * @category useEffect
+   * @name pollLiveStreamStatus
+   */
+
   useEffect(() => {
-    const interval = setInterval(async () => {
+    const pollLiveStreamStatus = setInterval(async () => {
       try {
         const streamResponse = await fetch(
           `https://public.radio.co/stations/s6f093248d/status`
         )
         const streamData = await streamResponse.json()
 
-        console.log('setInterval streamData:', streamData)
-        console.log('setInterval globalState.live:', globalState.live)
+        // console.log('setInterval streamData:', streamData)
+        // console.log('setInterval globalState.live:', globalState.live)
         // I think a live status is "online" as a not live status is "offline"
         if (streamData.status === 'online' && globalState.live === false) {
           await dispatch({
@@ -149,18 +157,8 @@ function ScheduleBar({ timeNow }) {
         )
       }
     }, 60000)
-    return () => clearInterval(interval)
+    return () => clearInterval(pollLiveStreamStatus)
   }, [])
-
-  const handlePlayLive = async () => {
-    await dispatch({
-      type: 'CHANGE_URL',
-      payload: {
-        url: 'https://streamer.radio.co/s6f093248d/listen',
-        title: 'Halfmoon Radio',
-      },
-    })
-  }
 
   /**
    * This globalState null return prevents ERROR #95313.
@@ -169,7 +167,7 @@ function ScheduleBar({ timeNow }) {
   if (!globalState) return null
 
   /**
-   * globalState.scheduleOpen ? OPEN LAYOUT : CLOSED LAYOUT
+   * `globalState.scheduleOpen` ? OPEN LAYOUT : CLOSED LAYOUT
    * @see {@link BottomNav Related globalState situation in BottomNav}
    * @see {@link OutsideClick Related OutsideClick situation in BottomNav}
    */

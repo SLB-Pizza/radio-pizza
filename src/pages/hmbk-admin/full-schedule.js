@@ -196,34 +196,40 @@ export default function FullSchedules() {
       <AdminHeader renderHomeLink={true} />
 
       <section className="section container is-fluid">
-        <div className="columns is-mobile">
-          <div className="column content">
-            <h2 className="title is-size-4-desktop is-size-5-touch">
-              Schedule Data Fetched
-            </h2>
-            {fetchStartTime && (
-              <p className="subtitle is-size-6-desktop is-size-7-touch">
-                {fetchStartTime}
+        {fetchComplete ? (
+          <div className="columns is-mobile">
+            <div className="column content">
+              <h2 className="title is-size-4-desktop is-size-5-touch">
+                Schedule Data Fetched
+              </h2>
+              {fetchStartTime && (
+                <p className="subtitle is-size-6-desktop is-size-7-touch">
+                  {fetchStartTime}
+                </p>
+              )}
+              <p>
+                To view recently published schedule changes, please refresh the
+                page.
               </p>
-            )}
-          </div>
+            </div>
 
-          <AdminTotalShowsReport
-            totalShows={totalShows}
-            problemShows={problemShows}
-          />
-        </div>
+            <AdminTotalShowsReport
+              totalShows={totalShows}
+              problemShows={problemShows}
+            />
+          </div>
+        ) : (
+          <div className="columns">
+            <div className="column content">
+              <h2 className="title is-size-4-desktop is-size-5-touch">
+                Fetching Schedule Data...
+              </h2>
+            </div>
+          </div>
+        )}
       </section>
 
-      {/* {problemShows && <pre>{JSON.stringify(problemShows, null, 2)}</pre>} */}
-
-      {isFetching ? (
-        <section className="container is-fluid">
-          <div className="section columns is-mobile is-vcentered">
-            <HMBKDivider forLoading={true} />
-          </div>
-        </section>
-      ) : (
+      {fetchComplete ? (
         <section className="container is-fluid">
           <div className="columns">
             <div className="column is-12 content">
@@ -239,8 +245,14 @@ export default function FullSchedules() {
             <NoFutureShowsScheduled />
           )}
         </section>
+      ) : (
+        <section className="container is-fluid">
+          <div className="section columns is-mobile is-vcentered">
+            <HMBKDivider forLoading={true} />
+          </div>
+        </section>
       )}
-      <HMBKFooter renderTopButton={true} />
+      <HMBKFooter isFluid={true} renderTopButton={true} />
     </main>
   )
 }

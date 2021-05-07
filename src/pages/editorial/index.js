@@ -300,15 +300,7 @@ export const query = graphql`
             }
             header {
               ... on PRISMIC_FeatureHeaderHeadline_block {
-                type
                 primary {
-                  article_author {
-                    ... on PRISMIC_Staff {
-                      hmbk_staff_name
-                      hmbk_staff_position
-                      hmbk_staff_photo
-                    }
-                  }
                   article_category
                   article_headline
                   article_headline_img

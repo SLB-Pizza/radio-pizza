@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Link } from 'gatsby'
 import { useQuery } from '@apollo/client'
 import { RadioPlayer } from './index'
@@ -25,9 +25,6 @@ dayjs.extend(utc)
 export default function RadioBar({ nycTime, laTime }) {
   const dispatch = useContext(GlobalDispatchContext)
   const globalState = useContext(GlobalStateContext)
-
-  const [radioData, setRadioData] = useState({})
-  const [pageIsVisible, setPageIsVisible] = useState(true)
 
   /**
    * @category useQuery
@@ -95,29 +92,14 @@ export default function RadioBar({ nycTime, laTime }) {
     processInitialMix()
   }, [data, loading, error])
 
-  // Currently offline! Not gonna work until HMBK pays for it
-  // useEffect(() => {
-  //   async function getRadioData() {
-  //     const result = await axios(
-  //       "https://public.radio.co/stations/sa3c47c55b/"
-  //     );
-  //     // console.log("radio data ->", result.data.status);
-  //     setRadioData(result.data.status);
-  //   }
-  //   return getRadioData();
-  // }, []);
-
   return (
     <div className="container is-fluid radio-bar">
-      <a href="#navigation" className="sr-only">
+      <a href="#navigation" className="sr-only text-block">
         Jump to navigation bar
       </a>
-
-      {/* {globalState.live ? (
-        <PageVisibility onChange={handleVisibilityChange}>
-          {pageIsVisible && renderLiveTicker(liveText)}
-        </PageVisibility>
-      ) : null} */}
+      <a href="#navigation" className="sr-only text-block">
+        Jump to navigation bar
+      </a>
 
       <div className="columns is-vcentered is-mobile">
         <div className="column is-narrow">
@@ -131,7 +113,7 @@ export default function RadioBar({ nycTime, laTime }) {
         {globalState.url === null ? (
           <div className="column mix-data" />
         ) : (
-          <RadioPlayer status={radioData.status} />
+          <RadioPlayer />
         )}
 
         <div className="column is-narrow is-hidden-mobile">

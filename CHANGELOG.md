@@ -1,3 +1,7 @@
+### Version 1.18.1
+- prune(RadioBar): remove unused fetch; status prop from RadioBar #79
+- feat(AboutCredits): add mailto link to my name on /about
+
 ### Version 1.18.0
 - fix(HomeMixes): correct setState function name
 - feat(AdminHeader): add link `/guides` home based on `isAdminGuide`

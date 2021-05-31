@@ -3,7 +3,7 @@ import { gql } from '@apollo/client'
 /**
  * Query for Prismic in the GraphQL syntax, not the Gatsby syntax!
  * Retrieves the default mix that's displayed in {@link RadioPlayer}.
- * Used in {@link RadioBar} -> passed to {@link RadioPlayer}.
+ * Used in {@link RadioBar} -> dispatched using `SET_INITIAL_MIX`.
  * @category Queries
  * @name GET_DEFAULT_MIX
  * @see {@link https://hmbk-cms.prismic.io/graphql HMBK's Prismic GraphQL API}

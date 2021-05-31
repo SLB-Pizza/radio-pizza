@@ -1,5 +1,4 @@
 import React from 'react'
-import { FallbackImage } from '../utils'
 
 /**
  * Render a mix's image when `globalState.playing` is true.
@@ -24,7 +23,11 @@ export default function RecordedMixPlayerImage({
       }
     >
       <figure className="image is-48x48">
-        <img src={imgURL} alt={imgAltText} className="lazyload" />
+        <img
+          src={imgURL}
+          alt={imgAltText ? imgAltText : ''}
+          className="lazyload"
+        />
       </figure>
     </div>
   ) : null

@@ -6,6 +6,7 @@ import {
   LiveBroadcastInfoWrapper,
   RecordedMixInfoDisplay,
   RecordedMixPlayerImage,
+  RadioPlayerDisplay,
 } from './index'
 import { handleEnded, handleMixReady, handlePlayPause } from '../dispatch'
 import {
@@ -128,40 +129,23 @@ function RadioPlayer() {
         />
       </div>
 
-      {!globalState.playingRadio ? (
+      {!globalState.live && globalState.url ? (
         <RecordedMixPlayerImage
           isLoading={globalState.isLoading}
           imgURL={globalState.img}
           imgAlt={globalState.title}
         />
       ) : null}
-
-      {globalState.live && globalState.playingRadio ? (
-        <LiveBroadcastInfoWrapper
-          liveTitle={globalState.liveMarquee.liveShowTitle}
-          liveGuests={globalState.liveMarquee.liveShowGuests}
-        />
-      ) : (
-        <div
-          className={
-            globalState.isLoading
-              ? 'column text-truncate mix-data'
-              : 'column text-truncate mix-data is-loaded'
-          }
-          id="now-playing"
-        >
-          <RecordedMixInfoDisplay
-            title={globalState.title}
-            residents={globalState.resident}
-            hoursPlayed={localState.hoursPlayed}
-            minutesPlayed={localState.minutesPlayed}
-            secondsPlayed={localState.secondsPlayed}
-            totalHours={localState.hours}
-            totalMinutes={localState.minutes}
-            totalSeconds={localState.seconds}
-          />
-        </div>
-      )}
+      <div
+        className={
+          globalState.isLoading
+            ? 'column text-truncate mix-data'
+            : 'column text-truncate mix-data is-loaded'
+        }
+        id="now-playing"
+      >
+        <RadioPlayerDisplay localPlayerState={localState} />
+      </div>
 
       <ReactPlayer
         width="auto"

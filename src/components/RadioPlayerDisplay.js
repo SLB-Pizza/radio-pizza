@@ -1,10 +1,6 @@
 import React, { useContext } from 'react'
 import { GlobalStateContext } from '../context/GlobalContextProvider'
-import {
-  LiveBroadcastInfoWrapper,
-  RecordedMixInfoDisplay,
-  RecordedMixPlayerImage,
-} from './index'
+import { LiveBroadcastInfoWrapper, RecordedMixInfoDisplay } from './index'
 
 /**
  * Controls what is displayed by {@link RadioPlayer} based on `globalState`.

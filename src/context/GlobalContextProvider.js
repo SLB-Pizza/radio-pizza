@@ -32,8 +32,8 @@ const initialState = {
   mixSearchTags: null,
   sameTagsInQuery: false,
   liveMarquee: {
-    liveShowTitle: 'DEFAULT ARTIST STRING',
-    liveShowGuests: 'DEFAULT GUESTS STRING',
+    liveShowTitle: 'HMBK Presents',
+    liveShowGuests: 'Radio Medley',
   },
 }
 
@@ -219,6 +219,21 @@ function reducer(state, action) {
       return {
         ...state,
         live: false,
+      }
+
+    /**
+     * Dispatched by {@link setInitialSource} when radio is live.
+     * Set url to live radio feed.
+     * @category Reducer Action
+     * @name SET_INITIAL_RADIO
+     */
+    case 'SET_INITIAL_RADIO':
+      return {
+        ...state,
+        isLoading: false,
+        live: true,
+        playingRadio: true,
+        url: 'https://s3.radio.co/s6f093248d/listen',
       }
 
     case 'PLAY_LIVE_RADIO':

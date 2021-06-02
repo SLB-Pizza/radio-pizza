@@ -39,64 +39,75 @@ export default function RadioBar({ nycTime, laTime }) {
    * Grab the mix data object from the query result.
    * Destructure the mix data object and dispatch the mix data to appear in {@link RadioPlayer}
    * @category useEffect
-   * @name processInitialMix
+   * @name setInitialSource
    */
   useEffect(() => {
-    const processInitialMix = () => {
-      if (loading) {
-        // console.log("Initial Mix request in progress");
-      }
-      if (error) {
-        console.error(`initialMix Error: ${error.message}`)
-      }
-      if (data) {
-        if (data.allTopnavs.edges[0].node) {
-          const mixDataObject = data.allTopnavs.edges[0].node.default_mix
-          const {
-            featured_residents,
-            mix_image,
-            mix_link,
-            mix_title,
-          } = mixDataObject
-
-          /**
-           * Another case where `objectKeyCount` needs to be assigned `2` for {@link mappableDataFilter}.
-           */
-          const filteredResidents = mappableDataFilter(featured_residents, 2)
-          const mixResidentsString = getResidentString(filteredResidents)
-
-          return dispatch({
-            type: 'SET_INITIAL_MIX',
-            payload: {
-              url: mix_link,
-              title: mix_title,
-              resident: mixResidentsString,
-              img: mix_image.now_playing.url,
-            },
-          })
-        }
-        /**
-         * Handle case where no initial mix is selected in the CMS.
-         */
-        return dispatch({
-          type: 'SET_INITIAL_MIX',
-          payload: {
-            url: null,
-            title: null,
-            resident: null,
-            img: null,
-          },
+    const setInitialSource = async () => {
+      if (globalState.live) {
+        await dispatch({
+          type: 'SET_INITIAL_RADIO',
         })
+      } else {
+        if (loading) {
+          // console.log("Initial Mix request in progress");
+        }
+        if (error) {
+          console.error(`initialMix Error: ${error.message}`)
+        }
+        if (data) {
+          const mixDataObject = data.allTopnavs.edges[0].node.default_mix
+
+          if (mixDataObject) {
+            const {
+              featured_residents,
+              mix_image,
+              mix_link,
+              mix_title,
+            } = mixDataObject
+
+            /**
+             * Another case where `objectKeyCount` needs to be assigned `2` for {@link mappableDataFilter}; `__typename` counts!.
+             */
+            const filteredResidents = mappableDataFilter(featured_residents, 2)
+            const mixResidentsString = getResidentString(filteredResidents)
+
+            await dispatch({
+              type: 'SET_INITIAL_MIX',
+              payload: {
+                url: mix_link,
+                title: mix_title,
+                resident: mixResidentsString,
+                img: mix_image.now_playing.url,
+              },
+            })
+            await dispatch({
+              type: 'MIX_LOADED',
+            })
+          } else {
+            /**
+             * Handle case where no initial mix is selected in the CMS.
+             */
+            await dispatch({
+              type: 'SET_INITIAL_MIX',
+              payload: {
+                url: null,
+                title: null,
+                resident: null,
+                img: null,
+              },
+            })
+            await dispatch({
+              type: 'MIX_LOADED',
+            })
+          }
+        }
       }
     }
-    processInitialMix()
+    setInitialSource()
   }, [data, loading, error])
 
   return (
     <div className="container is-fluid radio-bar">
-      <a href="#navigation" className="sr-only text-block">
-        Jump to navigation bar
-      </a>
       <a href="#navigation" className="sr-only text-block">
         Jump to navigation bar
       </a>
@@ -110,7 +121,7 @@ export default function RadioBar({ nycTime, laTime }) {
           </Link>
         </div>
 
-        {globalState.url === null ? (
+        {globalState.isLoading ? (
           <div className="column mix-data" />
         ) : (
           <RadioPlayer />

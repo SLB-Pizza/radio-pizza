@@ -47,7 +47,7 @@ export default function ScheduleBarLayout({ timeNow, upcomingShows }) {
                   <span className="icon">
                     <Icon icon="headphones" size="lg" className="live-light" />
                   </span>
-                  <span className="live-radio-btn__text">Now Listening</span>
+                  <span className="live-radio-btn__text">Listening Live</span>
                 </>
               ) : (
                 <>
@@ -59,7 +59,7 @@ export default function ScheduleBarLayout({ timeNow, upcomingShows }) {
                     />
                   </span>
                   <span className="live-radio-btn__text">
-                    Tune In to Broadcast
+                    Click to Listen Live
                   </span>
                 </>
               )}

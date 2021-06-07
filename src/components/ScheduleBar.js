@@ -1,12 +1,16 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { useLazyQuery } from '@apollo/client'
+import { useLazyQuery, useQuery } from '@apollo/client'
 import {
   GlobalDispatchContext,
   GlobalStateContext,
 } from '../context/GlobalContextProvider'
 import { ScheduleBarLayout, OutsideClick } from './index'
-import { formatDateTime, sortUpcomingShowsArray } from '../utils'
-import { GET_UPCOMING_SHOWS } from '../queries'
+import {
+  fetchStreamStatus,
+  formatDateTime,
+  sortUpcomingShowsArray,
+} from '../utils'
+import { GET_DEFAULT_MIX, GET_UPCOMING_SHOWS } from '../queries'
 import { closeSchedule } from '../dispatch'
 
 function ScheduleBar({ timeNow }) {
@@ -24,6 +28,13 @@ function ScheduleBar({ timeNow }) {
   const [getUpcomingShows, { data: upcomingShowData }] = useLazyQuery(
     GET_UPCOMING_SHOWS
   )
+
+  /**
+   * useQuery that fetches the default recorded mix as defined in the CMS.
+   * @category useQuery
+   * @name getDefaultMix
+   */
+  const { loading, error, data } = useQuery(GET_DEFAULT_MIX)
 
   /**
    * Compute current time and yesterday's date in Prismic query date format ("YYYY-MM-DD") every second.
@@ -62,7 +73,7 @@ function ScheduleBar({ timeNow }) {
       }
     }
 
-    return fetchUpcomingShows()
+    fetchUpcomingShows()
   }, [yesterdayDate])
 
   /**
@@ -83,34 +94,36 @@ function ScheduleBar({ timeNow }) {
         setUpcomingShowData(sortedEntries)
       }
     }
-    return updateTodaysSchedule()
+    updateTodaysSchedule()
   }, [upcomingShowData])
 
   /**
-   * Check if the Radio.co stream is live once upon bar mounting.
-   * If so, set `globalState.live` to true.
+   * Set initial {@link RadioBar} state by checking the "online" status of the radio and the {@link getDefaultMix} `useQuery`.
+   * IF radio is live/broadcasting:
+   *    If so, set `globalState.live` to true.
+   * ELSE IF a default mix has been set in the CMS:
+   *    Process the mix data object and dispatch the corresponding status action.
+   * ELSE (not live AND no default mix defined):
+   *    Dispatch null.
    * @category useEffect
    * @name fetchInitialLivestreamStatus
    */
   useEffect(() => {
     const fetchInitialLivestreamStatus = async () => {
       try {
-        const streamResponse = await fetch(
-          `https://public.radio.co/stations/s6f093248d/status`
-        )
-        const streamData = await streamResponse.json()
-
-        if (streamData.status === 'online') {
+        const streamStatus = await fetchStreamStatus()
+        console.debug(streamStatus)
+        /**
+         * `globalState.live` starts `false`; no else needed if not live.
+         */
+        if (streamStatus === 'online') {
           await dispatch({
             type: 'SET_LIVE',
           })
-        } else {
-          await dispatch({
-            type: 'SET_NOT_LIVE',
-          })
         }
       } catch (error) {
-        console.error('Error while fetching stream status, error:', error)
+        console.error('Error while fetching HMBK radio.co stream status.')
+        console.error(error)
       }
     }
     fetchInitialLivestreamStatus()
@@ -131,9 +144,6 @@ function ScheduleBar({ timeNow }) {
         )
         const streamData = await streamResponse.json()
 
-        // console.log('setInterval streamData:', streamData)
-        // console.log('setInterval globalState.live:', globalState.live)
-        // I think a live status is "online" as a not live status is "offline"
         if (streamData.status === 'online' && globalState.live === false) {
           await dispatch({
             type: 'SET_LIVE',
@@ -151,10 +161,7 @@ function ScheduleBar({ timeNow }) {
           })
         }
       } catch (error) {
-        console.log(
-          'Error while interval fetching stream status, error:',
-          error
-        )
+        console.error('Error while polling stream status:', error)
       }
     }, 60000)
     return () => clearInterval(pollLiveStreamStatus)

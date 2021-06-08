@@ -41,6 +41,7 @@ export { default as measureTextWidth } from './measureTextWidth'
 export { default as mixLinkIconInfo } from './mixLinkIconInfo'
 export { default as playlistShuffle } from './playlistShuffle'
 export { default as prioritySetter } from './prioritySetter'
+export { default as processDefaultMixData } from './processDefaultMixData'
 export { default as processDeployInfo } from './processDeployInfo'
 export { default as processPublicationDates } from './processPublicationDates'
 export {

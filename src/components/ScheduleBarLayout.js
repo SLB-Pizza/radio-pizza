@@ -21,7 +21,14 @@ export default function ScheduleBarLayout({ timeNow, upcomingShows }) {
   const dispatch = useContext(GlobalDispatchContext)
   const globalState = useContext(GlobalStateContext)
 
-  const { live, playing, playingRadio, scheduleOpen, ..._ } = globalState
+  const {
+    live,
+    playing,
+    playingRadio,
+    infoDisplay,
+    scheduleOpen,
+    ..._
+  } = globalState
 
   return (
     <div

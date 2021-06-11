@@ -26,16 +26,16 @@ export default function RadioPlayerDisplay({ localPlayerState }) {
   } = localPlayerState
 
   const globalState = useContext(GlobalStateContext)
-  const { live, liveMarquee, title, resident, url } = globalState
+  const { liveMarquee, title, resident, infoDisplay } = globalState
 
-  if (live) {
+  if (infoDisplay === 'broadcast') {
     return (
       <LiveBroadcastInfoWrapper
         liveTitle={liveMarquee.liveShowTitle}
         liveGuests={liveMarquee.liveShowGuests}
       />
     )
-  } else if (url) {
+  } else if (infoDisplay === 'recorded') {
     return (
       <RecordedMixInfoDisplay
         title={title}

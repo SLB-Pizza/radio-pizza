@@ -1,5 +1,4 @@
 import React from 'react'
-import { withPrefix } from 'gatsby'
 
 export const GlobalStateContext = React.createContext()
 export const GlobalDispatchContext = React.createContext()
@@ -25,6 +24,7 @@ const initialState = {
   playbackRate: 1.0,
   loop: false,
   live: false,
+  infoDisplay: null,
   playingRadio: false,
   scheduleOpen: false,
   navMenuOpen: false,
@@ -38,9 +38,10 @@ const initialState = {
 }
 
 function reducer(state, action) {
+  console.log(action, state)
   switch (action.type) {
     /**
-     * If mixSearchTags isn't already an array with at least one tag, create the array and add the tag.
+     * If `mixSearchTags` isn't already an array with at least one tag, create the array and add the tag.
      * Else, add the tag to the existing tag entries
      * Called by {@link addTagToSearchArray} inside {@link TagButtons}
      * @category Reducer Action
@@ -166,6 +167,7 @@ function reducer(state, action) {
       if (!action.payload.img) {
         return {
           ...state,
+          infoDisplay: 'recorded',
           isLoading: false,
           playing: true,
           playlist: [],
@@ -179,6 +181,7 @@ function reducer(state, action) {
       } else {
         return {
           ...state,
+          infoDisplay: 'recorded',
           isLoading: false,
           playing: true,
           playlist: [],
@@ -222,6 +225,19 @@ function reducer(state, action) {
       }
 
     /**
+     * @category Reducer Action
+     * @name SET_INITIAL_LIVE
+     */
+    case 'SET_INITIAL_LIVE':
+      return {
+        ...state,
+        infoDisplay: 'broadcast',
+        isLoading: false,
+        live: true,
+        url: 'https://s3.radio.co/s6f093248d/listen',
+      }
+
+    /**
      * Dispatched by {@link setInitialSource} when radio is live.
      * Set url to live radio feed.
      * @category Reducer Action
@@ -239,8 +255,9 @@ function reducer(state, action) {
     case 'PLAY_LIVE_RADIO':
       return {
         ...state,
-        playing: true,
+        infoDisplay: 'broadcast',
         isLoading: false,
+        playing: true,
         playingRadio: true,
         url: 'https://s3.radio.co/s6f093248d/listen',
       }
@@ -252,7 +269,7 @@ function reducer(state, action) {
        * ```js
        * action: {
        *    payload: {
-       *      ..otherStuff,
+       *      ..state,
        *      playlist: [arrayOfShowObjects]
        *    }
        * }

@@ -1,3 +1,12 @@
+### Version 1.19.0
+- feat(RadioPlayer): remove mandatory default mix
+- fix(RadioPlayer): default mix no longer required add first globalState.live check in setInitialSource add SET_INITIAL_RADIO action change live radio button
+- refactor(ScheduleBar): extract stream status fetching to util func
+- feat(util): extract defaultMix processing to util func
+- fix(RadioBar): remove setInitialSource useEffect remove GET_DEFAULT_MIX useQuery led to possible race conditions when setting initial RadioPlayerDisplay data BUG: Depending on how fast you hit the play button after load, you'd get the live broadcast; but the recorded stuff would display
+- refactor(RadioPlayerDisplay): change fetch func to get stream status; then process recorded mix CMS data, if present
+- refactor(GCP): add infoDisplay to handle broadcast and recorded info rendering added to actions: SET_INITIAL_LIVE, CHANGE_URL, PLAY_LIVE_RADIO
+
 ### Version 1.18.1
 - prune(RadioBar): remove unused fetch; status prop from RadioBar #79
 - feat(AboutCredits): add mailto link to my name on /about

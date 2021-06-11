@@ -8,6 +8,7 @@ import { ScheduleBarLayout, OutsideClick } from './index'
 import {
   fetchStreamStatus,
   formatDateTime,
+  processDefaultMixData,
   sortUpcomingShowsArray,
 } from '../utils'
 import { GET_DEFAULT_MIX, GET_UPCOMING_SHOWS } from '../queries'
@@ -34,7 +35,7 @@ function ScheduleBar({ timeNow }) {
    * @category useQuery
    * @name getDefaultMix
    */
-  const { loading, error, data } = useQuery(GET_DEFAULT_MIX)
+  const { loading, error, data: defaultMixData } = useQuery(GET_DEFAULT_MIX)
 
   /**
    * Compute current time and yesterday's date in Prismic query date format ("YYYY-MM-DD") every second.
@@ -106,27 +107,35 @@ function ScheduleBar({ timeNow }) {
    * ELSE (not live AND no default mix defined):
    *    Dispatch null.
    * @category useEffect
-   * @name fetchInitialLivestreamStatus
+   * @name initializeRadioPlayerDisplay
    */
   useEffect(() => {
-    const fetchInitialLivestreamStatus = async () => {
+    const initializeRadioPlayerDisplay = async () => {
       try {
+        /**
+         * You need the `await`, else the promise doesn't resolve!
+         */
         const streamStatus = await fetchStreamStatus()
-        console.debug(streamStatus)
         /**
          * `globalState.live` starts `false`; no else needed if not live.
          */
         if (streamStatus === 'online') {
           await dispatch({
-            type: 'SET_LIVE',
+            type: 'SET_INITIAL_LIVE',
           })
+          return
+        } else if (defaultMixData) {
+          processDefaultMixData(defaultMixData, dispatch)
         }
+        /**
+         *
+         */
       } catch (error) {
         console.error('Error while fetching HMBK radio.co stream status.')
         console.error(error)
       }
     }
-    fetchInitialLivestreamStatus()
+    initializeRadioPlayerDisplay()
   }, [])
 
   /**

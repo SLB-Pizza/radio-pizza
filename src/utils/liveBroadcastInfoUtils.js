@@ -30,13 +30,34 @@ export const updateMarqueeGuests = (event, setGuestsFunc) => {
   return setGuestsFunc(event.target.value)
 }
 
+/**
+ * Processes the submitted `liveTitle` and `liveGuests` on {@link AdminLiveStreamInfo} to pass to {@link updateRemoteMarquee}.
+ * IF `liveTitle` and `liveGuests` are both empty strings
+ *    pass `'Halfmoon Presents'` as `liveTitle`
+ *    pass `'Live Radio'` as `liveGuests`
+ *    to prevent a blank live radio display
+ * @category Utilities
+ * @function submitMarquee
+ * @param {Event} event
+ * @param {String} liveTitle
+ * @param {String} liveGuests
+ */
 export const submitMarquee = async (event, liveTitle, liveGuests) => {
   event.preventDefault()
 
-  await updateRemoteMarquee('marquee', {
-    liveShowTitle: liveTitle,
-    liveShowGuests: liveGuests,
-  })
+  console.debug(liveGuests, liveTitle)
+
+  if (!liveTitle && !liveGuests) {
+    await updateRemoteMarquee('marquee', {
+      liveShowTitle: 'Halfmoon Presents',
+      liveShowGuests: 'Live Radio',
+    })
+  } else {
+    await updateRemoteMarquee('marquee', {
+      liveShowTitle: liveTitle,
+      liveShowGuests: liveGuests,
+    })
+  }
 }
 
 export const setDefaultMarquee = async event => {

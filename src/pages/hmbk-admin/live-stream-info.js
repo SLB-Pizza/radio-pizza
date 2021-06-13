@@ -61,7 +61,38 @@ export default function AdminLiveStreamInfo() {
           </div>
         </div>
 
-        <div className="section columns is-mobile is-multiline">
+        <div className="section columns is-mobile">
+          <div className="column is-12">
+            <div className="content">
+              <h3 className="title">Clearing Live Broadcast Info</h3>
+
+              <p>
+                If you clear the <b>Live Show Title</b> and{' '}
+                <b>Live Show Guests</b> fields and hit the{' '}
+                <b>Update Live Show Info</b> button, the default stream info
+                will appear to prevent the Radio Player from displaying no info.
+              </p>
+            </div>
+            <form>
+              <div className="field is-horizontal">
+                <div className="field-label is-normal">
+                  <label className="label">Default Stream Info</label>
+                </div>
+                <div className="field-body">
+                  <div className="field">
+                    <div className="control">
+                      <LiveBroadcastInfoDisplay
+                        liveTitle={'Halfmoon Presents'}
+                        liveGuests={'Live Radio'}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div className="section columns is-mobile">
           <div className="column is-12">
             <div className="content">
               <h3 className="title">Live Streaming Marquee</h3>
@@ -130,55 +161,6 @@ export default function AdminLiveStreamInfo() {
                         value="submit"
                       >
                         Update Live Show Info
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-
-        <div className="section columns is-mobile is-multiline is-vcentered">
-          <div className="column is-12">
-            <div className="content">
-              <h3 className="title">Reset to Default</h3>
-              <p>
-                For times when you don't have complete info about the
-                livestream, you can use this button to display the default live
-                stream info.
-              </p>
-            </div>
-          </div>
-
-          <div className="column is-12">
-            <form>
-              <div className="field is-horizontal">
-                <div className="field-label is-normal">
-                  <label className="label">Default Stream Info</label>
-                </div>
-                <div className="field-body">
-                  <div className="field">
-                    <div className="control">
-                      <LiveBroadcastInfoDisplay
-                        liveTitle={'HalfmoonBK Live Show'}
-                        liveGuests={'HMBK Family'}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="field is-horizontal">
-                <div className="field-label is-normal" />
-                <div className="field-body">
-                  <div className="field">
-                    <div className="control">
-                      <button
-                        className="button is-outlined is-rounded"
-                        onClick={event => setDefaultMarquee(event)}
-                      >
-                        Use Default Live Stream Info
                       </button>
                     </div>
                   </div>

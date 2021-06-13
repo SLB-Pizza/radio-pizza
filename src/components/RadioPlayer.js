@@ -3,6 +3,7 @@ import ReactPlayer from 'react-player'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import { hot } from 'react-hot-loader'
 import { RecordedMixPlayerImage, RadioPlayerDisplay } from './index'
+import { LiveMarkerAndText } from './helpers'
 import { handleEnded, handleMixReady, handlePlayPause } from '../dispatch'
 import {
   GlobalDispatchContext,
@@ -123,14 +124,29 @@ function RadioPlayer() {
         />
       </div>
 
-      {/* Render only when NOT live and there is mix data in ContextProvider */}
-      {!globalState.live && globalState.url ? (
+      {/*
+        RECORDED
+          render mix image
+        BROADCAST
+          render ON AIR text and flashing live light
+      */}
+      {!globalState.live && globalState.infoDisplay === 'recorded' ? (
         <RecordedMixPlayerImage
           isLoading={globalState.isLoading}
           imgURL={globalState.img}
           imgAlt={globalState.title}
         />
-      ) : null}
+      ) : (
+        <div
+          className={
+            globalState.isLoading
+              ? 'column is-narrow'
+              : 'column is-narrow is-loaded'
+          }
+        >
+          <LiveMarkerAndText />
+        </div>
+      )}
 
       <div
         className={

@@ -11,7 +11,7 @@ export default function LiveMarkerAndText() {
   return (
     <div className="broadcast-signal">
       <div className="light" />
-      <p>LIVE</p>
+      <p>ON AIR</p>
     </div>
   )
 }

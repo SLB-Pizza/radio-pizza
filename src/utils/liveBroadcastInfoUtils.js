@@ -50,7 +50,7 @@ export const submitMarquee = async (event, liveTitle, liveGuests) => {
   if (!liveTitle && !liveGuests) {
     await updateRemoteMarquee('marquee', {
       liveShowTitle: 'Halfmoon Presents',
-      liveShowGuests: 'Live Radio',
+      liveShowGuests: 'Live Broadcast',
     })
   } else {
     await updateRemoteMarquee('marquee', {

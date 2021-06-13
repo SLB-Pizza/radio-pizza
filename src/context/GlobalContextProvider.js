@@ -33,7 +33,7 @@ const initialState = {
   sameTagsInQuery: false,
   liveMarquee: {
     liveShowTitle: 'Halfmoon Presents',
-    liveShowGuests: 'Radio Medley',
+    liveShowGuests: 'Live Broadcast',
   },
 }
 

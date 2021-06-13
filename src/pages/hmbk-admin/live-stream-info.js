@@ -6,7 +6,6 @@ import {
   updateMarqueeTitle,
   updateMarqueeGuests,
   submitMarquee,
-  setDefaultMarquee,
 } from '../../utils/'
 
 /**
@@ -83,7 +82,7 @@ export default function AdminLiveStreamInfo() {
                     <div className="control">
                       <LiveBroadcastInfoDisplay
                         liveTitle={'Halfmoon Presents'}
-                        liveGuests={'Live Radio'}
+                        liveGuests={'Live Broadcast'}
                       />
                     </div>
                   </div>

@@ -108,12 +108,25 @@
   }
 }
 
-.live-light {
-  animation: live-light-pulse 2s infinite;
+.broadcast-signal {
+  display: flex;
+  align-items: center;
+  .light {
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: white;
+    border-radius: 50%;
+    animation: live-div-pulse 2s infinite;
+  }
+  p {
+    padding-left: 0.5rem;
+    padding-bottom: 0rem;
+    font-weight: 700;
+  }
 }
 
-.listen-live {
-  animation: border-pulse 3s infinite;
+.live-light {
+  animation: live-light-pulse 2s infinite;
 }
 
 @keyframes bg-top-nav-pulse {
@@ -128,15 +141,15 @@
   }
 }
 
-@keyframes border-pulse {
+@keyframes live-div-pulse {
   0% {
-    border-color: white;
+    background-color: white;
   }
   50% {
-    border-color: $link;
+    background-color: $primary;
   }
   100% {
-    border-color: white;
+    background-color: white;
   }
 }
 

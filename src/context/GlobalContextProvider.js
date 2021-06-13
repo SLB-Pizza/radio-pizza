@@ -32,13 +32,13 @@ const initialState = {
   mixSearchTags: null,
   sameTagsInQuery: false,
   liveMarquee: {
-    liveShowTitle: 'HMBK Presents',
+    liveShowTitle: 'Halfmoon Presents',
     liveShowGuests: 'Radio Medley',
   },
 }
 
 function reducer(state, action) {
-  console.log(action, state)
+  // console.debug(action, state);
   switch (action.type) {
     /**
      * If `mixSearchTags` isn't already an array with at least one tag, create the array and add the tag.

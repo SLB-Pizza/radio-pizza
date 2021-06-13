@@ -13,6 +13,7 @@ export { default as ArticleDateTime } from './ArticleDateTime'
 export { default as ArticleHeadlinePhotoCredit } from './ArticleHeadlinePhotoCredit'
 export { default as HMBKSpeaking } from './HMBKSpeaking'
 export { default as Interviewee } from './Interviewee'
+export { default as LiveMarkerAndText } from './LiveMarkerAndText'
 
 /**
  * Generic Layout Helpers

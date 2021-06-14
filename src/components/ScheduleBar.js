@@ -139,7 +139,15 @@ function ScheduleBar({ timeNow }) {
   }, [])
 
   /**
-   * Repeats the check above every 60 seconds, but also doesn't dispatch a context update unless needed.
+   * Repeats the check above every 30 seconds, but also doesn't dispatch a context update unless needed.
+   * IF (STREAM ONLINE; LIVE FALSE)
+   *    dispatch "SET_LIVE"
+   * ELSE IF (STREAM OFFLINE; LIVE TRUE)
+   *    dispatch "SET_NOT_LIVE"
+   * ELSE
+   *    STREAM ONLINE; LIVE TRUE
+   *    STREAM OFFLINE; LIVE FALSE
+   *      no action needed (previous radio state reflects current {@link RadioPlayerDisplay})
    * Clears itself when unmounting.
    * @category useEffect
    * @name pollLiveStreamStatus
@@ -148,31 +156,25 @@ function ScheduleBar({ timeNow }) {
   useEffect(() => {
     const pollLiveStreamStatus = setInterval(async () => {
       try {
-        const streamResponse = await fetch(
-          `https://public.radio.co/stations/s6f093248d/status`
-        )
-        const streamData = await streamResponse.json()
+        /**
+         * You need the `await`, else the promise doesn't resolve!
+         */
+        const streamStatus = await fetchStreamStatus()
 
-        if (streamData.status === 'online' && globalState.live === false) {
+        if (streamStatus === 'online' && globalState.live === false) {
           await dispatch({
             type: 'SET_LIVE',
           })
-        } else if (
-          streamData.status === 'offline' &&
-          globalState.live === true
-        ) {
-          await dispatch({
-            type: 'SET_NOT_LIVE',
-          })
-        } else {
+        } else if (streamStatus === 'offline' && globalState.live === true) {
           await dispatch({
             type: 'SET_NOT_LIVE',
           })
         }
       } catch (error) {
-        console.error('Error while polling stream status:', error)
+        console.error('Error while polling stream status!')
+        console.error(error)
       }
-    }, 60000)
+    }, 30000)
     return () => clearInterval(pollLiveStreamStatus)
   }, [])
 

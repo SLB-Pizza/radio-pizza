@@ -11,7 +11,7 @@
 }
 
 $text-shadow: ();
-@for $i from 1 through 5 {
+@for $i from 1 through 8 {
   $text-shadow: $text-shadow, 1px * $i 1px * $i 1px black;
 }
 
@@ -35,13 +35,12 @@ $text-shadow: ();
 
 .cta {
   display: inline-block;
-  padding: 0.75rem 0.75rem 0.5rem;
+  margin-top: -1rem;
+  padding: 0.625rem 1rem;
   border: 2px solid white;
   border-radius: 0.75rem;
-  background-color: rgba($color: black, $alpha: 0.9);
-  &::after {
-    content: " \2023";
-  }
+  text-transform: uppercase;
+  background-color: black;
 }
 
 .lead-feature {
@@ -54,6 +53,17 @@ $text-shadow: ();
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+
+.hero-bullets {
+  border-radius: 25%;
+  width: 32px;
+  height: 32px;
+  margin-inline-start: 0.75rem;
+  @include mobile {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 //==================================

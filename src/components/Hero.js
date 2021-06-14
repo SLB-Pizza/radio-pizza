@@ -27,14 +27,11 @@ function HeroCarousel({ slides }) {
    */
   const HeroBullets = ({ onClick, isActive }) => (
     <li
+      className="hero-bullets"
       style={{
         backgroundColor: isActive ? 'white' : 'black',
-        borderRadius: '25%',
-        marginInlineStart: '.5rem',
         border: isActive ? '2px solid black' : '2px solid white',
-        width: '32px',
-        height: '32px',
-        opacity: isActive ? '1' : '.5',
+        opacity: isActive ? '1' : '.75',
       }}
       onClick={onClick}
     />
@@ -45,36 +42,7 @@ function HeroCarousel({ slides }) {
    */
   const HeroArrow = ({ onClick, direction }) => (
     <HeroArrows onClick={onClick} direction={direction} />
-
-    // <div
-    //   style={{
-    //     width: "1.5rem",
-    //     height: "1.5rem",
-    //     borderTop: ".75rem solid #f600ff",
-    //     borderRight: ".75rem solid #f600ff",
-    //     marginLeft: "2rem",
-    //     marginRight: "3rem",
-    //     padding: "1em",
-    //     transform: direction === "left" ? "rotate(-135deg)" : "rotate(45deg)",
-    //   }}
-    //   onClick={onClick}
-    // />
   )
-
-  // const heroArrows = {
-  //   width: 0,
-  //   height: 0,
-  //   borderTop: "2rem solid transparent",
-  //   borderLeft: "4rem solid blue",
-  //   borderBottom: "2rem solid transparent",
-  // };
-  // const heroArrows = {
-  //   outline: "1px solid red",
-  //   border: "solid white",
-  //   margin: "auto 3rem auto 2rem",
-  //   borderWidth: "0 2rem 2rem 0",
-  //   color: "black",
-  // };
 
   return (
     <section className="slider-sizing">

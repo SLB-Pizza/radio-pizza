@@ -79,7 +79,7 @@ function SlideGenerator({ background, headline, link, cta }) {
               )}
               {cta && (
                 <p
-                  className="subtitle is-size-5-desktop is-size-6-touch cta"
+                  className="title is-size-5-desktop is-size-6-touch cta"
                   style={{ pointerEvents: 'auto' }}
                 >
                   {cta}

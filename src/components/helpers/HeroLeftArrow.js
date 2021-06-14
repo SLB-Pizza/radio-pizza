@@ -10,15 +10,13 @@ import React from 'react'
 export default function HeroLeftArrow({ onClick }) {
   return (
     <svg
+      className="hero-arrow__left"
       baseProfile="tiny"
       xmlns="http://www.w3.org/2000/svg"
-      width={50}
-      height={50}
+      width={40}
+      height={40}
       viewBox="-11.321 -11.321 315 315"
       onClick={onClick}
-      style={{
-        marginLeft: '3rem',
-      }}
     >
       <path d="M210.132 297.359c-6.302 0-11.814-2.319-16.385-6.894L65.842 162.56c-4.571-4.571-6.888-10.084-6.888-16.383 0-6.296 2.317-11.808 6.887-16.381L193.749 1.888C198.316-2.682 203.829-5 210.132-5s11.815 2.318 16.384 6.889c4.571 4.571 6.89 10.083 6.891 16.381v255.813c0 6.304-2.319 11.816-6.894 16.385-4.569 4.572-10.082 6.891-16.381 6.891z" />
       <path

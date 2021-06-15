@@ -1,3 +1,17 @@
+### Version 1.20.0
+- feat(live-light): add LiveMarkerAndText to LiveBroadcastInfoDisplay
+- fix(LiveInfo): address bug where blank liveTitle and liveGuests could be submitted update live stream update layout to better describe fallback case add case to submitMarquee handling case where both title and guests are empty strings
+- fix(Marquee): move LiveMarkerAndText to RadioPlayer update initial GCP liveMarquee title and guests string
+- fix(fetchStreamStatus): add more and method to fetch
+- style(ON AIR): update LiveMarkerAndText on air styling
+- style(Hero): adjust CTA block and HeroBullets add mobile-specific sizing to HeroBullets extract fixed styling to .hero-bullets class fix padding on hero CTA; make text uppercase; remove arrow
+- style(HeroArrows): change inline style to class add mobile-styling to pull arrows away from center changes hero arrow width, height to 40 from 50
+- fix(RadioPlayerPlayBtn): address playingRadio toggle if HMBK is live, playingRadio is also set to true by action `TOGGLE_RADIO` change fixes style issue where LiveRadioPlayButton didn't toggle text to reflect live not-playing vs live playing
+- fix(LiveRadioPlayButton): extract button to component modify onClick so handlePlayLive and closeSchedule actions fire only when needed
+- style(BottomNav): make bottom link text lesser weight
+- fix(LiveRadioPlayButton): fix handlePlayPause handlePlayPause now checks to see if infoDisplay is 'recorded' first
+- fix(GCP): remove context debug log
+
 ### Version 1.19.0
 - feat(RadioPlayer): remove mandatory default mix
 - fix(RadioPlayer): default mix no longer required add first globalState.live check in setInitialSource add SET_INITIAL_RADIO action change live radio button

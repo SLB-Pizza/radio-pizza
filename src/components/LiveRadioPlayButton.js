@@ -23,9 +23,7 @@ export default function LiveRadioPlayButton() {
         <button
           className="button is-small is-outlined is-rounded live-radio-btn"
           onClick={() => {
-            if (!playingRadio) {
-              handlePlayLive(dispatch)
-            }
+            handlePlayLive(dispatch)
             if (scheduleOpen) {
               closeSchedule(dispatch)
             }

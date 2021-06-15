@@ -10,11 +10,7 @@ import { LiveBroadcastInfoDisplay } from './index'
  * @returns {jsx}
  */
 export default function LiveBroadcastInfoWrapper({ liveTitle, liveGuests }) {
-  return liveTitle ? (
-    <div id="now-playing-details">
-      <LiveBroadcastInfoDisplay liveTitle={liveTitle} liveGuests={liveGuests} />
-    </div>
-  ) : (
+  return (
     <div id="now-playing-details">
       <LiveBroadcastInfoDisplay liveTitle={liveTitle} liveGuests={liveGuests} />
     </div>

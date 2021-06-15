@@ -1,17 +1,19 @@
 /**
- * IF HMBK is live
- *    set `playingRadio` to true, so that the
- *
+ * IF a recorded mix is playing
+ *    toggle player state
+ *    do not trigger the `playingRadio` change
+ * ELSE IF HMBK is broadcast
+ *    set `playingRadio` to true, so that the toggle reflects the LiveRadioPlayButton and the radio broadcast state
  * @category Dispatch Function
  * @function handlePlayPause
  * @param {Function} dispatch
  * @param {Boolean} liveStatus
  */
-export const handlePlayPause = async (dispatch, liveStatus) => {
-  if (liveStatus) {
-    await dispatch({ type: 'TOGGLE_PLAYING', payload: { playingRadio: true } })
-  } else {
+export const handlePlayPause = async (dispatch, liveStatus, infoDisplay) => {
+  if (infoDisplay === 'recorded') {
     await dispatch({ type: 'TOGGLE_PLAYING' })
+  } else if (liveStatus) {
+    await dispatch({ type: 'TOGGLE_PLAYING', payload: { playingRadio: true } })
   }
 }
 /**

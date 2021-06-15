@@ -118,7 +118,7 @@ function RadioPlayer() {
         BROADCAST
           render ON AIR text and flashing live light
       */}
-      {!globalState.live && globalState.infoDisplay === 'recorded' ? (
+      {globalState.infoDisplay === 'recorded' ? (
         <RecordedMixPlayerImage
           isLoading={globalState.isLoading}
           imgURL={globalState.img}

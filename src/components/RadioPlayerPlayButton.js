@@ -16,7 +16,7 @@ import { handlePlayPause } from '../dispatch'
 export default function RadioPlayerPlayButton() {
   const globalState = useContext(GlobalStateContext)
   const dispatch = useContext(GlobalDispatchContext)
-  const { isLoading, playing, live } = globalState
+  const { isLoading, playing, infoDisplay, live } = globalState
 
   return (
     <div
@@ -30,7 +30,7 @@ export default function RadioPlayerPlayButton() {
         icon={!playing ? 'play' : 'pause'}
         className="icon-color"
         onClick={() => {
-          handlePlayPause(dispatch, live)
+          handlePlayPause(dispatch, live, infoDisplay)
         }}
         size="2x"
       />

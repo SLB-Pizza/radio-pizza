@@ -1,10 +1,13 @@
 import React, { useContext, useRef, useState, useEffect } from 'react'
 import ReactPlayer from 'react-player'
-import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import { hot } from 'react-hot-loader'
-import { RecordedMixPlayerImage, RadioPlayerDisplay } from './index'
+import {
+  RecordedMixPlayerImage,
+  RadioPlayerDisplay,
+  RadioPlayerPlayButton,
+} from './index'
 import { LiveMarkerAndText } from './helpers'
-import { handleEnded, handleMixReady, handlePlayPause } from '../dispatch'
+import { handleEnded, handleMixReady } from '../dispatch'
 import {
   GlobalDispatchContext,
   GlobalStateContext,
@@ -107,22 +110,7 @@ function RadioPlayer() {
   const player = useRef(ReactPlayer)
   return (
     <>
-      <div
-        className={
-          globalState.isLoading
-            ? 'column is-narrow mix-data'
-            : 'column is-narrow mix-data is-loaded'
-        }
-      >
-        <Icon
-          icon={!globalState.playing ? 'play' : 'pause'}
-          className="icon-color"
-          onClick={() => {
-            handlePlayPause(dispatch)
-          }}
-          size="2x"
-        />
-      </div>
+      <RadioPlayerPlayButton />
 
       {/*
         RECORDED

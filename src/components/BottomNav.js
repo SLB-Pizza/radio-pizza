@@ -52,7 +52,7 @@ function BottomNav() {
         <div className="navbar-brand">
           <Link
             to="/"
-            className="navbar-item display-text"
+            className="navbar-item"
             onClick={() => {
               closeNavMenu()
               clearMixSearchTags()

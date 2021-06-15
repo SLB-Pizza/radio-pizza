@@ -250,6 +250,10 @@
   }
 }
 
+.navbar-item:not(.navbar-brand .navbar-item) {
+  font-weight: 400;
+}
+
 .navbar-burger span {
   color: transparent;
   border: 0.125rem solid $primary;
@@ -262,12 +266,13 @@
     flex: 1;
     display: flex;
     justify-content: center;
+    transition: $speed $easing;
+    color: white;
   }
   span {
-    color: $primary;
-    transition: 0.25s $easing;
-    &:hover {
-      color: white;
+    &:hover,
+    &:focus {
+      color: $primary;
     }
   }
 }

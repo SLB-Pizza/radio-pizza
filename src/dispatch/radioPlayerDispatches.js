@@ -1,10 +1,18 @@
 /**
+ * IF HMBK is live
+ *    set `playingRadio` to true, so that the
+ *
  * @category Dispatch Function
  * @function handlePlayPause
  * @param {Function} dispatch
+ * @param {Boolean} liveStatus
  */
-export const handlePlayPause = async dispatch => {
-  await dispatch({ type: 'TOGGLE_PLAYING' })
+export const handlePlayPause = async (dispatch, liveStatus) => {
+  if (liveStatus) {
+    await dispatch({ type: 'TOGGLE_PLAYING', payload: { playingRadio: true } })
+  } else {
+    await dispatch({ type: 'TOGGLE_PLAYING' })
+  }
 }
 /**
  * @category Dispatch Function

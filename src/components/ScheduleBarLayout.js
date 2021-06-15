@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
-import { ScheduleDropdown, UpcomingShow } from './index'
+import { LiveRadioPlayButton, ScheduleDropdown, UpcomingShow } from './index'
 import {
   GlobalStateContext,
   GlobalDispatchContext,
@@ -21,14 +21,7 @@ export default function ScheduleBarLayout({ timeNow, upcomingShows }) {
   const dispatch = useContext(GlobalDispatchContext)
   const globalState = useContext(GlobalStateContext)
 
-  const {
-    live,
-    playing,
-    playingRadio,
-    infoDisplay,
-    scheduleOpen,
-    ..._
-  } = globalState
+  const { live, scheduleOpen } = globalState
 
   return (
     <div
@@ -40,41 +33,7 @@ export default function ScheduleBarLayout({ timeNow, upcomingShows }) {
       id="schedule-bar"
     >
       <div className="columns is-vcentered is-mobile is-variable is-2 up-next">
-        <div className="column is-narrow">
-          {live ? (
-            <button
-              className="button is-small is-outlined is-rounded live-radio-btn"
-              onClick={() => {
-                handlePlayLive(dispatch)
-                closeSchedule(dispatch)
-              }}
-            >
-              {playing && playingRadio ? (
-                <>
-                  <span className="icon">
-                    <Icon icon="headphones" size="lg" className="live-light" />
-                  </span>
-                  <span className="live-radio-btn__text">Listening Live</span>
-                </>
-              ) : (
-                <>
-                  <span className="icon">
-                    <Icon
-                      icon="broadcast-tower"
-                      size="lg"
-                      className="live-light"
-                    />
-                  </span>
-                  <span className="live-radio-btn__text">
-                    Click to Listen Live
-                  </span>
-                </>
-              )}
-            </button>
-          ) : (
-            <p className="title is-size-6-tablet is-size-7-mobile">Not Live</p>
-          )}
-        </div>
+        <LiveRadioPlayButton />
         {/* TO FIX LATER */}
         {/* <UpcomingShow showData={upcomingShows} timeNow={timeNow} /> */}
         <div className="column" />
@@ -91,7 +50,9 @@ export default function ScheduleBarLayout({ timeNow, upcomingShows }) {
         {/* <div className="column is-narrow">
             <Link to="/search">
               <Icon
-                onClick={() => closeSchedule(dispatch)}
+                onClick={() =>               if (scheduleOpen) {
+                closeSchedule(dispatch);
+              }}
                 icon="search"
                 size="lg"
                 className="icon-color"
@@ -104,7 +65,11 @@ export default function ScheduleBarLayout({ timeNow, upcomingShows }) {
             href="http://halfmoonradiochat.chatango.com/"
             target="_blank"
             rel="noopener"
-            onClick={() => closeSchedule(dispatch)}
+            onClick={() => {
+              if (scheduleOpen) {
+                closeSchedule(dispatch)
+              }
+            }}
           >
             <Icon icon="comments" size="lg" className="icon-color" />
           </a>

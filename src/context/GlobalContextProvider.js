@@ -38,7 +38,7 @@ const initialState = {
 }
 
 function reducer(state, action) {
-  // console.debug(action, state);
+  console.debug(action, state)
   switch (action.type) {
     /**
      * If `mixSearchTags` isn't already an array with at least one tag, create the array and add the tag.
@@ -113,9 +113,17 @@ function reducer(state, action) {
      * @name TOGGLE_PLAYING
      */
     case 'TOGGLE_PLAYING':
-      return {
-        ...state,
-        playing: !state.playing,
+      if (action.payload) {
+        return {
+          ...state,
+          playing: !state.playing,
+          playingRadio: true,
+        }
+      } else {
+        return {
+          ...state,
+          playing: !state.playing,
+        }
       }
 
     case 'SET_CLOCK_TIME':

@@ -1,7 +1,7 @@
 import { formatDateTime } from './index'
 
 /**
- * Accepts the current dayJS time object and the start and end times of a scheduled show. Converts the start and end times and then checks to see if the current time is between the start (inclusive) and the end (exclusive).
+ * Accepts the current dayJS time object and the start and end times of a scheduled show. Parses the Prismic formatted start and end times and then checks to see if the current time is between the start (inclusive) and the end (exclusive).
  * Called by: {@link SingleDateScheduleEntries}
  * @category Utilities
  * @function isCurrentShowLive

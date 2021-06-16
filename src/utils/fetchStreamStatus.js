@@ -8,8 +8,7 @@
 export default async function fetchStreamStatus() {
   try {
     const streamResponse = await fetch(
-      `https://public.radio.co/stations/s6f093248d/status`,
-      { method: 'GET', mode: 'cors' }
+      `https://public.radio.co/stations/s6f093248d/status`
     )
     const data = await streamResponse.json()
     return data.status

@@ -6,7 +6,7 @@ import dayjs from 'dayjs'
  * @function sortShowEntriesByStartTime
  * @param {Object[]} entriesArr
  * @returns {Object[]} a sorted copy of the input array
- *  * @see {@link https://stackoverflow.com/questions/49278578/reactjs-sorting-typeerror-0-is-read-only ReactJS - sorting - TypeError: 0 is read only}
+ * @see {@link https://stackoverflow.com/questions/49278578/reactjs-sorting-typeerror-0-is-read-only ReactJS - sorting - TypeError: 0 is read only}
  */
 export default function sortShowEntriesByStartTime(entriesArr) {
   /**

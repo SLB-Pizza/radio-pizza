@@ -168,15 +168,15 @@ function ScheduleIndexPage() {
   return (
     <main className="container is-fluid black-bg-page">
       <Helmet defer={false}>
-        <title>{`Schedule | ${title}  | Ears to the concrete.`}</title>
+        <title>{`Schedule | ${title} | Ears to the concrete.`}</title>
         <meta
           property="og:title"
-          content={`Schedule | ${title}  | Ears to the concrete.`}
+          content={`Schedule | ${title} | Ears to the concrete.`}
         />
         <meta property="og:url" content={`${siteUrl}/schedule/`} />
         <meta
           name="twitter:title"
-          content={`Schedule | ${title}  | Ears to the concrete.`}
+          content={`Schedule | ${title} | Ears to the concrete.`}
         />
       </Helmet>
 

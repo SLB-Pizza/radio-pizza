@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import { GlobalDispatchContext } from '../context/GlobalContextProvider'
-import { SingleDateScheduleEntries } from '../components'
+import { NoShowsFallback, SingleDateScheduleEntries } from '../components'
 import { formatDateTime } from '../utils'
 import { closeSchedule } from '../dispatch'
 
@@ -23,7 +23,7 @@ function ScheduleDropdown({ showData, timeNow }) {
    * If it does, means `showData` is for today; set `scheduleData` to `schedule_entries`.
    * 2. `showData[0]` contains schedule objects for dates OTHER THAN today.
    * 3. `showData` is an empty array: there are currently no shows scheduled after yesterday's date.
-   * For both 2 and 3, null `scheduleData` to render "No shows scheduled!" fallback.
+   * For both 2 and 3, null `scheduleData` to render {@link NoShowsFallback}.
    * @category useEffect
    * @name updateScheduleOnDateChange
    */
@@ -82,48 +82,16 @@ function ScheduleDropdown({ showData, timeNow }) {
       </div>
 
       {/*
-      scheduleData !== undefined : display today's schedule
-      scheduleData === undefined : show  */}
+        scheduleData !== undefined : render today's schedule
+        scheduleData === undefined : render <NoShowsFallback />
+      */}
       {scheduleData ? (
         <SingleDateScheduleEntries
           entries={scheduleData}
           currentTime={timeNow}
         />
       ) : (
-        <div className="section column is-12 content">
-          <p className="title is-size-4-tablet is-size-5-mobile has-text-centered">
-            No shows scheduled!
-          </p>
-          <p className="subtitle is-size-6-tablet is-size-7-mobile has-text-centered text-block">
-            {'Follow us on our '}
-            <a
-              href="https://twitter.com/halfmoonbk"
-              rel="noopener"
-              target="_blank"
-            >
-              Twitter
-            </a>
-            {', '}
-            <a
-              href="https://www.instagram.com/halfmoonbk/"
-              rel="noopener"
-              target="_blank"
-            >
-              Instagram
-            </a>
-            {', and '}
-            <a
-              href="https://www.facebook.com/halfmoonbk/"
-              rel="noopener"
-              target="_blank"
-            >
-              Facebook
-            </a>
-            {' for all the latest '}
-            <b>Half Moon</b>
-            {' news.'}
-          </p>
-        </div>
+        <NoShowsFallback />
       )}
     </div>
   )

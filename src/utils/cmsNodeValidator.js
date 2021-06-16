@@ -160,7 +160,7 @@ function cmsNodeValidator(node) {
          * add the error to the notices obj
          */
         if (node[field].length === 0 || !node[field]) {
-          console.log('in group field', field)
+          // console.log('in group field', field)
           issue = validatorErrors.group_field
           addErrorToNotices(field, issue)
           break

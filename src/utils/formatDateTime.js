@@ -181,7 +181,7 @@ export default function formatDateTime(
       return [-1, 7].map(number => time.add(number, 'day').format('YYYY-MM-DD'))
 
     case 'time-debug':
-      console.log(
+      console.debug(
         dayjs(time, 'YYYY-MM-DDTHH:mm:ssZZ').format('MMMM D, YYYY - HH:mm Z')
       )
       return dayjs(time, 'YYYY-MM-DDTHH:mm:ssZZ').isValid()

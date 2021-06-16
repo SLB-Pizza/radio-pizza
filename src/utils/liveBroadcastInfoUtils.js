@@ -36,6 +36,8 @@ export const updateMarqueeGuests = (event, setGuestsFunc) => {
  *    pass `'Halfmoon Presents'` as `liveTitle`
  *    pass `'Live Radio'` as `liveGuests`
  *    to prevent a blank live radio display
+ * ELSE
+ *    set using passed in title and guests
  * @category Utilities
  * @function submitMarquee
  * @param {Event} event
@@ -44,8 +46,6 @@ export const updateMarqueeGuests = (event, setGuestsFunc) => {
  */
 export const submitMarquee = async (event, liveTitle, liveGuests) => {
   event.preventDefault()
-
-  console.debug(liveGuests, liveTitle)
 
   if (!liveTitle && !liveGuests) {
     await updateRemoteMarquee('marquee', {

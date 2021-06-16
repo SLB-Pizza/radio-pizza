@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { withPrefix } from 'gatsby'
-import { TopNav, BottomNav, useSiteMetadata } from '../components'
 import { GlobalStateContext } from '../context/GlobalContextProvider'
+import { TopNav, BottomNav, useSiteMetadata } from '../components'
+import { setHelmetSiteTitling } from '../utils'
 import '../styles/index.scss'
 
 export default function TemplateWrapper({ children }) {
@@ -17,57 +18,18 @@ export default function TemplateWrapper({ children }) {
   const [nowPlayingInfo, setNowPlayingInfo] = useState(null)
 
   /**
-   * Process `globalState` to derive Helmet information based on changes in state.
-   * NO DEFAULT MIX ON PAGE
-   *    NO LIVESTREAM
-   *      "Half Moon | Ears to the concrete."
-   *    HAS LIVESTREAM
-   *      "ON AIR | Marquee Info | Half Moon"
-   *    PLAYING LIVESTREAM
-   *      "LIVE | Marquee Info | Half Moon"
-   * HAS DEFAULT MIX ON PAGE LOAD
-   *    NO LIVESTREAM
-   *      "Title - Resident | Half Moon"
-   *    HAS LIVESTREAM
-   *      "Title - Resident | Half Moon | ON AIR"
-   *    PLAYING LIVESTREAM
-   *      "LIVE | Marquee Info | Half Moon"
-   *
-   * LISTENING PRERECORDED
-   *    NO LIVESTREAM
-   *      "Title - Resident | Half Moon"
-   *    HAS LIVESTREAM
-   *      "Title - Resident | Half Moon | ON AIR"
-   *
-   * PLAYING LIVESTREAM
-   *   "LIVE | Marquee Info | Half Moon"
    * @category useEffect
    * @name processNowPlayingInfo
    */
   useEffect(() => {
     const processNowPlayingInfo = () => {
       if (globalState) {
-        let titling = ''
-
-        if (live) {
-          titling += 'ON AIR | '
-        }
-
-        // if() {
-
-        // }
-        if (title) {
-          titling += `${title}`
-          if (resident) {
-            titling += ` - ${resident}`
-          }
-        }
-
+        let titling = setHelmetSiteTitling(globalState)
         setNowPlayingInfo(titling)
       }
     }
     processNowPlayingInfo()
-  }, [title, resident, live])
+  }, [globalState])
 
   return (
     <>
@@ -75,7 +37,7 @@ export default function TemplateWrapper({ children }) {
         <html lang="en" />
         <title>
           {nowPlayingInfo
-            ? `${nowPlayingInfo} | ${siteTitle} | Ears to the concrete.`
+            ? `${nowPlayingInfo}`
             : `${siteTitle} | Ears to the concrete.`}
         </title>
         <meta name="description" content={description} />

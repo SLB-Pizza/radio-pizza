@@ -11,12 +11,10 @@ function SearchIndexPage() {
 
   const handleChange = e => {
     setSearchValue(e.target.value)
-    console.log(searchValue, 'current value')
   }
 
   const handleSubmit = e => {
     e.preventDefault()
-    console.log(searchValue, 'submitted')
     setVisibleLogo(false)
     setSearchStatus(true)
   }

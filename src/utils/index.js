@@ -51,6 +51,7 @@ export {
 } from './singleResidentDateSorting'
 export { default as removeDuplicateFetchData } from './removeDuplicateFetchData'
 export { scrollToTop } from './scrollToTop'
+export { default as setHelmetSiteTitling } from './setHelmetSiteTitling'
 export { default as setInitialMarqueeState } from './setInitialMarqueeState'
 export { default as sortUpcomingShowsArray } from './sortUpcomingShowsArray'
 export { default as sortAndSetScheduleData } from './sortAndSetScheduleData'

@@ -2,11 +2,13 @@ import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
 import isBetween from 'dayjs/plugin/isBetween'
+import advancedFormat from 'dayjs/plugin/advancedFormat'
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 dayjs.extend(utc)
 dayjs.extend(timezone)
 dayjs.extend(isBetween)
+dayjs.extend(advancedFormat)
 dayjs.extend(isSameOrBefore)
 dayjs.extend(customParseFormat)
 
@@ -106,6 +108,9 @@ export default function formatDateTime(
 
     case 'get-yesterday-date':
       return time.add(-1, 'day').format('YYYY-MM-DD')
+
+    case 'get-timezone':
+      return dayjs(time).format('zzz')
 
     case 'is-before-start-time':
       /**

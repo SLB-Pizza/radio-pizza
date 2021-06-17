@@ -24,6 +24,7 @@ function ScheduleIndexPage() {
   const [dateHeaders, setDateHeaders] = useState(null)
   const [datesToMatch, setDatesToMatch] = useState(null)
   const [scheduleFetchDates, setFetchDates] = useState(null)
+  const [userTimezone, setUserTimezone] = useState(null)
   const [thisWeekSchedule, setThisWeekSchedule] = useState(null)
 
   /**
@@ -43,7 +44,7 @@ function ScheduleIndexPage() {
   /**
    * Set initial values for `/schedule` state and fetches the current seven day schedule.
    *
-   * 1. Set `todayDate` using {@link formatDateTime}
+   * 1. Set `todayDate` using {@link formatDateTime}; set `userTimezone` using `todayDate`
    * 2. Set `isActive` using formatted `todayDate`; "MM.DD"
    * 3. Set `dateBtnLabels` setDateBtnLabels `convertedDates.dateLabels`
    * 4. Set `datesToMatch` using `convertedDates.queryMatching`
@@ -58,7 +59,9 @@ function ScheduleIndexPage() {
     const loadSevenDaySchedule = () => {
       // #1
       const currTime = formatDateTime(null, 'current-time')
+      const timeZone = formatDateTime(currTime, 'get-timezone')
       setTodayDate(currTime)
+      setUserTimezone(timeZone)
 
       // #2
       const todayInMMDD = formatDateTime(currTime, 'month-day')
@@ -111,32 +114,39 @@ function ScheduleIndexPage() {
 
       if (sevenDayScheduleData) {
         for (let i = 0; i < datesToMatch.length; i++) {
-          const currDate = datesToMatch[i]
+          const currDateStr = datesToMatch[i]
           const currHeading = dateHeaders[i]
           const currLabel = dateBtnLabels[i]
 
-          let currDateObject = {}
-          currDateObject.date = currHeading
-          currDateObject.id = currLabel
-          currDateObject.entries = null
+          /**
+           * Placeholder object to collect all relevant schedule data for any single date
+           */
+          let currDateObj = {}
+          currDateObj.date = currHeading
+          currDateObj.id = currLabel
 
-          for (
-            let j = 0;
-            j < sevenDayScheduleData.allSchedules.edges.length;
-            j++
-          ) {
-            const {
-              schedule_date,
-              schedule_entries,
-            } = sevenDayScheduleData.allSchedules.edges[j].node
+          /**
+           * Make entries `null` so that {@link NoShowsFallback} renders when a given date has no schedule data to process.
+           */
+          currDateObj.entries = null
 
-            if (currDate === schedule_date) {
+          const scheduleDataArr = sevenDayScheduleData.allSchedules.edges
+
+          for (let j = 0; j < scheduleDataArr.length; j++) {
+            const { schedule_date, schedule_entries } = scheduleDataArr[j].node
+
+            /**
+             * If the current date string matches the focused scheduleData node's date,
+             * sort that node's `schedule_entries`,
+             * assign the sorted entries to `currentDateObj`,
+             * and push the object to `datedScheduledEntries`.
+             */
+            if (currDateStr === schedule_date) {
               const sortedEntries = sortShowEntriesByStartTime(schedule_entries)
-
-              currDateObject.entries = sortedEntries
+              currDateObj.entries = sortedEntries
             }
           }
-          datedScheduleEntries.push(currDateObject)
+          datedScheduleEntries.push(currDateObj)
         }
         setThisWeekSchedule(datedScheduleEntries)
       }
@@ -160,9 +170,7 @@ function ScheduleIndexPage() {
       setTodayDate(todayDate.add(1, 's'))
     }, 1000)
 
-    return () => {
-      clearInterval(updateTimeEverySecond)
-    }
+    return () => clearInterval(updateTimeEverySecond)
   }, [todayDate])
 
   return (
@@ -185,9 +193,11 @@ function ScheduleIndexPage() {
           <h1 className="title is-size-3-desktop is-size-5-touch">
             Broadcast Schedule
           </h1>
-          <h2 className="subtitle is-size-5-desktop is-size-6-touch">
-            All times are EST.
-          </h2>
+          {userTimezone && (
+            <h2 className="subtitle is-size-5-desktop is-size-6-touch">
+              {`All times are ${userTimezone}.`}
+            </h2>
+          )}
         </div>
       </div>
       {dateBtnLabels && (

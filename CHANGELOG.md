@@ -1,3 +1,11 @@
+### Version 1.21.0
+- feat(siteTitle): write helper Helmet function to get site title
+- fix(fetchStreamStatus): remove explicit GET and CORS
+- fix(helmetTitling): add case where both liveShow title and guests exist
+- refactor(Schedule): create NoShowsFallback apply to ScheduleDropdown and SingleDateScheduleGenerator
+- docs(isShowLive): clarify what is being done with start and end times
+- fix(/schedule): change static 'EST' to derived user timezone update dayjs to 1.10.5; needed to access timezone formatting add 'get-timezone' formatDateTime case
+
 ### Version 1.20.0
 - feat(live-light): add LiveMarkerAndText to LiveBroadcastInfoDisplay
 - fix(LiveInfo): address bug where blank liveTitle and liveGuests could be submitted update live stream update layout to better describe fallback case add case to submitMarquee handling case where both title and guests are empty strings

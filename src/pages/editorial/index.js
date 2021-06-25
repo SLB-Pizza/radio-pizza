@@ -57,10 +57,11 @@ export default function EditorialIndexPage({ data, prismic }) {
    */
   useEffect(() => {
     const processEditorialHeaderData = () => {
-      const setFunctions = {
-        setEditorialsUIDsToFilter,
-        setFeaturesToMap,
-        setFeaturesHighlights,
+      let uidsToFilter
+      const highlightEditorials = []
+      const highlightedFeatures = {
+        leftFeature: null,
+        rightFeature: null,
       }
 
       /**
@@ -75,15 +76,14 @@ export default function EditorialIndexPage({ data, prismic }) {
       /**
        * Create an array to collect editorialHeaderData node to pass into {@link getUIDsFromDataArray}
        */
-      const highlightEditorials = []
-      if (second_highlight_editorial) {
-        highlightEditorials.push({
-          node: second_highlight_editorial,
-        })
-      }
       if (first_highlight_editorial) {
         highlightEditorials.push({
           node: first_highlight_editorial,
+        })
+      }
+      if (second_highlight_editorial) {
+        highlightEditorials.push({
+          node: second_highlight_editorial,
         })
       }
 
@@ -96,10 +96,12 @@ export default function EditorialIndexPage({ data, prismic }) {
        *    Splice first two from `featuresToMap` to use as highlights
        *    Pass as nodes to `uidsToFilter`.
        */
-      let uidsToFilter
+
       if (highlightEditorials.length) {
-        uidsToFilter = getUIDsFromDataArray(editorialsToFilter)
-        setEditorialsUIDsToFilter(uidsToFilter)
+        if (!editorialUIDsToFilter) {
+          uidsToFilter = getUIDsFromDataArray(highlightEditorials)
+          setEditorialsUIDsToFilter(uidsToFilter)
+        }
 
         const filteredEditorialData = removeDuplicateFetchData(
           featuresToMap,
@@ -114,17 +116,29 @@ export default function EditorialIndexPage({ data, prismic }) {
         /**
          * Build the highlightedFeatures data object; will be used as props for {@link FeaturesHighlightItems}.
          */
-        const highlightedFeatures = {
-          leftFeature: first_highlight_editorial,
-          rightFeature: second_highlight_editorial,
-        }
-
+        highlightedFeatures.leftFeature = first_highlight_editorial
+        highlightedFeatures.rightFeature = second_highlight_editorial
         setFeaturesHighlights(highlightedFeatures)
       } else {
+        /**
+         * No highlight editorials selected in CMS
+         * Therefore, will also be first time setting the editorial UIDs to filter out
+         * from fetched data
+         */
+        const twoMostRecentEditorials = featuresToMap.splice(0, 2)
+        console.debug(twoMostRecentEditorials)
+
+        uidsToFilter = getUIDsFromDataArray(highlightEditorials)
+        setEditorialsUIDsToFilter(uidsToFilter)
+
         setFeaturesToMap({
-          data: prismicContent.allFeatures.edges,
+          data: featuresToMap,
           hasMore: prismicContent.allFeatures.pageInfo.hasNextPage,
         })
+
+        highlightedFeatures.leftFeature = twoMostRecentEditorials[0]
+        highlightedFeatures.rightFeature = twoMostRecentEditorials[1]
+        setFeaturesHighlights(highlightedFeatures)
       }
     }
     processEditorialHeaderData()
@@ -207,22 +221,21 @@ export default function EditorialIndexPage({ data, prismic }) {
         {/* Show only after featuresHighlights is processed by useEffect */
         featuresHighlights && (
           <FeaturesHighlightItems
-            leftFeature={featuresHighlights.leftFeature}
-            rightFeature={featuresHighlights.rightFeature}
+            leftFeature={featuresHighlights.leftFeature.node}
+            rightFeature={featuresHighlights.rightFeature.node}
           />
         )}
       </header>
 
       <section className="section container is-fluid media-cards">
         <div className="columns is-mobile is-multiline">
-          {featuresToMap?.data &&
-            featuresToMap?.data.map(({ node }, index) => (
-              <SingleFeatureCard
-                key={`halfmoon-feature-${index}`}
-                data={node}
-                columnLayout={individualFeatureLayout}
-              />
-            ))}
+          {featuresToMap?.data?.map(({ node }, index) => (
+            <SingleFeatureCard
+              key={`halfmoon-feature-${index}`}
+              data={node}
+              columnLayout={individualFeatureLayout}
+            />
+          ))}
         </div>
         {featuresToMap && (
           <LandingPageFetchAndLoading
@@ -247,7 +260,7 @@ EditorialIndexPage.propTypes = {
 
 export const query = graphql`
   query EditorialIndexPage(
-    $first: Int = 4
+    $first: Int = 12
     $last: Int
     $after: String
     $before: String

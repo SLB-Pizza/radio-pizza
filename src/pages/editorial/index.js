@@ -8,7 +8,11 @@ import {
   SingleFeatureCard,
   useSiteMetadata,
 } from '../../components'
-import { getUIDsFromDataArray, removeDuplicateFetchData } from '../../utils'
+import {
+  filterFetchedEditorials,
+  getUIDsFromDataArray,
+  removeDuplicateFetchData,
+} from '../../utils'
 import PropTypes from 'prop-types'
 
 /**
@@ -20,7 +24,7 @@ import PropTypes from 'prop-types'
  * @returns {jsx}
  */
 export default function EditorialIndexPage({ data, prismic }) {
-  const { title, description, siteUrl, twitterUsername } = useSiteMetadata()
+  const { title, siteUrl } = useSiteMetadata()
   const prismicContent = data.prismic
   /**
    * This line is here to prevent an error from occurring when you eventually deploy the site live. There is an issue with the preview functionality that requires this check on every page.
@@ -53,6 +57,12 @@ export default function EditorialIndexPage({ data, prismic }) {
    */
   useEffect(() => {
     const processEditorialHeaderData = () => {
+      const setFunctions = {
+        setEditorialsUIDsToFilter,
+        setFeaturesToMap,
+        setFeaturesHighlights,
+      }
+
       /**
        * Select and deconstruct `editorialHeaderData` for use.
        */
@@ -65,31 +75,40 @@ export default function EditorialIndexPage({ data, prismic }) {
       /**
        * Create an array to collect editorialHeaderData node to pass into {@link getUIDsFromDataArray}
        */
-      const editorialsToFilter = []
+      const highlightEditorials = []
       if (second_highlight_editorial) {
-        editorialsToFilter.push({ node: second_highlight_editorial })
+        highlightEditorials.push({
+          node: second_highlight_editorial,
+        })
       }
       if (first_highlight_editorial) {
-        editorialsToFilter.push({ node: first_highlight_editorial })
+        highlightEditorials.push({
+          node: first_highlight_editorial,
+        })
       }
 
       /**
        * IF there are highlight editorials
        *    Grab their UIDs
-       *    Filter out editorial UIDs that match from `featuresToMap`.
-       *    `setFeaturesToMap
+       *    Filter out these UIDs from `featuresToMap` editorial data array.
+       *    Set new `featuresToMap`
+       * ELSE (No highlight editorials selected in CMS)
+       *    Splice first two from `featuresToMap` to use as highlights
+       *    Pass as nodes to `uidsToFilter`.
        */
-      if (editorialsToFilter.length) {
-        const uidsToFilter = getUIDsFromDataArray(editorialsToFilter)
+      let uidsToFilter
+      if (highlightEditorials.length) {
+        uidsToFilter = getUIDsFromDataArray(editorialsToFilter)
         setEditorialsUIDsToFilter(uidsToFilter)
 
         const filteredEditorialData = removeDuplicateFetchData(
           featuresToMap,
           uidsToFilter
         )
+
         setFeaturesToMap({
           data: filteredEditorialData,
-          hasMore: prismicContent.allFeatures.hasNextPage,
+          hasMore: prismicContent.allFeatures.pageInfo.hasNextPage,
         })
 
         /**
@@ -104,12 +123,12 @@ export default function EditorialIndexPage({ data, prismic }) {
       } else {
         setFeaturesToMap({
           data: prismicContent.allFeatures.edges,
-          hasMore: prismicContent.allFeatures.hasNextPage,
+          hasMore: prismicContent.allFeatures.pageInfo.hasNextPage,
         })
       }
     }
     processEditorialHeaderData()
-  }, [data])
+  }, [])
 
   /**
    * Changes `eventLoading` to true to render {@link HMBKDivider}, and the `page` value, triggering {@link loadMoreEvents}.
@@ -122,7 +141,7 @@ export default function EditorialIndexPage({ data, prismic }) {
   }
 
   /**
-   * useEffect that fires off a Prismic fetch when the 'More Events' button is clicked and {@link loadNextFeatures} changes the `page` value. Adds events from Prismic fetch to eventsToMap data array and updates hasMore value.
+   * useEffect that fires off a Prismic fetch when the 'More Events' button is clicked and {@link loadNextFeatures} changes the `page` value. Adds events from Prismic fetch to `eventsToMap` data array and updates `pageInfo.hasMore` value.
    * @category useEffect
    * @name loadMoreFeatures
    */
@@ -139,13 +158,14 @@ export default function EditorialIndexPage({ data, prismic }) {
       prismic
         .load({
           variables: {
+            first: 6,
             after: getCursorFromDocumentIndex(page),
           },
         })
         .then(res => {
           const fetchedEditorialData = res.data.allFeatures
           const filteredFetchedEditorials = removeDuplicateFetchData(
-            fetchedEditorialDataArr.edges,
+            fetchedEditorialData.edges,
             editorialUIDsToFilter
           )
 
@@ -227,7 +247,7 @@ EditorialIndexPage.propTypes = {
 
 export const query = graphql`
   query EditorialIndexPage(
-    $first: Int = 6
+    $first: Int = 4
     $last: Int
     $after: String
     $before: String

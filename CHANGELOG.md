@@ -1,3 +1,12 @@
+### Version 1.22.0
+- WIP: editorial fetch button
+- feat(/editorial): add case to create highlights from allFeatures
+- refactor(/editorial): make editorial landing always have two highlights
+- feat(/editorial): adjust editorial fetch based on filter presence create cases based on number of CMS selected highlight editorials
+- refactor(utils): remove getUIDsFromDataArray prume #69
+- Revert "refactor(utils): remove getUIDsFromDataArray"
+- refactor(formatDateTime): fix time zone guess on /schedule change "current-time" to "nyc-time"
+
 ### Version 1.21.0
 - feat(siteTitle): write helper Helmet function to get site title
 - fix(fetchStreamStatus): remove explicit GET and CORS

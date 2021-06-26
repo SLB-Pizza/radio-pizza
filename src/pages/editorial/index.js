@@ -9,7 +9,6 @@ import {
   useSiteMetadata,
 } from '../../components'
 import {
-  filterFetchedEditorials,
   getHighlightEditorialUID,
   getUIDsFromDataArray,
   removeDuplicateFetchData,
@@ -58,7 +57,7 @@ export default function EditorialIndexPage({ data, prismic }) {
    */
   useEffect(() => {
     const processEditorialHeaderData = () => {
-      let uidsToFilter, filteredEditorialData
+      let filteredEditorialData
       const highlightUIDs = []
       const highlightedFeatures = {}
 
@@ -72,7 +71,7 @@ export default function EditorialIndexPage({ data, prismic }) {
       } = editorialHeaderData
 
       /**
-       * Create an array to collect editorialHeaderData node to pass into {@link getUIDsFromDataArray}
+       * Create an array to collect editorialHeaderData node to pass into {@link getHighlightEditorialUID}
        */
       if (first_highlight_editorial) {
         const firstUID = getHighlightEditorialUID(first_highlight_editorial)
@@ -138,23 +137,16 @@ export default function EditorialIndexPage({ data, prismic }) {
 
         setHighlightEditorials(highlightedFeatures)
       } else {
-        /**
-         * No highlight editorials selected in CMS
-         * Therefore, will also be first time setting the editorial UIDs to filter out
-         * from fetched data
-         */
+        // ZERO CMS selected highlight editorials
         const twoMostRecentEditorials = featuresToMap.splice(0, 2)
-        console.debug(twoMostRecentEditorials)
 
-        uidsToFilter = getUIDsFromDataArray(highlightUIDs)
-        setEditorialsUIDsToFilter(uidsToFilter)
         setFeaturesToMap({
           data: featuresToMap,
           hasMore: prismicContent.allFeatures.pageInfo.hasNextPage,
         })
 
-        highlightedFeatures.leftFeature = twoMostRecentEditorials[0]
-        highlightedFeatures.rightFeature = twoMostRecentEditorials[1]
+        highlightedFeatures.leftFeature = twoMostRecentEditorials[0].node
+        highlightedFeatures.rightFeature = twoMostRecentEditorials[1].node
         setHighlightEditorials(highlightedFeatures)
       }
     }
@@ -189,7 +181,7 @@ export default function EditorialIndexPage({ data, prismic }) {
       prismic
         .load({
           variables: {
-            first: 6,
+            first: 6, // matches page increase number and base query Int
             after: getCursorFromDocumentIndex(page),
           },
         })
@@ -203,25 +195,22 @@ export default function EditorialIndexPage({ data, prismic }) {
            *    no UID filter set; which means no highlight editorials selected in CMS
            *    skip filter step and spread `fetchedEditorialData` edges arr into data
            */
-          console.log('the filter', editorialUIDsToFilter)
-          console.log('received data', fetchedEditorialData)
           if (editorialUIDsToFilter) {
             const filteredFetchedEditorials = removeDuplicateFetchData(
               fetchedEditorialData.edges,
               editorialUIDsToFilter
             )
 
-            console.log('filtered fetch', filterFetchedEditorials)
-
             setFeaturesToMap({
               data: [...featuresToMap.data, ...filteredFetchedEditorials],
               hasMore: fetchedEditorialData.pageInfo.hasNextPage,
             })
-          } else
+          } else {
             setFeaturesToMap({
               data: [...featuresToMap.data, ...fetchedEditorialData.edges],
               hasMore: fetchedEditorialData.pageInfo.hasNextPage,
             })
+          }
           setFeaturesLoading(false)
         })
     }
@@ -295,7 +284,7 @@ EditorialIndexPage.propTypes = {
 
 export const query = graphql`
   query EditorialIndexPage(
-    $first: Int = 3
+    $first: Int = 6
     $last: Int
     $after: String
     $before: String

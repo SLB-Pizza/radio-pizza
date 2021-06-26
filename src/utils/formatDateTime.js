@@ -15,7 +15,7 @@ dayjs.extend(customParseFormat)
 /**
  * Takes in a Date object or regular date string and returns strings formatted by `dayjs`.
  *
- * `convertedPrismicDateTime` use cases:
+ * `prismicToNYCTime` use cases:
  *
  * | `format` value            | Components              |
  * |---------------------------|-------------------------|
@@ -50,7 +50,7 @@ export default function formatDateTime(
   /**
    * Convert `time` string to EST in case it comes from Prismic; means it's HMBK-centric.
    */
-  const convertedPrismicDateTime = dayjs(
+  const prismicToNYCTime = dayjs(
     time,
     'YYYY-MM-DDTHH:mm:ssZZ',
     'America/New_York'
@@ -75,11 +75,11 @@ export default function formatDateTime(
     case 'add-days':
       return time.add(number, 'day').format('MM.DD')
 
-    case 'current-time':
+    case 'nyc-time':
       return dayjs().tz('America/New_York')
 
     case 'datetime-value':
-      return convertedPrismicDateTime.format('YYYY-MM-DD HH:mm:ssZ')
+      return prismicToNYCTime.format('YYYY-MM-DD HH:mm:ssZ')
 
     case 'full-month-day':
       return dayjs(time).format('MMM DD')
@@ -110,7 +110,7 @@ export default function formatDateTime(
       return time.add(-1, 'day').format('YYYY-MM-DD')
 
     case 'get-timezone':
-      return dayjs(time).format('zzz')
+      return dayjs().format('zzz')
 
     case 'is-before-start-time':
       /**
@@ -147,7 +147,7 @@ export default function formatDateTime(
 
     case 'is-schedule-date-today':
       /**
-       * startTime here is the incoming schedule date.
+       * `startTime` here is the incoming schedule date.
        * @see {@link ScheduleDropdown}
        */
       const incomingDateParsed = dayjs(startTime, 'YYYY-MM-DD')
@@ -157,7 +157,7 @@ export default function formatDateTime(
       return dayjs(time).format('MM.DD')
 
     case 'hour-minute':
-      return convertedPrismicDateTime.format('HH:mm')
+      return prismicToNYCTime.format('HH:mm')
 
     case 'year-month-day':
       return dayjs(time).format('YYYY.MM.DD')
@@ -169,10 +169,10 @@ export default function formatDateTime(
       return dayjs(time).format('MMMM D, YYYY - HH:mm:ss')
 
     case 'long-form-date':
-      return convertedPrismicDateTime.format('MMMM D, YYYY')
+      return prismicToNYCTime.format('MMMM D, YYYY')
 
     case 'long-form-date-time':
-      return convertedPrismicDateTime.format('MMMM D, YYYY - HH:mm')
+      return prismicToNYCTime.format('MMMM D, YYYY - HH:mm')
 
     case 'Prismic-to-dayjs':
       return dayjs(time, 'YYYY-MM-DDTHH:mm:ssZZ', 'America/New_York')

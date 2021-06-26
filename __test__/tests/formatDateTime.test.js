@@ -13,15 +13,15 @@ dayjs.extend(isSameOrBefore)
 dayjs.extend(customParseFormat)
 
 describe('formatDateTime', () => {
-  describe("'current-time'", () => {
+  describe("'nyc-time'", () => {
     it('returns a valid dayjs instance', () => {
-      const time = formatDateTime(null, 'current-time')
+      const time = formatDateTime(null, 'nyc-time')
       expect(dayjs.isDayjs(time)).to.be.true
     })
 
     it('returns the current time (3 second tolerance)', () => {
       const now = Date.now()
-      const time = formatDateTime(null, 'current-time')
+      const time = formatDateTime(null, 'nyc-time')
       const dayjsNow = dayjs(now)
       const timeDiff = time.diff(dayjsNow, 'second')
       const lessThanThreeSeconds = timeDiff <= 3
@@ -34,7 +34,7 @@ describe('formatDateTime', () => {
   })
 
   describe("'get-this-weeks-dates'", () => {
-    const time = formatDateTime(null, 'current-time')
+    const time = formatDateTime(null, 'nyc-time')
     const weekDatesArray = formatDateTime(time, 'get-this-weeks-dates')
     const { btnLabels, dateHeadings, queryMatching } = weekDatesArray
     const keyNames = ['btnLabels', 'dateHeadings', 'queryMatching']
@@ -88,7 +88,7 @@ describe('formatDateTime', () => {
      * > now
      * -- START first show today
      */
-    const time = formatDateTime(null, 'current-time')
+    const time = formatDateTime(null, 'nyc-time')
 
     it("returns `true` when current time is between a show's start and end time", () => {
       const fiveMinsBefore = dayjs(time).add(-5, 'minute')
@@ -165,7 +165,7 @@ describe('formatDateTime', () => {
   })
 
   describe('is-schedule-date-today', () => {
-    const time = formatDateTime(null, 'current-time')
+    const time = formatDateTime(null, 'nyc-time')
 
     it('returns `true` when date to match is today', () => {
       const today = time.format('YYYY-MM-DD')

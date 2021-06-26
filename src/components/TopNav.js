@@ -24,7 +24,7 @@ export default function TopNav() {
   const globalState = useContext(GlobalStateContext)
   const dispatch = useContext(GlobalDispatchContext)
 
-  const [nycTime, setNYCTime] = useState(formatDateTime(null, 'current-time'))
+  const [nycTime, setNYCTime] = useState(formatDateTime(null, 'nyc-time'))
   const [laTime, setLATime] = useState(dayjs().tz('America/Los_Angeles'))
 
   const [value, loading, error] = useObjectVal(

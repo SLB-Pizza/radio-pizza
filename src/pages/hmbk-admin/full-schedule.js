@@ -52,7 +52,7 @@ export default function FullSchedules() {
    */
   useEffect(() => {
     const initialFetchSchedules = () => {
-      const now = formatDateTime(null, 'current-time')
+      const now = formatDateTime(null, 'nyc-time')
       const currTime = formatDateTime(now, 'short-form-date-time')
       // const yesterday = formatDateTime(now, "prismic-date-query")[0];
       const yesterday = '2019-01-01'

@@ -28,7 +28,7 @@ function EventHeader({
   headerButtonLink,
 }) {
   const [currentTime, setCurrentTime] = useState(
-    formatDateTime(null, 'current-time')
+    formatDateTime(null, 'nyc-time')
   )
   const [dayCount, setDayCount] = useState(null)
   const [hourCount, setHourCount] = useState(null)

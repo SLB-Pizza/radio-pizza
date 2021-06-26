@@ -58,8 +58,8 @@ function ScheduleIndexPage() {
   useEffect(() => {
     const loadSevenDaySchedule = () => {
       // #1
-      const currTime = formatDateTime(null, 'current-time')
-      const timeZone = formatDateTime(currTime, 'get-timezone')
+      const currTime = formatDateTime(null, 'nyc-time')
+      const timeZone = formatDateTime(null, 'get-timezone')
       setTodayDate(currTime)
       setUserTimezone(timeZone)
 

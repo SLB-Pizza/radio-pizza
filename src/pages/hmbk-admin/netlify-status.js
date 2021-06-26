@@ -25,7 +25,7 @@ export default function NetlifyStatus() {
    */
   useEffect(() => {
     const fetchFirstNetlifyDeployDetails = async () => {
-      const timeNow = formatDateTime(null, 'current-time')
+      const timeNow = formatDateTime(null, 'nyc-time')
       const formattedTime = formatDateTime(timeNow, 'short-form-date-time')
       setFetchTime(formattedTime)
 
@@ -57,7 +57,7 @@ export default function NetlifyStatus() {
    */
   useEffect(() => {
     const refreshNetlifyDeployDetails = setInterval(async () => {
-      const timeNow = formatDateTime(null, 'current-time')
+      const timeNow = formatDateTime(null, 'nyc-time')
       const formattedTime = formatDateTime(timeNow, 'short-form-date-time')
       setFetchTime(formattedTime)
 

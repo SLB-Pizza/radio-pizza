@@ -2,7 +2,6 @@ import React from 'react'
 import { RichText } from 'prismic-reactjs'
 import { Link } from 'gatsby'
 import NanoClamp from 'nanoclamp'
-
 import { FallbackImage } from '../utils'
 import { formatDateTime, linkResolver } from '../utils'
 
@@ -16,7 +15,6 @@ import { formatDateTime, linkResolver } from '../utils'
  */
 function SingleFeatureCard({ columnLayout = 'column', data }) {
   const { header, _meta } = data
-
   const { lastPublicationDate, type, uid } = _meta
 
   const {

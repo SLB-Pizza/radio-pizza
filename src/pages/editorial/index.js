@@ -10,6 +10,7 @@ import {
 } from '../../components'
 import {
   filterFetchedEditorials,
+  getHighlightEditorialUID,
   getUIDsFromDataArray,
   removeDuplicateFetchData,
 } from '../../utils'
@@ -39,7 +40,7 @@ export default function EditorialIndexPage({ data, prismic }) {
   const featuresPerPage = 6
   const didMountRef = useRef(false)
   const [page, setPage] = useState(-1)
-  const [featuresHighlights, setFeaturesHighlights] = useState(null)
+  const [featuresHighlights, setHighlightEditorials] = useState(null)
   const [editorialUIDsToFilter, setEditorialsUIDsToFilter] = useState(null)
   const [featuresLoading, setFeaturesLoading] = useState(false)
   const [featuresToMap, setFeaturesToMap] = useState(firstEditorialFetch)
@@ -57,55 +58,55 @@ export default function EditorialIndexPage({ data, prismic }) {
    */
   useEffect(() => {
     const processEditorialHeaderData = () => {
-      let uidsToFilter
-      const highlightEditorials = []
-      const highlightedFeatures = {
-        leftFeature: null,
-        rightFeature: null,
-      }
+      let uidsToFilter, filteredEditorialData
+      const highlightUIDs = []
+      const highlightedFeatures = {}
 
       /**
        * Select and deconstruct `editorialHeaderData` for use.
        */
       const editorialHeaderData = prismicContent.allLandingpages.edges[0].node
       const {
-        second_highlight_editorial,
         first_highlight_editorial,
+        second_highlight_editorial,
       } = editorialHeaderData
 
       /**
        * Create an array to collect editorialHeaderData node to pass into {@link getUIDsFromDataArray}
        */
       if (first_highlight_editorial) {
-        highlightEditorials.push({
-          node: first_highlight_editorial,
-        })
+        const firstUID = getHighlightEditorialUID(first_highlight_editorial)
+        highlightUIDs.push(firstUID)
       }
       if (second_highlight_editorial) {
-        highlightEditorials.push({
-          node: second_highlight_editorial,
-        })
+        const secondUID = getHighlightEditorialUID(second_highlight_editorial)
+        highlightUIDs.push(secondUID)
       }
 
       /**
-       * IF there are highlight editorials
-       *    Grab their UIDs
-       *    Filter out these UIDs from `featuresToMap` editorial data array.
-       *    Set new `featuresToMap`
-       * ELSE (No highlight editorials selected in CMS)
-       *    Splice first two from `featuresToMap` to use as highlights
-       *    Pass as nodes to `uidsToFilter`.
+       * There should always be 2 highlight editorials.
+       * IF highlight editorials contains 2 editorial objects
+       *    Set the filter of highlight UIDs array
+       *    - No splice of `featuresToMap` needed
+       *    Filter out possible first fetch highlights from `featuresToMap`
+       *    Set featuresToMap using filtered features
+       *    Set highlightsEditorial data using both highlight editorials
+       * ELSE IF it contains 1 highlight
+       *    Set the filter using the single highlight UID
+       *    Filter out possible first fetch highlights from `featuresToMap`
+       *    Splice from the filteredEditorialData to fill second highlight slot
+       * ELSE
+       *    No highlights selected in CMS
+       *    No filter needs to be set
+       *    Splice two from `featuresToMap` to fill both highlight slots
        */
+      const selectedHighlights = highlightUIDs.length
+      if (selectedHighlights === 2) {
+        setEditorialsUIDsToFilter(highlightUIDs)
 
-      if (highlightEditorials.length) {
-        if (!editorialUIDsToFilter) {
-          uidsToFilter = getUIDsFromDataArray(highlightEditorials)
-          setEditorialsUIDsToFilter(uidsToFilter)
-        }
-
-        const filteredEditorialData = removeDuplicateFetchData(
+        filteredEditorialData = removeDuplicateFetchData(
           featuresToMap,
-          uidsToFilter
+          highlightUIDs
         )
 
         setFeaturesToMap({
@@ -113,12 +114,29 @@ export default function EditorialIndexPage({ data, prismic }) {
           hasMore: prismicContent.allFeatures.pageInfo.hasNextPage,
         })
 
-        /**
-         * Build the highlightedFeatures data object; will be used as props for {@link FeaturesHighlightItems}.
-         */
         highlightedFeatures.leftFeature = first_highlight_editorial
-        highlightedFeatures.rightFeature = second_highlight_editorial
-        setFeaturesHighlights(highlightedFeatures)
+        highlightedFeatures.secondFeature = second_highlight_editorial
+
+        setHighlightEditorials(highlightedFeatures)
+      } else if (selectedHighlights === 1) {
+        setEditorialsUIDsToFilter(highlightUIDs)
+
+        filteredEditorialData = removeDuplicateFetchData(
+          featuresToMap,
+          highlightUIDs
+        )
+
+        const fillSecondHighlight = filteredEditorialData.splice(0, 1)
+
+        setFeaturesToMap({
+          data: filteredEditorialData,
+          hasMore: prismicContent.allFeatures.pageInfo.hasNextPage,
+        })
+
+        highlightedFeatures.leftFeature = first_highlight_editorial
+        highlightedFeatures.rightFeature = fillSecondHighlight[0].node
+
+        setHighlightEditorials(highlightedFeatures)
       } else {
         /**
          * No highlight editorials selected in CMS
@@ -128,9 +146,8 @@ export default function EditorialIndexPage({ data, prismic }) {
         const twoMostRecentEditorials = featuresToMap.splice(0, 2)
         console.debug(twoMostRecentEditorials)
 
-        uidsToFilter = getUIDsFromDataArray(highlightEditorials)
+        uidsToFilter = getUIDsFromDataArray(highlightUIDs)
         setEditorialsUIDsToFilter(uidsToFilter)
-
         setFeaturesToMap({
           data: featuresToMap,
           hasMore: prismicContent.allFeatures.pageInfo.hasNextPage,
@@ -138,7 +155,7 @@ export default function EditorialIndexPage({ data, prismic }) {
 
         highlightedFeatures.leftFeature = twoMostRecentEditorials[0]
         highlightedFeatures.rightFeature = twoMostRecentEditorials[1]
-        setFeaturesHighlights(highlightedFeatures)
+        setHighlightEditorials(highlightedFeatures)
       }
     }
     processEditorialHeaderData()
@@ -178,15 +195,33 @@ export default function EditorialIndexPage({ data, prismic }) {
         })
         .then(res => {
           const fetchedEditorialData = res.data.allFeatures
-          const filteredFetchedEditorials = removeDuplicateFetchData(
-            fetchedEditorialData.edges,
-            editorialUIDsToFilter
-          )
 
-          setFeaturesToMap({
-            data: [...featuresToMap.data, ...filteredFetchedEditorials],
-            hasMore: fetchedEditorialData.pageInfo.hasNextPage,
-          })
+          /**
+           * IF there are editorial UIDs to filter out
+           *    remove any possible duplicate editorials from the `fetchedEditorialData`
+           * ELSE
+           *    no UID filter set; which means no highlight editorials selected in CMS
+           *    skip filter step and spread `fetchedEditorialData` edges arr into data
+           */
+          console.log('the filter', editorialUIDsToFilter)
+          console.log('received data', fetchedEditorialData)
+          if (editorialUIDsToFilter) {
+            const filteredFetchedEditorials = removeDuplicateFetchData(
+              fetchedEditorialData.edges,
+              editorialUIDsToFilter
+            )
+
+            console.log('filtered fetch', filterFetchedEditorials)
+
+            setFeaturesToMap({
+              data: [...featuresToMap.data, ...filteredFetchedEditorials],
+              hasMore: fetchedEditorialData.pageInfo.hasNextPage,
+            })
+          } else
+            setFeaturesToMap({
+              data: [...featuresToMap.data, ...fetchedEditorialData.edges],
+              hasMore: fetchedEditorialData.pageInfo.hasNextPage,
+            })
           setFeaturesLoading(false)
         })
     }
@@ -221,8 +256,8 @@ export default function EditorialIndexPage({ data, prismic }) {
         {/* Show only after featuresHighlights is processed by useEffect */
         featuresHighlights && (
           <FeaturesHighlightItems
-            leftFeature={featuresHighlights.leftFeature.node}
-            rightFeature={featuresHighlights.rightFeature.node}
+            leftFeature={featuresHighlights.leftFeature}
+            rightFeature={featuresHighlights.rightFeature}
           />
         )}
       </header>
@@ -260,7 +295,7 @@ EditorialIndexPage.propTypes = {
 
 export const query = graphql`
   query EditorialIndexPage(
-    $first: Int = 12
+    $first: Int = 3
     $last: Int
     $after: String
     $before: String

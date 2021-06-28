@@ -1,3 +1,6 @@
+### Version 1.23.0
+- fix(/editorial): change number loaded from 6 to 12
+
 ### Version 1.22.0
 - WIP: editorial fetch button
 - feat(/editorial): add case to create highlights from allFeatures

@@ -36,7 +36,7 @@ export default function EditorialIndexPage({ data, prismic }) {
   /**
    * Focus the node for the otherFeaturesData check below.
    */
-  const featuresPerPage = 6
+  const featuresPerPage = 12
   const didMountRef = useRef(false)
   const [page, setPage] = useState(-1)
   const [featuresHighlights, setHighlightEditorials] = useState(null)
@@ -181,7 +181,7 @@ export default function EditorialIndexPage({ data, prismic }) {
       prismic
         .load({
           variables: {
-            first: 6, // matches page increase number and base query Int
+            first: 12, // matches page increase number and base query Int
             after: getCursorFromDocumentIndex(page),
           },
         })
@@ -284,7 +284,7 @@ EditorialIndexPage.propTypes = {
 
 export const query = graphql`
   query EditorialIndexPage(
-    $first: Int = 6
+    $first: Int = 12
     $last: Int
     $after: String
     $before: String

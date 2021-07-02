@@ -99,6 +99,7 @@
     "docs": "jsdoc -c jsdoc.conf.json",
     "develop": "npm run clean && gatsby develop -H 0.0.0.0 --verbose",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js,__test__/**/*.*.js}\"",
+    "push-to-remotes": "git push origin && git push HMBK && git push origin --tags && git push HMBK --tags",
     "screenshots": "node __test__/gatsby-puppeteer.js",
     "start": "npm run develop",
     "storybook": "start-storybook -p 6006",

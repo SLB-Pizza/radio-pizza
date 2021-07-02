@@ -1,3 +1,6 @@
+### Version 1.23.2
+- refactor(commands): added 'push-to-remote' command to handle HMBK and my origin
+
 ### Version 1.23.1
 - text(/events): main page header changed
 

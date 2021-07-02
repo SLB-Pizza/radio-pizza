@@ -97,7 +97,7 @@ function EventsIndexPage({ data, prismic }) {
       <header className="container is-fluid">
         <div className="columns is-mobile is-multiline">
           <div className="column is-full content">
-            <h1 className="title">Halfmoon Events</h1>
+            <h1 className="title">Half Moon Events</h1>
           </div>
 
           {/* MAPPING EVENT DATA TO CARDS */}

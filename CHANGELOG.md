@@ -1,3 +1,6 @@
+### Version 1.23.1
+- text(/events): main page header changed
+
 ### Version 1.23.0
 - fix(/editorial): change number loaded from 6 to 12
 

@@ -1,3 +1,6 @@
+### Version 1.23.3
+- type(/residents): change 'Halfmoon Residents' to 'Half Moon Residents'
+
 ### Version 1.23.2
 - refactor(commands): added 'push-to-remote' command to handle HMBK and my origin
 

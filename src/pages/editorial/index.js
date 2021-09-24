@@ -65,22 +65,27 @@ export default function EditorialIndexPage({ data, prismic }) {
        * Select and deconstruct `editorialHeaderData` for use.
        */
       const editorialHeaderData = prismicContent.allLandingpages.edges[0].node
-      const {
-        first_highlight_editorial,
-        second_highlight_editorial,
-      } = editorialHeaderData
+
+      /**
+       * Set highlightedFeatures
+       */
+      highlightedFeatures.leftFeature =
+        editorialHeaderData.first_highlight_editorial
+      highlightedFeatures.rightFeature =
+        editorialHeaderData.second_highlight_editorial
+      setHighlightEditorials(highlightedFeatures)
 
       /**
        * Create an array to collect editorialHeaderData node to pass into {@link getHighlightEditorialUID}
        */
-      if (first_highlight_editorial) {
-        const firstUID = getHighlightEditorialUID(first_highlight_editorial)
-        highlightUIDs.push(firstUID)
-      }
-      if (second_highlight_editorial) {
-        const secondUID = getHighlightEditorialUID(second_highlight_editorial)
-        highlightUIDs.push(secondUID)
-      }
+      // if (first_highlight_editorial) {
+      //   const firstUID = getHighlightEditorialUID(first_highlight_editorial);
+      //   highlightUIDs.push(firstUID);
+      // }
+      // if (second_highlight_editorial) {
+      //   const secondUID = getHighlightEditorialUID(second_highlight_editorial);
+      //   highlightUIDs.push(secondUID);
+      // }
 
       /**
        * There should always be 2 highlight editorials.
@@ -99,56 +104,56 @@ export default function EditorialIndexPage({ data, prismic }) {
        *    No filter needs to be set
        *    Splice two from `featuresToMap` to fill both highlight slots
        */
-      const selectedHighlights = highlightUIDs.length
-      if (selectedHighlights === 2) {
-        setEditorialsUIDsToFilter(highlightUIDs)
+      // const selectedHighlights = highlightUIDs.length;
+      // if (selectedHighlights === 2) {
+      //   setEditorialsUIDsToFilter(highlightUIDs);
 
-        filteredEditorialData = removeDuplicateFetchData(
-          featuresToMap,
-          highlightUIDs
-        )
+      //   filteredEditorialData = removeDuplicateFetchData(
+      //     featuresToMap,
+      //     highlightUIDs
+      //   );
 
-        setFeaturesToMap({
-          data: filteredEditorialData,
-          hasMore: prismicContent.allFeatures.pageInfo.hasNextPage,
-        })
+      //   setFeaturesToMap({
+      //     data: filteredEditorialData,
+      //     hasMore: prismicContent.allFeatures.pageInfo.hasNextPage,
+      //   });
 
-        highlightedFeatures.leftFeature = first_highlight_editorial
-        highlightedFeatures.secondFeature = second_highlight_editorial
+      //   highlightedFeatures.leftFeature = first_highlight_editorial;
+      //   highlightedFeatures.secondFeature = second_highlight_editorial;
 
-        setHighlightEditorials(highlightedFeatures)
-      } else if (selectedHighlights === 1) {
-        setEditorialsUIDsToFilter(highlightUIDs)
+      //   setHighlightEditorials(highlightedFeatures);
+      // } else if (selectedHighlights === 1) {
+      //   setEditorialsUIDsToFilter(highlightUIDs);
 
-        filteredEditorialData = removeDuplicateFetchData(
-          featuresToMap,
-          highlightUIDs
-        )
+      //   filteredEditorialData = removeDuplicateFetchData(
+      //     featuresToMap,
+      //     highlightUIDs
+      //   );
 
-        const fillSecondHighlight = filteredEditorialData.splice(0, 1)
+      //   const fillSecondHighlight = filteredEditorialData.splice(0, 1);
 
-        setFeaturesToMap({
-          data: filteredEditorialData,
-          hasMore: prismicContent.allFeatures.pageInfo.hasNextPage,
-        })
+      //   setFeaturesToMap({
+      //     data: filteredEditorialData,
+      //     hasMore: prismicContent.allFeatures.pageInfo.hasNextPage,
+      //   });
 
-        highlightedFeatures.leftFeature = first_highlight_editorial
-        highlightedFeatures.rightFeature = fillSecondHighlight[0].node
+      //   highlightedFeatures.leftFeature = first_highlight_editorial;
+      //   highlightedFeatures.rightFeature = fillSecondHighlight[0].node;
 
-        setHighlightEditorials(highlightedFeatures)
-      } else {
-        // ZERO CMS selected highlight editorials
-        const twoMostRecentEditorials = featuresToMap.splice(0, 2)
+      //   setHighlightEditorials(highlightedFeatures);
+      // } else {
+      //   // ZERO CMS selected highlight editorials
+      //   const twoMostRecentEditorials = featuresToMap.splice(0, 2);
 
-        setFeaturesToMap({
-          data: featuresToMap,
-          hasMore: prismicContent.allFeatures.pageInfo.hasNextPage,
-        })
+      //   setFeaturesToMap({
+      //     data: featuresToMap,
+      //     hasMore: prismicContent.allFeatures.pageInfo.hasNextPage,
+      //   });
 
-        highlightedFeatures.leftFeature = twoMostRecentEditorials[0].node
-        highlightedFeatures.rightFeature = twoMostRecentEditorials[1].node
-        setHighlightEditorials(highlightedFeatures)
-      }
+      //   highlightedFeatures.leftFeature = twoMostRecentEditorials[0].node;
+      //   highlightedFeatures.rightFeature = twoMostRecentEditorials[1].node;
+      //   setHighlightEditorials(highlightedFeatures);
+      // }
     }
     processEditorialHeaderData()
   }, [])
@@ -242,33 +247,34 @@ export default function EditorialIndexPage({ data, prismic }) {
             <h1 className="title is-3-desktop is-4-touch">Editorial</h1>
           </div>
         </div>
-        {/* Show only after featuresHighlights is processed by useEffect */
-        featuresHighlights && (
+        {featuresHighlights && (
           <FeaturesHighlightItems
             leftFeature={featuresHighlights.leftFeature}
             rightFeature={featuresHighlights.rightFeature}
           />
         )}
+        <pre>{JSON.stringify(prismicContent, null, 2)}</pre>
+        {/* Show only after featuresHighlights is processed by useEffect */}
       </header>
 
       <section className="section container is-fluid media-cards">
         <div className="columns is-mobile is-multiline">
-          {featuresToMap?.data?.map(({ node }, index) => (
+          {/* {featuresToMap?.data?.map(({ node }) => (
             <SingleFeatureCard
-              key={`halfmoon-feature-${index}`}
+              key={`halfmoon-editorial-${node._meta.uid}`}
               data={node}
               columnLayout={individualFeatureLayout}
             />
-          ))}
+          ))} */}
         </div>
-        {featuresToMap && (
+        {/* {featuresToMap && (
           <LandingPageFetchAndLoading
             hasMore={featuresToMap.hasMore}
             fetchMoreFunc={loadNextFeatures}
             currentlyFetching={featuresLoading}
-            fetchMoreBtnTxt={'More Features'}
+            fetchMoreBtnTxt={"More Features"}
           />
-        )}
+        )} */}
       </section>
     </main>
   )

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { InfoDisplayTimerElement } from './index'
 
 /**
- *
+ * Displays the duration of the currently selected recorded mix in the {@link RadioPlayer}.
  * @category Layout Helper
  * @function HasDurationBeenProcessed
  * @param {Number} hours

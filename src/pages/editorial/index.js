@@ -26,137 +26,33 @@ import PropTypes from 'prop-types'
 export default function EditorialIndexPage({ data, prismic }) {
   const { title, siteUrl } = useSiteMetadata()
   const prismicContent = data.prismic
+
   /**
    * This line is here to prevent an error from occurring when you eventually deploy the site live. There is an issue with the preview functionality that requires this check on every page.
    * @see {@link https://prismic.io/docs/gatsby/rendering/retrieve-the-document-object#21_0-adding-a-validation-check Retrieve the document object}
    */
   if (!prismicContent) return null
 
-  const firstEditorialFetch = prismicContent.allFeatures.edges
+  /**
+   * Select and deconstruct the two highlight editorials for use.
+   */
+  const highlightEditorials = prismicContent.allLandingpages.edges[0].node
+  const {
+    first_highlight_editorial,
+    second_highlight_editorial,
+  } = highlightEditorials
+
   /**
    * Focus the node for the otherFeaturesData check below.
    */
   const featuresPerPage = 12
   const didMountRef = useRef(false)
   const [page, setPage] = useState(-1)
-  const [featuresHighlights, setHighlightEditorials] = useState(null)
-  const [editorialUIDsToFilter, setEditorialsUIDsToFilter] = useState(null)
   const [featuresLoading, setFeaturesLoading] = useState(false)
-  const [featuresToMap, setFeaturesToMap] = useState(firstEditorialFetch)
-  // const [featuresToMap, setFeaturesToMap] = useState({
-  //   data: prismicContent.allFeatures.edges,
-  //   hasMore: prismicContent.allFeatures.hasNextPage,
-  // });
-
-  /**
-   * Break down `prismicContent` to select `editorialHeaderData` for {@link FeaturesHighlightItems}.
-   * IF `second_highlight_editorial` AND/OR `first_highlight_editorial` exists
-   *    Filter out their UIDs
-   * @category useEffect
-   * @name processEditorialHeaderData
-   */
-  useEffect(() => {
-    const processEditorialHeaderData = () => {
-      let filteredEditorialData
-      const highlightUIDs = []
-      const highlightedFeatures = {}
-
-      /**
-       * Select and deconstruct `editorialHeaderData` for use.
-       */
-      const editorialHeaderData = prismicContent.allLandingpages.edges[0].node
-
-      /**
-       * Set highlightedFeatures
-       */
-      highlightedFeatures.leftFeature =
-        editorialHeaderData.first_highlight_editorial
-      highlightedFeatures.rightFeature =
-        editorialHeaderData.second_highlight_editorial
-      setHighlightEditorials(highlightedFeatures)
-
-      /**
-       * Create an array to collect editorialHeaderData node to pass into {@link getHighlightEditorialUID}
-       */
-      // if (first_highlight_editorial) {
-      //   const firstUID = getHighlightEditorialUID(first_highlight_editorial);
-      //   highlightUIDs.push(firstUID);
-      // }
-      // if (second_highlight_editorial) {
-      //   const secondUID = getHighlightEditorialUID(second_highlight_editorial);
-      //   highlightUIDs.push(secondUID);
-      // }
-
-      /**
-       * There should always be 2 highlight editorials.
-       * IF highlight editorials contains 2 editorial objects
-       *    Set the filter of highlight UIDs array
-       *    - No splice of `featuresToMap` needed
-       *    Filter out possible first fetch highlights from `featuresToMap`
-       *    Set featuresToMap using filtered features
-       *    Set highlightsEditorial data using both highlight editorials
-       * ELSE IF it contains 1 highlight
-       *    Set the filter using the single highlight UID
-       *    Filter out possible first fetch highlights from `featuresToMap`
-       *    Splice from the filteredEditorialData to fill second highlight slot
-       * ELSE
-       *    No highlights selected in CMS
-       *    No filter needs to be set
-       *    Splice two from `featuresToMap` to fill both highlight slots
-       */
-      // const selectedHighlights = highlightUIDs.length;
-      // if (selectedHighlights === 2) {
-      //   setEditorialsUIDsToFilter(highlightUIDs);
-
-      //   filteredEditorialData = removeDuplicateFetchData(
-      //     featuresToMap,
-      //     highlightUIDs
-      //   );
-
-      //   setFeaturesToMap({
-      //     data: filteredEditorialData,
-      //     hasMore: prismicContent.allFeatures.pageInfo.hasNextPage,
-      //   });
-
-      //   highlightedFeatures.leftFeature = first_highlight_editorial;
-      //   highlightedFeatures.secondFeature = second_highlight_editorial;
-
-      //   setHighlightEditorials(highlightedFeatures);
-      // } else if (selectedHighlights === 1) {
-      //   setEditorialsUIDsToFilter(highlightUIDs);
-
-      //   filteredEditorialData = removeDuplicateFetchData(
-      //     featuresToMap,
-      //     highlightUIDs
-      //   );
-
-      //   const fillSecondHighlight = filteredEditorialData.splice(0, 1);
-
-      //   setFeaturesToMap({
-      //     data: filteredEditorialData,
-      //     hasMore: prismicContent.allFeatures.pageInfo.hasNextPage,
-      //   });
-
-      //   highlightedFeatures.leftFeature = first_highlight_editorial;
-      //   highlightedFeatures.rightFeature = fillSecondHighlight[0].node;
-
-      //   setHighlightEditorials(highlightedFeatures);
-      // } else {
-      //   // ZERO CMS selected highlight editorials
-      //   const twoMostRecentEditorials = featuresToMap.splice(0, 2);
-
-      //   setFeaturesToMap({
-      //     data: featuresToMap,
-      //     hasMore: prismicContent.allFeatures.pageInfo.hasNextPage,
-      //   });
-
-      //   highlightedFeatures.leftFeature = twoMostRecentEditorials[0].node;
-      //   highlightedFeatures.rightFeature = twoMostRecentEditorials[1].node;
-      //   setHighlightEditorials(highlightedFeatures);
-      // }
-    }
-    processEditorialHeaderData()
-  }, [])
+  const [featuresToMap, setFeaturesToMap] = useState({
+    data: prismicContent.allFeatures.edges,
+    hasMore: prismicContent.allFeatures.pageInfo.hasNextPage,
+  })
 
   /**
    * Changes `eventLoading` to true to render {@link HMBKDivider}, and the `page` value, triggering {@link loadMoreEvents}.
@@ -186,36 +82,18 @@ export default function EditorialIndexPage({ data, prismic }) {
       prismic
         .load({
           variables: {
-            first: 12, // matches page increase number and base query Int
+            first: 6, // matches page increase number and base query Int
             after: getCursorFromDocumentIndex(page),
           },
         })
         .then(res => {
           const fetchedEditorialData = res.data.allFeatures
 
-          /**
-           * IF there are editorial UIDs to filter out
-           *    remove any possible duplicate editorials from the `fetchedEditorialData`
-           * ELSE
-           *    no UID filter set; which means no highlight editorials selected in CMS
-           *    skip filter step and spread `fetchedEditorialData` edges arr into data
-           */
-          if (editorialUIDsToFilter) {
-            const filteredFetchedEditorials = removeDuplicateFetchData(
-              fetchedEditorialData.edges,
-              editorialUIDsToFilter
-            )
+          setFeaturesToMap({
+            data: [...featuresToMap.data, ...fetchedEditorialData.edges],
+            hasMore: fetchedEditorialData.pageInfo.hasNextPage,
+          })
 
-            setFeaturesToMap({
-              data: [...featuresToMap.data, ...filteredFetchedEditorials],
-              hasMore: fetchedEditorialData.pageInfo.hasNextPage,
-            })
-          } else {
-            setFeaturesToMap({
-              data: [...featuresToMap.data, ...fetchedEditorialData.edges],
-              hasMore: fetchedEditorialData.pageInfo.hasNextPage,
-            })
-          }
           setFeaturesLoading(false)
         })
     }
@@ -247,34 +125,32 @@ export default function EditorialIndexPage({ data, prismic }) {
             <h1 className="title is-3-desktop is-4-touch">Editorial</h1>
           </div>
         </div>
-        {featuresHighlights && (
+        {highlightEditorials && (
           <FeaturesHighlightItems
-            leftFeature={featuresHighlights.leftFeature}
-            rightFeature={featuresHighlights.rightFeature}
+            leftFeature={first_highlight_editorial}
+            rightFeature={second_highlight_editorial}
           />
         )}
-        <pre>{JSON.stringify(prismicContent, null, 2)}</pre>
-        {/* Show only after featuresHighlights is processed by useEffect */}
       </header>
 
       <section className="section container is-fluid media-cards">
         <div className="columns is-mobile is-multiline">
-          {/* {featuresToMap?.data?.map(({ node }) => (
+          {featuresToMap?.data?.map(({ node }) => (
             <SingleFeatureCard
               key={`halfmoon-editorial-${node._meta.uid}`}
               data={node}
               columnLayout={individualFeatureLayout}
             />
-          ))} */}
+          ))}
         </div>
-        {/* {featuresToMap && (
+        {featuresToMap && (
           <LandingPageFetchAndLoading
             hasMore={featuresToMap.hasMore}
             fetchMoreFunc={loadNextFeatures}
             currentlyFetching={featuresLoading}
-            fetchMoreBtnTxt={"More Features"}
+            fetchMoreBtnTxt={'More Features'}
           />
-        )} */}
+        )}
       </section>
     </main>
   )
@@ -290,7 +166,7 @@ EditorialIndexPage.propTypes = {
 
 export const query = graphql`
   query EditorialIndexPage(
-    $first: Int = 12
+    $first: Int = 6
     $last: Int
     $after: String
     $before: String

@@ -1,3 +1,6 @@
+### Version 1.24.0
+- Bumped version to 1.23.5
+
 ### Version 1.23.5
 
 ### Version 1.23.4

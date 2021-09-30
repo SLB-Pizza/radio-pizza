@@ -4,6 +4,7 @@
 - docs(Duration): add description to function
 - WIP(/editorial): begin working on editorial load issue
 - fix(/editorial): remove highlightEditorial processing; editorialUID filtering
+- fix(/editorial): change editorialsPerPage from 12 to 6; relabel variables from features to editorials
 
 ### Version 1.23.3
 - type(/residents): change 'Halfmoon Residents' to 'Half Moon Residents'

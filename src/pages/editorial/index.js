@@ -8,11 +8,6 @@ import {
   SingleFeatureCard,
   useSiteMetadata,
 } from '../../components'
-import {
-  getHighlightEditorialUID,
-  getUIDsFromDataArray,
-  removeDuplicateFetchData,
-} from '../../utils'
 import PropTypes from 'prop-types'
 
 /**
@@ -42,26 +37,23 @@ export default function EditorialIndexPage({ data, prismic }) {
     second_highlight_editorial,
   } = highlightEditorials
 
-  /**
-   * Focus the node for the otherFeaturesData check below.
-   */
-  const featuresPerPage = 12
+  const editorialsPerPage = 6
   const didMountRef = useRef(false)
   const [page, setPage] = useState(-1)
-  const [featuresLoading, setFeaturesLoading] = useState(false)
-  const [featuresToMap, setFeaturesToMap] = useState({
+  const [editorialLoading, setEditorialLoading] = useState(false)
+  const [editorialsToMap, setEditorialsToMap] = useState({
     data: prismicContent.allFeatures.edges,
     hasMore: prismicContent.allFeatures.pageInfo.hasNextPage,
   })
 
   /**
-   * Changes `eventLoading` to true to render {@link HMBKDivider}, and the `page` value, triggering {@link loadMoreEvents}.
+   * Changes `editorialLoading` to true to render {@link HMBKDivider}, and the `page` value, triggering {@link loadMoreEvents}.
    * @category Fetch Trigger
    * @function loadNextFeatures
    */
   const loadNextFeatures = () => {
-    setFeaturesLoading(true)
-    setPage(page => page + featuresPerPage)
+    setEditorialLoading(true)
+    setPage(page => page + editorialsPerPage)
   }
 
   /**
@@ -89,16 +81,16 @@ export default function EditorialIndexPage({ data, prismic }) {
         .then(res => {
           const fetchedEditorialData = res.data.allFeatures
 
-          setFeaturesToMap({
-            data: [...featuresToMap.data, ...fetchedEditorialData.edges],
+          setEditorialsToMap({
+            data: [...editorialsToMap.data, ...fetchedEditorialData.edges],
             hasMore: fetchedEditorialData.pageInfo.hasNextPage,
           })
 
-          setFeaturesLoading(false)
+          setEditorialLoading(false)
         })
     }
 
-    return loadMoreFeatures()
+    loadMoreFeatures()
   }, [page])
 
   // Layout details for SingleFeatureCard
@@ -135,7 +127,7 @@ export default function EditorialIndexPage({ data, prismic }) {
 
       <section className="section container is-fluid media-cards">
         <div className="columns is-mobile is-multiline">
-          {featuresToMap?.data?.map(({ node }) => (
+          {editorialsToMap?.data?.map(({ node }) => (
             <SingleFeatureCard
               key={`halfmoon-editorial-${node._meta.uid}`}
               data={node}
@@ -143,11 +135,11 @@ export default function EditorialIndexPage({ data, prismic }) {
             />
           ))}
         </div>
-        {featuresToMap && (
+        {editorialsToMap && (
           <LandingPageFetchAndLoading
-            hasMore={featuresToMap.hasMore}
+            hasMore={editorialsToMap.hasMore}
             fetchMoreFunc={loadNextFeatures}
-            currentlyFetching={featuresLoading}
+            currentlyFetching={editorialLoading}
             fetchMoreBtnTxt={'More Features'}
           />
         )}

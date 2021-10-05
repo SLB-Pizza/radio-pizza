@@ -1,3 +1,6 @@
+### Version 1.25.0
+- feat(navigation): add shopify link to bottom nav bar
+
 ### Version 1.24.0
 - Bumped version to 1.23.5
 

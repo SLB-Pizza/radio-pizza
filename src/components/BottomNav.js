@@ -162,6 +162,19 @@ function BottomNav() {
             >
               Editorial
             </Link>
+            <a
+              href="https://halfmoonbk.myshopify.com/"
+              className="navbar-item"
+              onClick={() => {
+                toggleNavMenu()
+                clearMixSearchTags()
+              }}
+              aria-label="Halfmoon Shop"
+              target="_blank"
+              rel="noopener"
+            >
+              Shop
+            </a>
             <Link
               to="/about"
               className="navbar-item"

@@ -1,3 +1,6 @@
+### Version 1.26.0
+- merge: bring planning info into deploy
+
 ### Version 1.25.0
 - feat(navigation): add shopify link to bottom nav bar
 

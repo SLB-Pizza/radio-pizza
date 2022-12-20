@@ -1,9 +1,13 @@
-#Half Moon BK Site Rebuild
+# HalfMoonBK Site Rebuild
 
-To-Do:
+## Running the App
 
-intergate mixcloud again
+### Node/npm
 
-integrate stripe and build a cart and mail notification to admin's
+NVM should be installed; an `.nvrmc` file is provided.
 
-build in tagging
+This project currently uses **Node v14.21.2**, with npm version **6.14.17**.
+
+## Setting up a new deploy
+
+1. Import the dotenv files from the dot.

@@ -2,6 +2,8 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+// require("dotenv-vault-core").config();
+
 module.exports = {
   siteMetadata: {
     title: 'Half Moon',
@@ -113,7 +115,6 @@ module.exports = {
       resolve: 'gatsby-plugin-firebase',
       options: {
         features: {
-          // auth: true,
           database: true,
         },
         credentials: {

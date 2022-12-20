@@ -1,2391 +1,793 @@
-### Version 1.26.0
-- merge: bring planning info into deploy
+# [1.26.0](https://github.com/SLB-Pizza/radio-pizza/compare/v1.25.0...v1.26.0) (2022-06-23)
 
-### Version 1.25.0
-- feat(navigation): add shopify link to bottom nav bar
 
-### Version 1.24.0
-- Bumped version to 1.23.5
 
-### Version 1.23.5
+# [1.25.0](https://github.com/SLB-Pizza/radio-pizza/compare/v1.24.0...v1.25.0) (2021-10-05)
 
-### Version 1.23.4
-- docs(Duration): add description to function
-- WIP(/editorial): begin working on editorial load issue
-- fix(/editorial): remove highlightEditorial processing; editorialUID filtering
-- fix(/editorial): change editorialsPerPage from 12 to 6; relabel variables from features to editorials
 
-### Version 1.23.3
-- type(/residents): change 'Halfmoon Residents' to 'Half Moon Residents'
+### Features
 
-### Version 1.23.2
-- refactor(commands): added 'push-to-remote' command to handle HMBK and my origin
+* **navigation:** add shopify link to bottom nav bar ([240454e](https://github.com/SLB-Pizza/radio-pizza/commit/240454ea20ff1fa2bc801cb2109c92222b4f8253))
 
-### Version 1.23.1
-- text(/events): main page header changed
 
-### Version 1.23.0
-- fix(/editorial): change number loaded from 6 to 12
 
-### Version 1.22.0
-- WIP: editorial fetch button
-- feat(/editorial): add case to create highlights from allFeatures
-- refactor(/editorial): make editorial landing always have two highlights
-- feat(/editorial): adjust editorial fetch based on filter presence create cases based on number of CMS selected highlight editorials
-- refactor(utils): remove getUIDsFromDataArray prume #69
-- Revert "refactor(utils): remove getUIDsFromDataArray"
-- refactor(formatDateTime): fix time zone guess on /schedule change "current-time" to "nyc-time"
+# [1.24.0](https://github.com/SLB-Pizza/radio-pizza/compare/v1.23.5...v1.24.0) (2021-09-30)
 
-### Version 1.21.0
-- feat(siteTitle): write helper Helmet function to get site title
-- fix(fetchStreamStatus): remove explicit GET and CORS
-- fix(helmetTitling): add case where both liveShow title and guests exist
-- refactor(Schedule): create NoShowsFallback apply to ScheduleDropdown and SingleDateScheduleGenerator
-- docs(isShowLive): clarify what is being done with start and end times
-- fix(/schedule): change static 'EST' to derived user timezone update dayjs to 1.10.5; needed to access timezone formatting add 'get-timezone' formatDateTime case
 
-### Version 1.20.0
-- feat(live-light): add LiveMarkerAndText to LiveBroadcastInfoDisplay
-- fix(LiveInfo): address bug where blank liveTitle and liveGuests could be submitted update live stream update layout to better describe fallback case add case to submitMarquee handling case where both title and guests are empty strings
-- fix(Marquee): move LiveMarkerAndText to RadioPlayer update initial GCP liveMarquee title and guests string
-- fix(fetchStreamStatus): add more and method to fetch
-- style(ON AIR): update LiveMarkerAndText on air styling
-- style(Hero): adjust CTA block and HeroBullets add mobile-specific sizing to HeroBullets extract fixed styling to .hero-bullets class fix padding on hero CTA; make text uppercase; remove arrow
-- style(HeroArrows): change inline style to class add mobile-styling to pull arrows away from center changes hero arrow width, height to 40 from 50
-- fix(RadioPlayerPlayBtn): address playingRadio toggle if HMBK is live, playingRadio is also set to true by action `TOGGLE_RADIO` change fixes style issue where LiveRadioPlayButton didn't toggle text to reflect live not-playing vs live playing
-- fix(LiveRadioPlayButton): extract button to component modify onClick so handlePlayLive and closeSchedule actions fire only when needed
-- style(BottomNav): make bottom link text lesser weight
-- fix(LiveRadioPlayButton): fix handlePlayPause handlePlayPause now checks to see if infoDisplay is 'recorded' first
-- fix(GCP): remove context debug log
 
-### Version 1.19.0
-- feat(RadioPlayer): remove mandatory default mix
-- fix(RadioPlayer): default mix no longer required add first globalState.live check in setInitialSource add SET_INITIAL_RADIO action change live radio button
-- refactor(ScheduleBar): extract stream status fetching to util func
-- feat(util): extract defaultMix processing to util func
-- fix(RadioBar): remove setInitialSource useEffect remove GET_DEFAULT_MIX useQuery led to possible race conditions when setting initial RadioPlayerDisplay data BUG: Depending on how fast you hit the play button after load, you'd get the live broadcast; but the recorded stuff would display
-- refactor(RadioPlayerDisplay): change fetch func to get stream status; then process recorded mix CMS data, if present
-- refactor(GCP): add infoDisplay to handle broadcast and recorded info rendering added to actions: SET_INITIAL_LIVE, CHANGE_URL, PLAY_LIVE_RADIO
+## [1.23.5](https://github.com/SLB-Pizza/radio-pizza/compare/v1.23.4...v1.23.5) (2021-09-30)
 
-### Version 1.18.1
-- prune(RadioBar): remove unused fetch; status prop from RadioBar #79
-- feat(AboutCredits): add mailto link to my name on /about
 
-### Version 1.18.0
-- fix(HomeMixes): correct setState function name
-- feat(AdminHeader): add link `/guides` home based on `isAdminGuide`
-- content(ScheduleBar): change Next Show to Not Live
-- backup(KitchenSink): safety-save of CMS entry post-max depth issue
-- style(ScheduleFallback): make Half Moon bold; refactor text Dropdown: increase size of today date
-- query(/editorial): remove article_author; type
-- feat(BottomNav): add Facebook icons to desktop and touch layouts
-- refactor(/about): make about hero responsive remove RichText titling update API field names to better reflect About page update /about index child component  props
-- content(config): update description to match /about page description remove preview paths
-- fix(full-schedule): change loading state render to work off `fetchComplete`
-- cleanup(ScheduleBar): remove console.logs; update docs
-- style(tune-in): increase button icon size; add padding/margin
+### Bug Fixes
 
-### Version 1.17.2
-- remove(Credits): link to my page under design
+* **/editorial:** change editorialsPerPage from 12 to 6; relabel variables from features to editorials ([9ef4297](https://github.com/SLB-Pizza/radio-pizza/commit/9ef42975b711c27350fa44304078461e1f0ae50d))
 
-### Version 1.17.1
-- active(Credits): temp remove link from my page in credits component
-- content(Fallbacks): changed HMBK instances to Half Moon
 
-### Version 1.17.0
-- fix(HomePage): update Prismic JSON schema
-- fix(Hero): address case where `slides` is null or has no length
-- fix(HomePage): update Prismic JSON schema change headline and cta from RichText to Plaintext
-- fix(SlideGen): add ResponsiveImage add new prop to ResponsiveImage to handle `hero-background` classNames
-- style(Hero): add margins to hero arrows; change current hero item border
-- fix(LPFetchAndLoad): add missing `scrollToTop` import
-- fix(/editorial): update query params; editorial highlight processing
-- style(Icons): change schedule dropdown, chat icon size 1x -> lg
-- feat(RadioPlayer): remove mix image when radio is playing live
-- style(Navbars): give both black backgrounds
-- feat(scheduling): add social media links to fallback components SingleDateScheduleGenerator; ScheduleDropdown
-- prune(#79): remove react-ticker, react-page-visibility, google-map-react
-- backup(LandingPage): update Prismic JSON schema remains WIP; need to connect to each landing page with fallbacks
-- feat(Helmet): add Ears to the concrete to each page
-- feat(Player): add base mix image toggle logic
-- fix(PlayOverlay): address case where mix has no img
 
-### Version 1.16.2
+## [1.23.4](https://github.com/SLB-Pizza/radio-pizza/compare/v1.23.3...v1.23.4) (2021-09-29)
 
-### Version 1.16.1
-- fix(gatsby-config): remove `gatsby-source-filesystem` ref to `/img`
-- fix(HomeFeatures): address case where Homepage selected Editorials is 0/null rework `fetchRemainingHomeFeatures` and `processFetchedHomeFeatures` to catch case where `filteredHomeFeatures` is 0
-- fix(HomeMixes): address case where Homepage selected Sound Selects is 0/null rework `fetchRemainingHomeMixes` and `processFetchedHomeMixes` to catch case where `filteredHomeMixes` is 0
-- docs(HomeFeatures): clarify `processFetchedHomeFeatures`
-- refactor(Resident): comment Alumni portion of query does not fetch/render any Alumni Alumni still exists in CMS
-- fix(Landings): update Radio; Schedule header text
 
-### Version 1.16.0
-- fix(ResponsiveImage): change `data-lowsrc` to `src` per lazysizes spec
+### Bug Fixes
 
-### Version 1.15.0
-- feat(HMBKItem): add Feature to query; update slice rework layoutSide derivation add short-circuit to whole slice
-- feat(AdminLink): add subtitle to describe link
-- feat(CMSLink): create component link button to go to CMS
-- refactor(AdminLinkButtons): import CMSLink component
-- fix(AdminSiteStatus): add 'requires login' note
-- feat(AdminGuides): map guide data to categories pass to SingleFeatureCard
-- docs(CategorizedGuides): add jsdoc
-- feat(/guides): add individualized guide helmet details
-- fix(/hmbk-admin): add null return case where data has not been fetched
-- fix(UpcomingShow): comment out; to fix post-launch
-- layout(AdminLink): add 'is-mobile' to section
-- refactor(DivAndTopBtn): componentize; add to LandingPageLoadFetch
-- feat(new-full): fetch all schedule data on page load; port for /full-schedule
-- WIP(refactor): /new-full -> /full-schedule schedule fetching
-- refactor(/full-schedule): port /new-full working all fetch code 'get-place-in-schedule' - wrap `time` in dayjs
-- prune(#79): remove console.logs
-- style(navbar): remove link-hover color selector
-- feat(home-fetch): add uid and filter base functions
-- refactor(/full-schedule): finish port of /new-full code
-- prune(#79): remove blank Features scss file
-- style(Guide): resize ArticleHeadline to fit it and AdminHeader on one screen sizing now allows for click back to `/hmbk-admin/
-- feat(HomeFeatures): add removeDuplicateFetchData function called by processFetchedHomeFeatures
-- docs(StickyLayout): update as prep for HomeFeatures call
-- refactor(HomeFeatures): calll StickyItemsLayout update sticky-section styling
-- feat(404): add short-circuit; make footer fluid
-- update(queries): hardcode 4 and 12 limits into FillHomeFeatures and FillHomeMixes, respectively
-- refactor(HomeFeatures): remove hardcode variables in fetchFillerHomeFeatures update docs
-- docs(removeDupeFetchData): add missing param desc
-- refactor(HomeMixes): same refactor as HomeFeatures add optional useLazyQuery call filter out fetchedMixes by UID call StickyItemsLayout and pass processed twelve mixes
-- refactor(HomeEvents): call StickyItemsLayout and pass props
-- refactor(getUIDsFromArr): use generic entry to handle `/editorial/` header data processing
-- feat(/editorial): add filtering code to remove duplicate editorials works for first load and subsequent fetches
-- WIP(RadioPlayer): start adding 'loading...' message code
-- rename(Event): change Event Prismic type; update backup
+* **/editorial:** remove highlightEditorial processing; editorialUID filtering ([cd8c818](https://github.com/SLB-Pizza/radio-pizza/commit/cd8c8185121be0e29b05ed19dc2aa1944caf4bc4))
 
-### Version 1.14.1
-- revert(GCP): fix CHANGE_URL playing; false -> true
 
-### Version 1.14.0
-- feat(admin): add Netlify status monitor
-- refactor(MixPlayOverlay): remove double "card-image" div
-- feat(/hmbk-admin): add NetlifyStatus, AdminHeader, SingleAdminLink create /live-stream-info; prep for form transfer
-- feat(/live-stream-info): update form and preview layout
-- feat(/full-schedule): query CMS for all shows after today
-- style(AdminLinkButtons): make links column width; collapse on mobile
-- docs(OnAir): add missing docs
-- feat(full-schedule): process incoming schedule data set up queries to refresh every 10 sec create admin schedule components to highlight show entries with issues collect problem entries into useState array TODO: create button switch to render problem shows
-- fix(HomeFeatures): change HomeFeatures layout to let other editorials peek through
-- refactor(/residents): add LandingPageFetchAndLoading
-- feat(/full-schedule): update query for recursive call map all schedule data with AdminAllSchedules
-- fix(/live-stream-info): remove extra LiveInfoPreview
-- WIP(/new-full): begin new admin to work out recursive allSchedule fetch on page load
-- feat(/live-stream): style Reset to Default section
-- refactor(/hmbk-admin/guide): migrate /guide behind /hmbk-admin
-- update: HMBK config and manifest; favicons
-- move(/guides): migrate Guide to /hmbk-admin/guides
-- refactor(config): change links and linkResolver /mixes to /radio /feature to /editorial
-- refactor(/radio): add missing change from last commit /mixes to /radio
-- refactor(/netlify-status): move status change to own page componentize latest status and recent deploys table create deploys util func move API ID portion of fetch to .env create new admin link button for /netlify-status
-- feat(/netlify-status): change update frequency 30s > 15s handle site state !== "ready" or "building" by showing loading format details to use code font
-- style(/netlify-status): add HMBKFooter
-- refactor(/netlify-status): prune validation code add totalCount props to /hmbk-admin AdminHeader move section wrapper outside AdminLinkButtons
-- fix(SingleMixCard): change navigate - /mixes > /radio
-- refactor(media cards): changes prop names to recomponentize home sections
-- feat(404): add desktop and mobile to StickyItemsLayout sort mixes by most recent render each of three sections to 404
-- fix(TagButtons): change navigate to /radio from /mixes
-- refactor(404): remove HomePage imports
-- feat(/editorial): add Helmet; update /radio, Feature, Resident
-- style(navbar): update hover link colors
 
-### Version 1.13.0
-- feat(HMBKFooter): extract into own component
-- feat(About): add Hero & Titling; slice zone, credits, footer
-- backup(About): update Prismic CMS JSON custom type
-- refactor(Byline): restore missing subtitle render change short-circuit wrapping
-- refactor(/about): move credits to own component
-- backup(About): update Prismic JSON custom type
-- fix(Text): remove exclamation marks from tune in and more residents
-- fix(/about): remove TextColumns slice
-- feat(Helmet): add prelim favicon details to Layout
-- feat(RadioPlayer): extract local dispatch functions re-import dispatch functions
-- added playsINline to fix ios video player bug
-- duration timer fix
-- fix(LiveBroadcastInfo): add missing React import add render case where liveTitle is null; must display liveGuests as title; if defined
-- set CHANGE_URL playing to false
-- feat(Duration): integrate RecordedMixInfoDisplay and InfoDisplayTimerElement
-- fix(Dropdown): change sortUpcomingShowArray return to re-enable toggling
-- fix(Dropdown): give Dropdown button transparent background addresses live pulse background color clipping
-- refactor(PlayOverlay): extract dispatch functions rework iconOnClickFunc and textAfterIcon
-- refactor(mixLinkSite): extract logic from mixLinkIconInfo for reusability
-- style(icon): add fa-external-link-alt icon to library
-- feat(Helmet): add first wave of Helmet details
-- fix(/about): adjust logo sizing and titling columns
-- fix(ImageRow): add `image_row`type to slice object
+## [1.23.3](https://github.com/SLB-Pizza/radio-pizza/compare/v1.23.2...v1.23.3) (2021-07-03)
 
-### Version 1.12.0
-- fix(HeroArrows): use separate SVG arrows per direction create react component for each SVG
-- refactor(Marquee): add params to re-use with RadioPlayer
-- fix(ResidentLinks): add missing return statement for returnAsSpan
-- feat(Marquee): add marquee useEffects to UpcomingShowWithResidents UPWR: pre-recorded mix with residents
-- feat(USWR): add featured_resident filtering add short-circuit to ResidentLinks render
-- added in basic duration timer; buggy
-- fixing duration timer
-- debugging hours in timer
-- debugged hours display
-- removed unused comments
-- added package lock
-- feat(LiveBroadcast): add marquee useEffect functions
 
-### Version 1.11.0
-- basic remote live stream marquee working
-- updated liveMarquee - working
-- update react-player ^2.6.2 -> ^2.9.0
-- added current live url
-- deketed console logs
-- committing package-log
-- added handlePlayLive dispatch; updated live button
-- updated global context re: playing radio
-- Merge remote-tracking branch 'origin' into fix/eventTemplateLayout
-- refactor(firebaseMarquee): move getRemoteMarquee to TopNav in useEffect update exports; add to utils index
-- feat(EventImageHeader): componentize header fix height of hero image; use as blurred BG fit whole image in hero container as overlay add lazyload to header images
-- style(EventTemplateImage): add gradient under EventImage
-- style(lazyload): add lazyload to media cards
-- fix(Event): componentize EventHeaderButton pass renderEventButton bool to EventDateTimeLocationInfo
-- style(Hero): lazyload FallbackImage
-- backup(Event): update Prismic JSON Event custom type
-- feat(Samples): make event-template sample page
-- fix(tablet): change tablet breakpoint to 769px
-- feat(/samples): make event-template route import hardcode JSON source
-- style(/residents): add 'is-focused' to button styling
-- feat(Event): fix EventHeader layout issues remove event category button; layout back-to-back
-- fix(EventTemplateImage): fix non-filling blurred-bg add flex styling to contained 'overlay-image' to place in center on tablets; mobile
-- fix(Hero): make hero-background 100% width
-- refactor(formatDateTime): add 'is-before-start-time' add HMBKDivider
-- fix(UpcomingShow): remove conditional render the conditional render blocked UpcomingShowFallbackMessage from appearing
-- backup(Event): update Prismic JSON
-- backup(About): add base Prismic JSON custom type
-- feat(/about): add base query to /about
-- fix(EventImage): add z-index to .overlay-image wrap overlay image in anchor tag
-- docs(SingleEvent): add missing @returns; description
-- refactor(ContainedImageHero): rename component make classNames generic
-- refactor(ArticleHeadline): componentize photo credit and category info
-- feat(FWI): change 'fullpage' case to render ContainedImageHero refactor render conditions
-- fix(ContainedImageHero): add align-items flex detail
-- fix(event-template): rename import, props passed
-- refactor(ResidentLinks): convert getResidentLinks to component move from utils to components update imports; add props
-- prune(#79): remove SingleScheduleEntryRow handled by SingleScheduledShowTimes and SingleScheduledShowTitling
-- refactor(SingleScheduledShowTitling): pass in ResidentLinks component
-- docs(ScheduleEntries): update render notes
-- docs: pushed missed file
-- feat(sortEntries): add util func to sort ScheduleBar, UpcomingShow `schedule_entries`
-- feat(/schedule): sort schedule_entries in updateThisWeeksSchedule refactor date sorting into two functions: - sortUpcomingShowsArray (ScheduleBar) - sortShowEntriesByStartTime (/schedule)
 
-### Version 1.10.0
-- docs(query): update HomeMixes FILL_HOME_MIXES docs
-- refactor(/schedule): update state variable and props names
-- feat(Dropdown): add case to useEffect handling 0 length showData array
-- refactor(query): rename query; expand to 2 results; update exports
-- feat(SingleDateScheduleEntries): make start_time and end_time required
-- feat(UpcomingShow): fix scheduled_show render with residents
-- feat(UpcomingShow): add missed files from last commit
-- feat(UpcomingShow): componentize all upcoming show possibilities
-- fix(UpcomingShow): adjust styling for untitled single res Mix
-- test(formatDateTime): fix broken tests add more test cases
-- prune(formatNextShow): code built into formatDateTime as a case updates #79
-- fix(OIAT): change left to "left" in label fallback comment out /support layout for render
+## [1.23.2](https://github.com/SLB-Pizza/radio-pizza/compare/v1.23.1...v1.23.2) (2021-07-02)
 
-### Version 1.9.1
-- feat(Divider): add HMBK divider to Guide, Feature templates closes #142
-- style(Password): make input and button normal size
-- backup(Prismic): update cms_guide, feature type JSON
-- style(ImageEmbed): extend `.feature-img` style to Text Block imgs
-- refactor(migration): migrate Feature, Guide CMS types rework page and template queries update SingleFeatureCard header deconstruction closes #139 closes #142 - missed commit
-- feat(Interview): add Interview slice to Feature
-- backup(Prismic): update Feature, CMS Guide with Interview Slice
-- refactor(/schedule): write useEffect to handle initial render set todayDate using formatDateTime 'current-time' set weekDatesArray using new 'get-this-weeks-dates' case in formatDateTime refactor DateSelectorButtons to use weekDatesArray; short-circuit fetch and set sevenDayScheduleData in state
-- inter(commit): mid /schedule work
-- inter(prismic date convert): commit for later pull
-- feat(/schedule): refactor SingleScheduleEntryRow into subcomponents add mock data address double null: mix_title and resident name augment getSevenDaysSchedule query update schedule Prismic backup refactor getResidentLinks to work with wrapper p class; unwrap in SingleScheduledShowTitling
-- docs(mappableDataFilter): add note about Apollo-based Prismic query data arrays
-- docs(Interviewee): add jsx to return
-- refactor(getResidentLinks): remove explicit for-loop handle case where resident_name is null inside residentsArr map by using UID
-- refactor(ShowTimes): remove !end render case; change fallback to render TBD
-- refactor(/schedule): handle fallbacks; extract local components fix render of Prismic mixes with and without titles fix render of Prismic residents featured on mixes (one and multiples) simplify fallback cases for show times and live stream info
-- feat(/schedule): create isCurrentShowLive util; add OnAirScheduleTag
-- refactor(query): rename getNextShow to getTodaysSchedule
-- refactor(queries): update getTodaysSchedule import
-- style(DateSelectorButton): make desktop/touch styles add is-focused styling so button stays active even off-click while that date is selected
-- style(link color): lighten link pink color; 25 to 35
-- refactor(cleanup): change order of cases in fDT; fix docs in ICSL
-- fix(query): update query to reflect Feature migration
-- refactor(ScheduleBar): componentize everything create dispatches folder, index and scheduleBarDispatches update client-side queries
-- style(DateSelectorButton): make mobile buttons larger
-- feat(ScheduleBar): render showData in ScheduleDropdown make schedule date headers on schedule page and dropdown sticky
 
-### Version 1.4.0
-- add og:image:type
-- feat(SMC): add query, dispatch, and function to TagButtons add GET_SELECTED_TAGGED_MIXES query add tagDispatch function add base query set up for /mixes
-- feat(/mixes): add base DisplayFetchedTagMixes component in return off ternary; issues
-- feat(GCP): update SELECT_MIX_SEARCH_TAG action now handles mixSearchTags null, and exists as array cases
-- dispatch(TagButtons):extract dispatch creation logic moved from GCP reducer to within local dispatch function
-- feat(/mixes): fixes endless useEffect fetchTaggedMixes calls
-- feat(TaggedMixes): add selected mixes to component
-- feat(FallbackImage): fix local pathing to HMBK logo fixes HMBKDivider and FallbackImage
-- docs(all): add more details to pages, media cards regen docs
-- style(Divider): add forLoading bool to choose loading styles for divider applied to /residents, AllMixesLayout
-- style(sticky): refactor .sticky-section-blurb planned use in DisplayFetchedTaggedMixes
-- docs(Resident): update param type
-- feat(DFTM): remove duplicate useLazyQuery; fix 500 error pass fetch func, loading status as props address all fetch no callback onClick fetchFunc
-- feat(TagQueries): fix DFTM mix mapping, fetch more button; add 'remove tag from query' button
-- fix(TagQueries): processFetchedMixes now nulls local receivedTagMixes when all tags deselected fix enables AllMixesLayout to render when mixSearchTags is reset
-- feat(TagQueries): add clearMixSearchTags dispatch to RadioBar logo, select BottomNav links
-- docs(queries): update/fix docs relating to queries and tag query layouts
-- style(/events): add .media-cards css to level out media card map sections .media-cards class currently applies to /radio, /residents, /residents
-- refactor(/features): extract FeatureHighlightItems into /features index #79: remove TopicPageHighlightSection
 
-### Version 1.3.0
-- queries(Resident): refactor main query to pull in data by category
-- feat(Resident): process associated mix, event, and feature data arrays
-- refactor(MixCard): add short-circuits to SMC; TagButtons add more detail to getResString func
-- refactor(/mixes): remove TopicPageHeader useEffect and related query
-- feat(Icon): add Youtube icon create IconMaker component; call in ResidentSocialLinks
-- fix: add short-circuits to ResidentBio; TagButtons
-- fix(formatDateTime): address time === null case
-- feat(SingleMixCard): add mix icons that link out create mixLinkIconInfo add 'mix-icon' styling to HMBKSettings
+## [1.23.1](https://github.com/SLB-Pizza/radio-pizza/compare/v1.23.0...v1.23.1) (2021-07-02)
 
-### Version 1.2.1
-- fix(/residents): change "Alumni" to "Alumnus" in index & alumni query
 
-### Version 1.2.0
-- [skip ci] Upload “/static/img/jessupload-e1548962937489-600x395.jpg”
-- [skip ci] Upload “/static/img/grey-long-sleeve-e1548963677856-600x400.jpg”
-- [skip ci] Upload “/static/img/011519-merch-diandra-24-600x400.jpg”
-- Update Pages “products”
-- [skip ci] Upload “/static/img/halfmoon_white.png”
-- [skip ci] Upload “/static/img/halfmoon-3.png”
-- Update Pages “products”
-- Delete Blog “2017-01-04-a-beginners-guide-to-brewing-with-chemex”
-- Update Blog “2017-01-04-just-in-small-batch-of-jamaican-blue-mountain-in-store-next-week”
-- Delete Blog “2016-12-17-making-sense-of-the-scaas-new-flavor-wheel”
-- Update Pages “index”
-- testing local changes to CMS
-- changing fav icon
-- added halfmoon to backdrop
-- removing old images
-- restored two images
-- updated readme
-- updated gatsby-config.js
-- updated gatsby-config.js again
-- fixed og image
-- updated og image
-- adding in player module, and local state
-- [skip ci] Delete “static/img/meeting-space.png”
-- [skip ci] Delete “static/img/og-image.jpg.backup”
-- [skip ci] Delete “static/img/apple-touch-icon.png”
-- updated icons for touch
-- Create Blog “2019-12-12-say-it-again”
-- finally fixed touch fav icon
-- [skip ci] Delete “static/img/apple-touch-icon.png.backup”
-- updated pages
-- rolling back from dependancy error
-- Create Blog “2020-01-07-test”
-- adding dj editor in
-- Create djs “2020-01-07-test”
-- debugging cms additions
-- Create djs “2020-01-08-test-2”
-- Create djs “2020-01-08-test-3”
-- adding in dj page preview
-- trying to fix dj preview
-- trying to fix dj preview again
-- changing identifier field name
-- changing name to title for djs
-- removed config.yml from gitignore
-- removed config.yml from gitignore and reset config
-- named djs congif default field to djs
-- editing DjPagePreview to try to make preview appear
-- tried adding helmet back into dj preview
-- changed getIn calls in DjPagePreview.js
-- Update Djs “2020-01-07-test”
-- adding in djs as test
-- sorting djs
-- deleted bad dj conversions
-- adding two images to dj editor
-- initial adding of events to cms
-- corrected bugged frontmatter query in event-page.js
-- changed map widget to address string
-- removed broken npm gmaps widget package
-- adding in shows to cms and editor
-- added back package lock
-- corrected filename typo
-- fixing filename
-- moved ShowPagePreview to correct folder
-- blank
-- trying to replace ShowPagePreviews.js again!
-- debugging ShowPagePreview
-- experimenting with displayed associations from the CMS
-- added widget: 'relation' to shows editor
-- removed .map from show0page.js for now
-- adding evernt url to cms
-- added recent site images last 3 months
-- Add files via upload
-- Delete Djs “2020-01-07-test”
-- Delete Djs “2020-01-08-test-2”
-- Delete Djs “2020-01-08-test-3”
-- Create Djs “kala”
-- Update Djs “kala”
-- Create Shows “kala-btz-w-bastiengoat-and-h-b-i-c-2020-01-15”
-- removed requirement in shows editor
-- Add files via upload
-- Create Events “afro-punk-after-dark-2020-01-15”
-- [skip ci] Delete “static/img/D418E0C6-1AE6-4924-889D-A917B064D303.jpeg”
-- added Daily Mix Page to CMS
-- fixing duplicate showPage
-- fixed indentation issue
-- Add bulma sass files to src/styles
-- Move sass folder; test basic bulma layout on two-bar-layout
-- Add BottomNav component and working bulma sass imports
-- Add TopNav and Hero layout sample
-- Fix TwoBarLayout > Hero spacing issues via <div> to <body> element change
-- Add ChatSchedule test layout to TwoBarLayout
-- Add EditorialFeed test layout to TwoBarLayout
-- Change BottomNav bar container size to fluid
-- Add .alt-column test; Add two-bar-layout comments; Organize bottom bar
-- Add FontAwesome and icons to BottomNav
-- Fix TopNav; Add sample text place holders; Add BottomNav sample links
-- Add TopNav transparency comment
-- Add Radio Player component to TopNav; add alternating column colors for testing
-- Add moment-timezone to project; add currTime to TopNav
-- Add top-bar-logo to hero-test.scss
-- Add ShowDetails sample component to ChatSchedule
-- Pre-test branch test setup - test/addJestPuppeteer
-- Add gatsby-puppeteer screenshot command to project
-- Add more viewports to gatsby-puppeteer.js; Set daily picture source
-- Add Screenshot prompts
-- Begin separation of navbars from other content in components and scss
-- Add basic open/close toggle for schedule-bar
-- Add transition property to open/close toggle
-- Replace inner layout with columns; Prepare for toggle schedule views
-- Replace 2 show schedule layout with 1 show layout
-- Edit ScheduleBar columns to expand to is-open height: 7.5rem
-- Change ScheduleBar 'active' to 'open' for clarity; Add comments
-- Move screenshots to __tests__; Migrate to test/usingLayoutComp
-- Add .homepage-hero to HomePage.scss; fix alignment of section with schedule-bar
-- Create new section base for .homepage-hero
-- Restore broken imports and filenames
-- Add AboutPage base and files; pre-AddScheduleBar merge
-- Make demo layout for AboutPage
-- Add News Page prelim-layout; vertical mobile layout testing
-- styling player in top bar
-- Add NewsPage mobile accordion
-- Add NewsPage separation of mobile and desktop
-- Add four sections to mobile with basic items within
-- Add base layout to SchedulePage; hero with dates; time and show names section
-- Fix #scheduled-shows columns alignment to match hero dates section
-- Add SchedulePage non-functional wireframe
-- Change body to div in two-bar & schedule; debug schedule layout issue
-- Copy desktop section for mobile & add 'is-hidden-touch'
-- Make mobile date picker scrollable horizontally
-- Begin creating mobile/tablet layouts
-- Update Screenshots to take photos of the 1023 breakpoint; reorg some code
-- Update Screenshots to print comments about each screenshot
-- Update screenshots to print out filenames for searchability in folder
-- Reactivate screenshot function
-- Update page loading conditions; edit viewport comments
-- Update desktop time-date & time-slot CSS and JSX
-- Update HD Laptop to Low-res Laptop; include breakpoints in descriptions
-- Create NewsFeed with 4 scrolling columns; Create CategoryItem
-- Add CategoryItem to last push
-- Fix single-item layout to work down to 1024px wide
-- Rename feed and schedule; add borders to schedule; add version to screenshot file names
-- Add test-active id to desktop schedule; add clicker to schedule page
-- Re-enable shot function
-- Add ScheduleShowEntry
-- Add MixesPage layout based off NewsPage; uninstalled date-fns
-- Add base layout to mixes
-- Fix single-mix width, add spacing; add hover transition
-- Fix single-mix font sizes for touch
-- rolled back to prev, recreating class-based player comp
-- Create .in-progress class; apply to /schedule
-- basics of audio bar structure
-- play button connected to player embed
-- commit before checkout
-- changing -nav-height to hard coded 7.5rem
-- hard coded 7.5rem in  -nav-height in BothNavBars.scss
-- Expand screenshot questionnaire
-- Pre-script merging
-- Add parseViewports WIP code
-- Disable questionnaire code for now; re-enable old allDevices code
-- Add break condition to script from questionnaire
-- Rename two-bar-layout to home
-- Add HomeContent and HomeMixes WIP to /home; add scroll to screenshots
-- Begin HomeMixes two-column layout
-- Make home content section blurb sticky; begin mix layout
-- Add HomeEvents & HomeSingleEvent base files
-- Add layout to HomeEvents; add buttons to both content sections
-- Fix HomeMixes & HomeEvents layouts down to tablet
-- Add HomeNews & HomeSingleNews WIP code
-- Fix all layouts for HomeMixes, HomeEvents & HomeNews
-- Fix className issue in Hero; randomize HomeContent singles
-- Reorg and comment Screenshots code; change HomeSingleMix aspect ratio
-- Add tag details to Mixes; Resize card-content details
-- Add prelim HomeMixes & HomeSingleMix touch layout
-- Reorg touch content section headers and single-item code
-- Fix mobile HomeSingleMixes size; change HomeEvents button
-- Pull mobile 'More Section >' buttons to right of columns
-- Delete unused components and their exports
-- Add DatePicker WIP to ScheduleBar
-- Begin reorganizing schedule-bar into two-col layout
-- Undo two-col layout; it was dumb
-- Reorganize schedule-bar into more components
-- Setup desktop schedule bar; begin screenshot mobile testing
-- Add clickTarget to Screenshots; take prelim /home v4 pics
-- Begin fixed-height scrollable schedule section
-- Add modal for mobile & tablet; debug date-picker width tablet
-- Test modal schedule box-shadow; pre-component separation
-- Create ScheduleModal & ScheduleDropdown
-- Continue date-picker testing
-- rewritten player as func comp with local state and can read context state
-- adding more to global state still error on dispatch from index page
-- debugging index-page dispatch button
-- basic stream load button working
-- radio bar wrapping whole site
-- Add FontAwesome play/pause button toggle
-- Change play/pause button sizes
-- radio bar takes title from global state
-- Fix modal date picker width; now correct on touch & desktop
-- added mute func to icon, not yet working fully
-- added additional stream sources, debugging mute
-- added sources
-- successfully checking radio.co stream status but only on load
-- Successful merge - begin design migration
-- Added Hero & HomeContent to index-page.js; begin import two-bar > components folder
-- Change Schedule-bar up-next dummy text; remove status comment
-- Add changes from Mar 20 meeting
-- Change layout from tablet up to reflect 3 events and 2 features
-- Move test sources to Hero component
-- Migrate all two-bar components to src/components; fix imports
-- Migrate styles folder out of /src/components to /src
-- Fix inheritance issues in RadioBar & BottomNav
-- Change if statements in GlobalContext; fix mute icon behavior; add base icon
-- Fix RadioPlayer height and width errors through styling
-- Begin reorganization of top radio bar
-- Change RadioBar layout to columns; remove mute & time from mobile
-- Fix issue of modal AND dropdown appearing on mobile
-- Begin home content bg-image black overlay test
-- Reset player volume to max
-- Clean up some leftover ReactPlayer bits
-- Add ResidentPage base and ResidentAlpha start
-- Add SingleResident base
-- Add round portrait and single artist line
-- Push to share for debugging deploy
-- Reorganize single-resident layout and CSS
-- new branch
-- debugging .default in ssr
-- debugging gatsby-browser.js
-- debugging ssr
-- debugging srr vs broswer apis
-- Simplify residents layout; pre-layout merge
-- debugging srr vs broswer apis
-- restoring ssr and broswer api files
-- debugging ssr
-- disabling mobile layout of radio bar
-- changed radio abr color back
-- Refactor dual columns to single-column declaration
-- Merge fixed SSR and unified RadioBar
-- Set global player to false disabling autoplay
-- Add image-diffuser to HomeMixes bg image
-- Add diffuser to HomeEvents & HomeNews; change bg for home content sections
-- Fix HomeContent item sizing, fonts, bgs, and borders
-- Remove Layout, TopNav & BottomNav imports from pages
-- Adjust HomeContent mobile sections padding
-- Make schedule-bar fullwidth on touch; componentize schedule-bar modal and dropdown
-- Reorganize show-entries desktop to have scrollable show-entry list based on window height
-- Fix font issues on schedule-modal
-- Fix font-sizing and short-screen mixin for wider screens
-- Add bio page base and bring in single-mix from daily-mixes
-- Add tags group to bio/mixes section
-- Begin hover experimentation with front-page items; bring success to bio mixes
-- Add prelim hover effect to HomeSingleMix cards
-- Add test links to nav bar
-- Add navbar-end social icons base code
-- Lots of changes; list in full git log
-- Add BioSingleMix base code; add pagination base code
-- Recreate resident-mix on bio page; begin adding play btn overlay
-- Fix section height jittering when hovering
-- Add transition to BioSingleMix - :hover - translucent overlay w/ dummy play button
-- Create BioHorizItem base to better display mixes on /bio
-- Pass real YT music props to BioHorizItem successfully
-- Change BioHorizItem img src from background-image to nested figure; adjust onHover overlay
-- Connect onHover BioHorizItem overlay play button to the player
-- Test v2 BioHorizItem layout; improve testing mode and timeout error Screenshots code; install date-fns
-- Lots of changes - see full git log
-- Change tablet breakpoint from 769px to 768px so iPads act like tablets and not like HUGE mobile devices
-- Convert YT test links and set time to 0; add FFXV img, fix puppeteer timeout bug
-- Edit puppeteer device descriptions
-- Move pagination to BioPagination.js; add 2 more mixes to /bio
-- Adjust height of ScheduleDropdown show-entries container on short screens
-- Adjust offScreen player box; test RadioPlayer overflow
-- Add social links to BioImageBlurb, change Chatango icon; remove spans from RadioPlayer and apply color directly; begin Residents two-tab layout; add links to /bio to SingleResident
-- Migrate ResidentsPage.js to /pages/residents/index.js
-- Test bulma tabs v column selection; space out SingleResident entries
-- beginnings of a marquee
-- Delete ResidentsPage.js; make SingleResident take props; add margin to resident-selection; change margins per viewport
-- Add test source text to mixes on /bio; change audio sources away from YT
-- Fix broken marquee elements;
-- Set up for smarquee testing
-- Remove ResidentAlpha component
-- Make marquee visible on mobile only; set static title for tablet-up
-- Add pulsing light and LIVE text to RadioPlayer
-- Add top border to BottomNav
-- Delete BioPagination.js and imports; add Lighthouse audit of deploy branch
-- Add mobile specific mix-play icon; make BioHorizItem for mobile
-- Delete BioPagination.js and imports; add Lighthouse audit of deploy branch
-- Add mobile specific mix-play icon; make BioHorizItem for mobile
-- Fix broken Bio scss
-- Fix mixed up rebase code; unify touch font sizes; make images larger
-- added chatango link to chat icon
-- Add first react-audio-spectrum attempt
-- Unify radio and schedule bar color; and pink borders; add toggle to Residents
-- Make toggle columns solid color blocks; add 'is-active' CSS
-- Add HMBK pink hover color to radio bar icons
-- Make navbar links and icons white; pink onHover
-- Add space after resident-selection container; remove onHover white border
-- Add transition to single-mix on bio; change hover/active color
-- Make hover/active color of resident social icons to HMBK pink
-- Make hover/active color of 'bio' mix play button HMBK pink
-- Add toggle
-- Add togglePlayLive to reducer & RadioBar; add live layout base code; comment out AudioSpectrum base code in RadioPlayer; add togglePlayLive button to ScheduleBar
-- Merge chat into feat/addArtistPage
-- Change 'live' to '6PM' to hide button for now; change /residents bg image
-- Change homepage section dividers and card outline colors to HMBK pink; remove expanding transition
-- Add notes from Trello post
-- Add live bar to RadioBar; set live bar to globalState.live toggle
-- Add live-bar with prelim ticker and font
-- Fix margins of RadioBar for Live and not Live configs
-- Add ticker to Schedule Bar mobile; make space for live button
-- Remove audio-spectrum test code; move tickers to own divs in RadioPlayer
-- Switch title to Eurostile; change sizing of RadioBar
-- Import Titillium for testing
-- Remove p elements from tags on BioPage
-- Add IBM Plex Sans as primary body font
-- Change HomeMixes font sizes; make .tag, .card global styles; increase card border width
-- Change HomeEvents and HomeSingleEvent font sizes
-- Add padding to taglines on Home; change font sizes of HomeNews and ScheduleBar
-- displaying local and LA time for demo
-- updating clock every second
-- added seconds back to clocks
-- Merge time in
-- Fix font sizing on residents page
-- Fixes #2; will move slogan when on mobile too
-- Fixes #15; slogan now correctly placed based on viewport
-- Remove all images from HomePage; replace with solid color
-- Fixes #3; begin adding accessibility links to site
-- Fixes #4; menu burger now bolder than ever !
-- Bring in puppeteer changes
-- Remove image-diffuser from HomeContent sections; darken bg color; change mobile nav color
-- Fixes #16; nav-menu now closes on click
-- Hide nav bar social icons for screen readers; add labels to these links
-- Remove redundant HomeContent SCSS
-- Remove image-diffuser CSS and bg-image on Bio
-- Change single-resident layout to 16x9 img and text; add border w/hover
-- Add single-resident resident onHover bgChange
-- Add border brighten onHover to all cards; add bgChange onHover to HomeMixes; add 6 mixes to HomeMixes
-- Change single resident container code to standard card
-- Remove old format single resident code
-- Make navbar-menu bgColor black; dark purple when is-active
-- Combine root HMBK styles; add base HMBK bug report
-- Update issue templates
-- Organize more root HMBK styles
-- Remove close button from button of dropdown; move close button to schedule bar
-- Rewrite ScheduleDatePicker to map over array of fake date data
-- Change close schedule button text to 'Close ▲'
-- Update issue templates
-- Un-nest Dropdown & Modal styles from .schedule-bar
-- Fixes #26; schedule-bar layout when dropdown open now matches dropdown open
-- DateColumn works but is not connected to live data, starts progress on #19, #20
-- Closes #31; further styling changes must be made to dropdown and modal
-- Reorg schedule modal code with DatePicker & ShowEntry combination; Closes #22 - base color style adapted
-- Hide dropdown on mobile - modal is active
-- Make dropdown show entries only; make entries div mappable
-- Starts #33; remove ShowEntry from DatePicker; add schedule link to dropdown
-- Modify dropdown to pass showSchedLink prop; modify ShowEntry for reuse
-- Add prelim date and formatting to dropdown
-- Move schedule link to top of dropdown; begin styling dropdown
-- Add Oxygen to project; Closes #5
-- Missed issue; closes #6
-- Closes #18; added touch mixin to solve desktop navlink toggling
-- Missed issue; closes #17
-- Missed issue; closes #20 - no DatePicker present on modal
-- Delete hmbk_bug_report.md
-- Closes #34; Closes #44
-- Closes #41
-- Closes #46, Closes #48
-- Merge 'feat/activateSchedules' to close issues
-- Closes #50, closes #49, closes #52
-- Merge 'feat/activateSchedules' - more fixed issues
-- Remove md files from src/pages
-- closes #35 adds artist to global context and ainto render playbutton func on index-page
-- Begin #23; black overlay in place on Home
-- #23, #24, #66 - in progress
-- Closes #23, closes #24
-- Begin #70
-- #66 - HomeMixes & SingleMixCard updated
-- #66 - SingleCardMix implemented; still issues
-- Closes #54; SingleCardMix implemented and functional
-- Closes #66; dummy text removed; altText added
-- Moved logo from bottom bar for top bar
-- #68 start
-- #78 delete complete, #79 updated
-- #78 update
-- Update issue templates
-- Update issue templates
-- #78 updated
-- Closes #78
-- Begin #85
-- Remove search button from /search
-- #78 - layout modified
-- Icon css unified, search icon link added to TopNav
-- Begin #85; edit #78
-- #79 updated; #43 updated
-- Begin 82
-- Closes #53
-- feat (layout): ScheduleEntry reactive to show name
-- feat (layout): make card base border color white
-- fix: remove all .has-text-light classes
-- fix (layout): add bottom padding to Bio
-- feat(layout): add toggle to show search layout
-- fix(font): increase font size of currentlyPlaying
-- fix(layout): give cards/tags rounded borders
-- fix(layout): thin card borders and fix rounded thinning
-- fix(layout): remove chat link from bottom; move to top
-- fix(font): change title font to Aldrich; change body to Authentic
-- fix(layout): times removed from tablet layout; mix card font adjusted
-- fix(layout): home content id merged down one div
-- feat: add img to radio bar
-- style(layout): move now playing image to RadioPlayer
-- style(layout): thin existing borders and change to white
-- style(color): change all background colors to black
-- fix(layout): add mixins to mix card content-text & tags
-- refactor: convert in-file dummy data to json file imports
-- style(layout): make artist image on bio 6col
-- fix: make HomeMixes display only first 12 mixes
-- style(img): add mint jams album image
-- feat: make bottom nav slogan link to home
-- fix(layout): change min-height of resident name box
-- fix(layout): schedule dropdown closes onClick 'view full schedule'
-- style(layout): Play button now overlaid on mix img
-- style: revert radio bar play/pause to old style
-- fix(layout): fix home content bottom padding to match top padding
-- refactor(style): remove unused .sticky-link class
-- style: give all HomeContent buttons mix card outlined style
-- style: change BottomNav link colors to shade/HMBK pink
-- test: begin sticky bio layout
-- style: add multiline mixes to /sticky-bio
-- fix: update last incomplete commit
-- style: complete /sticky-bio layout
-- fix(layout): remove white inner curve on card hover
-- feat: add about page copy from Surf's text
-- fix: Edit incomplete about copy; add site credits for us
-- style: remove mix-img from mobile
-- style: add font details to schedule bar - Aldrich
-- style: add font details to schedule bar - Audiowide
-- fix(style): hide mix-img column on mobile
-- fix(font): reduce font sizes of schedule fonts; simplify layout
-- style(font): add Aldrich as title
-- style(refactor): remove .is-live from RadioBar and in BothNav
-- style: apply base button style to schedule bar
-- style(fix): up-next buttons and text centered in bar
-- style(fix): align open schedule dropdown with bottom of schedule bar
-- style(feat): make navbar-item Aldrich font; remove unneeded css
-- style(fix): fix font-size change on dropdown open
-- style(missed): remove schedule from BottomNav
-- style(feat): convert search select columns into buttons
-- style(feat): make search column buttons fullwidth
-- style(feat): make /residents 4 columns wide like homepage
-- style(feat): convert resident selection columns to buttons
-- update queries to static where neeeded, placeholder field data
-- style: add dividers to schedule dropdown
-- refactor(style): add /test to work out prelim page size sass
-- style(feat): homepage now uses global .site-page css
-- style(feat): residents page now uses global .site-page css
-- style(feat): /sticky-bio now uses global .site-page css
-- fix(style): /sticky-bio: bio column now scrolls when necessary
-- delete: /bio page and related old bio components
-- style(delete): remove remaining old .resident-bio css
-- feat: add schedule selector base to /schedule
-- feat: make DateSelectorButton a component; add ScheduleShowEntry
-- style: change faPlayCircle to faPlay icon; begin search bar change
-- style: apply HMBK pink styles and border widths to buttons and input
-- style: apply HMBK pink button styles to top nav and dropdown
-- style: update button and input styling on /mixes and /schedule
-- style: /mixes - make tags dropdown rounded
-- style: change HomeNews button style
-- style: unify front page button styles
-- test: add working tag to button conversion to /test
-- style: change mix image size; code formatting
-- style: change mix tags to buttons with HMBK styling; make tag-btns uniform in size
-- style(fix): change radio-bar, schedule-bar from 5rem,2.5rem to 4.5rem,3rem
-- style(fix): make radio-bar columns new 4rem height
-- refactor: un-nest RadioPlayer.js columns div
-- style(fix): remove breaking .radio-bar mobile padding-top
-- style(fix): make all sticky-bio links open in new tab
-- resource: add KOAN Sound - Silk Wave and img to sampleMixes.json
-- fix: add 'rel=noopener' to /bio social icon links
-- style: update TopNav and buttons font to Aldrich
-- style: make all home content buttons small
-- style(fix): make mobile-date-selector horizontally scrollable
-- style: restore black bgColor to TopNav and touch BottomNav
-- fix: repair broken gatsby version
-- fix: change /sticky-bio to /bio and shorter link text
-- fix: change /sticky-bio to /bio and shorter link text
-- test: ssh test
-- style(test): begin centered now-playing img and details
-- style: add centered now-playing layout
-- feat: add base /events layout with dummy events
-- feat: add /events link to bottom nav and home event section button
-- refactor: move test imgs from /static/img to /static/img/test
-- test: /events base layout now has 12 test events
-- deploy: fix bad graphQL error
-- fix: change radio bar img base paths; restore original tag sizes
-- fix: bring in deployed changes
-- style(fix): /mixes - add base 4col layout; needs breakpoint height tweaks
-- layout: /about - add new base layout
-- style(fix): /mixes - reduce size of mixes play btn from 7x to 5x
-- style(fix): /mixes - hard code size of playBtn from 7x to 5x
-- style(test): /test - add base duotone code to mix imgs
-- style(feat): apply duotone filter as mix img hover effect
-- style: mobile mix cards - reduce spacing between title and tags
-- cleanup: closes #100
-- style(fix): add paddings to .content-text & .btn-tag; adjust min height
-- add sunday weekly 24 hr blocks
-- pointed cms off master
-- style(feat): /events - begin adding text-overflow ellipsis
-- test(function): add globalState.live true/false string to next show
-- style(feat): make schedule-bar BGColor HMBK Pink shade when live
-- feat: BottomNav social media icon links now open in new tab
-- style(fix): add missing live-light to 'Listen Live' button when schedule is open
-- test: add calendar icon to radio-bar as prep for opening schedule w/global dispatch
-- test(feat): calendar icon in radio-bar now send schedule dispatch
-- style(test): radio-bar icons and functionality moved schedule-bar
-- style(feat): change pulsing live-light to broadcast tower; remove pulsing border
-- feat: add globalState ternary to Listen Live btn; needs functionality
-- feat(base): add starter homepage image carousel code
-- basic weekly schedule built using relations to Dj's (empty)
-- test(page): install react-responsive-carousel; create base /hero-test
-- fix(test): add base text to /hero-test
-- layout: /about - add new base layout
-- merge: bring fix/newAboutLayout in; remove btnSize from SingleMixCard.js
-- feat(test): install react-awesome-slider on /hero-test-2
-- test: add local images as test; try hero element modification via docs
-- feat: re-enable schedule dropdown for mobile; disable modal
-- style(feat): add mobile font size to schedule dropdown
-- style(fix): fix schedule-bar size stutter when changing from not live to live config
-- fix: changed key map value in ScheduleShowEntry to use show.hostInfo instead of show.showName
-- style(test): add base schedule-bar .is-live bottom-border pulse anim
-- feat(style): add pulsing bottom border to schedule-bar .is-live
-- style(feat): add small variable gaps to schedule bar; change pulse BPM to 145; reduce schedule-bar icon sizes to 1x
-- data: add Circadia & Letargo to sampleMixes.json
-- feat: add /schedule styling; regulate schedule dropdown max height
-- feat: schedule dropdown closes on 'Full Schedule' click
-- feat: begin text-truncate tests
-- feat: remove play button from SingleMixCard
-- feat: add working OutsideClick base code to ScheduleBar
-- feat: make dropdown schedule close onClick outside ScheduleBar
-- feat: convert OutsideClick internal HOC to independent component for use in BottomNav
-- feat: add react-spring: /hero-test-3; address bottomNav OutsideClick
-- WIP: remove OutsideClick from BottomNav; change 'live' pulse bpm to 128
-- feat: /residents is now automatically alphabetized A→Z; moreWIP
-- "fix: rename all mix.name SingleMixCard props"
-- "feat: /residents - auto-alphabetize residents"
-- test(style): add SoundCloud's text-truncate class to HMBKSettings
-- feat: make BottomNav use globalContext to open/close; refactor OutsideClick.js
-- feat: add working volume input slider; needs styling
-- restore: add play button to SingleMixCard; rename called params globally
-- img: add neurofunk image and entry to sampleMixes
-- style: add .play-icon to HMBKSettings; remove span from SingleMixCard
-- test: add Russian Hardbass mix with extra long test text
-- style: add Nanoclamp to mix cards; content-text height set
-- cleanup: closing unmarked completed issues
-- style: remove bg-colors from SingleCardMix
-- feat: add working slider with built-in links
-- feat: convert div layout to hero section; begin styling
-- style: add rounded boxes to slide headline and subtitle
-- style: change slider buttons to black w/white border
-- style: fix hero alignment; write classes in HomePage.scss; remove inline styles and commented code
-- feat: replace Hero.js content with /hero-test-4 index
-- delete: remove all /hero-test-# files; modify SingleMixCard calls and docs for clarity
-- debugging the cms djpage and pagequery
-- fix: make SingleMixCard map variables less ambiguous
-- added a weekly scheudle preview
-- added weekly schedule index page
-- fix: edit broken tablet /bio layout
-- style: Hero.js > add mobile font sizing
-- hotfix: removed btnSize={btnSize} from /mixes
-- hotfix: removed /pages/test.js
-- feat: add Nanoclamp to /events; remove bgColors
-- debugging cms
-- debugging cms again
-- feat: wrap SingleEventCard with eventColumnLayout; refactor /events, /search
-- feat: add pointer and grabbing cursors to <Slider> :hover and :active states
-- removed featured artist from dj page
-- removed featured artist field
-- style: /bio - increase size of bio sticky section
-- cleanup: /search - fix img import; close issues
-- style: added arrows and arrow style to <Slider>
-- merge: bringing in new content to old branch version
-- setup: base for PagePreviews
-- fix: change backend branch; fix indentation error
-- fix: add StaticQuery import to DailyMixPagePreview and AboutPagePreview
-- branch: last commit before trying to add prismic
-- feat: install base prismic setup; testing next commit
-- fix: rectify package dependencies errors; add linkResolver base
-- feat: create new /src/templates/index-page.js; renamed old
-- feat: '/' - add base Prismic query; pass slides as props to Hero
-- fix: uncomment dummySlides in Hero causing error
-- feat: add dummy slides from Prismic; external link does not blank
-- "fix: fix broken HomepageQuery; log data to console"
-- fix: change homepageCarousel -> homepage_carousel; reenable Hero
-- fix: fix broken sampleSlide imports; add base CMSGuide.scss
-- feat: update .cms-warning; add bgAlt check
-- feat: pull out CMSSlides as component; update help layout
-- feat: create Home Content section in Homepage type; pass that data down to HomeContent
-- style: change div to section
-- data: add infected band photo
-- feat: update g-config for Feature type; get Feature template working
-- style: make path from last commit visible
-- feat: add FeaturesQuery to Feature.js; display data object on /features/dev-text-feature-1
-- feat: /features/dev-test-feature-1 > updated SliceZone returns SliceTypes;
-- feat: begin adding slices to SliceZone; fix CMSHelp query
-- feat: move cms-help components to folder; add HomeContent to /cms-help
-- feat: add base FullWidthImage to /cms-help/sample-feature
-- feat: add base switch statement for FullWidthImage className
-- feat: add Poppins font; add base Blockquote slice
-- test: add /cms-help to ScheduleBar; make blockquote font-size responsive
-- feat: add Storybook to project; restructure slices/FWI props
-- feat: FWI displays, albeit wrongly; working to include SASS support
-- feat: add SASS support to gatsby; FWI now display correctly
-- feat: add Blockquote - two variations
-- feat: add Blockquote story; begin refactoring inline slice styles
-- feat: convert Blockquote to SASS classes; add viewports to Storybook
-- feat: add SampleFeature base to Storybook
-- style: rename Sample Feature section to Sample Layouts
-- feat: remake Blockquote in CMS; update Blockquote component; update Features query
-- feat: successfully bring in Blockquote to /features/dev-test-feature-1
-- feat: Blockquote - fix variable declarations and switch statement; now supports multi-paragraph quotes
-- feat: fix broken Storybook Blockquote props
-- feat: add long TwoParagraph story
-- feat: add base TwoImagesAndText layout to Storybook
-- feat: add base ContentHelper to /components/slices; create Blockquote helper function
-- refactor: move inline getBlockquoteStyling > /components/slices/utils
-- fix: repair Sample Feature story
-- refactor: move ContentHelper > /components/slices/helpers
-- docs: add jsdoc bases for Blockquote, TwoImagesAndText and getBlockquoteStyling
-- docs: generate first version of project docs
-- refactor: destructure slice in Blockquote to pass in individual params directly where needed
-- docs: update Blockquote and getBlockquoteStyling docs
-- fix: add updated slice definition to /cms-help/sample-feature
-- debug: create TIAT in slice in Prismic to fix render issue
-- feat: get TwoImagesAndText working with Prismic sourced data
-- feat: add base HeadlineBlock story
-- test: add blackBG parent div to HeadlineBlock; testing with figure img overlay
-- feat: creat sample HeadlineBlock; connect it to front-end
-- feat: make Staff custom type; add to HeadlineBlock; add updated publication check
-- feat: make HeadlineBlock process and display latest pub date properly
-- fix: update HeadlineBlock story with new slice and metadata objects
-- docs: add comment about {sliceZoneContent} being the way it is
-- docs(CMS): add SliceZone jsdoc info
-- style(CMS): begin converting inline HeadlineBlock
-- debug(CMS): split data objects for /dev-test-feature-1
-- refactor(utils): move processPublicationDates HeadlineBlock helper function to /slice/utils
-- docs(utils): update processPublicationDates docs
-- style(HeadlineBlock): update styles in CMSSlices
-- feat(features): add base /features/ query
-- feat(Feature): make base /pages/features layout
-- data(features): ready data for use as props
-- refactor: more all utils to /src/utils
-- data(features): update Story with data objects
-- fix(features): fix props StickyFeature & style
-- data(CMS): update Features query to include other slice fields
-- feat(slices): make TextBlock slice; set base style
-- style(features): add column and .feature class to features
-- style(features): add explicit dev-test-feature links for deploy
-- fix(features): import graphql via gatsby to address deploy warning
-- remove: uninstall three other unused react image sliders
-- docs(slices): update Blockquote and HeadlineBlock
-- docs: update jsdocs
-- refactor: move Hero's slideGenerator helper func to /utils; update docs
-- missed: add refactor files from last commit
-- docs(all): update template and begin categorizing
-- package(update): upgrade Storybook to 6.0.2
-- feat(slices): add base ParallaxHeadlineBlock v1
-- docs(slices): fix TextBlock, getBlockquoteStyling
-- feat(slices): create ParallaxHeadline base slice
-- feat(slices): add 'headline-block' class; dummy data
-- prep(meeting): remove Parallax from Feature template and more
-- refactor: save current Parallax as OldPHB
-- feat(/support): add base Support page; connect CMS
-- feat(/support): add prelim scroll fade layout
-- feat(/support): update storybook; change fade scroll speed
-- docs(all): update docs
-- feat(/support): connect OneImageAndText component
-- docs: add more documentation
-- feat(slices): make OIAT slice switch layout types
-- feat(storybook): add left and right OneImageAndText stories
-- feat(slice): TIAT - fix layout selector; add stories
-- feat(slice): add ImageRow slice base
-- docs(ImageHelper): add docs
-- feat(password): add base password protection for /cms-help
-- feat(protect): password-protect /cms-guide route
-- refactor(CMS-Guide): being SliceZone refactor
-- refactor(/support): clean up /support page index
-- docs(Indexes): update index page docs
-- refactor(slices): redefine TextBlock and HeadlineBlock slices to be more generic
-- fix(slices): resolve broken feature documents after Feature type reset
-- style(slices): remove 'sample-feature' and 'feature' CMSSlices classes
-- style(bulma): remove some element styles; replace with variables
-- refactor(slices): make body principal template element; nest main in article
-- docs(helpers): update ContentHelper, ImageHelper
-- style(Hero): change font to Poppins
-- style(ArticleHeadline): begin HeadlineBlock new layout rework
-- style(ArticleHeadline): space ArticleHeadline image and titling based on titling size
-- style(ArticleHeadline): implement new ArticleHeadline styling
-- feat(ImageHelper): add onClick image modal; move photo data to modal
-- feat(ImageHelper): add pointer cursor; img alt txt
-- style(ImageHelper): refactor modal to use columns; contain img
-- refactor(/mixes): rename old mix index; create new
-- feat(linkResolver): add 'resident' case; default
-- refactor(SMC): change resident prop to residents
-- feat(/mixes): show CMS mixes, res links resolve
-- feat(/index): augment IndexQuery; begin passing data to HomeMixes
-- feat(HomeMixes): pass and map homeMixesData correctly
-- feat(linkResolver): add 'feature' case
-- feat(HomeFeatures): pass and map homeFeaturesData correctly
-- fix(json): add dummy JSON data to fix /bio
-- feat(/residents): create WIP individual resident page
-- fix(getBlockquoteStyling): resolve error when bgImg is null
-- feat(resident): map sticky-bio of Resident updates #120
-- feat(Resident): map resident mixes to /resident/:uid
-- prune: remove unused components, pages, netlify-cms, templates
-- move: /templates/index-page.js → /pages/index.js
-- feat(FullWidthImage): add this slice to CMSGuide
-- refactor(slice): rewrite FWI slice to use CMS data
-- feat(/404): add base layout
-- story(ArticleHeadline): update data objects
-- style(ArticleHeadline): change parent CSS classes
-- prune(index.md): update #79 - remove file
-- feat(ImageHelper): convert img element to react-imgix
-- feat(ImageHelper): revert react-imgix components
-- refactor(ImageHelper): make ImageModal; add lo_fi update #122 - create ImageModal layout helper component, update ResponsiveImage docs and CSS
-- fix(ResponsiveImage): change width, height
-- prune(/bio): Resident.js working, removal prep
-- feat(/schedule): write base getSevenDays util updates #19 - nodes from the data array can now be selected seven days at a time
-- feat(/schedule): make date selection buttons functional
-- feat(/schedule): map node data correctly updates #19 - SingleScheduleEntryRow created and put to use
-- prune: ScheduleShowEntry, two SCSS files update #79 - ScheduleShowEntry refactored into SingleScheduleEntryRow SCSS removed NewsPage.scss and ScheduleDropdown.scss
-- data(schedule): update test json schema file
-- prune: #79 - remove SelectedColumn
-- fix(ImageRow): change group_image to row_image
-- style(ScheduleDropdown): rework CSS; column layout
-- feat(Apollo): add Apollo to project, base Schedule query works
-- fix(ImageRow): revert row_image to group_img
-- style(ScheduleBar): reduce bar height update#71 - ScheduleBar: expand .site-page, .slider ,and .homepage-hero
-- style(DateSelectorButton): consolidate styles update #79 - remove mobile-date-selector
-- refactor(formatDateTime): rework most dayjs calls make formatDateTime util func; fix getSevenDays function in /schedule index
-- fix(Dropdown): align .up-next & .dropdown fixes changes: 23e83f4 -  bar height is 2.5rem closed; 2,625rem open
-- refactor(SlideGenerator): make component; update params
-- chore(docs): update; all @component are @function
-- chore: update docs
-- feat(ApolloProvider): wrap root element
-- feat(RadioBar): set times in TopNav, pass as props to RadioBar Props update every second in TopNav and reflect the update in RadioBar
-- feat(ScheduleBar): use timeNow to query AllSchedules closes #25 - change issue title to reflect goal completion
-- refactor(mocha): rename __tests__ to test; add tests folder
-- style(Dropdown): add max height; overflow scroll
-- feat(ScheduleBar): process and show data in bar
-- feat(/resident): make resident links in their own mix cards plain text closes #39 - missed commit; resident data is live from CMS and mapped correctly closes #120 - only HalfmoonDivider left to address on page; cosmetic changes remain
-- fix(ApolloProvider): unwrap root element; only wrap TopNav
-- refactor(slices): fix OIAT and TIAT ImageHelper calls updates #122 - changes account for responsive image sizes; CMS Guide slices copied to Slice Library and reimported into Feature type
-- prune: remove console.logs from SliceZone, OIAT
-- refactor(PlayButton): convert to Component
-- fix(Apollo): unwrap ApolloProvider from TopNav
-- feat(RadioPlayer): pull and set initial mix data from query
-- style(RadioPlayer): add initial load animation
-- refactor(Apollo): rewrap root element with Apollo Technically a revert of the Apollo unwrap; difference here being that the useQuery functions are called in a useEffect instead of roaming free in the function
-- feat(Dropdown): pass show data to dropdown closes #19 - SSER component vcentering fixed via min-height adjustment Fix displays in dropdown and on /schedule
-- refactor(site-page): replace site-page classes with full-height-page /schedule and /events have the new class black-bg-page that gives that more top and bottom padding
-- feat(/events): unify card height; fix event image style
-- feat(CMSGuide): build landing page with cards updates #117 - /guide landing page base layout in place; images need responsive conversion
-- feat(/guide): add responsive images to CMS cards
-- feat(ImageRow): fix CMSGuide and Feature queries Update LandingPageElement cards to better display date and subcategory Update OIAT and TIAT to work with LandingPageElement closes #71 - missed commit; RadioBar has fade in on data load and text-truncate
-- feat(/schedule): add schedule_entries null option
-- feat(/feature): make event card height fix global
-- fix(errors): address Invariant error, gatsby 95313 error
-- fix(UpcomingShow): add undefined return condition
-- fix(deploy): fix duplicated Hero in TopNav
-- prune: remove gatsby plugins update #79
-- docs: update gatsby-config notes
-- feat(/residents): connect to Prismic; add guest option and selection
-- update(react-player): migrate to version 2
-- cleanup(issues): close some issues
-- feat(/mixes): add endless_mix part to query; bring into page
-- in slider: explicitly allow pointer events on select elements; disabled on all others in slider
-- prune(#79): clear gatsby-node of commented code
-- refactor(util): make getResidentString declarative
-- refactor(MixPlayOverlay): extract play button to re-use on /mixes
-- feat(Mix): create base template
-- feat(Mix): add gatsby-config and mixData display
-- feat(links): add /mixes case
-- feat(Mix): replace getResidentLinks with Link to Mix page
-- feat(Resident): add Mix _meta to link to Mix page
-- feat(Card): fix card height sizings; update play-icon hover effect #68, #97: mixes & events have CSS class-dictated min-height
-- refactor(SingleMixCard): destructure now in component, not in map Update dummy SearchResults SingleMixCard props for deploy
-- fix(/residents): import graphql from gatsby
-- prune: #79 - remove BioPage; consolidate with ResidentPage.scss
-- data(dummy): add alt field to JSON to fix SingleEvent mapping
-- feat(Resident): update query; display data on resident template page
-- feat(Dropdown): handle case where no shows are listed for today
-- feat(MixPlayOverlay): rework into card-image container; reorganize card styling
-- feat(TagButtons): make component for use outside card
-- feat(Mix) add and render mix_blurb with linkResolver
-- chore(docs): update SingleResident data
-- data(Mix): pull in related_events and display section on page
-- style(SMC): format date and place with resident string
-- style(/residents): truncate resident_name after two lines; adjust .card-content height
-- feat(Curated): pull Residents and Tags into sets for use
-- prune: remove console logs
-- feat(Curated): add docs; pass mixLinks array as MixPlayOverlay prop Source of #128
-- prune: remove lambda folder; hello dummy function updates #79
-- test: add travis base and cypress
-- style(Resident): fix column widths on tablet
-- feat: add htmlSerializer to project
-- feat(TextBlock): componentize RichText; pass htmlSerializer
-- feat(TextBlock): add linkResolver to component
-- feat(embeds): add .embed; fix touch sizing of iframes
-- feat(Inline Image): add figcaption; add key
-- fix(Guide): fix date sorting
-- test(Travis): add Slack notifications
-- set src_utils_playAudioButton.js fix rebase issue
-- active class names for residents and resident to active on toggle
-- feat(events): map event CMS data to SingleEventCard
-- test(travis-deploy): add netlify deploy script
-- test(travis dpl v2): test travis dpl script
-- test(travis dpl v2): modify auth and site travis dpl script
-- disable(RadioBar): useEffect was not reading b/c HMBK disabled their station
-- chore: update docs
-- fix(Travis): change Netlify site and auth token declarations
-- testing(nullDataCheck): write first false tests
-- testing(nullDataCheck): add more tests
-- test(Resident): trying setData checks
-- feat(cron): add a Github workflow cron job to project
-- fix(cron): rewrite with correct syntax
-- cron: update deploy times
-- fix(cron): try two cron commands
-- style(Resident): make Resident topic selectors sticky
-- chore(PropTypes): update PropTypes; add docs
-- feat(mappableDataCheck): write and test function to prevent unmappable data from being passed to LayoutComponents
-- fix(mappableDataCheck): change rejection return to 0 for falsiness; add final filteredArr length check
-- fix(ResidentSocialLinks): add Facebook case
-- fix(ResidentSocialLinks): reactivate link icons in bio
-- feat(Resident): use mappableDataCheck to only display columns with content
-- test(travis): test defining env variables
-- test(Travis): different Netlify env declarations
-- test(travis): define env variables; add <this syntax> to deploy
-- fix(travis): place env variables on same line; add <this syntax> to deploy
-- test(mappableDataCheck): add falsy values check; subarray check; add dynamic filtering test
-- prune: remove unused PlayAudioButton
-- temp: disable ResidentSocialLinks component
-- style(SingleMixCard): unify card heights on mobile
-- test(mappableDataCheck): expand function to account for multi-key objects
-- fix(ResidentBio): prevent ResidentSocialLinks breaking from incomplete media entry add mappableDataCheck; add social_media reassignment and hasMedia useState
-- feat(Resident): make mobile content selector sticky
-- style(SingleEventCard): Nanoclamp the date/location
-- feat(/mixes): begin Collections migration
-- feat(Collections): make base page for Collections
-- feat(/residents): change query sort to remove sort after status filtering
-- feat(Event): add base Event template; temp at /events/event-test
-- feat(Event): update queries for /events and Envent template
-- fix(dayjs): remove async from clock functions
-- feat(Event): pass data from template for EventCountdown
-- feat(GCP): add SET_CLOCK_TIME dispatch
-- fix(SingleMixCard): format date on title-less mixes
-- style(ArticleHeadline): simplify header class name
-- fix(Event): rename eventData deconstructions
-- feat(EventCountdown): set up base on scroll useEffect for once event-timer becomes sticky
-- feat(Event): add shrink effect to .event-timer on sticky
-- prune: remove netlify-cms admin folder updates #79
-- config(dotenv): test setup for .env files; add mapbox token
-- feat(Event): get mapbox working in some form; might just make it a button a google map link
-- refactor: remove EventMap; implement simpler link to gmap
-- feat(Countdown): add base countdown to Event
-- feat(Event): get countdown timer components displaying correctly
-- feat(EventCountdown): refactor into subcomponent add event date-time to EventHeader add base touch font sizings change formatDateTime case names
-- style(EventHeader): move CTA button to title bar
-- refactor(Event): rename Event component classes .event-header -> .event-image .event-timer -> .event-header
-- fix(Event): convert event times from UTC to EST before using through page
-- feat(EventHeader): pass in headerButtonText and headerButtonLink
-- added playlist cases to reducer and onEnded() to player
-- add playlost to PLAYLIST_PLAY_FIRST
-- modified CHANGE_URL to set playlist empty and loop false
-- removed unused PLAYLIST_END reducer case
-- fix(Event): adjust query, deconstructed variables and calls
-- format(Husky/Prettier): add Husky to run prettier pre-commit
-- prune: remove preinstall, dependent gatsby-source-prismic-graphql, and packages
-- travis: change node to v14; npm to 6.14.8
-- travis: remove npm declaration; gatsby and npm i before_install
-- travis: add os, dist, matrix; wrap deploy site and auth in quotes; secure slack token
-- travis: reformat tokens Slack notification token; netlify deploy credentials
-- travis: add missing before_deploy 'gatsby build' command
-- style(/residents): exchange is-hidden-markers for desktop/tablet and mobile selection buttons
-- style(Event): add base font-sizing; update travis deploy yml
-- travis: add prod-true; change build command
-- test(uidValidator): begin writing tests and function for use on /hmbk-admin
-- test(uidValidator): add cases catching dev entries, ignorable entries; restructure test cases
-- test(uidValidator): add bad_structure and auto-created mix cases; add reasons to returns
-- test(uidValidator): add reasons to validator; break into separate functions
-- refactor(uidValidator): restructure tests; function
-- refactor(hmbk-admin): break into component; adjust styles
-- prune: StickyBioBlurb, /bio index, gatsby-browser backup, old /mixes update #79
-- refactor(FontAwesome): add library to g-browser, g-ssr remove explicit imports
-- fix: add gatsby-plugin-fontawesome-css to stop icon size jumps at load
-- backup: add Prismic CMS Custom Type JSON files
-- style(/index): change HomeContent headline and blurb display
-- test: make run commands verbose for CI debuggin clarity
-- husky: resolve git pre-commit issue
-- feat(cmsNodeValidator): get invalid mix case working needs mappableDataCheck inputs
-- test(mappableDataFilter): update to accept nodeValidation Boolean when set to true, it returns the total number of bad entries will pass that number to cmsNodeValidator
-- test(nodeValidator): write and pass tests connecting mappableDataFilter returning number to include in nodeValidator error message
-- feat(/index): map and fix heights of HomeEvents
-- docs: HomeEvents details
-- style(navbar): add "Music" dropup; add /mixes; /collections links
-- refactor: add FontAwesome library to project root
-- refactor: add `tags` to /hmbk-admin query prevents eventIssues break
-- /collections: map base collections and data
-- feat(/collections): create Set to capture unique residents
-- test(/collections): rename playlistProcessor; write, pass tests
-- feat(/collection): extract playlist mapping to util function
-- feat(/mixes): implement onClick fetching from prismic
-- feat(/mixes): add button to fetch more mixes and go back to top
-- fix(/events): fix event location links boolean check
-- feat(/events): add map embeds to event pages
-- test: remove .only from collectionPlaylist func
-- prune: unused cypress files; fresh node_modules install
-- data(/mixes): change initial load to 12 mixes for even rows of content
-- test(/collections): write makeCollectionDispatch function; write/pass tests
-- feat(Feature): make article authors optional through short-circuit
-- refactor(Event): change EventMap width and nesting
-- test: reactivate all tests
-- feat(/collections): write playlistShuffle function; add to tests
-- test(/collections): add url and resident fields to makeCollectionDispatch; test
-- merge: reactivate all tests
-- /collections: begin connecting SingleCollection to MixPlayOverlay
-- feat(/collections): pass makeCollectionDispatch data to MixPlayOverlay; get first track playing
-- feat(/admin): make colored Issue message wrapper
-- github: test add create-issue-branch workflow
-- github: change CIB mode to chatops
-- test: refactor cmsNodeValidator function into chunks; begin mixes
-- test: update mix_image, add mix_date validations
-- test: update featured_resident case; clarify mappableDataFilter docs
-- test: complete mix entry cmsNodeValidator test suite
-- test: fix addErrorToNotices edge case
-- test: update resident entry tests and validator error messages
-- test: update resident entry tests and validator error messages
-- test: refactor and expand mappableDataFilter
-- test: add base UIDValidator error msgs; update first test with error msg
-- test: add console.logs /hmbk-admin; cmsNodeValidator
-- admin: refactor initial prismicContent processing into a useEffect; display pre blocks in admin body
-- fix(build): address breaking build by adding nullish value for mix_date
-- fix(#130): write closeDropUp function; add to BottomNav OutsideClick wrapper
-- admin: edit validator errors; add nodeName case for Resident, Mix
-- admin: begin mapping admin using new cmsNodeValidator notices object
-- ScheduleBar checks live stream status every 60 sec
-- refactored useEffects to not use promise chaining
-- Mix, /mixes: add filteredResidents condition check what filteredResidents is returning on both template and page work out SingleCollection
-- /admin: setup first maps of cmsNodeValidation
-- style(BottomNav): Change Bottom Nav 'Mixes' to 'Radio'
-- hotfix: disable admin query loading; collection rendering
-- fix(Blockquote): make attributions optional via short-circuit
-- fix(BottomNav): change toggleDropUp to closeDropUp
-- feat(/events): add load more button
-- feat(/Resident): sort Resident mixes from most recent date to least
-- test(displayCollection): add destructure of mix_resident
-- feat(/collections): restore SingleCollection display data
-- /features: add base tile layout; prep for LandingPage query
-- /features: destructure featuresHeaderData; create FeaturesArticleTile component
-- refactor(Features): separate HeadlineBlock slice for ease of landing page use
-- /features: new nested Hero layout in progress
-- layout(/features): add base desktop layouts
-- layout(/feature): add links, borders, titling for desktop
-- layout(/features): set up highlight features for overlay
-- style(/features): make highlight features overlays
-- fix(Blockquote): add bgIMG === null return condition; begin Feature HeadlineBlock remap
-- style(ArticleHeadline): begin refactor to fix height issue
-- refactor(ArticleHeadline): rework headline layout so background image fits
-- layout(Feature): add headlinePhotoDetails prune: remove HeadlineBlock slice file (#79)
-- refactor(/features): move new .hero to HMBKSettings; prune old solution CSS; comment HeadlineBlock CSS
-- WIP layout for HighlightFeature
-- prune (#79): remove unused HomeSingleEvent; update browserlist
-- prune (#79): rename HomeSingleNews to SingleFeatureCard rename HomeNews to HomeFeatures remove HomeContent component make highlight features stack (need to make horizontal on desktop)
-- layout(/features): map SingleFeatureCard; needs height adjust; Resident addition
-- debugged featureData in SingleFeatureCard calls
-- refactor(/features): make HighlightFeatures component prune (#79): StickyFeature, FeatureArticleTile,
-- feat(/feature): add left/right feature fallbacks make LeadFeatureHero, LeadFeatureDetails add default props to /features components prune (#79): MainFeatureArticle-> LeadFeatureDetails LandingPageElement /features commented returns HighlightFeature, StickyFeature css
-- layout(/features): begin testing FallbackImage component
-- feat(FallbackImage): add image component fallback to SingleResident; ResidentBio
-- refactor(slideGenerator): adapt new Feature hero styling fixes
-- feat(/features): set HighlightFeatures render conditions
-- style(/features): add highlight-features gradient; adjust section font sizing
-- feat(TopicPageHero): create TopicPageHero and TopicHeroPageDetails components to begin making landing pages generic
-- feat(TopicPageHighlightSection): make component that feeds in layout component to highlight section a la SliceZone
-- feat(SingleMixCard): add default img string and FallbackImage component
-- feat(/mixes): begin useEffect refactor for /mixes TopicHero
-- feat(/mixes): add lead_radio_mix null base case to useEffect
-- feat(/mixes): finish useEffect processing /mixes hero and highlight section data
-- refactor(/features): finish processFeaturesHeaderData useEffect
-- try/catch for stream status check
-- update radio.co stream url
-- updated other stream status URLs
-- fix(SingleFeatureCard): add short-circuits for null cases add FallbackImage
-- backup(Prismic): update mix, feature, staff custom types
-- refactor(Hero): adapt new Feature hero to front page
-- docs(all): remove all @subcategory tags; re-gen docs
-- Merge remote-tracking branch 'origin/master' into style/featurePageLayout
-- feat(Hero): add SVG HeroArrows component
-- feat(Hero): update IndexPageQuery to include document _meta; add link processing
-- backup(Prismic): update homepage custom type
-- feat(Hero): add HeroArrows component using SVGR remove pointerEvents: none from SlideGenerator
-- fix(getResidentString): refactor getResidentString change forEach for for loop to allow for continue statements where mix_resident is null refactor default mixResidentsString in SingleMixCard
-- feat(HomeMixes): add Sound Selects section to index update index query write useEffect to call recent mixes if sound selects total < 12
-- feat(HomeFeatures): add Editorials section to Prismic update IndexPageQuery
-- layout(/mixes): remove mixes Header and featured sections
-- feat(/residents): refactor resident type separation into useEffect; update query to allow base data fetch of each type
-- refactor(uidValidator): extracted helper functions and calls to their own files; validators folder created within /utils
-- fix(EventMapEmbed): update .env with GATSBY_ prefix; update component
-- docs: add whitespace after '|' in @see tags to fix broken external links; re-gen docs
-- feat(/queries): collect all load-time Apollo GQL queries in directory
-- gitignore: added docs folder to avoid future OS file name conflicts
-- docs: fix whitespace after `@see {@link}` external links
-- feat(queries): extract getDefaultMix query remove totalCount from resident index queries
-- docs(EventMapEmbed): add jsdoc
-- refactor(RadioBar): extract query
-- feat(/residents): attach queries to buttons process fetched data
 
-### Version 1.1.3
-- [skip ci] Upload “/static/img/jessupload-e1548962937489-600x395.jpg”
-- [skip ci] Upload “/static/img/grey-long-sleeve-e1548963677856-600x400.jpg”
-- [skip ci] Upload “/static/img/011519-merch-diandra-24-600x400.jpg”
-- Update Pages “products”
-- [skip ci] Upload “/static/img/halfmoon_white.png”
-- [skip ci] Upload “/static/img/halfmoon-3.png”
-- Update Pages “products”
-- Delete Blog “2017-01-04-a-beginners-guide-to-brewing-with-chemex”
-- Update Blog “2017-01-04-just-in-small-batch-of-jamaican-blue-mountain-in-store-next-week”
-- Delete Blog “2016-12-17-making-sense-of-the-scaas-new-flavor-wheel”
-- Update Pages “index”
-- testing local changes to CMS
-- changing fav icon
-- added halfmoon to backdrop
-- removing old images
-- restored two images
-- updated readme
-- updated gatsby-config.js
-- updated gatsby-config.js again
-- fixed og image
-- updated og image
-- adding in player module, and local state
-- [skip ci] Delete “static/img/meeting-space.png”
-- [skip ci] Delete “static/img/og-image.jpg.backup”
-- [skip ci] Delete “static/img/apple-touch-icon.png”
-- updated icons for touch
-- Create Blog “2019-12-12-say-it-again”
-- finally fixed touch fav icon
-- [skip ci] Delete “static/img/apple-touch-icon.png.backup”
-- updated pages
-- rolling back from dependancy error
-- Create Blog “2020-01-07-test”
-- adding dj editor in
-- Create djs “2020-01-07-test”
-- debugging cms additions
-- Create djs “2020-01-08-test-2”
-- Create djs “2020-01-08-test-3”
-- adding in dj page preview
-- trying to fix dj preview
-- trying to fix dj preview again
-- changing identifier field name
-- changing name to title for djs
-- removed config.yml from gitignore
-- removed config.yml from gitignore and reset config
-- named djs congif default field to djs
-- editing DjPagePreview to try to make preview appear
-- tried adding helmet back into dj preview
-- changed getIn calls in DjPagePreview.js
-- Update Djs “2020-01-07-test”
-- adding in djs as test
-- sorting djs
-- deleted bad dj conversions
-- adding two images to dj editor
-- initial adding of events to cms
-- corrected bugged frontmatter query in event-page.js
-- changed map widget to address string
-- removed broken npm gmaps widget package
-- adding in shows to cms and editor
-- added back package lock
-- corrected filename typo
-- fixing filename
-- moved ShowPagePreview to correct folder
-- blank
-- trying to replace ShowPagePreviews.js again!
-- debugging ShowPagePreview
-- experimenting with displayed associations from the CMS
-- added widget: 'relation' to shows editor
-- removed .map from show0page.js for now
-- adding evernt url to cms
-- added recent site images last 3 months
-- Add files via upload
-- Delete Djs “2020-01-07-test”
-- Delete Djs “2020-01-08-test-2”
-- Delete Djs “2020-01-08-test-3”
-- Create Djs “kala”
-- Update Djs “kala”
-- Create Shows “kala-btz-w-bastiengoat-and-h-b-i-c-2020-01-15”
-- removed requirement in shows editor
-- Add files via upload
-- Create Events “afro-punk-after-dark-2020-01-15”
-- [skip ci] Delete “static/img/D418E0C6-1AE6-4924-889D-A917B064D303.jpeg”
-- added Daily Mix Page to CMS
-- fixing duplicate showPage
-- fixed indentation issue
-- Add bulma sass files to src/styles
-- Move sass folder; test basic bulma layout on two-bar-layout
-- Add BottomNav component and working bulma sass imports
-- Add TopNav and Hero layout sample
-- Fix TwoBarLayout > Hero spacing issues via <div> to <body> element change
-- Add ChatSchedule test layout to TwoBarLayout
-- Add EditorialFeed test layout to TwoBarLayout
-- Change BottomNav bar container size to fluid
-- Add .alt-column test; Add two-bar-layout comments; Organize bottom bar
-- Add FontAwesome and icons to BottomNav
-- Fix TopNav; Add sample text place holders; Add BottomNav sample links
-- Add TopNav transparency comment
-- Add Radio Player component to TopNav; add alternating column colors for testing
-- Add moment-timezone to project; add currTime to TopNav
-- Add top-bar-logo to hero-test.scss
-- Add ShowDetails sample component to ChatSchedule
-- Pre-test branch test setup - test/addJestPuppeteer
-- Add gatsby-puppeteer screenshot command to project
-- Add more viewports to gatsby-puppeteer.js; Set daily picture source
-- Add Screenshot prompts
-- Begin separation of navbars from other content in components and scss
-- Add basic open/close toggle for schedule-bar
-- Add transition property to open/close toggle
-- Replace inner layout with columns; Prepare for toggle schedule views
-- Replace 2 show schedule layout with 1 show layout
-- Edit ScheduleBar columns to expand to is-open height: 7.5rem
-- Change ScheduleBar 'active' to 'open' for clarity; Add comments
-- Move screenshots to __tests__; Migrate to test/usingLayoutComp
-- Add .homepage-hero to HomePage.scss; fix alignment of section with schedule-bar
-- Create new section base for .homepage-hero
-- Restore broken imports and filenames
-- Add AboutPage base and files; pre-AddScheduleBar merge
-- Make demo layout for AboutPage
-- Add News Page prelim-layout; vertical mobile layout testing
-- styling player in top bar
-- Add NewsPage mobile accordion
-- Add NewsPage separation of mobile and desktop
-- Add four sections to mobile with basic items within
-- Add base layout to SchedulePage; hero with dates; time and show names section
-- Fix #scheduled-shows columns alignment to match hero dates section
-- Add SchedulePage non-functional wireframe
-- Change body to div in two-bar & schedule; debug schedule layout issue
-- Copy desktop section for mobile & add 'is-hidden-touch'
-- Make mobile date picker scrollable horizontally
-- Begin creating mobile/tablet layouts
-- Update Screenshots to take photos of the 1023 breakpoint; reorg some code
-- Update Screenshots to print comments about each screenshot
-- Update screenshots to print out filenames for searchability in folder
-- Reactivate screenshot function
-- Update page loading conditions; edit viewport comments
-- Update desktop time-date & time-slot CSS and JSX
-- Update HD Laptop to Low-res Laptop; include breakpoints in descriptions
-- Create NewsFeed with 4 scrolling columns; Create CategoryItem
-- Add CategoryItem to last push
-- Fix single-item layout to work down to 1024px wide
-- Rename feed and schedule; add borders to schedule; add version to screenshot file names
-- Add test-active id to desktop schedule; add clicker to schedule page
-- Re-enable shot function
-- Add ScheduleShowEntry
-- Add MixesPage layout based off NewsPage; uninstalled date-fns
-- Add base layout to mixes
-- Fix single-mix width, add spacing; add hover transition
-- Fix single-mix font sizes for touch
-- rolled back to prev, recreating class-based player comp
-- Create .in-progress class; apply to /schedule
-- basics of audio bar structure
-- play button connected to player embed
-- commit before checkout
-- changing -nav-height to hard coded 7.5rem
-- hard coded 7.5rem in  -nav-height in BothNavBars.scss
-- Expand screenshot questionnaire
-- Pre-script merging
-- Add parseViewports WIP code
-- Disable questionnaire code for now; re-enable old allDevices code
-- Add break condition to script from questionnaire
-- Rename two-bar-layout to home
-- Add HomeContent and HomeMixes WIP to /home; add scroll to screenshots
-- Begin HomeMixes two-column layout
-- Make home content section blurb sticky; begin mix layout
-- Add HomeEvents & HomeSingleEvent base files
-- Add layout to HomeEvents; add buttons to both content sections
-- Fix HomeMixes & HomeEvents layouts down to tablet
-- Add HomeNews & HomeSingleNews WIP code
-- Fix all layouts for HomeMixes, HomeEvents & HomeNews
-- Fix className issue in Hero; randomize HomeContent singles
-- Reorg and comment Screenshots code; change HomeSingleMix aspect ratio
-- Add tag details to Mixes; Resize card-content details
-- Add prelim HomeMixes & HomeSingleMix touch layout
-- Reorg touch content section headers and single-item code
-- Fix mobile HomeSingleMixes size; change HomeEvents button
-- Pull mobile 'More Section >' buttons to right of columns
-- Delete unused components and their exports
-- Add DatePicker WIP to ScheduleBar
-- Begin reorganizing schedule-bar into two-col layout
-- Undo two-col layout; it was dumb
-- Reorganize schedule-bar into more components
-- Setup desktop schedule bar; begin screenshot mobile testing
-- Add clickTarget to Screenshots; take prelim /home v4 pics
-- Begin fixed-height scrollable schedule section
-- Add modal for mobile & tablet; debug date-picker width tablet
-- Test modal schedule box-shadow; pre-component separation
-- Create ScheduleModal & ScheduleDropdown
-- Continue date-picker testing
-- rewritten player as func comp with local state and can read context state
-- adding more to global state still error on dispatch from index page
-- debugging index-page dispatch button
-- basic stream load button working
-- radio bar wrapping whole site
-- Add FontAwesome play/pause button toggle
-- Change play/pause button sizes
-- radio bar takes title from global state
-- Fix modal date picker width; now correct on touch & desktop
-- added mute func to icon, not yet working fully
-- added additional stream sources, debugging mute
-- added sources
-- successfully checking radio.co stream status but only on load
-- Successful merge - begin design migration
-- Added Hero & HomeContent to index-page.js; begin import two-bar > components folder
-- Change Schedule-bar up-next dummy text; remove status comment
-- Add changes from Mar 20 meeting
-- Change layout from tablet up to reflect 3 events and 2 features
-- Move test sources to Hero component
-- Migrate all two-bar components to src/components; fix imports
-- Migrate styles folder out of /src/components to /src
-- Fix inheritance issues in RadioBar & BottomNav
-- Change if statements in GlobalContext; fix mute icon behavior; add base icon
-- Fix RadioPlayer height and width errors through styling
-- Begin reorganization of top radio bar
-- Change RadioBar layout to columns; remove mute & time from mobile
-- Fix issue of modal AND dropdown appearing on mobile
-- Begin home content bg-image black overlay test
-- Reset player volume to max
-- Clean up some leftover ReactPlayer bits
-- Add ResidentPage base and ResidentAlpha start
-- Add SingleResident base
-- Add round portrait and single artist line
-- Push to share for debugging deploy
-- Reorganize single-resident layout and CSS
-- new branch
-- debugging .default in ssr
-- debugging gatsby-browser.js
-- debugging ssr
-- debugging srr vs broswer apis
-- Simplify residents layout; pre-layout merge
-- debugging srr vs broswer apis
-- restoring ssr and broswer api files
-- debugging ssr
-- disabling mobile layout of radio bar
-- changed radio abr color back
-- Refactor dual columns to single-column declaration
-- Merge fixed SSR and unified RadioBar
-- Set global player to false disabling autoplay
-- Add image-diffuser to HomeMixes bg image
-- Add diffuser to HomeEvents & HomeNews; change bg for home content sections
-- Fix HomeContent item sizing, fonts, bgs, and borders
-- Remove Layout, TopNav & BottomNav imports from pages
-- Adjust HomeContent mobile sections padding
-- Make schedule-bar fullwidth on touch; componentize schedule-bar modal and dropdown
-- Reorganize show-entries desktop to have scrollable show-entry list based on window height
-- Fix font issues on schedule-modal
-- Fix font-sizing and short-screen mixin for wider screens
-- Add bio page base and bring in single-mix from daily-mixes
-- Add tags group to bio/mixes section
-- Begin hover experimentation with front-page items; bring success to bio mixes
-- Add prelim hover effect to HomeSingleMix cards
-- Add test links to nav bar
-- Add navbar-end social icons base code
-- Lots of changes; list in full git log
-- Add BioSingleMix base code; add pagination base code
-- Recreate resident-mix on bio page; begin adding play btn overlay
-- Fix section height jittering when hovering
-- Add transition to BioSingleMix - :hover - translucent overlay w/ dummy play button
-- Create BioHorizItem base to better display mixes on /bio
-- Pass real YT music props to BioHorizItem successfully
-- Change BioHorizItem img src from background-image to nested figure; adjust onHover overlay
-- Connect onHover BioHorizItem overlay play button to the player
-- Test v2 BioHorizItem layout; improve testing mode and timeout error Screenshots code; install date-fns
-- Lots of changes - see full git log
-- Change tablet breakpoint from 769px to 768px so iPads act like tablets and not like HUGE mobile devices
-- Convert YT test links and set time to 0; add FFXV img, fix puppeteer timeout bug
-- Edit puppeteer device descriptions
-- Move pagination to BioPagination.js; add 2 more mixes to /bio
-- Adjust height of ScheduleDropdown show-entries container on short screens
-- Adjust offScreen player box; test RadioPlayer overflow
-- Add social links to BioImageBlurb, change Chatango icon; remove spans from RadioPlayer and apply color directly; begin Residents two-tab layout; add links to /bio to SingleResident
-- Migrate ResidentsPage.js to /pages/residents/index.js
-- Test bulma tabs v column selection; space out SingleResident entries
-- beginnings of a marquee
-- Delete ResidentsPage.js; make SingleResident take props; add margin to resident-selection; change margins per viewport
-- Add test source text to mixes on /bio; change audio sources away from YT
-- Fix broken marquee elements;
-- Set up for smarquee testing
-- Remove ResidentAlpha component
-- Make marquee visible on mobile only; set static title for tablet-up
-- Add pulsing light and LIVE text to RadioPlayer
-- Add top border to BottomNav
-- Delete BioPagination.js and imports; add Lighthouse audit of deploy branch
-- Add mobile specific mix-play icon; make BioHorizItem for mobile
-- Delete BioPagination.js and imports; add Lighthouse audit of deploy branch
-- Add mobile specific mix-play icon; make BioHorizItem for mobile
-- Fix broken Bio scss
-- Fix mixed up rebase code; unify touch font sizes; make images larger
-- added chatango link to chat icon
-- Add first react-audio-spectrum attempt
-- Unify radio and schedule bar color; and pink borders; add toggle to Residents
-- Make toggle columns solid color blocks; add 'is-active' CSS
-- Add HMBK pink hover color to radio bar icons
-- Make navbar links and icons white; pink onHover
-- Add space after resident-selection container; remove onHover white border
-- Add transition to single-mix on bio; change hover/active color
-- Make hover/active color of resident social icons to HMBK pink
-- Make hover/active color of 'bio' mix play button HMBK pink
-- Add toggle
-- Add togglePlayLive to reducer & RadioBar; add live layout base code; comment out AudioSpectrum base code in RadioPlayer; add togglePlayLive button to ScheduleBar
-- Merge chat into feat/addArtistPage
-- Change 'live' to '6PM' to hide button for now; change /residents bg image
-- Change homepage section dividers and card outline colors to HMBK pink; remove expanding transition
-- Add notes from Trello post
-- Add live bar to RadioBar; set live bar to globalState.live toggle
-- Add live-bar with prelim ticker and font
-- Fix margins of RadioBar for Live and not Live configs
-- Add ticker to Schedule Bar mobile; make space for live button
-- Remove audio-spectrum test code; move tickers to own divs in RadioPlayer
-- Switch title to Eurostile; change sizing of RadioBar
-- Import Titillium for testing
-- Remove p elements from tags on BioPage
-- Add IBM Plex Sans as primary body font
-- Change HomeMixes font sizes; make .tag, .card global styles; increase card border width
-- Change HomeEvents and HomeSingleEvent font sizes
-- Add padding to taglines on Home; change font sizes of HomeNews and ScheduleBar
-- displaying local and LA time for demo
-- updating clock every second
-- added seconds back to clocks
-- Merge time in
-- Fix font sizing on residents page
-- Fixes #2; will move slogan when on mobile too
-- Fixes #15; slogan now correctly placed based on viewport
-- Remove all images from HomePage; replace with solid color
-- Fixes #3; begin adding accessibility links to site
-- Fixes #4; menu burger now bolder than ever !
-- Bring in puppeteer changes
-- Remove image-diffuser from HomeContent sections; darken bg color; change mobile nav color
-- Fixes #16; nav-menu now closes on click
-- Hide nav bar social icons for screen readers; add labels to these links
-- Remove redundant HomeContent SCSS
-- Remove image-diffuser CSS and bg-image on Bio
-- Change single-resident layout to 16x9 img and text; add border w/hover
-- Add single-resident resident onHover bgChange
-- Add border brighten onHover to all cards; add bgChange onHover to HomeMixes; add 6 mixes to HomeMixes
-- Change single resident container code to standard card
-- Remove old format single resident code
-- Make navbar-menu bgColor black; dark purple when is-active
-- Combine root HMBK styles; add base HMBK bug report
-- Update issue templates
-- Organize more root HMBK styles
-- Remove close button from button of dropdown; move close button to schedule bar
-- Rewrite ScheduleDatePicker to map over array of fake date data
-- Change close schedule button text to 'Close ▲'
-- Update issue templates
-- Un-nest Dropdown & Modal styles from .schedule-bar
-- Fixes #26; schedule-bar layout when dropdown open now matches dropdown open
-- DateColumn works but is not connected to live data, starts progress on #19, #20
-- Closes #31; further styling changes must be made to dropdown and modal
-- Reorg schedule modal code with DatePicker & ShowEntry combination; Closes #22 - base color style adapted
-- Hide dropdown on mobile - modal is active
-- Make dropdown show entries only; make entries div mappable
-- Starts #33; remove ShowEntry from DatePicker; add schedule link to dropdown
-- Modify dropdown to pass showSchedLink prop; modify ShowEntry for reuse
-- Add prelim date and formatting to dropdown
-- Move schedule link to top of dropdown; begin styling dropdown
-- Add Oxygen to project; Closes #5
-- Missed issue; closes #6
-- Closes #18; added touch mixin to solve desktop navlink toggling
-- Missed issue; closes #17
-- Missed issue; closes #20 - no DatePicker present on modal
-- Delete hmbk_bug_report.md
-- Closes #34; Closes #44
-- Closes #41
-- Closes #46, Closes #48
-- Merge 'feat/activateSchedules' to close issues
-- Closes #50, closes #49, closes #52
-- Merge 'feat/activateSchedules' - more fixed issues
-- Remove md files from src/pages
-- closes #35 adds artist to global context and ainto render playbutton func on index-page
-- Begin #23; black overlay in place on Home
-- #23, #24, #66 - in progress
-- Closes #23, closes #24
-- Begin #70
-- #66 - HomeMixes & SingleMixCard updated
-- #66 - SingleCardMix implemented; still issues
-- Closes #54; SingleCardMix implemented and functional
-- Closes #66; dummy text removed; altText added
-- Moved logo from bottom bar for top bar
-- #68 start
-- #78 delete complete, #79 updated
-- #78 update
-- Update issue templates
-- Update issue templates
-- #78 updated
-- Closes #78
-- Begin #85
-- Remove search button from /search
-- #78 - layout modified
-- Icon css unified, search icon link added to TopNav
-- Begin #85; edit #78
-- #79 updated; #43 updated
-- Begin 82
-- Closes #53
-- feat (layout): ScheduleEntry reactive to show name
-- feat (layout): make card base border color white
-- fix: remove all .has-text-light classes
-- fix (layout): add bottom padding to Bio
-- feat(layout): add toggle to show search layout
-- fix(font): increase font size of currentlyPlaying
-- fix(layout): give cards/tags rounded borders
-- fix(layout): thin card borders and fix rounded thinning
-- fix(layout): remove chat link from bottom; move to top
-- fix(font): change title font to Aldrich; change body to Authentic
-- fix(layout): times removed from tablet layout; mix card font adjusted
-- fix(layout): home content id merged down one div
-- feat: add img to radio bar
-- style(layout): move now playing image to RadioPlayer
-- style(layout): thin existing borders and change to white
-- style(color): change all background colors to black
-- fix(layout): add mixins to mix card content-text & tags
-- refactor: convert in-file dummy data to json file imports
-- style(layout): make artist image on bio 6col
-- fix: make HomeMixes display only first 12 mixes
-- style(img): add mint jams album image
-- feat: make bottom nav slogan link to home
-- fix(layout): change min-height of resident name box
-- fix(layout): schedule dropdown closes onClick 'view full schedule'
-- style(layout): Play button now overlaid on mix img
-- style: revert radio bar play/pause to old style
-- fix(layout): fix home content bottom padding to match top padding
-- refactor(style): remove unused .sticky-link class
-- style: give all HomeContent buttons mix card outlined style
-- style: change BottomNav link colors to shade/HMBK pink
-- test: begin sticky bio layout
-- style: add multiline mixes to /sticky-bio
-- fix: update last incomplete commit
-- style: complete /sticky-bio layout
-- fix(layout): remove white inner curve on card hover
-- feat: add about page copy from Surf's text
-- fix: Edit incomplete about copy; add site credits for us
-- style: remove mix-img from mobile
-- style: add font details to schedule bar - Aldrich
-- style: add font details to schedule bar - Audiowide
-- fix(style): hide mix-img column on mobile
-- fix(font): reduce font sizes of schedule fonts; simplify layout
-- style(font): add Aldrich as title
-- style(refactor): remove .is-live from RadioBar and in BothNav
-- style: apply base button style to schedule bar
-- style(fix): up-next buttons and text centered in bar
-- style(fix): align open schedule dropdown with bottom of schedule bar
-- style(feat): make navbar-item Aldrich font; remove unneeded css
-- style(fix): fix font-size change on dropdown open
-- style(missed): remove schedule from BottomNav
-- style(feat): convert search select columns into buttons
-- style(feat): make search column buttons fullwidth
-- style(feat): make /residents 4 columns wide like homepage
-- style(feat): convert resident selection columns to buttons
-- update queries to static where neeeded, placeholder field data
-- style: add dividers to schedule dropdown
-- refactor(style): add /test to work out prelim page size sass
-- style(feat): homepage now uses global .site-page css
-- style(feat): residents page now uses global .site-page css
-- style(feat): /sticky-bio now uses global .site-page css
-- fix(style): /sticky-bio: bio column now scrolls when necessary
-- delete: /bio page and related old bio components
-- style(delete): remove remaining old .resident-bio css
-- feat: add schedule selector base to /schedule
-- feat: make DateSelectorButton a component; add ScheduleShowEntry
-- style: change faPlayCircle to faPlay icon; begin search bar change
-- style: apply HMBK pink styles and border widths to buttons and input
-- style: apply HMBK pink button styles to top nav and dropdown
-- style: update button and input styling on /mixes and /schedule
-- style: /mixes - make tags dropdown rounded
-- style: change HomeNews button style
-- style: unify front page button styles
-- test: add working tag to button conversion to /test
-- style: change mix image size; code formatting
-- style: change mix tags to buttons with HMBK styling; make tag-btns uniform in size
-- style(fix): change radio-bar, schedule-bar from 5rem,2.5rem to 4.5rem,3rem
-- style(fix): make radio-bar columns new 4rem height
-- refactor: un-nest RadioPlayer.js columns div
-- style(fix): remove breaking .radio-bar mobile padding-top
-- style(fix): make all sticky-bio links open in new tab
-- resource: add KOAN Sound - Silk Wave and img to sampleMixes.json
-- fix: add 'rel=noopener' to /bio social icon links
-- style: update TopNav and buttons font to Aldrich
-- style: make all home content buttons small
-- style(fix): make mobile-date-selector horizontally scrollable
-- style: restore black bgColor to TopNav and touch BottomNav
-- fix: repair broken gatsby version
-- fix: change /sticky-bio to /bio and shorter link text
-- fix: change /sticky-bio to /bio and shorter link text
-- test: ssh test
-- style(test): begin centered now-playing img and details
-- style: add centered now-playing layout
-- feat: add base /events layout with dummy events
-- feat: add /events link to bottom nav and home event section button
-- refactor: move test imgs from /static/img to /static/img/test
-- test: /events base layout now has 12 test events
-- deploy: fix bad graphQL error
-- fix: change radio bar img base paths; restore original tag sizes
-- fix: bring in deployed changes
-- style(fix): /mixes - add base 4col layout; needs breakpoint height tweaks
-- layout: /about - add new base layout
-- style(fix): /mixes - reduce size of mixes play btn from 7x to 5x
-- style(fix): /mixes - hard code size of playBtn from 7x to 5x
-- style(test): /test - add base duotone code to mix imgs
-- style(feat): apply duotone filter as mix img hover effect
-- style: mobile mix cards - reduce spacing between title and tags
-- cleanup: closes #100
-- style(fix): add paddings to .content-text & .btn-tag; adjust min height
-- add sunday weekly 24 hr blocks
-- pointed cms off master
-- style(feat): /events - begin adding text-overflow ellipsis
-- test(function): add globalState.live true/false string to next show
-- style(feat): make schedule-bar BGColor HMBK Pink shade when live
-- feat: BottomNav social media icon links now open in new tab
-- style(fix): add missing live-light to 'Listen Live' button when schedule is open
-- test: add calendar icon to radio-bar as prep for opening schedule w/global dispatch
-- test(feat): calendar icon in radio-bar now send schedule dispatch
-- style(test): radio-bar icons and functionality moved schedule-bar
-- style(feat): change pulsing live-light to broadcast tower; remove pulsing border
-- feat: add globalState ternary to Listen Live btn; needs functionality
-- feat(base): add starter homepage image carousel code
-- basic weekly schedule built using relations to Dj's (empty)
-- test(page): install react-responsive-carousel; create base /hero-test
-- fix(test): add base text to /hero-test
-- layout: /about - add new base layout
-- merge: bring fix/newAboutLayout in; remove btnSize from SingleMixCard.js
-- feat(test): install react-awesome-slider on /hero-test-2
-- test: add local images as test; try hero element modification via docs
-- feat: re-enable schedule dropdown for mobile; disable modal
-- style(feat): add mobile font size to schedule dropdown
-- style(fix): fix schedule-bar size stutter when changing from not live to live config
-- fix: changed key map value in ScheduleShowEntry to use show.hostInfo instead of show.showName
-- style(test): add base schedule-bar .is-live bottom-border pulse anim
-- feat(style): add pulsing bottom border to schedule-bar .is-live
-- style(feat): add small variable gaps to schedule bar; change pulse BPM to 145; reduce schedule-bar icon sizes to 1x
-- data: add Circadia & Letargo to sampleMixes.json
-- feat: add /schedule styling; regulate schedule dropdown max height
-- feat: schedule dropdown closes on 'Full Schedule' click
-- feat: begin text-truncate tests
-- feat: remove play button from SingleMixCard
-- feat: add working OutsideClick base code to ScheduleBar
-- feat: make dropdown schedule close onClick outside ScheduleBar
-- feat: convert OutsideClick internal HOC to independent component for use in BottomNav
-- feat: add react-spring: /hero-test-3; address bottomNav OutsideClick
-- WIP: remove OutsideClick from BottomNav; change 'live' pulse bpm to 128
-- feat: /residents is now automatically alphabetized A→Z; moreWIP
-- "fix: rename all mix.name SingleMixCard props"
-- "feat: /residents - auto-alphabetize residents"
-- test(style): add SoundCloud's text-truncate class to HMBKSettings
-- feat: make BottomNav use globalContext to open/close; refactor OutsideClick.js
-- feat: add working volume input slider; needs styling
-- restore: add play button to SingleMixCard; rename called params globally
-- img: add neurofunk image and entry to sampleMixes
-- style: add .play-icon to HMBKSettings; remove span from SingleMixCard
-- test: add Russian Hardbass mix with extra long test text
-- style: add Nanoclamp to mix cards; content-text height set
-- cleanup: closing unmarked completed issues
-- style: remove bg-colors from SingleCardMix
-- feat: add working slider with built-in links
-- feat: convert div layout to hero section; begin styling
-- style: add rounded boxes to slide headline and subtitle
-- style: change slider buttons to black w/white border
-- style: fix hero alignment; write classes in HomePage.scss; remove inline styles and commented code
-- feat: replace Hero.js content with /hero-test-4 index
-- delete: remove all /hero-test-# files; modify SingleMixCard calls and docs for clarity
-- debugging the cms djpage and pagequery
-- fix: make SingleMixCard map variables less ambiguous
-- added a weekly scheudle preview
-- added weekly schedule index page
-- fix: edit broken tablet /bio layout
-- style: Hero.js > add mobile font sizing
-- hotfix: removed btnSize={btnSize} from /mixes
-- hotfix: removed /pages/test.js
-- feat: add Nanoclamp to /events; remove bgColors
-- debugging cms
-- debugging cms again
-- feat: wrap SingleEventCard with eventColumnLayout; refactor /events, /search
-- feat: add pointer and grabbing cursors to <Slider> :hover and :active states
-- removed featured artist from dj page
-- removed featured artist field
-- style: /bio - increase size of bio sticky section
-- cleanup: /search - fix img import; close issues
-- style: added arrows and arrow style to <Slider>
-- merge: bringing in new content to old branch version
-- setup: base for PagePreviews
-- fix: change backend branch; fix indentation error
-- fix: add StaticQuery import to DailyMixPagePreview and AboutPagePreview
-- branch: last commit before trying to add prismic
-- feat: install base prismic setup; testing next commit
-- fix: rectify package dependencies errors; add linkResolver base
-- feat: create new /src/templates/index-page.js; renamed old
-- feat: '/' - add base Prismic query; pass slides as props to Hero
-- fix: uncomment dummySlides in Hero causing error
-- feat: add dummy slides from Prismic; external link does not blank
-- "fix: fix broken HomepageQuery; log data to console"
-- fix: change homepageCarousel -> homepage_carousel; reenable Hero
-- fix: fix broken sampleSlide imports; add base CMSGuide.scss
-- feat: update .cms-warning; add bgAlt check
-- feat: pull out CMSSlides as component; update help layout
-- feat: create Home Content section in Homepage type; pass that data down to HomeContent
-- style: change div to section
-- data: add infected band photo
-- feat: update g-config for Feature type; get Feature template working
-- style: make path from last commit visible
-- feat: add FeaturesQuery to Feature.js; display data object on /features/dev-text-feature-1
-- feat: /features/dev-test-feature-1 > updated SliceZone returns SliceTypes;
-- feat: begin adding slices to SliceZone; fix CMSHelp query
-- feat: move cms-help components to folder; add HomeContent to /cms-help
-- feat: add base FullWidthImage to /cms-help/sample-feature
-- feat: add base switch statement for FullWidthImage className
-- feat: add Poppins font; add base Blockquote slice
-- test: add /cms-help to ScheduleBar; make blockquote font-size responsive
-- feat: add Storybook to project; restructure slices/FWI props
-- feat: FWI displays, albeit wrongly; working to include SASS support
-- feat: add SASS support to gatsby; FWI now display correctly
-- feat: add Blockquote - two variations
-- feat: add Blockquote story; begin refactoring inline slice styles
-- feat: convert Blockquote to SASS classes; add viewports to Storybook
-- feat: add SampleFeature base to Storybook
-- style: rename Sample Feature section to Sample Layouts
-- feat: remake Blockquote in CMS; update Blockquote component; update Features query
-- feat: successfully bring in Blockquote to /features/dev-test-feature-1
-- feat: Blockquote - fix variable declarations and switch statement; now supports multi-paragraph quotes
-- feat: fix broken Storybook Blockquote props
-- feat: add long TwoParagraph story
-- feat: add base TwoImagesAndText layout to Storybook
-- feat: add base ContentHelper to /components/slices; create Blockquote helper function
-- refactor: move inline getBlockquoteStyling > /components/slices/utils
-- fix: repair Sample Feature story
-- refactor: move ContentHelper > /components/slices/helpers
-- docs: add jsdoc bases for Blockquote, TwoImagesAndText and getBlockquoteStyling
-- docs: generate first version of project docs
-- refactor: destructure slice in Blockquote to pass in individual params directly where needed
-- docs: update Blockquote and getBlockquoteStyling docs
-- fix: add updated slice definition to /cms-help/sample-feature
-- debug: create TIAT in slice in Prismic to fix render issue
-- feat: get TwoImagesAndText working with Prismic sourced data
-- feat: add base HeadlineBlock story
-- test: add blackBG parent div to HeadlineBlock; testing with figure img overlay
-- feat: creat sample HeadlineBlock; connect it to front-end
-- feat: make Staff custom type; add to HeadlineBlock; add updated publication check
-- feat: make HeadlineBlock process and display latest pub date properly
-- fix: update HeadlineBlock story with new slice and metadata objects
-- docs: add comment about {sliceZoneContent} being the way it is
-- docs(CMS): add SliceZone jsdoc info
-- style(CMS): begin converting inline HeadlineBlock
-- debug(CMS): split data objects for /dev-test-feature-1
-- refactor(utils): move processPublicationDates HeadlineBlock helper function to /slice/utils
-- docs(utils): update processPublicationDates docs
-- style(HeadlineBlock): update styles in CMSSlices
-- feat(features): add base /features/ query
-- feat(Feature): make base /pages/features layout
-- data(features): ready data for use as props
-- refactor: more all utils to /src/utils
-- data(features): update Story with data objects
-- fix(features): fix props StickyFeature & style
-- data(CMS): update Features query to include other slice fields
-- feat(slices): make TextBlock slice; set base style
-- style(features): add column and .feature class to features
-- style(features): add explicit dev-test-feature links for deploy
-- fix(features): import graphql via gatsby to address deploy warning
-- remove: uninstall three other unused react image sliders
-- docs(slices): update Blockquote and HeadlineBlock
-- docs: update jsdocs
-- refactor: move Hero's slideGenerator helper func to /utils; update docs
-- missed: add refactor files from last commit
-- docs(all): update template and begin categorizing
-- package(update): upgrade Storybook to 6.0.2
-- feat(slices): add base ParallaxHeadlineBlock v1
-- docs(slices): fix TextBlock, getBlockquoteStyling
-- feat(slices): create ParallaxHeadline base slice
-- feat(slices): add 'headline-block' class; dummy data
-- prep(meeting): remove Parallax from Feature template and more
-- refactor: save current Parallax as OldPHB
-- feat(/support): add base Support page; connect CMS
-- feat(/support): add prelim scroll fade layout
-- feat(/support): update storybook; change fade scroll speed
-- docs(all): update docs
-- feat(/support): connect OneImageAndText component
-- docs: add more documentation
-- feat(slices): make OIAT slice switch layout types
-- feat(storybook): add left and right OneImageAndText stories
-- feat(slice): TIAT - fix layout selector; add stories
-- feat(slice): add ImageRow slice base
-- docs(ImageHelper): add docs
-- feat(password): add base password protection for /cms-help
-- feat(protect): password-protect /cms-guide route
-- refactor(CMS-Guide): being SliceZone refactor
-- refactor(/support): clean up /support page index
-- docs(Indexes): update index page docs
-- refactor(slices): redefine TextBlock and HeadlineBlock slices to be more generic
-- fix(slices): resolve broken feature documents after Feature type reset
-- style(slices): remove 'sample-feature' and 'feature' CMSSlices classes
-- style(bulma): remove some element styles; replace with variables
-- refactor(slices): make body principal template element; nest main in article
-- docs(helpers): update ContentHelper, ImageHelper
-- style(Hero): change font to Poppins
-- style(ArticleHeadline): begin HeadlineBlock new layout rework
-- style(ArticleHeadline): space ArticleHeadline image and titling based on titling size
-- style(ArticleHeadline): implement new ArticleHeadline styling
-- feat(ImageHelper): add onClick image modal; move photo data to modal
-- feat(ImageHelper): add pointer cursor; img alt txt
-- style(ImageHelper): refactor modal to use columns; contain img
-- refactor(/mixes): rename old mix index; create new
-- feat(linkResolver): add 'resident' case; default
-- refactor(SMC): change resident prop to residents
-- feat(/mixes): show CMS mixes, res links resolve
-- feat(/index): augment IndexQuery; begin passing data to HomeMixes
-- feat(HomeMixes): pass and map homeMixesData correctly
-- feat(linkResolver): add 'feature' case
-- feat(HomeFeatures): pass and map homeFeaturesData correctly
-- fix(json): add dummy JSON data to fix /bio
-- feat(/residents): create WIP individual resident page
-- fix(getBlockquoteStyling): resolve error when bgImg is null
-- feat(resident): map sticky-bio of Resident updates #120
-- feat(Resident): map resident mixes to /resident/:uid
-- prune: remove unused components, pages, netlify-cms, templates
-- move: /templates/index-page.js → /pages/index.js
-- feat(FullWidthImage): add this slice to CMSGuide
-- refactor(slice): rewrite FWI slice to use CMS data
-- feat(/404): add base layout
-- story(ArticleHeadline): update data objects
-- style(ArticleHeadline): change parent CSS classes
-- prune(index.md): update #79 - remove file
-- feat(ImageHelper): convert img element to react-imgix
-- feat(ImageHelper): revert react-imgix components
-- refactor(ImageHelper): make ImageModal; add lo_fi update #122 - create ImageModal layout helper component, update ResponsiveImage docs and CSS
-- fix(ResponsiveImage): change width, height
-- prune(/bio): Resident.js working, removal prep
-- feat(/schedule): write base getSevenDays util updates #19 - nodes from the data array can now be selected seven days at a time
-- feat(/schedule): make date selection buttons functional
-- feat(/schedule): map node data correctly updates #19 - SingleScheduleEntryRow created and put to use
-- prune: ScheduleShowEntry, two SCSS files update #79 - ScheduleShowEntry refactored into SingleScheduleEntryRow SCSS removed NewsPage.scss and ScheduleDropdown.scss
-- data(schedule): update test json schema file
-- prune: #79 - remove SelectedColumn
-- fix(ImageRow): change group_image to row_image
-- style(ScheduleDropdown): rework CSS; column layout
-- feat(Apollo): add Apollo to project, base Schedule query works
-- fix(ImageRow): revert row_image to group_img
-- style(ScheduleBar): reduce bar height update#71 - ScheduleBar: expand .site-page, .slider ,and .homepage-hero
-- style(DateSelectorButton): consolidate styles update #79 - remove mobile-date-selector
-- refactor(formatDateTime): rework most dayjs calls make formatDateTime util func; fix getSevenDays function in /schedule index
-- fix(Dropdown): align .up-next & .dropdown fixes changes: 23e83f4 -  bar height is 2.5rem closed; 2,625rem open
-- refactor(SlideGenerator): make component; update params
-- chore(docs): update; all @component are @function
-- chore: update docs
-- feat(ApolloProvider): wrap root element
-- feat(RadioBar): set times in TopNav, pass as props to RadioBar Props update every second in TopNav and reflect the update in RadioBar
-- feat(ScheduleBar): use timeNow to query AllSchedules closes #25 - change issue title to reflect goal completion
-- refactor(mocha): rename __tests__ to test; add tests folder
-- style(Dropdown): add max height; overflow scroll
-- feat(ScheduleBar): process and show data in bar
-- feat(/resident): make resident links in their own mix cards plain text closes #39 - missed commit; resident data is live from CMS and mapped correctly closes #120 - only HalfmoonDivider left to address on page; cosmetic changes remain
-- fix(ApolloProvider): unwrap root element; only wrap TopNav
-- refactor(slices): fix OIAT and TIAT ImageHelper calls updates #122 - changes account for responsive image sizes; CMS Guide slices copied to Slice Library and reimported into Feature type
-- prune: remove console.logs from SliceZone, OIAT
-- refactor(PlayButton): convert to Component
-- fix(Apollo): unwrap ApolloProvider from TopNav
-- feat(RadioPlayer): pull and set initial mix data from query
-- style(RadioPlayer): add initial load animation
-- refactor(Apollo): rewrap root element with Apollo Technically a revert of the Apollo unwrap; difference here being that the useQuery functions are called in a useEffect instead of roaming free in the function
-- feat(Dropdown): pass show data to dropdown closes #19 - SSER component vcentering fixed via min-height adjustment Fix displays in dropdown and on /schedule
-- refactor(site-page): replace site-page classes with full-height-page /schedule and /events have the new class black-bg-page that gives that more top and bottom padding
-- feat(/events): unify card height; fix event image style
-- feat(CMSGuide): build landing page with cards updates #117 - /guide landing page base layout in place; images need responsive conversion
-- feat(/guide): add responsive images to CMS cards
-- feat(ImageRow): fix CMSGuide and Feature queries Update LandingPageElement cards to better display date and subcategory Update OIAT and TIAT to work with LandingPageElement closes #71 - missed commit; RadioBar has fade in on data load and text-truncate
-- feat(/schedule): add schedule_entries null option
-- feat(/feature): make event card height fix global
-- fix(errors): address Invariant error, gatsby 95313 error
-- fix(UpcomingShow): add undefined return condition
-- fix(deploy): fix duplicated Hero in TopNav
-- prune: remove gatsby plugins update #79
-- docs: update gatsby-config notes
-- feat(/residents): connect to Prismic; add guest option and selection
-- update(react-player): migrate to version 2
-- cleanup(issues): close some issues
-- feat(/mixes): add endless_mix part to query; bring into page
-- in slider: explicitly allow pointer events on select elements; disabled on all others in slider
-- prune(#79): clear gatsby-node of commented code
-- refactor(util): make getResidentString declarative
-- refactor(MixPlayOverlay): extract play button to re-use on /mixes
-- feat(Mix): create base template
-- feat(Mix): add gatsby-config and mixData display
-- feat(links): add /mixes case
-- feat(Mix): replace getResidentLinks with Link to Mix page
-- feat(Resident): add Mix _meta to link to Mix page
-- feat(Card): fix card height sizings; update play-icon hover effect #68, #97: mixes & events have CSS class-dictated min-height
-- refactor(SingleMixCard): destructure now in component, not in map Update dummy SearchResults SingleMixCard props for deploy
-- fix(/residents): import graphql from gatsby
-- prune: #79 - remove BioPage; consolidate with ResidentPage.scss
-- data(dummy): add alt field to JSON to fix SingleEvent mapping
-- feat(Resident): update query; display data on resident template page
-- feat(Dropdown): handle case where no shows are listed for today
-- feat(MixPlayOverlay): rework into card-image container; reorganize card styling
-- feat(TagButtons): make component for use outside card
-- feat(Mix) add and render mix_blurb with linkResolver
-- chore(docs): update SingleResident data
-- data(Mix): pull in related_events and display section on page
-- style(SMC): format date and place with resident string
-- style(/residents): truncate resident_name after two lines; adjust .card-content height
-- feat(Curated): pull Residents and Tags into sets for use
-- prune: remove console logs
-- feat(Curated): add docs; pass mixLinks array as MixPlayOverlay prop Source of #128
-- prune: remove lambda folder; hello dummy function updates #79
-- test: add travis base and cypress
-- style(Resident): fix column widths on tablet
-- feat: add htmlSerializer to project
-- feat(TextBlock): componentize RichText; pass htmlSerializer
-- feat(TextBlock): add linkResolver to component
-- feat(embeds): add .embed; fix touch sizing of iframes
-- feat(Inline Image): add figcaption; add key
-- fix(Guide): fix date sorting
-- test(Travis): add Slack notifications
-- set src_utils_playAudioButton.js fix rebase issue
-- active class names for residents and resident to active on toggle
-- feat(events): map event CMS data to SingleEventCard
-- test(travis-deploy): add netlify deploy script
-- test(travis dpl v2): test travis dpl script
-- test(travis dpl v2): modify auth and site travis dpl script
-- disable(RadioBar): useEffect was not reading b/c HMBK disabled their station
-- chore: update docs
-- fix(Travis): change Netlify site and auth token declarations
-- testing(nullDataCheck): write first false tests
-- testing(nullDataCheck): add more tests
-- test(Resident): trying setData checks
-- feat(cron): add a Github workflow cron job to project
-- fix(cron): rewrite with correct syntax
-- cron: update deploy times
-- fix(cron): try two cron commands
-- style(Resident): make Resident topic selectors sticky
-- chore(PropTypes): update PropTypes; add docs
-- feat(mappableDataCheck): write and test function to prevent unmappable data from being passed to LayoutComponents
-- fix(mappableDataCheck): change rejection return to 0 for falsiness; add final filteredArr length check
-- fix(ResidentSocialLinks): add Facebook case
-- fix(ResidentSocialLinks): reactivate link icons in bio
-- feat(Resident): use mappableDataCheck to only display columns with content
-- test(travis): test defining env variables
-- test(Travis): different Netlify env declarations
-- test(travis): define env variables; add <this syntax> to deploy
-- fix(travis): place env variables on same line; add <this syntax> to deploy
-- test(mappableDataCheck): add falsy values check; subarray check; add dynamic filtering test
-- prune: remove unused PlayAudioButton
-- temp: disable ResidentSocialLinks component
-- style(SingleMixCard): unify card heights on mobile
-- test(mappableDataCheck): expand function to account for multi-key objects
-- fix(ResidentBio): prevent ResidentSocialLinks breaking from incomplete media entry add mappableDataCheck; add social_media reassignment and hasMedia useState
-- feat(Resident): make mobile content selector sticky
-- style(SingleEventCard): Nanoclamp the date/location
-- feat(/mixes): begin Collections migration
-- feat(Collections): make base page for Collections
-- feat(/residents): change query sort to remove sort after status filtering
-- feat(Event): add base Event template; temp at /events/event-test
-- feat(Event): update queries for /events and Envent template
-- fix(dayjs): remove async from clock functions
-- feat(Event): pass data from template for EventCountdown
-- feat(GCP): add SET_CLOCK_TIME dispatch
-- fix(SingleMixCard): format date on title-less mixes
-- style(ArticleHeadline): simplify header class name
-- fix(Event): rename eventData deconstructions
-- feat(EventCountdown): set up base on scroll useEffect for once event-timer becomes sticky
-- feat(Event): add shrink effect to .event-timer on sticky
-- prune: remove netlify-cms admin folder updates #79
-- config(dotenv): test setup for .env files; add mapbox token
-- feat(Event): get mapbox working in some form; might just make it a button a google map link
-- refactor: remove EventMap; implement simpler link to gmap
-- feat(Countdown): add base countdown to Event
-- feat(Event): get countdown timer components displaying correctly
-- feat(EventCountdown): refactor into subcomponent add event date-time to EventHeader add base touch font sizings change formatDateTime case names
-- style(EventHeader): move CTA button to title bar
-- refactor(Event): rename Event component classes .event-header -> .event-image .event-timer -> .event-header
-- fix(Event): convert event times from UTC to EST before using through page
-- feat(EventHeader): pass in headerButtonText and headerButtonLink
-- added playlist cases to reducer and onEnded() to player
-- add playlost to PLAYLIST_PLAY_FIRST
-- modified CHANGE_URL to set playlist empty and loop false
-- removed unused PLAYLIST_END reducer case
-- fix(Event): adjust query, deconstructed variables and calls
-- format(Husky/Prettier): add Husky to run prettier pre-commit
-- prune: remove preinstall, dependent gatsby-source-prismic-graphql, and packages
-- travis: change node to v14; npm to 6.14.8
-- travis: remove npm declaration; gatsby and npm i before_install
-- travis: add os, dist, matrix; wrap deploy site and auth in quotes; secure slack token
-- travis: reformat tokens Slack notification token; netlify deploy credentials
-- travis: add missing before_deploy 'gatsby build' command
-- style(/residents): exchange is-hidden-markers for desktop/tablet and mobile selection buttons
-- style(Event): add base font-sizing; update travis deploy yml
-- travis: add prod-true; change build command
-- test(uidValidator): begin writing tests and function for use on /hmbk-admin
-- test(uidValidator): add cases catching dev entries, ignorable entries; restructure test cases
-- test(uidValidator): add bad_structure and auto-created mix cases; add reasons to returns
-- test(uidValidator): add reasons to validator; break into separate functions
-- refactor(uidValidator): restructure tests; function
-- refactor(hmbk-admin): break into component; adjust styles
-- prune: StickyBioBlurb, /bio index, gatsby-browser backup, old /mixes update #79
-- refactor(FontAwesome): add library to g-browser, g-ssr remove explicit imports
-- fix: add gatsby-plugin-fontawesome-css to stop icon size jumps at load
-- backup: add Prismic CMS Custom Type JSON files
-- style(/index): change HomeContent headline and blurb display
-- test: make run commands verbose for CI debuggin clarity
-- husky: resolve git pre-commit issue
-- feat(cmsNodeValidator): get invalid mix case working needs mappableDataCheck inputs
-- test(mappableDataFilter): update to accept nodeValidation Boolean when set to true, it returns the total number of bad entries will pass that number to cmsNodeValidator
-- test(nodeValidator): write and pass tests connecting mappableDataFilter returning number to include in nodeValidator error message
-- feat(/index): map and fix heights of HomeEvents
-- docs: HomeEvents details
-- style(navbar): add "Music" dropup; add /mixes; /collections links
-- refactor: add FontAwesome library to project root
-- refactor: add `tags` to /hmbk-admin query prevents eventIssues break
-- /collections: map base collections and data
-- feat(/collections): create Set to capture unique residents
-- test(/collections): rename playlistProcessor; write, pass tests
-- feat(/collection): extract playlist mapping to util function
-- feat(/mixes): implement onClick fetching from prismic
-- feat(/mixes): add button to fetch more mixes and go back to top
-- fix(/events): fix event location links boolean check
-- feat(/events): add map embeds to event pages
-- test: remove .only from collectionPlaylist func
-- prune: unused cypress files; fresh node_modules install
-- data(/mixes): change initial load to 12 mixes for even rows of content
-- test(/collections): write makeCollectionDispatch function; write/pass tests
-- feat(Feature): make article authors optional through short-circuit
-- refactor(Event): change EventMap width and nesting
-- test: reactivate all tests
-- feat(/collections): write playlistShuffle function; add to tests
-- test(/collections): add url and resident fields to makeCollectionDispatch; test
-- merge: reactivate all tests
-- /collections: begin connecting SingleCollection to MixPlayOverlay
-- feat(/collections): pass makeCollectionDispatch data to MixPlayOverlay; get first track playing
-- feat(/admin): make colored Issue message wrapper
-- github: test add create-issue-branch workflow
-- github: change CIB mode to chatops
-- test: refactor cmsNodeValidator function into chunks; begin mixes
-- test: update mix_image, add mix_date validations
-- test: update featured_resident case; clarify mappableDataFilter docs
-- test: complete mix entry cmsNodeValidator test suite
-- test: fix addErrorToNotices edge case
-- test: update resident entry tests and validator error messages
-- test: update resident entry tests and validator error messages
-- test: refactor and expand mappableDataFilter
-- test: add base UIDValidator error msgs; update first test with error msg
-- test: add console.logs /hmbk-admin; cmsNodeValidator
-- admin: refactor initial prismicContent processing into a useEffect; display pre blocks in admin body
-- fix(build): address breaking build by adding nullish value for mix_date
-- fix(#130): write closeDropUp function; add to BottomNav OutsideClick wrapper
-- admin: edit validator errors; add nodeName case for Resident, Mix
-- admin: begin mapping admin using new cmsNodeValidator notices object
-- ScheduleBar checks live stream status every 60 sec
-- refactored useEffects to not use promise chaining
-- Mix, /mixes: add filteredResidents condition check what filteredResidents is returning on both template and page work out SingleCollection
-- /admin: setup first maps of cmsNodeValidation
-- style(BottomNav): Change Bottom Nav 'Mixes' to 'Radio'
-- hotfix: disable admin query loading; collection rendering
-- fix(Blockquote): make attributions optional via short-circuit
-- fix(BottomNav): change toggleDropUp to closeDropUp
-- feat(/events): add load more button
-- feat(/Resident): sort Resident mixes from most recent date to least
-- test(displayCollection): add destructure of mix_resident
-- feat(/collections): restore SingleCollection display data
-- /features: add base tile layout; prep for LandingPage query
-- /features: destructure featuresHeaderData; create FeaturesArticleTile component
-- refactor(Features): separate HeadlineBlock slice for ease of landing page use
-- /features: new nested Hero layout in progress
-- layout(/features): add base desktop layouts
-- layout(/feature): add links, borders, titling for desktop
-- layout(/features): set up highlight features for overlay
-- style(/features): make highlight features overlays
-- fix(Blockquote): add bgIMG === null return condition; begin Feature HeadlineBlock remap
-- style(ArticleHeadline): begin refactor to fix height issue
-- refactor(ArticleHeadline): rework headline layout so background image fits
-- layout(Feature): add headlinePhotoDetails prune: remove HeadlineBlock slice file (#79)
-- refactor(/features): move new .hero to HMBKSettings; prune old solution CSS; comment HeadlineBlock CSS
-- WIP layout for HighlightFeature
-- prune (#79): remove unused HomeSingleEvent; update browserlist
-- prune (#79): rename HomeSingleNews to SingleFeatureCard rename HomeNews to HomeFeatures remove HomeContent component make highlight features stack (need to make horizontal on desktop)
-- layout(/features): map SingleFeatureCard; needs height adjust; Resident addition
-- debugged featureData in SingleFeatureCard calls
-- refactor(/features): make HighlightFeatures component prune (#79): StickyFeature, FeatureArticleTile,
-- feat(/feature): add left/right feature fallbacks make LeadFeatureHero, LeadFeatureDetails add default props to /features components prune (#79): MainFeatureArticle-> LeadFeatureDetails LandingPageElement /features commented returns HighlightFeature, StickyFeature css
-- layout(/features): begin testing FallbackImage component
-- feat(FallbackImage): add image component fallback to SingleResident; ResidentBio
-- refactor(slideGenerator): adapt new Feature hero styling fixes
-- feat(/features): set HighlightFeatures render conditions
-- style(/features): add highlight-features gradient; adjust section font sizing
-- feat(TopicPageHero): create TopicPageHero and TopicHeroPageDetails components to begin making landing pages generic
-- feat(TopicPageHighlightSection): make component that feeds in layout component to highlight section a la SliceZone
-- feat(SingleMixCard): add default img string and FallbackImage component
-- feat(/mixes): begin useEffect refactor for /mixes TopicHero
-- feat(/mixes): add lead_radio_mix null base case to useEffect
-- feat(/mixes): finish useEffect processing /mixes hero and highlight section data
-- refactor(/features): finish processFeaturesHeaderData useEffect
-- try/catch for stream status check
-- update radio.co stream url
-- updated other stream status URLs
-- fix(SingleFeatureCard): add short-circuits for null cases add FallbackImage
-- backup(Prismic): update mix, feature, staff custom types
-- refactor(Hero): adapt new Feature hero to front page
-- docs(all): remove all @subcategory tags; re-gen docs
-- Merge remote-tracking branch 'origin/master' into style/featurePageLayout
-- feat(Hero): add SVG HeroArrows component
-- feat(Hero): update IndexPageQuery to include document _meta; add link processing
-- backup(Prismic): update homepage custom type
-- feat(Hero): add HeroArrows component using SVGR remove pointerEvents: none from SlideGenerator
-- fix(getResidentString): refactor getResidentString change forEach for for loop to allow for continue statements where mix_resident is null refactor default mixResidentsString in SingleMixCard
-- feat(HomeMixes): add Sound Selects section to index update index query write useEffect to call recent mixes if sound selects total < 12
-- feat(HomeFeatures): add Editorials section to Prismic update IndexPageQuery
-- layout(/mixes): remove mixes Header and featured sections
-- feat(/residents): refactor resident type separation into useEffect; update query to allow base data fetch of each type
-- refactor(uidValidator): extracted helper functions and calls to their own files; validators folder created within /utils
-- fix(EventMapEmbed): update .env with GATSBY_ prefix; update component
-- docs: add whitespace after '|' in @see tags to fix broken external links; re-gen docs
-- feat(/queries): collect all load-time Apollo GQL queries in directory
-- gitignore: added docs folder to avoid future OS file name conflicts
-- docs: fix whitespace after `@see {@link}` external links
-- feat(queries): extract getDefaultMix query remove totalCount from resident index queries
-- docs(EventMapEmbed): add jsdoc
-- refactor(RadioBar): extract query
-- feat(/residents): attach queries to buttons process fetched data
+# [1.23.0](https://github.com/SLB-Pizza/radio-pizza/compare/v1.22.0...v1.23.0) (2021-06-28)
 
-### Version 1.1.3
-- Create Blog “2019-12-12-test-title”
 
-### Version 4.2.2
+### Bug Fixes
 
-### Version 1.1.3
-- added linter/prettier
-- overwrite broken branch
+* **/editorial:** change number loaded from 6 to 12 ([66b6f20](https://github.com/SLB-Pizza/radio-pizza/commit/66b6f20a24ba9537a18dd5bbcbe95d525a6fcbae))
 
-### Version 4.2.2
-- using new gatsby starter
-- initial commit
+
+
+# [1.22.0](https://github.com/SLB-Pizza/radio-pizza/compare/v1.21.0...v1.22.0) (2021-06-26)
+
+
+### Features
+
+* **/editorial:** add case to create highlights from allFeatures ([5d35168](https://github.com/SLB-Pizza/radio-pizza/commit/5d35168d597c59a533c7ee5c54e8a2e5f7b22e95))
+* **/editorial:** adjust editorial fetch based on filter presence ([5ee5c7d](https://github.com/SLB-Pizza/radio-pizza/commit/5ee5c7d7b75ce91ca7bd1933f50d697321774774))
+
+
+### Reverts
+
+* Revert "refactor(utils): remove getUIDsFromDataArray" ([89f9198](https://github.com/SLB-Pizza/radio-pizza/commit/89f9198bfff1094801401ebfe64f56e85fb62953))
+
+
+
+# [1.21.0](https://github.com/SLB-Pizza/radio-pizza/compare/v1.20.0...v1.21.0) (2021-06-17)
+
+
+### Bug Fixes
+
+* **/schedule:** change static 'EST' to derived user timezone ([099825c](https://github.com/SLB-Pizza/radio-pizza/commit/099825cf5b6222e813b81cabda6a9109e6669543))
+* **fetchStreamStatus:** remove explicit GET and CORS ([7ade07c](https://github.com/SLB-Pizza/radio-pizza/commit/7ade07c22669ab563b8115d0bca6acae7cd3b753))
+* **helmetTitling:** add case where both liveShow title and guests exist ([d9c1c06](https://github.com/SLB-Pizza/radio-pizza/commit/d9c1c0614ac7e321effad5a6ccf19416d0b6701c))
+
+
+### Features
+
+* **siteTitle:** write helper Helmet function to get site title ([ea6664e](https://github.com/SLB-Pizza/radio-pizza/commit/ea6664e7f9e9ffbd16da0aaca61a62910b977a02))
+
+
+
+# [1.20.0](https://github.com/SLB-Pizza/radio-pizza/compare/v1.19.0...v1.20.0) (2021-06-15)
+
+
+### Bug Fixes
+
+* **fetchStreamStatus:** add more and method to fetch ([f97b442](https://github.com/SLB-Pizza/radio-pizza/commit/f97b44267fc4f3e7211b89e5785f6566b98f6696))
+* **GCP:** remove context debug log ([bf0806a](https://github.com/SLB-Pizza/radio-pizza/commit/bf0806a42bff1466ece7adc0d2bf1b89fe7dcd07))
+* **LiveInfo:** address bug where blank liveTitle and liveGuests could be submitted ([c134733](https://github.com/SLB-Pizza/radio-pizza/commit/c1347335872a79df862183b4f97153926274565c))
+* **LiveRadioPlayButton:** extract button to component ([0d5e258](https://github.com/SLB-Pizza/radio-pizza/commit/0d5e25835c4e21af89db2afa4e1b4b278eb362ac))
+* **LiveRadioPlayButton:** fix handlePlayPause ([dd6de81](https://github.com/SLB-Pizza/radio-pizza/commit/dd6de81e4c440d596cc5ecab767b48e0024559d5))
+* **Marquee:** move LiveMarkerAndText to RadioPlayer ([971b41c](https://github.com/SLB-Pizza/radio-pizza/commit/971b41c1bca758dde8abb87d2675756bb3e125c0))
+* **RadioPlayerPlayBtn:** address playingRadio toggle ([3fdfd50](https://github.com/SLB-Pizza/radio-pizza/commit/3fdfd50568f0a2d4016907b1fb5a1bd69e8de697))
+
+
+### Features
+
+* **live-light:** add LiveMarkerAndText to LiveBroadcastInfoDisplay ([33edb6e](https://github.com/SLB-Pizza/radio-pizza/commit/33edb6edaa8e0117e4d1b4ad7b68d8ac93ea2f9e))
+
+
+
+# [1.19.0](https://github.com/SLB-Pizza/radio-pizza/compare/v1.18.1...v1.19.0) (2021-06-11)
+
+
+### Bug Fixes
+
+* **RadioBar:** remove setInitialSource useEffect ([eca3c96](https://github.com/SLB-Pizza/radio-pizza/commit/eca3c9691c9a986bce395cb4c86c51f4137cedc7))
+* **RadioPlayer:** default mix no longer required ([4be653f](https://github.com/SLB-Pizza/radio-pizza/commit/4be653fd94cd052473e9104bb4a07f1df4767bc6))
+
+
+### Features
+
+* **RadioPlayer:** remove mandatory default mix ([560932f](https://github.com/SLB-Pizza/radio-pizza/commit/560932f0b0c3a27becad08cb6b8d8bf9c949de01))
+* **util:** extract defaultMix processing to util func ([d075ba1](https://github.com/SLB-Pizza/radio-pizza/commit/d075ba19cd4c7fb8dd433198464913bf37bc8253))
+
+
+
+## [1.18.1](https://github.com/SLB-Pizza/radio-pizza/compare/v1.18.0...v1.18.1) (2021-05-09)
+
+
+### Features
+
+* **AboutCredits:** add mailto link to my name on /about ([6099663](https://github.com/SLB-Pizza/radio-pizza/commit/6099663a61fdaeb5513f484baee8cf2f5d7740ab))
+
+
+
+# [1.18.0](https://github.com/SLB-Pizza/radio-pizza/compare/v1.17.2...v1.18.0) (2021-05-07)
+
+
+### Bug Fixes
+
+* **full-schedule:** change loading state render to work off `fetchComplete` ([bfa9646](https://github.com/SLB-Pizza/radio-pizza/commit/bfa96464f1d7f05983d5f3056f778ed8261aa9d6))
+* **HomeMixes:** correct setState function name ([67d8900](https://github.com/SLB-Pizza/radio-pizza/commit/67d8900179e52afe20d5d3c584fb55a4856c43a5))
+
+
+### Features
+
+* **AdminHeader:** add link `/guides` home based on `isAdminGuide` ([da2ea30](https://github.com/SLB-Pizza/radio-pizza/commit/da2ea304ab9404e6b7112dff17b5a68fc3cd712f))
+* **BottomNav:** add Facebook icons to desktop and touch layouts ([050fcb9](https://github.com/SLB-Pizza/radio-pizza/commit/050fcb99cecdf8ad7e7301bee50bf041cae969de))
+
+
+
+## [1.17.2](https://github.com/SLB-Pizza/radio-pizza/compare/v1.17.1...v1.17.2) (2021-05-06)
+
+
+
+## [1.17.1](https://github.com/SLB-Pizza/radio-pizza/compare/v1.17.0...v1.17.1) (2021-05-06)
+
+
+
+# [1.17.0](https://github.com/SLB-Pizza/radio-pizza/compare/v1.16.2...v1.17.0) (2021-05-06)
+
+
+### Bug Fixes
+
+* **/editorial:** update query params; editorial highlight processing ([bfab8aa](https://github.com/SLB-Pizza/radio-pizza/commit/bfab8aa396ade636244f4de8b446fc38714aa20c))
+* **Hero:** address case where `slides` is null or has no length ([d726ae9](https://github.com/SLB-Pizza/radio-pizza/commit/d726ae9b3a8b455babb5254ef93b0bf15543b04a))
+* **HomePage:** update Prismic JSON schema ([11575de](https://github.com/SLB-Pizza/radio-pizza/commit/11575de8c8d8775e496f8f742b17e92622140908))
+* **HomePage:** update Prismic JSON schema ([dad6062](https://github.com/SLB-Pizza/radio-pizza/commit/dad606252295e67a3d5231951c60116ac1d890a4))
+* **LPFetchAndLoad:** add missing `scrollToTop` import ([e038585](https://github.com/SLB-Pizza/radio-pizza/commit/e03858574f231012aa5102ff0d4c7e1ae21de22d))
+* **PlayOverlay:** address case where mix has no img ([5607c60](https://github.com/SLB-Pizza/radio-pizza/commit/5607c60fbb4d2357fd1788390fd3add6cc073a96))
+* **SlideGen:** add ResponsiveImage ([776d330](https://github.com/SLB-Pizza/radio-pizza/commit/776d330a8b638c7bfd43090b3b01d13b306b07a9))
+
+
+### Features
+
+* **Helmet:** add Ears to the concrete to each page ([40c7a14](https://github.com/SLB-Pizza/radio-pizza/commit/40c7a1465a188402cfff61f60de00f47e1d99ba6))
+* **Player:** add base mix image toggle logic ([997dde5](https://github.com/SLB-Pizza/radio-pizza/commit/997dde50d4138006fbf8a433e826d389e87896cd))
+* **RadioPlayer:** remove mix image when radio is playing live ([917c5ad](https://github.com/SLB-Pizza/radio-pizza/commit/917c5add0a344437a46b971d4e7bba7cc8fddbfa))
+* **scheduling:** add social media links to fallback components ([6efb729](https://github.com/SLB-Pizza/radio-pizza/commit/6efb7297bc87278661fef2c4f50cc5bda30b4d42))
+
+
+
+## [1.16.2](https://github.com/SLB-Pizza/radio-pizza/compare/v1.16.1...v1.16.2) (2021-05-06)
+
+
+### Bug Fixes
+
+* **/editorial:** address case where there are no selected editorials to filter out ([f8df0fd](https://github.com/SLB-Pizza/radio-pizza/commit/f8df0fd3e7ee4887e38a8c363a88d83132a4df40))
+* **/editorial:** remove bad landing page headers from query ([7c002eb](https://github.com/SLB-Pizza/radio-pizza/commit/7c002ebe10faed6034f4d74506937e3ed9ecab1e))
+* **siteUrl:** update to live halfmoonbk site URL ([1fcdf12](https://github.com/SLB-Pizza/radio-pizza/commit/1fcdf12145fab62bc2de2defce195073f0df5c0d))
+
+
+
+## [1.16.1](https://github.com/SLB-Pizza/radio-pizza/compare/v1.16.0...v1.16.1) (2021-05-06)
+
+
+### Bug Fixes
+
+* **gatsby-config:** remove `gatsby-source-filesystem` ref to `/img` ([06ccf1f](https://github.com/SLB-Pizza/radio-pizza/commit/06ccf1f4d6dfc6b243f6e69f3fc1df4b9121d640))
+* **HomeFeatures:** address case where Homepage selected Editorials is 0/null ([47284fc](https://github.com/SLB-Pizza/radio-pizza/commit/47284fc844699c0441a47773ef2ca019450a00cf))
+* **HomeMixes:** address case where Homepage selected Sound Selects is 0/null ([086abac](https://github.com/SLB-Pizza/radio-pizza/commit/086abac443371e293fb1ba49d7604c127b94bf86))
+* **Landings:** update Radio; Schedule header text ([49321cb](https://github.com/SLB-Pizza/radio-pizza/commit/49321cb926ce72674be8b36ffda8541a9b82a3cf))
+
+
+
+# [1.16.0](https://github.com/SLB-Pizza/radio-pizza/compare/v1.15.0...v1.16.0) (2021-05-05)
+
+
+### Bug Fixes
+
+* **/netlify-status:** remove pointless fetching ternary ([05ac3b8](https://github.com/SLB-Pizza/radio-pizza/commit/05ac3b8a0e24be14eb085964cd8058d39249463a))
+* **GCP:** change react-player volume - .65 > .85 ([4b29c26](https://github.com/SLB-Pizza/radio-pizza/commit/4b29c26cef211fc9d3a258d14d9786793a7da0ce))
+* **ResponsiveImage:** change `data-lowsrc` to `src` per lazysizes spec ([c87d5c3](https://github.com/SLB-Pizza/radio-pizza/commit/c87d5c3ae063ae592b3b35105a5a388d63c2b67d))
+
+
+### Features
+
+* **/mix-help:** add base Mix help page ([4611724](https://github.com/SLB-Pizza/radio-pizza/commit/461172479db4d1d90a34d47deb88c0a59952449f))
+* **Helmet:** add base now playing indo ([ccc7c0b](https://github.com/SLB-Pizza/radio-pizza/commit/ccc7c0b6b79374ea805799cbcb25b86b269e3535))
+* **ResBioImage:** create component for new resident image sizes ([4f87c56](https://github.com/SLB-Pizza/radio-pizza/commit/4f87c569074f11a4c610ccc22f630f65ff8e863a))
+
+
+
+# [1.15.0](https://github.com/SLB-Pizza/radio-pizza/compare/v1.14.1...v1.15.0) (2021-05-03)
+
+
+### Bug Fixes
+
+* **/hmbk-admin:** add null return case where data has not been fetched ([d4eae4c](https://github.com/SLB-Pizza/radio-pizza/commit/d4eae4cfe32fbb8ded60cf0c321462efbec8730f))
+* **AdminSiteStatus:** add 'requires login' note ([1e6a4dc](https://github.com/SLB-Pizza/radio-pizza/commit/1e6a4dc9a3d4f568dd353280ed6ec6e1e935c837))
+* **UpcomingShow:** comment out; to fix post-launch ([7f26bf8](https://github.com/SLB-Pizza/radio-pizza/commit/7f26bf8529cacdb11869de595576556a841052cd))
+
+
+### Features
+
+* **/editorial:** add filtering code to remove duplicate editorials ([faea9c3](https://github.com/SLB-Pizza/radio-pizza/commit/faea9c3ce577ed742495f66e5326cc8040866060))
+* **/guides:** add individualized guide helmet details ([42b67f6](https://github.com/SLB-Pizza/radio-pizza/commit/42b67f66d7613311b655008beca56c45ebc9e841))
+* **404:** add short-circuit; make footer fluid ([fe59d01](https://github.com/SLB-Pizza/radio-pizza/commit/fe59d01d8d86a1bccfbbc9b37835038a6ad0a651))
+* **AdminGuides:** map guide data to categories ([b42da07](https://github.com/SLB-Pizza/radio-pizza/commit/b42da07e42bad1106c45ff33eee60fe0bf35a853))
+* **AdminLink:** add subtitle to describe link ([1df746d](https://github.com/SLB-Pizza/radio-pizza/commit/1df746d1b4b31628a12d115d7b958d582e0d67db))
+* **CMSLink:** create component link button to go to CMS ([37684cd](https://github.com/SLB-Pizza/radio-pizza/commit/37684cda701c325f8c412b34452232f5b3416901))
+* **HMBKItem:** add Feature to query; update slice ([a981565](https://github.com/SLB-Pizza/radio-pizza/commit/a981565aadb0ca3012488b4b5ba467980dc5cea4))
+* **home-fetch:** add uid and filter base functions ([14b6fe7](https://github.com/SLB-Pizza/radio-pizza/commit/14b6fe7b0194c8d98a3d649d0cda8476f7da9f82))
+* **HomeFeatures:** add removeDuplicateFetchData ([d249dbd](https://github.com/SLB-Pizza/radio-pizza/commit/d249dbd8a2507cde091b11873b286cd254d3563d))
+* **new-full:** fetch all schedule data on page load; port for /full-schedule ([ecb05c6](https://github.com/SLB-Pizza/radio-pizza/commit/ecb05c6d895409df43d539415a49a455d93431ec))
+
+
+
+## [1.14.1](https://github.com/SLB-Pizza/radio-pizza/compare/v1.14.0...v1.14.1) (2021-04-26)
+
+
+### Reverts
+
+* **GCP:** fix CHANGE_URL playing; false -> true ([bbbba64](https://github.com/SLB-Pizza/radio-pizza/commit/bbbba641d6c24104245a9bcd3cd7a37d84c4a249))
+
+
+
+# [1.14.0](https://github.com/SLB-Pizza/radio-pizza/compare/v1.13.0...v1.14.0) (2021-04-26)
+
+
+### Bug Fixes
+
+* **/live-stream-info:** remove extra LiveInfoPreview ([b747307](https://github.com/SLB-Pizza/radio-pizza/commit/b7473075d75304d431f5a756c64c2a965f0ddab9))
+* **HomeFeatures:** change HomeFeatures layout to let other editorials peek through ([84bd59d](https://github.com/SLB-Pizza/radio-pizza/commit/84bd59d8da3bc7ce08ecc237e8e55d9810af5030))
+* **SingleMixCard:** change navigate - /mixes > /radio ([40057d5](https://github.com/SLB-Pizza/radio-pizza/commit/40057d56985f452b897e6e9ace3eda4f6e51d7ca))
+* **TagButtons:** change navigate to /radio from /mixes ([58302a2](https://github.com/SLB-Pizza/radio-pizza/commit/58302a2df9ec02023284f819098937bd013a4db8))
+
+
+### Features
+
+* **/editorial:** add Helmet; update /radio, Feature, Resident ([6643530](https://github.com/SLB-Pizza/radio-pizza/commit/664353027a65b92ec934967fde151f62cae8dc5a))
+* **/full-schedule:** query CMS for all shows after today ([4bd34ef](https://github.com/SLB-Pizza/radio-pizza/commit/4bd34efaa3df87f2e2142ba4ef5a3e27be43ba86))
+* **/full-schedule:** update query for recursive call ([9e7ed63](https://github.com/SLB-Pizza/radio-pizza/commit/9e7ed63d3f06b13bc36789be14b113190a45002a))
+* **/hmbk-admin:** add NetlifyStatus, AdminHeader, SingleAdminLink ([65485be](https://github.com/SLB-Pizza/radio-pizza/commit/65485be31bdaa6ae15a8389e45a570b567c0ef1e))
+* **/live-stream-info:** update form and preview layout ([85635ec](https://github.com/SLB-Pizza/radio-pizza/commit/85635ec5d4673773d79e5d2f3d1b19f5da331ff1))
+* **/live-stream:** style Reset to Default section ([26fbf25](https://github.com/SLB-Pizza/radio-pizza/commit/26fbf2529951a04ccad655901eb2c741581ab564))
+* **/netlify-status:** change update frequency 30s > 15s ([cbf6e1b](https://github.com/SLB-Pizza/radio-pizza/commit/cbf6e1b5e3aa98861cae23d3069009d2770e354f))
+* **404:** add desktop and mobile to StickyItemsLayout ([1bc586c](https://github.com/SLB-Pizza/radio-pizza/commit/1bc586c4968db26949fd345598a5ad7ecbd4df06))
+* **admin:** add Netlify status monitor ([b475943](https://github.com/SLB-Pizza/radio-pizza/commit/b4759434f52581c039b4445a6658b243b9238c97))
+* **full-schedule:** process incoming schedule data ([42f8471](https://github.com/SLB-Pizza/radio-pizza/commit/42f8471b341fc52afa88a220496d92c6e191e27a))
+
+
+
+# [1.13.0](https://github.com/SLB-Pizza/radio-pizza/compare/v1.12.0...v1.13.0) (2021-04-16)
+
+
+### Bug Fixes
+
+* **/about:** adjust logo sizing and titling columns ([7413020](https://github.com/SLB-Pizza/radio-pizza/commit/74130200a5cf798cc26d50f2af16b11b40e8ba55))
+* **/about:** remove TextColumns slice ([205e61c](https://github.com/SLB-Pizza/radio-pizza/commit/205e61cb1397235e20d9d12b789ac0ae02bbba47))
+* **Dropdown:** change sortUpcomingShowArray return to re-enable toggling ([10869f5](https://github.com/SLB-Pizza/radio-pizza/commit/10869f5739db47d3fb4bb1100d45a65ca739ff2e))
+* **Dropdown:** give Dropdown button transparent background ([ec11a46](https://github.com/SLB-Pizza/radio-pizza/commit/ec11a465ccca2982ebda91a5585d8ba6d59c27e1))
+* **ImageRow:** add `image_row`type to slice object ([3c20bd9](https://github.com/SLB-Pizza/radio-pizza/commit/3c20bd91a4637bcd7c318efc80746eb96a129021))
+* **LiveBroadcastInfo:** add missing React import ([c640cd5](https://github.com/SLB-Pizza/radio-pizza/commit/c640cd57bdc0342dc27d8c4f76e3e1fa57f2e0fa))
+* **Text:** remove exclamation marks from tune in and more residents ([650de69](https://github.com/SLB-Pizza/radio-pizza/commit/650de69327580486c7c21c07ca0cd5c7370ce07c))
+
+
+### Features
+
+* **About:** add Hero & Titling; slice zone, credits, footer ([1cfa689](https://github.com/SLB-Pizza/radio-pizza/commit/1cfa689a5fff01e16d94eaec773e4efe8562cf9b))
+* **Duration:** integrate RecordedMixInfoDisplay and InfoDisplayTimerElement ([de03b82](https://github.com/SLB-Pizza/radio-pizza/commit/de03b829e149ddfbce4a39b1f76125bd24391b3f))
+* **Helmet:** add first wave of Helmet details ([104dd3f](https://github.com/SLB-Pizza/radio-pizza/commit/104dd3f7d32534c5cd8dae821438e1edf157bd6d))
+* **Helmet:** add prelim favicon details to Layout ([8f9fcbb](https://github.com/SLB-Pizza/radio-pizza/commit/8f9fcbba628658de4ec561e49cce92ab2f0635c6))
+* **HMBKFooter:** extract into own component ([3431a3e](https://github.com/SLB-Pizza/radio-pizza/commit/3431a3e586c7c49ec35f1e2745f9835126beb4a3))
+* **RadioPlayer:** extract local dispatch functions ([900e6e7](https://github.com/SLB-Pizza/radio-pizza/commit/900e6e7337e361d648ba7844c033fb7fc36a736d))
+
+
+
+# [1.12.0](https://github.com/SLB-Pizza/radio-pizza/compare/1.10.0...v1.12.0) (2021-04-09)
+
+
+### Bug Fixes
+
+* **ContainedImageHero:** add align-items flex detail ([eca97ac](https://github.com/SLB-Pizza/radio-pizza/commit/eca97acb9763e9875dc9cb68508e4602b02df19a))
+* **event-template:** rename import, props passed ([590ff62](https://github.com/SLB-Pizza/radio-pizza/commit/590ff629c13619b6ef750f7afeb0d096623730d1))
+* **Event:** componentize EventHeaderButton ([d0dbc91](https://github.com/SLB-Pizza/radio-pizza/commit/d0dbc91fea3d555339aec65bc3914053c638c7a0))
+* **EventHeader:** remove rogue text breaking render ([1a11d39](https://github.com/SLB-Pizza/radio-pizza/commit/1a11d3929d681437823fd90ea62f839ecd99d7be))
+* **EventImage:** add z-index to .overlay-image ([ec19bad](https://github.com/SLB-Pizza/radio-pizza/commit/ec19bad44e861922b7c5fb4085e9690062b7251c))
+* **EventTemplateImage:** fix non-filling blurred-bg ([bf6012e](https://github.com/SLB-Pizza/radio-pizza/commit/bf6012e2afe56bb9448d30dcd1c8aa8ff6a912da))
+* **HeroArrows:** use separate SVG arrows per direction ([5a3aacb](https://github.com/SLB-Pizza/radio-pizza/commit/5a3aacb3b473db1c3fac4613dca346f584711b21))
+* **Hero:** make hero-background 100% width ([7cd0bd1](https://github.com/SLB-Pizza/radio-pizza/commit/7cd0bd1abf182a1ec799b142b90dc19a861dc076))
+* **ResidentLinks:** add missing return statement for returnAsSpan ([09be5a4](https://github.com/SLB-Pizza/radio-pizza/commit/09be5a4c36cb5c771601556fc4ac924e4a7c2c0e))
+* **tablet:** change tablet breakpoint to 769px ([2ff28b2](https://github.com/SLB-Pizza/radio-pizza/commit/2ff28b23f92a58388ae7a218910eb27b2a5140ea))
+* **UpcomingShow:** add showData null check to processUpcomingShow ([f4c3498](https://github.com/SLB-Pizza/radio-pizza/commit/f4c3498b54ccdd08e798de175496195b63d4ad37))
+* **UpcomingShow:** remove conditional render ([aab5327](https://github.com/SLB-Pizza/radio-pizza/commit/aab5327997b15793e706300a2d20be7c63b87636))
+
+
+### Features
+
+* **/about:** add base query to /about ([5437908](https://github.com/SLB-Pizza/radio-pizza/commit/543790892f7e9d951668aec1de16a88bb2e51596))
+* **/about:** add prismic connection to /about page ([76c90e9](https://github.com/SLB-Pizza/radio-pizza/commit/76c90e96eefaec9f6f4c28569817951a4bcb6052)), closes [#138](https://github.com/SLB-Pizza/radio-pizza/issues/138)
+* **/samples:** make event-template route ([755ae83](https://github.com/SLB-Pizza/radio-pizza/commit/755ae830e231672943729f9a91720c142d9dd88d))
+* **/schedule:** sort schedule_entries in updateThisWeeksSchedule ([324ca7c](https://github.com/SLB-Pizza/radio-pizza/commit/324ca7ce77da8ac6e66904a27f5bc0d8da55e6d3))
+* **Event:** fix EventHeader layout issues ([db955fe](https://github.com/SLB-Pizza/radio-pizza/commit/db955feb87218104bd35f5dd39db241faedcd6be))
+* **EventImageHeader:** componentize header ([9105dad](https://github.com/SLB-Pizza/radio-pizza/commit/9105dadef21d19e1a6aa0d42b1a8f7420f48175a))
+* **Event:** map event_mixes to template ([543a203](https://github.com/SLB-Pizza/radio-pizza/commit/543a20358cd0738f01091359b3ccaee9efa35e51))
+* **FWI:** change 'fullpage' case to render ContainedImageHero ([5c6face](https://github.com/SLB-Pizza/radio-pizza/commit/5c6face29470d31d8e35d1a5c3bcfc88b07b4411))
+* **Helmet:** add favicon data to `static/img` ([278a6ff](https://github.com/SLB-Pizza/radio-pizza/commit/278a6ff8307a350ea5bdc8c448d07c0edfb04d5c))
+* **LiveBroadcast:** add marquee useEffect functions ([7c245c4](https://github.com/SLB-Pizza/radio-pizza/commit/7c245c4d89c934fd9710c4745443363be99e5292))
+* **Marquee:** add marquee useEffects to UpcomingShowWithResidents ([f8697d4](https://github.com/SLB-Pizza/radio-pizza/commit/f8697d490c0542e7fe7926775650f91be2f394bb))
+* **Marquee:** add pause on :hover, :focus ([89b9cee](https://github.com/SLB-Pizza/radio-pizza/commit/89b9cee19c4c1262039185f11dd9a6aef5aadd3f))
+* **Marquee:** add useEffects to activate marquee className and animation ([442cd51](https://github.com/SLB-Pizza/radio-pizza/commit/442cd5195aa3551bc48c67747558f96a28c34c79))
+* **Samples:** make event-template sample page ([d283705](https://github.com/SLB-Pizza/radio-pizza/commit/d283705aafda8239aaf40fd9a1493b16aa36b774))
+* **sortEntries:** add util func to sort ScheduleBar, UpcomingShow `schedule_entries` ([825a23d](https://github.com/SLB-Pizza/radio-pizza/commit/825a23dae2975b1a869b3c74c8a5bab9c4620680))
+* **USWR:** add featured_resident filtering ([f87cffb](https://github.com/SLB-Pizza/radio-pizza/commit/f87cffbaa41c50873de92e5f44c4fd09cfb0f5ef))
+
+
+
+# [1.10.0](https://github.com/SLB-Pizza/radio-pizza/compare/1.9.0...1.10.0) (2021-03-31)
+
+
+### Bug Fixes
+
+* **OIAT:** change left to "left" in label fallback ([dac1e7a](https://github.com/SLB-Pizza/radio-pizza/commit/dac1e7a958953d2797b0ce95d7d47d68cb32c69e))
+* **query:** update query to reflect Feature migration ([aaa7261](https://github.com/SLB-Pizza/radio-pizza/commit/aaa726104bf80d7492777a941b11a2612bbf34eb))
+* **UpcomingShow:** adjust styling for untitled single res Mix ([67be1fc](https://github.com/SLB-Pizza/radio-pizza/commit/67be1fcbeb57e6de4d572d9549cc32ae986ac223))
+
+
+### Features
+
+* **Dropdown:** add case to useEffect handling 0 length showData array ([86e9c61](https://github.com/SLB-Pizza/radio-pizza/commit/86e9c61536365f6a7a607e86b2508804ad81f440))
+* **ScheduleBar:** render showData in ScheduleDropdown ([71aeded](https://github.com/SLB-Pizza/radio-pizza/commit/71aeded61105d00e14a98df33a7246576f14efc3))
+* **SingleDateScheduleEntries:** make start_time and end_time required ([7c58896](https://github.com/SLB-Pizza/radio-pizza/commit/7c58896c181810d828f7ce4679f3dc0a739f9aec))
+* **UpcomingShow:** add missed files from last commit ([1c39c5b](https://github.com/SLB-Pizza/radio-pizza/commit/1c39c5b5b8e2fe0b91fe78a2304ecd6a023f104b))
+* **UpcomingShow:** componentize all upcoming show possibilities ([86bb1de](https://github.com/SLB-Pizza/radio-pizza/commit/86bb1def97722a00dfb743f042c8b6881e58c933))
+* **UpcomingShow:** fix scheduled_show render with residents ([097c873](https://github.com/SLB-Pizza/radio-pizza/commit/097c873cb5d35ea8fbd6ba7c8ab2357d47166799))
+
+
+
+# [1.9.0](https://github.com/SLB-Pizza/radio-pizza/compare/1.8.0...1.9.0) (2021-03-29)
+
+
+### Features
+
+* **/schedule:** create isCurrentShowLive util; add OnAirScheduleTag ([1bb8f36](https://github.com/SLB-Pizza/radio-pizza/commit/1bb8f3641d3a5469a98020ee79f357dcbb37fb5c))
+* **/schedule:** refactor SingleScheduleEntryRow into subcomponents ([d198bd3](https://github.com/SLB-Pizza/radio-pizza/commit/d198bd3486e7de5affbb5fbf75becc8c29c9e22e))
+* **Interview:** add Interview slice to Feature ([f0f5fc7](https://github.com/SLB-Pizza/radio-pizza/commit/f0f5fc79fb979347c8c9af479c41b1d92bf28b12))
+
+
+
+# [1.8.0](https://github.com/SLB-Pizza/radio-pizza/compare/1.7.0...1.8.0) (2021-03-23)
+
+
+### Bug Fixes
+
+* **ImageEmbed:** remove links on image embeds ([039ed21](https://github.com/SLB-Pizza/radio-pizza/commit/039ed21749c6a113995246d8dcf9179e31fdd987)), closes [#136](https://github.com/SLB-Pizza/radio-pizza/issues/136)
+* **TextColumns:** remove rogue return text in render ([fed7362](https://github.com/SLB-Pizza/radio-pizza/commit/fed7362d6ff1a3f74a22cb81abdb663d5824f266))
+
+
+### Features
+
+* **Divider:** add HMBK divider to Guide, Feature templates ([92a066c](https://github.com/SLB-Pizza/radio-pizza/commit/92a066cd277cfe7a91caab67586072c31c46f06b)), closes [#142](https://github.com/SLB-Pizza/radio-pizza/issues/142)
+* **EmbedImage:** fix image embed, add modal ([749f525](https://github.com/SLB-Pizza/radio-pizza/commit/749f52524dd060b38f64dd2a165727d999d594bf))
+* **FWI:** add quarterpage; remove RichText ([5523460](https://github.com/SLB-Pizza/radio-pizza/commit/5523460e7f81c04ed1cd5f474a511ac1babed41c))
+* **HMBKItem:** add slice that renders media card and text block ([a3acc45](https://github.com/SLB-Pizza/radio-pizza/commit/a3acc45bec24a573aec8cbcd94a3954027f43c62))
+* **Password:** shadow and build working Password page ([ced80bb](https://github.com/SLB-Pizza/radio-pizza/commit/ced80bb2df484b2525fb5f07bb4abad65c05a18a))
+* **TextColumns:** add 5 col cap; styling for only one col ([38db4d9](https://github.com/SLB-Pizza/radio-pizza/commit/38db4d93505e321a8033273d68843ef865df7e6f))
+
+
+
+# [1.7.0](https://github.com/SLB-Pizza/radio-pizza/compare/1.6.0...1.7.0) (2021-03-16)
+
+
+### Bug Fixes
+
+* **IconLinks:** fix props passing link to IconMaker ([1e392e1](https://github.com/SLB-Pizza/radio-pizza/commit/1e392e157687b0719d08943a61e19a8aaf3c4e70))
+* **TextBlock:** remove extra `column` div for RichTextHelper ([a3ff36f](https://github.com/SLB-Pizza/radio-pizza/commit/a3ff36f3bdc7eadd3a4d491d2b5277461931eca1))
+
+
+### Features
+
+* **embed:** add Instagram posts; needs CSP in header? ([0936f8c](https://github.com/SLB-Pizza/radio-pizza/commit/0936f8c4771f8545227bcdd14bec0b196984b1f7))
+* **embeds:** add `target="_blank"` to Bandcamp ([b747142](https://github.com/SLB-Pizza/radio-pizza/commit/b747142387373d3eff228c0305a8d9c2337bc3e1))
+* **embeds:** handle iframe embeds in TextBlock ([b1e92dd](https://github.com/SLB-Pizza/radio-pizza/commit/b1e92dd297395eb367b564c8ee353bdaf01ff4ca))
+* **embeds:** handle many TextBlock embeds ([81d7329](https://github.com/SLB-Pizza/radio-pizza/commit/81d7329e0e931eca248363fe41df2a569d0c09b4))
+* **FWI:** add hero FullWidthImage slize styling ([b4aa589](https://github.com/SLB-Pizza/radio-pizza/commit/b4aa589b7a5fbb61e2b03838e280f66d2f1f4b1b)), closes [#117](https://github.com/SLB-Pizza/radio-pizza/issues/117) [#116](https://github.com/SLB-Pizza/radio-pizza/issues/116)
+* **TextColumns:** add new slice; styling ([72be8ba](https://github.com/SLB-Pizza/radio-pizza/commit/72be8babedc6937246c0bd962a578b582dc7edad)), closes [#117](https://github.com/SLB-Pizza/radio-pizza/issues/117)
+* **TextColumns:** change slice render condition ([0920192](https://github.com/SLB-Pizza/radio-pizza/commit/0920192e512663158da7d64ed584c9dbcc57c3cd)), closes [#117](https://github.com/SLB-Pizza/radio-pizza/issues/117)
+
+
+
+# [1.6.0](https://github.com/SLB-Pizza/radio-pizza/compare/1.5.0...1.6.0) (2021-03-09)
+
+
+### Bug Fixes
+
+* **ArticleHeadline:** correct hero height ([77d9586](https://github.com/SLB-Pizza/radio-pizza/commit/77d9586b41c2c2f872f7c7bf3009ae0789b0bf63))
+* **formatDateTime:** fix initial parse of Prismic datetime string ([578d806](https://github.com/SLB-Pizza/radio-pizza/commit/578d8062d6fba34317d51ca71d1e4c7d04a27983))
+* **residents:** multiple changes to landing and template ([6166204](https://github.com/SLB-Pizza/radio-pizza/commit/6166204c4f1a86f5486eb7b05fb2743a542ec091))
+* **ResponsiveImage:** update `source` media breaks ([e6c9a67](https://github.com/SLB-Pizza/radio-pizza/commit/e6c9a6769e28a97645e97083b7ac6971c7f80e71))
+
+
+### Features
+
+* **Blockquote:** fix all three layouts ([e7af6aa](https://github.com/SLB-Pizza/radio-pizza/commit/e7af6aa55fbc7e1e4812ef864c8d5880c3fcc4a0)), closes [#117](https://github.com/SLB-Pizza/radio-pizza/issues/117) [#11](https://github.com/SLB-Pizza/radio-pizza/issues/11) [#116](https://github.com/SLB-Pizza/radio-pizza/issues/116)
+* **BottomNav:** add link to /schedule ([204687f](https://github.com/SLB-Pizza/radio-pizza/commit/204687f5d75ce35017d977c0229398d8ae9d3f49))
+* **components:** add missing export to components index ([922465c](https://github.com/SLB-Pizza/radio-pizza/commit/922465c8b552706e756ebab0659a07cce8aa77b8))
+* **EventDTLInfo:** create subcomponent ([c12c5f0](https://github.com/SLB-Pizza/radio-pizza/commit/c12c5f06d824d41ccc2f413b1f4d85b6b0c8d765))
+* **Feature:** update Headline, BylineSubtitle, AuthorDetails ([b7de983](https://github.com/SLB-Pizza/radio-pizza/commit/b7de98351a90b7e63e047cd430c72d4b4110eae1))
+* **Image:** [#117](https://github.com/SLB-Pizza/radio-pizza/issues/117) - `figcaption` short-circuited ([64bb190](https://github.com/SLB-Pizza/radio-pizza/commit/64bb1908f667cd5854fa0581494cdfaca6b2b967))
+* **OIAT:** [#117](https://github.com/SLB-Pizza/radio-pizza/issues/117) - add tall, wide image classNames ([1244afb](https://github.com/SLB-Pizza/radio-pizza/commit/1244afb457ea7bd1b7c93753a75cb6c95f4869bf))
+* **Resident:** update titling in Helmet ([4e5ec44](https://github.com/SLB-Pizza/radio-pizza/commit/4e5ec44ecaa8482594ffde80106b85fa78142091))
+* **slices:** add SectionDivider slice to Guide ([e1ed4e7](https://github.com/SLB-Pizza/radio-pizza/commit/e1ed4e7c929c7ab87f7f6f5d63a82f7880aca440))
+* **TextBlock:** add `section` to styling; update docs ([7ed6881](https://github.com/SLB-Pizza/radio-pizza/commit/7ed6881e542a38e1386a39cf64b336aa7d56ff53))
+* **TextBlock:** create body link styling with `.text-block` ([d353b21](https://github.com/SLB-Pizza/radio-pizza/commit/d353b21cdf00975c7540b50df2adeb7fafbca605))
+* **toggleColumn:** create toggleColumn func ([dd9a5fb](https://github.com/SLB-Pizza/radio-pizza/commit/dd9a5fb747a1bb463af4df4d6378c85631055987))
+
+
+
+# [1.4.0](https://github.com/SLB-Pizza/radio-pizza/compare/v1.3.0...v1.4.0) (2021-03-01)
+
+
+
+# [1.5.0](https://github.com/SLB-Pizza/radio-pizza/compare/v1.4.0...1.5.0) (2021-03-03)
+
+
+### Bug Fixes
+
+* **button.sass:** import fix from 0.9.2 ([85ffa9e](https://github.com/SLB-Pizza/radio-pizza/commit/85ffa9eb223f50482831c94cd2d27dd869a42c04))
+* **dispatch:** fixed data sent from SMC to MixPlayOverlay ([f117fe4](https://github.com/SLB-Pizza/radio-pizza/commit/f117fe4c858c658bec11fe995bde9deb559901f1))
+* **Slider:** 'slider-sizing' 1rem margin-top offset ([41ab6f0](https://github.com/SLB-Pizza/radio-pizza/commit/41ab6f0ee7a940b1a749ee669b9f4c29754b4b98))
+
+
+### Features
+
+* **/features:** add LPFetchAndLoading ([276dab3](https://github.com/SLB-Pizza/radio-pizza/commit/276dab343b89ba448b634a5d10ebad1bfa74c4fe))
+* **DFTM:** create mix tag search sticky report section ([b6d1c89](https://github.com/SLB-Pizza/radio-pizza/commit/b6d1c8982398f65ca3deaa8674cb6448c5976e88))
+* **Hero, Feature:** fix hero-sizing mismatch ([10b324d](https://github.com/SLB-Pizza/radio-pizza/commit/10b324d21e5726dd3812e2e5a6dac724c2c1e27d))
+
+
+
+# [1.4.0](https://github.com/SLB-Pizza/radio-pizza/compare/v1.3.0...v1.4.0) (2021-03-01)
+
+
+### Bug Fixes
+
+* **navbars:** remove search icon and move radio link ([85b7b38](https://github.com/SLB-Pizza/radio-pizza/commit/85b7b38a678b355427cdc0283299a25702e84885))
+* **Resident:** remove leftover <pre> tag ([17687a3](https://github.com/SLB-Pizza/radio-pizza/commit/17687a31af0424534a4a53572dd95ceda9d5f816))
+* **TagQueries:** processFetchedMixes now nulls local receivedTagMixes when all tags deselected ([a54fd8d](https://github.com/SLB-Pizza/radio-pizza/commit/a54fd8d3813adb93b5db6dbbda597a71209359c6))
+
+
+### Features
+
+* **/mixes:** add base DisplayFetchedTagMixes component in return off ternary; issues ([2e9d44e](https://github.com/SLB-Pizza/radio-pizza/commit/2e9d44eef46c55184a1f4bfb0ff2cc07a88bc423))
+* **/mixes:** add base progress bar ([208c37d](https://github.com/SLB-Pizza/radio-pizza/commit/208c37d64be777392edeacb28383bc63adc7fbf4))
+* **/mixes:** fixes endless useEffect fetchTaggedMixes calls ([aa6b45d](https://github.com/SLB-Pizza/radio-pizza/commit/aa6b45d397c1009bcc8f503ebba5493c221301ec))
+* **DFTM:** remove duplicate useLazyQuery; fix 500 error ([4585eb4](https://github.com/SLB-Pizza/radio-pizza/commit/4585eb4ecadcb71889be596f078df1e131f090cd))
+* **FallbackImage:** fix local pathing to HMBK logo ([b978b3a](https://github.com/SLB-Pizza/radio-pizza/commit/b978b3a464f1438ec7876be9adb7a35942a037b0))
+* **GCP:** update SELECT_MIX_SEARCH_TAG action ([1ecc956](https://github.com/SLB-Pizza/radio-pizza/commit/1ecc95681fd8a7af5ec4d7188f72b5584e38cf24))
+* **SFC:** unify heights, fonts of Events and Feature cards ([3b33445](https://github.com/SLB-Pizza/radio-pizza/commit/3b33445e157d1b1cbe07d966227d04831e9fd236))
+* **SMC:** add query, dispatch, and function to TagButtons ([1eb41cf](https://github.com/SLB-Pizza/radio-pizza/commit/1eb41cf83543ef6c2db9f9ab0c10dac6a59d1664))
+* **TaggedMixes:** add selected mixes to component ([f85f107](https://github.com/SLB-Pizza/radio-pizza/commit/f85f107f5143c56b092841c7b3c19810caede3b7))
+* **TagQueries:** add clearMixSearchTags dispatch to RadioBar logo, select BottomNav links ([e448482](https://github.com/SLB-Pizza/radio-pizza/commit/e44848218fdbd3641cf75858f20f4ee663782066))
+* **TagQueries:** fix DFTM mix mapping, fetch more button; add 'remove tag from query' button ([afcbcb8](https://github.com/SLB-Pizza/radio-pizza/commit/afcbcb8bc80197a58d815ea87d8f99ac91c587c0))
+
+
+
+# [1.3.0](https://github.com/SLB-Pizza/radio-pizza/compare/v1.2.1...v1.3.0) (2021-02-24)
+
+
+### Bug Fixes
+
+* add short-circuits to ResidentBio; TagButtons ([402674a](https://github.com/SLB-Pizza/radio-pizza/commit/402674af1f5174f1bff5b33bfb0fd3bbaa15f7ff))
+* **formatDateTime:** address time === null case ([32d45fa](https://github.com/SLB-Pizza/radio-pizza/commit/32d45fa370afbdf8b9d96e97975b6984de3a2e18))
+* **ResidentBio:** short-circuit residentBioData ([cbcfdf0](https://github.com/SLB-Pizza/radio-pizza/commit/cbcfdf05f4ea3d472139f7413bad01df72896aa0))
+
+
+### Features
+
+* **Icon:** add Youtube icon ([e7f5385](https://github.com/SLB-Pizza/radio-pizza/commit/e7f5385455bb08d4ed1cc75858ed45d686861d48))
+* **Resident:** process associated mix, event, and feature data arrays ([456d36d](https://github.com/SLB-Pizza/radio-pizza/commit/456d36d9160b4eef67c85e92bf28bd4bc73bb6dd))
+* **SingleMixCard:** add mix icons that link out ([2bc0b0a](https://github.com/SLB-Pizza/radio-pizza/commit/2bc0b0ab36486944e02f758a1e2481da8088eb7a))
+
+
+
+## [1.2.1](https://github.com/SLB-Pizza/radio-pizza/compare/v1.2.0...v1.2.1) (2021-02-17)
+
+
+### Bug Fixes
+
+* **/residents:** change "Alumni" to "Alumnus" in index & alumni query ([0772a6b](https://github.com/SLB-Pizza/radio-pizza/commit/0772a6bae24f727e0f6ea0f1d5b51f3e08312a2f))
+
+
+
+# [1.2.0](https://github.com/SLB-Pizza/radio-pizza/compare/e78fee92d9f5f0f2ddaf074f238e837b1013525f...v1.2.0) (2021-02-17)
+
+
+### Bug Fixes
+
+* **/events:** fix event location links boolean check ([054d733](https://github.com/SLB-Pizza/radio-pizza/commit/054d733bd979679a90accd36bd5ce52154702116))
+* **/residents:** import graphql from gatsby ([0e1b978](https://github.com/SLB-Pizza/radio-pizza/commit/0e1b978e2d4f5b7baf6c66e1ec2e5860c4f37eea))
+* **#130:** write closeDropUp function; add to BottomNav OutsideClick wrapper ([23f22a5](https://github.com/SLB-Pizza/radio-pizza/commit/23f22a5d87649436619576f9e22f4497b96e64d2)), closes [#130](https://github.com/SLB-Pizza/radio-pizza/issues/130)
+* add 'rel=noopener' to /bio social icon links ([ba2c3ce](https://github.com/SLB-Pizza/radio-pizza/commit/ba2c3ce77bc89847c3d0dbda50a0e0ef5e2fe3d2))
+* add gatsby-plugin-fontawesome-css to stop icon size jumps at load ([3bb2513](https://github.com/SLB-Pizza/radio-pizza/commit/3bb25131b149a572af143969484a613d3b1c8ee0))
+* add StaticQuery import to DailyMixPagePreview and AboutPagePreview ([2d27c36](https://github.com/SLB-Pizza/radio-pizza/commit/2d27c36358ed1a75a0daee40ed6387c0b20059a0))
+* add updated slice definition to /cms-help/sample-feature ([7256d9e](https://github.com/SLB-Pizza/radio-pizza/commit/7256d9e01600d31ab093747178332ae8151f903b))
+* **ApolloProvider:** unwrap root element; only wrap TopNav ([889a8f4](https://github.com/SLB-Pizza/radio-pizza/commit/889a8f4b2197f7532f7631c3441a934eefbcb015))
+* **Apollo:** unwrap ApolloProvider from TopNav ([88cd46e](https://github.com/SLB-Pizza/radio-pizza/commit/88cd46e3ed9829098c0561d8ce9fe17ee77e6074))
+* **Blockquote:** add bgIMG === null return condition; begin Feature HeadlineBlock remap ([7e14327](https://github.com/SLB-Pizza/radio-pizza/commit/7e14327da1ae2fdc78ec2f706a1b53bdd532a7e1))
+* **Blockquote:** make attributions optional via short-circuit ([f4ed26b](https://github.com/SLB-Pizza/radio-pizza/commit/f4ed26b1baeee0ea2ad233a508661dc11538b7c2))
+* **BottomNav:** change toggleDropUp to closeDropUp ([718b331](https://github.com/SLB-Pizza/radio-pizza/commit/718b3315c13a1487b434e60493929f3b86b32495))
+* bring in deployed changes ([cb11bd8](https://github.com/SLB-Pizza/radio-pizza/commit/cb11bd8f2ad395fc3b7a601a802b3a349c554e38))
+* **build:** address breaking build by adding nullish value for mix_date ([38172c4](https://github.com/SLB-Pizza/radio-pizza/commit/38172c45484a9df322bcf15a5988e854b97b4927))
+* change /sticky-bio to /bio and shorter link text ([35ef4ca](https://github.com/SLB-Pizza/radio-pizza/commit/35ef4ca15e89448e48991c9131ca6282fdbdd14a))
+* change /sticky-bio to /bio and shorter link text ([ad8ec6c](https://github.com/SLB-Pizza/radio-pizza/commit/ad8ec6c3a91485448cdad816070f8af7cc08ad6c))
+* change backend branch; fix indentation error ([cb59e2a](https://github.com/SLB-Pizza/radio-pizza/commit/cb59e2af7d64dca9d4243771dab0017e94d15d58))
+* change homepageCarousel -> homepage_carousel; reenable Hero ([e19a003](https://github.com/SLB-Pizza/radio-pizza/commit/e19a003c6b331e7c2f1ca029c36b00313ee26630))
+* change radio bar img base paths; restore original tag sizes ([db69aa8](https://github.com/SLB-Pizza/radio-pizza/commit/db69aa8090ba6f0460b702cae0fb7fc138a4368a))
+* changed key map value in ScheduleShowEntry to use show.hostInfo instead of show.showName ([6346b50](https://github.com/SLB-Pizza/radio-pizza/commit/6346b50ab73a4e2c06b9dbf72ca9ebaf8b9e842f))
+* **cron:** rewrite with correct syntax ([17752b8](https://github.com/SLB-Pizza/radio-pizza/commit/17752b8ba1de320c36e512c6c670569577ed1e50))
+* **cron:** try two cron commands ([48cc25e](https://github.com/SLB-Pizza/radio-pizza/commit/48cc25e26eb989de92dadd11247bd80e056fc3d3))
+* **dayjs:** remove async from clock functions ([989f8ff](https://github.com/SLB-Pizza/radio-pizza/commit/989f8ff9a19a6af99e7a4aa3721f30343fef6f8c))
+* **deploy:** fix duplicated Hero in TopNav ([016978d](https://github.com/SLB-Pizza/radio-pizza/commit/016978d439e772e0d2307e154adc5ce2be5b913e))
+* **Dropdown:** align .up-next & .dropdown ([1e7eede](https://github.com/SLB-Pizza/radio-pizza/commit/1e7eede0ee9f45bc57bb9eb93255d418984571d0))
+* edit broken tablet /bio layout ([a459daa](https://github.com/SLB-Pizza/radio-pizza/commit/a459daa3c7e9aa4ab7d5c88b9179d4ecac4c974d))
+* Edit incomplete about copy; add site credits for us ([edd7716](https://github.com/SLB-Pizza/radio-pizza/commit/edd771604714d574a859c68b9ec1c27f31f22094))
+* **errors:** address Invariant error, gatsby 95313 error ([9a14a4d](https://github.com/SLB-Pizza/radio-pizza/commit/9a14a4d07fa5382d91126af61367e1c5dde68af6))
+* **Event:** adjust query, deconstructed variables and calls ([7284eb0](https://github.com/SLB-Pizza/radio-pizza/commit/7284eb02023ef7f9dd7cbfd131fcd662587ab13f))
+* **Event:** convert event times from UTC to EST before using through page ([bd33b66](https://github.com/SLB-Pizza/radio-pizza/commit/bd33b662942373326bde32070a4866b472a20908))
+* **EventMapEmbed:** update .env with GATSBY_ prefix; update component ([1fb72eb](https://github.com/SLB-Pizza/radio-pizza/commit/1fb72ebc08c1075dcbf1557ab8e517e1a9a2aa47))
+* **Event:** rename eventData deconstructions ([037919f](https://github.com/SLB-Pizza/radio-pizza/commit/037919f3ecb24aad793b743a743893cbeeed6781))
+* **features:** fix props StickyFeature & style ([4eaf9f0](https://github.com/SLB-Pizza/radio-pizza/commit/4eaf9f057dfda4a7cd8c30f053dd9a5a2be98448))
+* **features:** import graphql via gatsby to address deploy warning ([6b2fd1c](https://github.com/SLB-Pizza/radio-pizza/commit/6b2fd1c9d4bdac4fd727abd04ee5c40391ca8cdc))
+* fix broken sampleSlide imports; add base CMSGuide.scss ([2505e15](https://github.com/SLB-Pizza/radio-pizza/commit/2505e156f674aa95038c503046b89b8143ee907b))
+* **font:** change title font to Aldrich; change body to Authentic ([9214299](https://github.com/SLB-Pizza/radio-pizza/commit/92142998a15495818c459d186512f136eba57c05)), closes [#59](https://github.com/SLB-Pizza/radio-pizza/issues/59) [#96](https://github.com/SLB-Pizza/radio-pizza/issues/96)
+* **font:** increase font size of currentlyPlaying ([9f9729b](https://github.com/SLB-Pizza/radio-pizza/commit/9f9729b096091c1ca300c0aa53f6460e4959119f)), closes [#85](https://github.com/SLB-Pizza/radio-pizza/issues/85) [#88](https://github.com/SLB-Pizza/radio-pizza/issues/88)
+* **font:** reduce font sizes of schedule fonts; simplify layout ([be6a9cd](https://github.com/SLB-Pizza/radio-pizza/commit/be6a9cd1ccdc1d39f843caab66f042cb1994874f))
+* **getBlockquoteStyling:** resolve error when bgImg is null ([ce5282d](https://github.com/SLB-Pizza/radio-pizza/commit/ce5282d6ed02a26c0ec8dcafa7aa0a8185942f3c))
+* **getResidentString:** refactor getResidentString ([c0457e6](https://github.com/SLB-Pizza/radio-pizza/commit/c0457e634e4801b18f20cad23e25f2282ed78a22))
+* **Guide:** fix date sorting ([eefe132](https://github.com/SLB-Pizza/radio-pizza/commit/eefe132e4979b22ac41d1cf773ea9354d1ee7ef4))
+* **ImageRow:** change group_image to row_image ([05fd94a](https://github.com/SLB-Pizza/radio-pizza/commit/05fd94a285cd4c90932f6225e2efaa3e4f4c8418))
+* **ImageRow:** revert row_image to group_img ([b263c42](https://github.com/SLB-Pizza/radio-pizza/commit/b263c423ab2774e0febf95b02229c17ae1d10451))
+* **json:** add dummy JSON data to fix /bio ([d9d86f0](https://github.com/SLB-Pizza/radio-pizza/commit/d9d86f0e5f0f99f99586ac5cfd32525b6d656fe4))
+* **layout:** add mixins to mix card content-text & tags ([dc71cb8](https://github.com/SLB-Pizza/radio-pizza/commit/dc71cb8c6877a2eda6e74201780151491d487133)), closes [#97](https://github.com/SLB-Pizza/radio-pizza/issues/97)
+* **layout:** change min-height of resident name box ([e7bfd06](https://github.com/SLB-Pizza/radio-pizza/commit/e7bfd06ed78fd4f630d91b90b0705b9ea791f811)), closes [#105](https://github.com/SLB-Pizza/radio-pizza/issues/105)
+* **layout:** fix home content bottom padding to match top padding ([abd8ac2](https://github.com/SLB-Pizza/radio-pizza/commit/abd8ac2e88bd10d6b90033aa62fb1b71fe666c54)), closes [#103](https://github.com/SLB-Pizza/radio-pizza/issues/103)
+* **layout:** give cards/tags rounded borders ([7bddf51](https://github.com/SLB-Pizza/radio-pizza/commit/7bddf5183aa17cb9d718a480c7b86e6db721b16a)), closes [#90](https://github.com/SLB-Pizza/radio-pizza/issues/90)
+* **layout:** home content id merged down one div ([4a65abe](https://github.com/SLB-Pizza/radio-pizza/commit/4a65abe2d26b3f35de9a6e13187c98027aedd9fe))
+* **layout:** remove chat link from bottom; move to top ([75b8497](https://github.com/SLB-Pizza/radio-pizza/commit/75b84979b7f9cff90c28b80cb7277767e0dec254)), closes [#94](https://github.com/SLB-Pizza/radio-pizza/issues/94)
+* **layout:** remove white inner curve on card hover ([14168a6](https://github.com/SLB-Pizza/radio-pizza/commit/14168a6a026b52a2445de80a0b85c7f4ee6b6911)), closes [#108](https://github.com/SLB-Pizza/radio-pizza/issues/108)
+* **layout:** schedule dropdown closes onClick 'view full schedule' ([be0c329](https://github.com/SLB-Pizza/radio-pizza/commit/be0c32979a7d831c0a1feff247bfaca9461c9fc9)), closes [#104](https://github.com/SLB-Pizza/radio-pizza/issues/104)
+* **layout:** thin card borders and fix rounded thinning ([ca909b5](https://github.com/SLB-Pizza/radio-pizza/commit/ca909b504c7362a1af8e28ad86ec7f433eeced12))
+* **layout:** times removed from tablet layout; mix card font adjusted ([e2c6df9](https://github.com/SLB-Pizza/radio-pizza/commit/e2c6df9e95c57226556582d4895b9bd84a5ac981))
+* make HomeMixes display only first 12 mixes ([deae45c](https://github.com/SLB-Pizza/radio-pizza/commit/deae45c90bfb194245be738e988f1a09eb497177))
+* make SingleMixCard map variables less ambiguous ([ee935ca](https://github.com/SLB-Pizza/radio-pizza/commit/ee935ca0c8a3eab958ebe0aa082f7e5d93e29194))
+* **mappableDataCheck:** change rejection return to 0 for falsiness; add final filteredArr length check ([a730dbf](https://github.com/SLB-Pizza/radio-pizza/commit/a730dbfd07f556724428f78fc25521f0c19b6340))
+* rectify package dependencies errors; add linkResolver base ([ef8a576](https://github.com/SLB-Pizza/radio-pizza/commit/ef8a57623867fc8aac8a2ce590602e2e687da337))
+* remove all .has-text-light classes ([e78fee9](https://github.com/SLB-Pizza/radio-pizza/commit/e78fee92d9f5f0f2ddaf074f238e837b1013525f)), closes [#76](https://github.com/SLB-Pizza/radio-pizza/issues/76)
+* repair broken gatsby version ([aec87bb](https://github.com/SLB-Pizza/radio-pizza/commit/aec87bb01b76411f00b6e96468341cde028c8575))
+* repair Sample Feature story ([885ff1f](https://github.com/SLB-Pizza/radio-pizza/commit/885ff1f680d5b01ee5eedd462b01e7851d10d7ba))
+* **ResidentBio:** prevent ResidentSocialLinks breaking from incomplete media entry ([090784b](https://github.com/SLB-Pizza/radio-pizza/commit/090784b1bd7cbf577a7405a7a0e6e0cea35d0160))
+* **ResidentSocialLinks:** add Facebook case ([6916ab5](https://github.com/SLB-Pizza/radio-pizza/commit/6916ab5da13b5a01a2d283ef151cc978a2856b01))
+* **ResidentSocialLinks:** reactivate link icons in bio ([a79f1e5](https://github.com/SLB-Pizza/radio-pizza/commit/a79f1e56b7c0500e4b1dfa7d8c58e2569d596d0b))
+* **ResponsiveImage:** change width, height ([b58d905](https://github.com/SLB-Pizza/radio-pizza/commit/b58d905e95897ed3c876cdcd7e9fd1336d3ecaf6))
+* **SingleFeatureCard:** add short-circuits for null cases ([ec4d97b](https://github.com/SLB-Pizza/radio-pizza/commit/ec4d97bb23fdf52a2f76e8edad51d1aefc73a4ab))
+* **SingleMixCard:** format date on title-less mixes ([0f889f2](https://github.com/SLB-Pizza/radio-pizza/commit/0f889f26b747f8b8ef6129c57870f4717efb7e61))
+* **slices:** resolve broken feature documents after Feature type reset ([892836d](https://github.com/SLB-Pizza/radio-pizza/commit/892836d2514b60c51fb7368de70822018a73f64f)), closes [#116](https://github.com/SLB-Pizza/radio-pizza/issues/116) [#117](https://github.com/SLB-Pizza/radio-pizza/issues/117)
+* **style:** /sticky-bio: bio column now scrolls when necessary ([591a13c](https://github.com/SLB-Pizza/radio-pizza/commit/591a13ce48b4a13a3adfd836903690f8b951571e)), closes [#110](https://github.com/SLB-Pizza/radio-pizza/issues/110)
+* **style:** hide mix-img column on mobile ([4714efa](https://github.com/SLB-Pizza/radio-pizza/commit/4714efa73530506e9b50ed3a302ed5ac90f6bfc9))
+* **test:** add base text to /hero-test ([1fb23e5](https://github.com/SLB-Pizza/radio-pizza/commit/1fb23e578fa04ca09c3ac84755c1986980cf32e2))
+* **Travis:** change Netlify site and auth token declarations ([19f96cc](https://github.com/SLB-Pizza/radio-pizza/commit/19f96cc1561191ce26ca01e9e37ee82b21083764))
+* **travis:** place env variables on same line; add <this syntax> to deploy ([39f8b05](https://github.com/SLB-Pizza/radio-pizza/commit/39f8b05e6b47c85d6aa00bbd3bfe87cf07eea90b))
+* uncomment dummySlides in Hero causing error ([1bd48d8](https://github.com/SLB-Pizza/radio-pizza/commit/1bd48d8938c7272a7be2ad91a09bed901722f3c0))
+* **UpcomingShow:** add undefined return condition ([e800489](https://github.com/SLB-Pizza/radio-pizza/commit/e8004891a816c6c4130e2ae7881bae1d02afe9a1))
+* update HeadlineBlock story with new slice and metadata objects ([00b7498](https://github.com/SLB-Pizza/radio-pizza/commit/00b7498a8e443a462dbefb84ef3cffab48befd22))
+* update last incomplete commit ([9cdaf80](https://github.com/SLB-Pizza/radio-pizza/commit/9cdaf8097798212dc8a3a20b07f92935d5ffb214))
+
+
+### Features
+
+* '/' - add base Prismic query; pass slides as props to Hero ([0aeb6a7](https://github.com/SLB-Pizza/radio-pizza/commit/0aeb6a75bec5a7562b58d4b9a138c33a238a179e))
+* **/404:** add base layout ([3a4c2e3](https://github.com/SLB-Pizza/radio-pizza/commit/3a4c2e3981861d1d5a50fc7869f7bcc5a9c77083))
+* **/admin:** make colored Issue message wrapper ([5a1e6ce](https://github.com/SLB-Pizza/radio-pizza/commit/5a1e6ce8d3dae2e186b6ec8d829b90bf9a0f7594))
+* **/collection:** extract playlist mapping to util function ([d4ff521](https://github.com/SLB-Pizza/radio-pizza/commit/d4ff5210b25f47754aff6a3c96d214e1ab619f6d))
+* **/collections:** create Set to capture unique residents ([7f36fd9](https://github.com/SLB-Pizza/radio-pizza/commit/7f36fd92de4fb0c7232d0418f4d3f430f1787a29))
+* **/collections:** pass makeCollectionDispatch data to MixPlayOverlay; get first track playing ([0fd3e83](https://github.com/SLB-Pizza/radio-pizza/commit/0fd3e83a91564d1c05635543f5705fa54b8639c1)), closes [#125](https://github.com/SLB-Pizza/radio-pizza/issues/125) [#128](https://github.com/SLB-Pizza/radio-pizza/issues/128)
+* **/collections:** restore SingleCollection display data ([7342b80](https://github.com/SLB-Pizza/radio-pizza/commit/7342b8001f6bdcc7891c03f353b2987460b9e803))
+* **/collections:** write playlistShuffle function; add to tests ([a775784](https://github.com/SLB-Pizza/radio-pizza/commit/a77578452702446d17d263d6cb69c635bd6f8452))
+* **/events:** add load more button ([ec37ff2](https://github.com/SLB-Pizza/radio-pizza/commit/ec37ff2391da542492ade572e483ed137a693b29))
+* **/events:** add map embeds to event pages ([10d11e2](https://github.com/SLB-Pizza/radio-pizza/commit/10d11e2cb92e21d477cd8acb84a1d2f4a1238405))
+* **/events:** unify card height; fix event image style ([be77440](https://github.com/SLB-Pizza/radio-pizza/commit/be77440c06eaebe8b39ca4165c647f3271acfc46))
+* **/feature:** add left/right feature fallbacks ([a1c3964](https://github.com/SLB-Pizza/radio-pizza/commit/a1c3964b8fcc4be41b973ae6a00ec12d6cfe07c2)), closes [#79](https://github.com/SLB-Pizza/radio-pizza/issues/79)
+* **/feature:** make event card height fix global ([e2fd44f](https://github.com/SLB-Pizza/radio-pizza/commit/e2fd44f78a866cf1b73180e2a6b95ed9187b47bd))
+* /features/dev-test-feature-1 > updated SliceZone returns SliceTypes; ([2a41372](https://github.com/SLB-Pizza/radio-pizza/commit/2a413727efca21d61f06b8e142d25c84dfcbb3a2))
+* **/features:** set HighlightFeatures render conditions ([b2a7627](https://github.com/SLB-Pizza/radio-pizza/commit/b2a7627a530cebcc12c933a851e83f34cfffeaa5))
+* **/guide:** add responsive images to CMS cards ([26c096c](https://github.com/SLB-Pizza/radio-pizza/commit/26c096ca8a87a18e1bdad6dabca0d69d162b8f25))
+* **/index:** augment IndexQuery; begin passing data to HomeMixes ([112a89f](https://github.com/SLB-Pizza/radio-pizza/commit/112a89f5aa7b375e62fcd3a1e893172292080d72)), closes [#80](https://github.com/SLB-Pizza/radio-pizza/issues/80) [#36](https://github.com/SLB-Pizza/radio-pizza/issues/36)
+* **/index:** map and fix heights of HomeEvents ([3e7a8b7](https://github.com/SLB-Pizza/radio-pizza/commit/3e7a8b78dde029cee3cc8d9058986cacdea3f286))
+* **/mixes:** add button to fetch more mixes and go back to top ([18babef](https://github.com/SLB-Pizza/radio-pizza/commit/18babef273ad3288896171ae463ecc2f9dcbe894))
+* **/mixes:** add endless_mix part to query; bring into page ([de6f02e](https://github.com/SLB-Pizza/radio-pizza/commit/de6f02eb2b5f385f16254e7e091f558db941645e))
+* **/mixes:** add lead_radio_mix null base case to useEffect ([4496e6b](https://github.com/SLB-Pizza/radio-pizza/commit/4496e6beb130f2c76e223389bf43c1bcedf9e62a))
+* **/mixes:** begin Collections migration ([6acaede](https://github.com/SLB-Pizza/radio-pizza/commit/6acaede7b0f19cc6df0e0b5ac3184dd617a9563d))
+* **/mixes:** begin useEffect refactor for /mixes TopicHero ([6dbf732](https://github.com/SLB-Pizza/radio-pizza/commit/6dbf732a0da2b396f2f7f05d238d84ce20646aca))
+* **/mixes:** finish useEffect processing /mixes hero and highlight section data ([caa874c](https://github.com/SLB-Pizza/radio-pizza/commit/caa874cc278fca09c443af813ede43f5cf1d7d8c))
+* **/mixes:** implement onClick fetching from prismic ([991b796](https://github.com/SLB-Pizza/radio-pizza/commit/991b796e95a1ec36011e8f342d40adb2f8886f8a))
+* **/mixes:** show CMS mixes, res links resolve ([fbd26ed](https://github.com/SLB-Pizza/radio-pizza/commit/fbd26ed9cd269b7ff8f44af4aba57be2e9c198f7))
+* **/queries:** collect all load-time Apollo GQL queries in directory ([6dcfe4b](https://github.com/SLB-Pizza/radio-pizza/commit/6dcfe4bb83318af7887a487dce2dbb9be0a6b4e3))
+* **/resident:** make resident links in their own mix cards plain text ([4845522](https://github.com/SLB-Pizza/radio-pizza/commit/48455226dc56ca068fc5ede617c47bb074d50702)), closes [#39](https://github.com/SLB-Pizza/radio-pizza/issues/39) [#120](https://github.com/SLB-Pizza/radio-pizza/issues/120)
+* /residents is now automatically alphabetized A→Z; moreWIP ([773cf6a](https://github.com/SLB-Pizza/radio-pizza/commit/773cf6a88d9df92cf8b67289fc0ef143d6de78f6))
+* **/residents:** attach queries to buttons process fetched data ([b98e499](https://github.com/SLB-Pizza/radio-pizza/commit/b98e499762ede8689853d77cc396acf1f30a11ea))
+* **/residents:** change query sort to remove sort after status filtering ([2da4339](https://github.com/SLB-Pizza/radio-pizza/commit/2da433983284970e3f71a7c97df0df14518dfd56))
+* **/residents:** connect to Prismic; add guest option and selection ([6e07907](https://github.com/SLB-Pizza/radio-pizza/commit/6e07907458a50eadb9d10c20c86de1694f266540))
+* **/residents:** create WIP individual resident page ([cccff86](https://github.com/SLB-Pizza/radio-pizza/commit/cccff86a17da499ee4e264d4319162da63e88bc5)), closes [#120](https://github.com/SLB-Pizza/radio-pizza/issues/120)
+* **/Resident:** sort Resident mixes from most recent date to least ([c3befdf](https://github.com/SLB-Pizza/radio-pizza/commit/c3befdfc2fbce6a71c17657a760dce77d127e96b))
+* **/residents:** refactor resident type separation into useEffect; update query to allow base data fetch of each type ([0cfd349](https://github.com/SLB-Pizza/radio-pizza/commit/0cfd3493cd25c9fcf9f79c0ca031b55ea7232f45))
+* **/schedule:** add schedule_entries null option ([88e3d7e](https://github.com/SLB-Pizza/radio-pizza/commit/88e3d7e358a487818e0a5533793f3c7279762896))
+* **/schedule:** make date selection buttons functional ([8ceaa35](https://github.com/SLB-Pizza/radio-pizza/commit/8ceaa35aced8cda21faf6c8e965d11603566fae6)), closes [#19](https://github.com/SLB-Pizza/radio-pizza/issues/19)
+* **/schedule:** map node data correctly ([185f502](https://github.com/SLB-Pizza/radio-pizza/commit/185f502e1ff7dcf2df75e3b40f69699919388ed9)), closes [#19](https://github.com/SLB-Pizza/radio-pizza/issues/19)
+* **/schedule:** write base getSevenDays util ([c23b6e6](https://github.com/SLB-Pizza/radio-pizza/commit/c23b6e61d0280e036cf1941acad6aa6f99949f5a)), closes [#19](https://github.com/SLB-Pizza/radio-pizza/issues/19)
+* **/support:** add base Support page; connect CMS ([55b4034](https://github.com/SLB-Pizza/radio-pizza/commit/55b4034f222663ec123d9ac5a66f1a5d5cc3db99))
+* **/support:** add prelim scroll fade layout ([a94e2fd](https://github.com/SLB-Pizza/radio-pizza/commit/a94e2fd320c32fe50bbc47733d75d8878d339d13))
+* **/support:** connect OneImageAndText component ([7a6ffb7](https://github.com/SLB-Pizza/radio-pizza/commit/7a6ffb7038ec36f285c98a593994a97a281c06d7))
+* **/support:** update storybook; change fade scroll speed ([301ac33](https://github.com/SLB-Pizza/radio-pizza/commit/301ac33eeb4e7f63f55173bed1a28948fe0fdad4)), closes [#63](https://github.com/SLB-Pizza/radio-pizza/issues/63)
+* add /events link to bottom nav and home event section button ([4cde088](https://github.com/SLB-Pizza/radio-pizza/commit/4cde088137e3fd5c9005dfbe94b04789a437bd94))
+* add /schedule styling; regulate schedule dropdown max height ([575773c](https://github.com/SLB-Pizza/radio-pizza/commit/575773ce862ad67aa6c099b3f7b2ef3c8083e446))
+* add about page copy from Surf's text ([712f188](https://github.com/SLB-Pizza/radio-pizza/commit/712f18850a984436ac419ece7e239935e235a1ef))
+* add base /events layout with dummy events ([6e9035d](https://github.com/SLB-Pizza/radio-pizza/commit/6e9035dd8ac8fe0f79e0224d775ebec8767f72f2))
+* add base ContentHelper to /components/slices; create Blockquote helper function ([7573c77](https://github.com/SLB-Pizza/radio-pizza/commit/7573c77b58b405ef8f32bf5e3c1714123b7a25b0))
+* add base FullWidthImage to /cms-help/sample-feature ([2fb47f6](https://github.com/SLB-Pizza/radio-pizza/commit/2fb47f681f2f595dec1941e0b9f05d3fa8e90a14))
+* add base HeadlineBlock story ([5cc3cff](https://github.com/SLB-Pizza/radio-pizza/commit/5cc3cffc1fcf010cfb6d413d8f6cf1b5d8144c47))
+* add base switch statement for FullWidthImage className ([54045d4](https://github.com/SLB-Pizza/radio-pizza/commit/54045d4c5d9e8ea47fc6c4e1a48232c5315e5ed5))
+* add base TwoImagesAndText layout to Storybook ([3f2fe9d](https://github.com/SLB-Pizza/radio-pizza/commit/3f2fe9dd896111a003a5f6706f3f115cdfd707fa))
+* add Blockquote - two variations ([4f0b1bc](https://github.com/SLB-Pizza/radio-pizza/commit/4f0b1bc15e115a4ca063449c2bdf440ce5b02257))
+* add Blockquote story; begin refactoring inline slice styles ([13a4968](https://github.com/SLB-Pizza/radio-pizza/commit/13a4968fefb81578d0a43143f3f433f97a1a2d2d))
+* add dummy slides from Prismic; external link does not blank ([f688db8](https://github.com/SLB-Pizza/radio-pizza/commit/f688db8c48e0a779d4ff3da586c4c2a995cc78fd))
+* add FeaturesQuery to Feature.js; display data object on /features/dev-text-feature-1 ([7ce1131](https://github.com/SLB-Pizza/radio-pizza/commit/7ce1131b0b23fab623410ee59f37222cf79d9637))
+* add globalState ternary to Listen Live btn; needs functionality ([0a92878](https://github.com/SLB-Pizza/radio-pizza/commit/0a9287805e3a0f4ab3ef24494acd1bc029715967))
+* add htmlSerializer to project ([62b8fd0](https://github.com/SLB-Pizza/radio-pizza/commit/62b8fd03bb9cb4e5cc629596df81e92907bdd6ac))
+* add img to radio bar ([c1fb3b1](https://github.com/SLB-Pizza/radio-pizza/commit/c1fb3b13c89ba11a1c094fb38ce7ac949a341137)), closes [#71](https://github.com/SLB-Pizza/radio-pizza/issues/71)
+* add long TwoParagraph story ([4163384](https://github.com/SLB-Pizza/radio-pizza/commit/41633844b407f72d74fc2d8949b330f9a137420e))
+* add Nanoclamp to /events; remove bgColors ([ab1cc7e](https://github.com/SLB-Pizza/radio-pizza/commit/ab1cc7efedddb5c0d7dff618f3bb8813b4f8c51c))
+* add pointer and grabbing cursors to <Slider> :hover and :active states ([097baa4](https://github.com/SLB-Pizza/radio-pizza/commit/097baa403b5db7bd0d845a0de75feb96c46864fd))
+* add Poppins font; add base Blockquote slice ([ea88654](https://github.com/SLB-Pizza/radio-pizza/commit/ea886545483166ac947464e5cb91748036d1e8a6))
+* add react-spring: /hero-test-3; address bottomNav OutsideClick ([b0e4e30](https://github.com/SLB-Pizza/radio-pizza/commit/b0e4e3019685659c324721ef411ce64142911084))
+* add SampleFeature base to Storybook ([1005dea](https://github.com/SLB-Pizza/radio-pizza/commit/1005dea8959f4bde3ffd2efb761f8067d69df5cb))
+* add SASS support to gatsby; FWI now display correctly ([f55e2eb](https://github.com/SLB-Pizza/radio-pizza/commit/f55e2ebb2184306e8537475a23fac38d0e0c4c34))
+* add schedule selector base to /schedule ([c02125b](https://github.com/SLB-Pizza/radio-pizza/commit/c02125b0b6f91315f4b92933769be5358762986b))
+* add Storybook to project; restructure slices/FWI props ([f61a423](https://github.com/SLB-Pizza/radio-pizza/commit/f61a42331807afc17224fe8fa4ed9bef9be62e08))
+* add working OutsideClick base code to ScheduleBar ([c9f24a0](https://github.com/SLB-Pizza/radio-pizza/commit/c9f24a0c815ce244c87746e625c280c40209fe5f))
+* add working slider with built-in links ([e40806d](https://github.com/SLB-Pizza/radio-pizza/commit/e40806d1149fe3123f1bb5d6253096aa37ae37b3))
+* add working volume input slider; needs styling ([67a7c1a](https://github.com/SLB-Pizza/radio-pizza/commit/67a7c1a2ed8d8d64f3d6ebe6a2a494b80cd8286b))
+* **Apollo:** add Apollo to project, base Schedule query works ([a8919eb](https://github.com/SLB-Pizza/radio-pizza/commit/a8919eb3a97b12189c5fd2d33a18ea717862432d)), closes [#25](https://github.com/SLB-Pizza/radio-pizza/issues/25)
+* **ApolloProvider:** wrap root element ([959f77d](https://github.com/SLB-Pizza/radio-pizza/commit/959f77d78a7e760a57d22f6bccbe73d00e02af1d))
+* **base:** add starter homepage image carousel code ([03a3885](https://github.com/SLB-Pizza/radio-pizza/commit/03a388599f529304c65e27b8f53dbe713ccc6589))
+* begin adding slices to SliceZone; fix CMSHelp query ([0556d02](https://github.com/SLB-Pizza/radio-pizza/commit/0556d027233fcf7adb886c9dcd4e20a771ec28d9))
+* begin text-truncate tests ([cb103a7](https://github.com/SLB-Pizza/radio-pizza/commit/cb103a7f5bba152f4626f0582dc54dd477190f5c))
+* Blockquote - fix variable declarations and switch statement; now supports multi-paragraph quotes ([60875a5](https://github.com/SLB-Pizza/radio-pizza/commit/60875a5f49aec660e609490f298b9455765dc1d6))
+* BottomNav social media icon links now open in new tab ([3790671](https://github.com/SLB-Pizza/radio-pizza/commit/379067138707544e5a29e408fea83b4b997e6260))
+* **Card:** fix card height sizings; update play-icon hover effect ([70f8297](https://github.com/SLB-Pizza/radio-pizza/commit/70f8297f15929558fd21d7bc3bc555a63b1b04b5)), closes [#68](https://github.com/SLB-Pizza/radio-pizza/issues/68) [#97](https://github.com/SLB-Pizza/radio-pizza/issues/97)
+* **CMSGuide:** build landing page with cards ([8a49ab9](https://github.com/SLB-Pizza/radio-pizza/commit/8a49ab9baa318a6d2353f027e9cbe18efb89d7d3)), closes [#117](https://github.com/SLB-Pizza/radio-pizza/issues/117)
+* **cmsNodeValidator:** get invalid mix case working ([77fee2c](https://github.com/SLB-Pizza/radio-pizza/commit/77fee2c8167f0fb50a6326aa21e677c5c6b1cacf))
+* **Collections:** make base page for Collections ([773b6e9](https://github.com/SLB-Pizza/radio-pizza/commit/773b6e9c4486bc81a4c5d3c285b91780945f9ce4))
+* convert Blockquote to SASS classes; add viewports to Storybook ([e3fbbc5](https://github.com/SLB-Pizza/radio-pizza/commit/e3fbbc5dff0bfd82b0645bd413ae6a0f5e7d1885))
+* convert div layout to hero section; begin styling ([77523b7](https://github.com/SLB-Pizza/radio-pizza/commit/77523b760a663a5f13a9400806defc40d23b5c4e))
+* convert OutsideClick internal HOC to independent component for use in BottomNav ([e7c5559](https://github.com/SLB-Pizza/radio-pizza/commit/e7c55599feeed2c7c9bf7ec807f5f3d67cf073c1))
+* **Countdown:** add base countdown to Event ([ac91808](https://github.com/SLB-Pizza/radio-pizza/commit/ac9180828c0536f991cc10ad02905c278f3e3fbf))
+* creat sample HeadlineBlock; connect it to front-end ([31cfdc2](https://github.com/SLB-Pizza/radio-pizza/commit/31cfdc274c0a4fb43c1373ddd0011690304378dd))
+* create Home Content section in Homepage type; pass that data down to HomeContent ([659e1eb](https://github.com/SLB-Pizza/radio-pizza/commit/659e1eb60bc0ec9e6bab6aadd02fb0b6b3ce4044))
+* create new /src/templates/index-page.js; renamed old ([b1a3367](https://github.com/SLB-Pizza/radio-pizza/commit/b1a33679e35ad8739108369ce4d419401fc4fcfc))
+* **cron:** add a Github workflow cron job to project ([345f748](https://github.com/SLB-Pizza/radio-pizza/commit/345f748bd7c0be3b1c0782930b949398d9259e9c))
+* **Curated:** add docs; pass mixLinks array as MixPlayOverlay prop ([7db30dc](https://github.com/SLB-Pizza/radio-pizza/commit/7db30dc6ce88ee45f93cbc6354b576da9748eac9)), closes [#128](https://github.com/SLB-Pizza/radio-pizza/issues/128)
+* **Curated:** pull Residents and Tags into sets for use ([ce68b34](https://github.com/SLB-Pizza/radio-pizza/commit/ce68b34971f1d3c46684ce70163e41b2a6b20c0e))
+* **Dropdown:** handle case where no shows are listed for today ([0ac673a](https://github.com/SLB-Pizza/radio-pizza/commit/0ac673a914d8866b4abad44fb4208a6aa4685b5f))
+* **Dropdown:** pass show data to dropdown ([6374dd6](https://github.com/SLB-Pizza/radio-pizza/commit/6374dd6c26f2dccd805de55d863c5d31434ddcee)), closes [#19](https://github.com/SLB-Pizza/radio-pizza/issues/19)
+* **embeds:** add .embed; fix touch sizing of iframes ([059d80a](https://github.com/SLB-Pizza/radio-pizza/commit/059d80ad171548d02aec0deae692e804910fbe8c))
+* **Event:** add base Event template; temp at /events/event-test ([4f2b857](https://github.com/SLB-Pizza/radio-pizza/commit/4f2b8573db7de8fed97007911455acfda6ae9bb6))
+* **Event:** add shrink effect to .event-timer on sticky ([82198f6](https://github.com/SLB-Pizza/radio-pizza/commit/82198f652b90933b4ca472c97940b1bf4858e7ab))
+* **EventCountdown:** refactor into subcomponent ([12a1633](https://github.com/SLB-Pizza/radio-pizza/commit/12a1633d2ed7da90804a56200f3f9e383716cdcd))
+* **EventCountdown:** set up base on scroll useEffect for once event-timer becomes sticky ([d4f04de](https://github.com/SLB-Pizza/radio-pizza/commit/d4f04de5526d7fde364b2ab536a57006f7a3b642))
+* **Event:** get countdown timer components displaying correctly ([856cb2e](https://github.com/SLB-Pizza/radio-pizza/commit/856cb2e0173656186e2772ace51465a362dfa354))
+* **Event:** get mapbox working in some form; might just make it a button a google map link ([690296e](https://github.com/SLB-Pizza/radio-pizza/commit/690296eb8aba7bf37a13aeb8e3328826597e7ec4))
+* **EventHeader:** pass in headerButtonText and headerButtonLink ([e2341f8](https://github.com/SLB-Pizza/radio-pizza/commit/e2341f850c83266d19e8b9a264c03f755181835e))
+* **Event:** pass data from template for EventCountdown ([c702818](https://github.com/SLB-Pizza/radio-pizza/commit/c702818e028f55abbff65fbaaa4f339dab89d7d7))
+* **events:** map event CMS data to SingleEventCard ([c159578](https://github.com/SLB-Pizza/radio-pizza/commit/c159578ce74db13cfed02515736496a3a97528b2))
+* **Event:** update queries for /events and Envent template ([8deaa0f](https://github.com/SLB-Pizza/radio-pizza/commit/8deaa0fabd6e35de19902424e911fab948563b62))
+* **FallbackImage:** add image component fallback to SingleResident; ResidentBio ([9a86289](https://github.com/SLB-Pizza/radio-pizza/commit/9a862895e32c2c9f62809315c4f2088e100180b4))
+* **Feature:** make article authors optional through short-circuit ([103eb60](https://github.com/SLB-Pizza/radio-pizza/commit/103eb60e41feba31911554316e93b41f46a2c590))
+* **Feature:** make base /pages/features layout ([590b2b4](https://github.com/SLB-Pizza/radio-pizza/commit/590b2b405781e4e555e3d7d6b58fa03da54e3e03))
+* **features:** add base /features/ query ([7caf4e9](https://github.com/SLB-Pizza/radio-pizza/commit/7caf4e9b720cce0b1d826450e1c050f3f8da0bc4))
+* fix broken Storybook Blockquote props ([9230c0b](https://github.com/SLB-Pizza/radio-pizza/commit/9230c0b9191f6b23a18f5345511c47dd7648b57d))
+* **FullWidthImage:** add this slice to CMSGuide ([030a426](https://github.com/SLB-Pizza/radio-pizza/commit/030a42656dcb0b4aef066dfaa6967bf18ae5f0e6))
+* FWI displays, albeit wrongly; working to include SASS support ([2bc32ba](https://github.com/SLB-Pizza/radio-pizza/commit/2bc32ba7857d1635f57241f7cec1d30c408267a3))
+* **GCP:** add SET_CLOCK_TIME dispatch ([573fe5e](https://github.com/SLB-Pizza/radio-pizza/commit/573fe5ecb673afc0a6695fb173c45f4cc3a5b83e))
+* get TwoImagesAndText working with Prismic sourced data ([ded25e8](https://github.com/SLB-Pizza/radio-pizza/commit/ded25e8423f0f200e4e6c9a2ef1b7f8e10cf17da))
+* **Hero:** add HeroArrows component using SVGR ([e16adaa](https://github.com/SLB-Pizza/radio-pizza/commit/e16adaa0e1dbfd9c4633d0a0db94ed6b8a978b9e))
+* **Hero:** add SVG HeroArrows component ([708d076](https://github.com/SLB-Pizza/radio-pizza/commit/708d076e720da09e817cdbc34e97d5be87e8c9d2))
+* **Hero:** update IndexPageQuery to include document _meta; add link processing ([dea3fa8](https://github.com/SLB-Pizza/radio-pizza/commit/dea3fa8acbd398ed30541ff11a00a78395772c35))
+* **HomeFeatures:** add Editorials section to Prismic ([27520c0](https://github.com/SLB-Pizza/radio-pizza/commit/27520c09edb2e9196175aa92d1f03929ac7dea76))
+* **HomeFeatures:** pass and map homeFeaturesData correctly ([64a0d2a](https://github.com/SLB-Pizza/radio-pizza/commit/64a0d2a1166051feccb9ccaba378f822620dc127)), closes [#118](https://github.com/SLB-Pizza/radio-pizza/issues/118)
+* **HomeMixes:** add Sound Selects section to index ([94fd467](https://github.com/SLB-Pizza/radio-pizza/commit/94fd467d12aa9b5c9c988de49f515b3aaff1d44f))
+* **HomeMixes:** pass and map homeMixesData correctly ([75b47af](https://github.com/SLB-Pizza/radio-pizza/commit/75b47af2954513a9cc6a05d1918421b1631d0459)), closes [#118](https://github.com/SLB-Pizza/radio-pizza/issues/118)
+* **ImageHelper:** add onClick image modal; move photo data to modal ([2e1ce13](https://github.com/SLB-Pizza/radio-pizza/commit/2e1ce13a74ea66c1b56039ffe162c7f51d4cc20b)), closes [#116](https://github.com/SLB-Pizza/radio-pizza/issues/116) [#117](https://github.com/SLB-Pizza/radio-pizza/issues/117)
+* **ImageHelper:** add pointer cursor; img alt txt ([14d9940](https://github.com/SLB-Pizza/radio-pizza/commit/14d9940695ade93e452816a80aed76dd2a430854))
+* **ImageHelper:** convert img element to react-imgix ([1729881](https://github.com/SLB-Pizza/radio-pizza/commit/1729881de15de19806505e4956fd7f9119467b62)), closes [#122](https://github.com/SLB-Pizza/radio-pizza/issues/122)
+* **ImageHelper:** revert react-imgix components ([4b7370f](https://github.com/SLB-Pizza/radio-pizza/commit/4b7370f44cbba3a5a6f4e4c8f691bd8bbb243af3)), closes [#122](https://github.com/SLB-Pizza/radio-pizza/issues/122)
+* **ImageRow:** fix CMSGuide and Feature queries ([cad6cf7](https://github.com/SLB-Pizza/radio-pizza/commit/cad6cf770af2a7af2411868ede572dfb82b1c3b5)), closes [#71](https://github.com/SLB-Pizza/radio-pizza/issues/71)
+* **Inline Image:** add figcaption; add key ([6701317](https://github.com/SLB-Pizza/radio-pizza/commit/67013170743892d6e3d46ad0b036402f7e9f1bbb))
+* install base prismic setup; testing next commit ([ef66f77](https://github.com/SLB-Pizza/radio-pizza/commit/ef66f778b46f4bd61493771c351411c82d6f9e77))
+* **layout:** add toggle to show search layout ([0b76795](https://github.com/SLB-Pizza/radio-pizza/commit/0b7679524b139829c59023bfe3ed5ba02bded38b)), closes [#82](https://github.com/SLB-Pizza/radio-pizza/issues/82)
+* **linkResolver:** add 'feature' case ([63924f2](https://github.com/SLB-Pizza/radio-pizza/commit/63924f28a3a4706cc6f7cc1fe2c3b27b478c888c))
+* **linkResolver:** add 'resident' case; default ([de59542](https://github.com/SLB-Pizza/radio-pizza/commit/de59542106f8d04db59ee951059b80d672b5efbb))
+* **links:** add /mixes case ([689a9a1](https://github.com/SLB-Pizza/radio-pizza/commit/689a9a1b9786ec85df3272969b6094f05511ac25))
+* make bottom nav slogan link to home ([27cad2d](https://github.com/SLB-Pizza/radio-pizza/commit/27cad2dbb38c60645e25121c9089ac43b61f25ab)), closes [#102](https://github.com/SLB-Pizza/radio-pizza/issues/102)
+* make BottomNav use globalContext to open/close; refactor OutsideClick.js ([4a780c4](https://github.com/SLB-Pizza/radio-pizza/commit/4a780c419441b1e6e78b9ce7649d4a5c410faf50))
+* make DateSelectorButton a component; add ScheduleShowEntry ([e38dbec](https://github.com/SLB-Pizza/radio-pizza/commit/e38dbeca30b8ea1ebdcff24a48960ea032b36561))
+* make dropdown schedule close onClick outside ScheduleBar ([59feb76](https://github.com/SLB-Pizza/radio-pizza/commit/59feb76847276db192ca7bc737bedb0a9844c489))
+* make HeadlineBlock process and display latest pub date properly ([5a11f10](https://github.com/SLB-Pizza/radio-pizza/commit/5a11f10c9b75cad67d993e5467d37f6239d74ab4))
+* make Staff custom type; add to HeadlineBlock; add updated publication check ([bf94da6](https://github.com/SLB-Pizza/radio-pizza/commit/bf94da6f05dd4e8a4ff9e8db1c7c344e6fa88c7a))
+* **mappableDataCheck:** write and test function to prevent unmappable data from being passed to LayoutComponents ([3f75d40](https://github.com/SLB-Pizza/radio-pizza/commit/3f75d406dea14bbab287f6dc8c85394908560c58))
+* **Mix:** add gatsby-config and mixData display ([a9dcb18](https://github.com/SLB-Pizza/radio-pizza/commit/a9dcb18d3e7e5a327eec81166b170b59e2be750c))
+* **Mix:** create base template ([21e2d8a](https://github.com/SLB-Pizza/radio-pizza/commit/21e2d8ab887249070199296c0ed39490a449b06a))
+* **MixPlayOverlay:** rework into card-image container; reorganize card styling ([c395880](https://github.com/SLB-Pizza/radio-pizza/commit/c395880ac4b31644b5057e94ab7e6d940576c06b))
+* **Mix:** replace getResidentLinks with Link to Mix page ([d174191](https://github.com/SLB-Pizza/radio-pizza/commit/d17419185f1047d8bc2ec42684da7ff8e0e87699))
+* move cms-help components to folder; add HomeContent to /cms-help ([ddf8fba](https://github.com/SLB-Pizza/radio-pizza/commit/ddf8fba8f8a1a77e920e7b8495927f04f4ebbe10))
+* **password:** add base password protection for /cms-help ([a9543b0](https://github.com/SLB-Pizza/radio-pizza/commit/a9543b03370bf6a3f3065a7aa9ce2daac7e8b0e9))
+* **protect:** password-protect /cms-guide route ([29c421e](https://github.com/SLB-Pizza/radio-pizza/commit/29c421e096114a9bf5433ba997506db9d5463b0b))
+* pull out CMSSlides as component; update help layout ([368fa60](https://github.com/SLB-Pizza/radio-pizza/commit/368fa6094a28faf015b8922a026c5ddb5468fe43))
+* **queries:** extract getDefaultMix query ([fcc29fb](https://github.com/SLB-Pizza/radio-pizza/commit/fcc29fb09dfe1fc1e19e1d5eae2a6699ff67cb58))
+* **RadioBar:** set times in TopNav, pass as props to RadioBar ([ad29902](https://github.com/SLB-Pizza/radio-pizza/commit/ad299020290436b05f979ad2db3f1a59545fdbb8))
+* **RadioPlayer:** pull and set initial mix data from query ([53971fe](https://github.com/SLB-Pizza/radio-pizza/commit/53971fed09ca80347c82eb69ee5cd8700d902810))
+* re-enable schedule dropdown for mobile; disable modal ([b9d1a97](https://github.com/SLB-Pizza/radio-pizza/commit/b9d1a972a02a8735c960d9436448b4d30d9aad8b))
+* remake Blockquote in CMS; update Blockquote component; update Features query ([5edbd31](https://github.com/SLB-Pizza/radio-pizza/commit/5edbd31c843afeddcf9de44462467c2691bfc69f))
+* remove play button from SingleMixCard ([5423a2d](https://github.com/SLB-Pizza/radio-pizza/commit/5423a2d356024e6c656ee6578fbea544c18dfd5b)), closes [#113](https://github.com/SLB-Pizza/radio-pizza/issues/113)
+* replace Hero.js content with /hero-test-4 index ([0b43641](https://github.com/SLB-Pizza/radio-pizza/commit/0b43641ab305baa10cd6fa0f08553723d29a29ef))
+* **Resident:** add Mix _meta to link to Mix page ([59713da](https://github.com/SLB-Pizza/radio-pizza/commit/59713da43c376632a617e8aefaaf0d0b41f1446f))
+* **Resident:** make mobile content selector sticky ([64c1fba](https://github.com/SLB-Pizza/radio-pizza/commit/64c1fba6cff27151114a92de0dfdfaf347646ace))
+* **Resident:** map resident mixes to /resident/:uid ([178834c](https://github.com/SLB-Pizza/radio-pizza/commit/178834c91a54ae1efef395d50461737edae11df2)), closes [#121](https://github.com/SLB-Pizza/radio-pizza/issues/121)
+* **resident:** map sticky-bio of Resident ([f57f2f7](https://github.com/SLB-Pizza/radio-pizza/commit/f57f2f77a86ad76d8494ef31fd1da2fa0385b136)), closes [#120](https://github.com/SLB-Pizza/radio-pizza/issues/120)
+* **Resident:** update query; display data on resident template page ([bb7f1ee](https://github.com/SLB-Pizza/radio-pizza/commit/bb7f1ee063fbb5f3290c9ba0fc2be39382037f03))
+* **Resident:** use mappableDataCheck to only display columns with content ([f8ff12a](https://github.com/SLB-Pizza/radio-pizza/commit/f8ff12a5559ab88c4d220b1c140ac9d0213ee9b7))
+* schedule dropdown closes on 'Full Schedule' click ([994ce0a](https://github.com/SLB-Pizza/radio-pizza/commit/994ce0a4b180a4418f997d96bd4f438fbfba5481))
+* **ScheduleBar:** process and show data in bar ([6a20827](https://github.com/SLB-Pizza/radio-pizza/commit/6a20827ebcade1f8cf0095a5c2c418a27fd029f0))
+* **ScheduleBar:** use timeNow to query AllSchedules ([d5f2104](https://github.com/SLB-Pizza/radio-pizza/commit/d5f2104ac46a3cf311eca1039ca6a09eb83938dc)), closes [#25](https://github.com/SLB-Pizza/radio-pizza/issues/25)
+* **SingleMixCard:** add default img string and FallbackImage component ([5767f85](https://github.com/SLB-Pizza/radio-pizza/commit/5767f856d59ef27be2aca284bfa43e1c5c54a7dd))
+* **slice:** add ImageRow slice base ([5098896](https://github.com/SLB-Pizza/radio-pizza/commit/5098896ab997f85e2f05c951344e3de71add9a07)), closes [#116](https://github.com/SLB-Pizza/radio-pizza/issues/116) [#117](https://github.com/SLB-Pizza/radio-pizza/issues/117)
+* **slices:** add 'headline-block' class; dummy data ([1b00929](https://github.com/SLB-Pizza/radio-pizza/commit/1b00929aefe9f6aa728c15d54f2e3f6292ce6061))
+* **slices:** add base ParallaxHeadlineBlock v1 ([2eeda9a](https://github.com/SLB-Pizza/radio-pizza/commit/2eeda9ae6388cfe255dd200deb0e3f9475672252))
+* **slices:** create ParallaxHeadline base slice ([71ac143](https://github.com/SLB-Pizza/radio-pizza/commit/71ac143523f4b7fba7ac477677c9ee1f867bb40b))
+* **slices:** make OIAT slice switch layout types ([1dc9b06](https://github.com/SLB-Pizza/radio-pizza/commit/1dc9b069e6d6f3b69854da5d5f6ba09075d3d740)), closes [#117](https://github.com/SLB-Pizza/radio-pizza/issues/117) [#118](https://github.com/SLB-Pizza/radio-pizza/issues/118)
+* **slices:** make TextBlock slice; set base style ([6603e34](https://github.com/SLB-Pizza/radio-pizza/commit/6603e341f315365b0b0b6c681b04cbe74cd3face))
+* **slice:** TIAT - fix layout selector; add stories ([8855cb5](https://github.com/SLB-Pizza/radio-pizza/commit/8855cb58043ba68ddb5541ba68be0d46167a9c37)), closes [#116](https://github.com/SLB-Pizza/radio-pizza/issues/116) [#117](https://github.com/SLB-Pizza/radio-pizza/issues/117)
+* **storybook:** add left and right OneImageAndText stories ([5eb9203](https://github.com/SLB-Pizza/radio-pizza/commit/5eb9203abf6eb1e4efcc1b57d1191d3cee0764d5)), closes [#116](https://github.com/SLB-Pizza/radio-pizza/issues/116) [#117](https://github.com/SLB-Pizza/radio-pizza/issues/117)
+* **style:** add pulsing bottom border to schedule-bar .is-live ([46c2ca6](https://github.com/SLB-Pizza/radio-pizza/commit/46c2ca6c5ba6ff0b10f26892d0ee29fde3cc0d97))
+* successfully bring in Blockquote to /features/dev-test-feature-1 ([dcc7180](https://github.com/SLB-Pizza/radio-pizza/commit/dcc7180dc0ebe4edd078eaf3d0ea4b0355e48b09))
+* **TagButtons:** make component for use outside card ([4f3ff51](https://github.com/SLB-Pizza/radio-pizza/commit/4f3ff51dc5c71dd9ea914c409f83005f06c47674))
+* **test:** install react-awesome-slider on /hero-test-2 ([1d8a564](https://github.com/SLB-Pizza/radio-pizza/commit/1d8a56451640456da5bd7cf22f241ee0f09348da))
+* **TextBlock:** add linkResolver to component ([3dca673](https://github.com/SLB-Pizza/radio-pizza/commit/3dca67328e3fb37d8a1002a6498cb43cb6413d53))
+* **TextBlock:** componentize RichText; pass htmlSerializer ([aeac1f7](https://github.com/SLB-Pizza/radio-pizza/commit/aeac1f700ef49c5076553c903c9a0eecc5e04f24))
+* **TopicPageHero:** create TopicPageHero and TopicHeroPageDetails components to begin making landing pages generic ([98b9337](https://github.com/SLB-Pizza/radio-pizza/commit/98b9337def82f4d9638a438c631d4e95e6e5cc14))
+* **TopicPageHighlightSection:** make component that feeds in layout component to highlight section a la SliceZone ([585df2d](https://github.com/SLB-Pizza/radio-pizza/commit/585df2d8d6fab4eef8b75ee0adc05f1746d8b774))
+* update .cms-warning; add bgAlt check ([4cb3d86](https://github.com/SLB-Pizza/radio-pizza/commit/4cb3d8692283d65a0f7cc8269c28595d8f7a49fc))
+* update g-config for Feature type; get Feature template working ([1352e18](https://github.com/SLB-Pizza/radio-pizza/commit/1352e1877e71df4ec3ea8a127f6e9ad836431a96))
+* wrap SingleEventCard with eventColumnLayout; refactor /events, /search ([5a9b5c3](https://github.com/SLB-Pizza/radio-pizza/commit/5a9b5c31a1cda8b9ff725de2627617bdc4e0abd0))
+
+
+

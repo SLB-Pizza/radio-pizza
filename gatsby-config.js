@@ -2,7 +2,7 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
-// require("dotenv-vault-core").config();
+require('dotenv-vault-core').config()
 
 module.exports = {
   siteMetadata: {

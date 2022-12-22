@@ -97,6 +97,7 @@
   "scripts": {
     "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "build-storybook": "build-storybook",
+    "changelog": "npx auto-changelog --output CHANGELOG.md --template keepachangelog",
     "clean": "gatsby clean --verbose",
     "docs": "jsdoc -c jsdoc.conf.json",
     "develop": "npm run clean && gatsby develop -H 0.0.0.0 --verbose",

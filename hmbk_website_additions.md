@@ -1,5 +1,20 @@
 # HMBK Website Addition requests
 
+## 2023 First Additions to the Site
+
+1. Make web player thinner to open up more space on site
+   1. This is a set of changes on all the things that affect
+2. Be able to categorize items in carousel "event, editorial, radio,"
+   1. most straight forward option
+3. Organize options in menu bar "radio, events, and editorial" then for each of those sections add sub sections radio will be: schedule, residents, sound selects. For events: Parties, workshops, live shows" for ediroail sub sections those will be TBD
+   1. Radio menu bar has dropdown tabs: Schedule, Residents, Sound Selects
+      1. add nts style sections on /radio for each of the above labels
+   2. on /events: Change "Half Moon Events" to "Events"
+   3. Interviews, Event Recap, more TBD
+   4. Final Menu bar is Radio, Events, Editorial, About, Shop
+4. Make resident names clickable in resident media cards
+5. find a way to sync schedule with google calendar
+
 All timelines are tentative estimates; they are subject to change based on feasability/research.
 
 ## Achievable

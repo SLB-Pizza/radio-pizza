@@ -2,6 +2,7 @@ import React from 'react'
 
 /**
  * Renders the alt and copyright info for {@link ArticleHeadline} image.
+ * DOESN'T render when `article_headline_img` has neither `alt` nor `copyright` data
  * If the image has copyright info (photo credit):
  *    Image alt text — photo credit
  * If the image doesn't have copyright info:
@@ -9,7 +10,7 @@ import React from 'react'
  * @category Slice Helper
  * @function ArticleHeadlinePhotoCredit
  * @param {String} alt - photo's alt text
- * @param {String} copyright - photo's copyright credit
+ * @param {String?} copyright - photo's copyright credit
  * @returns {jsx}
  */
 export default function ArticleHeadlinePhotoCredit({ alt, copyright }) {

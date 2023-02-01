@@ -64,10 +64,13 @@ export default function ArticleHeadline({ headlineData, isGuide }) {
                     {RichText.asText(article_headline)}
                   </h1>
                 )}
-                <ArticleHeadlinePhotoCredit
-                  alt={article_headline_img.alt}
-                  copyright={article_headline_img.copyright}
-                />
+                {(article_headline_img.alt ||
+                  article_headline_img.copyright) && (
+                  <ArticleHeadlinePhotoCredit
+                    alt={article_headline_img.alt}
+                    copyright={article_headline_img.copyright}
+                  />
+                )}
               </div>
             </div>
           </div>
